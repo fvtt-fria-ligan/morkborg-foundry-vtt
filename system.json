@@ -11,7 +11,7 @@
     "scripts/morkborg.js"
   ],
   "styles": [
-    "styles/morkborg.css",
+    "styles/morkborg.css"
   ],
   "packs": [],
   "languages": [
@@ -27,7 +27,7 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "attributes.hp",
   "secondaryTokenAttribute": null,
-  "url": "https://your/hosted/system/repo/",
-  "manifest": "https://your/hosted/system/repo/system.json",
-  "download": "https://your/packaged/download/archive.zip"
+  "url": "",
+  "manifest": "",
+  "download": ""
 }
