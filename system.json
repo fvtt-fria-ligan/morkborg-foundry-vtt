@@ -1,0 +1,33 @@
+{
+  "name": "foundry-morkborg",
+  "title": "MÖRK BORG",
+  "description": "Foundry VTT system for MÖRK BORG RPG.",
+  "version": "0.0.1",
+  "templateVersion": 2,
+  "author": "mcglincy",
+  "scripts": [
+  ],
+  "esmodules": [
+    "scripts/morkborg.js"
+  ],
+  "styles": [
+    "styles/morkborg.css",
+  ],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "socket": false,
+  "initiative": "1d20",
+  "gridDistance": 10,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "attributes.hp",
+  "secondaryTokenAttribute": null,
+  "url": "https://your/hosted/system/repo/",
+  "manifest": "https://your/hosted/system/repo/system.json",
+  "download": "https://your/packaged/download/archive.zip"
+}

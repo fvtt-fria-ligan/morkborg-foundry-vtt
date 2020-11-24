@@ -1,0 +1,109 @@
+{
+  "Actor": {
+    "types": ["character", "creature"],
+    "templates": {
+
+    },
+    "character": {
+      "templates": [],
+      "abilities": {
+        "agility": {
+          "score": 0
+        },
+        "presence": {
+          "score": 0
+        },
+        "strength": {
+          "score": 0
+        },
+        "toughness": {
+          "score": 0
+        }
+      },
+      "attributes": {
+        "hp":  {
+          "value": 0,
+          "min": 0,          
+        },
+        "omens": {
+          "value": 0,
+          "min": 0,
+        },
+        "powers": {
+          "value": 0,
+          "min": 0,
+        },
+        "silver": {
+          "value": 0,
+          "min": 0,
+        }
+      },      
+      "name": "",
+      "description": "",
+      "class": null,
+    },
+    "creature": {
+      "templates": [],
+      "attributes": {
+        "hp": {
+          "value": 0,
+          "min": 0,        
+        },
+        "morale": {
+            "value": 7,
+            "min": 0,
+            "max": 12,        
+        },
+      },
+      "attacks": [],
+      "armor": null,
+      "special": null,
+    },
+  },
+  "Item": {
+    "types": ["weapon", "armor", "equipment", "container", "scroll"],
+    "templates": {
+      "baseItem": {
+        "description": null,
+        "price": 0,
+        "quantity": 1,
+      }
+    },
+    "weapon": {
+      "templates": ["baseItem"],
+      "damage": "1d1",
+      "handed": {
+        "value": 1,
+        "min": 1,
+        "max": 2,
+      }
+    },
+    "armor": {
+      "templates": ["baseItem"],
+      "tier": {
+        "value": 0,
+        "min": 0,
+        "max": 4
+      },
+      "agilityDRModifier": {
+        "value": 0,
+        "min": 0,
+        "max": 4
+      },
+      "damageReduction": "1d1"
+    },
+    "container": {
+      "templates": ["baseItem"],
+      "capacity": {
+        "value": 7,
+      }
+    },
+    "equipment": {
+      "templates": ["baseItem"],
+    },
+    "scroll": {
+      "templates": ["baseItem"],
+      "type": "unclean",
+    }
+  }
+}
