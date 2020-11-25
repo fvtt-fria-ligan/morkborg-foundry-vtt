@@ -2,7 +2,6 @@
   "Actor": {
     "types": ["character", "creature"],
     "templates": {
-
     },
     "character": {
       "templates": [],
@@ -22,60 +21,46 @@
       },
       "attributes": {
         "hp":  {
-          "value": 0,
-          "min": 0,          
+          "value": 1,
+          "min": 0,
+          "max": 1
         },
         "omens": {
           "value": 0,
-          "min": 0,
+          "min": 0
         },
         "powers": {
           "value": 0,
           "min": 0,
-        },
-        "silver": {
-          "value": 0,
-          "min": 0,
+          "max": 0
         }
-      },      
-      "name": "",
+      },
+      "silver": 0,
       "description": "",
-      "class": null,
+      "class": null
     },
     "creature": {
       "templates": [],
       "attributes": {
         "hp": {
-          "value": 0,
-          "min": 0,        
-        },
-        "morale": {
-            "value": 7,
-            "min": 0,
-            "max": 12,        
-        },
+          "value": 1,
+          "min": 0,
+          "max": 1 
+        }
       },
+      "morale": 7,
       "attacks": [],
       "armor": null,
-      "special": null,
-    },
+      "special": null
+    }
   },
   "Item": {
-    "types": ["weapon", "armor", "equipment", "container", "scroll"],
+    "types": ["armor", "container", "misc", "scroll", "weapon"],
     "templates": {
       "baseItem": {
-        "description": null,
+        "description": "",
         "price": 0,
-        "quantity": 1,
-      }
-    },
-    "weapon": {
-      "templates": ["baseItem"],
-      "damage": "1d1",
-      "handed": {
-        "value": 1,
-        "min": 1,
-        "max": 2,
+        "quantity": 1
       }
     },
     "armor": {
@@ -96,14 +81,24 @@
       "templates": ["baseItem"],
       "capacity": {
         "value": 7,
+        "min": 1
       }
     },
-    "equipment": {
-      "templates": ["baseItem"],
-    },
+    "misc": {
+      "templates": ["baseItem"]
+    },    
     "scroll": {
       "templates": ["baseItem"],
-      "type": "unclean",
+      "type": "unclean"
+    },
+    "weapon": {
+      "templates": ["baseItem"],
+      "damage": "1d1",
+      "handed": {
+        "value": 1,
+        "min": 1,
+        "max": 2
+      }
     }
   }
 }

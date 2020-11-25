@@ -5,14 +5,9 @@
   "version": "0.0.1",
   "templateVersion": 2,
   "author": "mcglincy",
-  "scripts": [
-  ],
-  "esmodules": [
-    "scripts/morkborg.js"
-  ],
-  "styles": [
-    "styles/morkborg.css"
-  ],
+  "scripts": [],
+  "esmodules": ["module/morkborg.js"],
+  "styles": ["styles/morkborg.css"],
   "packs": [],
   "languages": [
     {
