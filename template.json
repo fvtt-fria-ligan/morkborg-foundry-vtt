@@ -19,39 +19,21 @@
           "score": 0
         }
       },
-      "attributes": {
-        "hp":  {
-          "value": 1,
-          "min": 0,
-          "max": 1
-        },
-        "omens": {
-          "value": 0,
-          "min": 0
-        },
-        "powers": {
-          "value": 0,
-          "min": 0,
-          "max": 0
-        }
-      },
-      "silver": 0,
-      "description": "",
-      "class": null
+      "background": "",
+      "class": "",
+      "omenDie": "1d2",
+      "omens": 0,
+      "powers": 0,
+      "silver": 0
     },
     "creature": {
       "templates": [],
-      "attributes": {
-        "hp": {
-          "value": 1,
-          "min": 0,
-          "max": 1 
-        }
+      "hp": {
+        "current": 1,
+        "max": 1
       },
       "morale": 7,
-      "attacks": [],
-      "armor": null,
-      "special": null
+      "special": ""
     }
   },
   "Item": {
@@ -66,13 +48,12 @@
     "armor": {
       "templates": ["baseItem"],
       "tier": {
-        "value": 1,
-        "min": 1,
-        "max": 4
+        "current": 1,
+        "max": 1
       },
-      "agilityDRModifier": 0,
-      "defenseDRModifier": 0,
-      "damageReduction": "1d1"
+      "agilityDR": 0,
+      "defenseDR": 0,
+      "damageReductionDie": "1d1"
     },
     "container": {
       "templates": ["baseItem"],
@@ -87,12 +68,8 @@
     },
     "weapon": {
       "templates": ["baseItem"],
-      "damage": "1d1",
-      "handed": {
-        "value": 1,
-        "min": 1,
-        "max": 2
-      }
+      "damageDie": "1d1",
+      "handed": 1
     }
   }
 }
