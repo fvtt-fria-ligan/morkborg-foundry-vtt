@@ -13,26 +13,80 @@
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="description">Description</a>
+        <a class="item" data-tab="violence">Violence</a>
         <a class="item" data-tab="items">Items</a>
+        <a class="item" data-tab="class">Class</a>
+        <a class="item" data-tab="description">Background</a>
     </nav>
 
     {{!-- Sheet Body --}}
     <section class="sheet-body">
 
-        {{!-- Description Tab --}}
-        <div class="tab" data-group="primary" data-tab="description">
-            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
-        </div>
-
-        {{!-- Owned Items Tab --}}
-        <div class="tab items" data-group="primary" data-tab="items">
+        {{!-- Violence Tab --}}
+        <div class="tab" data-group="primary" data-tab="violence">
+            Weapons
             <ol class="item-list">
-                {{#each actor.items as |item id|}}
+                {{#each actor.weapons as |item id|}}
                 <li class="item flexrow" data-item-id="{{item._id}}">
                     <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
                     <h4 class="item-name">{{item.name}}</h4>
-                    {{!-- Iterate through all attributes on the item and output buttons for any that are formula. --}}
+                    <div class="item-buttons">
+                    </div>
+                    <div class="item-group">
+                        <label style="font-weight: bold;">Damage</label>
+                        <span>dmg? {{item.damage}}</span>
+                    </div>
+                    <div class="item-controls">
+                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                    </div>
+                </li>
+                {{/each}}
+            </ol>
+
+            Armor
+            <ol class="item-list">
+                {{#each actor.armor as |item id|}}
+                <li class="item flexrow" data-item-id="{{item._id}}">
+                    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+                    <h4 class="item-name">{{item.name}}</h4>
+                    <div class="item-buttons">
+                    </div>
+                    <div class="item-controls">
+                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                    </div>
+                </li>
+                {{/each}}
+            </ol>            
+
+        </div>
+
+        {{!-- Items Tab --}}
+        <div class="tab items" data-group="primary" data-tab="items">
+
+            Containers
+            <ol class="item-list">
+                {{#each actor.containers as |item id|}}
+                <li class="item flexrow" data-item-id="{{item._id}}">
+                    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+                    <h4 class="item-name">{{item.name}}</h4>
+                    <div class="item-buttons">
+                    </div>
+                    <div class="item-controls">
+                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                    </div>
+                </li>
+                {{/each}}
+            </ol>
+
+            Equipment
+            <ol class="item-list">
+                {{#each actor.misc as |item id|}}
+                <li class="item flexrow" data-item-id="{{item._id}}">
+                    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+                    <h4 class="item-name">{{item.name}}</h4>
                     <div class="item-buttons">
                     </div>
                     <div class="item-controls">
@@ -43,4 +97,16 @@
                 {{/each}}
             </ol>
         </div>
+
+        {{!-- Class Tab --}}
+        <div class="tab" data-group="primary" data-tab="class">
+            {{editor content=data.background target="data.background" button=true owner=owner editable=editable}}
+        </div>
+
+        {{!-- Background Tab --}}
+        <div class="tab" data-group="primary" data-tab="description">
+            {{editor content=data.background target="data.background" button=true owner=owner editable=editable}}
+        </div>
+
+
 </form>
