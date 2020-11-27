@@ -1,7 +1,7 @@
 {
-  "name": "foundry-morkborg",
+  "name": "morkborg",
   "title": "MÖRK BORG",
-  "description": "Foundry VTT system for MÖRK BORG RPG.",
+  "description": "Foundry VTT system for MÖRK BORG.",
   "version": "0.0.1",
   "templateVersion": 2,
   "author": "mcglincy",
