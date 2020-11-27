@@ -1,3 +1,12 @@
 {
-  
+"MB.Description": "Description",
+"MB.Details": "Details",
+"MB.ItemAgilityDRModifier": "Agility DR Modifier",
+"MB.ItemDamageDie": "Damage Die",
+"MB.ItemDamageReductionDie": "Damage Reduction Die",
+"MB.ItemDefenseDRModifier": "Defense DR Modifier",
+"MB.ItemName": "Item Name",
+"MB.ItemTier": "Tier",
+"MB.ItemWeaponType": "Weapon Type",  
+"MB.Title": "MÖRK BORG"
 }

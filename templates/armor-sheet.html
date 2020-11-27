@@ -30,23 +30,35 @@
 
         {{!-- Details Tab --}}
         <div class="tab" data-group="primary" data-tab="details">
-            {{!-- Weapon Type --}}
+            {{!-- Armor Tier --}}
             <div class="form-group">
-                <label>{{ localize "MB.ItemWeaponType" }}</label>
-                <select name="data.weaponType">
-                    {{#select data.weaponType}}
-                    {{#each config.weaponTypes as |name type|}}
-                    <option value="{{type}}">{{name}}</option>
+                <label>{{ localize "MB.ItemTier" }}</label>
+                <select name="data.tier">
+                    {{#select data.tier}}
+                    {{#each config.armorTiers as |name tier|}}
+                    <option value="{{tier}}">{{name}} (tier {{tier}})</option>
                     {{/each}}
                     {{/select}}
                 </select>
             </div> 
 
-            {{!-- Damage Die --}}
+            {{!-- Damage Reduction Die --}}
             <div class="form-group">
-                <label>{{ localize "MB.ItemDamageDie" }}</label>
-                <input type="text" name="data.damageDie" value="{{data.damageDie}}" placeholder="1d4" data-dtype="String" />
+                <label>{{ localize "MB.ItemDamageReductionDie" }}</label>
+                <input type="text" name="data.damageReductionDie" value="{{data.damageReductionDie}}" placeholder="1d4" data-dtype="String" />
+            </div>
+
+            {{!-- Agility DR --}}
+            <div class="form-group">
+                <label>{{ localize "MB.ItemAgilityDRModifier" }}</label>
+                <input type="text" name="data.agilityDRModifier" value="{{data.agilityDRModifier}}" placeholder="2" data-dtype="Number" />
             </div>            
+
+            {{!-- Defense DR --}}
+            <div class="form-group">
+                <label>{{ localize "MB.ItemDefenseDRModifier" }}</label>
+                <input type="text" name="data.defenseDRModifier" value="{{data.defenseDRModifier}}" placeholder="2" data-dtype="Number" />
+            </div> 
         </div>
     </section>
 </form>
