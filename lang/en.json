@@ -2,6 +2,7 @@
 "MB.Description": "Description",
 "MB.Details": "Details",
 "MB.ItemAgilityDRModifier": "Agility DR Modifier",
+"MB.ItemCapacity": "Capacity",
 "MB.ItemDamageDie": "Damage Die",
 "MB.ItemDamageReductionDie": "Damage Reduction Die",
 "MB.ItemDefenseDRModifier": "Defense DR Modifier",

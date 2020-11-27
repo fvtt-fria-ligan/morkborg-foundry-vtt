@@ -18,11 +18,11 @@ export class MBItemSheet extends ItemSheet {
   /** @override */
   get template() {
     const path = "systems/foundry-morkborg/templates";
-    // Return a single sheet for all item types.
-    if (this.item.data.type === MB.itemTypes.armor 
-      || this.item.data.type === MB.itemTypes.weapon) {
+    if ([MB.itemTypes.armor, MB.itemTypes.container, MB.itemTypes.weapon].includes(this.item.data.type)) {
+      // specific item-type sheet
       return `${path}/${this.item.data.type}-sheet.html`;
     } else {
+      // generic item sheet
       return `${path}/item-sheet.html`;
     }
   }

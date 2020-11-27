@@ -36,7 +36,7 @@
                 <select name="data.tier">
                     {{#select data.tier}}
                     {{#each config.armorTiers as |name tier|}}
-                    <option value="{{tier}}">{{name}} (tier {{tier}})</option>
+                    <option value="{{tier}}">{{tier}} ({{name}})</option>
                     {{/each}}
                     {{/select}}
                 </select>
