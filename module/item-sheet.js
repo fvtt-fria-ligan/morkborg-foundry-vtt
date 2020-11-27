@@ -17,7 +17,7 @@ export class MBItemSheet extends ItemSheet {
 
   /** @override */
   get template() {
-    const path = "systems/foundry-morkborg/templates";
+    const path = "systems/morkborg/templates";
     if ([MB.itemTypes.armor, MB.itemTypes.container, MB.itemTypes.weapon].includes(this.item.data.type)) {
       // specific item-type sheet
       return `${path}/${this.item.data.type}-sheet.html`;
