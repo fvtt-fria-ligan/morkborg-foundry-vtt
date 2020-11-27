@@ -1,0 +1,61 @@
+<form class="flexcol {{cssClass}}" autocomplete="off">
+
+{{!-- 
+    <header class="sheet-header">
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+        <div class="header-fields">
+            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
+        </div>
+    </header>
+--}}
+
+    {{!-- Item Sheet Header --}}
+    <header class="sheet-header flexrow">
+        <img class="profile-img" src="{{item.img}}" title="{{item.name}}" data-edit="img"/>
+
+        <div class="header-details flexrow">
+            <h1 class="charname">
+                <input name="name" type="text" value="{{item.name}}" placeholder="Item name"/>
+            </h1>
+
+            <div class="item-subtitle">
+                <h4 class="item-type">{{item.type}}</h4>
+            </div>
+        </div>
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">Description</a>
+        <a class="item" data-tab="details">Details</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+        {{!-- Description Tab --}}
+        <div class="tab" data-group="primary" data-tab="description">
+            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+        </div>
+
+        {{!-- Details Tab --}}
+        <div class="tab" data-group="primary" data-tab="details">
+            {{!-- Weapon Type --}}
+            <div class="form-group">
+                <label>Weapon Type</label>
+                <select name="data.weaponType">
+                    {{#select data.weaponType}}
+                    {{#each config.weaponTypes as |name type|}}
+                    <option value="{{type}}">{{name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+            </div> 
+
+            {{!-- Damage Die --}}
+            <div class="form-group">
+                <label>Damage Die</label>
+                <input type="text" name="data.damageDie" value="{{data.damageDie}}" placeholder="1d4" data-dtype="String" />
+            </div>            
+        </div>
+    </section>
+</form>
