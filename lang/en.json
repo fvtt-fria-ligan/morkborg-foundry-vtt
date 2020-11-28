@@ -6,7 +6,10 @@
 "MB.ItemDamageDie": "Damage Die",
 "MB.ItemDamageReductionDie": "Damage Reduction Die",
 "MB.ItemDefenseDRModifier": "Defense DR Modifier",
+"MB.ItemHanded": "Handed",  
 "MB.ItemName": "Item Name",
+"MB.ItemPrice": "Price",
+"MB.ItemScrollType": "Scroll Type",
 "MB.ItemTier": "Tier",
 "MB.ItemWeaponType": "Weapon Type",  
 "MB.Title": "MÖRK BORG"
