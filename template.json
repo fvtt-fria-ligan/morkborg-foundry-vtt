@@ -61,12 +61,13 @@
     },    
     "scroll": {
       "templates": ["baseItem"],
-      "type": "unclean"
+      "scrollType": "unclean"
     },
     "weapon": {
       "templates": ["baseItem"],
       "damageDie": "1d1",
-      "handed": 1
+      "handed": 1,
+      "weaponType": "melee"
     }
   }
 }

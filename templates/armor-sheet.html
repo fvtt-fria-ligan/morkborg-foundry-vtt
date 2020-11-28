@@ -30,6 +30,13 @@
 
         {{!-- Details Tab --}}
         <div class="tab" data-group="primary" data-tab="details">
+
+            {{!-- Price --}}
+            <div class="form-group">
+                <label>{{ localize "MB.ItemPrice" }}</label>
+                <input type="text" name="data.price" value="{{data.price}}" placeholder="2" data-dtype="Number" />
+            </div> 
+
             {{!-- Armor Tier --}}
             <div class="form-group">
                 <label>{{ localize "MB.ItemTier" }}</label>

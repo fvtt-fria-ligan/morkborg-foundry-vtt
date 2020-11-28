@@ -10,6 +10,7 @@
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="description">{{ localize "MB.Description" }}</a>
+        <a class="item" data-tab="details">{{ localize "MB.Details" }}</a>        
     </nav>
 
     {{!-- Sheet Body --}}
@@ -17,6 +18,16 @@
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+        </div>
+
+        {{!-- Details Tab --}}
+        <div class="tab" data-group="primary" data-tab="details">
+
+            {{!-- Price --}}
+            <div class="form-group">
+                <label>{{ localize "MB.ItemPrice" }}</label>
+                <input type="text" name="data.price" value="{{data.price}}" placeholder="2" data-dtype="Number" />
+            </div> 
         </div>
 
     </section>

@@ -30,6 +30,12 @@
 
         {{!-- Details Tab --}}
         <div class="tab" data-group="primary" data-tab="details">
+            {{!-- Price --}}
+            <div class="form-group">
+                <label>{{ localize "MB.ItemPrice" }}</label>
+                <input type="text" name="data.price" value="{{data.price}}" placeholder="2" data-dtype="Number" />
+            </div> 
+            
             {{!-- Weapon Type --}}
             <div class="form-group">
                 <label>{{ localize "MB.ItemWeaponType" }}</label>
@@ -46,7 +52,19 @@
             <div class="form-group">
                 <label>{{ localize "MB.ItemDamageDie" }}</label>
                 <input type="text" name="data.damageDie" value="{{data.damageDie}}" placeholder="1d4" data-dtype="String" />
-            </div>            
+            </div>
+
+            {{!-- Handed --}}
+            <div class="form-group">
+                <label>{{ localize "MB.ItemHanded" }}</label>
+                <select name="data.handed">
+                    {{#select data.handed}}
+                    {{#each config.handed as |name value|}}
+                    <option value="{{value}}">{{name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+            </div> 
         </div>
     </section>
 </form>
