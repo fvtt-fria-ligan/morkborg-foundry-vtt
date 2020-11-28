@@ -1,0 +1,53 @@
+<form class="flexcol {{cssClass}}" autocomplete="off">
+
+    {{!-- Item Sheet Header --}}
+    <header class="sheet-header flexrow">
+        <img class="profile-img" src="{{item.img}}" title="{{item.name}}" data-edit="img"/>
+
+        <div class="header-details flexrow">
+            <h1 class="charname">
+                <input name="name" type="text" value="{{item.name}}" placeholder="{{ localize 'MB.ItemName' }}"/>
+            </h1>
+
+            <div class="item-subtitle">
+                <h4 class="item-type">{{item.type}}</h4>
+            </div>
+        </div>
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">{{ localize "MB.Description" }}</a>
+        <a class="item" data-tab="details">{{ localize "MB.Details" }}</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+        {{!-- Description Tab --}}
+        <div class="tab" data-group="primary" data-tab="description">
+            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+        </div>
+
+        {{!-- Details Tab --}}
+        <div class="tab" data-group="primary" data-tab="details">
+
+            {{!-- Price --}}
+            <div class="form-group">
+                <label>{{ localize "MB.ItemPrice" }}</label>
+                <input type="text" name="data.price" value="{{data.price}}" placeholder="2" data-dtype="Number" />
+            </div> 
+
+            {{!-- Scroll type --}}
+            <div class="form-group">
+                <label>{{ localize "MB.ItemScrollType" }}</label>
+                <select name="data.scrollType">
+                    {{#select data.scrollType}}
+                    {{#each config.scrollTypes as |name value|}}
+                    <option value="{{value}}">{{name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+            </div>
+        </div>
+    </section>
+</form>
