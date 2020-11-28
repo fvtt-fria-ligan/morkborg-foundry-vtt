@@ -17,6 +17,11 @@ MB.armorTiers = {
   3: "Heavy"
 };
 
+MB.handed = {
+  1: "One",
+  2: "Two"
+};
+
 MB.itemTypes = {
   "armor": "armor",
   "container": "container",
