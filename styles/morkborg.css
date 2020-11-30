@@ -12,8 +12,10 @@
   height: 100%;
   padding: 5px;
   overflow-y: hidden;
+  /* XXX
   background: black;
   color: white;
+  */
 }
 .morkborg form {
   height: 100%;
@@ -78,9 +80,11 @@
   border-bottom: 1px solid #AAA;
 }
 .morkborg .tabs .item {
-  font-family: "FetteTrumpDeutsch", fantasy, serif;  
   line-height: 40px;
-  font-weight: bold;
+  /* XXX
+  font-weight: bold; 
+  */
+  font-family: "FetteTrumpDeutsch", fantasy, serif;  
 }
 .morkborg .tabs .item.active {
   text-decoration: underline;
