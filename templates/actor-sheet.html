@@ -23,88 +23,135 @@
 
         {{!-- Items Tab --}}
         <div class="tab items" data-group="primary" data-tab="items">
-            Weapons
-            <ol class="item-list">
-                {{#each actor.weapons as |item id|}}
-                <li class="item flexrow" data-item-id="{{item._id}}">
-                    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
-                    <h4 class="item-name">{{item.name}}</h4>
-                    <div class="item-buttons">
+            <ol class="items-list inventory-list">
+                <li class="items-header flexrow">
+                    <h3 class="item-name flexrow">WEAPONS</h3>
+                    <div class="item-detail {{css}}">Foobar</div>
+                    <div class="item-detail {{css}}">{{localize "MB.ItemDamageDie"}}</div>
+                    <div class="item-controls flexrow">
+                        <a class="item-control item-create" title='{{localize "MB.ItemCreate"}}'>
+                            <i class="fas fa-plus"></i> {{localize "MB.Add"}}
+                        </a>
                     </div>
-                    <div class="item-group">
-                        <label style="font-weight: bold;">Damage</label>
-                        <span>{{item.data.damageDie}}</span>
-                    </div>
-                    <div class="item-controls">
-                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                    </div>
-                </li>
-                {{/each}}
-            </ol>
+                </li>            
+                <ol class="item-list">
+                    {{#each actor.weapons as |item id|}}
+                    <li class="item flexrow" data-item-id="{{item._id}}">
+                        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+                        <h4 class="item-name">{{item.name}}</h4>
+                        <div class="item-buttons">
+                        </div>
+                        <div class="item-group">
+                            <label style="font-weight: bold;">Damage</label>
+                            <span>{{item.data.damageDie}}</span>
+                        </div>
+                        <div class="item-controls">
+                            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ol>
 
-            Armor
-            <ol class="item-list">
-                {{#each actor.armor as |item id|}}
-                <li class="item flexrow" data-item-id="{{item._id}}">
-                    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
-                    <h4 class="item-name">{{item.name}}</h4>
-                    <div class="item-buttons">
+                <li class="items-header flexrow">
+                    <h3 class="item-name flexrow">ARMOR</h3>
+                    <div class="item-detail {{css}}">Foobar</div>
+                    <div class="item-detail {{css}}">{{localize "MB.ItemTier"}}</div>
+                    <div class="item-controls flexrow">
+                        <a class="item-control item-create" title='{{localize "MB.ItemCreate"}}'>
+                            <i class="fas fa-plus"></i> {{localize "MB.Add"}}
+                        </a>
                     </div>
-                    <div class="item-controls">
-                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                    </div>
-                </li>
-                {{/each}}
-            </ol>            
+                </li>   
+                <ol class="item-list">
+                    {{#each actor.armor as |item id|}}
+                    <li class="item flexrow" data-item-id="{{item._id}}">
+                        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+                        <h4 class="item-name">{{item.name}}</h4>
+                        <div class="item-buttons">
+                        </div>
+                        <div class="item-controls">
+                            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ol>            
 
-            Scrolls
-            <ol class="item-list">
-                {{#each actor.scrolls as |item id|}}
-                <li class="item flexrow" data-item-id="{{item._id}}">
-                    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
-                    <h4 class="item-name">{{item.name}}</h4>
-                    <div class="item-buttons">
+                <li class="items-header flexrow">
+                    <h3 class="item-name flexrow">SCROLLS</h3>
+                    <div class="item-detail {{css}}">Foobar</div>
+                    <div class="item-detail {{css}}">{{localize "MB.ItemTier"}}</div>
+                    <div class="item-controls flexrow">
+                        <a class="item-control item-create" title='{{localize "MB.ItemCreate"}}'>
+                            <i class="fas fa-plus"></i> {{localize "MB.Add"}}
+                        </a>
                     </div>
-                    <div class="item-controls">
-                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                    </div>
-                </li>
-                {{/each}}
-            </ol>   
+                </li>  
+                <ol class="item-list">
+                    {{#each actor.scrolls as |item id|}}
+                    <li class="item flexrow" data-item-id="{{item._id}}">
+                        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+                        <h4 class="item-name">{{item.name}}</h4>
+                        <div class="item-buttons">
+                        </div>
+                        <div class="item-controls">
+                            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ol>   
 
-            Containers
-            <ol class="item-list">
-                {{#each actor.containers as |item id|}}
-                <li class="item flexrow" data-item-id="{{item._id}}">
-                    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
-                    <h4 class="item-name">{{item.name}}</h4>
-                    <div class="item-buttons">
-                    </div>
-                    <div class="item-controls">
-                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                <li class="items-header flexrow">
+                    <h3 class="item-name flexrow">CONTAINERS</h3>
+                    <div class="item-detail {{css}}">Foobar</div>
+                    <div class="item-detail {{css}}">{{localize "MB.ItemTier"}}</div>
+                    <div class="item-controls flexrow">
+                        <a class="item-control item-create" title='{{localize "MB.ItemCreate"}}'>
+                            <i class="fas fa-plus"></i> {{localize "MB.Add"}}
+                        </a>
                     </div>
                 </li>
-                {{/each}}
-            </ol>
+                <ol class="item-list">
+                    {{#each actor.containers as |item id|}}
+                    <li class="item flexrow" data-item-id="{{item._id}}">
+                        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+                        <h4 class="item-name">{{item.name}}</h4>
+                        <div class="item-buttons">
+                        </div>
+                        <div class="item-controls">
+                            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ol>
 
-            Equipment
-            <ol class="item-list">
-                {{#each actor.misc as |item id|}}
-                <li class="item flexrow" data-item-id="{{item._id}}">
-                    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
-                    <h4 class="item-name">{{item.name}}</h4>
-                    <div class="item-buttons">
-                    </div>
-                    <div class="item-controls">
-                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                <li class="items-header flexrow">
+                    <h3 class="item-name flexrow">EQUIPMENT</h3>
+                    <div class="item-detail {{css}}">Foobar</div>
+                    <div class="item-detail {{css}}">{{localize "MB.ItemTier"}}</div>
+                    <div class="item-controls flexrow">
+                        <a class="item-control item-create" title='{{localize "MB.ItemCreate"}}'>
+                            <i class="fas fa-plus"></i> {{localize "MB.Add"}}
+                        </a>
                     </div>
                 </li>
-                {{/each}}
+                <ol class="item-list">
+                    {{#each actor.misc as |item id|}}
+                    <li class="item flexrow" data-item-id="{{item._id}}">
+                        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+                        <h4 class="item-name">{{item.name}}</h4>
+                        <div class="item-buttons">
+                        </div>
+                        <div class="item-controls">
+                            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ol>
             </ol>
         </div>
 
