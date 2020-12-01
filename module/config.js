@@ -8,6 +8,7 @@ MB.abilities = {
   "toughness": "MB.AbilityToughness"
 };
 
+// TODO: string or int, "light" or 1?
 MB.armorTiers = {
   0: "MB.ArmorTierNone",
   1: "MB.ArmorTierLight",
@@ -16,8 +17,8 @@ MB.armorTiers = {
 };
 
 // TODO: string or int, "light" or 1?
-MB.armorTierDamageReduction = {
-  0: "",
+MB.armorTierDamageReductionDie = {
+  0: "1d0",
   1: "1d2",
   2: "1d4",
   3: "1d6"  

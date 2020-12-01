@@ -39,7 +39,7 @@
 
             {{!-- Armor Tier --}}
             <div class="form-group">
-                <label>{{ localize "MB.ItemTier" }}</label>
+                <label>{{ localize "MB.ItemArmorTier" }}</label>
                 <select name="data.tier">
                     {{#select data.tier}}
                     {{#each config.armorTiers as |name tier|}}
@@ -48,12 +48,6 @@
                     {{/select}}
                 </select>
             </div> 
-
-            {{!-- Damage Reduction Die --}}
-            <div class="form-group">
-                <label>{{ localize "MB.ItemDamageReductionDie" }}</label>
-                <input type="text" name="data.damageReductionDie" value="{{data.damageReductionDie}}" placeholder="1d4" data-dtype="String" />
-            </div>
 
             {{!-- Agility DR --}}
             <div class="form-group">

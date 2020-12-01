@@ -67,10 +67,13 @@ export class MBActorSheet extends ActorSheet {
       let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
       typeArrays[i.type].push(i);
+      // TODO: use enum
       if (i.type === 'weapon') {
         // localize rollable labels
         item.attackLabel = game.i18n.localize(CONFIG.MB.weaponTypes[item.weaponType]) + ' ' + game.i18n.localize('MB.Attack');
         item.damageLabel = item.damageDie + ' ' + game.i18n.localize('MB.Damage');
+      } else if (i.type === 'armor') {
+        item.damageReductionDie = CONFIG.MB.armorTierDamageReductionDie[item.tier];
       }
     }
 

@@ -48,7 +48,6 @@
     "armor": {
       "templates": ["baseItem"],
       "tier": 1,
-      "damageReductionDie": "1d4",
       "agilityDRModifier": 0,
       "defenseDRModifier": 0
     },
