@@ -63,6 +63,7 @@
   margin: 0;
   text-transform: uppercase;
 }
+
 .morkborg .resource {
   width: 50%;
   height: 40px;
@@ -285,6 +286,16 @@
 .morkborg.sheet.actor {
   min-width: 560px;
   min-height: 420px;
+}
+.morkborg.sheet.actor .traits i.fas {
+  float: right;
+  margin-right: 3px;
+  text-align: right;
+  color: #999;
+}
+.morgborg.sheet.actor .traits i.fas:hover {
+  color: #111;
+  text-shadow: 0 0 10px red;
 }
 .morkborg.sheet.item {
   min-width: 460px;

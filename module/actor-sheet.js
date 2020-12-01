@@ -9,7 +9,7 @@ export class MBActorSheet extends ActorSheet {
       template: "systems/morkborg/templates/actor-sheet.html",
       width: 600,
       height: 600,
-      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "items"}],
+      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "abilities"}],
       // is dragDrop needed?
       dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
     });
@@ -18,6 +18,17 @@ export class MBActorSheet extends ActorSheet {
   /** @override */
   getData() {
     const data = super.getData();
+    data.config = CONFIG.MB;
+    console.log(data.config);
+
+    // Ability Scores
+    for ( let [a, abl] of Object.entries(data.actor.data.abilities)) {
+      // abl.icon = this._getProficiencyIcon(abl.proficient);
+      const translationKey = CONFIG.MB.abilities[a];
+      // abl.translationKey = CONFIG.MB.abilities[a];
+      abl.label = game.i18n.localize(translationKey);
+    }
+
     // data.dtypes = ["String", "Number", "Boolean"];
     // for (let attr of Object.values(data.data.attributes)) {
     //   attr.isCheckbox = attr.dtype === "Boolean";
@@ -90,7 +101,10 @@ export class MBActorSheet extends ActorSheet {
     });
 
     // Handle rollable items.
+    // TODO: handle everything with one onRoll method?
+    // html.find('.rollable').click(this._onRoll.bind(this));
     html.find(".items .rollable").on("click", this._onItemRoll.bind(this));    
+    html.find(".abilities .rollable").on("click", this._onAbilityRoll.bind(this));    
   }
 
   /**
@@ -134,5 +148,39 @@ export class MBActorSheet extends ActorSheet {
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
       flavor: `<h2>${item.name}</h2><h3>${button.text()}</h3>`
     });
-  }   
+  }
+
+  /**
+   * Handle clickable rolls.
+   * @param {Event} event   The originating click event
+   * @private
+   */
+  // _onRoll(event) {
+  //   event.preventDefault();
+  //   const element = event.currentTarget;
+  //   const dataset = element.dataset;
+
+  //   if (dataset.roll) {
+  //     let roll = new Roll(dataset.roll, this.actor.data.data);
+  //     let label = dataset.label ? `Rolling ${dataset.label}` : '';
+  //     roll.roll().toMessage({
+  //       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+  //       flavor: label
+  //     });
+  //   }
+  // }
+  _onAbilityRoll(event) {
+    event.preventDefault();
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+
+    if (dataset.roll) {
+      let roll = new Roll(dataset.roll, this.actor.data.data);
+      let label = dataset.label ? `Rolling ${dataset.label}` : '';
+      roll.roll().toMessage({
+        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+        flavor: label
+      });
+    }
+  }  
 }

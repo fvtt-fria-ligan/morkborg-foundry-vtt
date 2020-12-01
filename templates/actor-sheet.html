@@ -13,7 +13,8 @@
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item active" data-tab="items">Items</a>
+        <a class="item active" data-tab="abilities">Abilities</a>
+        <a class="item" data-tab="inventory">Inventory</a>
         <a class="item" data-tab="class">Class</a>
         <a class="item" data-tab="description">Background</a>
     </nav>
@@ -21,13 +22,25 @@
     {{!-- Sheet Body --}}
     <section class="sheet-body">
 
-        {{!-- Items Tab --}}
-        <div class="tab items" data-group="primary" data-tab="items">
+        {{!-- Abilities Tab --}}
+        <div class="tab abilities" data-group="primary" data-tab="abilities">
+          <h1 class="left-column-title">Abilities</h1>
+          {{#each data.abilities as |ability key|}}
+            <div class="ability flexrow flex-left">
+              <label class="mb-label" for="data.abilities.{{key}}.score">{{ability.label}}</label>
+              <div class="flexrow flex-center flex-between">
+                <input class="left-column-input" type="text" name="data.abilities.{{key}}.score" value="{{numberFormat ability.score decimals=0 sign=true}}" data-dtype="Number"/>
+                <span class="rollable" data-roll="d20+@abilities.{{key}}.score" data-label="{{key}}">{{localize "MB.Roll"}}</span>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+
+        {{!-- Inventory Tab --}}
+        <div class="tab items" data-group="primary" data-tab="inventory">
             <ol class="items-list inventory-list">
                 <li class="items-header flexrow">
                     <h3 class="item-name flexrow">WEAPONS</h3>
-                    <div class="item-detail {{css}}">Foobar</div>
-                    <div class="item-detail {{css}}">{{localize "MB.ItemDamageDie"}}</div>
                     <div class="item-controls flexrow">
                         <a class="item-control item-create" title='{{localize "MB.ItemCreate"}}'>
                             <i class="fas fa-plus"></i> {{localize "MB.Add"}}
@@ -40,10 +53,12 @@
                         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
                         <h4 class="item-name">{{item.name}}</h4>
                         <div class="item-buttons">
+                            <button class="item-button rollable" data-roll="d20+@abilities.strength.score" data-label="attack_{{item._id}}"
+                                    title="Attack">{{lookup config.weaponTypes item.data.weaponType}} {{localize "MB.Attack"}}</button>
+                            <button class="item-button rollable" data-roll="{{item.data.damageDie}}" data-label="damage_{{item._id}}"
+                                    title="damage">{{item.data.damageDie}} {{localize "MB.Damage"}}</button>      
                         </div>
-                        <div class="item-group">
-                            <label style="font-weight: bold;">Damage</label>
-                            <span>{{item.data.damageDie}}</span>
+                        <div class="item-group">                          
                         </div>
                         <div class="item-controls">
                             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
@@ -152,7 +167,7 @@
                     </li>
                     {{/each}}
                 </ol>
-            </ol>
+            </ol>            
         </div>
 
         {{!-- Class Tab --}}

@@ -1,41 +1,39 @@
 // Namespace Configuration Values
 export const MB = {};
 
-// TODO: move strings to localized json files
-
 MB.abilities = {
-  "agility": "Agility",
-  "presence": "Presence",
-  "strength": "Strength",
-  "toughness": "Toughness"
+  "agility": "MB.AbilityAgility",
+  "presence": "MB.AbilityPresence",
+  "strength": "MB.AbilityStrength",
+  "toughness": "MB.AbilityToughness"
 };
 
 MB.armorTiers = {
-  0: "None",
-  1: "Light",
-  2: "Medium",
-  3: "Heavy"
+  0: "MB.ArmorTierNone",
+  1: "MB.ArmorTierLight",
+  2: "MB.ArmorTierMedium",
+  3: "MB.ArmorTierHeavy"
 };
 
 MB.handed = {
-  1: "One",
-  2: "Two"
+  1: "MB.HandedOne",
+  2: "MB.HandedTwo"
 };
 
 MB.itemTypes = {
-  "armor": "armor",
-  "container": "container",
-  "misc": "misc",
-  "scroll": "scroll",
-  "weapon": "weapon"
+  "armor": "MB.ItemTypeArmor",
+  "container": "MB.ItemTypeContainer",
+  "misc": "MB.ItemTypeMisc",
+  "scroll": "MB.ItemTypeScroll",
+  "weapon": "MB.ItemTypeWeapon"
 };
 
 MB.scrollTypes = {
-  "sacred": "Sacred",
-  "unclean": "Unclean"
+  "sacred": "MB.ScrollTypeSacred",
+  "unclean": "MB.ScrollTypeUnclean"
 };
 
 MB.weaponTypes = {
-  "melee": "Melee",
-  "ranged": "Ranged"
+  "melee": "MB.WeaponTypeMelee",
+  "ranged": "MB.WeaponTypeRanged"
 };
