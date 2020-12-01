@@ -54,9 +54,9 @@
                         <h4 class="item-name">{{item.name}}</h4>
                         <div class="item-buttons">
                             <button class="item-button rollable" data-roll="d20+@abilities.strength.score" data-label="attack_{{item._id}}"
-                                    title="Attack">{{lookup config.weaponTypes item.data.weaponType}} {{localize "MB.Attack"}}</button>
+                                    title="{{item.data.attackLabel}}">{{item.data.attackLabel}}</button>
                             <button class="item-button rollable" data-roll="{{item.data.damageDie}}" data-label="damage_{{item._id}}"
-                                    title="damage">{{item.data.damageDie}} {{localize "MB.Damage"}}</button>      
+                                    title="{{item.data.damageLabel}}">{{item.data.damageLabel}}</button>      
                         </div>
                         <div class="item-group">                          
                         </div>

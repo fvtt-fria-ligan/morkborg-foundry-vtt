@@ -22,7 +22,7 @@ export class MBActorSheet extends ActorSheet {
     console.log(data.config);
 
     // Ability Scores
-    for ( let [a, abl] of Object.entries(data.actor.data.abilities)) {
+    for (let [a, abl] of Object.entries(data.actor.data.abilities)) {
       // abl.icon = this._getProficiencyIcon(abl.proficient);
       const translationKey = CONFIG.MB.abilities[a];
       // abl.translationKey = CONFIG.MB.abilities[a];
@@ -52,6 +52,8 @@ export class MBActorSheet extends ActorSheet {
   _prepareCharacterItems(sheetData) {
     const actorData = sheetData.actor;
 
+    // TODO: just iterate over the config constants???
+
     // Initialize containers.
     var typeArrays = {
       'armor': [],
@@ -66,6 +68,11 @@ export class MBActorSheet extends ActorSheet {
       let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
       typeArrays[i.type].push(i);
+      if (i.type === 'weapon') {
+        // localize rollable labels
+        item.attackLabel = game.i18n.localize(CONFIG.MB.weaponTypes[item.weaponType]) + ' ' + game.i18n.localize('MB.Attack');
+        item.damageLabel = item.damageDie + ' ' + game.i18n.localize('MB.Damage');
+      }
     }
 
     // Assign to new properties
