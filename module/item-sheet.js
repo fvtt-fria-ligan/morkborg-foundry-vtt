@@ -18,9 +18,8 @@ export class MBItemSheet extends ItemSheet {
   /** @override */
   get template() {
     const path = "systems/morkborg/templates";
-    // TODO: fix enum and key lookup foo
-//    if ([MB.itemTypes.armor, MB.itemTypes.container, MB.itemTypes.scroll, MB.itemTypes.weapon].includes(this.item.data.type)) {
-    if (this.item.data.type === 'armor' || this.item.data.type === 'container' || this.item.data.type === 'scroll' || this.item.data.type === 'weapon') {
+    if (Object.keys(MB.itemTypes).includes(this.item.data.type)) {
+    //if (this.item.data.type === 'armor' || this.item.data.type === 'container' || this.item.data.type === 'scroll' || this.item.data.type === 'weapon') {
       // specific item-type sheet
       return `${path}/${this.item.data.type}-sheet.html`;
     } else {
