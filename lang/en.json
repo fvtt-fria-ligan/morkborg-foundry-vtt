@@ -10,6 +10,7 @@
 "MB.ArmorTierHeavy": "Heavy",
 "MB.Attack": "Attack",
 "MB.Damage": "damage",
+"MB.Defend": "Defend",
 "MB.Description": "Description",
 "MB.Details": "Details",
 "MB.HandedOne": "One-handed",
@@ -33,9 +34,9 @@
 "MB.ItemTypeScroll": "Scroll",
 "MB.ItemTypeWeapon": "Weapon",
 "MB.ItemWeaponType": "Weapon Type",
-"MB.Roll": "Roll",
 "MB.ScrollTypeSacred": "Sacred",
 "MB.ScrollTypeUnclean": "Unclean",
+"MB.Test": "Test",
 "MB.Title": "MÖRK BORG",
 "MB.WeaponTypeMelee": "Melee",
 "MB.WeaponTypeRanged": "Ranged"

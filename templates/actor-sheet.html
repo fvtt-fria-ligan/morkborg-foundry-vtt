@@ -30,7 +30,7 @@
               <label class="mb-label" for="data.abilities.{{key}}.score">{{ability.label}}</label>
               <div class="flexrow flex-center flex-between">
                 <input class="left-column-input" type="text" name="data.abilities.{{key}}.score" value="{{numberFormat ability.score decimals=0 sign=true}}" data-dtype="Number"/>
-                <span class="rollable" data-roll="d20+@abilities.{{key}}.score" data-label="{{key}}">{{localize "MB.Roll"}}</span>
+                <span class="rollable" data-roll="d20+@abilities.{{key}}.score" data-label="{{key}}">{{localize "MB.Test"}}</span>
               </div>
             </div>
           {{/each}}
@@ -70,8 +70,6 @@
 
                 <li class="items-header flexrow">
                     <h3 class="item-name flexrow">ARMOR</h3>
-                    <div class="item-detail {{css}}">Foobar</div>
-                    <div class="item-detail {{css}}">{{localize "MB.ItemTier"}}</div>
                     <div class="item-controls flexrow">
                         <a class="item-control item-create" title='{{localize "MB.ItemCreate"}}'>
                             <i class="fas fa-plus"></i> {{localize "MB.Add"}}
@@ -84,6 +82,10 @@
                         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
                         <h4 class="item-name">{{item.name}}</h4>
                         <div class="item-buttons">
+                            <button class="item-button rollable" data-roll="d20+@abilities.agility.score" data-label="defend_{{item._id}}"
+                                    title="{{localize 'MB.Defend'}}">{{localize "MB.Defend"}}</button>
+                            <button class="item-button rollable" data-roll="d20+@abilities.agility.score" data-label="defend_{{item._id}}"
+                                    title="{{localize 'MB.Defend'}}">{{localize "MB.Defend"}}</button>                                    
                         </div>
                         <div class="item-controls">
                             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>

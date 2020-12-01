@@ -42,7 +42,7 @@
                 <select name="data.weaponType">
                     {{#select data.weaponType}}
                     {{#each config.weaponTypes as |name type|}}
-                    <option value="{{type}}">{{name}}</option>
+                    <option value="{{type}}">{{localize name}}</option>
                     {{/each}}
                     {{/select}}
                 </select>
@@ -60,7 +60,7 @@
                 <select name="data.handed">
                     {{#select data.handed}}
                     {{#each config.handed as |name value|}}
-                    <option value="{{value}}">{{name}}</option>
+                    <option value="{{value}}">{{localize name}}</option>
                     {{/each}}
                     {{/select}}
                 </select>

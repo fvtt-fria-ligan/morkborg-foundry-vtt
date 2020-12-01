@@ -19,7 +19,6 @@ export class MBActorSheet extends ActorSheet {
   getData() {
     const data = super.getData();
     data.config = CONFIG.MB;
-    console.log(data.config);
 
     // Ability Scores
     for (let [a, abl] of Object.entries(data.actor.data.abilities)) {

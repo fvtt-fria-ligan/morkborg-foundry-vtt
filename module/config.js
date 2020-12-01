@@ -15,6 +15,14 @@ MB.armorTiers = {
   3: "MB.ArmorTierHeavy"
 };
 
+// TODO: string or int, "light" or 1?
+MB.armorTierDamageReduction = {
+  0: "",
+  1: "1d2",
+  2: "1d4",
+  3: "1d6"  
+}
+
 MB.handed = {
   1: "MB.HandedOne",
   2: "MB.HandedTwo"
