@@ -40,7 +40,7 @@
         <div class="tab items" data-group="primary" data-tab="inventory">
             <ol class="items-list inventory-list">
                 <li class="items-header flexrow">
-                    <h3 class="item-name flexrow">WEAPONS</h3>
+                    <h3 class="item-name flexrow">{{localize "MB.ItemTypeWeaponPlural"}}</h3>
                     <div class="item-controls flexrow">
                         <a class="item-control item-create" title='{{localize "MB.ItemCreate"}}'>
                             <i class="fas fa-plus"></i> {{localize "MB.Add"}}
@@ -69,7 +69,7 @@
                 </ol>
 
                 <li class="items-header flexrow">
-                    <h3 class="item-name flexrow">ARMOR</h3>
+                    <h3 class="item-name flexrow">{{localize "MB.ItemTypeArmorPlural"}}</h3>
                     <div class="item-controls flexrow">
                         <a class="item-control item-create" title='{{localize "MB.ItemCreate"}}'>
                             <i class="fas fa-plus"></i> {{localize "MB.Add"}}
@@ -96,9 +96,7 @@
                 </ol>            
 
                 <li class="items-header flexrow">
-                    <h3 class="item-name flexrow">SCROLLS</h3>
-                    <div class="item-detail {{css}}">Foobar</div>
-                    <div class="item-detail {{css}}">{{localize "MB.ItemTier"}}</div>
+                    <h3 class="item-name flexrow">{{localize "MB.ItemTypeScrollPlural"}}</h3>
                     <div class="item-controls flexrow">
                         <a class="item-control item-create" title='{{localize "MB.ItemCreate"}}'>
                             <i class="fas fa-plus"></i> {{localize "MB.Add"}}
@@ -111,6 +109,8 @@
                         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
                         <h4 class="item-name">{{item.name}}</h4>
                         <div class="item-buttons">
+                            <button class="item-button rollable" data-roll="d20+@abilities.presence.score" data-label="wieldpower_{{item._id}}"
+                                    title="{{localize 'MB.WieldPower'}}">{{localize "MB.WieldPower"}}</button>                            
                         </div>
                         <div class="item-controls">
                             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
@@ -121,9 +121,7 @@
                 </ol>   
 
                 <li class="items-header flexrow">
-                    <h3 class="item-name flexrow">CONTAINERS</h3>
-                    <div class="item-detail {{css}}">Foobar</div>
-                    <div class="item-detail {{css}}">{{localize "MB.ItemTier"}}</div>
+                    <h3 class="item-name flexrow">{{localize "MB.ItemTypeContainerPlural"}}</h3>
                     <div class="item-controls flexrow">
                         <a class="item-control item-create" title='{{localize "MB.ItemCreate"}}'>
                             <i class="fas fa-plus"></i> {{localize "MB.Add"}}
@@ -146,9 +144,7 @@
                 </ol>
 
                 <li class="items-header flexrow">
-                    <h3 class="item-name flexrow">EQUIPMENT</h3>
-                    <div class="item-detail {{css}}">Foobar</div>
-                    <div class="item-detail {{css}}">{{localize "MB.ItemTier"}}</div>
+                    <h3 class="item-name flexrow">{{localize "MB.ItemTypeMiscPlural"}}</h3>
                     <div class="item-controls flexrow">
                         <a class="item-control item-create" title='{{localize "MB.ItemCreate"}}'>
                             <i class="fas fa-plus"></i> {{localize "MB.Add"}}
@@ -174,7 +170,18 @@
 
         {{!-- Class Tab --}}
         <div class="tab" data-group="primary" data-tab="class">
-            {{editor content=data.background target="data.background" button=true owner=owner editable=editable}}
+            <div class="form-group">
+                <label>{{ localize "MB.ClassName" }}</label>
+                <input type="text" name="data.class.name" value="{{data.class.name}}" placeholder="" data-dtype="String" />
+            </div>
+            <div class="form-group">
+                <label>{{ localize "MB.ClassOmenDie" }}</label>
+                <input type="text" name="data.class.omenDie" value="{{data.class.omenDie}}" placeholder="1d2" data-dtype="String" />
+            </div> 
+            <div class="form-group">
+                <label>{{ localize "MB.Description" }}</label>
+            </div>
+            {{editor content=data.background target="data.class.description" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Background Tab --}}

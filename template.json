@@ -20,8 +20,15 @@
         }
       },
       "background": "",
-      "class": "",
-      "omenDie": "1d2",
+      "class": {
+        "name": "",
+        "description": "",
+        "omenDie": "1d2"
+      },
+      "hp": {
+        "current": 1,
+        "max": 1
+      },
       "omens": 0,
       "powers": 0,
       "silver": 0
