@@ -41,6 +41,8 @@
 "MB.ItemTypeMiscPlural": "Equipment",
 "MB.ItemTypeScroll": "Scroll",
 "MB.ItemTypeScrollPlural": "Scrolls",
+"MB.ItemTypeShield": "Shield",
+"MB.ItemTypeShieldPlural": "Shields",
 "MB.ItemTypeWeapon": "Weapon",
 "MB.ItemTypeWeaponPlural": "Weapons",
 "MB.ItemWeaponType": "Weapon Type",

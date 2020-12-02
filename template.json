@@ -44,7 +44,7 @@
     }
   },
   "Item": {
-    "types": ["armor", "container", "misc", "scroll", "weapon"],
+    "types": ["armor", "container", "misc", "scroll", "shield", "weapon"],
     "templates": {
       "baseItem": {
         "description": "",
@@ -64,11 +64,15 @@
     },
     "misc": {
       "templates": ["baseItem"]
-    },    
+    },
     "scroll": {
       "templates": ["baseItem"],
       "scrollType": "unclean"
     },
+    "shield": {
+      "templates": ["baseItem"],
+      "damageReduction": 1
+    },    
     "weapon": {
       "templates": ["baseItem"],
       "damageDie": "1d1",

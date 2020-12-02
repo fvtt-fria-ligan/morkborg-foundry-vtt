@@ -51,16 +51,17 @@ export class MBActorSheet extends ActorSheet {
   _prepareCharacterItems(sheetData) {
     const actorData = sheetData.actor;
 
-    // TODO: just iterate over the config constants???
-
+    // TODO: just iterate over the config constants
     // Initialize containers.
     var typeArrays = {
       'armor': [],
       'container': [],
       'misc': [],
       'scroll': [],
+      'shield': [],
       'weapon': [],
     };
+
 
     // Iterate through items, allocating to containers
     for (let i of sheetData.items) {
@@ -82,6 +83,8 @@ export class MBActorSheet extends ActorSheet {
     actorData.containers = typeArrays['container'];
     actorData.misc = typeArrays['misc'];
     actorData.scrolls = typeArrays['scroll'];
+    // TODO: put shield in with other armor?
+    actorData.shields = typeArrays['shield'];
     actorData.weapons = typeArrays['weapon'];
   }  
 
