@@ -2,7 +2,47 @@
   font-family: 'FetteTrumpDeutsch';
   src: url("../fonts/FetteTrumpDeutsch.ttf") format("truetype");
 }
-
+.flexrow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.flexrow > * {
+  flex: 1;
+}
+.flexrow .flex1 {
+  flex: 1;
+}
+.flexrow .flex2 {
+  flex: 2;
+}
+.flexrow .flex3 {
+  flex: 3;
+}
+.flexrow .flex4 {
+  flex: 4;
+}
+.flexcol {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+.flexcol > * {
+  flex: 1;
+}
+.flexcol .flex1 {
+  flex: 1;
+}
+.flexcol .flex2 {
+  flex: 2;
+}
+.flexcol .flex3 {
+  flex: 3;
+}
+.flexcol .flex4 {
+  flex: 4;
+}
 .morkborg {
   /* Sheet Tabs */
   /* Items List */
@@ -20,34 +60,121 @@
 .morkborg form {
   height: 100%;
 }
+.morkborg.sheet .window-content {
+  overflow-y: hidden;
+  padding: 5px;
+  /*background: url("ui/parchment.jpg") repeat;*/
+  font-size: 13px;
+  color: #191813;
+}
+.morkborg.sheet .window-content form {
+  height: 100%;
+  overflow: hidden;
+}
+.morkborg.sheet .window-content .tab {
+  height: 100%;
+  overflow-y: auto;
+  align-content: flex-start;
+}
 .morkborg .sheet-header {
   flex: 0 0 100px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin-bottom: 10px;
+  border-bottom: 2px groove #eeede0;
 }
 .morkborg .sheet-header .profile-img {
-  flex: 0 0 100px;
-  height: 100px;
-  margin-right: 10px;
-}
-.morkborg .sheet-header .header-fields {
-  flex: 1;
-  height: 100px;
+  object-fit: contain;
+  border: none;
+  border-right: 2px groove #eeede0;
+  flex: 0 0 160px;
+  max-width: 160px;
+  height: 160px;
 }
 .morkborg .sheet-header h1.charname {
-  height: 50px;
-  padding: 0px;
-  margin: 5px 0;
-  border-bottom: 0;
+  flex: 1;
+  height: 60px;
+  padding: 0;
 }
 .morkborg .sheet-header h1.charname input {
-  width: 100%;
-  height: 100%;
+  height: 40px;
+  margin: 10px 0;
+}
+.morkborg .sheet-header .header-classname {
+  flex: 0 0 150px;
+  margin-right: 3px;
+  height: 60px;
+  justify-content: flex-end;
+  text-align: right;
+}
+.morkborg.sheet.actor .sheet-header .attributes {
+  flex: 0 0 100%;
   margin: 0;
+}
+.morkborg.sheet.actor .sheet-header .attributes .attribute {
+  height: 70px;
+  margin: 0;
+  border: none;
+  border-right: 2px groove #eeede0;
+  border-radius: 0;
+}
+.morkborg.sheet.actor .sheet-header .attributes .attribute:last-child {
+  border-right: none;
+}
+.morkborg.sheet.actor .sheet-header .attributes .attribute .attribute-name {
+  text-transform: uppercase;  
+}
+.morkborg.sheet.actor .sheet-header .attributes .attribute .attribute-value {
+  height: 30px;
+  line-height: 30px;
+}
+.morkborg.sheet.actor ul.attributes {
+  flex: 0 0 60px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 2px groove #eeede0;
+}
+.morkborg.sheet.actor ul.attributes li.attribute {
+  height: 60px;
+  margin: 0 5px 0 0;
+  border: 2px groove #eeede0;
+  border-radius: 4px;
+  text-align: center;
+}
+.morkborg.sheet.actor ul.attributes li.attribute:last-child {
+  margin: 0;
+}
+.morkborg.sheet.actor ul.attributes li.attribute .attribute-value {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 28px;
+  line-height: 28px;
+  font-family: "Modesto Condensed", "Palatino Linotype", serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+.morkborg.sheet.actor ul.attributes li.attribute .attribute-value > * {
+  font-weight: 400;
+  font-size: 24px;
+}
+.morkborg.sheet.actor ul.attributes li.attribute .attribute-value.multiple input {
+  flex: 0 0 33%;
+}
+.morkborg.sheet.actor ul.attributes li.attribute .attribute-footer {
+  flex: 0 0 18px;
+  margin-top: -1px;
+  line-height: 18px;
+  font-family: "Signika", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+.morkborg.sheet span.sep {
+  flex: none;
+  margin: 0 1px;
+  display: inline;
+  position: relative;
+  color: #7a7971;
+  font-weight: normal;
 }
 .morkborg.sheet.item .sheet-header .item-subtitle {
   flex: 0 0 100px;
@@ -63,16 +190,18 @@
   margin: 0;
   text-transform: uppercase;
 }
-
+.morkborg .resources {
+  flex: 1;
+}
 .morkborg .resource {
-  width: 50%;
-  height: 40px;
-  margin-top: 10px;
-  float: left;
+
+  border: 1px solid red;
   text-align: center;
+  height: 100px;
+  width: 100px;
 }
 .morkborg .resource input {
-  width: 100px;
+  width: 50px;
   height: 28px;
 }
 .morkborg .tabs {
@@ -82,9 +211,6 @@
 }
 .morkborg .tabs .item {
   line-height: 40px;
-  /* XXX
-  font-weight: bold; 
-  */
   font-family: "FetteTrumpDeutsch", fantasy, serif;  
 }
 .morkborg .tabs .item.active {
@@ -119,7 +245,6 @@
   flex: 0 0 24px;
   margin-right: 5px;
 }
-
 .morkborg .item-list .item-name {
   margin: 0;
 }

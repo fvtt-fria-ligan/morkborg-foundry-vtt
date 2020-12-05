@@ -1,14 +1,48 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
 
     {{!-- Sheet Header --}}
-    <header class="sheet-header">
-        {{!-- Header stuff goes here --}}
-        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
-        <div class="header-fields">
-            <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
-            <div class="resources grid grid-2col">{{!-- resources here --}}</div>
-            <div class="abilities grid grid-3col">{{!-- abilities here --}}</div>
-        </div>
+    <header class="sheet-header flexrow">
+        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
+        <section class="header-details flexrow">
+            <h1 class="charname">
+                <input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'MB.Name' }}"/>
+            </h1>
+
+            <aside class="header-classname flexcol">
+                <div class="charlevel">
+                    <label>{{data.class.name}}</label>
+                </div>
+            </aside>
+
+            {{!-- Header Attributes --}}
+            <ul class="attributes flexrow">
+                <li class="attribute health">
+                    <h4 class="attribute-name box-title">{{ localize "MB.HitPoints" }}</h4>
+                    <div class="attribute-value multiple">
+                        <input name="data.hp.current" type="text" value="{{data.hp.current}}" placeholder="10" data-dtype="Number"/>
+                        <span class="sep"> / </span>
+                        <input name="data.hp.max" type="text" value="{{data.hp.max}}" placeholder="10" data-dtype="Number"/>
+                    </div>
+                    <footer class="attribute-footer">
+                        <span>Curr</span>
+                        <span class="sep"> / </span>
+                        <span>Max</span>
+                    </footer>                    
+                </li>
+                <li class="attribute">
+                    <h4 class="attribute-name box-title">{{ localize "MB.Omens" }}</h4>
+                    <div class="attribute-value multiple">
+                        <input name="data.omens" type="text" value="{{data.omens}}" placeholder="10" data-dtype="Number"/> <span>{{data.class.omenDie}}</span>
+                    </div>
+                </li>
+                <li class="attribute">
+                    <h4 class="attribute-name box-title">{{ localize "MB.Powers" }}</h4>
+                    <div class="attribute-value multiple">
+                        <input name="data.powers" type="text" value="{{data.powers}}" placeholder="10" data-dtype="Number"/> <span>1d4</span>
+                    </div>
+                </li>
+            </ul>
+        </section>
     </header>
 
     {{!-- Sheet Tab Navigation --}}
@@ -34,20 +68,6 @@
                     </div>
                 </div>
             {{/each}}
-            <div class="form-group">
-                <label>{{ localize "MB.HitPoints" }}</label>
-                <input type="text" name="data.hp.current" value="{{data.hp.current}}" placeholder="" data-dtype="Number" />
-                /
-                <input type="text" name="data.hp.max" value="{{data.hp.max}}" placeholder="" data-dtype="Number" />
-            </div>
-            <div class="form-group">
-                <label>{{ localize "MB.Powers" }}</label>
-                <input type="text" name="data.powers" value="{{data.powers}}" placeholder="" data-dtype="Number" />
-            </div>
-            <div class="form-group">
-                <label>{{ localize "MB.Omens" }}</label>
-                <input type="text" name="data.omens" value="{{data.omens}}" placeholder="" data-dtype="Number" />
-            </div>
         </div>
 
         {{!-- Inventory Tab --}}
