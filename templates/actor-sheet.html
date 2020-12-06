@@ -3,16 +3,24 @@
     {{!-- Sheet Header --}}
     <header class="sheet-header flexrow">
         <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
+
         <section class="header-details flexrow">
             <h1 class="charname">
                 <input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'MB.Name' }}"/>
             </h1>
 
-            <aside class="header-classname flexcol">
-                <div class="charlevel">
+<!--             <aside class="header-classname flexcol">
+                <div class="charname">
                     <label>{{data.class.name}}</label>
                 </div>
             </aside>
+ -->
+            {{!-- Character Summary --}}
+            <ul class="summary flexrow">
+                <li>
+                    <label>{{data.class.name}}</label>
+                </li>
+            </ul>
 
             {{!-- Header Attributes --}}
             <ul class="attributes flexrow">
@@ -23,12 +31,10 @@
                         <span class="sep"> / </span>
                         <input name="data.hp.max" type="text" value="{{data.hp.max}}" placeholder="10" data-dtype="Number"/>
                     </div>
-                    <footer class="attribute-footer">
-                        <span>Curr</span>
-                        <span class="sep"> / </span>
-                        <span>Max</span>
+<!--                     <footer class="attribute-footer">
+                        <span>{{ localize "MB.Current"}} / {{ localize "MB.Max"}}</span>
                     </footer>                    
-                </li>
+ -->                </li>
                 <li class="attribute">
                     <h4 class="attribute-name box-title">{{ localize "MB.Omens" }}</h4>
                     <div class="attribute-value multiple">
@@ -58,7 +64,6 @@
 
         {{!-- Abilities Tab --}}
         <div class="tab abilities" data-group="primary" data-tab="abilities">
-            <h1 class="left-column-title">Abilities</h1>
             {{#each data.abilities as |ability key|}}
                 <div class="ability flexrow flex-left">
                     <label class="mb-label" for="data.abilities.{{key}}.score">{{ability.label}}</label>
