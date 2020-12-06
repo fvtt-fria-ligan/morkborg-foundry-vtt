@@ -19,13 +19,17 @@
   font-family: 'Modesto Condensed';
   font-style: normal;
   font-weight: 400;
-  src: url('../../fonts/modesto-condensed/modesto-condensed.woff2') format('woff2');
+  src: url('../../dnd5e/fonts/modesto-condensed/modesto-condensed.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Modesto Condensed';
   font-style: normal;
   font-weight: 700;
-  src: url('../../fonts/modesto-condensed/modesto-condensed-bold.woff2') format('woff2');
+  src: url('../../dnd5e/fonts/modesto-condensed/modesto-condensed-bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Lato';
+  src: url("../fonts/Lato-Regular.ttf") format("truetype");
 }
 .modesto {
   font-family: "Modesto Condensed", "Palatino Linotype", serif;
@@ -85,7 +89,10 @@
 .morkborg.sheet .window-content {
   overflow-y: hidden;
   padding: 5px;
-  /*background: url("ui/parchment.jpg") repeat;*/
+  /*background: url("../ui/parchment.jpg") repeat;*/
+  /*background: url("../ui/darkparchment.jpg") repeat;*/
+  /* MB yellow
+  background: #ffe500;*/
   font-size: 13px;
   color: #191813;
 }
@@ -180,7 +187,8 @@
   padding: 0;
   border-right: 2px groove #eeede0;
   line-height: 34px;
-  color: #4b4a44;
+  /*color: #4b4a44;*/
+  color: black;
   font-family: 'Special Elite', cursive;
   font-weight: bold;
   font-size: 14px;
@@ -249,7 +257,8 @@
   flex: 0 0 18px;
   margin-top: -1px;
   line-height: 18px;
-  font-family: "Signika", sans-serif;
+  /*font-family: "Signika", sans-serif;*/
+  font-family: 'Special Elite', cursive;
   font-size: 12px;
   font-weight: 400;
   white-space: nowrap;
@@ -261,6 +270,46 @@
   position: relative;
   color: #7a7971;
   font-weight: normal;
+}
+.ability-grid {
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: 150px 60px;
+  row-gap: 10px;
+  border: 1px solid black;
+}
+.morkborg.sheet .ability-name {
+  font-family: "Blood Crow", fantasy, serif;
+  font-size: 28px;
+  /* TODO: avoid hard-coding this */
+  /*padding-top: 14px;*/
+  text-align: center;
+}
+.morkborg.sheet div.ability-score {
+  background: url("../ui/drawncircle.png") no-repeat;
+  background-size: 40px 40px;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  position: relative;
+}
+.morkborg.sheet div.ability-score input {
+  text-align: center;
+  /*font-family: "Blood Crow", fantasy, serif;*/
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 24px;
+  width: 36px;
+  height: 28px;
+  text-align: center;
+  margin: 0;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  -ms-transform: translateY(-10%);
+  transform: translateY(-10%);  
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);  
+  /*margin: auto;*/
 }
 .morkborg.sheet.item .sheet-header .item-subtitle {
   flex: 0 0 100px;
@@ -308,6 +357,8 @@
 .morkborg .editor,
 .morkborg .editor-content {
   height: 100%;
+  font-family: 'Special Elite', cursive;
+  font-size: 12px;
 }
 .morkborg .item-list {
   list-style: none;

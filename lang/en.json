@@ -49,6 +49,8 @@
 "MB.Max": "Max",
 "MB.Name": "Name",
 "MB.Omens": "Omens",
+"MB.PerDay": "Per Day",
+"MB.PerRest": "Per Rest",
 "MB.Powers": "Powers",
 "MB.ScrollTypeSacred": "Sacred",
 "MB.ScrollTypeUnclean": "Unclean",

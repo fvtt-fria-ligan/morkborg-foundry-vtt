@@ -31,21 +31,27 @@
                         <span class="sep"> / </span>
                         <input name="data.hp.max" type="text" value="{{data.hp.max}}" placeholder="10" data-dtype="Number"/>
                     </div>
-<!--                     <footer class="attribute-footer">
+                    <footer class="attribute-footer">
                         <span>{{ localize "MB.Current"}} / {{ localize "MB.Max"}}</span>
                     </footer>                    
- -->                </li>
+                </li>
                 <li class="attribute">
                     <h4 class="attribute-name box-title">{{ localize "MB.Omens" }}</h4>
                     <div class="attribute-value multiple">
-                        <input name="data.omens" type="text" value="{{data.omens}}" placeholder="10" data-dtype="Number"/> <span>{{data.class.omenDie}}</span>
+                        <input name="data.omens" type="text" value="{{data.omens}}" placeholder="10" data-dtype="Number"/>
                     </div>
+                    <footer class="attribute-footer">
+                        <span>{{data.class.omenDie}} {{ localize "MB.PerRest"}}</span>
+                    </footer>                        
                 </li>
                 <li class="attribute">
                     <h4 class="attribute-name box-title">{{ localize "MB.Powers" }}</h4>
                     <div class="attribute-value multiple">
-                        <input name="data.powers" type="text" value="{{data.powers}}" placeholder="10" data-dtype="Number"/> <span>1d4</span>
+                        <input name="data.powers" type="text" value="{{data.powers}}" placeholder="10" data-dtype="Number"/>
                     </div>
+                    <footer class="attribute-footer">
+                        <span>PRE + 1d4 {{ localize "MB.PerDay"}}</span>
+                    </footer>    
                 </li>
             </ul>
         </section>
@@ -64,15 +70,18 @@
 
         {{!-- Abilities Tab --}}
         <div class="tab abilities" data-group="primary" data-tab="abilities">
-            {{#each data.abilities as |ability key|}}
-                <div class="ability flexrow flex-left">
-                    <label class="mb-label" for="data.abilities.{{key}}.score">{{ability.label}}</label>
-                    <div class="flexrow flex-center flex-between">
-                        <input class="left-column-input" type="text" name="data.abilities.{{key}}.score" value="{{numberFormat ability.score decimals=0 sign=true}}" data-dtype="Number"/>
-                        <span class="rollable" data-roll="d20+@abilities.{{key}}.score" data-label="{{key}}">{{localize "MB.Test"}}</span>
+            <div class="ability-grid">
+                {{#each data.abilities as |ability key|}}
+                    <div class="ability-name">
+                        <span class="rollable" data-roll="d20+@abilities.{{key}}.score" data-label="{{key}}">{{ability.label}}</span>
                     </div>
-                </div>
-            {{/each}}
+                    <div class="ability-score">
+                        <input class="left-column-input ability-value" type="text" name="data.abilities.{{key}}.score" value="{{numberFormat ability.score decimals=0 sign=true}}" data-dtype="Number"/>
+                    </div>
+                   {{/each}}
+            </div>
+        </div>
+            </div>
         </div>
 
         {{!-- Inventory Tab --}}
@@ -87,6 +96,7 @@
                     </div>
                 </li>            
                 <ol class="item-list">
+
                     {{#each actor.weapons as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}">
                         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
@@ -95,7 +105,7 @@
                             <button class="item-button rollable" data-roll="d20+@abilities.strength.score" data-label="attack_{{item._id}}"
                                     title="{{item.data.attackLabel}}">{{item.data.attackLabel}}</button>
                             <button class="item-button rollable" data-roll="{{item.data.damageDie}}" data-label="damage_{{item._id}}"
-                                    title="{{item.data.damageLabel}}">{{item.data.damageLabel}}</button>      
+                                    title="{{item.data.damageLabel}}">{{item.data.damageLabel}}</button>
                         </div>
                         <div class="item-group">                          
                         </div>
@@ -105,6 +115,7 @@
                         </div>
                     </li>
                     {{/each}}
+
                 </ol>
 
                 <li class="items-header flexrow">
@@ -121,10 +132,12 @@
                         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
                         <h4 class="item-name">{{item.name}}</h4>
                         <div class="item-buttons">
+                            {{!-- 
                             <button class="item-button rollable" data-roll="d20+@abilities.agility.score" data-label="defend_{{item._id}}"
                                     title="{{localize 'MB.Defend'}}">{{localize "MB.Defend"}}</button>
                             <button class="item-button rollable" data-roll="{{item.data.damageReductionDie}}" data-label="damageReduction_{{item._id}}"
                                     title="{{localize 'MB.DamageReduction'}}">{{item.data.damageReductionDie}} {{localize "MB.DamageReduction"}}</button>                                    
+                                --}}
                         </div>
                         <div class="item-controls">
                             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
@@ -171,8 +184,10 @@
                         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
                         <h4 class="item-name">{{item.name}}</h4>
                         <div class="item-buttons">
+                            {{!--
                             <button class="item-button rollable" data-roll="d20+@abilities.presence.score" data-label="wieldpower_{{item._id}}"
                                     title="{{localize 'MB.WieldPower'}}">{{localize "MB.WieldPower"}}</button>                            
+                            --}}
                         </div>
                         <div class="item-controls">
                             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
@@ -227,7 +242,7 @@
                     </li>
                     {{/each}}
                 </ol>
-            </ol>            
+            </ol>    
         </div>
 
         {{!-- Class Tab --}}
