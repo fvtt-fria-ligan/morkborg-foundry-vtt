@@ -27,10 +27,6 @@
   font-weight: 700;
   src: url('../../dnd5e/fonts/modesto-condensed/modesto-condensed-bold.woff2') format('woff2');
 }
-@font-face {
-  font-family: 'Lato';
-  src: url("../fonts/Lato-Regular.ttf") format("truetype");
-}
 .modesto {
   font-family: "Modesto Condensed", "Palatino Linotype", serif;
   font-size: 20px;
@@ -207,13 +203,21 @@
   border-right: 2px groove #eeede0;
   border-radius: 0;
 }
+.morkborg.sheet.actor .sheet-header .attributes.abilities .attribute {
+  height: 100px;
+}
 .morkborg.sheet.actor .sheet-header .attributes .attribute:last-child {
   border-right: none;
 }
 .morkborg.sheet.actor .sheet-header .attributes .attribute .attribute-name {
-  /*text-transform: uppercase;*/
   font-family: "FetteTrumpDeutsch", fantasy, serif;
   font-size: 16px;  
+  /*background-color: #ffe500;*/
+}
+.morkborg.sheet.actor .sheet-header .attributes.abilities .attribute .attribute-name {
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 16px;  
+  /*background-color: #ffe500;*/
 }
 .morkborg.sheet.actor .sheet-header .attributes .attribute .attribute-value {
   height: 30px;
@@ -246,6 +250,13 @@
   font-size: 20px;
   font-weight: 700;
 }
+.morkborg.sheet.actor ul.attributes.abilities li.attribute .attribute-value {
+  /*background: url("../ui/shield_icon.png") no-repeat;*/
+  background: url("../ui/drawnsquare.png") no-repeat;
+  height: 60px;
+  background-size: 60px 60px;
+  background-position: 50%;
+}
 .morkborg.sheet.actor ul.attributes li.attribute .attribute-value > * {
   font-weight: 400;
   font-size: 24px;
@@ -271,7 +282,7 @@
   color: #7a7971;
   font-weight: normal;
 }
-.ability-grid {
+/*.ability-grid {
   padding-top: 20px;
   display: grid;
   grid-template-columns: 150px 60px;
@@ -281,8 +292,6 @@
 .morkborg.sheet .ability-name {
   font-family: "Blood Crow", fantasy, serif;
   font-size: 28px;
-  /* TODO: avoid hard-coding this */
-  /*padding-top: 14px;*/
   text-align: center;
 }
 .morkborg.sheet div.ability-score {
@@ -295,7 +304,6 @@
 }
 .morkborg.sheet div.ability-score input {
   text-align: center;
-  /*font-family: "Blood Crow", fantasy, serif;*/
   font-family: "FetteTrumpDeutsch", fantasy, serif;
   font-size: 24px;
   width: 36px;
@@ -309,9 +317,8 @@
   transform: translateY(-10%);  
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);  
-  /*margin: auto;*/
 }
-.morkborg.sheet.item .sheet-header .item-subtitle {
+*/.morkborg.sheet.item .sheet-header .item-subtitle {
   flex: 0 0 100px;
   height: 60px;
   margin: 0;

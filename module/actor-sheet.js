@@ -7,9 +7,9 @@ export class MBActorSheet extends ActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["morkborg", "sheet", "actor"],
       template: "systems/morkborg/templates/actor-sheet.html",
-      width: 600,
-      height: 600,
-      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "abilities"}],
+      width: 720,
+      height: 680,
+      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "inventory"}],
       // is dragDrop needed?
       dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
     });
@@ -79,13 +79,10 @@ export class MBActorSheet extends ActorSheet {
     }
 
     // Assign to new properties
-    actorData.armor = typeArrays['armor'];
-    actorData.containers = typeArrays['container'];
-    actorData.misc = typeArrays['misc'];
-    actorData.scrolls = typeArrays['scroll'];
-    // TODO: put shield in with other armor?
-    actorData.shields = typeArrays['shield'];
     actorData.weapons = typeArrays['weapon'];
+    actorData.armor = typeArrays['armor'].concat(typeArrays['shield'])
+    actorData.misc = typeArrays['container'].concat(typeArrays['misc']);
+    actorData.scrolls = typeArrays['scroll'];
   }  
 
   /** @override */
