@@ -9,19 +9,13 @@
                 <input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'MB.Name' }}"/>
             </h1>
 
-            <aside class="header-classname flexcol">
+<!--             <aside class="header-classname flexcol">
                 <div class="charname">
                     <label>{{data.class.name}}</label>
                 </div>
-            </aside>
+            </aside>     -->
 
             {{!-- Character Summary --}}
-<!--             <ul class="summary flexrow">
-                <li>
-                    <label>{{data.class.name}}</label>
-                </li>
-            </ul>
- -->
             <ul class="attributes abilities flexrow">
                 {{#each data.abilities as |ability key|}}
                     <li class="attribute">
@@ -223,12 +217,18 @@
             <div class="form-group">
                 <label>{{ localize "MB.Description" }}</label>
             </div>
+            {{!--
             {{editor content=data.class.description target="data.class.description" button=true owner=owner editable=editable}}
+            --}}
+            <textarea class="classdescription" name="data.class.description">{{data.class.description}}</textarea>
         </div>
 
         {{!-- Background Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
+            {{!-- 
             {{editor content=data.background target="data.background" button=true owner=owner editable=editable}}
+            --}}
+            <textarea class="background" name="data.background">{{data.background}}</textarea>
         </div>
 
 </form>
