@@ -16,11 +16,11 @@
             </aside>     -->
 
             {{!-- Character Summary --}}
-            <ul class="attributes abilities flexrow">
+            <ul class="abilities flexrow">
                 {{#each data.abilities as |ability key|}}
-                    <li class="attribute">
-                        <h4 class="attribute-name box-title rollable" data-roll="d20+@abilities.{{key}}.score" data-label="{{key}}">{{ ability.label }}</h4>
-                        <div class="attribute-value multiple">
+                    <li class="ability">
+                        <h4 class="ability-name box-title rollable" data-roll="d20+@abilities.{{key}}.score" data-label="{{key}}">{{ ability.label }}</h4>
+                        <div class="ability-value multiple">
                            <input class="left-column-input" type="text" name="data.abilities.{{key}}.score" value="{{numberFormat ability.score decimals=0 sign=true}}" data-dtype="Number"/>
                         </div>
                     </li>
