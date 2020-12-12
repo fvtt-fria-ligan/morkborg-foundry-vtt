@@ -15,19 +15,35 @@
                 </div>
             </aside>     -->
 
-            {{!-- Character Summary --}}
+            {{!-- Abilities --}}
             <ul class="abilities flexrow">
-                {{#each data.abilities as |ability key|}}
-                    <li class="ability">
-                        <h4 class="ability-name box-title rollable" data-roll="d20+@abilities.{{key}}.score" data-label="{{key}}">{{ ability.label }}</h4>
-                        <div class="ability-value multiple">
-                           <input class="left-column-input" type="text" name="data.abilities.{{key}}.score" value="{{numberFormat ability.score decimals=0 sign=true}}" data-dtype="Number"/>
-                        </div>
-                    </li>
-                {{/each}}
+                <li class="ability">
+                    <h4 class="ability-name box-title rollable" data-roll="d20+@abilities.strength.score" data-label="{{data.abilities.strength.label}}">{{ data.abilities.strength.label }}</h4>
+                    <div class="ability-value multiple">
+                       <input class="left-column-input" type="text" name="data.abilities.strength.score" value="{{numberFormat data.abilities.strength.score decimals=0 sign=true}}" data-dtype="Number"/>
+                    </div>
+                </li>
+                <li class="ability">
+                    <h4 class="ability-name box-title rollable" data-roll="d20+@abilities.agility.score" data-label="{{data.abilities.agility.label}}">{{ data.abilities.agility.label }}</h4>
+                    <div class="ability-value multiple">
+                       <input class="left-column-input" type="text" name="data.abilities.agility.score" value="{{numberFormat data.abilities.agility.score decimals=0 sign=true}}" data-dtype="Number"/>
+                    </div>
+                </li>
+                <li class="ability">
+                    <h4 class="ability-name box-title rollable" data-roll="d20+@abilities.presence.score" data-label="{{data.abilities.presence.label}}">{{ data.abilities.presence.label }}</h4>
+                    <div class="ability-value multiple">
+                       <input class="left-column-input" type="text" name="data.abilities.presence.score" value="{{numberFormat data.abilities.presence.score decimals=0 sign=true}}" data-dtype="Number"/>
+                    </div>
+                </li>
+                <li class="ability">
+                    <h4 class="ability-name box-title rollable" data-roll="d20+@abilities.toughness.score" data-label="{{data.abilities.toughness.label}}">{{ data.abilities.toughness.label }}</h4>
+                    <div class="ability-value multiple">
+                       <input class="left-column-input" type="text" name="data.abilities.toughness.score" value="{{numberFormat data.abilities.toughness.score decimals=0 sign=true}}" data-dtype="Number"/>
+                    </div>
+                </li>
             </ul>
 
-            {{!-- Header resources --}}
+            {{!-- Resources --}}
             <ul class="resources flexrow">
                 <li class="resource">
                     <h4 class="resource-name box-title">{{ localize "MB.HitPoints" }}</h4>
