@@ -144,7 +144,7 @@
   object-fit: contain;
   border: none;
   /*border-right: 2px groove #eeede0;*/
-  /* TODO: figure out desired height of attributes and make this match up */
+  /* TODO: figure out desired height of resources and make this match up */
   flex: 0 0 173px;
   max-width: 173px;
   height: 173px;
@@ -192,7 +192,7 @@
 .morkborg.sheet .sheet-header .summary li:last-child {
   border-right: none;
 }
-.morkborg.sheet.actor .sheet-header .attributes {
+.morkborg.sheet.actor .sheet-header .resources {
   flex: 0 0 100%;
   margin: 0;
 }
@@ -200,7 +200,7 @@
   flex: 0 0 100%;
   margin: 0;
 }
-.morkborg.sheet.actor .sheet-header .attributes .attribute {
+.morkborg.sheet.actor .sheet-header .resources .resource {
   height: 77px;
   /*margin: 0;*/
   margin-right: 10px;
@@ -216,10 +216,10 @@
   border: none;
   border-right: none;
 }
-.morkborg.sheet.actor .sheet-header .attributes .attribute:last-child {
+.morkborg.sheet.actor .sheet-header .resources .resource:last-child {
   /*border-right: none;*/
 }
-.morkborg.sheet.actor .sheet-header .attributes .attribute .attribute-name {
+.morkborg.sheet.actor .sheet-header .resources .resource .resource-name {
   font-family: "FetteTrumpDeutsch", fantasy, serif;
   font-size: 16px;  
   /*background-color: #ffe500;*/
@@ -229,11 +229,11 @@
   font-size: 16px;  
   /*background-color: #ffe500;*/
 }
-.morkborg.sheet.actor .sheet-header .attributes .attribute .attribute-value {
+.morkborg.sheet.actor .sheet-header .resources .resource .resource-value {
   height: 30px;
   line-height: 30px;
 }
-.morkborg.sheet.actor ul.attributes {
+.morkborg.sheet.actor ul.resources {
   flex: 0 0 60px;
   list-style: none;
   margin: 0;
@@ -247,7 +247,7 @@
   padding: 0;
   /*border-top: 2px groove #eeede0;*/
 }
-.morkborg.sheet.actor ul.attributes li.attribute {
+.morkborg.sheet.actor ul.resources li.resource {
   height: 70px;
   margin: 0 5px 0 0;
   /*border: 2px groove #eeede0;*/
@@ -261,13 +261,13 @@
   border-radius: 4px;
   text-align: center;
 }
-.morkborg.sheet.actor ul.attributes li.attribute:last-child {
+.morkborg.sheet.actor ul.resources li.resource:last-child {
   margin: 0;
 }
 .morkborg.sheet.actor ul.abilities li.ability:last-child {
   margin: 0;
 }
-.morkborg.sheet.actor ul.attributes li.attribute .attribute-value {
+.morkborg.sheet.actor ul.resources li.resource .resource-value {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -290,7 +290,7 @@
   background-size: 60px 60px;
   background-position: 50%;
 }
-.morkborg.sheet.actor ul.attributes li.attribute .attribute-value > * {
+.morkborg.sheet.actor ul.resources li.resource .resource-value > * {
   font-weight: 400;
   font-size: 24px;
 }
@@ -298,14 +298,14 @@
   font-weight: 400;
   font-size: 24px;
 }
-.morkborg.sheet.actor ul.attributes li.attribute .attribute-value.multiple input {
+.morkborg.sheet.actor ul.resources li.resource .resource-value.multiple input {
   flex: 0 0 33%;
 }
 /* TODO: do we want multiple to be specified for abilities? */
 .morkborg.sheet.actor ul.abilities li.ability .ability-value.multiple input {
   flex: 0 0 33%;
 }
-.morkborg.sheet.actor ul.attributes li.attribute .attribute-footer {
+.morkborg.sheet.actor ul.resources li.resource .resource-footer {
   flex: 0 0 18px;
   margin-top: -1px;
   line-height: 18px;

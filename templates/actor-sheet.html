@@ -27,34 +27,34 @@
                 {{/each}}
             </ul>
 
-            {{!-- Header Attributes --}}
-            <ul class="attributes flexrow">
-                <li class="attribute">
-                    <h4 class="attribute-name box-title">{{ localize "MB.HitPoints" }}</h4>
-                    <div class="attribute-value multiple">
+            {{!-- Header resources --}}
+            <ul class="resources flexrow">
+                <li class="resource">
+                    <h4 class="resource-name box-title">{{ localize "MB.HitPoints" }}</h4>
+                    <div class="resource-value multiple">
                         <input name="data.hp.current" type="text" value="{{data.hp.current}}" placeholder="10" data-dtype="Number"/>
                         <span class="sep"> / </span>
                         <input name="data.hp.max" type="text" value="{{data.hp.max}}" placeholder="10" data-dtype="Number"/>
                     </div>
-                    <footer class="attribute-footer">
+                    <footer class="resource-footer">
                         <span>{{ localize "MB.Current"}} / {{ localize "MB.Max"}}</span>
                     </footer>                    
                 </li>
-                <li class="attribute">
-                    <h4 class="attribute-name box-title">{{ localize "MB.Omens" }}</h4>
-                    <div class="attribute-value multiple">
+                <li class="resource">
+                    <h4 class="resource-name box-title">{{ localize "MB.Omens" }}</h4>
+                    <div class="resource-value multiple">
                         <input name="data.omens" type="text" value="{{data.omens}}" placeholder="10" data-dtype="Number"/>
                     </div>
-                    <footer class="attribute-footer">
+                    <footer class="resource-footer">
                         <span>{{data.class.omenDie}} {{ localize "MB.PerRest"}}</span>
                     </footer>                        
                 </li>
-                <li class="attribute">
-                    <h4 class="attribute-name box-title">{{ localize "MB.Powers" }}</h4>
-                    <div class="attribute-value multiple">
+                <li class="resource">
+                    <h4 class="resource-name box-title">{{ localize "MB.Powers" }}</h4>
+                    <div class="resource-value multiple">
                         <input name="data.powers" type="text" value="{{data.powers}}" placeholder="10" data-dtype="Number"/>
                     </div>
-                    <footer class="attribute-footer">
+                    <footer class="resource-footer">
                         <span>PRE + 1d4 {{ localize "MB.PerDay"}}</span>
                     </footer>    
                 </li>
