@@ -112,8 +112,9 @@ export class MBActorSheet extends ActorSheet {
     // Handle rollable items.
     // TODO: handle everything with one onRoll method?
     // html.find('.rollable').click(this._onRoll.bind(this));
-    html.find(".items .rollable").on("click", this._onItemRoll.bind(this));    
-    html.find(".abilities .rollable").on("click", this._onAbilityRoll.bind(this));    
+    html.find(".items .rollable").on("click", this._onItemRoll.bind(this));  
+    html.find(".abilities .rollable").on("click", this._onRoll.bind(this));    
+    html.find(".violence .rollable").on("click", this._onRoll.bind(this));    
   }
 
   /**
@@ -178,7 +179,7 @@ export class MBActorSheet extends ActorSheet {
   //     });
   //   }
   // }
-  _onAbilityRoll(event) {
+  _onRoll(event) {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;

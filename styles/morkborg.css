@@ -443,3 +443,38 @@
   font-size: 16px;
   height: 200px;
 }
+
+.morkborg.sheet .weapon-block {
+  border: 2px dashed black;
+  height: 150px;
+  width: 100%;
+}
+.morkborg.sheet .weapon-block .weapon-name {
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 20px;
+  height: 30px;
+}
+.morkborg .weapon-block .weapon-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  /*flex: 2;*/
+  /*justify-content: flex-start;*/
+
+}
+
+.morkborg .weapon-block .weapon-button {
+  line-height: 1;
+  font-size: 11px;
+  flex: none;
+  /*width: auto;*/
+ width: 100px;
+  height: 30px;
+}
+
+.morkborg .violence-block {
+  border: 1px solid red;
+  height: 100%;
+  width: 100%;
+}
