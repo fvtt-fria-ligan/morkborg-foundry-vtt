@@ -2,43 +2,41 @@
   "Actor": {
     "types": ["character", "creature"],
     "templates": {
+      "common": {
+        "abilities": {
+          "agility": {
+            "score": 0
+          },
+          "presence": {
+            "score": 0
+          },
+          "strength": {
+            "score": 0
+          },
+          "toughness": {
+            "score": 0
+          }
+        },
+        "hp": {
+          "current": 1,
+          "max": 1
+        }    
+      }
     },
     "character": {
-      "templates": [],
-      "abilities": {
-        "agility": {
-          "score": 0
-        },
-        "presence": {
-          "score": 0
-        },
-        "strength": {
-          "score": 0
-        },
-        "toughness": {
-          "score": 0
-        }
-      },
+      "templates": ["common"],
       "background": "",
       "class": {
         "name": "",
         "description": "",
         "omenDie": "1d2"
       },
-      "hp": {
-        "current": 1,
-        "max": 1
-      },
       "omens": 0,
       "powers": 0,
       "silver": 0
     },
     "creature": {
-      "templates": [],
-      "hp": {
-        "current": 1,
-        "max": 1
-      },
+      "templates": ["common"],
       "morale": 7,
       "special": ""
     }
