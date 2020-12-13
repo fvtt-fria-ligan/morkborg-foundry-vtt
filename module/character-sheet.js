@@ -1,12 +1,12 @@
 /**
  * @extends {ActorSheet}
  */
-export class MBActorSheet extends ActorSheet {
+export class MBActorSheetCharacter extends ActorSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["morkborg", "sheet", "actor"],
-      template: "systems/morkborg/templates/actor-sheet.html",
+      template: "systems/morkborg/templates/character-sheet.html",
       width: 720,
       height: 680,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "inventory"}],

@@ -3,7 +3,8 @@
  */
 
 import { MBActor } from "./actor.js";
-import { MBActorSheet } from "./actor-sheet.js";
+import { MBActorSheetCharacter } from "./character-sheet.js";
+import { MBActorSheetCreature } from "./creature-sheet.js";
 import { _getInitiativeFormula } from "./combat.js";
 import { MB } from "./config.js";
 import { MBItem } from "./item.js";
@@ -46,7 +47,16 @@ Hooks.once("init", async function() {
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("morkborg", MBActorSheet, { makeDefault: true });
+  Actors.registerSheet("morkborg", MBActorSheetCharacter, {
+    types: ["character"],
+    makeDefault: true,
+    label: "MorkBorg.SheetClassCharacter"
+  });
+  Actors.registerSheet("morkborg", MBActorSheetCreature, {
+    types: ["creature"],
+    makeDefault: true,
+    label: "MorkBorg.SheetClassCreature"
+  });  
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("morkborg", MBItemSheet, { makeDefault: true });
 });
