@@ -31,7 +31,9 @@ MB.handed = {
 
 MB.itemTypes = {
   "armor": "MB.ItemTypeArmor",
+  "bounty": "MB.Bounty",
   "container": "MB.ItemTypeContainer",
+  "creatureAttack": "MB.CreatureAttack",
   "misc": "MB.ItemTypeMisc",
   "scroll": "MB.ItemTypeScroll",
   "weapon": "MB.ItemTypeWeapon"

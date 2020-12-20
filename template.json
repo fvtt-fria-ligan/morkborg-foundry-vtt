@@ -20,7 +20,7 @@
         "hp": {
           "current": 1,
           "max": 1
-        }    
+        }
       }
     },
     "character": {
@@ -37,7 +37,13 @@
     },
     "creature": {
       "templates": ["common"],
+      "description": "",
       "morale": 7,
+      "armor": {
+        "name": "",
+        "damageReductionDie": ""
+      },
+      "attacks": "",
       "special": ""
     }
   },
