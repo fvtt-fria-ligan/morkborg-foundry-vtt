@@ -443,7 +443,6 @@
   font-size: 16px;
   height: 200px;
 }
-
 .morkborg.sheet .weapon-block {
   border: 2px dashed black;
   height: 150px;
@@ -463,7 +462,6 @@
   /*justify-content: flex-start;*/
 
 }
-
 .morkborg .weapon-block .weapon-button {
   line-height: 1;
   font-size: 11px;
@@ -472,9 +470,16 @@
  width: 100px;
   height: 30px;
 }
-
 .morkborg .violence-block {
   border: 1px solid red;
   height: 100%;
   width: 100%;
+}
+/* creature sheet stuff */
+.morkborg.sheet.actor div.description {
+  height: 100%;
+}
+.morkborg.sheet.actor .editor {
+  padding: 0 8px;
+  line-height: 2;
 }

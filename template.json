@@ -37,13 +37,17 @@
     },
     "creature": {
       "templates": ["common"],
-      "description": "",
-      "morale": 7,
       "armor": {
         "name": "",
         "damageReductionDie": ""
       },
-      "attacks": "",
+      "attack": {
+        "name": "",
+        "damageDie": ""
+      },
+      "bounty": "",
+      "description": "",
+      "morale": 7,
       "special": ""
     }
   },
