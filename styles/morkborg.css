@@ -11,22 +11,6 @@
   font-family: 'FetteTrumpDeutsch';
   src: url("../fonts/FetteTrumpDeutsch.ttf") format("truetype");
 }
-@font-face {
-  font-family: 'Heretic';
-  src: url("../fonts/Heretic.ttf") format("truetype");
-}
-/*@font-face {
-  font-family: 'Modesto Condensed';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../../fonts/modesto-condensed/modesto-condensed.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Modesto Condensed';
-  font-style: normal;
-  font-weight: 700;
-  src: url('../../fonts/modesto-condensed/modesto-condensed-bold.woff2') format('woff2');
-}*/
 .modesto {
   font-family: "Modesto Condensed", "Palatino Linotype", serif;
   font-size: 20px;
@@ -120,7 +104,7 @@
 }
 .morkborg.sheet .editable .rollable:hover {
   color: #000;
-  text-shadow: 0 0 10px red;
+  text-shadow: 0 0 10px #ffe500;
   cursor: pointer;
 }
 .morkborg .sheet-header {
@@ -143,11 +127,10 @@
 .morkborg .sheet-header .profile-img {
   object-fit: contain;
   border: none;
-  /*border-right: 2px groove #eeede0;*/
-  /* TODO: figure out desired height of resources and make this match up */
-  flex: 0 0 173px;
-  max-width: 173px;
-  height: 173px;
+  flex: 0 0 200px;
+  max-width: 200px;
+  height: 200px;
+  border: 1px solid black;
 }
 .morkborg .sheet-header h1.charname {
   flex: 1;
@@ -181,7 +164,6 @@
   float: left;
   margin: 2px 0;
   padding: 0;
-  /*border-right: 2px groove #eeede0;*/
   line-height: 34px;
   /*color: #4b4a44;*/
   color: black;
@@ -222,12 +204,10 @@
 .morkborg.sheet.actor .sheet-header .resources .resource .resource-name {
   font-family: "FetteTrumpDeutsch", fantasy, serif;
   font-size: 16px;  
-  /*background-color: #ffe500;*/
 }
 .morkborg.sheet.actor .sheet-header .abilities .ability .ability-name {
   font-family: "FetteTrumpDeutsch", fantasy, serif;
   font-size: 16px;  
-  /*background-color: #ffe500;*/
 }
 .morkborg.sheet.actor .sheet-header .resources .resource .resource-value {
   height: 30px;
@@ -238,14 +218,12 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  /*border-top: 2px groove #eeede0;*/
 }
 .morkborg.sheet.actor ul.abilities {
   flex: 0 0 60px;
   list-style: none;
   margin: 0;
   padding: 0;
-  /*border-top: 2px groove #eeede0;*/
 }
 .morkborg.sheet.actor ul.resources li.resource {
   height: 70px;
@@ -284,11 +262,12 @@
   font-family: "Modesto Condensed", "Palatino Linotype", serif; 
   font-size: 20px;
   font-weight: 700;
-  /*background: url("../ui/shield_icon.png") no-repeat;*/
-  background: url("../ui/drawnsquare.png") no-repeat;
   height: 60px;
   background-size: 60px 60px;
   background-position: 50%;
+}
+.morkborg.sheet.actor ul.abilities li.ability .ability-value input {
+  border: 1px solid black;
 }
 .morkborg.sheet.actor ul.resources li.resource .resource-value > * {
   font-weight: 400;
@@ -352,10 +331,25 @@
   height: 30px;
   line-height: 32px;
   margin: 0 24px;
-  border-bottom: 3px solid #b5b3a4;
+  /* line under each tab */
+  /* border-bottom: 3px solid #b5b3a4; */
+}
+.morkborg.sheet .sheet-tabs .item:hover {
+  text-shadow: 0 0 10px #ffe500;
 }
 .morkborg.sheet .sheet-tabs .item.active {
-  border-bottom: 3px solid #44191A;
+  /* line under the active tab */
+  /* border-bottom: 3px solid #44191A; */
+  /*text-shadow: 0 0 10px #ffe500;*/
+  text-shadow:
+    -2px -2px 0 #ffe500,
+     0   -2px 0 #ffe500,
+     2px -2px 0 #ffe500,
+     2px  0   0 #ffe500,
+     2px  2px 0 #ffe500,
+     0    2px 0 #ffe500,
+    -2px  2px 0 #ffe500,
+    -2px  0   0 #ffe500;  
 }
 .morkborg .sheet-body {
   /*flex: 1;*/
@@ -368,8 +362,11 @@
 .morkborg .editor,
 .morkborg .editor-content {
   height: 100%;
-  font-family: 'Special Elite', cursive;
+/*  font-family: 'Special Elite', cursive;
   font-size: 12px;
+*/}
+.morkborg.sheet.actor .editor {
+  padding: 0 8px;
 }
 .morkborg .item-list {
   list-style: none;
@@ -471,15 +468,7 @@
   height: 30px;
 }
 .morkborg .violence-block {
-  border: 1px solid red;
+  border: 1px solid blue;
   height: 100%;
   width: 100%;
-}
-/* creature sheet stuff */
-.morkborg.sheet.actor div.description {
-  height: 100%;
-}
-.morkborg.sheet.actor .editor {
-  padding: 0 8px;
-  line-height: 2;
 }

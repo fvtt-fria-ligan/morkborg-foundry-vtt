@@ -2,7 +2,14 @@
 
     {{!-- Sheet Header --}}
     <header class="sheet-header flexrow">
+        {{!-- Profile column --}}
         <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
+
+        {{!-- Name etc column --}}
+
+        {{!-- Ability scores --}}
+
+
 
         <section class="header-details flexrow">
             <h1 class="charname">
@@ -65,29 +72,43 @@
                         <span>{{data.class.omenDie}} {{ localize "MB.PerRest"}}</span>
                     </footer>                        
                 </li>
-                <li class="resource">
-                    <h4 class="resource-name box-title">{{ localize "MB.Powers" }}</h4>
-                    <div class="resource-value multiple">
-                        <input name="data.powers" type="text" value="{{data.powers}}" placeholder="10" data-dtype="Number"/>
-                    </div>
-                    <footer class="resource-footer">
-                        <span>PRE + 1d4 {{ localize "MB.PerDay"}}</span>
-                    </footer>    
-                </li>
             </ul>
         </section>
     </header>
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item active" data-tab="violence">Violence</a>
-        <a class="item" data-tab="inventory">Inventory</a>
-        <a class="item" data-tab="class">Class</a>
-        <a class="item" data-tab="description">Background</a>
+        <a class="item" data-tab="bio">{{ localize 'MB.Bio' }}</a>
+        <a class="item" data-tab="class">{{ localize 'MB.Class' }}</a>
+        <a class="item" data-tab="violence">{{ localize 'MB.Violence' }}</a>
+        <a class="item" data-tab="powers">{{ localize 'MB.Powers' }}</a>
+        <a class="item" data-tab="equipment">{{ localize 'MB.Equipment' }}</a>
+        <a class="item" data-tab="notes">{{ localize 'MB.Notes' }}</a>
     </nav>
 
     {{!-- Sheet Body --}}
     <section class="sheet-body">
+
+        {{!-- Bio Tab --}}
+        <div class="tab" data-group="primary" data-tab="bio">
+            {{editor content=data.background target="data.background" button=true owner=owner editable=editable}}
+        </div>
+
+        {{!-- Class Tab --}}
+        <div class="tab" data-group="primary" data-tab="class">
+            <div class="form-group">
+                <label>{{ localize "MB.ClassName" }}</label>
+                <input type="text" name="data.class.name" value="{{data.class.name}}" placeholder="" data-dtype="String" />
+            </div>
+            <div class="form-group">
+                <label>{{ localize "MB.ClassOmenDie" }}</label>
+                <input type="text" name="data.class.omenDie" value="{{data.class.omenDie}}" placeholder="1d2" data-dtype="String" />
+            </div> 
+            <div class="form-group">
+                <label>{{ localize "MB.Description" }}</label>
+            </div>
+            {{editor content=data.class.description target="data.class.description" button=true owner=owner editable=editable}}
+        </div>
 
         {{!-- Violence Tab --}}
         <div class="tab violence" data-group="primary" data-tab="violence">
@@ -157,8 +178,8 @@
             </div>
         </div>
 
-        {{!-- Inventory Tab --}}
-        <div class="tab items" data-group="primary" data-tab="inventory">
+        {{!-- Equipment Tab --}}
+        <div class="tab items" data-group="primary" data-tab="equipment">
 
             <div class="form-group">
                 <label>{{ localize "MB.Silver" }}</label>
@@ -218,31 +239,9 @@
             </ol>    
         </div>
 
-        {{!-- Class Tab --}}
-        <div class="tab" data-group="primary" data-tab="class">
-            <div class="form-group">
-                <label>{{ localize "MB.ClassName" }}</label>
-                <input type="text" name="data.class.name" value="{{data.class.name}}" placeholder="" data-dtype="String" />
-            </div>
-            <div class="form-group">
-                <label>{{ localize "MB.ClassOmenDie" }}</label>
-                <input type="text" name="data.class.omenDie" value="{{data.class.omenDie}}" placeholder="1d2" data-dtype="String" />
-            </div> 
-            <div class="form-group">
-                <label>{{ localize "MB.Description" }}</label>
-            </div>
-            {{!--
-            {{editor content=data.class.description target="data.class.description" button=true owner=owner editable=editable}}
-            --}}
-            <textarea class="classdescription" name="data.class.description">{{data.class.description}}</textarea>
-        </div>
-
-        {{!-- Background Tab --}}
-        <div class="tab" data-group="primary" data-tab="description">
-            {{!-- 
-            {{editor content=data.background target="data.background" button=true owner=owner editable=editable}}
-            --}}
-            <textarea class="background" name="data.background">{{data.background}}</textarea>
-        </div>
-
+        {{!-- Notes Tab --}}
+        <div class="tab" data-group="primary" data-tab="notes">
+            {{editor content=data.notes target="data.notes" button=true owner=owner editable=editable}}
+        </div>        
+    </section>
 </form>
