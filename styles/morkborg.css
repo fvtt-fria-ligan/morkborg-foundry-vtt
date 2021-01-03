@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 @font-face {
-  font-family: 'Bayreuth';
-  src: url("../fonts/bayreuth.ttf") format("truetype");
-}
-@font-face {
   font-family: 'Blood Crow';
   src: url("../fonts/bloodcrow.ttf") format("truetype");
 }
@@ -11,10 +7,9 @@
   font-family: 'FetteTrumpDeutsch';
   src: url("../fonts/FetteTrumpDeutsch.ttf") format("truetype");
 }
-.modesto {
-  font-family: "Modesto Condensed", "Palatino Linotype", serif;
-  font-size: 20px;
-  font-weight: 700;
+@font-face {
+  font-family: 'Old Cupboard';
+  src: url("../fonts/OldCupboard.otf") format("opentype");
 }
 .flexrow {
   display: flex;
@@ -69,10 +64,7 @@
 .morkborg.sheet .window-content {
   overflow-y: hidden;
   padding: 5px;
-  /*background: url("../ui/parchment.jpg") repeat;*/
-  /*background: url("../ui/darkparchment.jpg") repeat;*/
-  /* MB yellow
-  background: #ffe500;*/
+  background: #ffffff;
   font-size: 13px;
   color: #191813;
 }
@@ -80,240 +72,163 @@
   height: 100%;
   overflow: hidden;
 }
-.morkborg.sheet .window-content .tab {
-  height: 100%;
-  overflow-y: auto;
-  align-content: flex-start;
+.morkborg.sheet.actor {
+  min-width: 780px;
+  min-height: 400px;
+  margin-top: 0;
 }
-.morkborg.sheet input[type="text"],
-.morkborg.sheet input[type="number"] {
-  background: none;
-  border: 1px solid transparent;
-}
-.morkborg.sheet input[type="text"]:hover,
-.morkborg.sheet input[type="number"]:hover,
-.morkborg.sheet input[type="text"]:focus,
-.morkborg.sheet input[type="number"]:focus {
-  border: 1px solid #111;
-}
-.morkborg.sheet select {
-  flex: 1;
-  font-size: 12px;
-  height: 22px;
-  background: transparent;
-}
-.morkborg.sheet .editable .rollable:hover {
-  color: #000;
-  text-shadow: 0 0 10px #ffe500;
-  cursor: pointer;
-}
-.morkborg .sheet-header {
-  flex: 0 0 100px;
-  /*border-bottom: 2px groove #eeede0;*/
-}
-.morkborg.sheet .sheet-header h1 {
-  flex: 1;
-  border-bottom: none;
-  height: 60px;
-  margin: 0;
-  padding: 5px;
-}
-.morkborg.sheet .sheet-header h1 input {
-  display: block;
-  height: 50px;
-  font-size: 32px;
-  margin: 0;
-}
-.morkborg .sheet-header .profile-img {
-  object-fit: contain;
-  border: none;
+.morkborg.sheet.actor .sheet-header {
+  margin-top: 0;
   flex: 0 0 200px;
-  max-width: 200px;
-  height: 200px;
-  border: 1px solid black;
-}
-.morkborg .sheet-header h1.charname {
-  flex: 1;
-  height: 60px;
-  padding: 0;
-}
-.morkborg .sheet-header h1.charname input {
-  height: 40px;
-  margin: 10px 0;
-  font-family: "Blood Crow", fantasy, serif;
-  font-size: 38px;  
-}
-.morkborg .sheet-header .header-classname {
-  flex: 0 0 150px;
-  margin-right: 3px;
-  height: 60px;
-  justify-content: flex-end;
-  text-align: right;
-}
-.morkborg.sheet .sheet-header .summary {
-  flex: 0 0 100%;
-  height: 40px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  /*border-top: 2px groove #eeede0;*/
-  border-bottom: none;
-}
-.morkborg.sheet .sheet-header .summary li {
-  height: calc(100% - 6px);
-  float: left;
-  margin: 2px 0;
-  padding: 0;
-  line-height: 34px;
-  /*color: #4b4a44;*/
-  color: black;
-  font-family: 'Special Elite', cursive;
-  font-weight: bold;
-  font-size: 14px;
-}
-.morkborg.sheet .sheet-header .summary li:last-child {
-  border-right: none;
-}
-.morkborg.sheet.actor .sheet-header .resources {
-  flex: 0 0 100%;
-  margin: 0;
-}
-.morkborg.sheet.actor .sheet-header .abilities {
-  flex: 0 0 100%;
-  margin: 0;
-}
-.morkborg.sheet.actor .sheet-header .resources .resource {
-  height: 77px;
-  /*margin: 0;*/
-  margin-right: 10px;
-  /*border: none;*/
-  /*border-right: 2px groove #eeede0;*/
-  border: 1px dotted black;
-  border-radius: 0;
-}
-.morkborg.sheet.actor .sheet-header .abilities .ability {
-  margin-right: 10px;
-  border-radius: 0;
-  height: 100px;
-  border: none;
-  border-right: none;
-}
-.morkborg.sheet.actor .sheet-header .resources .resource:last-child {
-  /*border-right: none;*/
-}
-.morkborg.sheet.actor .sheet-header .resources .resource .resource-name {
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
-  font-size: 16px;  
-}
-.morkborg.sheet.actor .sheet-header .abilities .ability .ability-name {
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
-  font-size: 16px;  
-}
-.morkborg.sheet.actor .sheet-header .resources .resource .resource-value {
-  height: 30px;
-  line-height: 30px;
-}
-.morkborg.sheet.actor ul.resources {
-  flex: 0 0 60px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.morkborg.sheet.actor ul.abilities {
-  flex: 0 0 60px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.morkborg.sheet.actor ul.resources li.resource {
-  height: 70px;
-  margin: 0 5px 0 0;
-  /*border: 2px groove #eeede0;*/
-  border-radius: 4px;
-  text-align: center;
-}
-.morkborg.sheet.actor ul.abilities li.ability {
-  height: 70px;
-  margin: 0 5px 0 0;
-  /*border: 2px groove #eeede0;*/
-  border-radius: 4px;
-  text-align: center;
-}
-.morkborg.sheet.actor ul.resources li.resource:last-child {
-  margin: 0;
-}
-.morkborg.sheet.actor ul.abilities li.ability:last-child {
-  margin: 0;
-}
-.morkborg.sheet.actor ul.resources li.resource .resource-value {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 28px;
-  line-height: 28px;
-  font-family: "Modesto Condensed", "Palatino Linotype", serif; 
-  font-size: 20px;
-  font-weight: 700;
-}
-.morkborg.sheet.actor ul.abilities li.ability .ability-value {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Modesto Condensed", "Palatino Linotype", serif; 
-  font-size: 20px;
-  font-weight: 700;
-  height: 60px;
-  background-size: 60px 60px;
-  background-position: 50%;
-}
-.morkborg.sheet.actor ul.abilities li.ability .ability-value input {
-  border: 1px solid black;
-}
-.morkborg.sheet.actor ul.resources li.resource .resource-value > * {
-  font-weight: 400;
-  font-size: 24px;
-}
-.morkborg.sheet.actor ul.abilities li.ability .ability-value > * {
-  font-weight: 400;
-  font-size: 24px;
-}
-.morkborg.sheet.actor ul.resources li.resource .resource-value.multiple input {
-  flex: 0 0 33%;
-}
-/* TODO: do we want multiple to be specified for abilities? */
-.morkborg.sheet.actor ul.abilities li.ability .ability-value.multiple input {
-  flex: 0 0 33%;
-}
-.morkborg.sheet.actor ul.resources li.resource .resource-footer {
-  flex: 0 0 18px;
-  margin-top: -1px;
-  line-height: 18px;
-  font-family: 'Special Elite', cursive;
-  font-size: 12px;
-  font-weight: 400;
-  white-space: nowrap;
-}
-.morkborg.sheet span.sep {
-  flex: none;
-  margin: 0 1px;
-  display: inline;
-  position: relative;
-  color: #7a7971;
-  font-weight: normal;
-}
-.morkborg.sheet.item .sheet-header .item-subtitle {
-  flex: 0 0 100px;
-  height: 60px;
-  margin: 0;
+  flex-direction: row;
   padding: 5px;
-  text-align: right;
-  color: #7a7971;
+  border: 1px solid green;
 }
-.morkborg.sheet.item .sheet-header .item-subtitle .item-type {
+.morkborg.sheet.actor .header-gutter-col {
+  flex: 0 0 10px;
+}
+.morkborg.sheet.actor .header-col1 {
+  flex: 0 0 200px;
+  margin: 5px;
+}
+.morkborg.sheet.actor .header-col2 {
+  flex: 0 0 350px;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;  
+}
+.morkborg.sheet.actor .header-col3 {
+  flex: 0 0 150px;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+}
+.morkborg.sheet.actor .sheet-header .profile-img {
+  height: 200px;
+  width: 200px;
+  border: 1px solid black;
+}
+.morkborg.sheet.actor .charname-row {
+  flex: 0 0 50px;
+  margin-bottom: 8px;  
+}
+.morkborg.sheet.actor .charname-row input[type="text"] {
+  font-family: "Blood Crow", fantasy, serif;
+  font-size: 38px;
+  /* TODO: figure out why px width doesn't work */;
+  width: 98%;
+  height: 45px;
+}
+.morkborg.sheet.actor .classname-row {
+  flex: 0 0 30px;
+  margin-bottom: 8px;
+}
+.morkborg.sheet.actor .classname-row input[type="text"] {
+  font-family: "Old Cupboard", serif;
   font-size: 24px;
-  line-height: 26px;
+  width: 98%;
+}
+.morkborg.sheet.actor .hitpoints-row {
+  flex: 0 0 30px;
+  margin-bottom: 8px;  
+}
+.morkborg.sheet.actor .omens-row {
+  flex: 0 0 30px;
+  margin-bottom: 8px;
+}
+.morkborg.sheet.actor .rule-text {
+  font-family: 'Special Elite', cursive;  
+  font-size: 12pt;
+}
+.morkborg.sheet.actor .omen-rule-text {
+  margin-left: 10px;
+}
+.morkborg.sheet.actor .miseries-row {
+  flex: 0 0 30px;
+}
+.morkborg.sheet.actor .stat-label {
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 24px;
+  text-align: right;
+  float: left;
+  width: 140px;
+  margin-right: 10px;
+}
+.morkborg.sheet.actor .stat-input {
+  border: 1px solid black;
+  font-family: 'Special Elite', cursive;  
+  font-size: 14pt;
+  text-align: center;
+  padding-top: 8px;
+  width: 50px;
+}
+.morkborg.sheet.actor .miseries-label {
+  float: left;
+}
+.morkborg.sheet.actor ul.miseries {
+  list-style-type: none;
   margin: 0;
-  text-transform: uppercase;
+  margin-top: 3px;  
+  padding: 0;
+  float: left;
+}
+.morkborg.sheet.actor ul.miseries li {
+  float: left;
+}
+.morkborg.sheet.actor ul.miseries label {
+  display: block; 
+  padding: 4px; 
+  position: relative; 
+  padding-left: 20px;
+}
+.morkborg.sheet.actor ul.miseries label input[type="radio"] {
+  display: none;
+}
+.morkborg.sheet.actor ul.miseries input[type="radio"]:checked + span {
+  background: #ffe500;
+  color: #000;
+}
+.morkborg.sheet.actor ul.miseries label span {
+  border: 1px solid #000; 
+  width: 14px; 
+  height: 14px; 
+  position: absolute; 
+  overflow: hidden; 
+  line-height: 1.5; 
+  text-align: center; 
+  border-radius: 100%; 
+  font-size: 10pt;
+  font-family: 'Special Elite', cursive;  
+  left: 0; 
+  top: 50%; 
+}
+.morkborg.sheet.actor ul.miseries li:last-child label span {
+  background: black;
+  color: white;
+  line-height: 1.5;
+  font-size: 9pt;
+}
+.morkborg.sheet.actor .ability-row {
+  margin-bottom: 8px;
+}
+.morkborg.sheet.actor .ability-label {
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 24px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+.morkborg.sheet.actor .ability-input {
+  border: 1px solid black;
+  font-family: 'Special Elite', cursive;  
+  font-size: 14pt;
+  text-align: center;
+  padding: 5px;
+  padding-top: 10px;
+  line-height: 1.5;
+  width: 40px;
+  height: 40px;
 }
 .morkborg.sheet .sheet-tabs {
   flex: 0 0 30px;
@@ -331,15 +246,11 @@
   height: 30px;
   line-height: 32px;
   margin: 0 24px;
-  /* line under each tab */
-  /* border-bottom: 3px solid #b5b3a4; */
 }
 .morkborg.sheet .sheet-tabs .item:hover {
   text-shadow: 0 0 10px #ffe500;
 }
 .morkborg.sheet .sheet-tabs .item.active {
-  /* line under the active tab */
-  /* border-bottom: 3px solid #44191A; */
   /*text-shadow: 0 0 10px #ffe500;*/
   text-shadow:
     -2px -2px 0 #ffe500,
@@ -367,108 +278,4 @@
 */}
 .morkborg.sheet.actor .editor {
   padding: 0 8px;
-}
-.morkborg .item-list {
-  list-style: none;
-  margin: 7px 0;
-  padding: 0;
-  overflow-y: auto;
-}
-.morkborg .item-list .item {
-  min-height: 30px;
-  line-height: 24px;
-  padding: 3px 0;
-  border-bottom: 1px solid #BBB;
-  align-items: stretch;
-}
-.morkborg .item-list .item img {
-  flex: 0 0 24px;
-  margin-right: 5px;
-}
-.morkborg .item-list .item-name {
-  margin: 0;
-}
-.morkborg .item-list .item-controls {
-  flex: 0 0 36px;
-}
-.morkborg .item-list .item-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: center;
-  flex: 2;
-  justify-content: flex-start;
-}
-.morkborg .item-list .item-button {
-  line-height: 1;
-  font-size: 11px;
-  flex: none;
-  width: auto;
-}
-.morkborg .items-list .items-header {
-  height: 28px;
-  margin: 2px 0;
-  padding: 0;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.05);
-  border: 2px groove #eeede0;
-  font-weight: bold;
-}
-.morkborg .items-list .items-header > * {
-  font-size: 12px;
-  text-align: center;
-}
-.morkborg .items-list .items-header .item-name {
-  padding-left: 5px;
-  font-family: "Modesto Condensed", "Palatino Linotype", serif;
-  font-size: 20px;
-  font-weight: 700;
-  font-size: 16px;
-}
-/**/.morkborg.sheet.actor {
-  min-width: 560px;
-  min-height: 420px;
-}
-.morkborg.sheet.item {
-  min-width: 460px;
-  min-height: 400px;
-}
-.morkborg.sheet textarea {
-  margin-top: 10px;
-  resize: none;
-  font-family: 'Special Elite', cursive;
-  font-size: 16px;
-  height: 200px;
-}
-.morkborg.sheet .weapon-block {
-  border: 2px dashed black;
-  height: 150px;
-  width: 100%;
-}
-.morkborg.sheet .weapon-block .weapon-name {
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
-  font-size: 20px;
-  height: 30px;
-}
-.morkborg .weapon-block .weapon-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-items: center;
-  /*flex: 2;*/
-  /*justify-content: flex-start;*/
-
-}
-.morkborg .weapon-block .weapon-button {
-  line-height: 1;
-  font-size: 11px;
-  flex: none;
-  /*width: auto;*/
- width: 100px;
-  height: 30px;
-}
-.morkborg .violence-block {
-  border: 1px solid blue;
-  height: 100%;
-  width: 100%;
 }

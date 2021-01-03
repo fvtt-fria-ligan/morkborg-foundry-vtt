@@ -1,80 +1,64 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
-
     {{!-- Sheet Header --}}
-    <header class="sheet-header flexrow">
-        {{!-- Profile column --}}
-        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
-
-        {{!-- Name etc column --}}
-
-        {{!-- Ability scores --}}
-
-
-
-        <section class="header-details flexrow">
-            <h1 class="charname">
-                <input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'MB.Name' }}"/>
-            </h1>
-
-<!--             <aside class="header-classname flexcol">
-                <div class="charname">
-                    <label>{{data.class.name}}</label>
-                </div>
-            </aside>     -->
-
-            {{!-- Abilities --}}
-            <ul class="abilities flexrow">
-                <li class="ability">
-                    <h4 class="ability-name box-title rollable" data-roll="d20+@abilities.strength.score" data-label="{{data.abilities.strength.label}}">{{ data.abilities.strength.label }}</h4>
-                    <div class="ability-value multiple">
-                       <input class="left-column-input" type="text" name="data.abilities.strength.score" value="{{numberFormat data.abilities.strength.score decimals=0 sign=true}}" data-dtype="Number"/>
-                    </div>
-                </li>
-                <li class="ability">
-                    <h4 class="ability-name box-title rollable" data-roll="d20+@abilities.agility.score" data-label="{{data.abilities.agility.label}}">{{ data.abilities.agility.label }}</h4>
-                    <div class="ability-value multiple">
-                       <input class="left-column-input" type="text" name="data.abilities.agility.score" value="{{numberFormat data.abilities.agility.score decimals=0 sign=true}}" data-dtype="Number"/>
-                    </div>
-                </li>
-                <li class="ability">
-                    <h4 class="ability-name box-title rollable" data-roll="d20+@abilities.presence.score" data-label="{{data.abilities.presence.label}}">{{ data.abilities.presence.label }}</h4>
-                    <div class="ability-value multiple">
-                       <input class="left-column-input" type="text" name="data.abilities.presence.score" value="{{numberFormat data.abilities.presence.score decimals=0 sign=true}}" data-dtype="Number"/>
-                    </div>
-                </li>
-                <li class="ability">
-                    <h4 class="ability-name box-title rollable" data-roll="d20+@abilities.toughness.score" data-label="{{data.abilities.toughness.label}}">{{ data.abilities.toughness.label }}</h4>
-                    <div class="ability-value multiple">
-                       <input class="left-column-input" type="text" name="data.abilities.toughness.score" value="{{numberFormat data.abilities.toughness.score decimals=0 sign=true}}" data-dtype="Number"/>
-                    </div>
-                </li>
-            </ul>
-
-            {{!-- Resources --}}
-            <ul class="resources flexrow">
-                <li class="resource">
-                    <h4 class="resource-name box-title">{{ localize "MB.HitPoints" }}</h4>
-                    <div class="resource-value multiple">
-                        <input name="data.hp.current" type="text" value="{{data.hp.current}}" placeholder="10" data-dtype="Number"/>
-                        <span class="sep"> / </span>
-                        <input name="data.hp.max" type="text" value="{{data.hp.max}}" placeholder="10" data-dtype="Number"/>
-                    </div>
-                    <footer class="resource-footer">
-                        <span>{{ localize "MB.Current"}} / {{ localize "MB.Max"}}</span>
-                    </footer>                    
-                </li>
-                <li class="resource">
-                    <h4 class="resource-name box-title">{{ localize "MB.Omens" }}</h4>
-                    <div class="resource-value multiple">
-                        <input name="data.omens" type="text" value="{{data.omens}}" placeholder="10" data-dtype="Number"/>
-                    </div>
-                    <footer class="resource-footer">
-                        <span>{{data.class.omenDie}} {{ localize "MB.PerRest"}}</span>
-                    </footer>                        
-                </li>
-            </ul>
-        </section>
-    </header>
+    <header class="sheet-header">
+        <div class="header-col1">
+            <img class="profile-img" src="gutterborn.png" />
+        </div>
+        <div class="header-gutter-col">
+        </div>
+        <div class="header-col2">
+            <div class="charname-row">
+                <input class="charname" type="text" placeholder="Character Name" value="Belsum Deadface" />
+            </div>
+            <div class="classname-row">
+                <input class="classname" type="text" placeholder="Class Name" value="Occult Herbalist" />
+            </div>
+            <div class="hitpoints-row">
+                <span class="stat-label">Hit Points:</span>
+                <input class="stat-input hitpoints-current" type="text" size="3" />
+                /
+                <input class="stat-input hitpoints-max" type="text" size="3" />
+            </div>
+            <div class="omens-row">
+                <span class="stat-label">Omens:</span>
+                <input class="stat-input omens" type="text" size="3" />
+                <span class="rule-text omen-rule-text">1d2 per rest</span>
+            </div>
+            <div class="miseries-row">
+                <span class="stat-label miseries-label">Miseries:</span>
+                <ul class="miseries">
+                    <li><label><input type="radio" id="misery-radio-0" name="misery-radio" /><span>0</span></label></li>
+                    <li><label><input type="radio" id="misery-radio-1" name="misery-radio" /><span>1</span></label></li>
+                    <li><label><input type="radio" id="misery-radio-2" name="misery-radio" /><span>2</span></label></li>
+                    <li><label><input type="radio" id="misery-radio-3" name="misery-radio" /><span>3</span></label></li>
+                    <li><label><input type="radio" id="misery-radio-4" name="misery-radio" /><span>4</span></label></li>
+                    <li><label><input type="radio" id="misery-radio-5" name="misery-radio" /><span>5</span></label></li>
+                    <li><label><input type="radio" id="misery-radio-6" name="misery-radio" /><span>6</span></label></li>
+                    <li><label><input type="radio" id="misery-radio-7" name="misery-radio" /><span>X</span></label></li>
+                </ul>
+            </div>
+        </div>
+        <div class="header-gutter-col">
+        </div>
+        <div class="header-col3">
+          <div class="ability-row">
+            <input class="ability-input strength" type="text" size="3" />
+            <span class="ability-label">STR</span>
+          </div>
+          <div class="ability-row">
+            <input class="ability-input agility" type="text" size="3" />
+            <span class="ability-label">AGI</span>
+          </div>
+          <div class="ability-row">
+            <input class="ability-input presence" type="text" size="3" />                
+            <span class="ability-label">PRE</span>
+          </div>
+          <div class="ability-row">
+            <input class="ability-input toughness" type="text" size="3" />
+            <span class="ability-label">TOU</span>
+          </div>
+        </div>
+        </header>
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
