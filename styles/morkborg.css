@@ -65,9 +65,10 @@
   overflow-y: hidden;
   padding: 5px;
   /* inherited is parchment img bg */
-  background: #ffffff;
+  background: black;
   font-size: 13px;
-  color: #191813;
+  /*color: #191813;*/
+  color: white;
 }
 .morkborg.sheet .window-content form {
   height: 100%;
@@ -82,6 +83,12 @@
   color: #000;
   text-shadow: 0 0 10px #ffe500;
   cursor: pointer;
+}
+.morkborg.sheet input[type="text"],
+.morkborg.sheet input[type="number"],
+.morkborg.sheet input[type="password"],
+.morkborg.sheet input[type="date"] {
+  color: white;
 }
 .morkborg.sheet input[type="text"]:focus,
 .morkborg.sheet input[type="number"]:focus,
@@ -111,7 +118,20 @@ alternately we could select as
 .morkborg.sheet.actor a:hover {
   text-shadow: 0 0 8px #ffe500;
 }
-
+.morkborg.sheet.actor .editor {
+  color: white;
+  border: 1px solid #7a7971;
+}
+/*.morkborg.sheet.actor .editor-content {
+  color: white;
+}
+*//* TODO: see if there's a better way for us to style TinyMCE */
+.morkborg.sheet.actor .tox.tox-tinymce .tox-edit-area__iframe {
+  /* TODO: how do we style font color in tinymce? 
+  color: white;
+  */
+  background: lightgray;
+}
 .morkborg.sheet.actor .sheet-header {
   margin-top: 0;
   flex: 0 0 200px;
@@ -145,7 +165,7 @@ alternately we could select as
   margin: 0;
   padding: 0;
   border-radius: 0;
-  border: 1px solid black;
+  border: 1 px solid white;
 }
 .morkborg.sheet.actor .charname-row {
   flex: 0 0 50px;
@@ -166,7 +186,7 @@ alternately we could select as
   font-family: "Old Cupboard", serif;
   font-size: 24px;
   width: 100%;
-  border-radius: 0;  
+  border-radius: 0;
 }
 .morkborg.sheet.actor .hitpoints-row {
   flex: 0 0 30px;
@@ -196,13 +216,14 @@ alternately we could select as
   margin-right: 10px;
 }
 .morkborg.sheet.actor .stat-input {
-  border: 1px solid black;
+  border: 1px solid #7a7971;
   font-family: 'Special Elite', cursive;  
   font-size: 14pt;
   text-align: center;
   padding-top: 8px;
   width: 50px;
-  border-radius: 0;  
+  border-radius: 0;
+  color: white;
 }
 .morkborg.sheet.actor .miseries-label {
   float: left;
@@ -229,9 +250,10 @@ alternately we could select as
 .morkborg.sheet.actor ul.miseries input[type="radio"]:checked + span {
   background: #ffe500;
   color: #000;
+  border: none;
 }
 .morkborg.sheet.actor ul.miseries label span {
-  border: 1px solid #000; 
+  border: 1px solid #7a7971; 
   width: 17px; 
   height: 17px; 
   position: absolute; 
@@ -245,8 +267,8 @@ alternately we could select as
   top: 50%; 
 }
 .morkborg.sheet.actor ul.miseries li:last-child label span {
-  background: black;
-  color: white;
+  background: white;
+  color: black;
 }
 .morkborg.sheet.actor .ability-row {
   margin-bottom: 10px;
@@ -262,7 +284,7 @@ alternately we could select as
   float: left;
 }
 .morkborg.sheet.actor .ability-input {
-  border: 1px solid black;
+  border: 1px solid #7a7971;
   font-family: 'Special Elite', cursive;  
   font-size: 14pt;
   text-align: center;
@@ -273,6 +295,7 @@ alternately we could select as
   height: 42px;
   float: left;
   border-radius: 0;  
+  color: white;
 }
 .morkborg.sheet .sheet-tabs {
   flex: 0 0 30px;
@@ -289,15 +312,15 @@ alternately we could select as
   font-size: 22px;
   height: 30px;
   line-height: 32px;
-  margin: 0 20px;
-  border-bottom: 1px solid black;
+  margin: 0 5px;
+  width: 120px;
 }
 .morkborg.sheet .sheet-tabs .item:hover {
+  color: black;
   text-shadow: 0 0 10px #ffe500;
 }
 .morkborg.sheet .sheet-tabs .item.active {
-  /*text-shadow: 0 0 10px #ffe500;*/
-  text-shadow:
+/*  text-shadow:
     -2px -2px 0 #ffe500,
      0   -2px 0 #ffe500,
      2px -2px 0 #ffe500,
@@ -305,7 +328,10 @@ alternately we could select as
      2px  2px 0 #ffe500,
      0    2px 0 #ffe500,
     -2px  2px 0 #ffe500,
-    -2px  0   0 #ffe500;  
+    -2px  0   0 #ffe500;  */
+    text-shadow: none;
+    background-color: #ffe500;
+    color: black;
 }
 .morkborg .sheet-body {
   /*flex: 1;*/

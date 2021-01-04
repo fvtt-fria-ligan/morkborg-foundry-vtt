@@ -27,7 +27,7 @@
             <div class="miseries-row">
                 <span class="stat-label miseries-label">{{ localize "MB.Miseries" }}:</span>
                 <ul class="miseries">
-                    <li><label><input type="radio" name="data.miseries" value="0" data-dtype="Number" {{#ifEquals data.miseries 0}}checked{{/ifEquals}}/><span>0</span></label></li>                  
+                    <li><label><input type="radio" name="data.miseries" value="0" data-dtype="Number" {{#eq data.miseries 0}}checked{{/eq}}/><span>0</span></label></li>                  
                     <li><label><input type="radio" name="data.miseries" value="1" data-dtype="Number" {{#ifEquals data.miseries 1}}checked{{/ifEquals}}/><span>1</span></label></li>                  
                     <li><label><input type="radio" name="data.miseries" value="2" data-dtype="Number" {{#ifEquals data.miseries 2}}checked{{/ifEquals}}/><span>2</span></label></li>                  
                     <li><label><input type="radio" name="data.miseries" value="3" data-dtype="Number" {{#ifEquals data.miseries 3}}checked{{/ifEquals}}/><span>3</span></label></li>                  
@@ -162,14 +162,8 @@
             </div>
         </div>
 
-        {{!-- Equipment Tab --}}
-        <div class="tab items" data-group="primary" data-tab="equipment">
-
-            <div class="form-group">
-                <label>{{ localize "MB.Silver" }}</label>
-                <input type="text" name="silver" value="{{data.silver}}" placeholder="0" data-dtype="Number" />
-            </div> 
-
+        {{!-- Powers Tab --}}
+        <div class="tab powers" data-group="primary" data-tab="powers">
             <ol class="items-list inventory-list">
                 <li class="items-header flexrow">
                     <h3 class="item-name flexrow">{{localize "MB.ItemTypeScrollPlural"}}</h3>
@@ -197,7 +191,23 @@
                     </li>
                     {{/each}}
                 </ol>   
+            </ol>
+        </div>
 
+        {{!-- Equipment Tab --}}
+        <div class="tab items" data-group="primary" data-tab="equipment">
+
+            <div class="form-group">
+                <label>{{ localize "MB.Silver" }}</label>
+                <input type="text" name="silver" value="{{data.silver}}" placeholder="0" data-dtype="Number" />
+            </div> 
+
+            <div class="form-group">
+                <label>{{ localize "MB.CarryingCapacity" }}</label>
+                <input type="text" name="carryingcapacity" value="{{data.carryingcapacity}}" placeholder="0" data-dtype="Number" />
+            </div> 
+
+            <ol class="items-list inventory-list">
                 <li class="items-header flexrow">
                     <h3 class="item-name flexrow">{{localize "MB.ItemTypeMiscPlural"}}</h3>
                     <div class="item-controls flexrow">
