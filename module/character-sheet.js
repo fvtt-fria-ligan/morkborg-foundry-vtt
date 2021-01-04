@@ -33,7 +33,7 @@ export class MBActorSheetCharacter extends ActorSheet {
     //   attr.isCheckbox = attr.dtype === "Boolean";
     // }
 
-    // // Prepare items.
+    // Prepare items.
     if (this.actor.data.type == 'character') {
       this._prepareCharacterItems(data);
     }

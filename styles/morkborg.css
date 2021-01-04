@@ -198,8 +198,8 @@
 }
 .morkborg.sheet.actor ul.miseries label span {
   border: 1px solid #000; 
-  width: 14px; 
-  height: 14px; 
+  width: 17px; 
+  height: 17px; 
   position: absolute; 
   overflow: hidden; 
   line-height: 1.5; 
@@ -213,8 +213,6 @@
 .morkborg.sheet.actor ul.miseries li:last-child label span {
   background: black;
   color: white;
-  line-height: 1.5;
-  font-size: 9pt;
 }
 .morkborg.sheet.actor .ability-row {
   margin-bottom: 8px;

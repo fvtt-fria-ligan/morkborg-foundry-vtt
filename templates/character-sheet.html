@@ -27,14 +27,14 @@
             <div class="miseries-row">
                 <span class="stat-label miseries-label">{{ localize "MB.Miseries" }}:</span>
                 <ul class="miseries">
-                    <li><label><input type="radio" id="misery-radio-0" name="misery-radio" /><span>0</span></label></li>
-                    <li><label><input type="radio" id="misery-radio-1" name="misery-radio" /><span>1</span></label></li>
-                    <li><label><input type="radio" id="misery-radio-2" name="misery-radio" /><span>2</span></label></li>
-                    <li><label><input type="radio" id="misery-radio-3" name="misery-radio" /><span>3</span></label></li>
-                    <li><label><input type="radio" id="misery-radio-4" name="misery-radio" /><span>4</span></label></li>
-                    <li><label><input type="radio" id="misery-radio-5" name="misery-radio" /><span>5</span></label></li>
-                    <li><label><input type="radio" id="misery-radio-6" name="misery-radio" /><span>6</span></label></li>
-                    <li><label><input type="radio" id="misery-radio-7" name="misery-radio" /><span>X</span></label></li>
+                    <li><label><input type="radio" name="data.miseries" value="0" data-dtype="Number" {{#ifEquals data.miseries 0}}checked{{/ifEquals}}/><span>0</span></label></li>                  
+                    <li><label><input type="radio" name="data.miseries" value="1" data-dtype="Number" {{#ifEquals data.miseries 1}}checked{{/ifEquals}}/><span>1</span></label></li>                  
+                    <li><label><input type="radio" name="data.miseries" value="2" data-dtype="Number" {{#ifEquals data.miseries 2}}checked{{/ifEquals}}/><span>2</span></label></li>                  
+                    <li><label><input type="radio" name="data.miseries" value="3" data-dtype="Number" {{#ifEquals data.miseries 3}}checked{{/ifEquals}}/><span>3</span></label></li>                  
+                    <li><label><input type="radio" name="data.miseries" value="4" data-dtype="Number" {{#ifEquals data.miseries 4}}checked{{/ifEquals}}/><span>4</span></label></li>                  
+                    <li><label><input type="radio" name="data.miseries" value="5" data-dtype="Number" {{#ifEquals data.miseries 5}}checked{{/ifEquals}}/><span>5</span></label></li>                  
+                    <li><label><input type="radio" name="data.miseries" value="6" data-dtype="Number" {{#ifEquals data.miseries 6}}checked{{/ifEquals}}/><span>6</span></label></li>                  
+                    <li><label><input type="radio" name="data.miseries" value="7" data-dtype="Number" {{#ifEquals data.miseries 7}}checked{{/ifEquals}}/><span>X</span></label></li>                  
                 </ul>
             </div>
         </div>
@@ -43,19 +43,19 @@
         <div class="header-col3">
           <div class="ability-row">
             <input class="ability-input" type="text" name="data.abilities.strength.score" value="{{numberFormat data.abilities.strength.score decimals=0 sign=true}}" data-dtype="Number" size="3" />
-            <span class="ability-label rollable" data-roll="d20+@abilities.strength.score" data-label="{{data.abilities.strength.label}}">STR</span>
+            <span class="ability-label rollable" data-roll="d20+@abilities.strength.score" data-label="{{data.abilities.strength.label}}">{{ localize 'MB.StrengthAbbreviation' }}</span>
           </div>
           <div class="ability-row">
             <input class="ability-input" type="text" name="data.abilities.agility.score" value="{{numberFormat data.abilities.agility.score decimals=0 sign=true}}" data-dtype="Number" size="3" />
-            <span class="ability-label rollable" data-roll="d20+@abilities.agility.score" data-label="{{data.abilities.agility.label}}">AGI</span>
+            <span class="ability-label rollable" data-roll="d20+@abilities.agility.score" data-label="{{data.abilities.agility.label}}">{{ localize 'MB.AgilityAbbreviation' }}</span>
           </div>
           <div class="ability-row">
             <input class="ability-input" type="text" name="data.abilities.presence.score" value="{{numberFormat data.abilities.presence.score decimals=0 sign=true}}" data-dtype="Number" size="3" />
-            <span class="ability-label rollable" data-roll="d20+@abilities.presence.score" data-label="{{data.abilities.presence.label}}">PRE</span>
+            <span class="ability-label rollable" data-roll="d20+@abilities.presence.score" data-label="{{data.abilities.presence.label}}">{{ localize 'MB.PresenceAbbreviation' }}</span>
           </div>
           <div class="ability-row">
             <input class="ability-input" type="text" name="data.abilities.toughness.score" value="{{numberFormat data.abilities.toughness.score decimals=0 sign=true}}" data-dtype="Number" size="3" />
-            <span class="ability-label rollable" data-roll="d20+@abilities.toughness.score" data-label="{{data.abilities.toughness.label}}">TOU</span>
+            <span class="ability-label rollable" data-roll="d20+@abilities.toughness.score" data-label="{{data.abilities.toughness.label}}">{{ localize 'MB.ToughnessAbbreviation' }}</span>
           </div>
         </div>
         </header>
