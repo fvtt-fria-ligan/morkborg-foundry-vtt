@@ -8,20 +8,20 @@
         </div>
         <div class="header-col2">
             <div class="charname-row">
-                <input class="charname" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'MB.Name' }}"/>                
+                <input class="charname" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'MB.Name' }}" spellcheck="false"/>                
             </div>
             <div class="classname-row">
                 <input class="classname" name="classname" type="text" value="{{data.class.name}}" placeholder="{{ localize 'MB.ClassName' }}"/>                
             </div>
             <div class="hitpoints-row">
                 <span class="stat-label">{{ localize "MB.HitPoints" }}:</span>
-                <input class="stat-input" name="data.hp.current" type="text" value="{{data.hp.current}}" data-dtype="Number"/>
+                <input class="stat-input" name="data.hp.current" type="number" value="{{data.hp.current}}" data-dtype="Number"/>
                 /
-                <input class="stat-input" name="data.hp.max" type="text" value="{{data.hp.max}}" data-dtype="Number"/>
+                <input class="stat-input" name="data.hp.max" type="number" value="{{data.hp.max}}" data-dtype="Number"/>
             </div>
             <div class="omens-row">
                 <span class="stat-label">{{ localize "MB.Omens" }}:</span>
-                <input class="stat-input" name="data.omens" type="text" value="{{data.omens}}" data-dtype="Number"/>
+                <input class="stat-input" name="data.omens" type="number" value="{{data.omens}}" data-dtype="Number"/>
                 <span class="rule-text omen-rule-text rollable" data-roll="{{data.class.omenDie}}" data-label="{{localize 'MB.Omens'}}">{{data.class.omenDie}} {{ localize "MB.PerRest"}}</span>
             </div>
             <div class="miseries-row">

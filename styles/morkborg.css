@@ -64,6 +64,7 @@
 .morkborg.sheet .window-content {
   overflow-y: hidden;
   padding: 5px;
+  /* inherited is parchment img bg */
   background: #ffffff;
   font-size: 13px;
   color: #191813;
@@ -82,13 +83,41 @@
   text-shadow: 0 0 10px #ffe500;
   cursor: pointer;
 }
+.morkborg.sheet input[type="text"]:focus,
+.morkborg.sheet input[type="number"]:focus,
+.morkborg.sheet input[type="password"]:focus,
+.morkborg.sheet input[type="date"]:focus,
+.morkborg.sheet input[type="time"]:focus,
+.morkborg.sheet input[type="text"]:hover,
+.morkborg.sheet input[type="number"]:hover,
+.morkborg.sheet input[type="password"]:hover,
+.morkborg.sheet input[type="date"]:hover,
+.morkborg.sheet input[type="time"]:hover {
+  box-shadow: 0 0 5px #ffe500;
+}
+.morkborg.sheet select:focus {
+  box-shadow: 0 0 5px #ffe500;
+}
+.morkborg.sheet button:hover,
+.morkborg.sheet button:focus {
+  box-shadow: 0 0 5px #ffe500;
+}
+/* 
+Anchor hover affects font awesome icons, like the on-hover TinyMCE edit icon:;
+  <a class="editor-edit"><i class="fas fa-edit"></i></a>
+alternately we could select as
+.morkborg.sheet .editor:hover .editor-edit:hover .fa-edit {}        
+ */
+.morkborg.sheet.actor a:hover {
+  text-shadow: 0 0 8px #ffe500;
+}
+
 .morkborg.sheet.actor .sheet-header {
   margin-top: 0;
   flex: 0 0 200px;
   display: flex;
   flex-direction: row;
   padding: 5px;
-  border: 1px solid green;
 }
 .morkborg.sheet.actor .header-gutter-col {
   flex: 0 0 10px;
@@ -96,12 +125,14 @@
 .morkborg.sheet.actor .header-col1 {
   flex: 0 0 200px;
   margin: 5px;
+  border: 1px solid green;
 }
 .morkborg.sheet.actor .header-col2 {
   flex: 0 0 350px;
   margin: 5px;
   display: flex;
   flex-direction: column;  
+  border: 1px solid blue;
 }
 .morkborg.sheet.actor .header-col3 {
   flex: 0 0 150px;
@@ -113,6 +144,9 @@
 .morkborg.sheet.actor .sheet-header .profile-img {
   height: 200px;
   width: 200px;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
   border: 1px solid black;
 }
 .morkborg.sheet.actor .charname-row {
@@ -122,9 +156,9 @@
 .morkborg.sheet.actor .charname-row input[type="text"] {
   font-family: "Blood Crow", fantasy, serif;
   font-size: 38px;
-  /* TODO: figure out why px width doesn't work */;
-  width: 98%;
+  width: 100%;
   height: 45px;
+  border-radius: 0;
 }
 .morkborg.sheet.actor .classname-row {
   flex: 0 0 30px;
@@ -133,7 +167,8 @@
 .morkborg.sheet.actor .classname-row input[type="text"] {
   font-family: "Old Cupboard", serif;
   font-size: 24px;
-  width: 98%;
+  width: 100%;
+  border-radius: 0;  
 }
 .morkborg.sheet.actor .hitpoints-row {
   flex: 0 0 30px;
@@ -169,6 +204,7 @@
   text-align: center;
   padding-top: 8px;
   width: 50px;
+  border-radius: 0;  
 }
 .morkborg.sheet.actor .miseries-label {
   float: left;
@@ -215,13 +251,17 @@
   color: white;
 }
 .morkborg.sheet.actor .ability-row {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+}
+.morkborg.sheet.actor .ability-row:last-child {
+  margin-bottom: 0;
 }
 .morkborg.sheet.actor .ability-label {
   font-family: "FetteTrumpDeutsch", fantasy, serif;
   font-size: 24px;
   margin-left: 5px;
-  vertical-align: middle;
+  margin-top: 5px;
+  float: left;
 }
 .morkborg.sheet.actor .ability-input {
   border: 1px solid black;
@@ -231,8 +271,10 @@
   padding: 5px;
   padding-top: 10px;
   line-height: 1.5;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
+  float: left;
+  border-radius: 0;  
 }
 .morkborg.sheet .sheet-tabs {
   flex: 0 0 30px;
