@@ -125,21 +125,19 @@ alternately we could select as
 .morkborg.sheet.actor .header-col1 {
   flex: 0 0 200px;
   margin: 5px;
-  border: 1px solid green;
+  padding: 0;
 }
 .morkborg.sheet.actor .header-col2 {
   flex: 0 0 350px;
   margin: 5px;
   display: flex;
   flex-direction: column;  
-  border: 1px solid blue;
 }
 .morkborg.sheet.actor .header-col3 {
   flex: 0 0 150px;
   margin: 5px;
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
 }
 .morkborg.sheet.actor .sheet-header .profile-img {
   height: 200px;
@@ -151,7 +149,7 @@ alternately we could select as
 }
 .morkborg.sheet.actor .charname-row {
   flex: 0 0 50px;
-  margin-bottom: 8px;  
+  margin-bottom: 7px;  
 }
 .morkborg.sheet.actor .charname-row input[type="text"] {
   font-family: "Blood Crow", fantasy, serif;
@@ -162,7 +160,7 @@ alternately we could select as
 }
 .morkborg.sheet.actor .classname-row {
   flex: 0 0 30px;
-  margin-bottom: 8px;
+  margin-bottom: 7px;
 }
 .morkborg.sheet.actor .classname-row input[type="text"] {
   font-family: "Old Cupboard", serif;
@@ -172,11 +170,11 @@ alternately we could select as
 }
 .morkborg.sheet.actor .hitpoints-row {
   flex: 0 0 30px;
-  margin-bottom: 8px;  
+  margin-bottom: 7px;  
 }
 .morkborg.sheet.actor .omens-row {
   flex: 0 0 30px;
-  margin-bottom: 8px;
+  margin-bottom: 7px;
 }
 .morkborg.sheet.actor .rule-text {
   font-family: 'Special Elite', cursive;  
@@ -251,7 +249,7 @@ alternately we could select as
   color: white;
 }
 .morkborg.sheet.actor .ability-row {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 .morkborg.sheet.actor .ability-row:last-child {
   margin-bottom: 0;
