@@ -74,7 +74,7 @@
   overflow: hidden;
 }
 .morkborg.sheet.actor {
-  min-width: 780px;
+  min-width: 740px;
   min-height: 400px;
   margin-top: 0;
 }
@@ -134,7 +134,7 @@ alternately we could select as
   flex-direction: column;  
 }
 .morkborg.sheet.actor .header-col3 {
-  flex: 0 0 150px;
+  flex: 0 0 120px;
   margin: 5px;
   display: flex;
   flex-direction: column;
@@ -286,10 +286,11 @@ alternately we could select as
 }
 .morkborg.sheet .sheet-tabs .item {
   font-family: "FetteTrumpDeutsch", fantasy, serif;
-  font-size: 20px;
+  font-size: 22px;
   height: 30px;
   line-height: 32px;
-  margin: 0 24px;
+  margin: 0 20px;
+  border-bottom: 1px solid black;
 }
 .morkborg.sheet .sheet-tabs .item:hover {
   text-shadow: 0 0 10px #ffe500;
