@@ -77,6 +77,11 @@
   min-height: 400px;
   margin-top: 0;
 }
+.morkborg.sheet .editable .rollable:hover {
+  color: #000;
+  text-shadow: 0 0 10px #ffe500;
+  cursor: pointer;
+}
 .morkborg.sheet.actor .sheet-header {
   margin-top: 0;
   flex: 0 0 200px;
@@ -144,6 +149,7 @@
 }
 .morkborg.sheet.actor .omen-rule-text {
   margin-left: 10px;
+  text-transform: lowercase;
 }
 .morkborg.sheet.actor .miseries-row {
   flex: 0 0 30px;

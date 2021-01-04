@@ -2,30 +2,30 @@
     {{!-- Sheet Header --}}
     <header class="sheet-header">
         <div class="header-col1">
-            <img class="profile-img" src="gutterborn.png" />
+            <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>            
         </div>
         <div class="header-gutter-col">
         </div>
         <div class="header-col2">
             <div class="charname-row">
-                <input class="charname" type="text" placeholder="Character Name" value="Belsum Deadface" />
+                <input class="charname" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'MB.Name' }}"/>                
             </div>
             <div class="classname-row">
-                <input class="classname" type="text" placeholder="Class Name" value="Occult Herbalist" />
+                <input class="classname" name="classname" type="text" value="{{data.class.name}}" placeholder="{{ localize 'MB.ClassName' }}"/>                
             </div>
             <div class="hitpoints-row">
-                <span class="stat-label">Hit Points:</span>
-                <input class="stat-input hitpoints-current" type="text" size="3" />
+                <span class="stat-label">{{ localize "MB.HitPoints" }}:</span>
+                <input class="stat-input" name="data.hp.current" type="text" value="{{data.hp.current}}" data-dtype="Number"/>
                 /
-                <input class="stat-input hitpoints-max" type="text" size="3" />
+                <input class="stat-input" name="data.hp.max" type="text" value="{{data.hp.max}}" data-dtype="Number"/>
             </div>
             <div class="omens-row">
-                <span class="stat-label">Omens:</span>
-                <input class="stat-input omens" type="text" size="3" />
-                <span class="rule-text omen-rule-text">1d2 per rest</span>
+                <span class="stat-label">{{ localize "MB.Omens" }}:</span>
+                <input class="stat-input" name="data.omens" type="text" value="{{data.omens}}" data-dtype="Number"/>
+                <span class="rule-text omen-rule-text rollable" data-roll="{{data.class.omenDie}}" data-label="{{localize 'MB.Omens'}}">{{data.class.omenDie}} {{ localize "MB.PerRest"}}</span>
             </div>
             <div class="miseries-row">
-                <span class="stat-label miseries-label">Miseries:</span>
+                <span class="stat-label miseries-label">{{ localize "MB.Miseries" }}:</span>
                 <ul class="miseries">
                     <li><label><input type="radio" id="misery-radio-0" name="misery-radio" /><span>0</span></label></li>
                     <li><label><input type="radio" id="misery-radio-1" name="misery-radio" /><span>1</span></label></li>
@@ -42,20 +42,20 @@
         </div>
         <div class="header-col3">
           <div class="ability-row">
-            <input class="ability-input strength" type="text" size="3" />
-            <span class="ability-label">STR</span>
+            <input class="ability-input" type="text" name="data.abilities.strength.score" value="{{numberFormat data.abilities.strength.score decimals=0 sign=true}}" data-dtype="Number" size="3" />
+            <span class="ability-label rollable" data-roll="d20+@abilities.strength.score" data-label="{{data.abilities.strength.label}}">STR</span>
           </div>
           <div class="ability-row">
-            <input class="ability-input agility" type="text" size="3" />
-            <span class="ability-label">AGI</span>
+            <input class="ability-input" type="text" name="data.abilities.agility.score" value="{{numberFormat data.abilities.agility.score decimals=0 sign=true}}" data-dtype="Number" size="3" />
+            <span class="ability-label rollable" data-roll="d20+@abilities.agility.score" data-label="{{data.abilities.agility.label}}">AGI</span>
           </div>
           <div class="ability-row">
-            <input class="ability-input presence" type="text" size="3" />                
-            <span class="ability-label">PRE</span>
+            <input class="ability-input" type="text" name="data.abilities.presence.score" value="{{numberFormat data.abilities.presence.score decimals=0 sign=true}}" data-dtype="Number" size="3" />
+            <span class="ability-label rollable" data-roll="d20+@abilities.presence.score" data-label="{{data.abilities.presence.label}}">PRE</span>
           </div>
           <div class="ability-row">
-            <input class="ability-input toughness" type="text" size="3" />
-            <span class="ability-label">TOU</span>
+            <input class="ability-input" type="text" name="data.abilities.toughness.score" value="{{numberFormat data.abilities.toughness.score decimals=0 sign=true}}" data-dtype="Number" size="3" />
+            <span class="ability-label rollable" data-roll="d20+@abilities.toughness.score" data-label="{{data.abilities.toughness.label}}">TOU</span>
           </div>
         </div>
         </header>
