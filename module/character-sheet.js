@@ -119,6 +119,8 @@ export class MBActorSheetCharacter extends ActorSheet {
     html.find(".ability-row .rollable").on("click", this._onRoll.bind(this));    
     html.find(".omens-row .rollable").on("click", this._onRoll.bind(this));    
     html.find(".violence .rollable").on("click", this._onRoll.bind(this));    
+    // TODO: fix/cleanup
+    html.find(".wield-power .rollable").on("click", this._onRoll.bind(this));    
   }
 
   /**

@@ -155,7 +155,7 @@
                 <div class="powers-gutter">
                 </div>
                 <div class="wield-power">
-                    <button class="wield-power">Wield a Power</button>
+                    <button class="rollable wield-power" data-roll="d20+@abilities.presence.score" data-label="{{localize 'MB.WieldAPower'}}" >{{localize "MB.WieldAPower"}}</button>
                     <span class="rule-text wield-rules">Presence DR12, or -d2 HP and no Powers for 1 hr</span>
                 </div>
                 <div class="powers-gutter">
@@ -183,10 +183,6 @@
                         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
                         <h4 class="item-name">{{item.name}}</h4>
                         <div class="item-buttons">
-                            {{!--
-                            <button class="item-button rollable" data-roll="d20+@abilities.presence.score" data-label="wieldpower_{{item._id}}"
-                                    title="{{localize 'MB.WieldPower'}}">{{localize "MB.WieldPower"}}</button>                            
-                            --}}
                         </div>
                         <div class="item-controls">
                             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
