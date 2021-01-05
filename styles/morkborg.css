@@ -282,10 +282,12 @@ alternately we could select as
 .morkborg.sheet.actor .stat-label {
   font-family: "FetteTrumpDeutsch", fantasy, serif;
   font-size: 24px;
-  text-align: right;
-  float: left;
-  width: 140px;
   margin-right: 10px;
+}
+.morkborg.sheet.actor .sheet-header .stat-label {
+  text-align: right;
+  width: 140px;
+  float: left;
 }
 .morkborg.sheet.actor .stat-input {
   border: 1px solid #7a7971;
@@ -465,6 +467,51 @@ alternately we could select as
 }
 .morkborg.sheet.actor .sheet-body .class-tab-gutter {
   flex: 0 0 10px;
+}
+/* ====================== */
+/* Powers tab */
+/* ====================== */
+.morkborg.sheet.actor .sheet-body .powers-top-row {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+}
+.morkborg.sheet.actor .sheet-body div.wield-power {
+  flex: 0 0 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.morkborg.sheet.actor .sheet-body .powers-gutter {
+  flex: 0 0 20px;
+}
+.morkborg.sheet.actor .sheet-body button.wield-power {
+  width: 200px;
+  margin-bottom: 10px;
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 24px;
+  color: black;
+  background-color: #7a7971;
+  border: none;
+  border-radius: 0;
+  /*box-shadow: 2px 2px white;*/
+}
+.morkborg.sheet.actor .sheet-body .wield-rules {
+  text-align: center;
+}
+.morkborg.sheet.actor .sheet-body div.uses-remaining {
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.morkborg.sheet.actor .sheet-body .uses-remaining label {
+}
+.morkborg.sheet.actor .sheet-body .uses-remaining input {
+}
+.morkborg.sheet.actor .sheet-body .uses-remaining div {
+  margin-bottom: 20px;
 }
 /* ====================== */
 /* Equipment tab */
