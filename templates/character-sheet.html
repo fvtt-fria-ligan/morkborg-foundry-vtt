@@ -63,7 +63,7 @@
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="bio">{{ localize 'MB.Obituary' }}</a>
-        <a class="item" data-tab="class">{{ localize 'MB.Class' }}</a>
+        <a class="item" data-tab="clazz">{{ localize 'MB.Class' }}</a>
         <a class="item" data-tab="violence">{{ localize 'MB.Violence' }}</a>
         <a class="item" data-tab="powers">{{ localize 'MB.Powers' }}</a>
         <a class="item" data-tab="equipment">{{ localize 'MB.Burdens' }}</a>
@@ -74,22 +74,24 @@
     <section class="sheet-body">
 
         {{!-- Bio Tab --}}
-        <div class="tab bio" data-group="primary" data-tab="bio">
+        <div class="tab bio-tab" data-group="primary" data-tab="bio">
             {{editor content=data.background target="data.background" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Class Tab --}}
-        <div class="tab class" data-group="primary" data-tab="class">
-            <div class="class-top-row">
-                <input class="classname-input" type="text" name="data.class.name" value="{{data.class.name}}" placeholder="{{localize 'MB.ClassName'}}" data-dtype="String" />
-                <label class="omendie-label">{{ localize "MB.ClassOmenDie" }}:</label>
-                <input class="stat-input omendie-input" type="text" name="data.class.omenDie" value="{{data.class.omenDie}}" placeholder="1d2" data-dtype="String" />
+        <div class="tab class-tab" data-group="primary" data-tab="clazz">
+            <div class="class-tab-inner">
+                <div class="class-top-row">
+                    <input class="classname-input" type="text" name="data.class.name" value="{{data.class.name}}" placeholder="{{localize 'MB.ClassName'}}" data-dtype="String" />
+                    <label class="omendie-label">{{ localize "MB.ClassOmenDie" }}:</label>
+                    <input class="stat-input omendie-input" type="text" name="data.class.omenDie" value="{{data.class.omenDie}}" placeholder="1d2" data-dtype="String" />
+                </div>
+                {{editor content=data.class.description target="data.class.description" button=true owner=owner editable=editable}}
             </div>
-            {{editor content=data.class.description target="data.class.description" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Violence Tab --}}
-        <div class="tab violence" data-group="primary" data-tab="violence">
+        <div class="tab violence-tab" data-group="primary" data-tab="violence">
             <ol class="items-list inventory-list">
                 <li class="items-header flexrow">
                     <h3 class="item-name flexrow">{{localize "MB.ItemTypeWeaponPlural"}}</h3>
@@ -151,7 +153,7 @@
         </div>
 
         {{!-- Powers Tab --}}
-        <div class="tab powers" data-group="primary" data-tab="powers">
+        <div class="tab powers-tab" data-group="primary" data-tab="powers">
             <ol class="items-list inventory-list">
                 <li class="items-header flexrow">
                     <h3 class="item-name flexrow">{{localize "MB.ItemTypeScrollPlural"}}</h3>
@@ -183,7 +185,7 @@
         </div>
 
         {{!-- Equipment Tab --}}
-        <div class="tab equipment" data-group="primary" data-tab="equipment">
+        <div class="tab equipment-tab" data-group="primary" data-tab="equipment">
             <div class="equipment-top-row">
                 <span class="silver-label">{{ localize "MB.Silver" }}:</span>
                 <input class="stat-input silver-input" name="data.silver" type="number" value="{{data.silver}}" data-dtype="Number" />
@@ -217,7 +219,7 @@
         </div>
 
         {{!-- Notes Tab --}}
-        <div class="tab" data-group="primary" data-tab="notes">
+        <div class="tab notes-tab" data-group="primary" data-tab="notes">
             {{editor content=data.notes target="data.notes" button=true owner=owner editable=editable}}
         </div>        
     </section>

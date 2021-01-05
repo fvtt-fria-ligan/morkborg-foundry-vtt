@@ -428,7 +428,8 @@ alternately we could select as
 /* ====================== */
 /* Class tab */
 /* ====================== */
-.morkborg.sheet.actor .sheet-body .tab.class {
+.morkborg.sheet.actor .sheet-body .class-tab-inner {
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -437,6 +438,10 @@ alternately we could select as
   margin-top: 15px;
   margin-bottom: 15px;
 }
+/*.morkborg.sheet.actor .sheet-body .classname-label {
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 24px;
+}*/
 .morkborg.sheet.actor .sheet-body .classname-input {
   border: 1px solid #7a7971;
   font-family: "Old Cupboard", serif;
@@ -464,7 +469,7 @@ alternately we could select as
   margin-top: 10px;
   margin-left: 20px;
 }
-.morkborg.sheet.actor .sheet-body  .silver-label {
+.morkborg.sheet.actor .sheet-body .silver-label {
   font-family: "FetteTrumpDeutsch", fantasy, serif;
   font-size: 24px;
   margin-right: 10px;
