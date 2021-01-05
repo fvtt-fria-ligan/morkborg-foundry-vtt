@@ -436,22 +436,23 @@ alternately we could select as
 }
 .morkborg.sheet.actor .sheet-body .class-top-row {
   margin-top: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
-/*.morkborg.sheet.actor .sheet-body .classname-label {
+.morkborg.sheet.actor .sheet-body .classname-label {
   font-family: "FetteTrumpDeutsch", fantasy, serif;
-  font-size: 24px;
-}*/
+  font-size: 20px;
+  margin-right: 10px;
+}
 .morkborg.sheet.actor .sheet-body .classname-input {
   border: 1px solid #7a7971;
-  font-family: "Old Cupboard", serif;
-  font-size: 36px;  
+  font-family: 'Special Elite', cursive;
+  font-size: 18px;
   width: 300px;
-  height: 40px;
+  height: 36px;
 }
 .morkborg.sheet.actor .sheet-body .omendie-label {
   font-family: "FetteTrumpDeutsch", fantasy, serif;
-  font-size: 24px;
+  font-size: 20px;
   width: 140px;
   margin-left: 20px;
   margin-right: 10px;
@@ -459,8 +460,11 @@ alternately we could select as
 .morkborg.sheet.actor .sheet-body .omendie-input {
   width: 70px;
 }
-.morkborg.sheet.actor .sheet-body .class .editor,
-.morkborg.sheet.actor .sheet-body .class .editor-content {
+.morkborg.sheet.actor .sheet-body .class-tab .editor,
+.morkborg.sheet.actor .sheet-body .class-tab .editor-content {
+}
+.morkborg.sheet.actor .sheet-body .class-tab-gutter {
+  flex: 0 0 10px;
 }
 /* ====================== */
 /* Equipment tab */

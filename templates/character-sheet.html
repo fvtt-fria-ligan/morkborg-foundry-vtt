@@ -62,31 +62,28 @@
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="bio">{{ localize 'MB.Obituary' }}</a>
-        <a class="item" data-tab="clazz">{{ localize 'MB.Class' }}</a>
+        <a class="item" data-tab="clazz">{{ localize 'MB.Obituary' }}</a>
         <a class="item" data-tab="violence">{{ localize 'MB.Violence' }}</a>
         <a class="item" data-tab="powers">{{ localize 'MB.Powers' }}</a>
-        <a class="item" data-tab="equipment">{{ localize 'MB.Burdens' }}</a>
+        <a class="item" data-tab="equipment">{{ localize 'MB.Treasures' }}</a>
         <a class="item" data-tab="notes">{{ localize 'MB.Scrawls' }}</a>
     </nav>
 
     {{!-- Sheet Body --}}
     <section class="sheet-body">
 
-        {{!-- Bio Tab --}}
-        <div class="tab bio-tab" data-group="primary" data-tab="bio">
-            {{editor content=data.background target="data.background" button=true owner=owner editable=editable}}
-        </div>
-
         {{!-- Class Tab --}}
         <div class="tab class-tab" data-group="primary" data-tab="clazz">
             <div class="class-tab-inner">
                 <div class="class-top-row">
+                    <label class="classname-label">{{ localize "MB.ClassName" }}:</label>
                     <input class="classname-input" type="text" name="data.class.name" value="{{data.class.name}}" placeholder="{{localize 'MB.ClassName'}}" data-dtype="String" />
                     <label class="omendie-label">{{ localize "MB.ClassOmenDie" }}:</label>
                     <input class="stat-input omendie-input" type="text" name="data.class.omenDie" value="{{data.class.omenDie}}" placeholder="1d2" data-dtype="String" />
                 </div>
                 {{editor content=data.class.description target="data.class.description" button=true owner=owner editable=editable}}
+                <div class="class-tab-gutter"></div>
+                {{editor content=data.background target="data.background" button=true owner=owner editable=editable}}
             </div>
         </div>
 
