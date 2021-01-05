@@ -78,10 +78,11 @@ export class MBActorSheetCharacter extends ActorSheet {
     }
 
     // Assign to new properties
-    sheetData.actor.data.weapons = typeArrays['weapon'];
-    sheetData.actor.data.armor = typeArrays['armor'].concat(typeArrays['shield'])
-    sheetData.actor.data.misc = typeArrays['container'].concat(typeArrays['misc']);
-    sheetData.actor.data.scrolls = typeArrays['scroll'];
+    sheetData.actor.weapons = typeArrays['weapon'];
+    sheetData.actor.armor = typeArrays['armor'].concat(typeArrays['shield'])
+    // TODO: figure out how we want to handle containers
+    sheetData.actor.misc = typeArrays['container'].concat(typeArrays['misc']);
+    sheetData.actor.scrolls = typeArrays['scroll'];
 
     // Calculate carrying capacity
     sheetData.actor.data.carryingCapacity = typeArrays['container'].reduce((total, item) => total + item.data.capacity, 0);
@@ -127,7 +128,11 @@ export class MBActorSheetCharacter extends ActorSheet {
    */
   _onItemCreate(event) {
     event.preventDefault();
+    console.log("**************1");
+    console.log(header);
     const header = event.currentTarget;
+    console.log("**************2");
+    console.log(header);
     // Get the type of item to create.
     const type = header.dataset.type;
     // Grab any data associated with this control.

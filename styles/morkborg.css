@@ -365,3 +365,85 @@ alternately we could select as
   border-radius: 0;  
   color: white;
 }
+.morkborg.sheet.actor .silver-label {
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 24px;
+  width: 140px;
+  margin-right: 10px;
+}
+.morkborg.sheet.actor .carryingcapacity-label {
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 24px;
+  width: 140px;
+  margin-right: 10px;
+}
+/* ====================== */
+/* Item list */
+/* ====================== */
+.morkborg .items-list .items-header {
+  height: 28px;
+  margin: 2px 0;
+  padding: 0;
+  align-items: center;
+}
+.morkborg .items-list .items-header > * {
+  font-size: 12px;
+  text-align: center;
+}
+.morkborg .items-list .items-header .item-name {
+  /*padding-left: 5px;*/
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 24px;
+}
+.morkborg .item-list {
+  list-style: none;
+  margin: 7px 0;
+  padding: 0;
+  overflow-y: auto;
+}
+.morkborg .item-list .item {
+  min-height: 30px;
+  line-height: 24px;
+  padding: 3px 0;
+  border-bottom: 1px solid #7a7971;
+  align-items: stretch;
+}
+.morkborg .item-list .item img {
+  flex: 0 0 24px;
+  margin-right: 5px;
+}
+.morkborg .item-list .item-name {
+  margin: 0;
+  font-family: 'Special Elite', cursive;
+  font-size: 12pt;
+}
+.morkborg .item-list .item-controls {
+  flex: 0 0 36px;
+}
+.morkborg .item-list .item-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  flex: 2;
+  justify-content: flex-start;
+}
+.morkborg .item-list .item-button {
+  line-height: 1;
+  font-size: 11px;
+  flex: none;
+  width: auto;
+}
+/* ====================== */
+/* Equipment tab */
+/* ====================== */
+.morkborg.sheet.actor .equipment-top-row {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+.morkborg.sheet.actor .silver-input {
+  width: 70px;
+}
+.morkborg.sheet.actor .carryingcapacity-label {
+  margin-left: 20px;
+}
