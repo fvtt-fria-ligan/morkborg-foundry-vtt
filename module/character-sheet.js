@@ -9,7 +9,7 @@ export class MBActorSheetCharacter extends ActorSheet {
       template: "systems/morkborg/templates/character-sheet.html",
       width: 720,
       height: 680,
-      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "inventory"}],
+      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "equipment"}],
       // is dragDrop needed?
       dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
     });
@@ -62,7 +62,6 @@ export class MBActorSheetCharacter extends ActorSheet {
       'weapon': [],
     };
 
-
     // Iterate through items, allocating to containers
     for (let i of sheetData.items) {
       let item = i.data;
@@ -79,10 +78,13 @@ export class MBActorSheetCharacter extends ActorSheet {
     }
 
     // Assign to new properties
-    actorData.weapons = typeArrays['weapon'];
-    actorData.armor = typeArrays['armor'].concat(typeArrays['shield'])
-    actorData.misc = typeArrays['container'].concat(typeArrays['misc']);
-    actorData.scrolls = typeArrays['scroll'];
+    sheetData.actor.data.weapons = typeArrays['weapon'];
+    sheetData.actor.data.armor = typeArrays['armor'].concat(typeArrays['shield'])
+    sheetData.actor.data.misc = typeArrays['container'].concat(typeArrays['misc']);
+    sheetData.actor.data.scrolls = typeArrays['scroll'];
+
+    // Calculate carrying capacity
+    sheetData.actor.data.carryingCapacity = typeArrays['container'].reduce((total, item) => total + item.data.capacity, 0);
   }  
 
   /** @override */
