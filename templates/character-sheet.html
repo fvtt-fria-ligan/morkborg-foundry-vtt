@@ -74,22 +74,16 @@
     <section class="sheet-body">
 
         {{!-- Bio Tab --}}
-        <div class="tab" data-group="primary" data-tab="bio">
+        <div class="tab bio" data-group="primary" data-tab="bio">
             {{editor content=data.background target="data.background" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Class Tab --}}
-        <div class="tab" data-group="primary" data-tab="class">
-            <div class="form-group">
-                <label>{{ localize "MB.ClassName" }}</label>
-                <input type="text" name="data.class.name" value="{{data.class.name}}" placeholder="" data-dtype="String" />
-            </div>
-            <div class="form-group">
-                <label>{{ localize "MB.ClassOmenDie" }}</label>
-                <input type="text" name="data.class.omenDie" value="{{data.class.omenDie}}" placeholder="1d2" data-dtype="String" />
-            </div> 
-            <div class="form-group">
-                <label>{{ localize "MB.Description" }}</label>
+        <div class="tab class" data-group="primary" data-tab="class">
+            <div class="class-top-row">
+                <input class="classname-input" type="text" name="data.class.name" value="{{data.class.name}}" placeholder="{{localize 'MB.ClassName'}}" data-dtype="String" />
+                <label class="omendie-label">{{ localize "MB.ClassOmenDie" }}:</label>
+                <input class="stat-input omendie-input" type="text" name="data.class.omenDie" value="{{data.class.omenDie}}" placeholder="1d2" data-dtype="String" />
             </div>
             {{editor content=data.class.description target="data.class.description" button=true owner=owner editable=editable}}
         </div>
@@ -189,7 +183,7 @@
         </div>
 
         {{!-- Equipment Tab --}}
-        <div class="tab" data-group="primary" data-tab="equipment">
+        <div class="tab equipment" data-group="primary" data-tab="equipment">
             <div class="equipment-top-row">
                 <span class="silver-label">{{ localize "MB.Silver" }}:</span>
                 <input class="stat-input silver-input" name="data.silver" type="number" value="{{data.silver}}" data-dtype="Number" />

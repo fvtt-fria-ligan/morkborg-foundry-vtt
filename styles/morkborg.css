@@ -70,6 +70,11 @@
 .morkborg form {
   height: 100%;
 }
+.morkborg ::-webkit-scrollbar-thumb {
+  background: darkgray;
+  border: 1px solid lightgray;
+}
+
 /* ====================== */
 /* Sheet globals */
 /* ====================== */
@@ -101,6 +106,7 @@
 .morkborg.sheet input[type="password"],
 .morkborg.sheet input[type="date"] {
   color: white;
+  border-radius: 0;
 }
 .morkborg.sheet input[type="text"]:focus,
 .morkborg.sheet input[type="number"]:focus,
@@ -207,21 +213,21 @@ alternately we could select as
   flex-direction: row;
   padding: 5px;
 }
-.morkborg.sheet.actor .header-gutter-col {
+.morkborg.sheet.actor .sheet-header .header-gutter-col {
   flex: 0 0 10px;
 }
-.morkborg.sheet.actor .header-col1 {
+.morkborg.sheet.actor .sheet-header .header-col1 {
   flex: 0 0 200px;
   margin: 5px;
   padding: 0;
 }
-.morkborg.sheet.actor .header-col2 {
+.morkborg.sheet.actor .sheet-header .header-col2 {
   flex: 0 0 350px;
   margin: 5px;
   display: flex;
   flex-direction: column;  
 }
-.morkborg.sheet.actor .header-col3 {
+.morkborg.sheet.actor .sheet-header .header-col3 {
   flex: 0 0 120px;
   margin: 5px;
   display: flex;
@@ -235,32 +241,30 @@ alternately we could select as
   border-radius: 0;
   border: 1 px solid white;
 }
-.morkborg.sheet.actor .charname-row {
+.morkborg.sheet.actor .sheet-header .charname-row {
   flex: 0 0 50px;
   margin-bottom: 7px;  
 }
-.morkborg.sheet.actor .charname-row input[type="text"] {
+.morkborg.sheet.actor .sheet-header .charname-row input[type="text"] {
   font-family: "Blood Crow", fantasy, serif;
   font-size: 38px;
   width: 100%;
   height: 45px;
-  border-radius: 0;
 }
-.morkborg.sheet.actor .classname-row {
+.morkborg.sheet.actor .sheet-header .classname-row {
   flex: 0 0 30px;
   margin-bottom: 7px;
 }
-.morkborg.sheet.actor .classname-row input[type="text"] {
+.morkborg.sheet.actor .sheet-header .classname-row input[type="text"] {
   font-family: "Old Cupboard", serif;
   font-size: 24px;
   width: 100%;
-  border-radius: 0;
 }
-.morkborg.sheet.actor .hitpoints-row {
+.morkborg.sheet.actor .sheet-header .hitpoints-row {
   flex: 0 0 30px;
   margin-bottom: 7px;  
 }
-.morkborg.sheet.actor .omens-row {
+.morkborg.sheet.actor .sheet-header .omens-row {
   flex: 0 0 30px;
   margin-bottom: 7px;
 }
@@ -268,11 +272,11 @@ alternately we could select as
   font-family: 'Special Elite', cursive;  
   font-size: 12pt;
 }
-.morkborg.sheet.actor .omen-rule-text {
+.morkborg.sheet.actor .sheet-header .omen-rule-text {
   margin-left: 10px;
   text-transform: lowercase;
 }
-.morkborg.sheet.actor .miseries-row {
+.morkborg.sheet.actor .sheet-header .miseries-row {
   flex: 0 0 30px;
 }
 .morkborg.sheet.actor .stat-label {
@@ -290,37 +294,36 @@ alternately we could select as
   text-align: center;
   padding-top: 8px;
   width: 50px;
-  border-radius: 0;
   color: white;
 }
-.morkborg.sheet.actor .miseries-label {
+.morkborg.sheet.actor .sheet-header .miseries-label {
   float: left;
 }
-.morkborg.sheet.actor ul.miseries {
+.morkborg.sheet.actor .sheet-header ul.miseries {
   list-style-type: none;
   margin: 0;
   margin-top: 3px;  
   padding: 0;
   float: left;
 }
-.morkborg.sheet.actor ul.miseries li {
+.morkborg.sheet.actor .sheet-header ul.miseries li {
   float: left;
 }
-.morkborg.sheet.actor ul.miseries label {
+.morkborg.sheet.actor .sheet-header ul.miseries label {
   display: block; 
   padding: 4px; 
   position: relative; 
   padding-left: 20px;
 }
-.morkborg.sheet.actor ul.miseries label input[type="radio"] {
+.morkborg.sheet.actor .sheet-header ul.miseries label input[type="radio"] {
   display: none;
 }
-.morkborg.sheet.actor ul.miseries input[type="radio"]:checked + span {
+.morkborg.sheet.actor .sheet-header ul.miseries input[type="radio"]:checked + span {
   background: #ffe500;
   color: #000;
   border: none;
 }
-.morkborg.sheet.actor ul.miseries label span {
+.morkborg.sheet.actor .sheet-header ul.miseries label span {
   border: 1px solid #7a7971; 
   width: 17px; 
   height: 17px; 
@@ -334,24 +337,24 @@ alternately we could select as
   left: 0; 
   top: 50%; 
 }
-.morkborg.sheet.actor ul.miseries li:last-child label span {
+.morkborg.sheet.actor .sheet-header ul.miseries li:last-child label span {
   background: white;
   color: black;
 }
-.morkborg.sheet.actor .ability-row {
+.morkborg.sheet.actor .sheet-header .ability-row {
   margin-bottom: 10px;
 }
-.morkborg.sheet.actor .ability-row:last-child {
+.morkborg.sheet.actor .sheet-header .ability-row:last-child {
   margin-bottom: 0;
 }
-.morkborg.sheet.actor .ability-label {
+.morkborg.sheet.actor .sheet-header .ability-label {
   font-family: "FetteTrumpDeutsch", fantasy, serif;
   font-size: 24px;
   margin-left: 5px;
   margin-top: 5px;
   float: left;
 }
-.morkborg.sheet.actor .ability-input {
+.morkborg.sheet.actor .sheet-header .ability-input {
   border: 1px solid #7a7971;
   font-family: 'Special Elite', cursive;  
   font-size: 14pt;
@@ -364,18 +367,6 @@ alternately we could select as
   float: left;
   border-radius: 0;  
   color: white;
-}
-.morkborg.sheet.actor .silver-label {
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
-  font-size: 24px;
-  width: 140px;
-  margin-right: 10px;
-}
-.morkborg.sheet.actor .carryingcapacity-label {
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
-  font-size: 24px;
-  width: 140px;
-  margin-right: 10px;
 }
 /* ====================== */
 /* Item list */
@@ -435,15 +426,58 @@ alternately we could select as
   width: auto;
 }
 /* ====================== */
+/* Class tab */
+/* ====================== */
+.morkborg.sheet.actor .sheet-body .tab.class {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.morkborg.sheet.actor .sheet-body .class-top-row {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.morkborg.sheet.actor .sheet-body .classname-input {
+  border: 1px solid #7a7971;
+  font-family: "Old Cupboard", serif;
+  font-size: 36px;  
+  width: 300px;
+  height: 40px;
+}
+.morkborg.sheet.actor .sheet-body .omendie-label {
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 24px;
+  width: 140px;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+.morkborg.sheet.actor .sheet-body .omendie-input {
+  width: 70px;
+}
+.morkborg.sheet.actor .sheet-body .class .editor,
+.morkborg.sheet.actor .sheet-body .class .editor-content {
+}
+/* ====================== */
 /* Equipment tab */
 /* ====================== */
-.morkborg.sheet.actor .equipment-top-row {
+.morkborg.sheet.actor .sheet-body .equipment-top-row {
   margin-top: 10px;
   margin-left: 20px;
 }
-.morkborg.sheet.actor .silver-input {
+.morkborg.sheet.actor .sheet-body  .silver-label {
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 24px;
+  margin-right: 10px;
+}
+.morkborg.sheet.actor .sheet-body .silver-input {
   width: 70px;
 }
-.morkborg.sheet.actor .carryingcapacity-label {
+.morkborg.sheet.actor .sheet-body .carryingcapacity-label {
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 24px;
+  width: 140px;
+  margin-right: 10px;
+}
+.morkborg.sheet.actor .sheet-body .carryingcapacity-label {
   margin-left: 20px;
 }
