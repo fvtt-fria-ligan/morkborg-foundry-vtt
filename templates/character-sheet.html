@@ -103,13 +103,13 @@
                     <li class="item flexrow" data-item-id="{{item._id}}">
                         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
                         <h4 class="item-name">{{item.name}}</h4>
+                        <div class="item-fields">
+                            <span class="item-field">{{item.data.damageDie}}</span>
+                            <span class="item-field">{{item.data.handed}}H</span>
+                        </div>
                         <div class="item-buttons">
                             <button class="item-button rollable" data-roll="d20+@abilities.strength.score" data-label="attack_{{item._id}}"
                                     title="{{item.data.attackLabel}}">{{item.data.attackLabel}}</button>
-                            <button class="item-button rollable" data-roll="{{item.data.damageDie}}" data-label="damage_{{item._id}}"
-                                    title="{{item.data.damageLabel}}">{{item.data.damageLabel}}</button>
-                        </div>
-                        <div class="item-group">                          
                         </div>
                         <div class="item-controls">
                             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
@@ -117,7 +117,13 @@
                         </div>
                     </li>
                     {{/each}}
-                </ol> 
+                </ol>
+                <div class="rule-text attack-rules">
+                    Crit: x2 damage, target armor reduced one tier
+                    <br>
+                    Fumble: Weapon breaks or is lost
+                </div>
+                <div class="violence-gutter"></div>
                 <li class="items-header flexrow">
                     <h3 class="item-name flexrow">{{localize "MB.ItemTypeArmorPlural"}}</h3>
                     <div class="item-controls flexrow">
@@ -132,12 +138,6 @@
                         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
                         <h4 class="item-name">{{item.name}}</h4>
                         <div class="item-buttons">
-                            {{#ifEquals item.type "armor"}}
-                                <button class="item-button rollable" data-roll="d20+@abilities.agility.score" data-label="defend_{{item._id}}"
-                                        title="{{localize 'MB.Defend'}}">{{localize "MB.Defend"}}</button>
-                                <button class="item-button rollable" data-roll="{{item.data.damageReductionDie}}" data-label="damageReduction_{{item._id}}"
-                                        title="{{localize 'MB.DamageReduction'}}">{{item.data.damageReductionDie}} {{localize "MB.DamageReduction"}}</button>                                    
-                            {{/ifEquals}}
                         </div>
                         <div class="item-controls">
                             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
@@ -145,7 +145,32 @@
                         </div>
                     </li>
                     {{/each}}
-                </ol>                    
+                </ol>  
+                <div class="underarmor-row">
+                    <div class="shield">
+                        <div>
+                            <label class="stat-label">{{localize 'MB.Shield'}}?</label>
+                            <input type="checkbox" />
+                        </div>
+                        <div class="rule-text shield-rules">
+                            -1 damage, or break to ignore one attack
+                        </div>
+                    </div>
+                    <div class="underarmor-gutter"></div>
+                    <div class="incoming-attack">
+                        <div>
+                            <label class="stat-label">{{localize 'MB.IncomingAttack'}}:</label>
+                            <input class="stat-input" type="text" placeholder="1d6" />
+                            <button class="item-button rollable" data-roll="d20+@abilities.agility.score" data-label="defend_{{item._id}}"
+                                        title="{{localize 'MB.Defend'}}">{{localize "MB.Defend"}}</button>
+                        </div>
+                        <div class="rule-text defend-rules">
+                            Crit: Gain free attack
+                            <br>
+                            Fumble: Take double damage, armor reduced one tier
+                        </div>
+                    </div>
+                </div>
             </ol>                        
         </div>
 

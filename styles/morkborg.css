@@ -204,7 +204,7 @@ alternately we could select as
   overflow-y: auto;
 }
 /* ====================== */
-/* Actor header */
+/* Actor sheet header */
 /* ====================== */
 .morkborg.sheet.actor .sheet-header {
   margin-top: 0;
@@ -410,22 +410,41 @@ alternately we could select as
   font-family: 'Special Elite', cursive;
   font-size: 12pt;
 }
-.morkborg .item-list .item-controls {
-  flex: 0 0 36px;
+.morkborg .item-list .item-fields {
+  font-family: 'Special Elite', cursive;
+  font-size: 12pt;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.morkborg .item-list .item-field {
+  margin-right: 20px;
 }
 .morkborg .item-list .item-buttons {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  align-items: center;
-  flex: 2;
+  align-items: right;
+  flex: 1;
   justify-content: flex-start;
 }
+.morkborg .item-list .item-controls {
+  flex: 0 0 36px;
+}
 .morkborg .item-list .item-button {
-  line-height: 1;
-  font-size: 11px;
+  /*line-height: 1.5;*/
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  /*font-size: 24px;*/
+  font-size: 20px;
   flex: none;
-  width: auto;
+  /*width: auto;*/
+  width: 160px;
+  color: white;
+  background-color: white;
+  color: black;
+  border: none;
+  border-bottom: 2px solid #777;
+  border-radius: 0;  
 }
 /* ====================== */
 /* Class tab */
@@ -468,6 +487,62 @@ alternately we could select as
 .morkborg.sheet.actor .sheet-body .class-tab-gutter {
   flex: 0 0 10px;
 }
+/* ====================== */
+/* Violence tab */
+/* ====================== */
+.morkborg.sheet.actor .sheet-body .item-list .item {
+  align-items: center;
+}
+.morkborg.sheet.actor .sheet-body .violence-tab .item-list .item-name {
+  font-size: 20px;
+  margin-top: 5px;
+}
+.morkborg.sheet.actor .sheet-body .violence-tab .item-list .item-fields {
+  font-size: 16px;
+  margin-top: 6px;
+}
+.morkborg.sheet.actor .sheet-body .violence-tab .attack-rules {
+  text-align: center;
+}
+.morkborg.sheet.actor .sheet-body .violence-tab .violence-gutter {
+  height: 10px;
+}
+.morkborg.sheet.actor .sheet-body .violence-tab .underarmor-row {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+}
+.morkborg.sheet.actor .sheet-body .violence-tab .underarmor-row .shield {
+  flex: 0 0 200px;
+  border: 1px solid blue;
+}
+.morkborg.sheet.actor .sheet-body .violence-tab .underarmor-gutter {
+  flex: 0 0 10px;
+}
+.morkborg.sheet.actor .sheet-body .violence-tab .underarmor-row .incoming-attack {
+  border: 1px solid red;
+  /* TODO: decide flex */
+  /*flex: 1;*/
+  flex: 0 0 500px;
+}
+.morkborg.sheet.actor .sheet-body .violence-tab .incoming-attack button {
+  width: 160px;
+  margin-bottom: 10px;
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 24px;
+  background-color: white;
+  color: black;
+  border: none;
+  border-bottom: 2px solid #777;
+  border-radius: 0;
+}
+.morkborg.sheet.actor .sheet-body .violence-tab .shield-rules {
+  text-align: center;
+}
+.morkborg.sheet.actor .sheet-body .violence-tab .defend-rules {
+  text-align: center;
+}
+
 /* ====================== */
 /* Powers tab */
 /* ====================== */
