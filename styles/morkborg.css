@@ -93,7 +93,7 @@
 }
 .morkborg.sheet.actor {
   min-width: 740px;
-  min-height: 400px;
+  min-height: 650px;
   margin-top: 0;
 }
 .morkborg.sheet .editable .rollable:hover {
@@ -514,19 +514,28 @@ alternately we could select as
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .underarmor-row .shield {
   flex: 0 0 200px;
-  border: 1px solid blue;
+}
+.morkborg.sheet.actor .sheet-body .violence-tab .underarmor-row .shield .shield-fields {
+  text-align: center;
+}
+.morkborg.sheet.actor .sheet-body .violence-tab .underarmor-row .shield .shield-fields input[type="checkbox"] {
+  color: black;
+}
+.morkborg.sheet.actor .sheet-body .violence-tab .underarmor-row .shield .shield-fields input[type="checkbox"]:checked {
+  -webkit-filter: grayscale(100%);
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .underarmor-gutter {
-  flex: 0 0 10px;
+  flex: 0 0 30px;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .underarmor-row .incoming-attack {
-  border: 1px solid red;
   /* TODO: decide flex */
   /*flex: 1;*/
-  flex: 0 0 500px;
+  flex: 0 0 470px;
+  text-align: center;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .incoming-attack button {
-  width: 160px;
+  margin-left: 10px;
+  width: 120px;
   margin-bottom: 10px;
   font-family: "FetteTrumpDeutsch", fantasy, serif;
   font-size: 24px;
