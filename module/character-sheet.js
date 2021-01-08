@@ -116,12 +116,14 @@ export class MBActorSheetCharacter extends ActorSheet {
     // Handle rollable items.
     // TODO: handle everything with one onRoll method?
     // html.find('.rollable').click(this._onRoll.bind(this));
-    html.find(".items .rollable").on("click", this._onItemRoll.bind(this));  
+    // TODO: figure out what we want to do for items/rolls
+    //html.find(".items .rollable").on("click", this._onItemRoll.bind(this));  
     html.find(".ability-row .rollable").on("click", this._onRoll.bind(this));    
     html.find(".omens-row .rollable").on("click", this._onRoll.bind(this));    
-    html.find(".violence .rollable").on("click", this._onRoll.bind(this));    
     // TODO: fix/cleanup
-    html.find(".wield-power .rollable").on("click", this._onRoll.bind(this));    
+    html.find(".wield-power-button .rollable").on("click", this._onRoll.bind(this));
+    html.find(".attack-button").on("click", this._onAttackRoll.bind(this));
+    html.find(".defend-button").on("click", this._onDefendRoll.bind(this));
   }
 
   /**
@@ -203,5 +205,39 @@ export class MBActorSheetCharacter extends ActorSheet {
         flavor: label
       });
     }
+  }
+
+  _onAttackRoll(event) {
+    let button = $(event.currentTarget);
+    const li = button.parents(".item");
+    const item = this.actor.getOwnedItem(li.data("itemId"));
+
+    // TODO: make these two rolls into a single roll sheet, a la BetterRolls5e
+    let attackRoll = new Roll("d20+@abilities.strength.score", this.actor.getRollData());
+    attackRoll.roll().toMessage({
+      user: game.user._id,
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: `<h2>${item.name}</h2><h3>${button.text()}</h3>`
+    });
+
+    let damageRoll = new Roll("@damageDie", item.getRollData());
+    let damageTitle = game.i18n.localize('MB.Damage');
+    damageTitle = damageTitle.charAt(0).toUpperCase() + damageTitle.slice(1);
+    damageRoll.roll().toMessage({
+      user: game.user._id,
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: `<h2>${item.name}</h2><h3>${damageTitle}</h3>`
+    });
+  }  
+
+  _onDefendRoll(event) {
+    let button = $(event.currentTarget);
+    const li = button.parents(".item");
+    // TODO: item is currently null because our underarmor-row isn't within the .item <li> tag
+    // hmm - can we just set the itemId somewhere for our button, and pull it here?
+    // that would mean we'd still need to be within the handlebars each iterator
+    const item = this.actor.getOwnedItem(li.data("itemId"));    
+    console.log("*********************");
+    console.log(item);
   }  
 }

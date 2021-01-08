@@ -108,7 +108,7 @@
                             <span class="item-field">{{item.data.handed}}H</span>
                         </div>
                         <div class="item-buttons">
-                            <button class="item-button rollable" data-roll="d20+@abilities.strength.score" data-label="attack_{{item._id}}"
+                            <button class="item-button rollable attack-button" data-roll="d20+@abilities.strength.score" data-label="attack_{{item._id}}"
                                     title="{{localize 'MB.Attack'}}">{{localize 'MB.Attack'}}</button>
                         </div>
                         <div class="item-controls">
@@ -171,7 +171,7 @@
                         <div>
                             <label class="stat-label">{{localize 'MB.IncomingAttack'}}:</label>
                             <input class="stat-input" type="text" placeholder="1d6" />
-                            <button class="item-button rollable" data-roll="d20+@abilities.agility.score" data-label="defend_{{item._id}}"
+                            <button class="item-button rollable defend-button" data-roll="d20+@abilities.agility.score" data-label="defend_{{item._id}}"
                                         title="{{localize 'MB.Defend'}}">{{localize "MB.Defend"}}</button>
                         </div>
                         <div class="rule-text defend-rules">
@@ -190,7 +190,7 @@
                 <div class="powers-gutter">
                 </div>
                 <div class="wield-power">
-                    <button class="rollable wield-power" data-roll="d20+@abilities.presence.score" data-label="{{localize 'MB.WieldAPower'}}" >{{localize "MB.WieldAPower"}}</button>
+                    <button class="rollable wield-power-button" data-roll="d20+@abilities.presence.score" data-label="{{localize 'MB.WieldAPower'}}" >{{localize "MB.WieldAPower"}}</button>
                     <span class="rule-text wield-rules">{{localize 'MB.WieldAPowerText'}}</span>
                 </div>
                 <div class="powers-gutter">
