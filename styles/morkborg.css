@@ -434,11 +434,9 @@ alternately we could select as
 .morkborg .item-list .item-button {
   /*line-height: 1.5;*/
   font-family: "FetteTrumpDeutsch", fantasy, serif;
-  /*font-size: 24px;*/
   font-size: 20px;
   flex: none;
-  /*width: auto;*/
-  width: 160px;
+  width: auto;
   color: white;
   background-color: white;
   color: black;
@@ -492,6 +490,10 @@ alternately we could select as
 /* ====================== */
 .morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item {
   align-items: center;
+}
+.morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item-button {
+  font-size: 24px;
+  width: 120px;  
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .item-list .item-name {
   font-size: 20px;

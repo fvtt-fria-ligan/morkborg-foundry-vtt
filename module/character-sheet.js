@@ -69,9 +69,10 @@ export class MBActorSheetCharacter extends ActorSheet {
       typeArrays[i.type].push(i);
       // TODO: use enum
       if (i.type === 'weapon') {
+        // TODO: turns out we didn't need these labels. Delete?
         // localize rollable labels
-        item.attackLabel = game.i18n.localize(CONFIG.MB.weaponTypes[item.weaponType]) + ' ' + game.i18n.localize('MB.Attack');
-        item.damageLabel = item.damageDie + ' ' + game.i18n.localize('MB.Damage');
+        // item.attackLabel = game.i18n.localize(CONFIG.MB.weaponTypes[item.weaponType]) + ' ' + game.i18n.localize('MB.Attack');
+        //item.damageLabel = item.damageDie + ' ' + game.i18n.localize('MB.Damage');
       } else if (i.type === 'armor') {
         item.damageReductionDie = CONFIG.MB.armorTierDamageReductionDie[item.tier];
       }
