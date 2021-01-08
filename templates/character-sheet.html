@@ -119,9 +119,9 @@
                     {{/each}}
                 </ol>
                 <div class="rule-text attack-rules">
-                    Crit: x2 damage, target armor reduced one tier
+                    {{localize 'MB.AttackCritText'}}
                     <br>
-                    Fumble: Weapon breaks or is lost
+                    {{localize 'MB.AttackFumbleText'}}
                 </div>
                 <div class="violence-gutter"></div>
                 <li class="items-header flexrow">
@@ -163,7 +163,7 @@
                             <input type="checkbox" />
                         </div>
                         <div class="rule-text shield-rules">
-                            -1 damage, or break to ignore one attack
+                            {{localize 'MB.ShieldUseText'}}
                         </div>
                     </div>
                     <div class="underarmor-gutter"></div>
@@ -175,9 +175,9 @@
                                         title="{{localize 'MB.Defend'}}">{{localize "MB.Defend"}}</button>
                         </div>
                         <div class="rule-text defend-rules">
-                            Crit: Gain free attack
+                            {{localize 'MB.DefendCritText'}}
                             <br>
-                            Fumble: Take double damage, armor reduced one tier
+                            {{localize 'MB.DefendFumbleText'}}
                         </div>
                     </div>
                 </div>
@@ -191,7 +191,7 @@
                 </div>
                 <div class="wield-power">
                     <button class="rollable wield-power" data-roll="d20+@abilities.presence.score" data-label="{{localize 'MB.WieldAPower'}}" >{{localize "MB.WieldAPower"}}</button>
-                    <span class="rule-text wield-rules">Presence DR12, or -d2 HP and no Powers for 1 hr</span>
+                    <span class="rule-text wield-rules">{{localize 'MB.WieldAPowerText'}}</span>
                 </div>
                 <div class="powers-gutter">
                 </div>
@@ -200,7 +200,7 @@
                         <label class="stat-label uses-remaining-label">{{localize "MB.UsesRemaining"}}:</label>
                         <input class="stat-input" name="data.powerUsesRemaining" type="number" value="{{data.powerUsesRemaining}}" data-dtype="Number" />
                     </div>
-                    <span class="rule-text">PRESENCE+d4 times per day</span>
+                    <span class="rule-text">{{localize "MB.PowersPerDayText"}}</span>
                 </div>
             </div>
             <ol class="items-list inventory-list">
