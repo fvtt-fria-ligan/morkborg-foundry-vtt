@@ -25,7 +25,7 @@
                 <span class="rule-text omen-rule-text rollable" data-roll="{{data.class.omenDie}}" data-label="{{localize 'MB.Omens'}}">{{data.class.omenDie}} {{ localize "MB.PerRest"}}</span>
             </div>
             <div class="miseries-row">
-                <span class="stat-label miseries-label">{{ localize "MB.Miseries" }}:</span>
+                <label class="stat-label miseries-label">{{ localize "MB.Miseries" }}:</label>
                 <ul class="miseries">
                     <li><label><input type="radio" name="data.miseries" value="0" data-dtype="Number" {{#ifEquals data.miseries 0}}checked{{/ifEquals}}/><span>0</span></label></li>                  
                     <li><label><input type="radio" name="data.miseries" value="1" data-dtype="Number" {{#ifEquals data.miseries 1}}checked{{/ifEquals}}/><span>1</span></label></li>                  
@@ -98,7 +98,7 @@
                         </a>
                     </div>
                 </li>            
-                <ol class="item-list">
+                <ol class="item-list weapon-list">
                     {{#each actor.weapons as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}">
                         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
@@ -132,12 +132,22 @@
                         </a>
                     </div>
                 </li>   
-                <ol class="item-list">
+                <ol class="item-list armor-list">
                     {{#each actor.armor as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}">
                         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
                         <h4 class="item-name">{{item.name}}</h4>
                         <div class="item-buttons">
+                            <div class="armor-tiers">
+                                <div class="tiers">
+                                    <label class="stat-label tier-label">{{ localize "MB.Tier" }}:</label>
+                                    <ul class="tiers">
+                                        <li><label><input type="radio" name="data.equippedArmor.tier" value="1" data-dtype="Number"   {{#ifEquals data.equippedArmor.tier 1}}checked{{/ifEquals}}/><span class="tier-num">1</span><span class="tier-dmg">-d2</span></label></li>
+                                        <li><label><input type="radio" name="data.equippedArmor.tier" value="2" data-dtype="Number"   {{#ifEquals data.equippedArmor.tier 2}}checked{{/ifEquals}}/><span class="tier-num">2</span><span class="tier-dmg">-d4</span></label></li>
+                                        <li><label><input type="radio" name="data.equippedArmor.tier" value="3" data-dtype="Number"   {{#ifEquals data.equippedArmor.tier 3}}checked{{/ifEquals}}/><span class="tier-num">3</span><span class="tier-dmg">-d6</span></label></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                         <div class="item-controls">
                             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>

@@ -490,7 +490,7 @@ alternately we could select as
 /* ====================== */
 /* Violence tab */
 /* ====================== */
-.morkborg.sheet.actor .sheet-body .item-list .item {
+.morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item {
   align-items: center;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .item-list .item-name {
@@ -507,8 +507,68 @@ alternately we could select as
 .morkborg.sheet.actor .sheet-body .violence-tab .violence-gutter {
   height: 10px;
 }
+.morkborg.sheet.actor .sheet-body .violence-tab .item-list.armor-list .item {
+}
+.morkborg.sheet.actor .sheet-body .violence-tab .armor-tiers {
+}
+.morkborg.sheet.actor .sheet-body .violence-tab .tier-label {
+  float: left;
+  margin-right: 10px;
+}
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers {
+  list-style-type: none;
+  margin: 0;
+  margin-top: 3px;  
+  padding: 0;
+  float: left;
+}
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers li {
+  float: left;
+  height: 45px;
+}
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers label {
+  display: block; 
+  padding: 4px; 
+  position: relative; 
+  padding-left: 32px;
+}
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers label input[type="radio"] {
+  display: none;
+}
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type="radio"]:checked + span {
+  background: #ffe500;
+  color: #000;
+  border: none;
+}
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers label span.tier-num {
+  border: 1px solid #7a7971; 
+  width: 24px; 
+  height: 24px; 
+  position: absolute; 
+  overflow: hidden; 
+  line-height: 1.5; 
+  text-align: center; 
+  border-radius: 100%; 
+  font-size: 14pt;
+  font-family: 'Special Elite', cursive;  
+  left: 0; 
+  /*top: 50%; */
+  top: 0%;
+}
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers label span.tier-dmg {
+  width: 30px; 
+  height: 15px; 
+  position: absolute; 
+  overflow: hidden; 
+  line-height: 1.0; 
+  text-align: center; 
+  font-size: 10pt;
+  font-family: 'Special Elite', cursive;  
+  left: -5px;
+  top: 30px;
+}
 .morkborg.sheet.actor .sheet-body .violence-tab .underarmor-row {
-  margin-top: 10px;
+  margin-top: 0px;
   display: flex;
   flex-direction: row;
 }
