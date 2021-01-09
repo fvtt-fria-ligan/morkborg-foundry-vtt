@@ -678,3 +678,6 @@ alternately we could select as
 .morkborg.sheet.actor .sheet-body .encumbered {
   color: #ffe500;
 }
+/*.morkborg.sheet.actor .sheet-body .equipment-tab .item-list {
+  columns: 2;
+}*/

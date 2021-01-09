@@ -10,7 +10,6 @@ export class MBActorSheetCharacter extends ActorSheet {
       width: 720,
       height: 680,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "equipment"}],
-      // is dragDrop needed?
       dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
     });
   }
@@ -252,16 +251,25 @@ export class MBActorSheetCharacter extends ActorSheet {
     let button = $(event.currentTarget);
     const li = button.parents(".item");
     const item = this.actor.getOwnedItem(li.data("itemId"));
+    const rollData = item.getRollData();
 
-    // TODO: make these two rolls into a single roll sheet, a la BetterRolls5e
-    let attackRoll = new Roll("d20+@abilities.strength.score", this.actor.getRollData());
+    // TODO: make these multiple rolls into a single roll sheet, a la BetterRolls5e
+
+    // ranged weapons use agility; melee weapons use strength
+    console.log(rollData.weaponType);
+    const isRanged = rollData.weaponType === 'ranged';
+    const ability = isRanged ? 'agility' : 'strength';
+    let attackRoll = new Roll(`d20+@abilities.${ability}.score`, this.actor.getRollData());
+    const weaponTypeKey = isRanged ? 'MB.Ranged' : 'MB.Melee';
+    const attackLabel = `${game.i18n.localize(weaponTypeKey)} ${game.i18n.localize('MB.Attack')}`;
+    let weaponType = 
     attackRoll.roll().toMessage({
       user: game.user._id,
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: `<h2>${item.name}</h2><h3>${button.text()}</h3>`
+      flavor: `<h2>${item.name}</h2><h3>${attackLabel}</h3>`
     });
 
-    let damageRoll = new Roll("@damageDie", item.getRollData());
+    let damageRoll = new Roll("@damageDie", rollData);
     let damageTitle = game.i18n.localize('MB.Damage');
     damageTitle = damageTitle.charAt(0).toUpperCase() + damageTitle.slice(1);
     damageRoll.roll().toMessage({
@@ -285,7 +293,7 @@ export class MBActorSheetCharacter extends ActorSheet {
     defenseRoll.roll().toMessage({
       user: game.user._id,
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: `<h2>${game.i18n.localize('MB.Defend')}</h2>`
+      flavor: `<h2>${game.i18n.localize('MB.IncomingAttack')}</h2><h3>${game.i18n.localize('MB.Defend')}</h3>`
     });
 
     // roll 2: incoming damage
@@ -295,13 +303,13 @@ export class MBActorSheetCharacter extends ActorSheet {
     damageRoll.roll().toMessage({
       user: game.user._id,
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: `<h2>${damageTitle}</h2>`
+      flavor: `<h2>${game.i18n.localize('MB.IncomingAttack')}</h2><h3>${damageTitle}</h3>`
     });
 
-    // roll 3: damage reduction from armor and shield
+    // roll 3: damage reduction from equipped armor and shield
     let damageReductionDie = "";
     // grab equipped armor/shield, set in getData()
-    // TODO: verify this is the right way to do this
+    // TODO: verify getData() is the right way to do this
     let sheetData = this.getData();
     if (sheetData.data.equippedArmor) {
       damageReductionDie = sheetData.data.equippedArmor.data.damageReductionDie;
@@ -314,7 +322,7 @@ export class MBActorSheetCharacter extends ActorSheet {
       reductionRoll.roll().toMessage({
         user: game.user._id,
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        flavor: `<h2>${game.i18n.localize('MB.DamageReduction')}</h3>`
+        flavor: `<h2>${game.i18n.localize('MB.IncomingAttack')}</h2><h3>${game.i18n.localize('MB.DamageReduction')}</h3>`
       });
     }
   }
