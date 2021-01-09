@@ -31,7 +31,7 @@
 "MB.DamageReductionDie": "Damage Reduction Die",
 "MB.Defend": "Defend",
 "MB.DefendCritText": "Crit: Gain free attack.",
-"MB.DefendFumbleText": "Fumble: Take double damage, armor reduced one tier.",
+"MB.DefendFumbleText": "Fumble: Take x2 damage, armor reduced one tier.",
 "MB.Description": "Description",
 "MB.Details": "Details",
 "MB.EnemiesBegin": "Enemies begin",

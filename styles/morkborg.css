@@ -529,7 +529,7 @@ alternately we could select as
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .tier-label {
   float: left;
-  font-size: XXX;
+  font-size: 20;
   margin-right: 10px;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab ul.tiers {
@@ -676,5 +676,5 @@ alternately we could select as
   margin-left: 10px;
 }
 .morkborg.sheet.actor .sheet-body .encumbered {
-  color: red;  
+  color: #ffe500;
 }
