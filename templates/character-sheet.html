@@ -172,14 +172,10 @@
                     {{/if}}
                 </ol>  
                 <div class="underarmor-row">
-                    <div class="shield">
-                        {{!-- currently a dead area TODO cleanup --}}
-                    </div>
-                    <div class="underarmor-gutter"></div>
                     <div class="incoming-attack">
                         <div>
                             <label class="stat-label">{{localize 'MB.IncomingAttack'}}:</label>
-                            <input class="stat-input" type="text" placeholder="1d6" />
+                            <input class="stat-input incoming-damage" type="text" placeholder="1d6" />
                             <button class="item-button rollable defend-button" data-roll="d20+@abilities.agility.score" data-label="defend_{{item._id}}"
                                         title="{{localize 'MB.Defend'}}">{{localize "MB.Defend"}}</button>
                         </div>
@@ -240,11 +236,18 @@
         {{!-- Equipment Tab --}}
         <div class="tab equipment-tab" data-group="primary" data-tab="equipment">
             <div class="equipment-top-row">
-                <span class="silver-label">{{ localize "MB.Silver" }}:</span>
+                <span class="stat-label silver-label">{{ localize "MB.Silver" }}:</span>
                 <input class="stat-input silver-input" name="data.silver" type="number" value="{{data.silver}}" data-dtype="Number" />
-                <span class="carryingcapacity-label">{{ localize "MB.CarryingCapacity" }}:</span>
+                <span class="stat-label carrying-label">{{ localize "MB.Carrying" }}:</span>
+                <input class="stat-input" name="data.carryingCount" type="number" value="{{data.carryingCount}}" data-dtype="Number" />
+                /
                 <input class="stat-input" name="data.carryingCapacity" type="number" value="{{data.carryingCapacity}}" data-dtype="Number" />
+                <span class="rule-text carrying-rule {{data.encumberedClass}}">
+                    {{localize 'MB.CarryingRule'}}
+                </span>
             </div> 
+            <div class="equipment-top-row">
+            </div>
             <ol class="items-list inventory-list">
                 <li class="items-header flexrow">
                     <h3 class="item-name flexrow">{{localize "MB.ItemTypeMiscPlural"}}</h3>
@@ -258,7 +261,12 @@
                     {{#each data.equipment as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}">
                         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
-                        <h4 class="item-name">{{item.name}}</h4>
+                        <h4 class="item-name">
+                            {{item.name}}
+                            {{#ifEquals item.type 'container'}}
+                              ({{localize 'MB.Holds'}} {{item.data.capacity}})
+                            {{/ifEquals}}
+                        </h4>
                         <div class="item-buttons">
                         </div>
                         <div class="item-controls">

@@ -118,10 +118,20 @@ export class MBActorSheetCharacter extends ActorSheet {
     sheetData.actor.data.equipment = equipment;
     sheetData.actor.data.equippedWeapons = equippedWeapons;
 
-    // Calculate carrying capacity from containers
-    sheetData.actor.data.carryingCapacity = typeArrays['container'].reduce((total, item) => total + item.data.capacity, 0);
+    // Calculate carried-in-container count - all non-container non-equipped equipment
+    // let containerCount = equipment.filter(item => item.type !== 'container' && !item.data.equipped).length;
+    // Calculate container capacity from containers
+    // let containerCapacity = typeArrays['container'].reduce((total, item) => total + item.data.capacity, 0);
 
-    // TODO:  we could calculate how many carried, too - all non-container non-equipped things
+    // all equipment counts towards carried/encumberance
+    let carryingCount = equipment.length;
+    let carryingCapacity = sheetData.actor.data.abilities.strength.score + 8;
+    sheetData.actor.data.carryingCount = carryingCount;
+    sheetData.actor.data.carryingCapacity = carryingCapacity;
+    let isEncumbered = carryingCount > carryingCapacity;
+    sheetData.actor.data.encumbered = isEncumbered;
+    sheetData.actor.data.encumberedClass = isEncumbered ? "encumbered" : "";
+
   }  
 
   /** @override */
@@ -268,6 +278,8 @@ export class MBActorSheetCharacter extends ActorSheet {
 
   _onDefendRoll(event) {
     let button = $(event.currentTarget);
+    let incomingDamageInput = button.siblings(".incoming-damage");
+    // console.log(incomingDamageInput);
     const li = button.parents(".item");
     // TODO: item is currently null because our underarmor-row isn't within the .item <li> tag
     // hmm - can we just set the itemId somewhere for our button, and pull it here?

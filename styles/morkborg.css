@@ -665,19 +665,16 @@ alternately we could select as
   margin-left: 20px;
 }
 .morkborg.sheet.actor .sheet-body .silver-label {
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
-  font-size: 24px;
-  margin-right: 10px;
 }
 .morkborg.sheet.actor .sheet-body .silver-input {
   width: 70px;
 }
-.morkborg.sheet.actor .sheet-body .carryingcapacity-label {
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
-  font-size: 24px;
-  width: 140px;
-  margin-right: 10px;
-}
-.morkborg.sheet.actor .sheet-body .carryingcapacity-label {
+.morkborg.sheet.actor .sheet-body .carrying-label {
   margin-left: 20px;
+}
+.morkborg.sheet.actor .sheet-body .carrying-rule {
+  margin-left: 10px;
+}
+.morkborg.sheet.actor .sheet-body .encumbered {
+  color: red;  
 }
