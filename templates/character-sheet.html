@@ -175,9 +175,8 @@
                     <div class="incoming-attack">
                         <div>
                             <label class="stat-label">{{localize 'MB.IncomingAttack'}}:</label>
-                            <input class="stat-input incoming-damage" type="text" placeholder="1d6" />
-                            <button class="item-button rollable defend-button" data-roll="d20+@abilities.agility.score" data-label="defend_{{item._id}}"
-                                        title="{{localize 'MB.Defend'}}">{{localize "MB.Defend"}}</button>
+                            <input class="stat-input incoming-damage" name="data.incomingAttackDamageDie" type="text" value="{{data.incomingAttackDamageDie}}" data-dtype="String" placeholder="1d6" />                            
+                            <button class="item-button rollable defend-button" title="{{localize 'MB.Defend'}}">{{localize "MB.Defend"}}</button>
                         </div>
                         <div class="rule-text defend-rule">
                             {{localize 'MB.DefendCritText'}}
@@ -246,8 +245,6 @@
                     {{localize 'MB.CarryingRule'}}
                 </span>
             </div> 
-            <div class="equipment-top-row">
-            </div>
             <ol class="items-list inventory-list">
                 <li class="items-header flexrow">
                     <h3 class="item-name flexrow">{{localize "MB.ItemTypeMiscPlural"}}</h3>

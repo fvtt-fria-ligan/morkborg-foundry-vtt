@@ -159,16 +159,11 @@ export class MBActorSheetCharacter extends ActorSheet {
     });
 
     // Handle rollable items.
-    // TODO: handle everything with one onRoll method?
-    // html.find('.rollable').click(this._onRoll.bind(this));
-    // TODO: figure out what we want to do for items/rolls
-    //html.find(".items .rollable").on("click", this._onItemRoll.bind(this));  
     html.find(".ability-row .rollable").on("click", this._onRoll.bind(this));    
     html.find(".omens-row .rollable").on("click", this._onRoll.bind(this));    
-    // TODO: fix/cleanup
-    html.find(".wield-power-button").on("click", this._onRoll.bind(this));
     html.find(".attack-button").on("click", this._onAttackRoll.bind(this));
     html.find(".defend-button").on("click", this._onDefendRoll.bind(this));
+    html.find(".wield-power-button").on("click", this._onRoll.bind(this));
     html.find('.item-toggle').click(this._onToggleItem.bind(this));
   }
 
@@ -272,23 +267,56 @@ export class MBActorSheetCharacter extends ActorSheet {
     damageRoll.roll().toMessage({
       user: game.user._id,
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: `<h2>${item.name}</h2><h3>${damageTitle}</h3>`
+      flavor: `<h2>${item.name}</h2><h3>${damageTitle}</h2>`
     });
-  }  
+  }
 
   _onDefendRoll(event) {
-    let button = $(event.currentTarget);
-    let incomingDamageInput = button.siblings(".incoming-damage");
-    // console.log(incomingDamageInput);
-    const li = button.parents(".item");
-    // TODO: item is currently null because our underarmor-row isn't within the .item <li> tag
-    // hmm - can we just set the itemId somewhere for our button, and pull it here?
-    // that would mean we'd still need to be within the handlebars each iterator
-    // Maybe we need to move to our "equipped armor" model, so we can find the one
-    // single armor?s
-    const item = this.actor.getOwnedItem(li.data("itemId"));    
-    console.log("*********************");
-    console.log(item);
+    let rollData = this.actor.getRollData();
+    if (!rollData.incomingAttackDamageDie) {
+      return;
+    }
+
+    // TODO: make a fancier unified roll message w/ 3 rolls
+
+    // roll 1: defende
+    // TODO: use armor and encumberance modifiers
+    let defenseRoll = new Roll("d20+@abilities.agility.score", rollData);
+    defenseRoll.roll().toMessage({
+      user: game.user._id,
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: `<h2>${game.i18n.localize('MB.Defend')}</h2>`
+    });
+
+    // roll 2: incoming damage
+    let damageRoll = new Roll("@incomingAttackDamageDie", rollData);
+    let damageTitle = game.i18n.localize('MB.Damage');
+    damageTitle = damageTitle.charAt(0).toUpperCase() + damageTitle.slice(1);
+    damageRoll.roll().toMessage({
+      user: game.user._id,
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: `<h2>${damageTitle}</h2>`
+    });
+
+    // roll 3: damage reduction from armor and shield
+    let damageReductionDie = "";
+    // grab equipped armor/shield, set in getData()
+    // TODO: verify this is the right way to do this
+    let sheetData = this.getData();
+    if (sheetData.data.equippedArmor) {
+      damageReductionDie = sheetData.data.equippedArmor.data.damageReductionDie;
+    }
+    if (sheetData.data.equippedShield) {
+      damageReductionDie += "+1";
+    }
+    if (damageReductionDie) {
+      let reductionRoll = new Roll("@die", {die: damageReductionDie});
+      reductionRoll.roll().toMessage({
+        user: game.user._id,
+        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+        flavor: `<h2>${game.i18n.localize('MB.DamageReduction')}</h3>`
+      });
+    }
   }
 
   /**
