@@ -270,7 +270,7 @@ alternately we could select as
 }
 .morkborg.sheet.actor .rule-text {
   font-family: 'Special Elite', cursive;  
-  font-size: 12pt;
+  font-size: 10pt;
 }
 .morkborg.sheet.actor .sheet-header .omen-rule {
   margin-left: 10px;
@@ -523,6 +523,7 @@ alternately we could select as
   height: 10px;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .item-list.armor-list .item {
+  /*border-bottom: none;*/
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .armor-tiers {
 }
@@ -588,14 +589,8 @@ alternately we could select as
   display: flex;
   flex-direction: row;
 }
-/* TODO: not using shield checkbox under armor any more... nuke */
-.morkborg.sheet.actor .sheet-body .violence-tab .underarmor-row .shield {
-  flex: 0 0 200px;
-}
 .morkborg.sheet.actor .sheet-body .violence-tab .underarmor-row .incoming-attack {
-  /* TODO: decide flex */
-  /*flex: 1;*/
-  flex: 0 0 470px;
+  flex: 1;
   text-align: center;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .incoming-attack button {
@@ -612,8 +607,6 @@ alternately we could select as
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .shield-rule {
   /*text-align: center;*/
-  font-family: 'Special Elite', cursive;  
-  font-size: 10pt;  
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .defend-rule {
   text-align: center;
