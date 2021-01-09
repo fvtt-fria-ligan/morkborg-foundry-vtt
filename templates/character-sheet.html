@@ -22,7 +22,7 @@
             <div class="omens-row">
                 <span class="stat-label">{{ localize "MB.Omens" }}:</span>
                 <input class="stat-input" name="data.omens" type="number" value="{{data.omens}}" data-dtype="Number"/>
-                <span class="rule-text omen-rule-text rollable" data-roll="{{data.class.omenDie}}" data-label="{{localize 'MB.Omens'}}">{{data.class.omenDie}} {{ localize "MB.PerRest"}}</span>
+                <span class="rule-text omen-rule rollable" data-roll="{{data.class.omenDie}}" data-label="{{localize 'MB.Omens'}}">{{data.class.omenDie}} {{ localize "MB.PerRest"}}</span>
             </div>
             <div class="miseries-row">
                 <label class="stat-label miseries-label">{{ localize "MB.Miseries" }}:</label>
@@ -99,7 +99,7 @@
                     </div>
                 </li>            
                 <ol class="item-list weapon-list">
-                    {{#each actor.weapons as |item id|}}
+                    {{#each data.equippedWeapons as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}">
                         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
                         <h4 class="item-name">{{item.name}}</h4>
@@ -112,13 +112,14 @@
                                     title="{{localize 'MB.Attack'}}">{{localize 'MB.Attack'}}</button>
                         </div>
                         <div class="item-controls">
+                            <a class="item-control item-toggle {{item.data.toggleClass}}" title='{{item.data.toggleTitle}}'><i class="fas fa-shield-alt"></i></a>
                             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                             <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                         </div>
                     </li>
                     {{/each}}
                 </ol>
-                <div class="rule-text attack-rules">
+                <div class="rule-text attack-rule">
                     {{localize 'MB.AttackCritText'}}
                     <br>
                     {{localize 'MB.AttackFumbleText'}}
@@ -133,10 +134,10 @@
                     </div>
                 </li>   
                 <ol class="item-list armor-list">
-                    {{#each actor.armor as |item id|}}
-                    <li class="item flexrow" data-item-id="{{item._id}}">
-                        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
-                        <h4 class="item-name">{{item.name}}</h4>
+                    {{#if data.equippedArmor}}
+                    <li class="item flexrow" data-item-id="{{data.equippedArmor._id}}">
+                        <img src="{{data.equippedArmor.img}}" title="{{data.equippedArmor.name}}" width="24" height="24" />
+                        <h4 class="item-name">{{data.equippedArmor.name}}</h4>
                         <div class="item-buttons">
                             <div class="armor-tiers">
                                 <div class="tiers">
@@ -150,21 +151,30 @@
                             </div>
                         </div>
                         <div class="item-controls">
+                            <a class="item-control item-toggle {{data.equippedArmor.data.toggleClass}}" title='{{data.equippedArmor.data.toggleTitle}}'><i class="fas fa-shield-alt"></i></a>
                             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                             <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                         </div>
                     </li>
-                    {{/each}}
+                    {{/if}}
+                    {{#if data.equippedShield}}
+                    <li class="item flexrow" data-item-id="{{data.equippedShield._id}}">
+                        <img src="{{data.equippedShield.img}}" title="{{data.equippedShield.name}}" width="24" height="24" />
+                        <h4 class="item-name">{{data.equippedShield.name}}</h4>
+                        <div class="item-buttons">
+                            <span class="rule-text shield-rule">{{localize 'MB.ShieldUseText'}}</span>
+                        </div>
+                        <div class="item-controls">
+                            <a class="item-control item-toggle {{data.equippedShield.data.toggleClass}}" title='{{data.equippedShield.data.toggleTitle}}'><i class="fas fa-shield-alt"></i></a>
+                            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                        </div>
+                    </li>
+                    {{/if}}
                 </ol>  
                 <div class="underarmor-row">
                     <div class="shield">
-                        <div class="shield-fields">
-                            <label class="stat-label">{{localize 'MB.Shield'}}?</label>
-                            <input type="checkbox" />
-                        </div>
-                        <div class="rule-text shield-rules">
-                            {{localize 'MB.ShieldUseText'}}
-                        </div>
+                        {{!-- currently a dead area TODO cleanup --}}
                     </div>
                     <div class="underarmor-gutter"></div>
                     <div class="incoming-attack">
@@ -174,7 +184,7 @@
                             <button class="item-button rollable defend-button" data-roll="d20+@abilities.agility.score" data-label="defend_{{item._id}}"
                                         title="{{localize 'MB.Defend'}}">{{localize "MB.Defend"}}</button>
                         </div>
-                        <div class="rule-text defend-rules">
+                        <div class="rule-text defend-rule">
                             {{localize 'MB.DefendCritText'}}
                             <br>
                             {{localize 'MB.DefendFumbleText'}}
@@ -191,7 +201,7 @@
                 </div>
                 <div class="wield-power">
                     <button class="rollable wield-power-button" data-roll="d20+@abilities.presence.score" data-label="{{localize 'MB.WieldAPower'}}" >{{localize "MB.WieldAPower"}}</button>
-                    <span class="rule-text wield-rules">{{localize 'MB.WieldAPowerText'}}</span>
+                    <span class="rule-text wield-rule">{{localize 'MB.WieldAPowerText'}}</span>
                 </div>
                 <div class="powers-gutter">
                 </div>
@@ -247,13 +257,16 @@
                     </div>
                 </li>
                 <ol class="item-list">
-                    {{#each actor.misc as |item id|}}
+                    {{#each data.equipment as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}">
                         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
                         <h4 class="item-name">{{item.name}}</h4>
                         <div class="item-buttons">
                         </div>
                         <div class="item-controls">
+                            {{#if item.data.equippable}}
+                                <a class="item-control item-toggle {{item.data.toggleClass}}" title='{{item.data.toggleTitle}}'><i class="fas fa-shield-alt"></i></a>
+                            {{/if}}
                             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                             <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                         </div>

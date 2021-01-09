@@ -9,7 +9,7 @@ export class MBActorSheetCharacter extends ActorSheet {
       template: "systems/morkborg/templates/character-sheet.html",
       width: 720,
       height: 680,
-      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "violence"}],
+      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "equipment"}],
       // is dragDrop needed?
       dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
     });
@@ -44,13 +44,11 @@ export class MBActorSheetCharacter extends ActorSheet {
   /**
    * Organize and classify Items for Character sheets.
    *
-   * @param {Object} actorData The actor to prepare.
+   * @param {Object} sheetData The sheet data to prepare.
    *
    * @return {undefined}
    */
   _prepareCharacterItems(sheetData) {
-    const actorData = sheetData.actor;
-
     // TODO: just iterate over the config constants
     // Initialize containers.
     var typeArrays = {
@@ -62,19 +60,51 @@ export class MBActorSheetCharacter extends ActorSheet {
       'weapon': [],
     };
 
-    // Iterate through items, allocating to containers
+    var equipment = [];
+    var equippedWeapons = [];
+    sheetData.actor.data.equippedArmor = null;
+    sheetData.actor.data.equippedShield = null;
+
     for (let i of sheetData.items) {
       let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
       typeArrays[i.type].push(i);
+
+      // TODO: use constants?
+      if (i.type === 'armor' 
+        || i.type === 'container'
+        || i.type === 'misc'
+        || i.type === 'scroll'
+        || i.type === 'shield'
+        || i.type === 'weapon') {
+        equipment.push(i);
+      }
+      if (item.equippable) {
+        const isEquipped = getProperty(item, "equipped");
+        item.toggleClass = isEquipped ? "equipped" : "";
+        item.toggleTitle = game.i18n.localize(isEquipped ? "MB.Equipped" : "MB.Unequipped");
+      }
+
       // TODO: use enum
       if (i.type === 'weapon') {
         // TODO: turns out we didn't need these labels. Delete?
         // localize rollable labels
         // item.attackLabel = game.i18n.localize(CONFIG.MB.weaponTypes[item.weaponType]) + ' ' + game.i18n.localize('MB.Attack');
         //item.damageLabel = item.damageDie + ' ' + game.i18n.localize('MB.Damage');
+        if (item.equipped) {
+          equippedWeapons.push(i);
+        }
       } else if (i.type === 'armor') {
         item.damageReductionDie = CONFIG.MB.armorTierDamageReductionDie[item.tier];
+        if (item.equipped) {
+          // only one armor may be equipped at a time
+          sheetData.actor.data.equippedArmor = i;
+        }
+      } else if (i.type === 'shield') {
+        if (item.equipped) {
+          // only one shield may be equipped at a time
+          sheetData.actor.data.equippedShield = i;
+        }
       }
     }
 
@@ -85,8 +115,13 @@ export class MBActorSheetCharacter extends ActorSheet {
     sheetData.actor.misc = typeArrays['container'].concat(typeArrays['misc']);
     sheetData.actor.scrolls = typeArrays['scroll'];
 
-    // Calculate carrying capacity
+    sheetData.actor.data.equipment = equipment;
+    sheetData.actor.data.equippedWeapons = equippedWeapons;
+
+    // Calculate carrying capacity from containers
     sheetData.actor.data.carryingCapacity = typeArrays['container'].reduce((total, item) => total + item.data.capacity, 0);
+
+    // TODO:  we could calculate how many carried, too - all non-container non-equipped things
   }  
 
   /** @override */
@@ -121,9 +156,10 @@ export class MBActorSheetCharacter extends ActorSheet {
     html.find(".ability-row .rollable").on("click", this._onRoll.bind(this));    
     html.find(".omens-row .rollable").on("click", this._onRoll.bind(this));    
     // TODO: fix/cleanup
-    html.find(".wield-power-button .rollable").on("click", this._onRoll.bind(this));
+    html.find(".wield-power-button").on("click", this._onRoll.bind(this));
     html.find(".attack-button").on("click", this._onAttackRoll.bind(this));
     html.find(".defend-button").on("click", this._onDefendRoll.bind(this));
+    html.find('.item-toggle').click(this._onToggleItem.bind(this));
   }
 
   /**
@@ -236,8 +272,25 @@ export class MBActorSheetCharacter extends ActorSheet {
     // TODO: item is currently null because our underarmor-row isn't within the .item <li> tag
     // hmm - can we just set the itemId somewhere for our button, and pull it here?
     // that would mean we'd still need to be within the handlebars each iterator
+    // Maybe we need to move to our "equipped armor" model, so we can find the one
+    // single armor?s
     const item = this.actor.getOwnedItem(li.data("itemId"));    
     console.log("*********************");
     console.log(item);
+  }
+
+  /**
+   * Handle toggling the state of an Owned Item within the Actor
+   * @param {Event} event   The triggering click event
+   * @private
+   */
+  _onToggleItem(event) {
+    event.preventDefault();
+    let anchor = $(event.currentTarget);
+    const li = anchor.parents(".item");
+    const itemId = li.data("itemId");
+    const item = this.actor.getOwnedItem(itemId);
+    const attr = "data.equipped";
+    return item.update({[attr]: !getProperty(item.data, attr)});
   }  
 }

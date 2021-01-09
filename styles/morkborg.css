@@ -238,9 +238,9 @@ alternately we could select as
   width: 200px;
   margin: 0;
   padding: 0;
-  border-radius: 0;
-  border: 1 px solid white;
-}
+/*  border-radius: 0;
+  border: 1px solid white;
+*/}
 .morkborg.sheet.actor .sheet-header .charname-row {
   flex: 0 0 50px;
   margin-bottom: 7px;  
@@ -272,7 +272,7 @@ alternately we could select as
   font-family: 'Special Elite', cursive;  
   font-size: 12pt;
 }
-.morkborg.sheet.actor .sheet-header .omen-rule-text {
+.morkborg.sheet.actor .sheet-header .omen-rule {
   margin-left: 10px;
   text-transform: lowercase;
 }
@@ -281,7 +281,7 @@ alternately we could select as
 }
 .morkborg.sheet.actor .stat-label {
   font-family: "FetteTrumpDeutsch", fantasy, serif;
-  font-size: 24px;
+  font-size: 22px;
   margin-right: 10px;
 }
 .morkborg.sheet.actor .sheet-header .stat-label {
@@ -429,7 +429,14 @@ alternately we could select as
   justify-content: flex-start;
 }
 .morkborg .item-list .item-controls {
-  flex: 0 0 36px;
+  flex: 0 0 70px;
+  text-align: right;
+}
+.morkborg.sheet.actor .sheet-body .item-controls .item-toggle {
+  color: darkgray;
+}
+.morkborg.sheet.actor .sheet-body .item-controls .item-toggle.equipped {
+  color: #ffe500;
 }
 .morkborg .item-list .item-button {
   /*line-height: 1.5;*/
@@ -443,6 +450,12 @@ alternately we could select as
   border: none;
   border-bottom: 2px solid #777;
   border-radius: 0;  
+}
+.morkborg .item-list .equipped {
+  color: white;
+}
+.morkborg .item-list .unequipped {
+  color: gray;
 }
 /* ====================== */
 /* Class tab */
@@ -492,18 +505,18 @@ alternately we could select as
   align-items: center;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item-button {
-  font-size: 24px;
+  font-size: 20px;
   width: 120px;  
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .item-list .item-name {
-  font-size: 20px;
+  font-size: 16px;
   margin-top: 5px;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .item-list .item-fields {
   font-size: 16px;
   margin-top: 6px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .attack-rules {
+.morkborg.sheet.actor .sheet-body .violence-tab .attack-rule {
   text-align: center;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .violence-gutter {
@@ -515,6 +528,7 @@ alternately we could select as
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .tier-label {
   float: left;
+  font-size: XXX;
   margin-right: 10px;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab ul.tiers {
@@ -564,8 +578,8 @@ alternately we could select as
   overflow: hidden; 
   line-height: 1.0; 
   text-align: center; 
-  font-size: 10pt;
   font-family: 'Special Elite', cursive;  
+  font-size: 10pt;
   left: -5px;
   top: 30px;
 }
@@ -574,20 +588,9 @@ alternately we could select as
   display: flex;
   flex-direction: row;
 }
+/* TODO: not using shield checkbox under armor any more... nuke */
 .morkborg.sheet.actor .sheet-body .violence-tab .underarmor-row .shield {
   flex: 0 0 200px;
-}
-.morkborg.sheet.actor .sheet-body .violence-tab .underarmor-row .shield .shield-fields {
-  text-align: center;
-}
-.morkborg.sheet.actor .sheet-body .violence-tab .underarmor-row .shield .shield-fields input[type="checkbox"] {
-  color: black;
-}
-.morkborg.sheet.actor .sheet-body .violence-tab .underarmor-row .shield .shield-fields input[type="checkbox"]:checked {
-  -webkit-filter: grayscale(100%);
-}
-.morkborg.sheet.actor .sheet-body .violence-tab .underarmor-gutter {
-  flex: 0 0 30px;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .underarmor-row .incoming-attack {
   /* TODO: decide flex */
@@ -600,17 +603,19 @@ alternately we could select as
   width: 120px;
   margin-bottom: 10px;
   font-family: "FetteTrumpDeutsch", fantasy, serif;
-  font-size: 24px;
+  font-size: 20px;
   background-color: white;
   color: black;
   border: none;
   border-bottom: 2px solid #777;
   border-radius: 0;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .shield-rules {
-  text-align: center;
+.morkborg.sheet.actor .sheet-body .violence-tab .shield-rule {
+  /*text-align: center;*/
+  font-family: 'Special Elite', cursive;  
+  font-size: 10pt;  
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .defend-rules {
+.morkborg.sheet.actor .sheet-body .violence-tab .defend-rule {
   text-align: center;
 }
 
@@ -623,7 +628,7 @@ alternately we could select as
   display: flex;
   flex-direction: row;
 }
-.morkborg.sheet.actor .sheet-body div.wield-power {
+.morkborg.sheet.actor .sheet-body .wield-power {
   flex: 0 0 300px;
   display: flex;
   flex-direction: column;
@@ -632,7 +637,7 @@ alternately we could select as
 .morkborg.sheet.actor .sheet-body .powers-gutter {
   flex: 0 0 20px;
 }
-.morkborg.sheet.actor .sheet-body button.wield-power {
+.morkborg.sheet.actor .sheet-body .wield-power-button {
   width: 200px;
   margin-bottom: 10px;
   font-family: "FetteTrumpDeutsch", fantasy, serif;
@@ -643,7 +648,7 @@ alternately we could select as
   border-bottom: 2px solid #777;
   border-radius: 0;
 }
-.morkborg.sheet.actor .sheet-body .wield-rules {
+.morkborg.sheet.actor .sheet-body .wield-rule {
   text-align: center;
 }
 .morkborg.sheet.actor .sheet-body div.uses-remaining {
