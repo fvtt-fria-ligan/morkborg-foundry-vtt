@@ -67,10 +67,11 @@
     "armor": {
       "templates": ["baseItem"],
       "agilityDRModifier": 0,
+      "currentTier": 1,
       "defenseDRModifier": 0,
       "equippable": true,
       "equipped": false,
-      "tier": 1
+      "maxTier": 1
     },
     "container": {
       "templates": ["baseItem"],
