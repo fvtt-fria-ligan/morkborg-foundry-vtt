@@ -81,7 +81,7 @@
       "scrollType": "unclean"
     },
     "shield": {
-      "templates": ["baseItem"],
+      "templates": ["baseItem"]
     },    
     "weapon": {
       "templates": ["baseItem"],
