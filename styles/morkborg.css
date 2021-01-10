@@ -74,7 +74,27 @@
   background: darkgray;
   border: 1px solid lightgray;
 }
-
+.morkborg ::selection {
+  background: #ffe500;
+  color: black;
+}
+.morkborg select {
+  height: 27px;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid #7a7971;
+  border-radius: 0px;
+  padding: 0 3px;
+  text-overflow: ellipsis;
+  color: white;
+}
+.morkborg select:focus {
+  box-shadow: 0 0 5px #ffe500;
+  outline: none;
+}
+.morkborg select[multiple] {
+  height: auto;
+  padding: 3px;
+}
 /* ====================== */
 /* Sheet globals */
 /* ====================== */
