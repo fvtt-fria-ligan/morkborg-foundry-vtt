@@ -577,6 +577,10 @@ alternately we could select as
   color: #000;
   border: none;
 }
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type="radio"]:disabled + span {
+  color: #444444;
+  border: 1px solid #444444;
+}
 .morkborg.sheet.actor .sheet-body .violence-tab ul.tiers label span.tier-num {
   border: 1px solid #7a7971; 
   width: 24px; 

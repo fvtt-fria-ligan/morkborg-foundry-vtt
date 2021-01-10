@@ -144,8 +144,8 @@
                                     <label class="stat-label tier-label">{{ localize "MB.Tier" }}:</label>
                                     <ul class="tiers">
                                         <li><label><input type="radio" name="data.equippedArmor.data.currentTier" value="1" data-dtype="Number" {{#eq data.equippedArmor.data.currentTier 1}}checked{{/eq}}/><span class="tier-num">1</span><span class="tier-dmg">-d2</span></label></li>
-                                        <li><label><input type="radio" name="data.equippedArmor.data.currentTier" value="2" data-dtype="Number" {{#eq data.equippedArmor.data.currentTier 2}}checked{{/eq}}/><span class="tier-num">2</span><span class="tier-dmg">-d4</span></label></li>
-                                        <li><label><input type="radio" name="data.equippedArmor.data.currentTier" value="3" data-dtype="Number" {{#eq data.equippedArmor.data.currentTier 3}}checked{{/eq}}/><span class="tier-num">3</span><span class="tier-dmg">-d6</span></label></li>
+                                        <li><label><input type="radio" name="data.equippedArmor.data.currentTier" value="2" data-dtype="Number" {{#eq data.equippedArmor.data.currentTier 2}}checked{{/eq}} {{#lt data.equippedArmor.data.maxTier 2}}disabled="true"{{/lt}}/><span class="tier-num">2</span><span class="tier-dmg">-d4</span></label></li>
+                                        <li><label><input type="radio" name="data.equippedArmor.data.currentTier" value="3" data-dtype="Number" {{#eq data.equippedArmor.data.currentTier 3}}checked{{/eq}} {{#lt data.equippedArmor.data.maxTier 3}}disabled="true"{{/lt}}/><span class="tier-num">3</span><span class="tier-dmg">-d6</span></label></li>
                                     </ul>
                                 </div>
                             </div>
