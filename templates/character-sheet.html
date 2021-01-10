@@ -27,14 +27,14 @@
             <div class="miseries-row">
                 <label class="stat-label miseries-label">{{ localize "MB.Miseries" }}:</label>
                 <ul class="miseries">
-                    <li><label><input type="radio" name="data.miseries" value="0" data-dtype="Number" {{#ifEquals data.miseries 0}}checked{{/ifEquals}}/><span>0</span></label></li>                  
-                    <li><label><input type="radio" name="data.miseries" value="1" data-dtype="Number" {{#ifEquals data.miseries 1}}checked{{/ifEquals}}/><span>1</span></label></li>                  
-                    <li><label><input type="radio" name="data.miseries" value="2" data-dtype="Number" {{#ifEquals data.miseries 2}}checked{{/ifEquals}}/><span>2</span></label></li>                  
-                    <li><label><input type="radio" name="data.miseries" value="3" data-dtype="Number" {{#ifEquals data.miseries 3}}checked{{/ifEquals}}/><span>3</span></label></li>                  
-                    <li><label><input type="radio" name="data.miseries" value="4" data-dtype="Number" {{#ifEquals data.miseries 4}}checked{{/ifEquals}}/><span>4</span></label></li>                  
-                    <li><label><input type="radio" name="data.miseries" value="5" data-dtype="Number" {{#ifEquals data.miseries 5}}checked{{/ifEquals}}/><span>5</span></label></li>                  
-                    <li><label><input type="radio" name="data.miseries" value="6" data-dtype="Number" {{#ifEquals data.miseries 6}}checked{{/ifEquals}}/><span>6</span></label></li>                  
-                    <li><label><input type="radio" name="data.miseries" value="7" data-dtype="Number" {{#ifEquals data.miseries 7}}checked{{/ifEquals}}/><span>X</span></label></li>                  
+                    <li><label><input type="radio" name="data.miseries" value="0" data-dtype="Number" {{#eq data.miseries 0}}checked{{/eq}}/><span>0</span></label></li>                  
+                    <li><label><input type="radio" name="data.miseries" value="1" data-dtype="Number" {{#eq data.miseries 1}}checked{{/eq}}/><span>1</span></label></li>                  
+                    <li><label><input type="radio" name="data.miseries" value="2" data-dtype="Number" {{#eq data.miseries 2}}checked{{/eq}}/><span>2</span></label></li>                  
+                    <li><label><input type="radio" name="data.miseries" value="3" data-dtype="Number" {{#eq data.miseries 3}}checked{{/eq}}/><span>3</span></label></li>                  
+                    <li><label><input type="radio" name="data.miseries" value="4" data-dtype="Number" {{#eq data.miseries 4}}checked{{/eq}}/><span>4</span></label></li>                  
+                    <li><label><input type="radio" name="data.miseries" value="5" data-dtype="Number" {{#eq data.miseries 5}}checked{{/eq}}/><span>5</span></label></li>                  
+                    <li><label><input type="radio" name="data.miseries" value="6" data-dtype="Number" {{#eq data.miseries 6}}checked{{/eq}}/><span>6</span></label></li>                  
+                    <li><label><input type="radio" name="data.miseries" value="7" data-dtype="Number" {{#eq data.miseries 7}}checked{{/eq}}/><span>X</span></label></li>                  
                 </ul>
             </div>
         </div>
@@ -143,9 +143,9 @@
                                 <div class="tiers">
                                     <label class="stat-label tier-label">{{ localize "MB.Tier" }}:</label>
                                     <ul class="tiers">
-                                        <li><label><input type="radio" name="data.equippedArmor.data.currentTier" value="1" data-dtype="Number" {{#ifEquals data.equippedArmor.data.currentTier 1}}checked{{/ifEquals}}/><span class="tier-num">1</span><span class="tier-dmg">-d2</span></label></li>
-                                        <li><label><input type="radio" name="data.equippedArmor.data.currentTier" value="2" data-dtype="Number" {{#ifEquals data.equippedArmor.data.currentTier 2}}checked{{/ifEquals}}/><span class="tier-num">2</span><span class="tier-dmg">-d4</span></label></li>
-                                        <li><label><input type="radio" name="data.equippedArmor.data.currentTier" value="3" data-dtype="Number" {{#ifEquals data.equippedArmor.data.currentTier 3}}checked{{/ifEquals}}/><span class="tier-num">3</span><span class="tier-dmg">-d6</span></label></li>
+                                        <li><label><input type="radio" name="data.equippedArmor.data.currentTier" value="1" data-dtype="Number" {{#eq data.equippedArmor.data.currentTier 1}}checked{{/eq}}/><span class="tier-num">1</span><span class="tier-dmg">-d2</span></label></li>
+                                        <li><label><input type="radio" name="data.equippedArmor.data.currentTier" value="2" data-dtype="Number" {{#eq data.equippedArmor.data.currentTier 2}}checked{{/eq}}/><span class="tier-num">2</span><span class="tier-dmg">-d4</span></label></li>
+                                        <li><label><input type="radio" name="data.equippedArmor.data.currentTier" value="3" data-dtype="Number" {{#eq data.equippedArmor.data.currentTier 3}}checked{{/eq}}/><span class="tier-num">3</span><span class="tier-dmg">-d6</span></label></li>
                                     </ul>
                                 </div>
                             </div>
@@ -261,9 +261,9 @@
                         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
                         <h4 class="item-name">
                             {{item.name}}
-                            {{#ifEquals item.type 'container'}}
+                            {{#eq item.type 'container'}}
                               ({{localize 'MB.Holds'}} {{item.data.capacity}})
-                            {{/ifEquals}}
+                            {{/eq}}
                         </h4>
                         <div class="item-buttons">
                         </div>

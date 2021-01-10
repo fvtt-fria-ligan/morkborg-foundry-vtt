@@ -27,11 +27,6 @@ export class MBActorSheetCharacter extends ActorSheet {
       abl.label = game.i18n.localize(translationKey);
     }
 
-    // data.dtypes = ["String", "Number", "Boolean"];
-    // for (let attr of Object.values(data.data.attributes)) {
-    //   attr.isCheckbox = attr.dtype === "Boolean";
-    // }
-
     // Prepare items.
     if (this.actor.data.type == 'character') {
       this._prepareCharacterItems(data);
