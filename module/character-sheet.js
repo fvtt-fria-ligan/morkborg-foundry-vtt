@@ -150,10 +150,10 @@ export class MBActorSheetCharacter extends ActorSheet {
    * @param {Event} event   The originating click event
    * @private
    */
-  _onItemCreate(event) {
+ async _onItemCreate(event) {
     event.preventDefault();
+    /*
     console.log("**************1");
-    console.log(header);
     const header = event.currentTarget;
     console.log("**************2");
     console.log(header);
@@ -171,9 +171,29 @@ export class MBActorSheetCharacter extends ActorSheet {
     };
     // Remove the type from the dataset since it's in the itemData.type prop.
     delete itemData.data["type"];
+    */
+    const template = "systems/morkborg/templates/add-item-dialog.html";
+    let dialogData = {
+      config: CONFIG.MorkBorg
+    };
+    const html = await renderTemplate(template, dialogData);
 
-    // Finally, create the item!
-    return this.actor.createOwnedItem(itemData);
+    // TODO: localize
+    return new Promise(resolve => {
+      new Dialog({
+         title: game.i18n.localize('MB.CreateNewItem'),
+         content: html,
+         buttons: {
+            create: {
+              icon: '<i class="fas fa-check"></i>',
+              label: game.i18n.localize('MB.CreateNewItem'),
+              callback: html => resolve(_createItem(this.actor, html[0].querySelector("form")))
+            },
+         },
+         default: "create",
+         close: () => resolve(null)
+        }).render(true);
+    });
   }
 
   /**
@@ -339,3 +359,15 @@ export class MBActorSheetCharacter extends ActorSheet {
     }
   }
 }
+
+
+const _createItem = (actor, form) => {
+  console.log("************* _createItem");
+  console.log(form);
+  const itemData = {
+    name: form.itemname.value,
+    type: form.itemtype.value,
+    data: {}
+  };
+  actor.createOwnedItem(itemData);
+};
