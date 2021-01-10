@@ -186,13 +186,28 @@ export class MBActorSheetCharacter extends ActorSheet {
    * @param {Event} event   The triggering click event
    * @private
    */
-  _onToggleItem(event) {
+  async _onToggleItem(event) {
     event.preventDefault();
     let anchor = $(event.currentTarget);
     const li = anchor.parents(".item");
     const itemId = li.data("itemId");
     const item = this.actor.getOwnedItem(itemId);
     const attr = "data.equipped";
+    const currEquipped = getProperty(item.data, attr);
+    if (!currEquipped) {
+      // we're equipping something
+      // if this is armor or shield, unequip any other equipped armor/shield
+      if (item.type === 'armor' || item.type === 'shield') {
+        for (const otherItem of this.actor.items) {
+          if (otherItem.type === item.type && otherItem._id != item._id) {
+            const otherEquipped = getProperty(otherItem.data, attr);
+            if (otherEquipped) {
+              await otherItem.update({[attr]: false});
+            }
+          }
+        }
+      }
+    }
     return item.update({[attr]: !getProperty(item.data, attr)});
   }  
 
