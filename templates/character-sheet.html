@@ -137,20 +137,21 @@
                     <li class="item flexrow" data-item-id="{{data.equippedArmor._id}}">
                         <img src="{{data.equippedArmor.img}}" title="{{data.equippedArmor.name}}" width="24" height="24" />
                         <h4 class="item-name">{{data.equippedArmor.name}}</h4>
+                        <input type="text" data-dtype="Number" name="data.equippedArmor.data.currentTier" value="{{data.equippedArmor.data.currentTier}}" />
                         <div class="item-buttons">
                             <div class="armor-tiers">
                                 <div class="tiers">
                                     <label class="stat-label tier-label">{{ localize "MB.Tier" }}:</label>
                                     <ul class="tiers">
-                                        <li><label><input type="radio" name="data.equippedArmor.tier" value="1" data-dtype="Number"   {{#ifEquals data.equippedArmor.tier 1}}checked{{/ifEquals}}/><span class="tier-num">1</span><span class="tier-dmg">-d2</span></label></li>
-                                        <li><label><input type="radio" name="data.equippedArmor.tier" value="2" data-dtype="Number"   {{#ifEquals data.equippedArmor.tier 2}}checked{{/ifEquals}}/><span class="tier-num">2</span><span class="tier-dmg">-d4</span></label></li>
-                                        <li><label><input type="radio" name="data.equippedArmor.tier" value="3" data-dtype="Number"   {{#ifEquals data.equippedArmor.tier 3}}checked{{/ifEquals}}/><span class="tier-num">3</span><span class="tier-dmg">-d6</span></label></li>
+                                        <li><label><input type="radio" name="data.equippedArmor.data.currentTier" value="1" data-dtype="Number" {{#ifEquals data.equippedArmor.data.currentTier 1}}checked{{/ifEquals}}/><span class="tier-num">1</span><span class="tier-dmg">-d2</span></label></li>
+                                        <li><label><input type="radio" name="data.equippedArmor.data.currentTier" value="2" data-dtype="Number" {{#ifEquals data.equippedArmor.data.currentTier 2}}checked{{/ifEquals}}/><span class="tier-num">2</span><span class="tier-dmg">-d4</span></label></li>
+                                        <li><label><input type="radio" name="data.equippedArmor.data.currentTier" value="3" data-dtype="Number" {{#ifEquals data.equippedArmor.data.currentTier 3}}checked{{/ifEquals}}/><span class="tier-num">3</span><span class="tier-dmg">-d6</span></label></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="item-controls">
-                            <a class="item-control item-toggle {{data.equippedArmor.data.toggleClass}}" title='{{data.equippedArmor.data.toggleTitle}}'><i class="fas fa-shield-alt"></i></a>
+                            <a class="item-control item-toggle {{item.data.toggleClass}}" title='{{item.data.toggleTitle}}'><i class="fas fa-shield-alt"></i></a>
                             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                             <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                         </div>
@@ -216,7 +217,7 @@
                     </div>
                 </li>  
                 <ol class="item-list">
-                    {{#each actor.scrolls as |item id|}}
+                    {{#each data.scrolls as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}">
                         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
                         <h4 class="item-name">{{item.name}}</h4>

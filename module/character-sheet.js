@@ -9,7 +9,7 @@ export class MBActorSheetCharacter extends ActorSheet {
       template: "systems/morkborg/templates/character-sheet.html",
       width: 720,
       height: 680,
-      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "equipment"}],
+      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "violence"}],
       dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
     });
   }
@@ -48,36 +48,17 @@ export class MBActorSheetCharacter extends ActorSheet {
    * @return {undefined}
    */
   _prepareCharacterItems(sheetData) {
-    // TODO: just iterate over the config constants
-    // Initialize containers.
-    var typeArrays = {
-      'armor': [],
-      'container': [],
-      'misc': [],
-      'scroll': [],
-      'shield': [],
-      'weapon': [],
-    };
-
-    var equipment = [];
-    var equippedWeapons = [];
-    sheetData.actor.data.equippedArmor = null;
-    sheetData.actor.data.equippedShield = null;
+    let equipment = [];
+    let equippedArmor = null;
+    let equippedShield = null;
+    let equippedWeapons = [];
+    let scrolls = [];
 
     for (let i of sheetData.items) {
       let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
-      typeArrays[i.type].push(i);
 
-      // TODO: use constants?
-      if (i.type === 'armor' 
-        || i.type === 'container'
-        || i.type === 'misc'
-        || i.type === 'scroll'
-        || i.type === 'shield'
-        || i.type === 'weapon') {
-        equipment.push(i);
-      }
+      item.equippable = (i.type === 'armor' || i.type === 'shield' || i.type === 'weapon');
       if (item.equippable) {
         const isEquipped = getProperty(item, "equipped");
         item.toggleClass = isEquipped ? "equipped" : "";
@@ -85,37 +66,41 @@ export class MBActorSheetCharacter extends ActorSheet {
       }
 
       // TODO: use enum
-      if (i.type === 'weapon') {
-        // TODO: turns out we didn't need these labels. Delete?
-        // localize rollable labels
-        // item.attackLabel = game.i18n.localize(CONFIG.MB.weaponTypes[item.weaponType]) + ' ' + game.i18n.localize('MB.Attack');
-        //item.damageLabel = item.damageDie + ' ' + game.i18n.localize('MB.Damage');
-        if (item.equipped) {
-          equippedWeapons.push(i);
-        }
-      } else if (i.type === 'armor') {
+      // TODO: use constants?
+      if (i.type === 'armor' 
+        || i.type === 'container'
+        || i.type === 'misc'
+        || i.type === 'scroll'
+        || i.type === 'armor'
+        || i.type === 'weapon') {
+        equipment.push(i);
+      }      
+      if (i.type === 'armor') {
         item.damageReductionDie = CONFIG.MB.armorTierDamageReductionDie[item.tier];
         if (item.equipped) {
           // only one armor may be equipped at a time
-          sheetData.actor.data.equippedArmor = i;
+          equippedArmor = i;
         }
+      } else if (i.type === 'scroll') {
+        scrolls.push(i);
       } else if (i.type === 'shield') {
         if (item.equipped) {
           // only one shield may be equipped at a time
-          sheetData.actor.data.equippedShield = i;
+          equippedShield = i;
+        }
+      } else if (i.type === 'weapon') {
+        if (item.equipped) {
+          equippedWeapons.push(i);
         }
       }
     }
 
     // Assign to new properties
-    sheetData.actor.weapons = typeArrays['weapon'];
-    sheetData.actor.armor = typeArrays['armor'].concat(typeArrays['shield'])
-    // TODO: figure out how we want to handle containers
-    sheetData.actor.misc = typeArrays['container'].concat(typeArrays['misc']);
-    sheetData.actor.scrolls = typeArrays['scroll'];
-
     sheetData.actor.data.equipment = equipment;
+    sheetData.actor.data.equippedArmor = equippedArmor;
+    sheetData.actor.data.equippedShield = equippedShield;
     sheetData.actor.data.equippedWeapons = equippedWeapons;
+    sheetData.actor.data.scrolls = scrolls;
 
     // Calculate carried-in-container count - all non-container non-equipped equipment
     // let containerCount = equipment.filter(item => item.type !== 'container' && !item.data.equipped).length;
@@ -130,7 +115,6 @@ export class MBActorSheetCharacter extends ActorSheet {
     let isEncumbered = carryingCount > carryingCapacity;
     sheetData.actor.data.encumbered = isEncumbered;
     sheetData.actor.data.encumberedClass = isEncumbered ? "encumbered" : "";
-
   }  
 
   /** @override */
@@ -198,10 +182,26 @@ export class MBActorSheetCharacter extends ActorSheet {
   }
 
   /**
+   * Handle toggling the state of an Owned Item within the Actor
+   * @param {Event} event   The triggering click event
+   * @private
+   */
+  _onToggleItem(event) {
+    event.preventDefault();
+    let anchor = $(event.currentTarget);
+    const li = anchor.parents(".item");
+    const itemId = li.data("itemId");
+    const item = this.actor.getOwnedItem(itemId);
+    const attr = "data.equipped";
+    return item.update({[attr]: !getProperty(item.data, attr)});
+  }  
+
+  /**
    * Listen for roll buttons on items.
    * @param {MouseEvent} event    The originating left click event
    */
   _onItemRoll(event) {
+    event.preventDefault();    
     let button = $(event.currentTarget);
     let r = new Roll(button.data('roll'), this.actor.getRollData());
     const li = button.parents(".item");
@@ -248,6 +248,7 @@ export class MBActorSheetCharacter extends ActorSheet {
   }
 
   _onAttackRoll(event) {
+    event.preventDefault();    
     let button = $(event.currentTarget);
     const li = button.parents(".item");
     const item = this.actor.getOwnedItem(li.data("itemId"));
@@ -280,6 +281,7 @@ export class MBActorSheetCharacter extends ActorSheet {
   }
 
   _onDefendRoll(event) {
+    event.preventDefault();    
     let rollData = this.actor.getRollData();
     if (!rollData.incomingAttackDamageDie) {
       return;
@@ -326,19 +328,4 @@ export class MBActorSheetCharacter extends ActorSheet {
       });
     }
   }
-
-  /**
-   * Handle toggling the state of an Owned Item within the Actor
-   * @param {Event} event   The triggering click event
-   * @private
-   */
-  _onToggleItem(event) {
-    event.preventDefault();
-    let anchor = $(event.currentTarget);
-    const li = anchor.parents(".item");
-    const itemId = li.data("itemId");
-    const item = this.actor.getOwnedItem(itemId);
-    const attr = "data.equipped";
-    return item.update({[attr]: !getProperty(item.data, attr)});
-  }  
 }
