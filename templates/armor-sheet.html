@@ -30,25 +30,32 @@
 
         {{!-- Details Tab --}}
         <div class="tab" data-group="primary" data-tab="details">
-            <div class="form-group">
-                <label>Equippable</label>
-                <input type="checkbox" name="data.equippable" data-dtype="Boolean" {{checked data.equippable}}>
-            </div> 
-
             {{!-- Price --}}
             <div class="form-group">
                 <label>{{ localize "MB.ItemPrice" }}</label>
                 <input type="text" name="data.price" value="{{data.price}}" placeholder="2" data-dtype="Number" />
             </div> 
 
-            {{!-- Armor Tier --}}
+            {{!-- Armor Current Tier --}}
             <div class="form-group">
-                <label>{{ localize "MB.ItemArmorTier" }}</label>
-                <select name="data.tier">
-                    {{#select data.tier}}
-                    {{#each config.armorTiers as |name tier|}}
-                    <option value="{{tier}}">{{tier}} ({{localize name}})</option>
-                    {{/each}}
+                <label>{{ localize "MB.CurrentTier" }}</label>
+                <select name="data.currentTier">
+                    {{#select data.currentTier}}
+                        {{#each config.armorTiers as |name tier|}}
+                            <option value="{{tier}}">{{tier}} ({{localize name}})</option>
+                        {{/each}}
+                    {{/select}}
+                </select>
+            </div> 
+
+            {{!-- Armor Max Tier --}}
+            <div class="form-group">
+                <label>{{ localize "MB.MaxTier" }}</label>
+                <select name="data.maxTier">
+                    {{#select data.maxTier}}
+                        {{#each config.armorTiers as |name tier|}}
+                            <option value="{{tier}}">{{tier}} ({{localize name}})</option>
+                        {{/each}}
                     {{/select}}
                 </select>
             </div> 
