@@ -59,18 +59,14 @@
     "templates": {
       "baseItem": {
         "description": "",
-        "equippable": false,
+        "equipped": false,
         "price": 0,
         "quantity": 1
       }
     },
     "armor": {
       "templates": ["baseItem"],
-      "agilityDRModifier": 0,
       "currentTier": 1,
-      "defenseDRModifier": 0,
-      "equippable": true,
-      "equipped": false,
       "maxTier": 1
     },
     "container": {
@@ -86,15 +82,10 @@
     },
     "shield": {
       "templates": ["baseItem"],
-      "damageReduction": 1,
-      "equippable": true,
-      "equipped": false
     },    
     "weapon": {
       "templates": ["baseItem"],
       "damageDie": "1d1",
-      "equippable": true,
-      "equipped": false,      
       "handed": 1,
       "weaponType": "melee"
     }
