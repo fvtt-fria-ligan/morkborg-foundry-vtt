@@ -71,7 +71,7 @@ export class MBActorSheetCharacter extends ActorSheet {
         || i.type === 'container'
         || i.type === 'misc'
         || i.type === 'scroll'
-        || i.type === 'armor'
+        || i.type === 'shield'
         || i.type === 'weapon') {
         equipment.push(i);
       }      
