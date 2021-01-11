@@ -86,6 +86,9 @@ export class MBActorSheetCharacter extends ActorSheet {
         }
       }
     }
+    // TODO: figure out what we want to do wrt sorting, drag-drop reordering, etc
+    //equipment.sort((a, b) => (a.sort > b.sort) ? 1 : ((b.sort > a.sort) ? -1 : 0)); 
+    equipment.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)); 
 
     // Assign to new properties
     sheetData.actor.data.equipment = equipment;
@@ -140,6 +143,16 @@ export class MBActorSheetCharacter extends ActorSheet {
     html.find(".defend-button").on("click", this._onDefendRoll.bind(this));
     html.find(".wield-power-button").on("click", this._onRoll.bind(this));
     html.find('.item-toggle').click(this._onToggleItem.bind(this));
+    html.find('.tier-radio').click(this._onArmorTierRadio.bind(this));
+  }
+
+  _onArmorTierRadio(event) {
+    event.preventDefault();
+    let input = $(event.currentTarget);
+    let newTier = parseInt(input[0].value);
+    let li = input.parents(".item");
+    const item = this.actor.getOwnedItem(li.data("itemId"));
+    return item.update({["data.currentTier"]: newTier});
   }
 
   /**

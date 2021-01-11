@@ -137,9 +137,9 @@
                                 <div class="tiers">
                                     <label class="stat-label tier-label">{{ localize "MB.Tier" }}:</label>
                                     <ul class="tiers">
-                                        <li><label><input type="radio" name="data.equippedArmor.data.currentTier" value="1" data-dtype="Number" {{#eq data.equippedArmor.data.currentTier 1}}checked{{/eq}}/><span class="tier-num">1</span><span class="tier-dmg">-d2</span></label></li>
-                                        <li><label><input type="radio" name="data.equippedArmor.data.currentTier" value="2" data-dtype="Number" {{#eq data.equippedArmor.data.currentTier 2}}checked{{/eq}} {{#lt data.equippedArmor.data.maxTier 2}}disabled="true"{{/lt}}/><span class="tier-num">2</span><span class="tier-dmg">-d4</span></label></li>
-                                        <li><label><input type="radio" name="data.equippedArmor.data.currentTier" value="3" data-dtype="Number" {{#eq data.equippedArmor.data.currentTier 3}}checked{{/eq}} {{#lt data.equippedArmor.data.maxTier 3}}disabled="true"{{/lt}}/><span class="tier-num">3</span><span class="tier-dmg">-d6</span></label></li>
+                                        <li><label><input class="tier-radio" type="radio" name="currentTier" value="1" {{#eq data.equippedArmor.data.currentTier 1}}checked{{/eq}}/><span class="tier-num">1</span><span class="tier-dmg">-d2</span></label></li>
+                                        <li><label><input class="tier-radio" type="radio" name="currentTier" value="2" {{#eq data.equippedArmor.data.currentTier 2}}checked{{/eq}} {{#lt data.equippedArmor.data.maxTier 2}}disabled="true"{{/lt}}/><span class="tier-num">2</span><span class="tier-dmg">-d4</span></label></li>
+                                        <li><label><input class="tier-radio" type="radio" name="currentTier" value="3" {{#eq data.equippedArmor.data.currentTier 3}}checked{{/eq}} {{#lt data.equippedArmor.data.maxTier 3}}disabled="true"{{/lt}}/><span class="tier-num">3</span><span class="tier-dmg">-d6</span></label></li>
                                     </ul>
                                 </div>
                             </div>
@@ -237,9 +237,9 @@
                     {{localize 'MB.CarryingRule'}}
                 </span>
             </div> 
-            <ol class="items-list inventory-list">
+            <ol class="items-list equipment-list">
                 <li class="items-header flexrow">
-                    <h3 class="item-name flexrow">{{localize "MB.ItemTypeMiscPlural"}}</h3>
+                    <h3 class="item-name flexrow">{{localize "MB.Equipment"}}</h3>
                     <div class="item-controls flexrow">
                         <a class="item-control item-create" title='{{localize "MB.ItemCreate"}}'>
                             <i class="fas fa-plus"></i> {{localize "MB.Add"}}
