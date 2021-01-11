@@ -8,7 +8,50 @@
   "scripts": [],
   "esmodules": ["module/morkborg.js"],
   "styles": ["styles/morkborg.css"],
-  "packs": [],
+  "packs": [
+    {
+      "name": "armor",
+      "label": "Armor",
+      "system": "morkborg",
+      "path": "./packs/armor.db",
+      "entity": "Item"
+    },
+    {
+      "name": "containers",
+      "label": "Containers",
+      "system": "morkborg",
+      "path": "./packs/containers.db",
+      "entity": "Item"
+    },
+    {
+      "name": "equipment",
+      "label": "Equipment",
+      "system": "morkborg",
+      "path": "./packs/equipment.db",
+      "entity": "Item"
+    },
+    {
+      "name": "scrolls",
+      "label": "Scrolls",
+      "system": "morkborg",
+      "path": "./packs/scrolls.db",
+      "entity": "Item"
+    },
+    {
+      "name": "shields",
+      "label": "Shields",
+      "system": "morkborg",
+      "path": "./packs/shields.db",
+      "entity": "Item"
+    },
+    {
+      "name": "weapons",
+      "label": "Weapons",
+      "system": "morkborg",
+      "path": "./packs/weapons.db",
+      "entity": "Item"
+    }
+  ],
   "languages": [
     {
       "lang": "en",
