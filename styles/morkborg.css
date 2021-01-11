@@ -569,19 +569,22 @@ alternately we could select as
   position: relative; 
   padding-left: 32px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers label input[type="radio"] {
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type="radio"] {
   display: none;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type="radio"]:checked + span {
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type="radio"]:checked + span.tier-num {
   background: #ffe500;
   color: #000;
   border: none;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type="radio"]:disabled + span {
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type="radio"]:disabled + span.tier-num {
   color: #444444;
   border: 1px solid #444444;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers label span.tier-num {
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type="radio"]:disabled ~ span.tier-dmg {
+  color: #444444;
+}
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers span.tier-num {
   border: 1px solid #7a7971; 
   width: 24px; 
   height: 24px; 
@@ -596,7 +599,7 @@ alternately we could select as
   /*top: 50%; */
   top: 0%;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers label span.tier-dmg {
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers span.tier-dmg {
   width: 30px; 
   height: 15px; 
   position: absolute; 
