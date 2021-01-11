@@ -633,7 +633,7 @@ alternately we could select as
   border-radius: 0;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .shield-rule {
-  /*text-align: center;*/
+  margin-top: 5px;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .defend-rule {
   text-align: center;
