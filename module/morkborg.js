@@ -62,23 +62,25 @@ Hooks.once("init", async function() {
 });
 
 // Handlebars helpers
-Handlebars.registerHelper('eq', function(arg1, arg2, options) {
+// TODO: registering a helper named "eq" breaks filepicker
+Handlebars.registerHelper('ifEq', function(arg1, arg2, options) {
   // TODO: verify whether we want == or === for this
   return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
 });
-Handlebars.registerHelper('ge', function(arg1, arg2, options) {
+
+Handlebars.registerHelper('ifGe', function(arg1, arg2, options) {
   return (arg1 >= arg2) ? options.fn(this) : options.inverse(this);
 });
-Handlebars.registerHelper('gt', function(arg1, arg2, options) {
+Handlebars.registerHelper('ifGt', function(arg1, arg2, options) {
   return (arg1 < arg2) ? options.fn(this) : options.inverse(this);
 });
-Handlebars.registerHelper('le', function(arg1, arg2, options) {
+Handlebars.registerHelper('ifLe', function(arg1, arg2, options) {
   return (arg1 <= arg2) ? options.fn(this) : options.inverse(this);
 });
-Handlebars.registerHelper('lt', function(arg1, arg2, options) {
+Handlebars.registerHelper('ifLt', function(arg1, arg2, options) {
   return (arg1 < arg2) ? options.fn(this) : options.inverse(this);
 });
-Handlebars.registerHelper('ne', function(arg1, arg2, options) {
+Handlebars.registerHelper('ifNe', function(arg1, arg2, options) {
   // TODO: verify whether we want == or === for this
   return (arg1 != arg2) ? options.fn(this) : options.inverse(this);
 });
