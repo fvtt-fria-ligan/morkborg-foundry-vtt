@@ -21,9 +21,7 @@ export class MBActorSheetCharacter extends ActorSheet {
 
     // Ability Scores
     for (let [a, abl] of Object.entries(data.actor.data.abilities)) {
-      // abl.icon = this._getProficiencyIcon(abl.proficient);
       const translationKey = CONFIG.MB.abilities[a];
-      // abl.translationKey = CONFIG.MB.abilities[a];
       abl.label = game.i18n.localize(translationKey);
     }
 
@@ -39,7 +37,6 @@ export class MBActorSheetCharacter extends ActorSheet {
    * Organize and classify Items for Character sheets.
    *
    * @param {Object} sheetData The sheet data to prepare.
-   *
    * @return {undefined}
    */
   _prepareCharacterItems(sheetData) {
@@ -146,39 +143,18 @@ export class MBActorSheetCharacter extends ActorSheet {
   }
 
   /**
-   * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
+   * Handle creating a new Owned Item for the actor.
+   *
    * @param {Event} event   The originating click event
    * @private
    */
  async _onItemCreate(event) {
     event.preventDefault();
-    /*
-    console.log("**************1");
-    const header = event.currentTarget;
-    console.log("**************2");
-    console.log(header);
-    // Get the type of item to create.
-    const type = header.dataset.type;
-    // Grab any data associated with this control.
-    const data = duplicate(header.dataset);
-    // Initialize a default name.
-    const name = `New ${type.capitalize()}`;
-    // Prepare the item object.
-    const itemData = {
-      name: name,
-      type: type,
-      data: data
-    };
-    // Remove the type from the dataset since it's in the itemData.type prop.
-    delete itemData.data["type"];
-    */
     const template = "systems/morkborg/templates/add-item-dialog.html";
     let dialogData = {
       config: CONFIG.MorkBorg
     };
     const html = await renderTemplate(template, dialogData);
-
-    // TODO: localize
     return new Promise(resolve => {
       new Dialog({
          title: game.i18n.localize('MB.CreateNewItem'),
@@ -198,6 +174,7 @@ export class MBActorSheetCharacter extends ActorSheet {
 
   /**
    * Handle toggling the state of an Owned Item within the Actor
+   *
    * @param {Event} event   The triggering click event
    * @private
    */
@@ -228,6 +205,7 @@ export class MBActorSheetCharacter extends ActorSheet {
 
   /**
    * Listen for roll buttons on items.
+   *
    * @param {MouseEvent} event    The originating left click event
    */
   _onItemRoll(event) {
@@ -245,23 +223,10 @@ export class MBActorSheetCharacter extends ActorSheet {
 
   /**
    * Handle clickable rolls.
+   *
    * @param {Event} event   The originating click event
    * @private
    */
-  // _onRoll(event) {
-  //   event.preventDefault();
-  //   const element = event.currentTarget;
-  //   const dataset = element.dataset;
-
-  //   if (dataset.roll) {
-  //     let roll = new Roll(dataset.roll, this.actor.data.data);
-  //     let label = dataset.label ? `Rolling ${dataset.label}` : '';
-  //     roll.roll().toMessage({
-  //       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-  //       flavor: label
-  //     });
-  //   }
-  // }
   _onRoll(event) {
     event.preventDefault();
     const element = event.currentTarget;
@@ -277,6 +242,12 @@ export class MBActorSheetCharacter extends ActorSheet {
     }
   }
 
+  /**
+   * Handle weapon attack roll.
+   *
+   * @param {Event} event   The originating click event
+   * @private
+   */
   _onAttackRoll(event) {
     event.preventDefault();    
     let button = $(event.currentTarget);
@@ -287,7 +258,6 @@ export class MBActorSheetCharacter extends ActorSheet {
     // TODO: make these multiple rolls into a single roll sheet, a la BetterRolls5e
 
     // ranged weapons use agility; melee weapons use strength
-    console.log(rollData.weaponType);
     const isRanged = rollData.weaponType === 'ranged';
     const ability = isRanged ? 'agility' : 'strength';
     let attackRoll = new Roll(`d20+@abilities.${ability}.score`, this.actor.getRollData());
@@ -310,6 +280,12 @@ export class MBActorSheetCharacter extends ActorSheet {
     });
   }
 
+  /**
+   * Handle defend roll.
+   *
+   * @param {Event} event   The originating click event
+   * @private
+   */
   _onDefendRoll(event) {
     event.preventDefault();    
     let rollData = this.actor.getRollData();
@@ -360,10 +336,10 @@ export class MBActorSheetCharacter extends ActorSheet {
   }
 }
 
-
+/**
+ * Create a new Owned Item for the given actor, based on the name/type from the form.
+ */
 const _createItem = (actor, form) => {
-  console.log("************* _createItem");
-  console.log(form);
   const itemData = {
     name: form.itemname.value,
     type: form.itemtype.value,
