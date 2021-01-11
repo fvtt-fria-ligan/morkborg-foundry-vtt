@@ -71,7 +71,7 @@ export class MBActorSheetCharacter extends ActorSheet {
         equipment.push(i);
       }      
       if (i.type === 'armor') {
-        item.damageReductionDie = CONFIG.MB.armorTierDamageReductionDie[item.tier];
+        item.damageReductionDie = CONFIG.MB.armorTierDamageReductionDie[item.currentTier];
         if (item.equipped) {
           // only one armor may be equipped at a time
           equippedArmor = i;
