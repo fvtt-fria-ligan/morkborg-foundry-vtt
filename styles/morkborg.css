@@ -1,17 +1,17 @@
 /* ====================== */
 /* Fonts */
 /* ====================== */
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
 @font-face {
-  font-family: 'Blood Crow';
+  font-family: "Blood Crow";
   src: url("../fonts/bloodcrow.ttf") format("truetype");
 }
 @font-face {
-  font-family: 'FetteTrumpDeutsch';
+  font-family: "FetteTrumpDeutsch";
   src: url("../fonts/FetteTrumpDeutsch.ttf") format("truetype");
 }
 @font-face {
-  font-family: 'Old Cupboard';
+  font-family: "Old Cupboard";
   src: url("../fonts/OldCupboard.otf") format("opentype");
 }
 /* ====================== */
@@ -95,6 +95,11 @@
   height: auto;
   padding: 3px;
 }
+
+.morkborg select > option {
+  background-color: black !important;
+  color: white !important;
+}
 /* ====================== */
 /* Sheet globals */
 /* ====================== */
@@ -166,7 +171,7 @@
 /*.morkborg.sheet .editor-content {
   color: white;
 }
-*//* TODO: see if there's a better way for us to style TinyMCE */
+*/ /* TODO: see if there's a better way for us to style TinyMCE */
 /* 
 Anchor hover affects font awesome icons, like the on-hover TinyMCE edit icon:;
   <a class="editor-edit"><i class="fas fa-edit"></i></a>
@@ -182,9 +187,10 @@ alternately we could select as
 .morkborg .editor,
 .morkborg .editor-content {
   height: 100%;
-/*  font-family: 'Special Elite', cursive;
+  /*  font-family: 'Special Elite', cursive;
   font-size: 12px;
-*/}
+*/
+}
 .morkborg.sheet .editor {
   padding: 0 8px;
 }
@@ -214,9 +220,9 @@ alternately we could select as
   text-shadow: 0 0 10px #ffe500;
 }
 .morkborg.sheet .sheet-tabs .item.active {
-    text-shadow: none;
-    background-color: #ffe500;
-    color: black;
+  text-shadow: none;
+  background-color: #ffe500;
+  color: black;
 }
 /* ====================== */
 /* Sheet Body */
@@ -267,11 +273,11 @@ alternately we could select as
   margin-right: 10px;
 }
 .morkborg.sheet.item .sheet-body .form-group input {
-  font-family: 'Special Elite', cursive;  
+  font-family: "Special Elite", cursive;
   font-size: 14pt;
 }
 .morkborg.sheet.item .sheet-body .form-group select {
-  font-family: 'Special Elite', cursive;  
+  font-family: "Special Elite", cursive;
   font-size: 14pt;
 }
 /* ====================== */
@@ -296,7 +302,7 @@ alternately we could select as
   flex: 0 0 350px;
   margin: 5px;
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
 }
 .morkborg.sheet.actor .sheet-header .header-col3 {
   flex: 0 0 120px;
@@ -309,12 +315,13 @@ alternately we could select as
   width: 200px;
   margin: 0;
   padding: 0;
-/*  border-radius: 0;
+  /*  border-radius: 0;
   border: 1px solid white;
-*/}
+*/
+}
 .morkborg.sheet.actor .sheet-header .charname-row {
   flex: 0 0 50px;
-  margin-bottom: 7px;  
+  margin-bottom: 7px;
 }
 .morkborg.sheet.actor .sheet-header .charname-row input[type="text"] {
   font-family: "Blood Crow", fantasy, serif;
@@ -333,14 +340,14 @@ alternately we could select as
 }
 .morkborg.sheet.actor .sheet-header .hitpoints-row {
   flex: 0 0 30px;
-  margin-bottom: 7px;  
+  margin-bottom: 7px;
 }
 .morkborg.sheet.actor .sheet-header .omens-row {
   flex: 0 0 30px;
   margin-bottom: 7px;
 }
 .morkborg.sheet.actor .rule-text {
-  font-family: 'Special Elite', cursive;  
+  font-family: "Special Elite", cursive;
   font-size: 10pt;
 }
 .morkborg.sheet.actor .sheet-header .omen-rule {
@@ -362,7 +369,7 @@ alternately we could select as
 }
 .morkborg.sheet.actor .stat-input {
   border: 1px solid #7a7971;
-  font-family: 'Special Elite', cursive;  
+  font-family: "Special Elite", cursive;
   font-size: 14pt;
   text-align: center;
   padding-top: 8px;
@@ -375,7 +382,7 @@ alternately we could select as
 .morkborg.sheet.actor .sheet-header ul.miseries {
   list-style-type: none;
   margin: 0;
-  margin-top: 3px;  
+  margin-top: 3px;
   padding: 0;
   float: left;
 }
@@ -383,32 +390,36 @@ alternately we could select as
   float: left;
 }
 .morkborg.sheet.actor .sheet-header ul.miseries label {
-  display: block; 
-  padding: 4px; 
-  position: relative; 
+  display: block;
+  padding: 4px;
+  position: relative;
   padding-left: 20px;
 }
 .morkborg.sheet.actor .sheet-header ul.miseries label input[type="radio"] {
   display: none;
 }
-.morkborg.sheet.actor .sheet-header ul.miseries input[type="radio"]:checked + span {
+.morkborg.sheet.actor
+  .sheet-header
+  ul.miseries
+  input[type="radio"]:checked
+  + span {
   background: #ffe500;
   color: #000;
   border: none;
 }
 .morkborg.sheet.actor .sheet-header ul.miseries label span {
-  border: 1px solid #7a7971; 
-  width: 17px; 
-  height: 17px; 
-  position: absolute; 
-  overflow: hidden; 
-  line-height: 1.5; 
-  text-align: center; 
-  border-radius: 100%; 
+  border: 1px solid #7a7971;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  overflow: hidden;
+  line-height: 1.5;
+  text-align: center;
+  border-radius: 100%;
   font-size: 10pt;
-  font-family: 'Special Elite', cursive;  
-  left: 0; 
-  top: 50%; 
+  font-family: "Special Elite", cursive;
+  left: 0;
+  top: 50%;
 }
 .morkborg.sheet.actor .sheet-header ul.miseries li:last-child label span {
   background: white;
@@ -429,7 +440,7 @@ alternately we could select as
 }
 .morkborg.sheet.actor .sheet-header .ability-input {
   border: 1px solid #7a7971;
-  font-family: 'Special Elite', cursive;  
+  font-family: "Special Elite", cursive;
   font-size: 14pt;
   text-align: center;
   padding: 5px;
@@ -438,7 +449,7 @@ alternately we could select as
   width: 42px;
   height: 42px;
   float: left;
-  border-radius: 0;  
+  border-radius: 0;
   color: white;
 }
 /* ====================== */
@@ -478,11 +489,11 @@ alternately we could select as
 }
 .morkborg .item-list .item-name {
   margin: 0;
-  font-family: 'Special Elite', cursive;
+  font-family: "Special Elite", cursive;
   font-size: 12pt;
 }
 .morkborg .item-list .item-fields {
-  font-family: 'Special Elite', cursive;
+  font-family: "Special Elite", cursive;
   font-size: 12pt;
   display: flex;
   flex-direction: row;
@@ -519,7 +530,7 @@ alternately we could select as
   color: black;
   border: none;
   border-bottom: 2px solid #777;
-  border-radius: 0;  
+  border-radius: 0;
 }
 .morkborg .item-list .equipped {
   color: white;
@@ -547,7 +558,7 @@ alternately we could select as
 }
 .morkborg.sheet.actor .sheet-body .classname-input {
   border: 1px solid #7a7971;
-  font-family: 'Special Elite', cursive;
+  font-family: "Special Elite", cursive;
   font-size: 18px;
   width: 300px;
   height: 36px;
@@ -574,9 +585,13 @@ alternately we could select as
 .morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item {
   align-items: center;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item-button {
+.morkborg.sheet.actor
+  .sheet-body
+  .violence-tab
+  .item-list.weapon-list
+  .item-button {
   font-size: 20px;
-  width: 120px;  
+  width: 120px;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .item-list .item-name {
   font-size: 16px;
@@ -604,7 +619,7 @@ alternately we could select as
 .morkborg.sheet.actor .sheet-body .violence-tab ul.tiers {
   list-style-type: none;
   margin: 0;
-  margin-top: 3px;  
+  margin-top: 3px;
   padding: 0;
   float: left;
 }
@@ -613,49 +628,64 @@ alternately we could select as
   height: 45px;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab ul.tiers label {
-  display: block; 
-  padding: 4px; 
-  position: relative; 
+  display: block;
+  padding: 4px;
+  position: relative;
   padding-left: 32px;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type="radio"] {
   display: none;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type="radio"]:checked + span.tier-num {
+.morkborg.sheet.actor
+  .sheet-body
+  .violence-tab
+  ul.tiers
+  input[type="radio"]:checked
+  + span.tier-num {
   background: #ffe500;
   color: #000;
   border: none;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type="radio"]:disabled + span.tier-num {
+.morkborg.sheet.actor
+  .sheet-body
+  .violence-tab
+  ul.tiers
+  input[type="radio"]:disabled
+  + span.tier-num {
   color: #444444;
   border: 1px solid #444444;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type="radio"]:disabled ~ span.tier-dmg {
+.morkborg.sheet.actor
+  .sheet-body
+  .violence-tab
+  ul.tiers
+  input[type="radio"]:disabled
+  ~ span.tier-dmg {
   color: #444444;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab ul.tiers span.tier-num {
-  border: 1px solid #7a7971; 
-  width: 24px; 
-  height: 24px; 
-  position: absolute; 
-  overflow: hidden; 
-  line-height: 1.5; 
-  text-align: center; 
-  border-radius: 100%; 
+  border: 1px solid #7a7971;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  overflow: hidden;
+  line-height: 1.5;
+  text-align: center;
+  border-radius: 100%;
   font-size: 14pt;
-  font-family: 'Special Elite', cursive;  
-  left: 0; 
+  font-family: "Special Elite", cursive;
+  left: 0;
   /*top: 50%; */
   top: 0%;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab ul.tiers span.tier-dmg {
-  width: 30px; 
-  height: 15px; 
-  position: absolute; 
-  overflow: hidden; 
-  line-height: 1.0; 
-  text-align: center; 
-  font-family: 'Special Elite', cursive;  
+  width: 30px;
+  height: 15px;
+  position: absolute;
+  overflow: hidden;
+  line-height: 1;
+  text-align: center;
+  font-family: "Special Elite", cursive;
   font-size: 10pt;
   left: -5px;
   top: 30px;
@@ -665,7 +695,11 @@ alternately we could select as
   display: flex;
   flex-direction: row;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .underarmor-row .incoming-attack {
+.morkborg.sheet.actor
+  .sheet-body
+  .violence-tab
+  .underarmor-row
+  .incoming-attack {
   flex: 1;
   text-align: center;
 }
