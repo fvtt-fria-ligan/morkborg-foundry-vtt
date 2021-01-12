@@ -197,7 +197,7 @@
                         <label class="stat-label uses-remaining-label">{{localize "MB.UsesRemaining"}}:</label>
                         <input class="stat-input" name="data.powerUsesRemaining" type="number" value="{{data.powerUsesRemaining}}" data-dtype="Number" />
                     </div>
-                    <span class="rule-text">{{localize "MB.PowersPerDayText"}}</span>
+                    <span class="rule-text rollable powers-per-day-text" data-roll="d4+@abilities.presence.score" data-label="{{localize 'MB.PowersPerDay'}}">{{localize "MB.PowersPerDayText"}}</span>
                 </div>
             </div>
             <ol class="items-list inventory-list">

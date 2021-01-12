@@ -142,6 +142,7 @@ export class MBActorSheetCharacter extends ActorSheet {
     html.find(".attack-button").on("click", this._onAttackRoll.bind(this));
     html.find(".defend-button").on("click", this._onDefendRoll.bind(this));
     html.find(".wield-power-button").on("click", this._onRoll.bind(this));
+    html.find(".powers-per-day-text").on("click", this._onRoll.bind(this));
     html.find('.item-toggle').click(this._onToggleItem.bind(this));
     html.find('.tier-radio').click(this._onArmorTierRadio.bind(this));
   }
