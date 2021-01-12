@@ -50,12 +50,12 @@ Hooks.once("init", async function() {
   Actors.registerSheet("morkborg", MBActorSheetCharacter, {
     types: ["character"],
     makeDefault: true,
-    label: "MorkBorg.SheetClassCharacter"
+    label: "MB.SheetClassCharacter"
   });
   Actors.registerSheet("morkborg", MBActorSheetCreature, {
     types: ["creature"],
     makeDefault: true,
-    label: "MorkBorg.SheetClassCreature"
+    label: "MB.SheetClassCreature"
   });  
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("morkborg", MBItemSheet, { makeDefault: true });
@@ -67,7 +67,6 @@ Handlebars.registerHelper('ifEq', function(arg1, arg2, options) {
   // TODO: verify whether we want == or === for this
   return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
 });
-
 Handlebars.registerHelper('ifGe', function(arg1, arg2, options) {
   return (arg1 >= arg2) ? options.fn(this) : options.inverse(this);
 });

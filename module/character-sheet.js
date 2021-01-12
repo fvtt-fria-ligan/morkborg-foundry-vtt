@@ -5,7 +5,7 @@ export class MBActorSheetCharacter extends ActorSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["morkborg", "sheet", "actor"],
+      classes: ["morkborg", "sheet", "actor", "character"],
       template: "systems/morkborg/templates/character-sheet.html",
       width: 720,
       height: 680,
@@ -137,23 +137,36 @@ export class MBActorSheetCharacter extends ActorSheet {
     });
 
     // Handle rollable items.
-    html.find(".ability-row .rollable").on("click", this._onRoll.bind(this));    
-    html.find(".omens-row .rollable").on("click", this._onRoll.bind(this));    
+    html.find(".ability-row .rollable").on("click", this._onRoll.bind(this));
+    html.find(".omens-row .rollable").on("click", this._onOmensRoll.bind(this));
     html.find(".attack-button").on("click", this._onAttackRoll.bind(this));
     html.find(".defend-button").on("click", this._onDefendRoll.bind(this));
     html.find(".wield-power-button").on("click", this._onRoll.bind(this));
-    html.find(".powers-per-day-text").on("click", this._onRoll.bind(this));
+    html.find(".powers-per-day-text").on("click", this._onPowersPerDayRoll.bind(this));
     html.find('.item-toggle').click(this._onToggleItem.bind(this));
     html.find('.tier-radio').click(this._onArmorTierRadio.bind(this));
   }
 
-  _onArmorTierRadio(event) {
+  _onOmensRoll(event) {
     event.preventDefault();
-    let input = $(event.currentTarget);
-    let newTier = parseInt(input[0].value);
-    let li = input.parents(".item");
-    const item = this.actor.getOwnedItem(li.data("itemId"));
-    return item.update({["data.currentTier"]: newTier});
+    let r = new Roll("@class.omenDie", this.actor.getRollData());
+    r.roll().toMessage({
+      user: game.user._id,
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: `<h2>${game.i18n.localize('MB.Omens')}</h2>`
+    });
+    return this.actor.update({["data.omens"]: r.total});
+  }
+
+  _onPowersPerDayRoll(event) {
+    event.preventDefault();
+    let r = new Roll("d4+@abilities.presence.score", this.actor.getRollData());
+    r.roll().toMessage({
+      user: game.user._id,
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: `<h2>${game.i18n.localize('MB.PowersPerDay')}</h2>`
+    });
+    return this.actor.update({["data.powerUsesRemaining"]: r.total});
   }
 
   /**
@@ -292,6 +305,18 @@ export class MBActorSheetCharacter extends ActorSheet {
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
       flavor: `<h2>${item.name}</h2><h3>${damageTitle}</h2>`
     });
+  }
+
+  /**
+   * Handle a click on the armor current tier radio buttons.
+   */
+  _onArmorTierRadio(event) {
+    event.preventDefault();
+    let input = $(event.currentTarget);
+    let newTier = parseInt(input[0].value);
+    let li = input.parents(".item");
+    const item = this.actor.getOwnedItem(li.data("itemId"));
+    return item.update({["data.currentTier"]: newTier});
   }
 
   /**

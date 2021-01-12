@@ -5,7 +5,7 @@
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["morkborg", "sheet", "actor"],
+      classes: ["morkborg", "sheet", "actor", "creature"],
       template: "systems/morkborg/templates/creature-sheet.html",
       width: 720,
       height: 680,

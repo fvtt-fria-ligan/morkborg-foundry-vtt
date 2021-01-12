@@ -791,3 +791,45 @@ alternately we could select as
 /*.morkborg.sheet.actor .sheet-body .equipment-tab .item-list {
   columns: 2;
 }*/
+/* ====================== */
+/* Creature sheet */
+/* ====================== */
+.morkborg.sheet.actor.creature .sheet-header {
+  margin-top: 0;
+  flex: 0 0 90px;
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  border: 1px solid red;
+}
+.morkborg.sheet.actor.creature .sheet-header .col1 {
+}
+.morkborg.sheet.actor.creature .sheet-header .col2 {
+  flex: 0 0 350px;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.morkborg.sheet.actor.creature .sheet-header .creature-name input[type="text"] {
+  font-family: "Blood Crow", fantasy, serif;
+  font-size: 38px;
+  flex: 1;
+  height: 45px;
+}
+.morkborg.sheet.creature .sheet-body .form-group {
+  margin-bottom: 8px;
+}
+.morkborg.sheet.creature .sheet-body .form-group label {
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 20px;
+  text-align: right;
+  margin-right: 10px;
+}
+.morkborg.sheet.creature .sheet-body .form-group input {
+  font-family: 'Special Elite', cursive;
+  font-size: 14pt;
+}
+.morkborg.sheet.creature .sheet-body .form-group select {
+  font-family: 'Special Elite', cursive;
+  font-size: 14pt;
+}
