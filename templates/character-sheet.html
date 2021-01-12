@@ -1,5 +1,5 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
-    {{!-- Sheet Header --}}
+    {{!-- Character Sheet Header --}}
     <header class="sheet-header">
         <div class="header-col1">
             <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>            
@@ -22,7 +22,7 @@
             <div class="omens-row">
                 <span class="stat-label">{{ localize "MB.Omens" }}:</span>
                 <input class="stat-input" name="data.omens" type="number" value="{{data.omens}}" data-dtype="Number"/>
-                <span class="rule-text omen-rule rollable" data-roll="{{data.class.omenDie}}" data-label="{{localize 'MB.Omens'}}">{{data.class.omenDie}} {{ localize "MB.PerRest"}}</span>
+                <span class="rule-text omen-rule rollable">{{data.class.omenDie}} {{ localize "MB.PerRest"}}</span>
             </div>
             <div class="miseries-row">
                 <label class="stat-label miseries-label">{{ localize "MB.Miseries" }}:</label>
@@ -60,7 +60,7 @@
         </div>
         </header>
 
-    {{!-- Sheet Tab Navigation --}}
+    {{!-- Character Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="clazz">{{ localize 'MB.Obituary' }}</a>
         <a class="item" data-tab="violence">{{ localize 'MB.Violence' }}</a>
@@ -69,7 +69,7 @@
         <a class="item" data-tab="notes">{{ localize 'MB.Scrawls' }}</a>
     </nav>
 
-    {{!-- Sheet Body --}}
+    {{!-- Character Sheet Body --}}
     <section class="sheet-body">
 
         {{!-- Class Tab --}}
@@ -197,7 +197,7 @@
                         <label class="stat-label uses-remaining-label">{{localize "MB.UsesRemaining"}}:</label>
                         <input class="stat-input" name="data.powerUsesRemaining" type="number" value="{{data.powerUsesRemaining}}" data-dtype="Number" />
                     </div>
-                    <span class="rule-text rollable powers-per-day-text" data-roll="d4+@abilities.presence.score" data-label="{{localize 'MB.PowersPerDay'}}">{{localize "MB.PowersPerDayText"}}</span>
+                    <span class="rule-text rollable powers-per-day-text">{{localize "MB.PowersPerDayText"}}</span>
                 </div>
             </div>
             <ol class="items-list inventory-list">
