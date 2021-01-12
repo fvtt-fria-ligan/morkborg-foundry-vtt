@@ -230,6 +230,51 @@ alternately we could select as
   overflow-y: auto;
 }
 /* ====================== */
+/* Item sheet */
+/* ====================== */
+.morkborg.sheet.item .sheet-header {
+  margin-top: 0;
+  flex: 0 0 90px;
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+}
+.morkborg.sheet.item .sheet-header .item-name input[type="text"] {
+  font-family: "Blood Crow", fantasy, serif;
+  font-size: 38px;
+  /*width: 100%;*/
+  /*width: 350px;*/
+  flex: 1;
+  height: 45px;
+}
+.morkborg.sheet.item .sheet-header .item-subtitle {
+  font-family: "Old Cupboard", serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-left: 13px;
+}
+.morkborg.sheet.item .sheet-body {
+  margin-top: 8px;
+  padding: 5px;
+}
+.morkborg.sheet.item .sheet-body .form-group {
+  margin-bottom: 8px;
+}
+.morkborg.sheet.item .sheet-body .form-group label {
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 20px;
+  text-align: right;
+  margin-right: 10px;
+}
+.morkborg.sheet.item .sheet-body .form-group input {
+  font-family: 'Special Elite', cursive;  
+  font-size: 14pt;
+}
+.morkborg.sheet.item .sheet-body .form-group select {
+  font-family: 'Special Elite', cursive;  
+  font-size: 14pt;
+}
+/* ====================== */
 /* Actor sheet header */
 /* ====================== */
 .morkborg.sheet.actor .sheet-header {
