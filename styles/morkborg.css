@@ -98,21 +98,27 @@
 /* ====================== */
 /* Sheet globals */
 /* ====================== */
+.morkborg.window-app.sheet {
+  /* TODO: decide if we want non-black-default box-shadow;
+  /*box-shadow: 0 0 10px #222222; */
+}
 .morkborg.sheet .window-content {
   overflow-y: hidden;
   padding: 5px;
-  /* inherited is parchment img bg */
+  /* inherited background is parchment img bg */
   background: black;
   font-size: 13px;
-  /*color: #191813;*/
   color: white;
+  border-bottom: 1px solid #222222;
+  border-left: 1px solid #222222;
+  border-right: 1px solid #222222;
 }
 .morkborg.sheet .window-content form {
   height: 100%;
   overflow: hidden;
 }
 .morkborg.sheet.actor {
-  min-width: 740px;
+  min-width: 742px;
   min-height: 650px;
   margin-top: 0;
 }
@@ -459,7 +465,6 @@ alternately we could select as
   color: #ffe500;
 }
 .morkborg .item-list .item-button {
-  /*line-height: 1.5;*/
   font-family: "FetteTrumpDeutsch", fantasy, serif;
   font-size: 20px;
   flex: none;
@@ -543,7 +548,6 @@ alternately we could select as
   height: 10px;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .item-list.armor-list .item {
-  /*border-bottom: none;*/
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .armor-tiers {
 }
