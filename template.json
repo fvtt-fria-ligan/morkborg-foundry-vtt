@@ -40,15 +40,8 @@
     },
     "creature": {
       "templates": ["common"],
-      "armor": {
-        "name": "",
-        "damageReductionDie": ""
-      },
-      "attack": {
-        "name": "",
-        "damageDie": ""
-      },
-      "bounty": "",
+      "armor": "",
+      "attack": "",
       "description": "",
       "morale": 7,
       "special": ""

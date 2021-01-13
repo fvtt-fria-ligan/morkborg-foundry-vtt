@@ -156,6 +156,21 @@
 .morkborg.sheet a:hover {
   text-shadow: 0 0 8px #ffe500;
 }
+.morkborg.sheet textarea {
+  border: 1px solid #7a7971;
+  border-radius: 0;
+  color: white;
+  font-family: 'Special Elite', cursive;
+  font-size: 14px;
+  resize: none;
+}
+.morkborg.sheet textarea:hover  {
+  box-shadow: 0 0 5px #ffe500;
+}
+.morkborg.sheet textarea:focus {
+  box-shadow: 0 0 5px #ffe500;
+  outline: none;
+}
 /* ====================== */
 /* TinyMCE editor */
 /* ====================== */
@@ -268,10 +283,6 @@ alternately we could select as
   width: 50px;
   color: white;
 }
-.morkborg.sheet.actor .sheet-header .hitpoints-row {
-  flex: 0 0 30px;
-  margin-bottom: 7px;
-}
 /* ====================== */
 /* Character sheet */
 /* ====================== */
@@ -302,6 +313,10 @@ alternately we could select as
   display: flex;
   flex-direction: column;
 }
+.morkborg.sheet.actor.character .sheet-header .profile-img {
+  height: 200px;
+  width: 200px;
+}
 .morkborg.sheet.actor.character .sheet-header .charname-row {
   flex: 0 0 50px;
   margin-bottom: 7px;
@@ -320,6 +335,10 @@ alternately we could select as
   font-family: "Old Cupboard", serif;
   font-size: 24px;
   width: 100%;
+}
+.morkborg.sheet.actor.character .sheet-header .hitpoints-row {
+  flex: 0 0 30px;
+  margin-bottom: 7px;
 }
 .morkborg.sheet.actor.character .sheet-header .omens-row {
   flex: 0 0 30px;
@@ -764,24 +783,34 @@ TODO: figure out if we want a 2-col inventory
   display: flex;
   flex-direction: row;
   padding: 5px;
-  border: 1px solid red;
 }
+
 .morkborg.sheet.actor.creature .sheet-header .header-col1 {
-  border: 1px solid green;
-  flex: 0 0 200px;
+  flex: 0 0 100px;
 }
 .morkborg.sheet.actor.creature .sheet-header .header-col2 {
   flex: 1;
   margin: 5px;
   display: flex;
   flex-direction: column;
-  border: 1px solid blue;
+}
+.morkborg.sheet.actor.creature .sheet-header .profile-img {
+  height: 100px;
+  width: 100px;
 }
 .morkborg.sheet.actor.creature .sheet-header .creature-name input[type="text"] {
   font-family: "Blood Crow", fantasy, serif;
   font-size: 38px;
   flex: 1;
   height: 45px;
+}
+.morkborg.sheet.actor.creature .sheet-header .hitpoints-row {
+  flex: 0 0 35px;
+  margin-left: 14px;
+}
+.morkborg.sheet.item .sheet-body {
+  margin-top: 8px;
+  padding: 5px;
 }
 .morkborg.sheet.creature .sheet-body .form-group {
   margin-bottom: 8px;
@@ -800,6 +829,10 @@ TODO: figure out if we want a 2-col inventory
   font-family: 'Special Elite', cursive;
   font-size: 14pt;
 }
+.morkborg.sheet.creature .sheet-body .form-group.special {
+  flex: 1;
+}
+
 /* ====================== */
 /* Item sheet */
 /* ====================== */

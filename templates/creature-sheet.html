@@ -38,38 +38,27 @@
 
             {{!-- Morale --}}
             <div class="form-group">
-                <label>{{ localize "MB.Morale" }}</label>
+                <label>{{ localize "MB.Morale" }}:</label>
                 <input name="data.morale" type="text" value="{{data.morale}}" placeholder="10" data-dtype="Number"/>
             </div>
 
             {{!-- Armor --}}
             <div class="form-group">
-                <label>{{ localize "MB.Armor" }}</label>
+                <label>{{ localize "MB.Armor" }}:</label>
                 <input type="text" name="data.armor.name" value="{{data.armor.name}}" placeholder="None" data-dtype="String" />
             </div>
-            <div class="form-group">
-                <label>{{ localize "MB.DamageReductionDie" }}</label>
-                <input type="text" name="data.armor.damageReductionDie" value="{{data.armor.dataReductionDie}}" placeholder="d4" data-dtype="String" />
-            </div> 
 
             {{!-- Attack --}}
             <div class="form-group">
-                <label>{{ localize "MB.Attack" }}</label>
+                <label>{{ localize "MB.Attack" }}:</label>
                 <input type="text" name="data.attack.name" value="{{data.attack.name}}" placeholder="None" data-dtype="String" />
             </div> 
-            <div class="form-group">
-                <label>{{ localize "MB.DamageDie" }}</label>
-                <input type="text" name="data.attack.damageDie" value="{{data.attack.damageDie}}" placeholder="d4" data-dtype="String" />
-            </div>
-            <div class="form-group">
-                <label>{{ localize "MB.Special" }}</label>
-                <input type="text" name="data.special" value="{{data.special}}" placeholder="None" data-dtype="String" />
-            </div>
 
-            {{!-- Bounty --}}
+            {{!-- Special --}}
             <div class="form-group">
-                <label>{{ localize "MB.Bounty" }}</label>
-                <input type="text" name="data.bounty" value="{{data.bounty}}" placeholder="None" data-dtype="String" />
+                <label>{{ localize "MB.Special" }}:</label>
+{{!--                <input type="text" name="data.special" value="{{data.special}}" placeholder="None" data-dtype="String" /> --}}
+                <textarea name="data.special" rows="5">{{data.special}}</textarea>
             </div>
         </div>
     </section>
