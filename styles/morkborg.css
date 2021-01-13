@@ -59,10 +59,8 @@
   flex: 4;
 }
 /* ====================== */
-/* MorkBorg globals
+/* MorkBorg */
 /* ====================== */
-.morkborg {
-}
 .morkborg .window-content {
   font-size: 13px;
   color: #191813;
@@ -95,13 +93,12 @@
   height: auto;
   padding: 3px;
 }
-
 .morkborg select > option {
   background-color: black !important;
   color: white !important;
 }
 /* ====================== */
-/* Sheet globals */
+/* Sheet */
 /* ====================== */
 .morkborg.window-app.sheet {
   /* TODO: decide if we want non-black-default box-shadow;
@@ -122,9 +119,7 @@
   height: 100%;
   overflow: hidden;
 }
-.morkborg.sheet.actor {
-  min-width: 742px;
-  min-height: 650px;
+.morkborg.sheet {
   margin-top: 0;
 }
 .morkborg.sheet .editable .rollable:hover {
@@ -158,12 +153,12 @@
 .morkborg.sheet button:focus {
   box-shadow: 0 0 5px #ffe500;
 }
-/* ====================== */
-/* TinyMCE editor */
-/* ====================== */
 .morkborg.sheet a:hover {
   text-shadow: 0 0 8px #ffe500;
 }
+/* ====================== */
+/* TinyMCE editor */
+/* ====================== */
 .morkborg.sheet .editor {
   color: white;
   border: 1px solid #7a7971;
@@ -228,7 +223,6 @@ alternately we could select as
 /* Sheet Body */
 /* ====================== */
 .morkborg .sheet-body {
-  /*flex: 1;*/
   overflow: hidden;
 }
 .morkborg .sheet-body .tab {
@@ -236,136 +230,34 @@ alternately we could select as
   overflow-y: auto;
 }
 /* ====================== */
-/* Item sheet */
+/* Actor sheet */
 /* ====================== */
-.morkborg.sheet.item .sheet-header {
-  margin-top: 0;
-  flex: 0 0 90px;
-  display: flex;
-  flex-direction: row;
-  padding: 5px;
-}
-.morkborg.sheet.item .sheet-header .item-name input[type="text"] {
-  font-family: "Blood Crow", fantasy, serif;
-  font-size: 38px;
-  /*width: 100%;*/
-  /*width: 350px;*/
-  flex: 1;
-  height: 45px;
-}
-.morkborg.sheet.item .sheet-header .item-subtitle {
-  font-family: "Old Cupboard", serif;
-  font-size: 24px;
-  text-transform: uppercase;
-  margin-left: 13px;
-}
-.morkborg.sheet.item .sheet-body {
-  margin-top: 8px;
-  padding: 5px;
-}
-.morkborg.sheet.item .sheet-body .form-group {
-  margin-bottom: 8px;
-}
-.morkborg.sheet.item .sheet-body .form-group label {
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
-  font-size: 20px;
-  text-align: right;
-  margin-right: 10px;
-}
-.morkborg.sheet.item .sheet-body .form-group input {
+.morkborg.sheet.actor .rule-text {
   font-family: "Special Elite", cursive;
-  font-size: 14pt;
-}
-.morkborg.sheet.item .sheet-body .form-group select {
-  font-family: "Special Elite", cursive;
-  font-size: 14pt;
+  font-size: 10pt;
 }
 /* ====================== */
 /* Actor sheet header */
 /* ====================== */
 .morkborg.sheet.actor .sheet-header {
   margin-top: 0;
-  flex: 0 0 200px;
+  padding: 5px;
   display: flex;
   flex-direction: row;
-  padding: 5px;
 }
 .morkborg.sheet.actor .sheet-header .header-gutter-col {
   flex: 0 0 10px;
-}
-.morkborg.sheet.actor .sheet-header .header-col1 {
-  flex: 0 0 200px;
-  margin: 5px;
-  padding: 0;
-}
-.morkborg.sheet.actor .sheet-header .header-col2 {
-  flex: 0 0 350px;
-  margin: 5px;
-  display: flex;
-  flex-direction: column;
-}
-.morkborg.sheet.actor .sheet-header .header-col3 {
-  flex: 0 0 120px;
-  margin: 5px;
-  display: flex;
-  flex-direction: column;
 }
 .morkborg.sheet.actor .sheet-header .profile-img {
   height: 200px;
   width: 200px;
   margin: 0;
   padding: 0;
-  /*  border-radius: 0;
-  border: 1px solid white;
-*/
-}
-.morkborg.sheet.actor .sheet-header .charname-row {
-  flex: 0 0 50px;
-  margin-bottom: 7px;
-}
-.morkborg.sheet.actor .sheet-header .charname-row input[type="text"] {
-  font-family: "Blood Crow", fantasy, serif;
-  font-size: 38px;
-  width: 100%;
-  height: 45px;
-}
-.morkborg.sheet.actor .sheet-header .classname-row {
-  flex: 0 0 30px;
-  margin-bottom: 7px;
-}
-.morkborg.sheet.actor .sheet-header .classname-row input[type="text"] {
-  font-family: "Old Cupboard", serif;
-  font-size: 24px;
-  width: 100%;
-}
-.morkborg.sheet.actor .sheet-header .hitpoints-row {
-  flex: 0 0 30px;
-  margin-bottom: 7px;
-}
-.morkborg.sheet.actor .sheet-header .omens-row {
-  flex: 0 0 30px;
-  margin-bottom: 7px;
-}
-.morkborg.sheet.actor .rule-text {
-  font-family: "Special Elite", cursive;
-  font-size: 10pt;
-}
-.morkborg.sheet.actor .sheet-header .omen-rule {
-  margin-left: 10px;
-  text-transform: lowercase;
-}
-.morkborg.sheet.actor .sheet-header .miseries-row {
-  flex: 0 0 30px;
 }
 .morkborg.sheet.actor .stat-label {
   font-family: "FetteTrumpDeutsch", fantasy, serif;
   font-size: 22px;
   margin-right: 10px;
-}
-.morkborg.sheet.actor .sheet-header .stat-label {
-  text-align: right;
-  width: 140px;
-  float: left;
 }
 .morkborg.sheet.actor .stat-input {
   border: 1px solid #7a7971;
@@ -376,29 +268,98 @@ alternately we could select as
   width: 50px;
   color: white;
 }
-.morkborg.sheet.actor .sheet-header .miseries-label {
+.morkborg.sheet.actor .sheet-header .hitpoints-row {
+  flex: 0 0 30px;
+  margin-bottom: 7px;
+}
+/* ====================== */
+/* Character sheet */
+/* ====================== */
+.morkborg.sheet.actor.character {
+  min-width: 742px;
+  min-height: 650px;
+}
+/* ====================== */
+/* Character sheet header */
+/* ====================== */
+.morkborg.sheet.actor.character .sheet-header {
+  flex: 0 0 200px;
+}
+.morkborg.sheet.actor.character .sheet-header .header-col1 {
+  flex: 0 0 200px;
+  margin: 5px;
+  padding: 0;
+}
+.morkborg.sheet.actor.character .sheet-header .header-col2 {
+  flex: 0 0 350px;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.morkborg.sheet.actor.character .sheet-header .header-col3 {
+  flex: 0 0 120px;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.morkborg.sheet.actor.character .sheet-header .charname-row {
+  flex: 0 0 50px;
+  margin-bottom: 7px;
+}
+.morkborg.sheet.actor.character .sheet-header .charname-row input[type="text"] {
+  font-family: "Blood Crow", fantasy, serif;
+  font-size: 38px;
+  width: 100%;
+  height: 45px;
+}
+.morkborg.sheet.actor.character .sheet-header .classname-row {
+  flex: 0 0 30px;
+  margin-bottom: 7px;
+}
+.morkborg.sheet.actor.character .sheet-header .classname-row input[type="text"] {
+  font-family: "Old Cupboard", serif;
+  font-size: 24px;
+  width: 100%;
+}
+.morkborg.sheet.actor.character .sheet-header .omens-row {
+  flex: 0 0 30px;
+  margin-bottom: 7px;
+}
+.morkborg.sheet.actor.character .sheet-header .omen-rule {
+  margin-left: 10px;
+  text-transform: lowercase;
+}
+.morkborg.sheet.actor.character .sheet-header .miseries-row {
+  flex: 0 0 30px;
+}
+.morkborg.sheet.actor.character .sheet-header .stat-label {
+  text-align: right;
+  width: 140px;
   float: left;
 }
-.morkborg.sheet.actor .sheet-header ul.miseries {
+.morkborg.sheet.actor.character .sheet-header .miseries-label {
+  float: left;
+}
+.morkborg.sheet.actor.character .sheet-header ul.miseries {
   list-style-type: none;
   margin: 0;
   margin-top: 3px;
   padding: 0;
   float: left;
 }
-.morkborg.sheet.actor .sheet-header ul.miseries li {
+.morkborg.sheet.actor.character .sheet-header ul.miseries li {
   float: left;
 }
-.morkborg.sheet.actor .sheet-header ul.miseries label {
+.morkborg.sheet.actor.character .sheet-header ul.miseries label {
   display: block;
   padding: 4px;
   position: relative;
   padding-left: 20px;
 }
-.morkborg.sheet.actor .sheet-header ul.miseries label input[type="radio"] {
+.morkborg.sheet.actor.character .sheet-header ul.miseries label input[type="radio"] {
   display: none;
 }
-.morkborg.sheet.actor
+.morkborg.sheet.actor.character
   .sheet-header
   ul.miseries
   input[type="radio"]:checked
@@ -407,7 +368,7 @@ alternately we could select as
   color: #000;
   border: none;
 }
-.morkborg.sheet.actor .sheet-header ul.miseries label span {
+.morkborg.sheet.actor.character .sheet-header ul.miseries label span {
   border: 1px solid #7a7971;
   width: 17px;
   height: 17px;
@@ -421,24 +382,24 @@ alternately we could select as
   left: 0;
   top: 50%;
 }
-.morkborg.sheet.actor .sheet-header ul.miseries li:last-child label span {
+.morkborg.sheet.actor.character .sheet-header ul.miseries li:last-child label span {
   background: white;
   color: black;
 }
-.morkborg.sheet.actor .sheet-header .ability-row {
+.morkborg.sheet.actor.character .sheet-header .ability-row {
   margin-bottom: 10px;
 }
-.morkborg.sheet.actor .sheet-header .ability-row:last-child {
+.morkborg.sheet.actor.character .sheet-header .ability-row:last-child {
   margin-bottom: 0;
 }
-.morkborg.sheet.actor .sheet-header .ability-label {
+.morkborg.sheet.actor.character .sheet-header .ability-label {
   font-family: "FetteTrumpDeutsch", fantasy, serif;
   font-size: 24px;
   margin-left: 5px;
   margin-top: 5px;
   float: left;
 }
-.morkborg.sheet.actor .sheet-header .ability-input {
+.morkborg.sheet.actor.character .sheet-header .ability-input {
   border: 1px solid #7a7971;
   font-family: "Special Elite", cursive;
   font-size: 14pt;
@@ -539,50 +500,50 @@ alternately we could select as
   color: gray;
 }
 /* ====================== */
-/* Class tab */
+/* Character sheet obituary (class) tab */
 /* ====================== */
-.morkborg.sheet.actor .sheet-body .class-tab-inner {
+.morkborg.sheet.actor.character .sheet-body .class-tab-inner {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
-.morkborg.sheet.actor .sheet-body .class-top-row {
+.morkborg.sheet.actor.character .sheet-body .class-top-row {
   margin-top: 15px;
   margin-bottom: 10px;
 }
-.morkborg.sheet.actor .sheet-body .classname-label {
+.morkborg.sheet.actor.character .sheet-body .classname-label {
   font-family: "FetteTrumpDeutsch", fantasy, serif;
   font-size: 20px;
   margin-right: 10px;
 }
-.morkborg.sheet.actor .sheet-body .classname-input {
+.morkborg.sheet.actor.character .sheet-body .classname-input {
   border: 1px solid #7a7971;
   font-family: "Special Elite", cursive;
   font-size: 18px;
   width: 300px;
   height: 36px;
 }
-.morkborg.sheet.actor .sheet-body .omendie-label {
+.morkborg.sheet.actor.character .sheet-body .omendie-label {
   font-family: "FetteTrumpDeutsch", fantasy, serif;
   font-size: 20px;
   width: 140px;
   margin-left: 20px;
   margin-right: 10px;
 }
-.morkborg.sheet.actor .sheet-body .omendie-input {
+.morkborg.sheet.actor.character .sheet-body .omendie-input {
   width: 70px;
 }
-.morkborg.sheet.actor .sheet-body .class-tab .editor,
-.morkborg.sheet.actor .sheet-body .class-tab .editor-content {
+.morkborg.sheet.actor.character .sheet-body .class-tab .editor,
+.morkborg.sheet.actor.character .sheet-body .class-tab .editor-content {
 }
-.morkborg.sheet.actor .sheet-body .class-tab-gutter {
+.morkborg.sheet.actor.character .sheet-body .class-tab-gutter {
   flex: 0 0 10px;
 }
 /* ====================== */
-/* Violence tab */
+/* Character sheet violence tab */
 /* ====================== */
-.morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item {
+.morkborg.sheet.actor.character .sheet-body .violence-tab .item-list.weapon-list .item {
   align-items: center;
 }
 .morkborg.sheet.actor
@@ -593,50 +554,50 @@ alternately we could select as
   font-size: 20px;
   width: 120px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .item-list .item-name {
+.morkborg.sheet.actor.character .sheet-body .violence-tab .item-list .item-name {
   font-size: 16px;
   margin-top: 5px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .item-list .item-fields {
+.morkborg.sheet.actor.character .sheet-body .violence-tab .item-list .item-fields {
   font-size: 16px;
   margin-top: 6px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .attack-rule {
+.morkborg.sheet.actor.character .sheet-body .violence-tab .attack-rule {
   text-align: center;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .violence-gutter {
+.morkborg.sheet.actor.character .sheet-body .violence-tab .violence-gutter {
   height: 10px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .item-list.armor-list .item {
+.morkborg.sheet.actor.character .sheet-body .violence-tab .item-list.armor-list .item {
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .armor-tiers {
+.morkborg.sheet.actor.character .sheet-body .violence-tab .armor-tiers {
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .tier-label {
+.morkborg.sheet.actor.character .sheet-body .violence-tab .tier-label {
   float: left;
   font-size: 20;
   margin-right: 10px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers {
+.morkborg.sheet.actor.character .sheet-body .violence-tab ul.tiers {
   list-style-type: none;
   margin: 0;
   margin-top: 3px;
   padding: 0;
   float: left;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers li {
+.morkborg.sheet.actor.character .sheet-body .violence-tab ul.tiers li {
   float: left;
   height: 45px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers label {
+.morkborg.sheet.actor.character .sheet-body .violence-tab ul.tiers label {
   display: block;
   padding: 4px;
   position: relative;
   padding-left: 32px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type="radio"] {
+.morkborg.sheet.actor.character .sheet-body .violence-tab ul.tiers input[type="radio"] {
   display: none;
 }
-.morkborg.sheet.actor
+.morkborg.sheet.actor.character
   .sheet-body
   .violence-tab
   ul.tiers
@@ -646,7 +607,7 @@ alternately we could select as
   color: #000;
   border: none;
 }
-.morkborg.sheet.actor
+.morkborg.sheet.actor.character
   .sheet-body
   .violence-tab
   ul.tiers
@@ -655,7 +616,7 @@ alternately we could select as
   color: #444444;
   border: 1px solid #444444;
 }
-.morkborg.sheet.actor
+.morkborg.sheet.actor.character
   .sheet-body
   .violence-tab
   ul.tiers
@@ -663,7 +624,7 @@ alternately we could select as
   ~ span.tier-dmg {
   color: #444444;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers span.tier-num {
+.morkborg.sheet.actor.character .sheet-body .violence-tab ul.tiers span.tier-num {
   border: 1px solid #7a7971;
   width: 24px;
   height: 24px;
@@ -678,7 +639,7 @@ alternately we could select as
   /*top: 50%; */
   top: 0%;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers span.tier-dmg {
+.morkborg.sheet.actor.character .sheet-body .violence-tab ul.tiers span.tier-dmg {
   width: 30px;
   height: 15px;
   position: absolute;
@@ -690,12 +651,12 @@ alternately we could select as
   left: -5px;
   top: 30px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .underarmor-row {
+.morkborg.sheet.actor.character .sheet-body .violence-tab .underarmor-row {
   margin-top: 0px;
   display: flex;
   flex-direction: row;
 }
-.morkborg.sheet.actor
+.morkborg.sheet.actor.character
   .sheet-body
   .violence-tab
   .underarmor-row
@@ -703,7 +664,7 @@ alternately we could select as
   flex: 1;
   text-align: center;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .incoming-attack button {
+.morkborg.sheet.actor.character .sheet-body .violence-tab .incoming-attack button {
   margin-left: 10px;
   width: 120px;
   margin-bottom: 10px;
@@ -715,32 +676,32 @@ alternately we could select as
   border-bottom: 2px solid #777;
   border-radius: 0;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .shield-rule {
+.morkborg.sheet.actor.character .sheet-body .violence-tab .shield-rule {
   margin-top: 5px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .defend-rule {
+.morkborg.sheet.actor.character .sheet-body .violence-tab .defend-rule {
   text-align: center;
 }
 
 /* ====================== */
-/* Powers tab */
+/* Character sheet powers tab */
 /* ====================== */
-.morkborg.sheet.actor .sheet-body .powers-top-row {
+.morkborg.sheet.actor.character .sheet-body .powers-top-row {
   margin-top: 15px;
   margin-bottom: 10px;
   display: flex;
   flex-direction: row;
 }
-.morkborg.sheet.actor .sheet-body .wield-power {
+.morkborg.sheet.actor.character .sheet-body .wield-power {
   flex: 0 0 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.morkborg.sheet.actor .sheet-body .powers-gutter {
+.morkborg.sheet.actor.character .sheet-body .powers-gutter {
   flex: 0 0 20px;
 }
-.morkborg.sheet.actor .sheet-body .wield-power-button {
+.morkborg.sheet.actor.character .sheet-body .wield-power-button {
   width: 200px;
   margin-bottom: 10px;
   font-family: "FetteTrumpDeutsch", fantasy, serif;
@@ -751,46 +712,49 @@ alternately we could select as
   border-bottom: 2px solid #777;
   border-radius: 0;
 }
-.morkborg.sheet.actor .sheet-body .wield-rule {
+.morkborg.sheet.actor.character .sheet-body .wield-rule {
   text-align: center;
 }
-.morkborg.sheet.actor .sheet-body div.uses-remaining {
+.morkborg.sheet.actor.character .sheet-body div.uses-remaining {
   flex: 0 0 320px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.morkborg.sheet.actor .sheet-body .uses-remaining label {
+.morkborg.sheet.actor.character .sheet-body .uses-remaining label {
 }
-.morkborg.sheet.actor .sheet-body .uses-remaining input {
+.morkborg.sheet.actor.character .sheet-body .uses-remaining input {
 }
-.morkborg.sheet.actor .sheet-body .uses-remaining div {
+.morkborg.sheet.actor.character .sheet-body .uses-remaining div {
   margin-bottom: 20px;
 }
 /* ====================== */
-/* Equipment tab */
+/* Character sheet treasures (equipment) tab */
 /* ====================== */
-.morkborg.sheet.actor .sheet-body .equipment-top-row {
+.morkborg.sheet.actor.character .sheet-body .equipment-top-row {
   margin-top: 10px;
   margin-left: 20px;
 }
-.morkborg.sheet.actor .sheet-body .silver-label {
+.morkborg.sheet.actor.character .sheet-body .silver-label {
 }
-.morkborg.sheet.actor .sheet-body .silver-input {
+.morkborg.sheet.actor.character .sheet-body .silver-input {
   width: 70px;
 }
-.morkborg.sheet.actor .sheet-body .carrying-label {
+.morkborg.sheet.actor.character .sheet-body .carrying-label {
   margin-left: 20px;
 }
-.morkborg.sheet.actor .sheet-body .carrying-rule {
+.morkborg.sheet.actor.character .sheet-body .carrying-rule {
   margin-left: 10px;
 }
-.morkborg.sheet.actor .sheet-body .encumbered {
+.morkborg.sheet.actor.character .sheet-body .encumbered {
   color: #ffe500;
 }
-/*.morkborg.sheet.actor .sheet-body .equipment-tab .item-list {
+/*
+TODO: figure out if we want a 2-col inventory
+.morkborg.sheet.actor .sheet-body .equipment-tab .item-list {
   columns: 2;
-}*/
+}
+*/
 /* ====================== */
 /* Creature sheet */
 /* ====================== */
@@ -802,13 +766,16 @@ alternately we could select as
   padding: 5px;
   border: 1px solid red;
 }
-.morkborg.sheet.actor.creature .sheet-header .col1 {
+.morkborg.sheet.actor.creature .sheet-header .header-col1 {
+  border: 1px solid green;
+  flex: 0 0 200px;
 }
-.morkborg.sheet.actor.creature .sheet-header .col2 {
-  flex: 0 0 350px;
+.morkborg.sheet.actor.creature .sheet-header .header-col2 {
+  flex: 1;
   margin: 5px;
   display: flex;
   flex-direction: column;
+  border: 1px solid blue;
 }
 .morkborg.sheet.actor.creature .sheet-header .creature-name input[type="text"] {
   font-family: "Blood Crow", fantasy, serif;
@@ -831,5 +798,48 @@ alternately we could select as
 }
 .morkborg.sheet.creature .sheet-body .form-group select {
   font-family: 'Special Elite', cursive;
+  font-size: 14pt;
+}
+/* ====================== */
+/* Item sheet */
+/* ====================== */
+.morkborg.sheet.item .sheet-header {
+  margin-top: 0;
+  flex: 0 0 90px;
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+}
+.morkborg.sheet.item .sheet-header .item-name input[type="text"] {
+  font-family: "Blood Crow", fantasy, serif;
+  font-size: 38px;
+  flex: 1;
+  height: 45px;
+}
+.morkborg.sheet.item .sheet-header .item-subtitle {
+  font-family: "Old Cupboard", serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-left: 13px;
+}
+.morkborg.sheet.item .sheet-body {
+  margin-top: 8px;
+  padding: 5px;
+}
+.morkborg.sheet.item .sheet-body .form-group {
+  margin-bottom: 8px;
+}
+.morkborg.sheet.item .sheet-body .form-group label {
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 20px;
+  text-align: right;
+  margin-right: 10px;
+}
+.morkborg.sheet.item .sheet-body .form-group input {
+  font-family: "Special Elite", cursive;
+  font-size: 14pt;
+}
+.morkborg.sheet.item .sheet-body .form-group select {
+  font-family: "Special Elite", cursive;
   font-size: 14pt;
 }
