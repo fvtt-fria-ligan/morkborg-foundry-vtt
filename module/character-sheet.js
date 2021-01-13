@@ -280,14 +280,16 @@ export class MBActorSheetCharacter extends ActorSheet {
     let button = $(event.currentTarget);
     const li = button.parents(".item");
     const item = this.actor.getOwnedItem(li.data("itemId"));
-    const rollData = item.getRollData();
+    const itemRollData = item.getRollData();
+    const actorRollData = this.actor.getRollData();
 
     // TODO: make these multiple rolls into a single roll sheet, a la BetterRolls5e
 
+    // roll 1: attack
     // ranged weapons use agility; melee weapons use strength
-    const isRanged = rollData.weaponType === 'ranged';
+    const isRanged = itemRollData.weaponType === 'ranged';
     const ability = isRanged ? 'agility' : 'strength';
-    let attackRoll = new Roll(`d20+@abilities.${ability}.score`, this.actor.getRollData());
+    let attackRoll = new Roll(`d20+@abilities.${ability}.score`, actorRollData);
     const weaponTypeKey = isRanged ? 'MB.Ranged' : 'MB.Melee';
     const attackLabel = `${game.i18n.localize(weaponTypeKey)} ${game.i18n.localize('MB.Attack')}`;
     let weaponType = 
@@ -297,7 +299,8 @@ export class MBActorSheetCharacter extends ActorSheet {
       flavor: `<h2>${item.name}</h2><h3>${attackLabel}</h3>`
     });
 
-    let damageRoll = new Roll("@damageDie", rollData);
+    // roll 2: damage
+    let damageRoll = new Roll("@damageDie", itemRollData);
     let damageTitle = game.i18n.localize('MB.Damage');
     damageTitle = damageTitle.charAt(0).toUpperCase() + damageTitle.slice(1);
     damageRoll.roll().toMessage({
@@ -305,6 +308,18 @@ export class MBActorSheetCharacter extends ActorSheet {
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
       flavor: `<h2>${item.name}</h2><h3>${damageTitle}</h2>`
     });
+
+    // roll 3: target damage reduction
+    console.log(this.actor.data.data.targetArmorDie);
+    if (this.actor.data.data.targetArmorDie) {
+      let targetArmorRoll = new Roll("@targetArmorDie", actorRollData);
+      let targetArmorTitle = game.i18n.localize('MB.TargetArmor');
+      targetArmorRoll.roll().toMessage({
+        user: game.user._id,
+        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+        flavor: `<h2>${item.name}</h2><h3><h3>${targetArmorTitle}</h3>`
+      });
+    }
   }
 
   /**

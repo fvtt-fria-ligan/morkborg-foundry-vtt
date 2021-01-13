@@ -2,7 +2,7 @@
     {{!-- Character Sheet Header --}}
     <header class="sheet-header">
         <div class="header-col1">
-            <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>            
+            <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
         </div>
         <div class="header-gutter-col">
         </div>
@@ -89,6 +89,10 @@
 
         {{!-- Violence Tab --}}
         <div class="tab violence-tab" data-group="primary" data-tab="violence">
+            <div class="target-armor">
+                <span class="stat-label">{{localize 'MB.TargetArmor'}}:</span>
+                <input class="stat-input versus-armor" name="data.targetArmorDie" type="text" value="{{data.targetArmorDie}}" data-dtype="String" placeholder="1d2" />   
+            </div>
             <ol class="items-list inventory-list">
                 <li class="items-header flexrow">
                     <h3 class="item-name flexrow">{{localize "MB.ItemTypeWeaponPlural"}}</h3>
@@ -101,8 +105,8 @@
                         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
                         <h4 class="item-name">{{item.name}}</h4>
                         <div class="item-fields">
-                            <span class="item-field">{{item.data.damageDie}}</span>
                             <span class="item-field">{{item.data.handed}}H</span>
+                            <span class="item-field">{{item.data.damageDie}}</span>
                         </div>
                         <div class="item-buttons">
                             <button class="item-button rollable attack-button" data-roll="d20+@abilities.strength.score" data-label="attack_{{item._id}}"
