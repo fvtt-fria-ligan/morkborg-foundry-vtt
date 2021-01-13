@@ -88,7 +88,8 @@ export class MBActorSheetCharacter extends ActorSheet {
     }
     // TODO: figure out what we want to do wrt sorting, drag-drop reordering, etc
     //equipment.sort((a, b) => (a.sort > b.sort) ? 1 : ((b.sort > a.sort) ? -1 : 0)); 
-    equipment.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)); 
+    equipment.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+    equippedWeapons.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
 
     // Assign to new properties
     sheetData.actor.data.equipment = equipment;
