@@ -478,6 +478,8 @@ alternately we could select as
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  margin-right: 10px;
+  flex: 2;
 }
 .morkborg .item-list .item-field {
   margin-right: 20px;
@@ -580,6 +582,9 @@ alternately we could select as
 .morkborg.sheet.actor.character .sheet-body .violence-tab .item-list .item-fields {
   font-size: 16px;
   margin-top: 6px;
+}
+.morkborg.sheet.actor.character .sheet-body .violence-tab .item-list .versus-armor {
+  margin-left: 10px;
 }
 .morkborg.sheet.actor.character .sheet-body .violence-tab .attack-rule {
   text-align: center;
