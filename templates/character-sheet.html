@@ -89,14 +89,12 @@
 
         {{!-- Violence Tab --}}
         <div class="tab violence-tab" data-group="primary" data-tab="violence">
-            <div class="target-armor">
-                <span class="stat-label">{{localize 'MB.TargetArmor'}}:</span>
-                <input class="stat-input versus-armor" name="data.targetArmorDie" type="text" value="{{data.targetArmorDie}}" data-dtype="String" placeholder="1d2" />   
-            </div>
             <ol class="items-list inventory-list">
                 <li class="items-header flexrow">
                     <h3 class="item-name flexrow">{{localize "MB.ItemTypeWeaponPlural"}}</h3>
-                    <div class="item-controls flexrow">
+                    <div class="target-armor">
+                        <span class="stat-label">{{localize 'MB.TargetArmor'}}:</span>
+                        <input class="stat-input versus-armor" name="data.targetArmorDie" type="text" value="{{data.targetArmorDie}}" data-dtype="String" placeholder="1d2" />
                     </div>
                 </li>            
                 <ol class="item-list weapon-list">
