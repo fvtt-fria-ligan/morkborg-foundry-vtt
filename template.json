@@ -49,7 +49,7 @@
     }
   },
   "Item": {
-    "types": ["armor", "container", "misc", "scroll", "shield", "weapon"],
+    "types": ["armor", "class", "container", "misc", "scroll", "shield", "weapon"],
     "templates": {
       "baseItem": {
         "description": "",
