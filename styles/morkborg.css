@@ -160,11 +160,11 @@
   border: 1px solid #7a7971;
   border-radius: 0;
   color: white;
-  font-family: 'Special Elite', cursive;
+  font-family: "Special Elite", cursive;
   font-size: 14px;
   resize: none;
 }
-.morkborg.sheet textarea:hover  {
+.morkborg.sheet textarea:hover {
   box-shadow: 0 0 5px #ffe500;
 }
 .morkborg.sheet textarea:focus {
@@ -192,14 +192,20 @@ alternately we could select as
   /* TODO: how do we style font color in tinymce? 
   color: white;
   */
-  background: lightgray;
+  background: black;
+}
+
+.mce-content-body {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  color: white;
 }
 .morkborg .editor,
 .morkborg .editor-content {
   height: 100%;
   /*  font-family: 'Special Elite', cursive;
   font-size: 12px;
-*/
+  */
 }
 .morkborg.sheet .editor {
   padding: 0 8px;
@@ -331,7 +337,10 @@ alternately we could select as
   flex: 0 0 30px;
   margin-bottom: 7px;
 }
-.morkborg.sheet.actor.character .sheet-header .classname-row input[type="text"] {
+.morkborg.sheet.actor.character
+  .sheet-header
+  .classname-row
+  input[type="text"] {
   font-family: "Old Cupboard", serif;
   font-size: 24px;
   width: 100%;
@@ -375,7 +384,11 @@ alternately we could select as
   position: relative;
   padding-left: 20px;
 }
-.morkborg.sheet.actor.character .sheet-header ul.miseries label input[type="radio"] {
+.morkborg.sheet.actor.character
+  .sheet-header
+  ul.miseries
+  label
+  input[type="radio"] {
   display: none;
 }
 .morkborg.sheet.actor.character
@@ -401,7 +414,12 @@ alternately we could select as
   left: 0;
   top: 50%;
 }
-.morkborg.sheet.actor.character .sheet-header ul.miseries li:last-child label span {
+.morkborg.sheet.actor.character
+  .sheet-header
+  ul.miseries
+  li:last-child
+  label
+  span {
   background: white;
   color: black;
 }
@@ -564,7 +582,11 @@ alternately we could select as
 /* ====================== */
 /* Character sheet violence tab */
 /* ====================== */
-.morkborg.sheet.actor.character .sheet-body .violence-tab .item-list.weapon-list .item {
+.morkborg.sheet.actor.character
+  .sheet-body
+  .violence-tab
+  .item-list.weapon-list
+  .item {
   align-items: center;
 }
 .morkborg.sheet.actor
@@ -575,15 +597,27 @@ alternately we could select as
   font-size: 20px;
   width: 120px;
 }
-.morkborg.sheet.actor.character .sheet-body .violence-tab .item-list .item-name {
+.morkborg.sheet.actor.character
+  .sheet-body
+  .violence-tab
+  .item-list
+  .item-name {
   font-size: 16px;
   margin-top: 5px;
 }
-.morkborg.sheet.actor.character .sheet-body .violence-tab .item-list .item-fields {
+.morkborg.sheet.actor.character
+  .sheet-body
+  .violence-tab
+  .item-list
+  .item-fields {
   font-size: 16px;
   margin-top: 6px;
 }
-.morkborg.sheet.actor.character .sheet-body .violence-tab .item-list .versus-armor {
+.morkborg.sheet.actor.character
+  .sheet-body
+  .violence-tab
+  .item-list
+  .versus-armor {
   margin-left: 10px;
 }
 .morkborg.sheet.actor.character .sheet-body .violence-tab .attack-rule {
@@ -592,7 +626,11 @@ alternately we could select as
 .morkborg.sheet.actor.character .sheet-body .violence-tab .violence-gutter {
   height: 10px;
 }
-.morkborg.sheet.actor.character .sheet-body .violence-tab .item-list.armor-list .item {
+.morkborg.sheet.actor.character
+  .sheet-body
+  .violence-tab
+  .item-list.armor-list
+  .item {
 }
 .morkborg.sheet.actor.character .sheet-body .violence-tab .armor-tiers {
 }
@@ -618,7 +656,11 @@ alternately we could select as
   position: relative;
   padding-left: 32px;
 }
-.morkborg.sheet.actor.character .sheet-body .violence-tab ul.tiers input[type="radio"] {
+.morkborg.sheet.actor.character
+  .sheet-body
+  .violence-tab
+  ul.tiers
+  input[type="radio"] {
   display: none;
 }
 .morkborg.sheet.actor.character
@@ -648,7 +690,11 @@ alternately we could select as
   ~ span.tier-dmg {
   color: #444444;
 }
-.morkborg.sheet.actor.character .sheet-body .violence-tab ul.tiers span.tier-num {
+.morkborg.sheet.actor.character
+  .sheet-body
+  .violence-tab
+  ul.tiers
+  span.tier-num {
   border: 1px solid #7a7971;
   width: 24px;
   height: 24px;
@@ -663,7 +709,11 @@ alternately we could select as
   /*top: 50%; */
   top: 0%;
 }
-.morkborg.sheet.actor.character .sheet-body .violence-tab ul.tiers span.tier-dmg {
+.morkborg.sheet.actor.character
+  .sheet-body
+  .violence-tab
+  ul.tiers
+  span.tier-dmg {
   width: 30px;
   height: 15px;
   position: absolute;
@@ -688,7 +738,11 @@ alternately we could select as
   flex: 1;
   text-align: center;
 }
-.morkborg.sheet.actor.character .sheet-body .violence-tab .incoming-attack button {
+.morkborg.sheet.actor.character
+  .sheet-body
+  .violence-tab
+  .incoming-attack
+  button {
   margin-left: 10px;
   width: 120px;
   margin-bottom: 10px;
@@ -827,11 +881,11 @@ TODO: figure out if we want a 2-col inventory
   margin-right: 10px;
 }
 .morkborg.sheet.creature .sheet-body .form-group input {
-  font-family: 'Special Elite', cursive;
+  font-family: "Special Elite", cursive;
   font-size: 14pt;
 }
 .morkborg.sheet.creature .sheet-body .form-group select {
-  font-family: 'Special Elite', cursive;
+  font-family: "Special Elite", cursive;
   font-size: 14pt;
 }
 .morkborg.sheet.creature .sheet-body .form-group.special {
