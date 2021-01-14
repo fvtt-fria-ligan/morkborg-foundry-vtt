@@ -41,6 +41,7 @@
     },
     "creature": {
       "templates": ["common"],
+      "alternateName": "",
       "armor": "",
       "attack": "",
       "description": "",
