@@ -24,6 +24,13 @@
       "entity": "Item"
     },
     {
+      "name": "creatures",
+      "label": "Creatures",
+      "system": "morkborg",
+      "path": "./packs/creatures.db",
+      "entity": "Actor"
+    },    
+    {
       "name": "equipment",
       "label": "Equipment",
       "system": "morkborg",
