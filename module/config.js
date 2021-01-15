@@ -2,10 +2,10 @@
 export const MB = {};
 
 MB.abilities = {
-  "agility": "MB.AbilityAgility",
-  "presence": "MB.AbilityPresence",
-  "strength": "MB.AbilityStrength",
-  "toughness": "MB.AbilityToughness"
+  "agility": "MB.Agility",
+  "presence": "MB.Presence",
+  "strength": "MB.Strength",
+  "toughness": "MB.Toughness"
 };
 
 // TODO: string or int, "light" or 1?
@@ -31,9 +31,7 @@ MB.handed = {
 
 MB.itemTypes = {
   "armor": "MB.ItemTypeArmor",
-  "bounty": "MB.Bounty",
   "container": "MB.ItemTypeContainer",
-  "creatureAttack": "MB.CreatureAttack",
   "misc": "MB.ItemTypeMisc",
   "scroll": "MB.ItemTypeScroll",
   "weapon": "MB.ItemTypeWeapon"
