@@ -10,24 +10,24 @@
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="description">{{ localize "MB.Description" }}</a>
+        <a class="item" data-tab="abilities">{{ localize "MB.Abilities" }}</a>
         <a class="item" data-tab="details">{{ localize "MB.Details" }}</a>        
     </nav>
 
     {{!-- Sheet Body --}}
     <section class="sheet-body">
-        {{!-- Description Tab --}}
-        <div class="tab" data-group="primary" data-tab="description">
-            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+        {{!-- Abilities Tab --}}
+        <div class="tab" data-group="primary" data-tab="abilities">
+            {{editor content=data.abilities target="data.abilities" button=true owner=owner editable=editable}}               
         </div>
 
         {{!-- Details Tab --}}
         <div class="tab" data-group="primary" data-tab="details">
 
-            {{!-- Abilities --}}
+            {{!-- Description --}}
             <div class="form-group">
-                <label>{{ localize "MB.ClassAbilities" }}:</label>
-                <textarea name="data.abilities" rows="4">{{data.abilities}}</textarea>
+                <label>{{ localize "MB.Description" }}:</label>
+                <textarea name="data.description" rows="6">{{data.description}}</textarea>
             </div>
 
            {{!-- Starting hit points --}}
@@ -47,7 +47,6 @@
                 <label>{{ localize "MB.ClassOmenDie" }}:</label>
                 <input type="text" name="data.omenDie" value="{{data.omenDie}}" placeholder="1d2" data-dtype="String" />
             </div>
-
         </div>
 
     </section>

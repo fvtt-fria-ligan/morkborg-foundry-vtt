@@ -760,7 +760,6 @@ alternately we could select as
 .morkborg.sheet.actor.character .sheet-body .violence-tab .defend-rule {
   text-align: center;
 }
-
 /* ====================== */
 /* Character sheet powers tab */
 /* ====================== */
@@ -898,7 +897,6 @@ TODO: figure out if we want a 2-col inventory
 .morkborg.sheet.creature .sheet-body .form-group.special {
   flex: 1;
 }
-
 /* ====================== */
 /* Item sheet */
 /* ====================== */
@@ -924,6 +922,7 @@ TODO: figure out if we want a 2-col inventory
 .morkborg.sheet.item .sheet-body {
   margin-top: 8px;
   padding: 5px;
+  padding-right: 5px;
 }
 .morkborg.sheet.item .sheet-body .form-group {
   margin-bottom: 8px;
@@ -942,7 +941,9 @@ TODO: figure out if we want a 2-col inventory
   font-family: "Special Elite", cursive;
   font-size: 14pt;
 }
-
+/* ====================== */
+/* UI / Chat */
+/* ====================== */
 .morkborg .button {
   background: white;
   color: black;
