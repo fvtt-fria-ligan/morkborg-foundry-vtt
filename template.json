@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["character", "creature"],
+    "types": ["character", "creature", "outcast"],
     "templates": {
       "common": {
         "abilities": {
@@ -47,6 +47,14 @@
       "description": "",
       "morale": 7,
       "special": ""
+    },
+    "outcast": {
+      "templates": ["common"],
+      "description": "",
+      "morale": 7,
+      "speciality": "",
+      "trait": "",
+      "value": ""
     }
   },
   "Item": {
