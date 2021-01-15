@@ -864,10 +864,7 @@ TODO: figure out if we want a 2-col inventory
 .morkborg.sheet.actor.creature .sheet-header .altname-row {
   flex: 0 0 30px;
 }
-.morkborg.sheet.actor.creature
-  .sheet-header
-  .altname-row
-  input[type="text"] {
+.morkborg.sheet.actor.creature .sheet-header .altname-row input[type="text"] {
   font-family: "Old Cupboard", serif;
   font-size: 24px;
   /* TODO: fix div so we don't need margin-left */
@@ -944,4 +941,219 @@ TODO: figure out if we want a 2-col inventory
 .morkborg.sheet.item .sheet-body .form-group select {
   font-family: "Special Elite", cursive;
   font-size: 14pt;
+}
+
+.morkborg .button {
+  background: white;
+  color: black;
+  font-family: "FetteTrumpDeutsch";
+}
+
+#chat-controls {
+  color: white;
+}
+#chat-controls i.fas:hover {
+  color: #ffe800;
+  text-shadow: 0 0 5px #fff160;
+}
+#chat-controls .roll-type-select {
+  color: white;
+  background: black;
+}
+#chat-controls select:focus {
+  box-shadow: 0 0 10px #fff160;
+}
+#chat-log {
+  background: black;
+}
+#chat-log .message {
+  background: black;
+  color: white;
+  border: 2px solid#252525;
+  margin-top: 6px;
+  border-radius: 0;
+  font-family: "FetteTrumpDeutsch";
+}
+#chat-log .message h4,
+#chat-log .message h3,
+#chat-log .message h2,
+#chat-log .message-metadata {
+  color: white;
+}
+#chat-log .message h2 {
+  background: #ffe800;
+  color: black;
+}
+#chat-log .message .dice-formula,
+#chat-log .message .dice-total {
+  font-size: 16px;
+  border: 1px solid #252525;
+  border-radius: 0;
+}
+#chat-log .flavor-text {
+  color: white;
+  font-size: 13.5px;
+}
+#chat-form textarea {
+  color: white;
+  background: black;
+  border: 2px solid #252525;
+  font-family: "FetteTrumpDeutsch";
+}
+#chat-form textarea:focus {
+  outline: 2px solid #ffe800;
+  box-shadow: 0 0 10px #fff160;
+}
+#client-settings button {
+  color: black;
+  background: white;
+}
+#client-settings h2 {
+  border-bottom: none;
+  background: #ffe800;
+  color: black;
+  font-family: "FetteTrumpDeutsch";
+}
+#client-settings select {
+  color: white;
+  background: black;
+}
+#client-settings select:focus {
+  outline: none;
+  box-shadow: 0 0 5px #ffe800;
+}
+#controls {
+  color: white;
+  background: black;
+}
+#controls .control-tool.toggle {
+  background: black;
+  border: 1px solid #252525;
+}
+#controls .control-tool.toggle.active {
+  background: black;
+  text-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px #fff160;
+}
+#controls .control-tools {
+  color: white;
+  background: black;
+}
+#controls .control-tool.active,
+#controls .control-tool:hover,
+#controls .scene-control.active,
+#controls .scene-control:hover {
+  color: white;
+  border: 1px solid #ffe800;
+  box-shadow: 0 0 10px #fff160;
+}
+#controls .scene-control.active {
+  color: white;
+  border: 1px solid #ffe800;
+  box-shadow: 0 0 10px #fff160;
+}
+
+.dialog .dialog-buttons button {
+  background: white;
+  color: black;
+  font-family: "FetteTrumpDeutsch";
+}
+.dialog .dialog-buttons button.default {
+  background: white;
+  color: black;
+  font-family: "FetteTrumpDeutsch";
+}
+
+form .form-group select {
+  color: white;
+  background: black;
+}
+form .form-group select:focus {
+  box-shadow: 0 0 10px #ffe800;
+}
+#hotbar #hotbar-directory-controls {
+  background: black;
+  color: white;
+}
+#navigation #nav-toggle {
+  background: black;
+  color: white;
+}
+#navigation #scene-list .scene.view {
+  background: black;
+  color: white;
+  border: 1px solid #ffe800;
+  box-shadow: 0 0 10px #fff160;
+}
+#navigation #scene-list .scene.gm {
+  border: 1px solid #252525;
+  background: black;
+}
+#players {
+  background: black;
+  color: white;
+}
+select:focus {
+  color: white;
+  background: black;
+}
+#settings button {
+  color: black;
+  background: white;
+  font-family: "FetteTrumpDeutsch";
+}
+#sidebar {
+  background: black;
+  color: white;
+}
+
+#sidebar.collapsed #sidebar-tabs > .item.active {
+  border-bottom: 1px solid #ffe800;
+  border-radius: 5px;
+}
+#sidebar-tabs {
+  background: black;
+  color: white;
+  border-bottom: 1px solid #ffe800;
+  box-shadow: 0 0 10px #fff160;
+}
+#sidebar-tabs > .item.active {
+  color: black;
+  background: #ffe500;
+  border: 1px solid #ffe800;
+  border-bottom: none;
+  box-shadow: 0 0 6px inset #fff160;
+  text-shadow: 0 0 10px #ffe800;
+}
+.sidebar-tab .action-buttons button {
+  background: white;
+  color: black;
+  border-radius: 0;
+  font-family: "FetteTrumpDeutsch";
+}
+.sidebar-tab .directory-header .header-search input {
+  background: black;
+  color: white;
+  border: 1px solid #252525;
+  border-radius: 0;
+  font-family: "FetteTrumpDeutsch";
+}
+.sidebar-tab .directory-header .header-search input[type="text"]:focus {
+  box-shadow: 0 0 5px #ffe800;
+}
+
+.tabs .item.active,
+.tabs .item:hover {
+  text-shadow: 0 0 10px #ffe800;
+}
+::-webkit-scrollbar-thumb {
+  outline: none;
+  border-radius: 3px;
+  background: #ffe800 !important;
+  border: 1px solid black !important;
+}
+
+.window-app .window-content {
+  background: black;
+  color: white;
 }
