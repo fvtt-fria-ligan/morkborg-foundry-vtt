@@ -70,7 +70,6 @@
     "class": {
       "abilities": "",
       "description": "",
-      "name": "",
       "omenDie": "1d2",
       "startingHitPoints": "1d8",
       "startingSilver": "2d6*10"
