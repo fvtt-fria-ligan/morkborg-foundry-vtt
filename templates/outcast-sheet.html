@@ -1,0 +1,51 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+    {{!-- Outcast Sheet Header --}}
+    <header class="sheet-header">
+        <div class="header-col1">
+            <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
+        </div>
+        <div class="header-gutter-col">
+        </div>
+        <div class="header-col2">
+            <h1 class="outcast-name">
+                <input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'MB.Name' }}"/>
+            </h1>
+            <div class="hitpoints-row">
+                <span class="stat-label">{{ localize "MB.HitPoints" }}:</span>
+                <input class="stat-input" name="data.hp.current" type="number" value="{{data.hp.current}}" data-dtype="Number"/>
+                /
+                <input class="stat-input" name="data.hp.max" type="number" value="{{data.hp.max}}" data-dtype="Number"/>
+            </div>
+        </div>      
+    </header>
+
+    {{!-- Outcast Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">{{ localize "MB.Description" }}</a>
+        <a class="item" data-tab="details">{{ localize "MB.Details" }}</a>
+        <a class="item" data-tab="violence">{{ localize "MB.Violence" }}</a>
+        <a class="item" data-tab="treasures">{{ localize "MB.Treasures" }}</a>
+    </nav>
+
+    {{!-- Outcast Sheet Body --}}
+    <section class="sheet-body">
+        {{!-- Description Tab --}}
+        <div class="tab" data-group="primary" data-tab="description">
+            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+        </div>
+
+        {{!-- Details Tab --}}
+        <div class="tab" data-group="primary" data-tab="details">      
+        </div>
+
+        {{!-- Violence Tab --}}
+        <div class="tab" data-group="primary" data-tab="violence">      
+        </div>
+
+        {{!-- Treasures Tab --}}
+        <div class="tab" data-group="primary" data-tab="treasures">      
+        </div>
+
+    </section>
+
+</form>
