@@ -1,0 +1,54 @@
+<form class="flexcol {{cssClass}}" autocomplete="off">
+
+    {{!-- Sheet Header --}}
+    <header class="sheet-header">
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+        <div class="header-fields">
+            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="{{ localize 'MB.ItemName' }}" /></h1>
+        </div>
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">{{ localize "MB.Description" }}</a>
+        <a class="item" data-tab="details">{{ localize "MB.Details" }}</a>        
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+        {{!-- Description Tab --}}
+        <div class="tab" data-group="primary" data-tab="description">
+            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+        </div>
+
+        {{!-- Details Tab --}}
+        <div class="tab" data-group="primary" data-tab="details">
+
+            {{!-- Abilities --}}
+            <div class="form-group">
+                <label>{{ localize "MB.ClassAbilities" }}:</label>
+                <textarea name="data.abilities" rows="4">{{data.abilities}}</textarea>
+            </div>
+
+           {{!-- Starting hit points --}}
+            <div class="form-group">
+                <label>{{ localize "MB.ClassStartingHitPoints" }}:</label>
+                <input type="text" name="data.startingHitPoints" value="{{data.startingHitPoints}}" placeholder="1d8" data-dtype="String" />
+            </div>
+
+           {{!-- Starting silver --}}
+            <div class="form-group">
+                <label>{{ localize "MB.ClassStartingSilver" }}:</label>
+                <input type="text" name="data.startingSilver" value="{{data.startingSilver}}" placeholder="2d6*10" data-dtype="String" />
+            </div>
+
+            {{!-- Omen Die --}}
+            <div class="form-group">
+                <label>{{ localize "MB.ClassOmenDie" }}:</label>
+                <input type="text" name="data.omenDie" value="{{data.omenDie}}" placeholder="1d2" data-dtype="String" />
+            </div>
+
+        </div>
+
+    </section>
+</form>
