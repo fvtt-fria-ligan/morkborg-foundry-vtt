@@ -725,3 +725,10 @@ body {
 table {
   border-collapse: collapse;
 }
+
+::-webkit-scrollbar-thumb {
+  outline: none;
+  border-radius: 3px;
+  background: #ffe800 !important;
+  border: 1px solid black !important;
+}
