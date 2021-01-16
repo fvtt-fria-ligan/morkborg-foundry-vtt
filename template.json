@@ -60,8 +60,10 @@
   "Item": {
     "types": ["armor", "class", "container", "misc", "scroll", "shield", "weapon"],
     "templates": {
-      "baseItem": {
+      "baseEquipment": {
+        "containerSpace": 1,
         "description": "",
+        "carryWeight": 1,
         "equipped": false,
         "price": 0,
         "quantity": 1
@@ -75,26 +77,26 @@
       "startingSilver": "2d6*10"
     },
     "armor": {
-      "templates": ["baseItem"],
+      "templates": ["baseEquipment"],
       "currentTier": 1,
       "maxTier": 1
     },
     "container": {
-      "templates": ["baseItem"],
+      "templates": ["baseEquipment"],
       "capacity": 1
     },
     "misc": {
-      "templates": ["baseItem"]
+      "templates": ["baseEquipment"]
     },
     "scroll": {
-      "templates": ["baseItem"],
+      "templates": ["baseEquipment"],
       "scrollType": "unclean"
     },
     "shield": {
-      "templates": ["baseItem"]
+      "templates": ["baseEquipment"]
     },    
     "weapon": {
-      "templates": ["baseItem"],
+      "templates": ["baseEquipment"],
       "damageDie": "1d1",
       "handed": 1,
       "weaponType": "melee"

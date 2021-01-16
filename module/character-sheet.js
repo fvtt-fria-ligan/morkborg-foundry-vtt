@@ -103,8 +103,8 @@ export class MBActorSheetCharacter extends ActorSheet {
     // Calculate container capacity from containers
     // let containerCapacity = typeArrays['container'].reduce((total, item) => total + item.data.capacity, 0);
 
-    // all equipment counts towards carried/encumberance
-    let carryingCount = equipment.length;
+    // all equipment with encumbrance counts towards carried/encumberance
+    let carryingCount = equipment.reduce((a, b) => a + b.carryWeight, 0);
     let carryingCapacity = sheetData.actor.data.abilities.strength.score + 8;
     sheetData.actor.data.carryingCount = carryingCount;
     sheetData.actor.data.carryingCapacity = carryingCapacity;
