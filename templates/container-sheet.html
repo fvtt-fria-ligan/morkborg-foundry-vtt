@@ -34,12 +34,19 @@
                 <label>{{ localize "MB.ItemPrice" }}:</label>
                 <input type="text" name="data.price" value="{{data.price}}" placeholder="2" data-dtype="Number" />
             </div> 
-    
+
+            {{!-- Carry weight --}}
+            <div class="form-group">
+                <label>{{ localize "MB.CarryWeight" }}:</label>
+                <input type="text" name="data.carryWeight" value="{{data.carryWeight}}" placeholder="1" data-dtype="Number" />
+            </div> 
+                
             {{!-- Capacity --}}
             <div class="form-group">
                 <label>{{ localize "MB.ItemCapacity" }}:</label>
                 <input type="text" name="data.capacity" value="{{data.capacity}}" placeholder="1d4" data-dtype="Number" />
             </div> 
+
         </div>
     </section>
 </form>
