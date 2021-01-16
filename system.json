@@ -17,6 +17,13 @@
       "entity": "Item"
     },
     {
+      "name": "class-items",
+      "label": "Class Items",
+      "system": "morkborg",
+      "path": "./packs/class-items.db",
+      "entity": "Item"
+    },    
+    {
       "name": "classes",
       "label": "Classes",
       "system": "morkborg",
