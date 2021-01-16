@@ -1007,9 +1007,9 @@ TODO: figure out if we want a 2-col inventory
   flex: 1;
 }
 /* ====================== */
-/* Dialog fixes */
+/* UI/Dialog fixes */
 /* ====================== */
-/* TODO: figure out the right class/level to fix this at */
+/* TODO: figure out the right class/level to fix this stuff */
 .form-group input[type="text"] {
   color: white;
 }
@@ -1025,7 +1025,9 @@ form button {
 form button:hover {
   box-shadow: 0 0 10px #fff160;
 }
-
+a:hover {
+  text-shadow: 0 0 8px #fff160;
+}
 /* ====================== */
 /* UI / Chat */
 /* ====================== */
