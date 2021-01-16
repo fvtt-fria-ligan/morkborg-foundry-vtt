@@ -1010,16 +1010,19 @@ TODO: figure out if we want a 2-col inventory
 /* Dialog fixes */
 /* ====================== */
 /* TODO: figure out the right class/level to fix this at */
-form.filepicker-body button {
+.form-group input[type="text"] {
   color: white;
 }
-form.filepicker-body button:hover {
+.form-group input[type="text"]:hover {
   box-shadow: 0 0 10px #fff160;
 }
-form.filepicker-body .form-group input[type="text"] {
-  color: white;  
+.form-group input[type="text"]:focus {
+  box-shadow: 0 0 10px #fff160;
 }
-form.filepicker-body .form-group input[type="text"]:focus {
+form button {
+  color: white;
+}
+form button:hover {
   box-shadow: 0 0 10px #fff160;
 }
 
