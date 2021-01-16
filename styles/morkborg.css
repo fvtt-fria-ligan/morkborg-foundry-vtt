@@ -340,9 +340,9 @@ alternately we could select as
 .morkborg.sheet.actor.character
   .sheet-header
   .classname-row
-  input[type="text"] {
+  label {
   font-family: "Old Cupboard", serif;
-  font-size: 24px;
+  font-size: 28px;
   width: 100%;
 }
 .morkborg.sheet.actor.character .sheet-header .hitpoints-row {
