@@ -1007,6 +1007,23 @@ TODO: figure out if we want a 2-col inventory
   flex: 1;
 }
 /* ====================== */
+/* Dialog fixes */
+/* ====================== */
+/* TODO: figure out the right class/level to fix this at */
+form.filepicker-body button {
+  color: white;
+}
+form.filepicker-body button:hover {
+  box-shadow: 0 0 10px #fff160;
+}
+form.filepicker-body .form-group input[type="text"] {
+  color: white;  
+}
+form.filepicker-body .form-group input[type="text"]:focus {
+  box-shadow: 0 0 10px #fff160;
+}
+
+/* ====================== */
 /* UI / Chat */
 /* ====================== */
 .morkborg .button {
@@ -1014,7 +1031,6 @@ TODO: figure out if we want a 2-col inventory
   color: black;
   font-family: "FetteTrumpDeutsch";
 }
-
 #chat-controls {
   color: white;
 }
