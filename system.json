@@ -72,7 +72,7 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "attributes.hp",
   "secondaryTokenAttribute": null,
-  "url": "https://github.com/mcglincy/morkborg-foundry-vtt",
-  "manifest": "https://github.com/mcglincy/morkborg-foundry-vtt/releases/latest/download/system.json",
-  "download": "https://github.com/mcglincy/morkborg-foundry-vtt/releases/latest/download/0.1.0.zip?raw=true",
+  "url": "",
+  "manifest": "",
+  "download": ""
 }

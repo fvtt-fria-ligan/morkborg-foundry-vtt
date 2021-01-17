@@ -957,43 +957,43 @@ TODO: figure out if we want a 2-col inventory
   font-size: 14pt;
 }
 /* ====================== */
-/* Outcast sheet */
+/* Follower sheet */
 /* ====================== */
-.morkborg.sheet.actor.outcast .sheet-header {
+.morkborg.sheet.actor.follower .sheet-header {
   margin-top: 0;
   flex: 0 0 90px;
   display: flex;
   flex-direction: row;
   padding: 5px;
 }
-.morkborg.sheet.actor.outcast .sheet-header .header-col1 {
+.morkborg.sheet.actor.follower .sheet-header .header-col1 {
   flex: 0 0 100px;
 }
-.morkborg.sheet.actor.outcast .sheet-header .header-col2 {
+.morkborg.sheet.actor.follower .sheet-header .header-col2 {
   flex: 1;
   margin: 5px;
   display: flex;
   flex-direction: column;
 }
-.morkborg.sheet.actor.outcast .sheet-header .profile-img {
+.morkborg.sheet.actor.follower .sheet-header .profile-img {
   height: 100px;
   width: 100px;
 }
-.morkborg.sheet.actor.outcast .sheet-header .outcast-name input[type="text"] {
+.morkborg.sheet.actor.follower .sheet-header .follower-name input[type="text"] {
   font-family: "Blood Crow", fantasy, serif;
   font-size: 38px;
   flex: 0 0 45px;
 }
-.morkborg.sheet.actor.outcast .sheet-header .altname-row {
+.morkborg.sheet.actor.follower .sheet-header .altname-row {
   flex: 0 0 30px;
 }
-.morkborg.sheet.actor.outcast .sheet-header .altname-row input[type="text"] {
+.morkborg.sheet.actor.follower .sheet-header .altname-row input[type="text"] {
   font-family: "Old Cupboard", serif;
   font-size: 24px;
   /* TODO: fix div so we don't need margin-left */
   margin-left: 12px;
 }
-.morkborg.sheet.actor.outcast .sheet-header .hitpoints-row {
+.morkborg.sheet.actor.follower .sheet-header .hitpoints-row {
   flex: 0 0 35px;
   margin-left: 14px;
 }
@@ -1001,24 +1001,24 @@ TODO: figure out if we want a 2-col inventory
   margin-top: 8px;
   padding: 5px;
 }
-.morkborg.sheet.outcast .sheet-body .form-group {
+.morkborg.sheet.follower .sheet-body .form-group {
   margin-bottom: 8px;
 }
-.morkborg.sheet.outcast .sheet-body .form-group label {
+.morkborg.sheet.follower .sheet-body .form-group label {
   font-family: "FetteTrumpDeutsch", fantasy, serif;
   font-size: 20px;
   text-align: right;
   margin-right: 10px;
 }
-.morkborg.sheet.outcast .sheet-body .form-group input {
+.morkborg.sheet.follower .sheet-body .form-group input {
   font-family: "Special Elite", cursive;
   font-size: 14pt;
 }
-.morkborg.sheet.outcast .sheet-body .form-group select {
+.morkborg.sheet.follower .sheet-body .form-group select {
   font-family: "Special Elite", cursive;
   font-size: 14pt;
 }
-.morkborg.sheet.outcast .sheet-body .form-group.special {
+.morkborg.sheet.follower .sheet-body .form-group.special {
   flex: 1;
 }
 /* ====================== */
