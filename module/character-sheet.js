@@ -44,7 +44,9 @@ export class MBActorSheetCharacter extends ActorSheet {
     let equippedArmor = null;
     let equippedShield = null;
     let equippedWeapons = [];
+    // TODO: should we just create a hash of itemType => items?
     let scrolls = [];
+    let containers = [];
 
     for (let i of sheetData.items) {
       let item = i.data;
@@ -73,6 +75,8 @@ export class MBActorSheetCharacter extends ActorSheet {
           // only one armor may be equipped at a time
           equippedArmor = i;
         }
+      } else if (i.type === 'container') {
+        containers.push(i);
       } else if (i.type === 'scroll') {
         scrolls.push(i);
       } else if (i.type === 'shield') {
@@ -99,12 +103,16 @@ export class MBActorSheetCharacter extends ActorSheet {
     sheetData.actor.data.scrolls = scrolls;
 
     // Calculate carried-in-container count - all non-container non-equipped equipment
-    // let containerCount = equipment.filter(item => item.type !== 'container' && !item.data.equipped).length;
+    let itemsInContainers = equipment.filter(item => item.type !== 'container' && !item.data.equipped);
+    let totalContainerSpace = itemsInContainers.reduce((total, item) => total + (item.data.containerSpace || 0), 0);
     // Calculate container capacity from containers
-    // let containerCapacity = typeArrays['container'].reduce((total, item) => total + item.data.capacity, 0);
+    let containerCapacity = containers.reduce((total, item) => total + item.data.capacity, 0);
+    sheetData.actor.data.containerSpace = totalContainerSpace || 0;
+    sheetData.actor.data.containerCapacity = containerCapacity;
 
     // all equipment with encumbrance counts towards carried/encumberance
-    let carryingCount = equipment.reduce((a, b) => a + b.carryWeight, 0);
+    console.log(equipment);
+    let carryingCount = equipment.reduce((a, b) => a + (b.data.carryWeight || 0), 0);
     let carryingCapacity = sheetData.actor.data.abilities.strength.score + 8;
     sheetData.actor.data.carryingCount = carryingCount;
     sheetData.actor.data.carryingCapacity = carryingCapacity;

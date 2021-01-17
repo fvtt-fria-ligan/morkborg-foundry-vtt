@@ -289,6 +289,13 @@ alternately we could select as
   width: 50px;
   color: white;
 }
+.morkborg.sheet.actor .stat-value {
+  font-family: "Special Elite", cursive;
+  font-size: 14pt;
+  text-align: center;
+  width: 50px;
+  color: white;
+}
 /* ====================== */
 /* Character sheet */
 /* ====================== */
@@ -811,17 +818,25 @@ alternately we could select as
 .morkborg.sheet.actor.character .sheet-body .equipment-top-row {
   margin-top: 10px;
   margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+}
+.morkborg.sheet.actor.character .sheet-body .silver {
+  flex: 0 0 200px;
 }
 .morkborg.sheet.actor.character .sheet-body .silver-label {
 }
 .morkborg.sheet.actor.character .sheet-body .silver-input {
   width: 70px;
 }
-.morkborg.sheet.actor.character .sheet-body .carrying-label {
-  margin-left: 20px;
+.morkborg.sheet.actor.character .sheet-body .carry-block {
+  flex: 1;
+  text-align: center;
 }
-.morkborg.sheet.actor.character .sheet-body .carrying-rule {
-  margin-left: 10px;
+.morkborg.sheet.actor.character .sheet-body .carrying-label {
+}
+.morkborg.sheet.actor.character .sheet-body .container-label {
+  margin-left: 40px;
 }
 .morkborg.sheet.actor.character .sheet-body .encumbered {
   color: #ffe500;

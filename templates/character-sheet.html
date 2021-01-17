@@ -228,16 +228,28 @@
         {{!-- Equipment Tab --}}
         <div class="tab equipment-tab" data-group="primary" data-tab="equipment">
             <div class="equipment-top-row">
-                <span class="stat-label silver-label">{{ localize "MB.Silver" }}:</span>
-                <input class="stat-input silver-input" name="data.silver" type="number" value="{{data.silver}}" data-dtype="Number" />
-                <span class="stat-label carrying-label">{{ localize "MB.Carrying" }}:</span>
-                <input class="stat-input" name="data.carryingCount" type="number" value="{{data.carryingCount}}" data-dtype="Number" />
-                /
-                <input class="stat-input" name="data.carryingCapacity" type="number" value="{{data.carryingCapacity}}" data-dtype="Number" />
-                <span class="rule-text carrying-rule {{data.encumberedClass}}">
-                    {{localize 'MB.CarryingRule'}}
-                </span>
-            </div> 
+                <div class="silver">
+                    <span class="stat-label silver-label">{{ localize "MB.Silver" }}:</span>
+                    <input class="stat-input silver-input" name="data.silver" type="number" value="{{data.silver}}" data-dtype="Number" />  
+                </div>
+                <div class="carry-block">
+                    <div>
+                        <span class="stat-label carrying-label">{{ localize "MB.Carrying" }}:</span>
+                        <span class="stat-value">{{data.carryingCount}}</span>
+                        /
+                        <span class="stat-value">{{data.carryingCapacity}}</span>
+                        <span class="stat-label container-label">{{ localize "MB.InContainer" }}:</span>
+                        <span class="stat-value">{{data.containerSpace}}</span>
+                        /
+                        <span class="stat-value">{{data.containerCapacity}}</span>
+                    </div>
+                    <div>
+                        <span class="rule-text {{data.encumberedClass}}">
+                            {{localize 'MB.CarryingRule'}}
+                        </span>
+                    </div>
+                </div> 
+            </div>
             <ol class="items-list equipment-list">
                 <li class="items-header flexrow">
                     <h3 class="item-name flexrow">{{localize "MB.Equipment"}}</h3>
