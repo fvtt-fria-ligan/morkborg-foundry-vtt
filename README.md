@@ -21,4 +21,4 @@ morkborg-foundry-vtt is an independent production by community contributors, and
 
 ## License
   * [MÖRK BORG Third Party License](https://morkborg.com/license/)
-  * [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/)
+  * [MIT](https://en.wikipedia.org/wiki/MIT_License)
