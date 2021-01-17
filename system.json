@@ -31,13 +31,6 @@
       "entity": "Item"
     },    
     {
-      "name": "containers",
-      "label": "Containers",
-      "system": "morkborg",
-      "path": "./packs/containers.db",
-      "entity": "Item"
-    },
-    {
       "name": "creatures",
       "label": "Creatures",
       "system": "morkborg",
@@ -56,13 +49,6 @@
       "label": "Scrolls",
       "system": "morkborg",
       "path": "./packs/scrolls.db",
-      "entity": "Item"
-    },
-    {
-      "name": "shields",
-      "label": "Shields",
-      "system": "morkborg",
-      "path": "./packs/shields.db",
       "entity": "Item"
     },
     {
