@@ -1019,6 +1019,16 @@ TODO: figure out if we want a 2-col inventory
 .form-group input[type="text"]:focus {
   box-shadow: 0 0 10px #fff160;
 }
+.form-group textarea {
+  color: white;
+}
+.form-group textarea:hover {
+  box-shadow: 0 0 10px #fff160;
+}
+.form-group textarea:focus {
+  box-shadow: 0 0 10px #fff160;
+  outline: none;
+}
 form button {
   color: white;
 }
@@ -1027,6 +1037,51 @@ form button:hover {
 }
 a:hover {
   text-shadow: 0 0 8px #fff160;
+}
+input[type="text"] {
+  color: white;
+}
+input[type="text"]:hover {
+  box-shadow: 0 0 10px #fff160;
+}
+input[type="text"]:focus {
+  box-shadow: 0 0 10px #fff160;
+}
+/*form.editable .results .table-result {
+  color: white;
+}
+form.editable .results .table-result {
+  color: white;
+}*/
+form.editable .results .result-image img {
+  background-color: white;
+}
+form.editable .results .result-type select {
+  color: white;
+}
+form.editable .results .result-type select:hover {
+  box-shadow: 0 0 10px #fff160;
+}
+form.editable .results .result-type select:focus {
+  box-shadow: 0 0 10px #fff160;
+}
+form.editable .results .result-details select {
+  color: white;
+}
+form.editable .results .result-details select:hover {
+  box-shadow: 0 0 10px #fff160;
+}
+form.editable .results .result-details select:focus {
+  box-shadow: 0 0 10px #fff160;
+}
+form.editable .results .result-details input[type="text"] {
+  color: white;
+}
+form.editable .results .result-details input[type="text"]:hover {
+  box-shadow: 0 0 10px #fff160;
+}
+form.editable .results .result-details input[type="text"]:focus {
+  box-shadow: 0 0 10px #fff160;
 }
 /* ====================== */
 /* UI / Chat */
