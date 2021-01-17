@@ -111,7 +111,6 @@ export class MBActorSheetCharacter extends ActorSheet {
     sheetData.actor.data.containerCapacity = containerCapacity;
 
     // all equipment with encumbrance counts towards carried/encumberance
-    console.log(equipment);
     let carryingCount = equipment.reduce((a, b) => a + (b.data.carryWeight || 0), 0);
     let carryingCapacity = sheetData.actor.data.abilities.strength.score + 8;
     sheetData.actor.data.carryingCount = carryingCount;
