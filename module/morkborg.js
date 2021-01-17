@@ -4,7 +4,7 @@
 import { MBActor } from "./actor.js";
 import { MBActorSheetCharacter } from "./character-sheet.js";
 import { MBActorSheetCreature } from "./creature-sheet.js";
-import { MBActorSheetOutcast } from "./outcast-sheet.js";
+import { MBActorSheetFollower } from "./follower-sheet.js";
 import { _getInitiativeFormula } from "./combat.js";
 import { MB } from "./config.js";
 import { MBItem } from "./item.js";
@@ -58,10 +58,10 @@ Hooks.once("init", async function() {
     makeDefault: true,
     label: "MB.SheetClassCreature"
   });
-  Actors.registerSheet("morkborg", MBActorSheetOutcast, {
-    types: ["outcast"],
+  Actors.registerSheet("morkborg", MBActorSheetFollower, {
+    types: ["follower"],
     makeDefault: true,
-    label: "MB.SheetClassOutcast"
+    label: "MB.SheetClassFollower"
   });  
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("morkborg", MBItemSheet, { makeDefault: true });

@@ -1,5 +1,5 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
-    {{!-- Creature Sheet Header --}}
+    {{!-- Sheet Header --}}
     <header class="sheet-header flexrow">
         <div class="header-col1">
             <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
@@ -23,13 +23,13 @@
     </header>
 
 
-    {{!-- Creature Sheet Tab Navigation --}}
+    {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="description">{{ localize "MB.Description" }}</a>
         <a class="item" data-tab="details">{{ localize "MB.Details" }}</a>
     </nav>
 
-    {{!-- Creature Sheet Body --}}
+    {{!-- Sheet Body --}}
     <section class="sheet-body">
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">

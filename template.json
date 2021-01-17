@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["character", "creature", "outcast"],
+    "types": ["character", "creature", "follower"],
     "templates": {
       "common": {
         "abilities": {
@@ -48,7 +48,7 @@
       "morale": 7,
       "special": ""
     },
-    "outcast": {
+    "follower": {
       "templates": ["common"],
       "description": "",
       "morale": 7,

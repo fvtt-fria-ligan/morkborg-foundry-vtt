@@ -1,5 +1,5 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
-    {{!-- Outcast Sheet Header --}}
+    {{!-- Sheet Header --}}
     <header class="sheet-header">
         <div class="header-col1">
             <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
@@ -7,7 +7,7 @@
         <div class="header-gutter-col">
         </div>
         <div class="header-col2">
-            <h1 class="outcast-name">
+            <h1 class="follower-name">
                 <input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'MB.Name' }}"/>
             </h1>
             <div class="hitpoints-row">
@@ -19,7 +19,7 @@
         </div>      
     </header>
 
-    {{!-- Outcast Sheet Tab Navigation --}}
+    {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="description">{{ localize "MB.Description" }}</a>
         <a class="item" data-tab="details">{{ localize "MB.Details" }}</a>
@@ -27,7 +27,7 @@
         <a class="item" data-tab="treasures">{{ localize "MB.Treasures" }}</a>
     </nav>
 
-    {{!-- Outcast Sheet Body --}}
+    {{!-- Sheet Body --}}
     <section class="sheet-body">
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">

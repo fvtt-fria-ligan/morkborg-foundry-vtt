@@ -12,7 +12,7 @@ export class MBActor extends Actor {
         break;
       case "creature":
         break;
-      case "outcast":
+      case "follower":
         break;
       default:
         break;
