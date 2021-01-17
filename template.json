@@ -26,11 +26,6 @@
     "character": {
       "templates": ["common"],
       "background": "",
-      "class": {
-        "name": "",
-        "description": "",
-        "omenDie": "1d2"
-      },
       "incomingAttackDamageDie": "1d6",
       "miseries": 0,
       "notes": "",
