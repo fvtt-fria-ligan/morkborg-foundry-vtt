@@ -343,6 +343,16 @@ alternately we could select as
 .morkborg.sheet.actor.character .sheet-header .classname-row {
   flex: 0 0 30px;
   margin-bottom: 7px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.morkborg.sheet.actor.character .sheet-header .classname-row .item-controls {
+  flex: 0 0 35px;
+  text-align: right;
+  margin-right: 0;
+  /* TODO: fix vertical alignment in a better way */
+  padding-top: 6px;
 }
 .morkborg.sheet.actor.character
   .sheet-header
@@ -548,44 +558,7 @@ alternately we could select as
 /* ====================== */
 /* Character sheet obituary (class) tab */
 /* ====================== */
-.morkborg.sheet.actor.character .sheet-body .class-tab-inner {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-.morkborg.sheet.actor.character .sheet-body .class-top-row {
-  margin-top: 15px;
-  margin-bottom: 10px;
-}
-.morkborg.sheet.actor.character .sheet-body .classname-label {
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
-  font-size: 20px;
-  margin-right: 10px;
-}
-.morkborg.sheet.actor.character .sheet-body .classname-input {
-  border: 1px solid #7a7971;
-  font-family: "Special Elite", cursive;
-  font-size: 18px;
-  width: 300px;
-  height: 36px;
-}
-.morkborg.sheet.actor.character .sheet-body .omendie-label {
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
-  font-size: 20px;
-  width: 140px;
-  margin-left: 20px;
-  margin-right: 10px;
-}
-.morkborg.sheet.actor.character .sheet-body .omendie-input {
-  width: 70px;
-}
-.morkborg.sheet.actor.character .sheet-body .class-tab .editor,
-.morkborg.sheet.actor.character .sheet-body .class-tab .editor-content {
-}
-.morkborg.sheet.actor.character .sheet-body .class-tab-gutter {
-  flex: 0 0 10px;
-}
+
 /* ====================== */
 /* Character sheet violence tab */
 /* ====================== */

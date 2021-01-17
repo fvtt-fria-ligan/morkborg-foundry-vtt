@@ -77,6 +77,8 @@ export class MBActorSheetCharacter extends ActorSheet {
         }
       } else if (i.type === 'container') {
         containers.push(i);
+      } else if (i.type === 'class') {
+        sheetData.actor.data.class = i;
       } else if (i.type === 'scroll') {
         scrolls.push(i);
       } else if (i.type === 'shield') {
@@ -113,7 +115,7 @@ export class MBActorSheetCharacter extends ActorSheet {
     // all equipment with encumbrance counts towards carried/encumberance
     let carryingCount = equipment.reduce((a, b) => a + (b.data.carryWeight || 0), 0);
     let carryingCapacity = sheetData.actor.data.abilities.strength.score + 8;
-    sheetData.actor.data.carryingCount = carryingCount;
+    sheetData.actor.data.carryingCount = carryingCount || 0;
     sheetData.actor.data.carryingCapacity = carryingCapacity;
     let isEncumbered = carryingCount > carryingCapacity;
     sheetData.actor.data.encumbered = isEncumbered;

@@ -10,8 +10,14 @@
             <div class="charname-row">
                 <input class="charname" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'MB.Name' }}" spellcheck="false"/>                
             </div>
-            <div class="classname-row">
-                <label class="classname" >{{data.class.name}}</label>                
+            {{!-- we are cheating a bit here, using the 'item' class usually used on LI elements,
+             so we can get the item _id to be found by the common click handler --}}
+            <div class="classname-row item" data-item-id="{{data.class._id}}">
+                <span class="stat-label">{{ localize "MB.Class" }}:</span>
+                <label class="classname" >{{data.class.name}}</label>
+                <div class="item-controls">
+                    <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                </div>
             </div>
             <div class="hitpoints-row">
                 <span class="stat-label">{{ localize "MB.HitPoints" }}:</span>
@@ -62,7 +68,7 @@
 
     {{!-- Character Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="clazz">{{ localize 'MB.Obituary' }}</a>
+        <a class="item" data-tab="obituary">{{ localize 'MB.Obituary' }}</a>
         <a class="item" data-tab="violence">{{ localize 'MB.Violence' }}</a>
         <a class="item" data-tab="powers">{{ localize 'MB.Powers' }}</a>
         <a class="item" data-tab="equipment">{{ localize 'MB.Treasures' }}</a>
@@ -72,19 +78,9 @@
     {{!-- Character Sheet Body --}}
     <section class="sheet-body">
 
-        {{!-- Class Tab --}}
-        <div class="tab class-tab" data-group="primary" data-tab="clazz">
-            <div class="class-tab-inner">
-                <div class="class-top-row">
-                    <label class="classname-label">{{ localize "MB.ClassName" }}:</label>
-                    <input class="classname-input" type="text" name="data.class.name" value="{{data.class.name}}" placeholder="{{localize 'MB.ClassName'}}" data-dtype="String" />
-                    <label class="omendie-label">{{ localize "MB.ClassOmenDie" }}:</label>
-                    <input class="stat-input omendie-input" type="text" name="data.class.omenDie" value="{{data.class.omenDie}}" placeholder="1d2" data-dtype="String" />
-                </div>
-                {{editor content=data.class.description target="data.class.description" button=true owner=owner editable=editable}}
-                <div class="class-tab-gutter"></div>
-                {{editor content=data.background target="data.background" button=true owner=owner editable=editable}}
-            </div>
+        {{!-- Obituary Tab --}}
+        <div class="tab class-tab" data-group="primary" data-tab="obituary">
+            {{editor content=data.background target="data.background" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Violence Tab --}}
