@@ -4,6 +4,10 @@ An unoffical, community-supported system for playing [MÖRK BORG](https://morkbo
 
 morkborg-foundry-vtt is an independent production by community contributors, and is not affiliated with Ockult Örtmästare Games or Stockholm Kartell. It is published under the MÖRK BORG Third Party License.
 
+## Getting Started
+  * Install the system
+  * Read the [implementation notes](https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/blob/main/implementation-notes.md)
+
 ## Buy the Book
 [MÖRK BORG Artpunk RPG](https://frialigan.se/en/store/?product_id=4529866506377)
 
