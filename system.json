@@ -52,6 +52,13 @@
       "entity": "Item"
     },
     {
+      "name": "follower-items",
+      "label": "Follower Items",
+      "system": "morkborg",
+      "path": "./packs/follower-items.db",
+      "entity": "Item"
+    },
+    {
       "name": "followers",
       "label": "Followers",
       "system": "morkborg",
