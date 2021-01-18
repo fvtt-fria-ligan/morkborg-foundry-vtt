@@ -1,5 +1,5 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
-    {{!-- Character Sheet Header --}}
+    {{!-- Sheet Header --}}
     <header class="sheet-header">
         <div class="header-col1">
             <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
@@ -64,9 +64,9 @@
             <span class="ability-label rollable" data-roll="d20+@abilities.toughness.score" data-label="{{data.abilities.toughness.label}}">{{ localize 'MB.ToughnessAbbreviation' }}</span>
           </div>
         </div>
-        </header>
+    </header>
 
-    {{!-- Character Sheet Tab Navigation --}}
+    {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="obituary">{{ localize 'MB.Obituary' }}</a>
         <a class="item" data-tab="violence">{{ localize 'MB.Violence' }}</a>
@@ -75,12 +75,12 @@
         <a class="item" data-tab="notes">{{ localize 'MB.Scrawls' }}</a>
     </nav>
 
-    {{!-- Character Sheet Body --}}
+    {{!-- Sheet Body --}}
     <section class="sheet-body">
 
         {{!-- Obituary Tab --}}
         <div class="tab class-tab" data-group="primary" data-tab="obituary">
-            {{editor content=data.background target="data.background" button=true owner=owner editable=editable}}
+            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Violence Tab --}}

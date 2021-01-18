@@ -25,7 +25,7 @@
     },
     "character": {
       "templates": ["common"],
-      "background": "",
+      "description": "",
       "incomingAttackDamageDie": "1d6",
       "miseries": 0,
       "notes": "",
@@ -46,7 +46,10 @@
     "follower": {
       "templates": ["common"],
       "description": "",
+      "incomingAttackDamageDie": "1d6",      
       "morale": 7,
+      "silver": 0,
+      "targetArmorDie": "",
       "speciality": "",
       "trait": "",
       "value": ""

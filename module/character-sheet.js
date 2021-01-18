@@ -26,6 +26,7 @@ export class MBActorSheetCharacter extends ActorSheet {
     }
 
     // Prepare items.
+    // TODO: should preparing items move into the MBActor class?
     if (this.actor.data.type == 'character') {
       this._prepareCharacterItems(data);
     }
@@ -292,13 +293,22 @@ export class MBActorSheetCharacter extends ActorSheet {
     }
   }
 
+  _onAttackRoll(event) {
+    event.preventDefault();   
+    const button = $(event.currentTarget);
+    const li = button.parents(".item");
+    const itemId = li.data("itemId");
+    this.actor.attack(itemId);
+  }
+
   /**
    * Handle weapon attack roll.
    *
    * @param {Event} event   The originating click event
    * @private
    */
-  _onAttackRoll(event) {
+   /*
+  _onAttackRoll2(event) {
     event.preventDefault();    
     let button = $(event.currentTarget);
     const li = button.parents(".item");
@@ -315,7 +325,6 @@ export class MBActorSheetCharacter extends ActorSheet {
     let attackRoll = new Roll(`d20+@abilities.${ability}.score`, actorRollData);
     const weaponTypeKey = isRanged ? 'MB.Ranged' : 'MB.Melee';
     const attackLabel = `${game.i18n.localize(weaponTypeKey)} ${game.i18n.localize('MB.Attack')}`;
-    let weaponType = 
     attackRoll.roll().toMessage({
       user: game.user._id,
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -344,6 +353,7 @@ export class MBActorSheetCharacter extends ActorSheet {
       });
     }
   }
+  */
 
   /**
    * Handle a click on the armor current tier radio buttons.
@@ -357,13 +367,20 @@ export class MBActorSheetCharacter extends ActorSheet {
     return item.update({["data.currentTier"]: newTier});
   }
 
+  _onDefendRoll(event) {
+    event.preventDefault();  
+    let sheetData = this.getData();
+    this.actor.defend(sheetData);
+  }
+
   /**
    * Handle defend roll.
    *
    * @param {Event} event   The originating click event
    * @private
    */
-  _onDefendRoll(event) {
+   /*
+  _onDefendRoll2(event) {
     event.preventDefault();    
     let rollData = this.actor.getRollData();
     if (!rollData.incomingAttackDamageDie) {
@@ -372,7 +389,7 @@ export class MBActorSheetCharacter extends ActorSheet {
 
     // TODO: make a fancier unified roll message w/ 3 rolls
 
-    // roll 1: defende
+    // roll 1: defend
     // TODO: use armor and encumberance modifiers
     let defenseRoll = new Roll("d20+@abilities.agility.score", rollData);
     defenseRoll.roll().toMessage({
@@ -411,6 +428,7 @@ export class MBActorSheetCharacter extends ActorSheet {
       });
     }
   }
+  */
 }
 
 /**

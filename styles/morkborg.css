@@ -560,9 +560,9 @@ alternately we could select as
 /* ====================== */
 
 /* ====================== */
-/* Character sheet violence tab */
+/* Actor sheet violence tab */
 /* ====================== */
-.morkborg.sheet.actor.character
+.morkborg.sheet.actor
   .sheet-body
   .violence-tab
   .item-list.weapon-list
@@ -577,7 +577,7 @@ alternately we could select as
   font-size: 20px;
   width: 120px;
 }
-.morkborg.sheet.actor.character
+.morkborg.sheet.actor
   .sheet-body
   .violence-tab
   .item-list
@@ -585,7 +585,7 @@ alternately we could select as
   font-size: 16px;
   margin-top: 5px;
 }
-.morkborg.sheet.actor.character
+.morkborg.sheet.actor
   .sheet-body
   .violence-tab
   .item-list
@@ -593,57 +593,57 @@ alternately we could select as
   font-size: 16px;
   margin-top: 6px;
 }
-.morkborg.sheet.actor.character
+.morkborg.sheet.actor
   .sheet-body
   .violence-tab
   .item-list
   .versus-armor {
   margin-left: 10px;
 }
-.morkborg.sheet.actor.character .sheet-body .violence-tab .attack-rule {
+.morkborg.sheet.actor .sheet-body .violence-tab .attack-rule {
   text-align: center;
 }
-.morkborg.sheet.actor.character .sheet-body .violence-tab .violence-gutter {
+.morkborg.sheet.actor .sheet-body .violence-tab .violence-gutter {
   height: 10px;
 }
-.morkborg.sheet.actor.character
+.morkborg.sheet.actor
   .sheet-body
   .violence-tab
   .item-list.armor-list
   .item {
 }
-.morkborg.sheet.actor.character .sheet-body .violence-tab .armor-tiers {
+.morkborg.sheet.actor .sheet-body .violence-tab .armor-tiers {
 }
-.morkborg.sheet.actor.character .sheet-body .violence-tab .tier-label {
+.morkborg.sheet.actor .sheet-body .violence-tab .tier-label {
   float: left;
   font-size: 20;
   margin-right: 10px;
 }
-.morkborg.sheet.actor.character .sheet-body .violence-tab ul.tiers {
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers {
   list-style-type: none;
   margin: 0;
   margin-top: 3px;
   padding: 0;
   float: left;
 }
-.morkborg.sheet.actor.character .sheet-body .violence-tab ul.tiers li {
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers li {
   float: left;
   height: 45px;
 }
-.morkborg.sheet.actor.character .sheet-body .violence-tab ul.tiers label {
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers label {
   display: block;
   padding: 4px;
   position: relative;
   padding-left: 32px;
 }
-.morkborg.sheet.actor.character
+.morkborg.sheet.actor
   .sheet-body
   .violence-tab
   ul.tiers
   input[type="radio"] {
   display: none;
 }
-.morkborg.sheet.actor.character
+.morkborg.sheet.actor
   .sheet-body
   .violence-tab
   ul.tiers
@@ -653,7 +653,7 @@ alternately we could select as
   color: #000;
   border: none;
 }
-.morkborg.sheet.actor.character
+.morkborg.sheet.actor
   .sheet-body
   .violence-tab
   ul.tiers
@@ -662,7 +662,7 @@ alternately we could select as
   color: #444444;
   border: 1px solid #444444;
 }
-.morkborg.sheet.actor.character
+.morkborg.sheet.actor
   .sheet-body
   .violence-tab
   ul.tiers
@@ -670,7 +670,7 @@ alternately we could select as
   ~ span.tier-dmg {
   color: #444444;
 }
-.morkborg.sheet.actor.character
+.morkborg.sheet.actor
   .sheet-body
   .violence-tab
   ul.tiers
@@ -689,7 +689,7 @@ alternately we could select as
   /*top: 50%; */
   top: 0%;
 }
-.morkborg.sheet.actor.character
+.morkborg.sheet.actor
   .sheet-body
   .violence-tab
   ul.tiers
@@ -705,12 +705,12 @@ alternately we could select as
   left: -5px;
   top: 30px;
 }
-.morkborg.sheet.actor.character .sheet-body .violence-tab .underarmor-row {
+.morkborg.sheet.actor .sheet-body .violence-tab .underarmor-row {
   margin-top: 0px;
   display: flex;
   flex-direction: row;
 }
-.morkborg.sheet.actor.character
+.morkborg.sheet.actor
   .sheet-body
   .violence-tab
   .underarmor-row
@@ -718,7 +718,7 @@ alternately we could select as
   flex: 1;
   text-align: center;
 }
-.morkborg.sheet.actor.character
+.morkborg.sheet.actor
   .sheet-body
   .violence-tab
   .incoming-attack
@@ -734,10 +734,10 @@ alternately we could select as
   border-bottom: 2px solid #777;
   border-radius: 0;
 }
-.morkborg.sheet.actor.character .sheet-body .violence-tab .shield-rule {
+.morkborg.sheet.actor .sheet-body .violence-tab .shield-rule {
   margin-top: 5px;
 }
-.morkborg.sheet.actor.character .sheet-body .violence-tab .defend-rule {
+.morkborg.sheet.actor .sheet-body .violence-tab .defend-rule {
   text-align: center;
 }
 /* ====================== */
@@ -788,18 +788,18 @@ alternately we could select as
 /* ====================== */
 /* Character sheet treasures (equipment) tab */
 /* ====================== */
-.morkborg.sheet.actor.character .sheet-body .equipment-top-row {
+.morkborg.sheet.actor .sheet-body .equipment-top-row {
   margin-top: 10px;
   margin-left: 20px;
   display: flex;
   flex-direction: row;
 }
-.morkborg.sheet.actor.character .sheet-body .silver {
+.morkborg.sheet.actor .sheet-body .silver {
   flex: 0 0 200px;
 }
-.morkborg.sheet.actor.character .sheet-body .silver-label {
+.morkborg.sheet.actor .sheet-body .silver-label {
 }
-.morkborg.sheet.actor.character .sheet-body .silver-input {
+.morkborg.sheet.actor .sheet-body .silver-input {
   width: 70px;
 }
 .morkborg.sheet.actor.character .sheet-body .carry-block {
