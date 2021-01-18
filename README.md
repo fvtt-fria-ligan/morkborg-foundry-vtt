@@ -26,5 +26,5 @@ morkborg-foundry-vtt is an independent production by community contributors, and
     * [Old Cupboard](https://coneofnegativeenergy.com/2019/11/08/a-new-thing-old-cupboard-otf/) by [Cone Of Negative Energy](https://coneofnegativeenergy.com/) (Cecil Howe), released under OFL.
 
 ## License
-  * [MÖRK BORG Third Party License](https://morkborg.com/license/)
-  * [MIT](https://en.wikipedia.org/wiki/MIT_License)
+  * Content: [MÖRK BORG Third Party License](https://morkborg.com/license/)
+  * Code: [MIT](https://en.wikipedia.org/wiki/MIT_License)
