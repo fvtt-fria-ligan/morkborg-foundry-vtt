@@ -1071,6 +1071,10 @@ form.editable .results .result-details input[type="text"]:hover {
 form.editable .results .result-details input[type="text"]:focus {
   box-shadow: 0 0 10px #fff160;
 }
+.table-results .table-result .result-text .entity-link {
+  color: black;
+  background-color: #fff160;
+}
 /* ====================== */
 /* UI / Chat */
 /* ====================== */
