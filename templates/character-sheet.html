@@ -72,7 +72,6 @@
         <a class="item" data-tab="violence">{{ localize 'MB.Violence' }}</a>
         <a class="item" data-tab="powers">{{ localize 'MB.Powers' }}</a>
         <a class="item" data-tab="equipment">{{ localize 'MB.Treasures' }}</a>
-        <a class="item" data-tab="notes">{{ localize 'MB.Scrawls' }}</a>
     </nav>
 
     {{!-- Sheet Body --}}
@@ -280,9 +279,5 @@
             </ol>
         </div>
 
-        {{!-- Notes Tab --}}
-        <div class="tab notes-tab" data-group="primary" data-tab="notes">
-            {{editor content=data.notes target="data.notes" button=true owner=owner editable=editable}}
-        </div>        
     </section>
 </form>
