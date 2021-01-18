@@ -1,7 +1,7 @@
 # Implementation Notes
 
 ## General
-This is a vanilla, no-homebrew implementation of the Mork Borg rules. There are compendiums covering all the classes, items, creatures, and followers described in the Mork Borg book.
+This is a vanilla, no-homebrew implementation of the MÖRK BORG rules. There are compendiums covering all the classes, items, creatures, and followers described in the MÖRK BORG book.
 
 ## Creating a character
   * Create a new Actor of type *character*. 
