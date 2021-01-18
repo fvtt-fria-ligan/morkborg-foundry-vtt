@@ -2,7 +2,7 @@
 
 An unoffical, community-supported system for playing [MÖRK BORG](https://morkborg.com/) on [Foundry VTT](http://foundryvtt.com/).
 
-morkborg-foundry-vtt is an independent production by community contributors, and is not affiliated with Ockult Örtmästare Games or Stockholm Kartell. It is published under the MÖRK BORG Third Party License.
+morkborg-foundry-vtt is an independent production by community contributors, and is not affiliated with Ockult Örtmästare Games or Stockholm Kartell. It is published under the [MÖRK BORG Third Party License](https://morkborg.com/license/).
 
 ![Screenshot](https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/blob/main/screenshot.png?raw=true)
 
