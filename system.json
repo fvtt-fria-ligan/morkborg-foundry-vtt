@@ -2,7 +2,7 @@
   "name": "morkborg",
   "title": "MÖRK BORG",
   "description": "Foundry VTT system for MÖRK BORG.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "templateVersion": 2,
   "author": "mcglincy",
   "scripts": [],
