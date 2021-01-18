@@ -2,7 +2,9 @@
 
 An unoffical, community-supported system for playing [MÖRK BORG](https://morkborg.com/) on [Foundry VTT](http://foundryvtt.com/).
 
-morkborg-foundry-vtt is an independent production by community contributors, and is not affiliated with Ockult Örtmästare Games or Stockholm Kartell. It is published under the MÖRK BORG Third Party License.
+morkborg-foundry-vtt is an independent production by community contributors, and is not affiliated with Ockult Örtmästare Games or Stockholm Kartell. It is published under the [MÖRK BORG Third Party License](https://morkborg.com/license/).
+
+![Screenshot](https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/blob/main/screenshot.png?raw=true)
 
 ## Getting Started
   * Install the system
@@ -19,10 +21,11 @@ morkborg-foundry-vtt is an independent production by community contributors, and
   * Images
     * Icons by https://game-icons.net/ under [Creative Commons 3.0](https://creativecommons.org/licenses/by/3.0/).
   * Fonts
-    * [Fette Trump Deutsch](https://www.dafont.com/fette-trump-deutsch.font) by [Dieter Steffmann](http://www.steffmann.de/wordpress/), and free for personal use.
     * [Blood Crow](https://www.dafont.com/blood-crow.font) by [Iconian Fonts](http://www.iconian.com/), and free for personal use.
+    * [Fette Trump Deutsch](https://www.dafont.com/fette-trump-deutsch.font) by [Dieter Steffmann](http://www.steffmann.de/wordpress/), and free for personal use.
     * [Old Cupboard](https://coneofnegativeenergy.com/2019/11/08/a-new-thing-old-cupboard-otf/) by [Cone Of Negative Energy](https://coneofnegativeenergy.com/) (Cecil Howe), released under OFL.
+    * [Special Elite](https://fonts.google.com/specimen/Special+Elite) by Astigmatic, under Apache license.
 
 ## License
-  * [MÖRK BORG Third Party License](https://morkborg.com/license/)
-  * [MIT](https://en.wikipedia.org/wiki/MIT_License)
+  * Content: [MÖRK BORG Third Party License](https://morkborg.com/license/)
+  * Code: [MIT](https://en.wikipedia.org/wiki/MIT_License)
