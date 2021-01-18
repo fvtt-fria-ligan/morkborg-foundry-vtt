@@ -177,6 +177,7 @@
 .morkborg.sheet .editor {
   color: white;
   border: 1px solid #7a7971;
+  font-family: "Special Elite";
 }
 /*.morkborg.sheet .editor-content {
   color: white;
@@ -354,10 +355,7 @@ alternately we could select as
   /* TODO: fix vertical alignment in a better way */
   padding-top: 6px;
 }
-.morkborg.sheet.actor.character
-  .sheet-header
-  .classname-row
-  label {
+.morkborg.sheet.actor.character .sheet-header .classname-row label {
   font-family: "Old Cupboard", serif;
   font-size: 28px;
   width: 100%;
@@ -562,11 +560,7 @@ alternately we could select as
 /* ====================== */
 /* Actor sheet violence tab */
 /* ====================== */
-.morkborg.sheet.actor
-  .sheet-body
-  .violence-tab
-  .item-list.weapon-list
-  .item {
+.morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item {
   align-items: center;
 }
 .morkborg.sheet.actor
@@ -577,27 +571,15 @@ alternately we could select as
   font-size: 20px;
   width: 120px;
 }
-.morkborg.sheet.actor
-  .sheet-body
-  .violence-tab
-  .item-list
-  .item-name {
+.morkborg.sheet.actor .sheet-body .violence-tab .item-list .item-name {
   font-size: 16px;
   margin-top: 5px;
 }
-.morkborg.sheet.actor
-  .sheet-body
-  .violence-tab
-  .item-list
-  .item-fields {
+.morkborg.sheet.actor .sheet-body .violence-tab .item-list .item-fields {
   font-size: 16px;
   margin-top: 6px;
 }
-.morkborg.sheet.actor
-  .sheet-body
-  .violence-tab
-  .item-list
-  .versus-armor {
+.morkborg.sheet.actor .sheet-body .violence-tab .item-list .versus-armor {
   margin-left: 10px;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .attack-rule {
@@ -606,11 +588,7 @@ alternately we could select as
 .morkborg.sheet.actor .sheet-body .violence-tab .violence-gutter {
   height: 10px;
 }
-.morkborg.sheet.actor
-  .sheet-body
-  .violence-tab
-  .item-list.armor-list
-  .item {
+.morkborg.sheet.actor .sheet-body .violence-tab .item-list.armor-list .item {
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .armor-tiers {
 }
@@ -636,11 +614,7 @@ alternately we could select as
   position: relative;
   padding-left: 32px;
 }
-.morkborg.sheet.actor
-  .sheet-body
-  .violence-tab
-  ul.tiers
-  input[type="radio"] {
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type="radio"] {
   display: none;
 }
 .morkborg.sheet.actor
@@ -670,11 +644,7 @@ alternately we could select as
   ~ span.tier-dmg {
   color: #444444;
 }
-.morkborg.sheet.actor
-  .sheet-body
-  .violence-tab
-  ul.tiers
-  span.tier-num {
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers span.tier-num {
   border: 1px solid #7a7971;
   width: 24px;
   height: 24px;
@@ -689,11 +659,7 @@ alternately we could select as
   /*top: 50%; */
   top: 0%;
 }
-.morkborg.sheet.actor
-  .sheet-body
-  .violence-tab
-  ul.tiers
-  span.tier-dmg {
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers span.tier-dmg {
   width: 30px;
   height: 15px;
   position: absolute;
@@ -718,11 +684,7 @@ alternately we could select as
   flex: 1;
   text-align: center;
 }
-.morkborg.sheet.actor
-  .sheet-body
-  .violence-tab
-  .incoming-attack
-  button {
+.morkborg.sheet.actor .sheet-body .violence-tab .incoming-attack button {
   margin-left: 10px;
   width: 120px;
   margin-bottom: 10px;
@@ -1078,7 +1040,9 @@ form.editable .results .result-details input[type="text"]:focus {
   color: black;
   background-color: #fff160;
 }
-#module-management .package-list .package-title, #module-management .package-list .package-metadata, #module-management .package-list .package-description {
+#module-management .package-list .package-title,
+#module-management .package-list .package-metadata,
+#module-management .package-list .package-description {
   color: white;
 }
 /* ====================== */
@@ -1271,6 +1235,7 @@ select:focus {
   border-radius: 0;
   font-family: "FetteTrumpDeutsch";
 }
+
 .sidebar-tab .directory-header .header-search input {
   background: black;
   color: white;
@@ -1280,6 +1245,10 @@ select:focus {
 }
 .sidebar-tab .directory-header .header-search input[type="text"]:focus {
   box-shadow: 0 0 5px #ffe800;
+}
+
+.sidebar-tab .directory-list .directory-item h4 {
+  font-family: "Special Elite";
 }
 
 .tabs .item.active,
