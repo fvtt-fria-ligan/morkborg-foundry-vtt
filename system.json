@@ -102,7 +102,6 @@
   "secondaryTokenAttribute": null,
   "minimumCoreVersion": "0.7.9",
   "compatibleCoreVersion": "0.7.9",
-  "url": "",
-  "manifest": "",
-  "download": ""
+  "manifest": "https://raw.githubusercontent.com/fvtt-fria-ligan/morkborg-foundry-vtt/main/system.json",
+  "download": "https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/archive/v0.1.0.zip"
 }
