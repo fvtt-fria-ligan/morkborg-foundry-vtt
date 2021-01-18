@@ -1078,6 +1078,9 @@ form.editable .results .result-details input[type="text"]:focus {
   color: black;
   background-color: #fff160;
 }
+#module-management .package-list .package-title, #module-management .package-list .package-metadata, #module-management .package-list .package-description {
+  color: white;
+}
 /* ====================== */
 /* UI / Chat */
 /* ====================== */
