@@ -17,6 +17,7 @@
             "score": 0
           }
         },
+        "description": "",        
         "hp": {
           "current": 1,
           "max": 1
@@ -25,10 +26,8 @@
     },
     "character": {
       "templates": ["common"],
-      "description": "",
       "incomingAttackDamageDie": "1d6",
       "miseries": 0,
-      "notes": "",
       "omens": 0,
       "powerUsesRemaining": 0,
       "silver": 0,
@@ -39,18 +38,16 @@
       "alternateName": "",
       "armor": "",
       "attack": "",
-      "description": "",
       "morale": 7,
       "special": ""
     },
     "follower": {
       "templates": ["common"],
-      "description": "",
       "incomingAttackDamageDie": "1d6",      
       "morale": 7,
       "silver": 0,
-      "targetArmorDie": "",
       "speciality": "",
+      "targetArmorDie": "",
       "trait": "",
       "value": ""
     }
