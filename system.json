@@ -17,6 +17,13 @@
       "entity": "Item"
     },
     {
+      "name": "character-creation",
+      "label": "Character Creation",
+      "system": "morkborg",
+      "path": "./packs/character-creation.db",
+      "entity": "RollTable"
+    },    
+    {
       "name": "class-items",
       "label": "Class Items",
       "system": "morkborg",
@@ -43,6 +50,20 @@
       "system": "morkborg",
       "path": "./packs/equipment.db",
       "entity": "Item"
+    },
+    {
+      "name": "followers",
+      "label": "Followers",
+      "system": "morkborg",
+      "path": "./packs/followers.db",
+      "entity": "Actor"
+    },
+    {
+      "name": "random-scrolls",
+      "label": "Random Scrolls",
+      "system": "morkborg",
+      "path": "./packs/random-scrolls.db",
+      "entity": "RollTable"
     },
     {
       "name": "scrolls",
