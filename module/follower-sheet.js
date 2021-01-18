@@ -168,7 +168,6 @@
    * @private
    */
   async _onToggleItem(event) {
-    console.log("******* _onToggleItem *******");
     event.preventDefault();
     let anchor = $(event.currentTarget);
     const li = anchor.parents(".item");
