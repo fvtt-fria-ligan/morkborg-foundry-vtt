@@ -8,8 +8,7 @@
   box-sizing: content-box;
   color: #000;
   cursor: auto;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: "Special Elite";
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -66,8 +65,7 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: "Special Elite";
   overflow: hidden;
   position: relative;
   visibility: inherit !important;
@@ -82,8 +80,7 @@
   box-shadow: none;
 }
 .tox-tinymce-aux {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: "Special Elite";
   z-index: 1300;
 }
 .tox-tinymce :focus,
@@ -296,8 +293,7 @@ button::-moz-focus-inner {
   color: #000;
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: "Special Elite";
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
@@ -405,8 +401,7 @@ button::-moz-focus-inner {
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: "Special Elite";
   font-size: 16px;
   font-weight: 400;
   line-height: 1.3;
@@ -1328,8 +1323,7 @@ button::-moz-focus-inner {
   margin-left: auto;
 }
 .tox .tox-dialog__title {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: "Special Elite";
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -1908,8 +1902,7 @@ body.tox-dialog__disable-scroll {
   box-shadow: none;
   box-sizing: border-box;
   color: #fff;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: "Special Elite";
   font-size: 16px;
   line-height: 24px;
   margin: 0;
@@ -2009,8 +2002,7 @@ body.tox-dialog__disable-scroll {
   box-shadow: none;
   box-sizing: border-box;
   color: #fff;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: "Special Elite";
   font-size: 16px;
   line-height: 24px;
   margin: 0;
