@@ -1266,3 +1266,52 @@ select:focus {
   background: black;
   color: white;
 }
+
+/* ================== 11. JOUNRAL ENTRIES =================== */
+.window-app.app.journal-sheet .window-content {
+  background: white;
+  color: black;
+  background-position: -43px -120px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  padding: 0px;
+  margin: 0px;
+  font-family: "Special Elite";
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.window-app.app.journal-sheet .window-content h1 {
+  font-family: "FetteTrumpDeutsch";
+  border-bottom: 2px solid #222222;
+}
+
+.window-app.app.journal-sheet .window-content h2 {
+  border-bottom: 1px solid #252525;
+}
+
+.journal-sheet form button[type="submit"] {
+  background: black;
+}
+
+.journal-sheet form input[name="name"] {
+  color: black;
+  font-family: "FetteTrumpDeutsch";
+  font-size: 32px;
+}
+
+.journal-sheet form select {
+  font-family: "Special Elite";
+}
+a.entity-link,
+a.inline-roll {
+  background: black;
+  color: white;
+  padding: 1px 4px;
+  border: 1px solid black;
+  border-radius: 2px;
+  white-space: nowrap;
+  word-break: break-all;
+}
