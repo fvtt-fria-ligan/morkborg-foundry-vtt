@@ -173,13 +173,16 @@ export class MBActorSheetCharacter extends ActorSheet {
 
   _onOmensRoll(event) {
     event.preventDefault();
-    let r = new Roll("@class.omenDie", this.actor.getRollData());
-    r.roll().toMessage({
-      user: game.user._id,
-      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: `<h2>${game.i18n.localize('MB.Omens')}</h2>`
-    });
-    return this.actor.update({["data.omens"]: r.total});
+    const classItem = this.actor.items.filter(x => x.type === "class").pop();
+    if (classItem) {
+      let r = new Roll("@omenDie", classItem.getRollData());
+      r.roll().toMessage({
+        user: game.user._id,
+        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+        flavor: `<h2>${game.i18n.localize('MB.Omens')}</h2>`
+      });
+      return this.actor.update({["data.omens"]: r.total});
+    }
   }
 
   _onPowersPerDayRoll(event) {
