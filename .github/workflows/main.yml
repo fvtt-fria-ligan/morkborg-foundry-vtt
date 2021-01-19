@@ -1,3 +1,6 @@
+# Based on the workflows of:
+# https://github.com/League-of-Foundry-Developers/FoundryVTT-Module-Template and
+# https://github.com/pwatson100/alienrpg
 name: Release Creation
 
 on: 
