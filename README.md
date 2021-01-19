@@ -7,7 +7,7 @@ morkborg-foundry-vtt is an independent production by community contributors, and
 ![Screenshot](https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/blob/main/screenshot.png?raw=true)
 
 ## Getting Started
-  * Install the system using the Manifest URL: https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/releases/download/v0.1.0/system.json
+  * Install the system using the Manifest URL: https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/releases/download/0.1.2/system.json
   * Read the [implementation notes](https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/blob/main/implementation-notes.md)
 
 ## Buy the Book
