@@ -97,6 +97,7 @@
     options.toolbar = 'formatselect | bold italic underline strikethrough bullist image link save';
     options.menubar = false;
     options.statusbar = false;
+    options.content_style = '@import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");';
     super.activateEditor(name, options, initialContent);
   }
 
