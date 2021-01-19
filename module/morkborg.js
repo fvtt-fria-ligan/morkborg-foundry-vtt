@@ -5,7 +5,7 @@ import { MBActor } from "./actor.js";
 import { MBActorSheetCharacter } from "./character-sheet.js";
 import { MBActorSheetCreature } from "./creature-sheet.js";
 import { MBActorSheetFollower } from "./follower-sheet.js";
-import { _getInitiativeFormula } from "./combat.js";
+//import { _getInitiativeFormula } from "./combat.js";
 import { MB } from "./config.js";
 import { MBItem } from "./item.js";
 import { MBItemSheet } from "./item-sheet.js";
@@ -65,6 +65,27 @@ Hooks.once("init", async function() {
   });  
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("morkborg", MBItemSheet, { makeDefault: true });
+});
+
+Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
+  if (data.type === "Item" && data.pack === "morkborg.classes") {
+    // Dropping a new class, so nuke any pre-existing class item(s),
+    // to enforce that a character only has one class item at a time.
+    const classes = actor.items.filter(i => i.data.type === "class");
+    const deletions = classes.map(i => i._id);
+    const deleted = await actor.deleteEmbeddedEntity("OwnedItem", deletions);
+  }
+});
+
+Hooks.on('createActor', async (actor, options, userId) => {
+  // give Characters a default class
+  if (actor.data.type === "character" && game.packs) {
+    const pack = game.packs.get("morkborg.classes");
+    let index = await pack.getIndex();
+    let entry = index.find(e => e.name === "Adventurer");
+    let entity = await pack.getEntity(entry._id);
+    actor.createEmbeddedEntity("OwnedItem", duplicate(entity.data));
+  }
 });
 
 // Handlebars helpers
