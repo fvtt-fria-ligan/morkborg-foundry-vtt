@@ -1,4 +1,4 @@
-# MÖRK BORG
+# MÖRK BORG for Foundry VTT
 
 An unoffical, community-supported system for playing [MÖRK BORG](https://morkborg.com/) on [Foundry VTT](http://foundryvtt.com/).
 
