@@ -1,4 +1,4 @@
-# MÖRK BORG
+# MÖRK BORG for Foundry VTT
 
 An unoffical, community-supported system for playing [MÖRK BORG](https://morkborg.com/) on [Foundry VTT](http://foundryvtt.com/).
 
@@ -7,8 +7,9 @@ morkborg-foundry-vtt is an independent production by community contributors, and
 ![Screenshot](https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/blob/main/screenshot.png?raw=true)
 
 ## Getting Started
-  * Install the system using the Manifest URL: https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/releases/latest/download/system.json
-  * Read the [implementation notes](https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/blob/main/implementation-notes.md)
+  * Install the system from within Foundry (*Configuration and Setup*, *Game Systems* tab, *Install System* button). Find package *MÖRK BORG* and install.
+  * Read the [implementation notes](https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/blob/main/implementation-notes.md).
+  * Kill and be killed.
 
 ## Buy the Book
 [MÖRK BORG Artpunk RPG](https://frialigan.se/en/store/?product_id=4529866506377)
