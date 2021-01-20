@@ -11,6 +11,9 @@ morkborg-foundry-vtt is an independent production by community contributors, and
   * Read the [implementation notes](https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/blob/main/implementation-notes.md).
   * Kill and be killed.
 
+## Questions? Suggestions? Bugs?
+[File an issue](https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/issues)
+
 ## Buy the Book
 [MÖRK BORG Artpunk RPG](https://frialigan.se/en/store/?product_id=4529866506377)
 
