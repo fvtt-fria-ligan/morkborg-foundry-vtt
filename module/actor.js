@@ -38,7 +38,7 @@ export class MBActor extends Actor {
     const isRanged = itemRollData.weaponType === 'ranged';
     const ability = isRanged ? 'agility' : 'strength';
     let attackRoll = new Roll(`d20+@abilities.${ability}.score`, actorRollData);
-    const weaponTypeKey = isRanged ? 'MB.Ranged' : 'MB.Melee';
+    const weaponTypeKey = isRanged ? 'MB.WeaponTypeRanged' : 'MB.WeaponTypeMelee';
     const attackLabel = `${game.i18n.localize(weaponTypeKey)} ${game.i18n.localize('MB.Attack')}`;
     let weaponType = 
     attackRoll.roll().toMessage({

@@ -49,29 +49,29 @@
         <div class="header-col3">
           <div class="ability-row">
             <input class="ability-input" type="text" name="data.abilities.strength.score" value="{{numberFormat data.abilities.strength.score decimals=0 sign=true}}" data-dtype="Number" size="3" />
-            <span class="ability-label rollable" data-roll="d20+@abilities.strength.score" data-label="{{data.abilities.strength.label}}">{{ localize 'MB.StrengthAbbreviation' }}</span>
+            <span class="ability-label rollable" data-roll="d20+@abilities.strength.score" data-label="{{data.abilities.strength.label}}">{{ localize 'MB.AbilityStrengthAbbrev' }}</span>
           </div>
           <div class="ability-row">
             <input class="ability-input" type="text" name="data.abilities.agility.score" value="{{numberFormat data.abilities.agility.score decimals=0 sign=true}}" data-dtype="Number" size="3" />
-            <span class="ability-label rollable" data-roll="d20+@abilities.agility.score" data-label="{{data.abilities.agility.label}}">{{ localize 'MB.AgilityAbbreviation' }}</span>
+            <span class="ability-label rollable" data-roll="d20+@abilities.agility.score" data-label="{{data.abilities.agility.label}}">{{ localize 'MB.AbilityAgilityAbbrev' }}</span>
           </div>
           <div class="ability-row">
             <input class="ability-input" type="text" name="data.abilities.presence.score" value="{{numberFormat data.abilities.presence.score decimals=0 sign=true}}" data-dtype="Number" size="3" />
-            <span class="ability-label rollable" data-roll="d20+@abilities.presence.score" data-label="{{data.abilities.presence.label}}">{{ localize 'MB.PresenceAbbreviation' }}</span>
+            <span class="ability-label rollable" data-roll="d20+@abilities.presence.score" data-label="{{data.abilities.presence.label}}">{{ localize 'MB.AbilityPresenceAbbrev' }}</span>
           </div>
           <div class="ability-row">
             <input class="ability-input" type="text" name="data.abilities.toughness.score" value="{{numberFormat data.abilities.toughness.score decimals=0 sign=true}}" data-dtype="Number" size="3" />
-            <span class="ability-label rollable" data-roll="d20+@abilities.toughness.score" data-label="{{data.abilities.toughness.label}}">{{ localize 'MB.ToughnessAbbreviation' }}</span>
+            <span class="ability-label rollable" data-roll="d20+@abilities.toughness.score" data-label="{{data.abilities.toughness.label}}">{{ localize 'MB.AbilityToughnessAbbrev' }}</span>
           </div>
         </div>
     </header>
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="obituary">{{ localize 'MB.Obituary' }}</a>
-        <a class="item" data-tab="violence">{{ localize 'MB.Violence' }}</a>
+        <a class="item" data-tab="obituary">{{ localize 'MB.TabObituary' }}</a>
+        <a class="item" data-tab="violence">{{ localize 'MB.TabViolence' }}</a>
         <a class="item" data-tab="powers">{{ localize 'MB.Powers' }}</a>
-        <a class="item" data-tab="equipment">{{ localize 'MB.Treasures' }}</a>
+        <a class="item" data-tab="equipment">{{ localize 'MB.TabTreasures' }}</a>
     </nav>
 
     {{!-- Sheet Body --}}
@@ -191,7 +191,7 @@
                 </div>
                 <div class="uses-remaining">
                     <div>
-                        <label class="stat-label uses-remaining-label">{{localize "MB.UsesRemaining"}}:</label>
+                        <label class="stat-label uses-remaining-label">{{localize "MB.PowerUsesRemaining"}}:</label>
                         <input class="stat-input" name="data.powerUsesRemaining" type="number" value="{{data.powerUsesRemaining}}" data-dtype="Number" />
                     </div>
                     <span class="rule-text rollable powers-per-day-text">{{localize "MB.PowersPerDayText"}}</span>
@@ -233,7 +233,7 @@
                         <span class="stat-value">{{data.carryingCount}}</span>
                         /
                         <span class="stat-value">{{data.carryingCapacity}}</span>
-                        <span class="stat-label container-label">{{ localize "MB.InContainer" }}:</span>
+                        <span class="stat-label container-label">{{ localize "MB.ContainerAmountIn" }}:</span>
                         <span class="stat-value">{{data.containerSpace}}</span>
                         /
                         <span class="stat-value">{{data.containerCapacity}}</span>
@@ -261,7 +261,7 @@
                         <h4 class="item-name">
                             {{item.name}}
                             {{#ifEq item.type 'container'}}
-                              ({{localize 'MB.Holds'}} {{item.data.capacity}})
+                              ({{localize 'MB.ContainerHolds'}} {{item.data.capacity}})
                             {{/ifEq}}
                         </h4>
                         <div class="item-buttons">

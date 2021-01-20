@@ -25,8 +25,8 @@
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="description">{{ localize "MB.Description" }}</a>
-        <a class="item" data-tab="details">{{ localize "MB.Details" }}</a>
+        <a class="item" data-tab="description">{{ localize "MB.TabDescription" }}</a>
+        <a class="item" data-tab="details">{{ localize "MB.TabDetails" }}</a>
     </nav>
 
     {{!-- Sheet Body --}}
@@ -47,20 +47,20 @@
 
             {{!-- Armor --}}
             <div class="form-group">
-                <label>{{ localize "MB.Armor" }}:</label>
+                <label>{{ localize "MB.CreatureArmor" }}:</label>
                 <input type="text" name="data.armor.name" value="{{data.armor.name}}" placeholder="None" data-dtype="String" />
             </div>
 
             {{!-- Attack --}}
             <div class="form-group">
-                <label>{{ localize "MB.Attack" }}:</label>
+                <label>{{ localize "MB.CreatureAttack" }}:</label>
                 <input type="text" name="data.attack.name" value="{{data.attack.name}}" placeholder="None" data-dtype="String" />
             </div> 
 
             {{!-- Special --}}
             <div class="form-group">
-                <label>{{ localize "MB.Special" }}:</label>
-                <textarea name="data.special" rows="5">{{data.special}}</textarea>
+                <label>{{ localize "MB.CreatureSpecial" }}:</label>
+                <textarea name="data.special" rows="10">{{data.special}}</textarea>
             </div>
         </div>
     </section>
