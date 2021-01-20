@@ -2,10 +2,10 @@
 export const MB = {};
 
 MB.abilities = {
-  "agility": "MB.Agility",
-  "presence": "MB.Presence",
-  "strength": "MB.Strength",
-  "toughness": "MB.Toughness"
+  "agility": "MB.AbilityAgility",
+  "presence": "MB.AbilityPresence",
+  "strength": "MB.AbilityStrength",
+  "toughness": "MB.AbilityToughness"
 };
 
 // TODO: string or int, "light" or 1?

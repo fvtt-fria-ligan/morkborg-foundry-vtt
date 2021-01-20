@@ -57,7 +57,7 @@ export class MBActorSheetCharacter extends ActorSheet {
       if (item.equippable) {
         const isEquipped = getProperty(item, "equipped");
         item.toggleClass = isEquipped ? "equipped" : "";
-        item.toggleTitle = game.i18n.localize(isEquipped ? "MB.Equipped" : "MB.Unequipped");
+        item.toggleTitle = game.i18n.localize(isEquipped ? "MB.ItemEquipped" : "MB.ItemUnequipped");
       }
 
       // TODO: use enum
@@ -192,7 +192,7 @@ export class MBActorSheetCharacter extends ActorSheet {
     r.roll().toMessage({
       user: game.user._id,
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: `<h2>${game.i18n.localize('MB.PowersPerDay')}</h2>`
+      flavor: `<h2>${game.i18n.localize('MB.Powers')} ${game.i18n.localize('MB.PerDay')}</h2>`
     });
     return this.actor.update({["data.powerUsesRemaining"]: r.total});
   }
@@ -327,7 +327,7 @@ export class MBActorSheetCharacter extends ActorSheet {
     const isRanged = itemRollData.weaponType === 'ranged';
     const ability = isRanged ? 'agility' : 'strength';
     let attackRoll = new Roll(`d20+@abilities.${ability}.score`, actorRollData);
-    const weaponTypeKey = isRanged ? 'MB.Ranged' : 'MB.Melee';
+    const weaponTypeKey = isRanged ? 'MB.WeaponRanged' : 'MB.WeaponMelee';
     const attackLabel = `${game.i18n.localize(weaponTypeKey)} ${game.i18n.localize('MB.Attack')}`;
     attackRoll.roll().toMessage({
       user: game.user._id,

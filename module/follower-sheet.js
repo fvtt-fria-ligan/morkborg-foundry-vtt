@@ -47,7 +47,7 @@
       if (item.equippable) {
         const isEquipped = getProperty(item, "equipped");
         item.toggleClass = isEquipped ? "equipped" : "";
-        item.toggleTitle = game.i18n.localize(isEquipped ? "MB.Equipped" : "MB.Unequipped");
+        item.toggleTitle = game.i18n.localize(isEquipped ? "MB.ItemEquipped" : "MB.ItemUnequipped");
       }
 
       if (i.type === 'armor' 
