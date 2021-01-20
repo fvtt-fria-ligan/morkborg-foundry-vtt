@@ -103,5 +103,5 @@
   "minimumCoreVersion": "0.7.9",
   "compatibleCoreVersion": "0.7.9",
   "manifest": "https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/releases/latest/download/system.json",  
-  "download": "https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/releases/download/0.1.4/system.zip"
+  "download": "https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/releases/latest/download/system.zip"
 }
