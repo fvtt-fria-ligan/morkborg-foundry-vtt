@@ -12,7 +12,7 @@ morkborg-foundry-vtt is an independent production by community contributors, and
   * Kill and be killed.
 
 ## Questions? Suggestions? Bugs?
-[File an issue](https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/issues)
+[File an issue](https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/issues), or hop on the [Foundry Discord](https://discord.gg/foundryvtt), *#free-league* channel.
 
 ## Buy the Book
 [MÖRK BORG Artpunk RPG](https://frialigan.se/en/store/?product_id=4529866506377)
