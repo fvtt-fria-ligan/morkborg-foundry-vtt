@@ -7,7 +7,7 @@ morkborg-foundry-vtt is an independent production by community contributors, and
 ![Screenshot](https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/blob/main/screenshot.png?raw=true)
 
 ## Getting Started
-  * Install the system using the Manifest URL: https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/releases/latest/download/system.json
+  * Install the system from within Foundry (*Configuration and Setup*, *Game Systems* tab, *Install System* button). Find package *MÖRK BORG* and install.
   * Read the [implementation notes](https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/blob/main/implementation-notes.md)
 
 ## Buy the Book
