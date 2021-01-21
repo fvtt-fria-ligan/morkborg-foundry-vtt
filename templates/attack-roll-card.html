@@ -1,0 +1,35 @@
+
+<form class="roll-card attack-roll-card">
+    <div class="card-title">
+        {{localize weaponTypeKey}} {{localize 'MB.Attack'}}
+    </div>
+    <div class="item-row">
+        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+        {{item.name}}
+    </div>
+    <div class="attack-roll">
+        <div class="roll-title">
+            {{localize 'MB.Attack'}}: {{attackRoll.formula}}
+        </div>
+        <div class="roll-result">
+            {{attackRoll.total}}
+        </div>
+    <div class="damage-roll">
+        <div class="roll-title">
+            {{localize 'MB.Damage'}}: {{damageRoll.formula}}
+        </div>
+        <div class="roll-result">
+            {{damageRoll.total}}
+        </div>
+    </div>
+    {{#if targetArmorRoll}}
+        <div class="target-armor-roll">
+            <div class="roll-title">
+                {{localize 'MB.TargetArmor'}}: {{targetArmorRoll.formula}}
+            </div>
+            <div class="roll-result">
+                {{targetArmorRoll.total}}
+            </div>
+        </div>
+    {{/if}}
+</form>
