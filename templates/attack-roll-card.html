@@ -3,10 +3,12 @@
     <div class="card-title">
         {{localize weaponTypeKey}} {{localize 'MB.Attack'}}
     </div>
-    <div class="item-row">
-        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
-        {{item.name}}
-    </div>
+    {{#if item}}
+        <div class="item-row">
+            <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+            {{item.name}}
+        </div>
+    {{/if}}
     <div class="attack-roll">
         <div class="roll-title">
             {{localize 'MB.Attack'}}: {{attackRoll.formula}}
