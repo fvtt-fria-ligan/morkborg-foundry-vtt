@@ -2,6 +2,7 @@
 # 0.1.4
 - Combined multiple Attack and Defend chat rolls into unified roll cards.
 - Code cleanup (translation keys, commented-out code).
+- Added CHANGELOG.md
 
 # 0.1.3
 - Updated editor and journal style.
