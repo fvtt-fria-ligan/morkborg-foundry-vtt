@@ -55,16 +55,16 @@ export class MBActor extends Actor {
 
     // TODO: decide key in handlebars/template?
     const weaponTypeKey = isRanged ? 'MB.WeaponTypeRanged' : 'MB.WeaponTypeMelee';
-    await this._renderAttackRollCard(item, weaponTypeKey, attackRoll, damageRoll, targetArmorRoll);
+    await this._renderAttackRollCard([item], weaponTypeKey, attackRoll, damageRoll, targetArmorRoll);
   }
 
-  async _renderAttackRollCard(item, weaponTypeKey, attackRoll, damageRoll, targetArmorRoll) {
+  async _renderAttackRollCard(items, weaponTypeKey, attackRoll, damageRoll, targetArmorRoll) {
     const rollResult = {
       actor: this,
       attackRoll,
       // config: CONFIG.MorkBorg
       damageRoll,      
-      item,
+      items,
       targetArmorRoll,
       weaponTypeKey
     };
@@ -96,28 +96,30 @@ export class MBActor extends Actor {
     // roll 3: damage reduction from equipped armor and shield
     let damageReductionDie = "";
     let armorRoll = null;
+    let items = [];
     // grab equipped armor/shield, set in getData()
     if (sheetData.data.equippedArmor) {
       damageReductionDie = sheetData.data.equippedArmor.data.damageReductionDie;
+      items.push(sheetData.data.equippedArmor);
     }
     if (sheetData.data.equippedShield) {
       damageReductionDie += "+1";
+      items.push(sheetData.data.equippedShield);
     }
     if (damageReductionDie) {
       armorRoll = new Roll("@die", {die: damageReductionDie});
       armorRoll.evaluate();
     }
 
-    // TODO: pass shield too?
-    await this._renderDefendRollCard(sheetData.data.equippedArmor, defenseRoll, damageRoll, armorRoll);
+    await this._renderDefendRollCard(items, defenseRoll, damageRoll, armorRoll);
   }
 
-  async _renderDefendRollCard(item, defenseRoll, damageRoll, armorRoll) {
+  async _renderDefendRollCard(items, defenseRoll, damageRoll, armorRoll) {
     const rollResult = {
       actor: this,
       defenseRoll,
       damageRoll,      
-      item,
+      items,
       armorRoll,
     };
     const html = await renderTemplate(DEFEND_ROLL_CARD_TEMPLATE, rollResult)
