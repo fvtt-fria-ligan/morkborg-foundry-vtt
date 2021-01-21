@@ -1,3 +1,5 @@
+const ATTACK_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/attack-roll-card.html";
+const DEFEND_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/defend-roll-card.html";
 
 /**
  * @extends {Actor}
@@ -26,7 +28,7 @@ export class MBActor extends Actor {
     return data;
   }
 
-  attack(itemId) {
+  async attack(itemId) {
     const item = this.getOwnedItem(itemId);
     const itemRollData = item.getRollData();
     const actorRollData = this.getRollData();
@@ -34,71 +36,66 @@ export class MBActor extends Actor {
     // TODO: make these multiple rolls into a single roll sheet, a la BetterRolls5e
 
     // roll 1: attack
-    // ranged weapons use agility; melee weapons use strength
     const isRanged = itemRollData.weaponType === 'ranged';
+    // ranged weapons use agility; melee weapons use strength
     const ability = isRanged ? 'agility' : 'strength';
     let attackRoll = new Roll(`d20+@abilities.${ability}.score`, actorRollData);
-    const weaponTypeKey = isRanged ? 'MB.WeaponTypeRanged' : 'MB.WeaponTypeMelee';
-    const attackLabel = `${game.i18n.localize(weaponTypeKey)} ${game.i18n.localize('MB.Attack')}`;
-    let weaponType = 
-    attackRoll.roll().toMessage({
-      user: game.user._id,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
-      flavor: `<h2>${item.name}</h2><h3>${attackLabel}</h3>`
-    });
+    attackRoll.evaluate();
 
     // roll 2: damage
     let damageRoll = new Roll("@damageDie", itemRollData);
-    let damageTitle = game.i18n.localize('MB.Damage');
-    damageTitle = damageTitle.charAt(0).toUpperCase() + damageTitle.slice(1);
-    damageRoll.roll().toMessage({
-      user: game.user._id,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
-      flavor: `<h2>${item.name}</h2><h3>${damageTitle}</h2>`
-    });
+    damageRoll.evaluate();
 
     // roll 3: target damage reduction
-    console.log(this.data.data.targetArmorDie);
+    let targetArmorRoll = null;
     if (this.data.data.targetArmorDie) {
-      let targetArmorRoll = new Roll("@targetArmorDie", actorRollData);
-      let targetArmorTitle = game.i18n.localize('MB.TargetArmor');
-      targetArmorRoll.roll().toMessage({
-        user: game.user._id,
-        speaker: ChatMessage.getSpeaker({ actor: this }),
-        flavor: `<h2>${item.name}</h2><h3><h3>${targetArmorTitle}</h3>`
-      });
+      targetArmorRoll = new Roll("@targetArmorDie", actorRollData);
+      targetArmorRoll.evaluate();
     }
+
+    // TODO: decide key in handlebars/template?
+    const weaponTypeKey = isRanged ? 'MB.WeaponTypeRanged' : 'MB.WeaponTypeMelee';
+    await this._renderAttackRollCard(item, weaponTypeKey, attackRoll, damageRoll, targetArmorRoll);
   }
 
-  defend(sheetData) {
+  async _renderAttackRollCard(item, weaponTypeKey, attackRoll, damageRoll, targetArmorRoll) {
+    const rollResult = {
+      actor: this,
+      attackRoll,
+      // config: CONFIG.MorkBorg
+      damageRoll,      
+      item,
+      targetArmorRoll,
+      weaponTypeKey
+    };
+    const html = await renderTemplate(ATTACK_ROLL_CARD_TEMPLATE, rollResult)
+    ChatMessage.create({
+      content : html,
+      sound : CONFIG.sounds.dice,
+      speaker : ChatMessage.getSpeaker({actor: this}),
+    });
+  }
+
+  async defend(sheetData) {
+    console.log(sheetData.data.equippedArmor);
+
     let rollData = this.getRollData();
     if (!rollData.incomingAttackDamageDie) {
       return;
     }
 
-    // TODO: make a fancier unified roll message w/ 3 rolls
-
     // roll 1: defend
     // TODO: use armor and encumberance modifiers
     let defenseRoll = new Roll("d20+@abilities.agility.score", rollData);
-    defenseRoll.roll().toMessage({
-      user: game.user._id,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
-      flavor: `<h2>${game.i18n.localize('MB.IncomingAttack')}</h2><h3>${game.i18n.localize('MB.Defend')}</h3>`
-    });
+    defenseRoll.evaluate();
 
     // roll 2: incoming damage
     let damageRoll = new Roll("@incomingAttackDamageDie", rollData);
-    let damageTitle = game.i18n.localize('MB.Damage');
-    damageTitle = damageTitle.charAt(0).toUpperCase() + damageTitle.slice(1);
-    damageRoll.roll().toMessage({
-      user: game.user._id,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
-      flavor: `<h2>${game.i18n.localize('MB.IncomingAttack')}</h2><h3>${damageTitle}</h3>`
-    });
+    damageRoll.evaluate();
 
     // roll 3: damage reduction from equipped armor and shield
     let damageReductionDie = "";
+    let armorRoll = null;
     // grab equipped armor/shield, set in getData()
     if (sheetData.data.equippedArmor) {
       damageReductionDie = sheetData.data.equippedArmor.data.damageReductionDie;
@@ -107,15 +104,29 @@ export class MBActor extends Actor {
       damageReductionDie += "+1";
     }
     if (damageReductionDie) {
-      let reductionRoll = new Roll("@die", {die: damageReductionDie});
-      reductionRoll.roll().toMessage({
-        user: game.user._id,
-        speaker: ChatMessage.getSpeaker({ actor: this }),
-        flavor: `<h2>${game.i18n.localize('MB.IncomingAttack')}</h2><h3>${game.i18n.localize('MB.DamageReduction')}</h3>`
-      });
+      armorRoll = new Roll("@die", {die: damageReductionDie});
+      armorRoll.evaluate();
     }
+
+    // TODO: pass shield too?
+    await this._renderDefendRollCard(sheetData.data.equippedArmor, defenseRoll, damageRoll, armorRoll);
   }
 
+  async _renderDefendRollCard(item, defenseRoll, damageRoll, armorRoll) {
+    const rollResult = {
+      actor: this,
+      defenseRoll,
+      damageRoll,      
+      item,
+      armorRoll,
+    };
+    const html = await renderTemplate(DEFEND_ROLL_CARD_TEMPLATE, rollResult)
+    ChatMessage.create({
+      content : html,
+      sound : CONFIG.sounds.dice,
+      speaker : ChatMessage.getSpeaker({actor: this}),
+    });
+  }
 
 }  
 
