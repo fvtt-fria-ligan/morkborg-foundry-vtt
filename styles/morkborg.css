@@ -1065,6 +1065,14 @@ form.editable .results .result-details input[type="text"]:focus {
 .window-app .window-content .form-group input:focus {
   box-shadow: 0 0 10px #fff160;
 }
+/* Fixes Journal image select dialog */
+.journal-sheet.image-popout .window-content .form-group input {
+  color: black;
+}
+.journal-sheet.image-popout .window-content .form-group.picker button.file-picker {
+  background-color: black;
+}
+
 /* ====================== */
 /* UI / Chat */
 /* ====================== */
@@ -1287,7 +1295,7 @@ select:focus {
   color: white;
 }
 
-/* ================== 11. JOUNRAL ENTRIES =================== */
+/* ================== 11. JOURNAL ENTRIES =================== */
 .window-app.app.journal-sheet .window-content {
   background: white;
   color: black;
