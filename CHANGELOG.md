@@ -1,3 +1,6 @@
+# 0.1.6
+- Fixed font and button color issues on Journal image tab.
+
 # 0.1.5
 - Fixed hard-to-read dark text on various system Dialogs and tabs.
 - Added initial Swedish translations.
