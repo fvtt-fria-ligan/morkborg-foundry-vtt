@@ -1033,17 +1033,37 @@ form.editable .results .result-details input[type="text"]:hover {
 form.editable .results .result-details input[type="text"]:focus {
   box-shadow: 0 0 10px #fff160;
 }
-.table-results .table-result .result-text {
-  /* TODO: decide if we want to style the whole result text div */
-}
 .table-results .table-result .result-text .entity-link {
   color: black;
   background-color: #fff160;
 }
+/* Fixes Module Management dialog */
 #module-management .package-list .package-title,
 #module-management .package-list .package-metadata,
 #module-management .package-list .package-description {
   color: white;
+}
+/* Fixes hard-to-read dark text on various system Dialogs */
+.window-app .window-content .notes {
+  color: #fff160;
+}
+.window-app .window-content form .form-header {
+  color: white;
+}
+.window-app .window-content form .notes {
+  color: #fff160;
+}
+.window-app .window-content .form-group span.units {
+  color: #fff160;
+}
+.window-app .window-content .form-group input {
+  color: white;
+}
+.window-app .window-content .form-group input:hover {
+  box-shadow: 0 0 10px #fff160;
+}
+.window-app .window-content .form-group input:focus {
+  box-shadow: 0 0 10px #fff160;
 }
 /* ====================== */
 /* UI / Chat */
