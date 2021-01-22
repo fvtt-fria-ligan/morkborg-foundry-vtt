@@ -1,3 +1,6 @@
+# 0.1.5
+- Fixed hard-to-read dark text on various system Dialogs and tabs.
+- Added initial Swedish translations.
 
 # 0.1.4
 - Combined multiple Attack and Defend chat rolls into unified roll cards.
