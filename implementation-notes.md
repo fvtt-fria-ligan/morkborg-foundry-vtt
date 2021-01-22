@@ -4,8 +4,8 @@
 This is a vanilla, no-homebrew implementation of the MÖRK BORG rules, with limited adaptations to make things work in Foundry VTT. There are compendiums covering all the classes, items, creatures, and followers described in the MÖRK BORG book.
 
 ## Creating a character
-  * Create a new Actor of type *character*. 
-  * Drag a Class from the *Classes* compendium folder onto your sheet. (The default, classless Mork Borg character is currently named Adventurer.)
+  * Create a new Actor of type *character*. By default, a new character will have the *Adventurer* class (a fancier name for the default classless character).
+  * If desired, drag a different Class from the *Classes* compendium folder onto your sheet.
   * If needed, use the RollTables in the *Character Creation* RollTable compendium folder. E.g., for the d6+d12+d12+weapon+armor rolls for a default classless character.
   * Drag out any needed equipment/items from the various compendium folders.
     * The *Class Items* compendium folder has various class-specific gear found in optional class' abilities, like the Fanged Deserter's bit attack.
