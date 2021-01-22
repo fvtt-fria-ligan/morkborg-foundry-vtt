@@ -1,5 +1,4 @@
 {
-"MB.Add": "Add",
 "MB.Abilities": "Abilities",
 "MB.AbilityAgility": "Agility",
 "MB.AbilityAgilityAbbrev": "AGI",
@@ -9,6 +8,7 @@
 "MB.AbilityStrengthAbbrev": "STR",
 "MB.AbilityToughness": "Toughness",
 "MB.AbilityToughnessAbbrev": "TOU",
+"MB.Add": "Add",
 "MB.AlternateName": "Alternate Name",
 "MB.Armor": "Armor",
 "MB.ArmorCurrentTier": "Current Tier",
