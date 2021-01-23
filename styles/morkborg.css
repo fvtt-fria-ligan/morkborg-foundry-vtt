@@ -1,7 +1,7 @@
 /* ====================== */
 /* Fonts */
 /* ====================== */
-@import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&family=Special+Elite&display=swap");
 @font-face {
   font-family: "Blood Crow";
   src: url("../fonts/bloodcrow.ttf") format("truetype");
@@ -1098,7 +1098,7 @@ form.editable .results .result-details input[type="text"]:focus {
 #chat-log {
   background: black;
 }
-#chat-log .message {
+#chat-log .chat-message {
   background: black;
   color: white;
   border: 2px solid#252525;
@@ -1116,16 +1116,30 @@ form.editable .results .result-details input[type="text"]:focus {
   background: #ffe800;
   color: black;
 }
+#chat-log .chat-message .message-header .message-sender {
+  font-family: "Blood Crow", fantasy, serif;
+  font-size: 20px;
+}
+#chat-log .chat-message .message-header .message-metadata {
+  font-family: "Oswald", sans-serif;
+  font-size: 12px;
+}
+#chat-log .chat-message .message-header span.flavor-text {
+  font-family: "Oswald", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+}
 #chat-log .message .dice-formula,
 #chat-log .message .dice-total {
   font-size: 16px;
   border: 1px solid #252525;
   border-radius: 0;
 }
-#chat-log .flavor-text {
+/* #chat-log .flavor-text {
   color: white;
   font-size: 13.5px;
-}
+} */
 #chat-form textarea {
   color: white;
   background: black;
@@ -1184,7 +1198,6 @@ form.editable .results .result-details input[type="text"]:focus {
   border: 1px solid #ffe800;
   box-shadow: 0 0 10px #fff160;
 }
-
 .dialog .dialog-buttons button {
   background: white;
   color: black;
@@ -1195,7 +1208,6 @@ form.editable .results .result-details input[type="text"]:focus {
   color: black;
   font-family: "FetteTrumpDeutsch";
 }
-
 form .form-group select {
   color: white;
   background: black;
@@ -1238,7 +1250,6 @@ select:focus {
   background: black;
   color: white;
 }
-
 #sidebar.collapsed #sidebar-tabs > .item.active {
   border-bottom: 1px solid #ffe800;
   border-radius: 5px;
@@ -1263,7 +1274,6 @@ select:focus {
   border-radius: 0;
   font-family: "FetteTrumpDeutsch";
 }
-
 .sidebar-tab .directory-header .header-search input {
   background: black;
   color: white;
@@ -1274,11 +1284,9 @@ select:focus {
 .sidebar-tab .directory-header .header-search input[type="text"]:focus {
   box-shadow: 0 0 5px #ffe800;
 }
-
 .sidebar-tab .directory-list .directory-item h4 {
   font-family: "Special Elite";
 }
-
 .tabs .item.active,
 .tabs .item:hover {
   text-shadow: 0 0 10px #ffe800;
@@ -1289,12 +1297,10 @@ select:focus {
   background: #ffe800 !important;
   border: 1px solid black !important;
 }
-
 .window-app .window-content {
   background: black;
   color: white;
 }
-
 /* ================== 11. JOURNAL ENTRIES =================== */
 .window-app.app.journal-sheet .window-content {
   background: white;
@@ -1355,26 +1361,30 @@ a.inline-roll {
   text-align: center;
   font-size: 24px;
 }
-/* #chat-log .message */
 .roll-card .item-row {
-  font-family: "Special Elite";
-  font-size: 14px;
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+.roll-card .item-row span.item-name {
   color: white;
+  font-family: "Special Elite";
+  font-size: 14px;
 }
 .roll-card .roll-title {
+  font-family: "FetteTrumpDeutsch";  
   text-align: center;
   text-transform: capitalize;
 }
 .roll-card .roll-result {
   border: 1px solid gray;
+  margin-bottom: 10px;
   margin-left: 10px;
   margin-right: 10px;
-  margin-bottom: 10px;
-  text-align: center;
   padding: 5px;
+  text-align: center;
+}
+.roll-card .roll-result span {
   color: white;  
   font-size: 20px;
 }
