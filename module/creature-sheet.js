@@ -1,3 +1,5 @@
+import * as editor from "./editor.js";
+
 /**
  * @extends {ActorSheet}
  */
@@ -61,15 +63,7 @@
 
   /** @override */
   activateEditor(name, options={}, initialContent="") {
-    options.relative_urls = true;
-    options.skin_url = "/systems/morkborg/styles/skins/mb";
-    options.skin = "morkborg";
-    options.toolbar_location = 'bottom';
-    options.plugins = 'lists table link image save';
-    options.toolbar = 'formatselect | bold italic underline strikethrough bullist image link save';
-    options.menubar = false;
-    options.statusbar = false;
-    options.content_style = '@import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");';
+    editor.setCustomEditorOptions(options);
     super.activateEditor(name, options, initialContent);
   }
 }
