@@ -1315,6 +1315,7 @@ select:focus {
   font-family: "Special Elite";
   font-weight: 500;
   font-size: 14px;
+  line-height: 1.5;
 }
 
 .window-app.app.journal-sheet .window-content h1 {
