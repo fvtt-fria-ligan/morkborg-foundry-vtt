@@ -785,6 +785,18 @@ TODO: figure out if we want a 2-col inventory
 /* ====================== */
 /* Creature sheet */
 /* ====================== */
+.morkborg.sheet.actor button.reaction {
+  margin-left: 10px;
+  width: 120px;
+  margin-bottom: 10px;
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 20px;
+  background-color: white;
+  color: black;
+  border: none;
+  border-bottom: 2px solid #777;
+  border-radius: 0;
+}
 .morkborg.sheet.actor.creature .sheet-header {
   margin-top: 0;
   flex: 0 0 90px;
@@ -1388,4 +1400,14 @@ a.inline-roll {
 .roll-card .roll-result span {
   color: white;  
   font-size: 20px;
+}
+.roll-card .morale-effect-text {
+  font-family: "Old Cupboard", serif;
+  font-size: 28px;
+  text-align: center;
+}
+.roll-card .reaction-text {
+  font-family: "Old Cupboard", serif;
+  font-size: 28px;
+  text-align: center;
 }

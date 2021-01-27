@@ -1,5 +1,7 @@
 const ATTACK_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/attack-roll-card.html";
 const DEFEND_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/defend-roll-card.html";
+const MORALE_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/morale-roll-card.html";
+const REACTION_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/reaction-roll-card.html";
 
 /**
  * @extends {Actor}
@@ -77,8 +79,6 @@ export class MBActor extends Actor {
   }
 
   async defend(sheetData) {
-    console.log(sheetData.data.equippedArmor);
-
     let rollData = this.getRollData();
     if (!rollData.incomingAttackDamageDie) {
       return;
@@ -130,5 +130,72 @@ export class MBActor extends Actor {
     });
   }
 
+  async checkMorale(sheetData) {
+    const actorRollData = this.getRollData();
+    const moraleRoll = new Roll("2d6", actorRollData);
+    moraleRoll.evaluate();
+    let effectRoll = null;
+    if (moraleRoll.total > this.data.data.morale) {
+      effectRoll = new Roll("1d6", actorRollData);
+      effectRoll.evaluate();
+    }
+    await this._renderMoraleRollCard(moraleRoll, effectRoll);
+  }
+
+  async _renderMoraleRollCard(moraleRoll, effectRoll) {
+    let effectKey = null;
+    if (effectRoll) {
+      effectKey = effectRoll.total <= 3 ? "MB.MoraleFlees" : "MB.MoraleSurrenders";
+    } else {
+      effectKey = "MB.StandsFirm";
+    }
+    const effectText = game.i18n.localize(effectKey);
+    const rollResult = {
+      actor: this,
+      effectRoll,
+      effectText,
+      moraleRoll,      
+    };
+    const html = await renderTemplate(MORALE_ROLL_CARD_TEMPLATE, rollResult)
+    ChatMessage.create({
+      content : html,
+      sound : CONFIG.sounds.dice,
+      speaker : ChatMessage.getSpeaker({actor: this}),
+    });
+  }
+
+  async checkReaction(sheetData) {
+    const actorRollData = this.getRollData();
+    const reactionRoll = new Roll("2d6", actorRollData);
+    reactionRoll.evaluate();
+    await this._renderReactionRollCard(reactionRoll);
+  }
+
+  async _renderReactionRollCard(reactionRoll) {
+    let key = "";
+    if (reactionRoll.total <= 3) {
+      key = "MB.ReactionKill";
+    } else if (reactionRoll.total <= 6) {
+      key = "MB.ReactionAngered";
+    } else if (reactionRoll.total <= 8) {
+      key = "MB.ReactionIndifferent";
+    } else if (reactionRoll.total <= 10) {
+      key = "MB.ReactionAlmostFriendly";
+    } else {
+      key = "MB.ReactionHelpful";
+    }
+    let reactionText = game.i18n.localize(key);
+    const rollResult = {
+      actor: this,
+      reactionRoll,
+      reactionText,
+    };
+    const html = await renderTemplate(REACTION_ROLL_CARD_TEMPLATE, rollResult)
+    ChatMessage.create({
+      content : html,
+      sound : CONFIG.sounds.dice,
+      speaker : ChatMessage.getSpeaker({actor: this}),
+    });
+  }
 }  
 
