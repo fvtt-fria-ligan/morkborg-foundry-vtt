@@ -1,0 +1,26 @@
+<form class="roll-card morale-roll-card">
+    <div class="card-title">
+        {{localize 'MB.Morale'}}
+    </div>
+    <div class="morale-roll">
+        <div class="roll-title">
+            <span>{{localize 'MB.Morale'}}: {{moraleRoll.formula}}</span>
+        </div>
+        <div class="roll-result">
+            <span>{{moraleRoll.total}}</span>
+        </div>
+        {{#if effectRoll}}
+            <div class="effect-roll">
+                <div class="roll-title">
+                    <span>{{localize 'MB.Effect'}}: {{effectRoll.formula}}</span>
+                </div>
+                <div class="roll-result">
+                    <span>{{effectRoll.total}}</span>
+                </div>
+            </div>
+        {{/if}}
+        <div class="morale-effect-text">
+            {{actor.name}} {{effectText}}
+        </div>
+    </div>
+</form>
