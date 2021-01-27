@@ -9,18 +9,18 @@
         <div class="roll-result">
             <span>{{moraleRoll.total}}</span>
         </div>
-        {{#if effectRoll}}
-            <div class="effect-roll">
+        {{#if outcomeRoll}}
+            <div class="outcome-roll">
                 <div class="roll-title">
-                    <span>{{localize 'MB.Effect'}}: {{effectRoll.formula}}</span>
+                    <span>{{localize 'MB.Outcome'}}: {{outcomeRoll.formula}}</span>
                 </div>
                 <div class="roll-result">
-                    <span>{{effectRoll.total}}</span>
+                    <span>{{outcomeRoll.total}}</span>
                 </div>
             </div>
         {{/if}}
-        <div class="morale-effect-text">
-            {{actor.name}} {{effectText}}
+        <div class="morale-outcome-text">
+            {{actor.name}} {{outcomeText}}
         </div>
     </div>
 </form>
