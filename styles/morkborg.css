@@ -785,7 +785,7 @@ TODO: figure out if we want a 2-col inventory
 /* ====================== */
 /* Creature sheet */
 /* ====================== */
-.morkborg.sheet.actor button.reaction {
+.morkborg.sheet.actor .roll-button {
   margin-left: 10px;
   width: 120px;
   margin-bottom: 10px;
