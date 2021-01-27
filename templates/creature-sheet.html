@@ -18,7 +18,8 @@
                 <input class="stat-input" name="data.hp.current" type="number" value="{{data.hp.current}}" data-dtype="Number"/>
                 /
                 <input class="stat-input" name="data.hp.max" type="number" value="{{data.hp.max}}" data-dtype="Number"/>
-                <button type="button" class="reaction rollable" data-roll="2d6" data-label="{{ localize 'MB.Reaction' }}">{{localize "MB.Reaction"}}</button>
+                <button type="button" class="roll-button reaction rollable">{{localize "MB.Reaction"}}</button>
+                <button type="button" class="roll-button morale rollable">{{localize "MB.Morale"}}</button>
             </div>
         </div>
     </header>
@@ -42,7 +43,7 @@
 
             {{!-- Morale --}}
             <div class="form-group">
-                <label class="morale rollable" data-roll="2d6" data-label="{{ localize 'MB.Morale' }}">{{ localize "MB.Morale" }}:</label>
+                <label>{{ localize "MB.Morale" }}:</label>
                 <input name="data.morale" type="text" value="{{data.morale}}" placeholder="10" data-dtype="Number"/>
             </div>
 
