@@ -134,26 +134,26 @@ export class MBActor extends Actor {
     const actorRollData = this.getRollData();
     const moraleRoll = new Roll("2d6", actorRollData);
     moraleRoll.evaluate();
-    let effectRoll = null;
+    let outcomeRoll = null;
     if (moraleRoll.total > this.data.data.morale) {
-      effectRoll = new Roll("1d6", actorRollData);
-      effectRoll.evaluate();
+      outcomeRoll = new Roll("1d6", actorRollData);
+      outcomeRoll.evaluate();
     }
-    await this._renderMoraleRollCard(moraleRoll, effectRoll);
+    await this._renderMoraleRollCard(moraleRoll, outcomeRoll);
   }
 
-  async _renderMoraleRollCard(moraleRoll, effectRoll) {
-    let effectKey = null;
-    if (effectRoll) {
-      effectKey = effectRoll.total <= 3 ? "MB.MoraleFlees" : "MB.MoraleSurrenders";
+  async _renderMoraleRollCard(moraleRoll, outcomeRoll) {
+    let outcomeKey = null;
+    if (outcomeRoll) {
+      outcomeKey = outcomeRoll.total <= 3 ? "MB.MoraleFlees" : "MB.MoraleSurrenders";
     } else {
-      effectKey = "MB.StandsFirm";
+      outcomeKey = "MB.StandsFirm";
     }
-    const effectText = game.i18n.localize(effectKey);
+    const outcomeText = game.i18n.localize(outcomeKey);
     const rollResult = {
       actor: this,
-      effectRoll,
-      effectText,
+      outcomeRoll,
+      outcomeText,
       moraleRoll,      
     };
     const html = await renderTemplate(MORALE_ROLL_CARD_TEMPLATE, rollResult)

@@ -123,14 +123,12 @@ import * as editor from "./editor.js";
     html.find(".attack-button").on("click", this._onAttackRoll.bind(this));
     html.find(".defend-button").on("click", this._onDefendRoll.bind(this));
     html.find('.item-toggle').click(this._onToggleItem.bind(this));
-    html.find('.tier-radio').click(this._onArmorTierRadio.bind(this));    
+    html.find('.tier-radio').click(this._onArmorTierRadio.bind(this));
+    html.find(".morale").on("click", this._onMoraleRoll.bind(this));
   }
 
   /**
    * Handle creating a new Owned Item for the actor.
-   *
-   * @param {Event} event   The originating click event
-   * @private
    */
  async _onItemCreate(event) {
     event.preventDefault();
@@ -158,9 +156,6 @@ import * as editor from "./editor.js";
 
   /**
    * Handle toggling the state of an Owned Item within the Actor
-   *
-   * @param {Event} event   The triggering click event
-   * @private
    */
   async _onToggleItem(event) {
     event.preventDefault();
@@ -187,6 +182,9 @@ import * as editor from "./editor.js";
     return item.update({[attr]: !getProperty(item.data, attr)});
   }
 
+  /**
+   * Handle attack roll.
+   */
   _onAttackRoll(event) {
     event.preventDefault();   
     const button = $(event.currentTarget);
@@ -195,6 +193,9 @@ import * as editor from "./editor.js";
     this.actor.attack(itemId);
   }
 
+  /**
+   * Handle armor tier radio changes.
+   */
   _onArmorTierRadio(event) {
     event.preventDefault();
     let input = $(event.currentTarget);
@@ -204,11 +205,22 @@ import * as editor from "./editor.js";
     return item.update({["data.currentTier"]: newTier});
   }
 
+  /**
+   * Handle defend roll.
+   */
   _onDefendRoll(event) {
     event.preventDefault();  
     let sheetData = this.getData();
     this.actor.defend(sheetData);
   }
+
+  /**
+   * Handle morale roll.
+   */
+  _onMoraleRoll(event) {
+    event.preventDefault();   
+    this.actor.checkMorale();
+  }  
 }
 
 /**
