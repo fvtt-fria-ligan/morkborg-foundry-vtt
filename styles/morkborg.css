@@ -1094,7 +1094,18 @@ form.editable .results .result-details input[type="text"]:focus {
 .journal-sheet.image-popout .window-content .form-group.picker button.file-picker {
   background-color: black;
 }
-
+.journal-sheet form select:hover {
+  box-shadow: 0 0 10px #fff160;
+}
+.journal-sheet form select:focus {
+  box-shadow: 0 0 10px #fff160;
+}
+.journal-sheet form .form-group.title input[type="text"] {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.journal-sheet form .form-group.picker input[type="text"].image {
+  background-color: rgba(0, 0, 0, 0.05);
+}
 /* ====================== */
 /* UI / Chat */
 /* ====================== */
