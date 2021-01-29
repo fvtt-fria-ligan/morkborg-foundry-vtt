@@ -331,15 +331,17 @@ alternately we could select as
   height: 200px;
   width: 200px;
 }
-.morkborg.sheet.actor.character .sheet-header .charname-row {
+.morkborg.sheet.actor input[type="text"].actor-name {
+  font-family: "Blood Crow", fantasy, serif;
+  font-size: 38px;
+}
+.morkborg.sheet.actor.character .sheet-header .name-row {
   flex: 0 0 50px;
   margin-bottom: 7px;
 }
-.morkborg.sheet.actor.character .sheet-header .charname-row input[type="text"] {
-  font-family: "Blood Crow", fantasy, serif;
-  font-size: 38px;
-  width: 100%;
+.morkborg.sheet.actor.character .sheet-header .name-row input[type="text"] {
   height: 45px;
+  width: 100%;
 }
 .morkborg.sheet.actor.character .sheet-header .classname-row {
   flex: 0 0 30px;
@@ -817,19 +819,23 @@ TODO: figure out if we want a 2-col inventory
   height: 100px;
   width: 100px;
 }
-.morkborg.sheet.actor.creature .sheet-header .creature-name input[type="text"] {
-  font-family: "Blood Crow", fantasy, serif;
-  font-size: 38px;
+.morkborg.sheet.actor.creature .sheet-header .name-row {
   flex: 0 0 45px;
+  margin-bottom: 10px;
+  padding-left: 12px;
+  width: 100%;
+}
+.morkborg.sheet.actor.creature .sheet-header input[type="text"].creature-name  {
+  height: 45px;
 }
 .morkborg.sheet.actor.creature .sheet-header .altname-row {
   flex: 0 0 30px;
+  margin-bottom: 8px;
+  padding-left: 12px;
 }
 .morkborg.sheet.actor.creature .sheet-header .altname-row input[type="text"] {
   font-family: "Old Cupboard", serif;
   font-size: 24px;
-  /* TODO: fix div so we don't need margin-left */
-  margin-left: 12px;
 }
 .morkborg.sheet.actor.creature .sheet-header .hitpoints-row {
   flex: 0 0 35px;
@@ -926,19 +932,23 @@ TODO: figure out if we want a 2-col inventory
   height: 100px;
   width: 100px;
 }
-.morkborg.sheet.actor.follower .sheet-header .follower-name input[type="text"] {
-  font-family: "Blood Crow", fantasy, serif;
-  font-size: 38px;
+.morkborg.sheet.actor.follower .sheet-header .name-row {
   flex: 0 0 45px;
+  margin-bottom: 10px;
+  padding-left: 12px;
+  width: 100%;
 }
+.morkborg.sheet.actor.follower .sheet-header input[type="text"].follower-name {
+  height: 45px;
+} 
 .morkborg.sheet.actor.follower .sheet-header .altname-row {
   flex: 0 0 30px;
+  padding-left: 12px;
+  margin-bottom: 8px;
 }
 .morkborg.sheet.actor.follower .sheet-header .altname-row input[type="text"] {
   font-family: "Old Cupboard", serif;
   font-size: 24px;
-  /* TODO: fix div so we don't need margin-left */
-  margin-left: 12px;
 }
 .morkborg.sheet.actor.follower .sheet-header .hitpoints-row {
   flex: 0 0 35px;
