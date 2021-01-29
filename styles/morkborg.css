@@ -1381,8 +1381,9 @@ a.inline-roll {
 .roll-card .card-title {
   background: #ffe800;
   color: black;
+  font-size: 20px;
+  margin-bottom: 10px;
   text-align: center;
-  font-size: 24px;
 }
 .roll-card .item-row {
   text-align: center;
