@@ -13,7 +13,7 @@
             {{!-- we are cheating a bit here, using the 'item' class usually used on LI elements,
              so we can get the item _id to be found by the common click handler --}}
             <div class="classname-row item" data-item-id="{{data.class._id}}">
-                <span class="stat-label">{{ localize "MB.Class" }}:</span>
+                <img class="classimg" src="{{data.class.img}}" title="{{data.class.name}}" width="24" height="24" />
                 <label class="classname" >{{data.class.name}}</label>
                 <div class="item-controls">
                     <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>

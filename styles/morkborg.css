@@ -316,7 +316,7 @@ alternately we could select as
   padding: 0;
 }
 .morkborg.sheet.actor.character .sheet-header .header-col2 {
-  flex: 0 0 350px;
+  flex: 1 0 350px;
   margin: 5px;
   display: flex;
   flex-direction: column;
@@ -350,17 +350,27 @@ alternately we could select as
   flex-direction: row;
   width: 100%;
 }
+.morkborg.sheet.actor.character .sheet-header .classname-row span.class-label {
+  border: 1px solid green;
+  /* flex: 0 0 60px; */
+}
+.morkborg.sheet.actor.character .sheet-header .classname-row img.classimg {
+  height: 24px;
+  width: 24px;
+  flex: 0 0 24px;
+  margin-right: 5px;
+}
+.morkborg.sheet.actor.character .sheet-header .classname-row label.classname {
+  font-family: "Old Cupboard", serif;
+  font-size: 28px;
+  width: 100%;
+}
 .morkborg.sheet.actor.character .sheet-header .classname-row .item-controls {
   flex: 0 0 35px;
   text-align: right;
   margin-right: 0;
   /* TODO: fix vertical alignment in a better way */
   padding-top: 6px;
-}
-.morkborg.sheet.actor.character .sheet-header .classname-row label {
-  font-family: "Old Cupboard", serif;
-  font-size: 28px;
-  width: 100%;
 }
 .morkborg.sheet.actor.character .sheet-header .hitpoints-row {
   flex: 0 0 30px;
