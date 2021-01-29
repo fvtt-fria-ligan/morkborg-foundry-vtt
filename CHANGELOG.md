@@ -1,3 +1,18 @@
+# 0.1.7
+- Changed character sheet header to allow center column to expand with window.
+- Fixed Class item sheet name text style.
+- Fixed select and textfield style on Journal dialog window.
+- Fixed creature and follower name textfield width.
+- Added alternateName field to followers and follower sheet.
+- Populated alternateName to "outcast" in follower compendium.
+- Added morale button to Follower sheet.
+- Added reaction and morale buttons to Creature sheet.
+- Improve readability for Journal text style.
+- Tweaked chat message style for readability.
+- Added numbered list button to editor toolbar.
+- Changed unordered (bullet) lists to ordered (number) in class and follower detail text.
+
+
 # 0.1.6
 - Fixed font and button color issues on Journal image tab.
 
