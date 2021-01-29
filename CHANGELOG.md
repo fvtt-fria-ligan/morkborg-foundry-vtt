@@ -1,5 +1,6 @@
 # 0.1.7
 - Changed character sheet header to allow center column to expand with window.
+- Changed character class name to show icon instead of "Class:" text.
 - Fixed Class item sheet name text style.
 - Fixed select and textfield style on Journal dialog window.
 - Fixed creature and follower name textfield width.
