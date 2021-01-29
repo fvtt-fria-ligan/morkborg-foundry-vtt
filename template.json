@@ -43,6 +43,7 @@
     },
     "follower": {
       "templates": ["common"],
+      "alternateName": "",
       "incomingAttackDamageDie": "1d6",      
       "morale": 7,
       "silver": 0,
