@@ -10,6 +10,9 @@
             <h1 class="follower-name">
                 <input name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'MB.Name' }}"/>
             </h1>
+            <div class="altname-row">
+                <input class="altname" name="data.alternateName" type="text" value="{{data.alternateName}}" placeholder="{{ localize 'MB.AlternateName' }}"/>
+            </div>
             <div class="hitpoints-row">
                 <span class="stat-label">{{ localize "MB.HitPoints" }}:</span>
                 <input class="stat-input" name="data.hp.current" type="number" value="{{data.hp.current}}" data-dtype="Number"/>
