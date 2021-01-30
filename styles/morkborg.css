@@ -1121,8 +1121,13 @@ form.editable .results .result-details input[type="text"]:focus {
   color: white;
 }
 #player-config form .form-group .directory-list .actor.directory-item {
+  border-bottom-color: none;
+  border-top-color: none;
+}
+#player-config form .form-group .directory-list .actor.directory-item.context {
   border-bottom-color: #ffe800;
   border-top-color: #ffe800;
+  box-shadow: 0 0 5px #ffe800;
 }
 
 /* ====================== */
