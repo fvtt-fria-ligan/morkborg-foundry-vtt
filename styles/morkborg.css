@@ -1116,6 +1116,15 @@ form.editable .results .result-details input[type="text"]:focus {
 .journal-sheet form .form-group.picker input[type="text"].image {
   background-color: rgba(0, 0, 0, 0.05);
 }
+/* Fix Player Configuration dialog */
+#player-config form .form-group label {
+  color: white;
+}
+#player-config form .form-group .directory-list .actor.directory-item {
+  border-bottom-color: #ffe800;
+  border-top-color: #ffe800;
+}
+
 /* ====================== */
 /* UI / Chat */
 /* ====================== */
