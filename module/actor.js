@@ -31,6 +31,39 @@ export class MBActor extends Actor {
   }
 
   async attack(itemId) {
+    const template = "systems/morkborg/templates/attack-dialog.html";
+    let dialogData = {
+      config: CONFIG.MorkBorg,
+      itemId
+    };
+    const html = await renderTemplate(template, dialogData);
+    return new Promise(resolve => {
+      new Dialog({
+         title: game.i18n.localize('MB.Attack'),
+         content: html,
+         buttons: {
+            attack: {
+              icon: '<i class="fas fa-dice-d20"></i>',
+              label: game.i18n.localize('MB.Attack'),
+              // callback: html => resolve(_createItem(this.actor, html[0].querySelector("form")))
+              callback: html => this._attackDialogCallback(html)
+            },
+         },
+         default: "create",
+         close: () => resolve(null)
+        }).render(true);
+    });
+  }
+
+  _attackDialogCallback(html) {
+    const form = html[0].querySelector("form");
+    const itemId = form.itemid.value;
+    const attackDr = parseInt(form.attackdr.value);
+    const targetArmor = form.targetarmor.value;
+    this._rollAttack(itemId, attackDr, targetArmor);
+  }
+
+  async _rollAttack(itemId, attackDr, targetArmor) {
     const item = this.getOwnedItem(itemId);
     const itemRollData = item.getRollData();
     const actorRollData = this.getRollData();
@@ -44,32 +77,47 @@ export class MBActor extends Actor {
     let attackRoll = new Roll(`d20+@abilities.${ability}.score`, actorRollData);
     attackRoll.evaluate();
 
-    // roll 2: damage
-    let damageRoll = new Roll("@damageDie", itemRollData);
-    damageRoll.evaluate();
-
-    // roll 3: target damage reduction
+    let attackComparison = `${game.i18n.localize('MB.Versus')} ${game.i18n.localize('MB.DR')}${attackDr}`;
+    let attackOutcome = null;
+    let damageRoll = null;
     let targetArmorRoll = null;
-    if (this.data.data.targetArmorDie) {
-      targetArmorRoll = new Roll("@targetArmorDie", actorRollData);
-      targetArmorRoll.evaluate();
+    let takeDamage = null;
+    if (attackRoll.total >= attackDr) {
+      // HIT!!!
+      attackOutcome = game.i18n.localize('MB.Hit');
+      // roll 2: damage
+      damageRoll = new Roll("@damageDie", itemRollData);
+      damageRoll.evaluate();
+      let damage = damageRoll.total;
+      // roll 3: target damage reduction
+      if (targetArmor) {
+        targetArmorRoll = new Roll(targetArmor, {});
+        targetArmorRoll.evaluate();
+        damage = Math.max(damage - targetArmorRoll.total, 0);
+      }
+      takeDamage = `${game.i18n.localize('MB.Take')} ${damage}`
+    } else {
+      // MISS!!!
+      attackOutcome = game.i18n.localize('MB.Miss');
     }
 
     // TODO: decide key in handlebars/template?
     const weaponTypeKey = isRanged ? 'MB.WeaponTypeRanged' : 'MB.WeaponTypeMelee';
-    await this._renderAttackRollCard([item], weaponTypeKey, attackRoll, damageRoll, targetArmorRoll);
-  }
-
-  async _renderAttackRollCard(items, weaponTypeKey, attackRoll, damageRoll, targetArmorRoll) {
     const rollResult = {
       actor: this,
+      attackComparison,
       attackRoll,
-      // config: CONFIG.MorkBorg
+      attackOutcome,
       damageRoll,      
-      items,
+      items: [item],
+      takeDamage,
       targetArmorRoll,
       weaponTypeKey
     };
+    await this._renderAttackRollCard(rollResult);
+  }
+
+  async _renderAttackRollCard(rollResult) {
     const html = await renderTemplate(ATTACK_ROLL_CARD_TEMPLATE, rollResult)
     ChatMessage.create({
       content : html,
