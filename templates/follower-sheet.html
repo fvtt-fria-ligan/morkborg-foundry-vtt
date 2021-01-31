@@ -71,10 +71,6 @@
             <ol class="items-list inventory-list">
                 <li class="items-header flexrow">
                     <h3 class="item-name flexrow">{{localize "MB.ItemTypeWeaponPlural"}}</h3>
-                    <div class="target-armor">
-                        <span class="stat-label">{{localize 'MB.TargetArmor'}}:</span>
-                        <input class="stat-input versus-armor" name="data.targetArmorDie" type="text" value="{{data.targetArmorDie}}" data-dtype="String" placeholder="1d2" />
-                    </div>
                 </li>            
                 <ol class="item-list weapon-list">
                     {{#each data.equippedWeapons as |item id|}}
@@ -149,8 +145,6 @@
                 <div class="underarmor-row">
                     <div class="incoming-attack">
                         <div>
-                            <label class="stat-label">{{localize 'MB.IncomingAttack'}}:</label>
-                            <input class="stat-input incoming-damage" name="data.incomingAttackDamageDie" type="text" value="{{data.incomingAttackDamageDie}}" data-dtype="String" placeholder="1d6" />                            
                             <button type="button" class="item-button rollable defend-button" title="{{localize 'MB.Defend'}}">{{localize "MB.Defend"}}</button>
                         </div>
                         <div class="rule-text defend-rule">
