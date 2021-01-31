@@ -206,12 +206,14 @@ import * as editor from "./editor.js";
   }
 
   /**
-   * Handle defend roll.
+   * Handle a click on the Defend button.
    */
   _onDefendRoll(event) {
     event.preventDefault();  
-    let sheetData = this.getData();
-    this.actor.defend(sheetData);
+    const sheetData = this.getData();
+    const armorItemId = sheetData.data.equippedArmor ? sheetData.data.equippedArmor._id : null;
+    const shieldItemId = sheetData.data.equippedShield ? sheetData.data.equippedShield._id : null;
+    this.actor.defend(armorItemId, shieldItemId);
   }
 
   /**

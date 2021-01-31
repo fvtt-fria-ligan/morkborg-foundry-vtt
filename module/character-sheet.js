@@ -311,10 +311,12 @@ export class MBActorSheetCharacter extends ActorSheet {
     return item.update({["data.currentTier"]: newTier});
   }
 
+  /**
+   * Handle a click on the Defend button.
+   */
   _onDefendRoll(event) {
     event.preventDefault();  
     const sheetData = this.getData();
-    // console.log(sheetData);
     const armorItemId = sheetData.data.equippedArmor ? sheetData.data.equippedArmor._id : null;
     const shieldItemId = sheetData.data.equippedShield ? sheetData.data.equippedShield._id : null;
     this.actor.defend(armorItemId, shieldItemId);
