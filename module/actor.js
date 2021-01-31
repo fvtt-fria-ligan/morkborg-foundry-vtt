@@ -30,11 +30,18 @@ export class MBActor extends Actor {
     return data;
   }
 
+  /**
+   * Attack!
+   */
   async attack(itemId) {
+    const attackDR = await this.getFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.ATTACK_DR);
+    const targetArmor = await this.getFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.TARGET_ARMOR);    
     const template = "systems/morkborg/templates/attack-dialog.html";
     let dialogData = {
+      attackDR,
       config: CONFIG.MorkBorg,
-      itemId
+      itemId,
+      targetArmor
     };
     const html = await renderTemplate(template, dialogData);
     return new Promise(resolve => {
@@ -55,15 +62,23 @@ export class MBActor extends Actor {
     });
   }
 
-  _attackDialogCallback(html) {
+  /**
+   * Callback from attack dialog.
+   */
+  async _attackDialogCallback(html) {
     const form = html[0].querySelector("form");
     const itemId = form.itemid.value;
-    const attackDr = parseInt(form.attackdr.value);
+    const attackDR = parseInt(form.attackdr.value);
     const targetArmor = form.targetarmor.value;
-    this._rollAttack(itemId, attackDr, targetArmor);
+    await this.setFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.ATTACK_DR, attackDR);
+    await this.setFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.TARGET_ARMOR, targetArmor);
+    this._rollAttack(itemId, attackDR, targetArmor);
   }
 
-  async _rollAttack(itemId, attackDr, targetArmor) {
+  /**
+   * Do the actual attack rolls and resolution.
+   */
+  async _rollAttack(itemId, attackDR, targetArmor) {
     const item = this.getOwnedItem(itemId);
     const itemRollData = item.getRollData();
     const actorRollData = this.getRollData();
@@ -77,12 +92,12 @@ export class MBActor extends Actor {
     let attackRoll = new Roll(`d20+@abilities.${ability}.score`, actorRollData);
     attackRoll.evaluate();
 
-    let attackComparison = `${game.i18n.localize('MB.Versus')} ${game.i18n.localize('MB.DR')}${attackDr}`;
+    let attackComparison = `${game.i18n.localize('MB.Versus')} ${game.i18n.localize('MB.DR')}${attackDR}`;
     let attackOutcome = null;
     let damageRoll = null;
     let targetArmorRoll = null;
     let takeDamage = null;
-    if (attackRoll.total >= attackDr) {
+    if (attackRoll.total >= attackDR) {
       // HIT!!!
       attackOutcome = game.i18n.localize('MB.Hit');
       // roll 2: damage
@@ -117,6 +132,9 @@ export class MBActor extends Actor {
     await this._renderAttackRollCard(rollResult);
   }
 
+  /**
+   * Show attack rolls/result in a chat roll card.
+   */
   async _renderAttackRollCard(rollResult) {
     const html = await renderTemplate(ATTACK_ROLL_CARD_TEMPLATE, rollResult)
     ChatMessage.create({
@@ -126,10 +144,19 @@ export class MBActor extends Actor {
     });
   }
 
+  /**
+   * Defend!
+   */
   async defend(armorItemId, shieldItemId) {
+    // look up any previous DR or incoming attack value
+    console.log(CONFIG.MB.flagScope);
+    const defendDR = await this.getFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.DEFEND_DR);
+    const incomingAttack = await this.getFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.INCOMING_ATTACK);
     const template = "systems/morkborg/templates/defend-dialog.html";
     let dialogData = {
       armorItemId,
+      defendDR,
+      incomingAttack,
       shieldItemId
     };
     const html = await renderTemplate(template, dialogData);
@@ -150,16 +177,24 @@ export class MBActor extends Actor {
     });
   }
 
-  _defendDialogCallback(html) {
+  /**
+   * Callback from defend dialog.
+   */
+  async _defendDialogCallback(html) {
     const form = html[0].querySelector("form");
     const armorItemId = form.armoritemid.value;
     const shieldItemId = form.shielditemid.value;
-    const defendDr = parseInt(form.defenddr.value);
+    const defendDR = parseInt(form.defenddr.value);
     const incomingAttack = form.incomingattack.value;
-    this._rollDefend(armorItemId, shieldItemId, defendDr, incomingAttack);
+    await this.setFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.DEFEND_DR, defendDR);
+    await this.setFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.INCOMING_ATTACK, incomingAttack);
+    this._rollDefend(armorItemId, shieldItemId, defendDR, incomingAttack);
   }
 
-  async _rollDefend(armorItemId, shieldItemId, defendDr, incomingAttack) {
+  /**
+   * Do the actual defend rolls and resolution.
+   */
+  async _rollDefend(armorItemId, shieldItemId, defendDR, incomingAttack) {
     const rollData = this.getRollData();
     const armor = this.getOwnedItem(armorItemId);
     const shield = this.getOwnedItem(shieldItemId);
@@ -172,11 +207,11 @@ export class MBActor extends Actor {
     let items = [];
     let damageRoll = null;
     let armorRoll = null;
-    let defendComparison = `${game.i18n.localize('MB.Versus')} ${game.i18n.localize('MB.DR')}${defendDr}`;
+    let defendComparison = `${game.i18n.localize('MB.Versus')} ${game.i18n.localize('MB.DR')}${defendDR}`;
     let defendOutcome = null;
     let takeDamage = null;
 
-    if (defendRoll.total >= defendDr) {
+    if (defendRoll.total >= defendDR) {
       // SUCCESSFUL DODGE
       defendOutcome = game.i18n.localize('MB.Dodge');
     } else {
@@ -219,6 +254,9 @@ export class MBActor extends Actor {
     await this._renderDefendRollCard(rollResult);
   }
 
+  /**
+   * Show attack rolls/result in a chat roll card.
+   */
   async _renderDefendRollCard(rollResult) {
     const html = await renderTemplate(DEFEND_ROLL_CARD_TEMPLATE, rollResult)
     ChatMessage.create({
@@ -228,6 +266,9 @@ export class MBActor extends Actor {
     });
   }
 
+  /**
+   * Check morale!
+   */
   async checkMorale(sheetData) {
     const actorRollData = this.getRollData();
     const moraleRoll = new Roll("2d6", actorRollData);
@@ -240,6 +281,9 @@ export class MBActor extends Actor {
     await this._renderMoraleRollCard(moraleRoll, outcomeRoll);
   }
 
+  /**
+   * Show morale roll/result in a chat roll card.
+   */
   async _renderMoraleRollCard(moraleRoll, outcomeRoll) {
     let outcomeKey = null;
     if (outcomeRoll) {
@@ -262,6 +306,9 @@ export class MBActor extends Actor {
     });
   }
 
+  /**
+   * Check reaction!
+   */
   async checkReaction(sheetData) {
     const actorRollData = this.getRollData();
     const reactionRoll = new Roll("2d6", actorRollData);
@@ -269,6 +316,9 @@ export class MBActor extends Actor {
     await this._renderReactionRollCard(reactionRoll);
   }
 
+  /**
+   * Show reaction roll/result in a chat roll card.
+   */
   async _renderReactionRollCard(reactionRoll) {
     let key = "";
     if (reactionRoll.total <= 3) {

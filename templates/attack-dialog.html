@@ -2,10 +2,10 @@
     <input type="hidden" name="itemid" value="{{itemId}}"/>
     <div class="form-group">
       <label>{{localize 'MB.Attack'}} {{localize 'MB.DR'}}:</label>
-      <input type="text" name="attackdr" value="12" placeholder="12" data-dtype="Number" />
+      <input type="text" name="attackdr" value="{{attackDR}}" placeholder="12" data-dtype="Number" />
     </div>     
     <div class="form-group">
       <label>{{localize 'MB.TargetArmor'}}:</label>
-      <input type="text" name="targetarmor" value="" placeholder="1d2" data-dtype="String" />
+      <input type="text" name="targetarmor" value="{{targetArmor}}" placeholder="1d2" data-dtype="String" />
     </div>    
 </form>

@@ -24,6 +24,15 @@ MB.armorTierDamageReductionDie = {
   3: "1d6"  
 }
 
+MB.flagScope = "morkborg";  // must match system name
+
+MB.flags = {
+  ATTACK_DR: "attackDR",
+  DEFEND_DR: "defendDR",
+  INCOMING_ATTACK: "incomingAttack",
+  TARGET_ARMOR: "targetArmor"
+}
+
 MB.handed = {
   1: "MB.HandedOne",
   2: "MB.HandedTwo"
