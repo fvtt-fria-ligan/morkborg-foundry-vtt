@@ -313,10 +313,12 @@ export class MBActorSheetCharacter extends ActorSheet {
 
   _onDefendRoll(event) {
     event.preventDefault();  
-    let sheetData = this.getData();
-    this.actor.defend(sheetData);
+    const sheetData = this.getData();
+    // console.log(sheetData);
+    const armorItemId = sheetData.data.equippedArmor ? sheetData.data.equippedArmor._id : null;
+    const shieldItemId = sheetData.data.equippedShield ? sheetData.data.equippedShield._id : null;
+    this.actor.defend(armorItemId, shieldItemId);
   }
-
 }
 
 /**

@@ -10,19 +10,25 @@
     {{/each}}
     <div class="defend-roll">
         <div class="roll-title">
-            <span>{{localize 'MB.Defend'}}: {{defenseRoll.formula}}</span>
+            <span>{{localize 'MB.Defend'}}: {{defendRoll.formula}}</span>
         </div>
         <div class="roll-result">
-            <span>{{defenseRoll.total}}</span>
-        </div>
-    <div class="damage-roll">
-        <div class="roll-title">
-            <span>{{localize 'MB.Damage'}}: {{damageRoll.formula}}</span>
-        </div>
-        <div class="roll-result">
-            <span>{{damageRoll.total}}</span>
+            <span>{{defendRoll.total}}</span>
         </div>
     </div>
+    <div class="outcome-text">
+        <span class="defend-comparison">{{defendComparison}}:</span><span class="defend-outcome">{{defendOutcome}}</span>
+    </div>    
+    {{#if damageRoll}}        
+        <div class="damage-roll">
+            <div class="roll-title">
+                <span>{{localize 'MB.Damage'}}: {{damageRoll.formula}}</span>
+            </div>
+            <div class="roll-result">
+                <span>{{damageRoll.total}}</span>
+            </div>
+        </div>
+    {{/if}}
     {{#if armorRoll}}
         <div class="armor-roll">
             <div class="roll-title">
@@ -31,6 +37,11 @@
             <div class="roll-result">
                 <span>{{armorRoll.total}}</span>
             </div>
+        </div>
+    {{/if}}
+    {{#if takeDamage}}
+        <div class="outcome-text">
+            <span class="take-damage">{{takeDamage}}</span>
         </div>
     {{/if}}
 </form>

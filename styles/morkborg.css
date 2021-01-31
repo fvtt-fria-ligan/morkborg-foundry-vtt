@@ -1458,10 +1458,12 @@ a.inline-roll {
   font-size: 28px;
   text-align: center;
 }
-.roll-card .outcome-text .attack-outcome {
+.roll-card .outcome-text .attack-outcome,
+.roll-card .outcome-text .defend-outcome {
   margin-left: 10px;
 }
 .roll-card .outcome-text .attack-outcome,
+.roll-card .outcome-text .defend-outcome,
 .roll-card .outcome-text .take-damage {
   background-color: #ffe800;
   color: black;
