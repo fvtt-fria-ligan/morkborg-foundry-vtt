@@ -1447,13 +1447,47 @@ a.inline-roll {
   color: white;  
   font-size: 20px;
 }
-.roll-card .morale-outcome-text {
+.roll-card .outcome-text {
   font-family: "Old Cupboard", serif;
   font-size: 28px;
+  margin-bottom: 10px;
   text-align: center;
 }
 .roll-card .reaction-text {
   font-family: "Old Cupboard", serif;
   font-size: 28px;
   text-align: center;
+}
+.roll-card .outcome-text .attack-outcome {
+  margin-left: 10px;
+}
+.roll-card .outcome-text .attack-outcome,
+.roll-card .outcome-text .take-damage {
+  background-color: #ffe800;
+  color: black;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+/* ====================== */
+/* Custom Dialogs */
+/* ====================== */
+.custom-dialog .form-group {
+  margin-bottom: 10px;
+}
+.custom-dialog .form-group label {
+  font-family: "FetteTrumpDeutsch";  
+  font-size: 20px;
+  margin-right: 10px;
+  text-align: right;
+}
+.dialog-button.attack,
+.dialog-button.create {
+    font-family: "FetteTrumpDeutsch";  
+  font-size: 20px;
+}
+.dialog-buttons button.dialog-button:active,
+.dialog-buttons button.dialog-button:focus,
+.dialog-buttons button.dialog-button:hover {
+  box-shadow: 0 0 5px #ffe500;
+  text-shadow: 0 0 10px #ffe500;
 }
