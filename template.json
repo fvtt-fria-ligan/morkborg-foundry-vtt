@@ -26,12 +26,10 @@
     },
     "character": {
       "templates": ["common"],
-      "incomingAttackDamageDie": "1d6",
       "miseries": 0,
       "omens": 0,
       "powerUsesRemaining": 0,
-      "silver": 0,
-      "targetArmorDie": ""
+      "silver": 0
     },
     "creature": {
       "templates": ["common"],
@@ -44,11 +42,9 @@
     "follower": {
       "templates": ["common"],
       "alternateName": "",
-      "incomingAttackDamageDie": "1d6",      
       "morale": 7,
       "silver": 0,
       "speciality": "",
-      "targetArmorDie": "",
       "trait": "",
       "value": ""
     }
