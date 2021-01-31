@@ -49,7 +49,7 @@ export class MBActor extends Actor {
               callback: html => this._attackDialogCallback(html)
             },
          },
-         default: "create",
+         default: "attack",
          close: () => resolve(null)
         }).render(true);
     });
@@ -126,50 +126,100 @@ export class MBActor extends Actor {
     });
   }
 
-  async defend(sheetData) {
-    let rollData = this.getRollData();
-    if (!rollData.incomingAttackDamageDie) {
-      return;
-    }
-
-    // roll 1: defend
-    // TODO: use armor and encumberance modifiers
-    let defenseRoll = new Roll("d20+@abilities.agility.score", rollData);
-    defenseRoll.evaluate();
-
-    // roll 2: incoming damage
-    let damageRoll = new Roll("@incomingAttackDamageDie", rollData);
-    damageRoll.evaluate();
-
-    // roll 3: damage reduction from equipped armor and shield
-    let damageReductionDie = "";
-    let armorRoll = null;
-    let items = [];
-    // grab equipped armor/shield, set in getData()
-    if (sheetData.data.equippedArmor) {
-      damageReductionDie = sheetData.data.equippedArmor.data.damageReductionDie;
-      items.push(sheetData.data.equippedArmor);
-    }
-    if (sheetData.data.equippedShield) {
-      damageReductionDie += "+1";
-      items.push(sheetData.data.equippedShield);
-    }
-    if (damageReductionDie) {
-      armorRoll = new Roll("@die", {die: damageReductionDie});
-      armorRoll.evaluate();
-    }
-
-    await this._renderDefendRollCard(items, defenseRoll, damageRoll, armorRoll);
+  async defend(armorItemId, shieldItemId) {
+    const template = "systems/morkborg/templates/defend-dialog.html";
+    let dialogData = {
+      armorItemId,
+      shieldItemId
+    };
+    const html = await renderTemplate(template, dialogData);
+    return new Promise(resolve => {
+      new Dialog({
+         title: game.i18n.localize('MB.Defend'),
+         content: html,
+         buttons: {
+            defend: {
+              icon: '<i class="fas fa-dice-d20"></i>',
+              label: game.i18n.localize('MB.Defend'),
+              callback: html => this._defendDialogCallback(html)
+            },
+         },
+         default: "defend",
+         close: () => resolve(null)
+        }).render(true);
+    });
   }
 
-  async _renderDefendRollCard(items, defenseRoll, damageRoll, armorRoll) {
+  _defendDialogCallback(html) {
+    const form = html[0].querySelector("form");
+    const armorItemId = form.armoritemid.value;
+    const shieldItemId = form.shielditemid.value;
+    const defendDr = parseInt(form.defenddr.value);
+    const incomingAttack = form.incomingattack.value;
+    this._rollDefend(armorItemId, shieldItemId, defendDr, incomingAttack);
+  }
+
+  async _rollDefend(armorItemId, shieldItemId, defendDr, incomingAttack) {
+    const rollData = this.getRollData();
+    const armor = this.getOwnedItem(armorItemId);
+    const shield = this.getOwnedItem(shieldItemId);
+    
+    // roll 1: defend
+    // TODO: use armor and encumberance modifiers
+    let defendRoll = new Roll("d20+@abilities.agility.score", rollData);
+    defendRoll.evaluate();
+
+    let items = [];
+    let damageRoll = null;
+    let armorRoll = null;
+    let defendComparison = `${game.i18n.localize('MB.Versus')} ${game.i18n.localize('MB.DR')}${defendDr}`;
+    let defendOutcome = null;
+    let takeDamage = null;
+
+    if (defendRoll.total >= defendDr) {
+      // SUCCESSFUL DODGE
+      defendOutcome = game.i18n.localize('MB.Dodge');
+    } else {
+      // FAILURE: YOU ARE HIT
+      defendOutcome = game.i18n.localize('MB.Hit');
+
+      // roll 2: incoming damage
+      damageRoll = new Roll(incomingAttack, {});
+      damageRoll.evaluate();
+      let damage = damageRoll.total;
+
+      // roll 3: damage reduction from equipped armor and shield
+      let damageReductionDie = "";
+      if (armor) {
+        damageReductionDie = CONFIG.MB.armorTierDamageReductionDie[armor.data.data.currentTier];
+        items.push(armor);
+      }    
+      if (shield) {
+        damageReductionDie += "+1";
+        items.push(shield);
+      }
+      if (damageReductionDie) {
+        armorRoll = new Roll("@die", {die: damageReductionDie});
+        armorRoll.evaluate();
+        damage = Math.max(damage - armorRoll.total, 0);
+      }
+      takeDamage = `${game.i18n.localize('MB.Take')} ${damage}`
+    }
+
     const rollResult = {
       actor: this,
-      defenseRoll,
-      damageRoll,      
-      items,
       armorRoll,
+      damageRoll,      
+      defendComparison,
+      defendOutcome,
+      defendRoll,
+      items,
+      takeDamage
     };
+    await this._renderDefendRollCard(rollResult);
+  }
+
+  async _renderDefendRollCard(rollResult) {
     const html = await renderTemplate(DEFEND_ROLL_CARD_TEMPLATE, rollResult)
     ChatMessage.create({
       content : html,

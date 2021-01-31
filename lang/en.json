@@ -44,6 +44,7 @@
 "MB.DefendCritText": "Crit: Gain free attack.",
 "MB.DefendFumbleText": "Fumble: Take x2 damage, armor reduced one tier.",
 "MB.Description": "Description",
+"MB.Dodge": "Dodge",
 "MB.DR": "DR",
 "MB.Equipment": "Equipment",
 "MB.FollowerSpeciality": "Speciality",

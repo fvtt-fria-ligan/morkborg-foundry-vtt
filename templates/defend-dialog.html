@@ -1,0 +1,12 @@
+<form class="custom-dialog">
+    <input type="hidden" name="armoritemid" value="{{armorItemId}}"/>
+    <input type="hidden" name="shielditemid" value="{{shieldItemId}}"/>
+    <div class="form-group">
+      <label>{{localize 'MB.Defend'}} {{localize 'MB.DR'}}:</label>
+      <input type="text" name="defenddr" value="12" placeholder="12" data-dtype="Number" />
+    </div>     
+    <div class="form-group">
+      <label>{{localize 'MB.IncomingAttack'}}:</label>
+      <input type="text" name="incomingattack" value="1d6" placeholder="1d6" data-dtype="String" />
+    </div>    
+</form>
