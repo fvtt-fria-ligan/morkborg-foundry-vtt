@@ -47,6 +47,7 @@
 "MB.Dodge": "Dodge",
 "MB.DR": "DR",
 "MB.Equipment": "Equipment",
+"MB.EquipAWeaponToAttack": "Equip a weapon to attack.",
 "MB.FollowerSpeciality": "Speciality",
 "MB.FollowerTrait": "Trait",
 "MB.FollowerValue": "Value",
