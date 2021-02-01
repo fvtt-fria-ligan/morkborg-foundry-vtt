@@ -49,14 +49,14 @@ export class MBActor extends Actor {
          title: game.i18n.localize('MB.Attack'),
          content: html,
          buttons: {
-            attack: {
+            roll: {
               icon: '<i class="fas fa-dice-d20"></i>',
-              label: game.i18n.localize('MB.Attack'),
+              label: game.i18n.localize('MB.Roll'),
               // callback: html => resolve(_createItem(this.actor, html[0].querySelector("form")))
               callback: html => this._attackDialogCallback(html)
             },
          },
-         default: "attack",
+         default: "roll",
          close: () => resolve(null)
         }).render(true);
     });
@@ -168,13 +168,13 @@ export class MBActor extends Actor {
          title: game.i18n.localize('MB.Defend'),
          content: html,
          buttons: {
-            defend: {
+            roll: {
               icon: '<i class="fas fa-dice-d20"></i>',
-              label: game.i18n.localize('MB.Defend'),
+              label: game.i18n.localize('MB.Roll'),
               callback: html => this._defendDialogCallback(html)
             },
          },
-         default: "defend",
+         default: "roll",
          close: () => resolve(null)
         }).render(true);
     });
