@@ -110,9 +110,13 @@
                     {{/each}}
                 </ol>
                 <div class="rule-text attack-rule">
-                    {{localize 'MB.AttackCritText'}}
-                    {{localize 'MB.AttackFumbleText'}}
-                </div>
+                    {{#if data.equippedWeapons.length}}
+                        {{localize 'MB.AttackCritText'}}
+                        {{localize 'MB.AttackFumbleText'}}
+                    {{else}}
+                        {{localize 'MB.EquipAWeaponToAttack'}}
+                    {{/if}}
+                </div>        
                 <div class="violence-gutter"></div>
                 <li class="items-header flexrow">
                     <h3 class="item-name flexrow">{{localize "MB.ItemTypeArmorPlural"}}</h3>
