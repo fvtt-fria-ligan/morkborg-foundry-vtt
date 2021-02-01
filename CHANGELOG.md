@@ -1,3 +1,11 @@
+# 0.1.8
+- Added dialog popup for attack and defend to prompt for DR and target armor / incoming attack. Last entered values are persisted for easier repeat actions.
+- Updated attack and defend logic to check DR before rolling damage / soak.
+- Updated attack and defend roll cards to show outcome text (e.g., "Hit", "Miss", "Dodge") as well as crit/fumbles.
+- Implemented crits and fumbles for attack and defend.
+- Violence tab now shows "Equip a weapon to attack" message if no weapons are equipped.
+- Fixed Player Configuration dialog style for readability.
+
 # 0.1.7
 - Changed character sheet header to allow center column to expand with window.
 - Changed character class name to show icon instead of "Class:" text.
@@ -12,7 +20,6 @@
 - Tweaked chat message style for readability.
 - Added numbered list button to editor toolbar.
 - Changed unordered (bullet) lists to ordered (number) in class and follower detail text.
-
 
 # 0.1.6
 - Fixed font and button color issues on Journal image tab.
