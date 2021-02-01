@@ -70,6 +70,10 @@ export class MBActor extends Actor {
     const itemId = form.itemid.value;
     const attackDR = parseInt(form.attackdr.value);
     const targetArmor = form.targetarmor.value;
+    if (!itemId || !attackDR) {
+      // TODO: prevent form submit via required fields
+      return;
+    }
     await this.setFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.ATTACK_DR, attackDR);
     await this.setFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.TARGET_ARMOR, targetArmor);
     this._rollAttack(itemId, attackDR, targetArmor);
@@ -186,6 +190,10 @@ export class MBActor extends Actor {
     const shieldItemId = form.shielditemid.value;
     const defendDR = parseInt(form.defenddr.value);
     const incomingAttack = form.incomingattack.value;
+    if (!defendDR || !incomingAttack) {
+      // TODO: prevent dialog/form submission w/ required field(s)
+      return;
+    }
     await this.setFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.DEFEND_DR, defendDR);
     await this.setFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.INCOMING_ATTACK, incomingAttack);
     this._rollDefend(armorItemId, shieldItemId, defendDR, incomingAttack);
