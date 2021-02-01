@@ -69,7 +69,6 @@ import * as editor from "./editor.js";
 
   /** @override */
   activateListeners(html) {
-    console.log("************ activate");
     super.activateListeners(html);
     html.find(".morale").on("click", this._onMoraleRoll.bind(this));
     html.find(".reaction").on("click", this._onReactionRoll.bind(this));

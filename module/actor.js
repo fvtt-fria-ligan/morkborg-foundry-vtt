@@ -87,25 +87,26 @@ export class MBActor extends Actor {
     const itemRollData = item.getRollData();
     const actorRollData = this.getRollData();
 
-    // TODO: make these multiple rolls into a single roll sheet, a la BetterRolls5e
-
     // roll 1: attack
     const isRanged = itemRollData.weaponType === 'ranged';
     // ranged weapons use agility; melee weapons use strength
     const ability = isRanged ? 'agility' : 'strength';
     let attackRoll = new Roll(`d20+@abilities.${ability}.score`, actorRollData);
     attackRoll.evaluate();
+    const d20Result = attackRoll.results[0];
+    const isFumble = (d20Result === 1);
+    const isCrit = (d20Result === 20);
 
-    let attackComparison = `${game.i18n.localize('MB.Versus')} ${game.i18n.localize('MB.DR')}${attackDR}`;
     let attackOutcome = null;
     let damageRoll = null;
     let targetArmorRoll = null;
     let takeDamage = null;
     if (attackRoll.total >= attackDR) {
       // HIT!!!
-      attackOutcome = game.i18n.localize('MB.Hit');
+      attackOutcome = game.i18n.localize(isCrit ? 'MB.AttackCritText' : 'MB.Hit');
       // roll 2: damage
-      damageRoll = new Roll("@damageDie", itemRollData);
+      const damageFormula = isCrit ? "@damageDie * 2" : "@damageDie";
+      damageRoll = new Roll(damageFormula, itemRollData);
       damageRoll.evaluate();
       let damage = damageRoll.total;
       // roll 3: target damage reduction
@@ -117,14 +118,13 @@ export class MBActor extends Actor {
       takeDamage = `${game.i18n.localize('MB.Take')} ${damage}`
     } else {
       // MISS!!!
-      attackOutcome = game.i18n.localize('MB.Miss');
+      attackOutcome = game.i18n.localize(isFumble ? 'MB.AttackFumbleText' : 'MB.Miss');
     }
 
     // TODO: decide key in handlebars/template?
     const weaponTypeKey = isRanged ? 'MB.WeaponTypeRanged' : 'MB.WeaponTypeMelee';
     const rollResult = {
       actor: this,
-      attackComparison,
       attackRoll,
       attackOutcome,
       damageRoll,      
@@ -153,7 +153,6 @@ export class MBActor extends Actor {
    */
   async defend(armorItemId, shieldItemId) {
     // look up any previous DR or incoming attack value
-    console.log(CONFIG.MB.flagScope);
     const defendDR = await this.getFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.DEFEND_DR);
     const incomingAttack = await this.getFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.INCOMING_ATTACK);
     const template = "systems/morkborg/templates/defend-dialog.html";
@@ -211,23 +210,36 @@ export class MBActor extends Actor {
     // TODO: use armor and encumberance modifiers
     let defendRoll = new Roll("d20+@abilities.agility.score", rollData);
     defendRoll.evaluate();
+    const d20Result = defendRoll.results[0];
+    const isFumble = (d20Result === 1);
+    const isCrit = (d20Result === 20);
 
     let items = [];
     let damageRoll = null;
     let armorRoll = null;
-    let defendComparison = `${game.i18n.localize('MB.Versus')} ${game.i18n.localize('MB.DR')}${defendDR}`;
     let defendOutcome = null;
     let takeDamage = null;
 
-    if (defendRoll.total >= defendDR) {
-      // SUCCESSFUL DODGE
+    if (isCrit) {
+      // critical success
+      defendOutcome = game.i18n.localize('MB.DefendCritText');
+    } else if (defendRoll.total >= defendDR) {
+      // success
       defendOutcome = game.i18n.localize('MB.Dodge');
     } else {
-      // FAILURE: YOU ARE HIT
-      defendOutcome = game.i18n.localize('MB.Hit');
+      // failure
+      if (isFumble) {
+        defendOutcome = game.i18n.localize('MB.DefendFumbleText');
+      } else {
+        defendOutcome = game.i18n.localize('MB.Hit');
+      }
 
       // roll 2: incoming damage
-      damageRoll = new Roll(incomingAttack, {});
+      let damageFormula = incomingAttack;
+      if (isFumble) {
+        damageFormula += " * 2";
+      }
+      damageRoll = new Roll(damageFormula, {});
       damageRoll.evaluate();
       let damage = damageRoll.total;
 
@@ -253,7 +265,6 @@ export class MBActor extends Actor {
       actor: this,
       armorRoll,
       damageRoll,      
-      defendComparison,
       defendOutcome,
       defendRoll,
       items,
