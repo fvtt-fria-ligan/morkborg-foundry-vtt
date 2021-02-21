@@ -29,16 +29,18 @@ This is a vanilla, no-homebrew implementation of the MÖRK BORG rules, with limi
   * Initiative is handled by Foundry's Combat Tracker. All other combat roles are handled from a Character's sheet on the *Violence* tab.
   * To use a weapon, armor, or shield, you need to equip it. You can do so on the *Treasures* tab. Any equippable items have a small shield icon next to their edit and delete buttons. Click the shield icon to make it turn yellow (equipped), and the item will appear on your *Violence* tab, ready for use. Note: you can only have a single armor and single shield equipped at one time.
   * Attacking
-    * Enter the target's armor damage reduction (e.g., 1d2) and click the *Attack* button of the weapon you're attacking with. This will generate rolls for the attack, the damage, and the damage reduction.
-    * Currently it's up to you to decide if the roll indicates a hit (i.e., is it >= 12) and whether to apply the damage.
-    * Crits and fumbles must also be manually identified and calculated.
+    * On the *Violence* tab of your character sheet, click the *Attack* button next to your weapon of choice.
+    * A popup window will appear, prompting you for the DR of the attack (usually 12), as well as the target's armor damage reduction (e.g., 1d2).
+    * The system will resolve your attack, calculating hit or miss, critical or fumble, damage and damage reduction. Everything will appear in a chat message "roll card".
+    * Final damage can then be manually applied to the target (i.e., DM reduces the target creature's HPs on their sheet).
   * Defending
-    * Enter the incoming attack damage die (e.g., 1d6), and click the *Defend* button. This will generate rolls for the defend attempt, the attack damage, and your armor damage reduction.
-    * Currently it's up to you to decide if the defend roll succeeds and whether to apply the damage. 
-    * Crits and fumbles might also be manually identified and calculated.
+    * On the *Violence* tab of your character sheet, Click the *Defend* button.
+    * A popup window will appear, prompting you for the DR of the defense (usually 12) and the incoming attack damage die (e.g., 1d6).
+    * The system will resolve the defense, calculating dodge or hit, critical or fumble, damage and damage reduction. Everything will appear in a chat message "roll card".
+    * It's up to you to manually apply the final damage (i.e., reduce your HPs on your character sheet).
   * Armor
     * Armor has both a current and a max tier. The current tier is shown on the *Violence* tab as a radio button. The current tier radio buttons won't let you choose a current tier higher than the armor's max tier. There is no zero tier shown, since at zero tier armor is considered destroyed and should just be deleted. 
-    * It's up to you to apply negative modifiers for heavy armor to your AGI and defense checks.
+    * It's currently up to you to apply negative modifiers for heavy armor to your AGI and defense checks. [Fixing this is an open TODO]
 
 ## Powers
   * Any scrolls in your inventory will show up on both your sheet's *Treasures* and *Powers* tabs.
