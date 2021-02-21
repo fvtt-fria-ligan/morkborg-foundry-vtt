@@ -46,6 +46,7 @@
 "MB.Description": "Description",
 "MB.Dodge": "Dodge",
 "MB.DR": "DR",
+"MB.Encumbered": "Encumbered",
 "MB.Equipment": "Equipment",
 "MB.EquipAWeaponToAttack": "Equip a weapon to attack.",
 "MB.FollowerSpeciality": "Speciality",

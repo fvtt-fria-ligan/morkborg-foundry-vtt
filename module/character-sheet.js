@@ -62,16 +62,10 @@ export class MBActorSheetCharacter extends ActorSheet {
         item.toggleTitle = game.i18n.localize(isEquipped ? "MB.ItemEquipped" : "MB.ItemUnequipped");
       }
 
-      // TODO: use enum
-      // TODO: use constants?
-      if (i.type === 'armor' 
-        || i.type === 'container'
-        || i.type === 'misc'
-        || i.type === 'scroll'
-        || i.type === 'shield'
-        || i.type === 'weapon') {
+      if (CONFIG.MB.itemEquipmentTypes.includes(i.type)) {
         equipment.push(i);
       }      
+      // TODO: use constants
       if (i.type === 'armor') {
         item.damageReductionDie = CONFIG.MB.armorTiers[item.currentTier].damageReductionDie;
         if (item.equipped) {
