@@ -125,7 +125,10 @@ export class MBActor extends Actor {
    * Attack!
    */
   async attack(itemId) {
-    const attackDR = await this.getFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.ATTACK_DR);
+    let attackDR = await this.getFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.ATTACK_DR);
+    if (!attackDR) {
+      attackDR = 12;  // default
+    }
     const targetArmor = await this.getFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.TARGET_ARMOR);    
     const template = "systems/morkborg/templates/attack-dialog.html";
     let dialogData = {
@@ -244,7 +247,10 @@ export class MBActor extends Actor {
    */
   async defend() {
     // look up any previous DR or incoming attack value
-    const defendDR = await this.getFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.DEFEND_DR);
+    let defendDR = await this.getFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.DEFEND_DR);
+    if (!defendDR) {
+      defendDR = 12;  // default
+    }
     const incomingAttack = await this.getFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.INCOMING_ATTACK);
     const template = "systems/morkborg/templates/defend-dialog.html";
 
