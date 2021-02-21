@@ -238,16 +238,28 @@ export class MBActor extends Actor {
   /**
    * Defend!
    */
-  async defend(armorItemId, shieldItemId) {
+  async defend() {
     // look up any previous DR or incoming attack value
     const defendDR = await this.getFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.DEFEND_DR);
     const incomingAttack = await this.getFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.INCOMING_ATTACK);
     const template = "systems/morkborg/templates/defend-dialog.html";
+
+    const armor = this.equippedArmor();
+    let drModifiers = [];
+    if (armor) {
+      // TODO: maxTier is getting stored as a string
+      // armor defense adjustment is based on its max tier, not current
+      const maxTier = parseInt(armor.data.maxTier);
+      const defenseModifier = CONFIG.MB.armorTiers[maxTier].defenseModifier;
+      if (defenseModifier) { 
+        drModifiers.push(`${armor.name}: ${game.i18n.localize('MB.DR')} +${defenseModifier}`);       
+      }
+    }
+
     let dialogData = {
-      armorItemId,
       defendDR,
+      drModifiers,
       incomingAttack,
-      shieldItemId
     };
     const html = await renderTemplate(template, dialogData);
     return new Promise(resolve => {
@@ -272,8 +284,6 @@ export class MBActor extends Actor {
    */
   async _defendDialogCallback(html) {
     const form = html[0].querySelector("form");
-    const armorItemId = form.armoritemid.value;
-    const shieldItemId = form.shielditemid.value;
     const defendDR = parseInt(form.defenddr.value);
     const incomingAttack = form.incomingattack.value;
     if (!defendDR || !incomingAttack) {
@@ -282,25 +292,19 @@ export class MBActor extends Actor {
     }
     await this.setFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.DEFEND_DR, defendDR);
     await this.setFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.INCOMING_ATTACK, incomingAttack);
-    this._rollDefend(armorItemId, shieldItemId, defendDR, incomingAttack);
+    this._rollDefend(defendDR, incomingAttack);
   }
 
   /**
    * Do the actual defend rolls and resolution.
    */
-  async _rollDefend(armorItemId, shieldItemId, defendDR, incomingAttack) {
+  async _rollDefend(defendDR, incomingAttack) {
     const rollData = this.getRollData();
-    const armor = this.getOwnedItem(armorItemId);
-    const shield = this.getOwnedItem(shieldItemId);
+    const armor = this.equippedArmor();
+    const shield = this.equippedShield();
 
     let armorDefenseAdjustment = 0;
     if (armor) {
-      console.log(CONFIG.MB.armorTiers);
-      console.log(armor);
-      // TODO: maxTier is getting stored as a string
-      // armor defense adjustment is based on its max tier, not current
-      const maxTier = parseInt(armor.data.data.maxTier);
-      armorDefenseAdjustment = CONFIG.MB.armorTiers[maxTier].defenseAdjustment;
     }
     //rollData["armorDefenseAdjustment"] = armorDefenseAdjustment;  
 
@@ -344,7 +348,7 @@ export class MBActor extends Actor {
       // roll 3: damage reduction from equipped armor and shield
       let damageReductionDie = "";
       if (armor) {
-        damageReductionDie = CONFIG.MB.armorTiers[armor.data.data.currentTier].damageReductionDie;
+        damageReductionDie = CONFIG.MB.armorTiers[armor.data.currentTier].damageReductionDie;
         items.push(armor);
       }    
       if (shield) {
