@@ -73,7 +73,7 @@ export class MBActorSheetCharacter extends ActorSheet {
         equipment.push(i);
       }      
       if (i.type === 'armor') {
-        item.damageReductionDie = CONFIG.MB.armorTierDamageReductionDie[item.currentTier];
+        item.damageReductionDie = CONFIG.MB.armorTiers[item.currentTier].damageReductionDie;
         if (item.equipped) {
           // only one armor may be equipped at a time
           equippedArmor = i;
@@ -156,14 +156,37 @@ export class MBActorSheetCharacter extends ActorSheet {
     });
 
     // Handle rollable items.
-    html.find(".ability-row .rollable").on("click", this._onRoll.bind(this));
+    html.find(".ability-label.rollable.strength").on("click", this._onStrengthRoll.bind(this));
+    html.find(".ability-label.rollable.agility").on("click", this._onAgilityRoll.bind(this));
+    html.find(".ability-label.rollable.presence").on("click", this._onPresenceRoll.bind(this));
+    html.find(".ability-label.rollable.toughness").on("click", this._onToughnessRoll.bind(this));
     html.find(".omens-row .rollable").on("click", this._onOmensRoll.bind(this));
     html.find(".attack-button").on("click", this._onAttackRoll.bind(this));
     html.find(".defend-button").on("click", this._onDefendRoll.bind(this));
-    html.find(".wield-power-button").on("click", this._onRoll.bind(this));
+    html.find(".wield-power-button").on("click", this._onWieldPowerRoll.bind(this));
     html.find(".powers-per-day-text").on("click", this._onPowersPerDayRoll.bind(this));
     html.find('.item-toggle').click(this._onToggleItem.bind(this));
     html.find('.tier-radio').click(this._onArmorTierRadio.bind(this));
+  }
+
+  _onStrengthRoll(event) {
+    event.preventDefault();
+    this.actor.testStrength();
+  }
+
+  _onAgilityRoll(event) {
+    event.preventDefault();
+    this.actor.testAgility();
+  }
+
+  _onPresenceRoll(event) {
+    event.preventDefault();
+    this.actor.testPresence();
+  }
+
+  _onToughnessRoll(event) {
+    event.preventDefault();
+    this.actor.testToughness();
   }
 
   _onOmensRoll(event) {
@@ -277,6 +300,21 @@ export class MBActorSheetCharacter extends ActorSheet {
    * @private
    */
   _onRoll(event) {
+    event.preventDefault();
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+
+    if (dataset.roll) {
+      let roll = new Roll(dataset.roll, this.actor.data.data);
+      let label = dataset.label ? `Rolling ${dataset.label}` : '';
+      roll.roll().toMessage({
+        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+        flavor: label
+      });
+    }
+  }
+
+  _onWieldPowerRoll(event) {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;

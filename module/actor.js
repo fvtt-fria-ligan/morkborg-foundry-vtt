@@ -2,6 +2,7 @@ const ATTACK_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/attack-roll-card.h
 const DEFEND_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/defend-roll-card.html";
 const MORALE_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/morale-roll-card.html";
 const REACTION_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/reaction-roll-card.html";
+const TEST_ABILITY_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/test-ability-roll-card.html";
 
 /**
  * @extends {Actor}
@@ -28,6 +29,64 @@ export class MBActor extends Actor {
   getRollData() {
     const data = super.getRollData();
     return data;
+  }
+
+  firstEquipped(itemType) {
+    console.log(this.data.items);
+    for (const item of this.data.items) {
+      if (item.type === itemType && item.data.equipped) {
+        return item;
+      }
+    }
+    return undefined;
+  }
+
+  equippedArmor() {
+    return this.firstEquipped("armor");
+  }
+
+  equippedShield() {
+    return this.firstEquipped("shield");
+  }
+
+  async _testAbility(ability, abilityKey, drModifiers) {
+    let abilityRoll = new Roll(`1d20+@abilities.${ability}.score`, this.getRollData());
+    abilityRoll.evaluate();
+    const rollResult = {
+      abilityKey: abilityKey,
+      abilityRoll,
+      drModifiers,
+    }
+    const html = await renderTemplate(TEST_ABILITY_ROLL_CARD_TEMPLATE, rollResult)
+    ChatMessage.create({
+      content : html,
+      sound : CONFIG.sounds.dice,
+      speaker : ChatMessage.getSpeaker({actor: this}),
+    });
+  }
+
+  async testStrength() {
+    return this._testAbility("strength", "MB.AbilityStrength", null);
+  }
+
+  async testAgility() {
+    let drModifiers = [];
+    const armor = this.equippedArmor();
+    if (armor) {
+      const armorTier = CONFIG.MB.armorTiers[armor.data.maxTier];
+      if (armorTier.agilityModifier) {
+        drModifiers.push(`${armor.name}: DR +${armorTier.agilityModifier}`);
+      }
+    }
+    return this._testAbility("agility", "MB.AbilityAgility", drModifiers);
+  }
+
+  async testPresence() {
+    return this._testAbility("presence", "MB.AbilityPresence", null);
+  }
+
+  async testToughness() {
+    return this._testAbility("agility", "MB.AbilityToughness", null);
   }
 
   /**
@@ -205,10 +264,20 @@ export class MBActor extends Actor {
     const rollData = this.getRollData();
     const armor = this.getOwnedItem(armorItemId);
     const shield = this.getOwnedItem(shieldItemId);
-    
+
+    let armorDefenseAdjustment = 0;
+    if (armor) {
+      console.log(CONFIG.MB.armorTiers);
+      console.log(armor);
+      // TODO: maxTier is getting stored as a string
+      // armor defense adjustment is based on its max tier, not current
+      const maxTier = parseInt(armor.data.data.maxTier);
+      armorDefenseAdjustment = CONFIG.MB.armorTiers[maxTier].defenseAdjustment;
+    }
+    rollData["armorDefenseAdjustment"] = armorDefenseAdjustment;  
+
     // roll 1: defend
-    // TODO: use armor and encumberance modifiers
-    let defendRoll = new Roll("d20+@abilities.agility.score", rollData);
+    let defendRoll = new Roll("d20+@abilities.agility.score+@armorDefenseAdjustment", rollData);
     defendRoll.evaluate();
     const d20Result = defendRoll.results[0];
     const isFumble = (d20Result === 1);
@@ -246,7 +315,7 @@ export class MBActor extends Actor {
       // roll 3: damage reduction from equipped armor and shield
       let damageReductionDie = "";
       if (armor) {
-        damageReductionDie = CONFIG.MB.armorTierDamageReductionDie[armor.data.data.currentTier];
+        damageReductionDie = CONFIG.MB.armorTiers[armor.data.data.currentTier].damageReductionDie;
         items.push(armor);
       }    
       if (shield) {

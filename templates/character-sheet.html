@@ -49,19 +49,19 @@
         <div class="header-col3">
           <div class="ability-row">
             <input class="ability-input" type="text" name="data.abilities.strength.score" value="{{numberFormat data.abilities.strength.score decimals=0 sign=true}}" data-dtype="Number" size="3" />
-            <span class="ability-label rollable" data-roll="d20+@abilities.strength.score" data-label="{{data.abilities.strength.label}}">{{ localize 'MB.AbilityStrengthAbbrev' }}</span>
+            <span class="ability-label rollable strength">{{ localize 'MB.AbilityStrengthAbbrev' }}</span>
           </div>
           <div class="ability-row">
             <input class="ability-input" type="text" name="data.abilities.agility.score" value="{{numberFormat data.abilities.agility.score decimals=0 sign=true}}" data-dtype="Number" size="3" />
-            <span class="ability-label rollable" data-roll="d20+@abilities.agility.score" data-label="{{data.abilities.agility.label}}">{{ localize 'MB.AbilityAgilityAbbrev' }}</span>
+            <span class="ability-label rollable agility">{{ localize 'MB.AbilityAgilityAbbrev' }}</span>
           </div>
           <div class="ability-row">
             <input class="ability-input" type="text" name="data.abilities.presence.score" value="{{numberFormat data.abilities.presence.score decimals=0 sign=true}}" data-dtype="Number" size="3" />
-            <span class="ability-label rollable" data-roll="d20+@abilities.presence.score" data-label="{{data.abilities.presence.label}}">{{ localize 'MB.AbilityPresenceAbbrev' }}</span>
+            <span class="ability-label rollable presence">{{ localize 'MB.AbilityPresenceAbbrev' }}</span>
           </div>
           <div class="ability-row">
             <input class="ability-input" type="text" name="data.abilities.toughness.score" value="{{numberFormat data.abilities.toughness.score decimals=0 sign=true}}" data-dtype="Number" size="3" />
-            <span class="ability-label rollable" data-roll="d20+@abilities.toughness.score" data-label="{{data.abilities.toughness.label}}">{{ localize 'MB.AbilityToughnessAbbrev' }}</span>
+            <span class="ability-label rollable toughness">{{ localize 'MB.AbilityToughnessAbbrev' }}</span>
           </div>
         </div>
     </header>
