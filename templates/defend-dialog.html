@@ -1,14 +1,19 @@
 <form class="custom-dialog">
     <div class="form-group">
       <label>{{localize 'MB.Defend'}} {{localize 'MB.DR'}}:</label>
-      <input type="text" name="defenddr" value="{{defendDR}}" placeholder="12" data-dtype="Number" />
+      <input type="text" name="defensebasedr" value="{{defendDR}}" placeholder="12" data-dtype="Number" />
     </div> 
-    <div class="dr-modifiers">
+    <div class="form-group">
+      <label>{{localize 'MB.Modified'}} {{localize 'MB.DR'}}:</label>
+      <input type="text" class="readonly" name="defensemodifieddr" value="" placeholder="12" readonly />
+    </div> 
+    <div class="dr-modifier">
+      (
       {{#each drModifiers}}
-        <div class="dr-modifier">
-          {{this}}
-        </div>
+        {{this}}
+        {{#unless @last}},{{/unless}}
       {{/each}}  
+      )
     </div>
     <div class="form-group">
       <label>{{localize 'MB.IncomingAttack'}}:</label>

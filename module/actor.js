@@ -70,6 +70,10 @@ export class MBActor extends Actor {
     return this.carryingAmount() > this.normalCarryingCapacity();
   }
 
+  defenseDRModifier() {
+    
+  }
+
   async _testAbility(ability, abilityKey, drModifiers) {
     let abilityRoll = new Roll(`1d20+@abilities.${ability}.score`, this.getRollData());
     abilityRoll.evaluate();
@@ -247,13 +251,16 @@ export class MBActor extends Actor {
     const armor = this.equippedArmor();
     let drModifiers = [];
     if (armor) {
-      // TODO: maxTier is getting stored as a string
       // armor defense adjustment is based on its max tier, not current
+      // TODO: maxTier is getting stored as a string
       const maxTier = parseInt(armor.data.maxTier);
       const defenseModifier = CONFIG.MB.armorTiers[maxTier].defenseModifier;
       if (defenseModifier) { 
         drModifiers.push(`${armor.name}: ${game.i18n.localize('MB.DR')} +${defenseModifier}`);       
       }
+    }
+    if (this.isEncumbered()) {
+      drModifiers.push(`${game.i18n.localize('MB.Encumbered')}: ${game.i18n.localize('MB.DR')} +2`);
     }
 
     let dialogData = {
@@ -262,6 +269,7 @@ export class MBActor extends Actor {
       incomingAttack,
     };
     const html = await renderTemplate(template, dialogData);
+
     return new Promise(resolve => {
       new Dialog({
          title: game.i18n.localize('MB.Defend'),
@@ -274,9 +282,35 @@ export class MBActor extends Actor {
             },
          },
          default: "roll",
+         render: (html) => {
+          html.find("input[name='defensebasedr']").on("change", this._onDefenseBaseDRChange.bind(this));
+          html.find("input[name='defensebasedr']").trigger("change");
+        },
          close: () => resolve(null)
         }).render(true);
     });
+  }
+
+  _onDefenseBaseDRChange(event) {
+    event.preventDefault();
+    const baseInput = $(event.currentTarget);
+    let drModifier = 0;
+    const armor = this.equippedArmor();
+    if (armor) {
+      // TODO: maxTier is getting stored as a string
+      const maxTier = parseInt(armor.data.maxTier);
+      const defenseModifier = CONFIG.MB.armorTiers[maxTier].defenseModifier;
+      if (defenseModifier) { 
+        drModifier += defenseModifier;
+      }
+    }
+    if (this.isEncumbered()) {
+      drModifier += 2;
+    }
+    const modifiedDr = parseInt(baseInput[0].value) + drModifier;
+    // TODO: this is a fragile way to find the other input field
+    const modifiedInput = baseInput.parent().parent().find("input[name='defensemodifieddr']");
+    modifiedInput.val(modifiedDr.toString());
   }
 
   /**
@@ -284,15 +318,16 @@ export class MBActor extends Actor {
    */
   async _defendDialogCallback(html) {
     const form = html[0].querySelector("form");
-    const defendDR = parseInt(form.defenddr.value);
+    const baseDR = parseInt(form.defensebasedr.value);
+    const modifiedDR = parseInt(form.defensemodifieddr.value);
     const incomingAttack = form.incomingattack.value;
-    if (!defendDR || !incomingAttack) {
+    if (!baseDR || !modifiedDR || !incomingAttack) {
       // TODO: prevent dialog/form submission w/ required field(s)
       return;
     }
-    await this.setFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.DEFEND_DR, defendDR);
+    await this.setFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.DEFEND_DR, baseDR);
     await this.setFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.INCOMING_ATTACK, incomingAttack);
-    this._rollDefend(defendDR, incomingAttack);
+    this._rollDefend(modifiedDR, incomingAttack);
   }
 
   /**
