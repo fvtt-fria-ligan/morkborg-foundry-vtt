@@ -35,6 +35,7 @@ MB.armorTiers = {
   },
 }
 
+
 MB.flagScope = "morkborg";  // must match system name
 
 MB.flags = {
@@ -50,14 +51,36 @@ MB.handed = {
 };
 
 MB.itemTypes = {
+  armor: "armor",
+  class: "class",
+  container: "container",
+  misc: "misc",
+  scroll: "scroll",
+  shield: "shield",
+  weapon: "weapon"
+};
+
+MB.itemTypeKeys = {
   "armor": "MB.ItemTypeArmor",
   "class": "MB.ItemTypeClass",
   "container": "MB.ItemTypeContainer",
   "misc": "MB.ItemTypeMisc",
   "scroll": "MB.ItemTypeScroll",
   "shield": "MB.ItemTypeShield",
-  "weapon": "MB.ItemTypeWeapon"
-};
+  "weapon": "MB.ItemTypeWeapon"  
+}
+
+// these Item types are "equipment"
+MB.itemEquipmentTypes = [
+//  "armor", "container", "misc", "scroll", "shield", "weapon"
+  MB.itemTypes.armor,
+  MB.itemTypes.container,
+  MB.itemTypes.misc,
+  MB.itemTypes.scroll,
+  MB.itemTypes.shield,
+  MB.itemTypes.weapon,
+];
+
 
 MB.scrollTypes = {
   "sacred": "MB.ScrollTypeSacred",

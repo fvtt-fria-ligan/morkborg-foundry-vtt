@@ -19,7 +19,7 @@ export class MBItemSheet extends ItemSheet {
   /** @override */
   get template() {
     const path = "systems/morkborg/templates";
-    if (Object.keys(MB.itemTypes).includes(this.item.data.type)) {
+    if (Object.keys(MB.itemTypeKeys).includes(this.item.data.type)) {
       // specific item-type sheet
       return `${path}/${this.item.data.type}-sheet.html`;
     } else {

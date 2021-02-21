@@ -31,8 +31,7 @@ export class MBActor extends Actor {
     return data;
   }
 
-  firstEquipped(itemType) {
-    console.log(this.data.items);
+  _firstEquipped(itemType) {
     for (const item of this.data.items) {
       if (item.type === itemType && item.data.equipped) {
         return item;
@@ -42,11 +41,33 @@ export class MBActor extends Actor {
   }
 
   equippedArmor() {
-    return this.firstEquipped("armor");
+    return this._firstEquipped("armor");
   }
 
   equippedShield() {
-    return this.firstEquipped("shield");
+    return this._firstEquipped("shield");
+  }
+
+  normalCarryingCapacity() {
+    return this.data.data.abilities.strength.score + 8;
+  }
+
+  maxCarryingCapacity() {
+    return 2 * this.normalCarryingCapacity();
+  }
+
+  carryingAmount() {
+    let total = 0;
+    for (const item of this.data.items) {
+      if (CONFIG.MB.itemEquipmentTypes.includes(item.type) && item.data.carryWeight) {
+        total += item.data.carryWeight;
+      }
+    }
+    return total;
+  }
+
+  isEncumbered() {
+    return this.carryingAmount() > this.normalCarryingCapacity();
   }
 
   async _testAbility(ability, abilityKey, drModifiers) {
@@ -66,7 +87,11 @@ export class MBActor extends Actor {
   }
 
   async testStrength() {
-    return this._testAbility("strength", "MB.AbilityStrength", null);
+    let drModifiers = [];
+    if (this.isEncumbered()) {
+      drModifiers.push(`${game.i18n.localize('MB.Encumbered')}: ${game.i18n.localize('MB.DR')} +2`);
+    }
+    return this._testAbility("strength", "MB.AbilityStrength", drModifiers);
   }
 
   async testAgility() {
@@ -75,8 +100,11 @@ export class MBActor extends Actor {
     if (armor) {
       const armorTier = CONFIG.MB.armorTiers[armor.data.maxTier];
       if (armorTier.agilityModifier) {
-        drModifiers.push(`${armor.name}: DR +${armorTier.agilityModifier}`);
+        drModifiers.push(`${armor.name}: ${game.i18n.localize('MB.DR')} +${armorTier.agilityModifier}`);
       }
+    }
+    if (this.isEncumbered()) {
+      drModifiers.push(`${game.i18n.localize('MB.Encumbered')}: ${game.i18n.localize('MB.DR')} +2`);
     }
     return this._testAbility("agility", "MB.AbilityAgility", drModifiers);
   }
@@ -274,10 +302,11 @@ export class MBActor extends Actor {
       const maxTier = parseInt(armor.data.data.maxTier);
       armorDefenseAdjustment = CONFIG.MB.armorTiers[maxTier].defenseAdjustment;
     }
-    rollData["armorDefenseAdjustment"] = armorDefenseAdjustment;  
+    //rollData["armorDefenseAdjustment"] = armorDefenseAdjustment;  
 
     // roll 1: defend
-    let defendRoll = new Roll("d20+@abilities.agility.score+@armorDefenseAdjustment", rollData);
+//    let defendRoll = new Roll("d20+@abilities.agility.score+@armorDefenseAdjustment", rollData);
+    let defendRoll = new Roll("d20+@abilities.agility.score", rollData);
     defendRoll.evaluate();
     const d20Result = defendRoll.results[0];
     const isFumble = (d20Result === 1);
