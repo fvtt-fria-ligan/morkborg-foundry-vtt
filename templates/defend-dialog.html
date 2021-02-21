@@ -7,14 +7,16 @@
       <label>{{localize 'MB.Modified'}} {{localize 'MB.DR'}}:</label>
       <input type="text" class="readonly" name="defensemodifieddr" value="" placeholder="12" readonly />
     </div> 
-    <div class="dr-modifier">
-      (
-      {{#each drModifiers}}
-        {{this}}
-        {{#unless @last}},{{/unless}}
-      {{/each}}  
-      )
-    </div>
+    {{# if drModifiers}}
+      <div class="dr-modifier">
+        (
+        {{#each drModifiers}}
+          {{this}}
+          {{#unless @last}},{{/unless}}
+        {{/each}}
+        )
+      </div>
+    {{/if}}
     <div class="form-group">
       <label>{{localize 'MB.IncomingAttack'}}:</label>
       <input type="text" name="incomingattack" value="{{incomingAttack}}" placeholder="1d6" data-dtype="String" />
