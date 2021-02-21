@@ -63,8 +63,8 @@
                 <label>{{ localize "MB.ArmorMaxTier" }}:</label>
                 <select name="data.maxTier">
                     {{#select data.maxTier}}
-                        {{#each config.armorTiers as |name tier|}}
-                            <option value="{{tier}}">{{tier}} ({{localize name}})</option>
+                        {{#each config.armorTiers as |tierObj tierNum|}}
+                            <option value="{{tierNum}}">{{tierNum}} ({{localize tierObj.key}})</option>
                         {{/each}}
                     {{/select}}
                 </select>

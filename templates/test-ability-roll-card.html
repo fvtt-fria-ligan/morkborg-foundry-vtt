@@ -1,0 +1,18 @@
+<form class="roll-card attack-roll-card">
+    <div class="card-title">
+        {{localize 'MB.Test'}} {{localize abilityKey}}
+    </div>
+    <div class="dr-modifiers">
+        {{#each drModifiers}}
+            <div class="dr-modifier">{{this}}</div>
+        {{/each}}
+    </div>
+    <div class="test-roll">
+        <div class="roll-title">
+            <span>{{abilityRoll.formula}}</span>
+        </div>
+        <div class="roll-result">
+            <span>{{abilityRoll.total}}</span>
+        </div>
+    </div>
+</form>
