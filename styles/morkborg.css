@@ -1097,6 +1097,18 @@ form.editable .results .result-details input[type="text"]:focus {
 .window-app .window-content .form-group input:focus {
   box-shadow: 0 0 10px #fff160;
 }
+/* Fix readonly input on defend dialog */
+.window-app .window-content .form-group input.readonly {
+  color: gray;
+}
+.window-app .window-content .form-group input:hover.readonly {
+  box-shadow: none;
+  cursor: default;
+}
+.window-app .window-content .form-group input:focus.readonly {
+  box-shadow: none;
+  cursor: default;
+}
 /* Fixes Journal image select dialog */
 .journal-sheet.image-popout .window-content .form-group input {
   color: black;
@@ -1488,7 +1500,7 @@ a.inline-roll {
 }
 .dialog-button.attack,
 .dialog-button.create {
-    font-family: "FetteTrumpDeutsch";  
+  font-family: "FetteTrumpDeutsch";  
   font-size: 20px;
 }
 .dialog-buttons button.dialog-button:active,
