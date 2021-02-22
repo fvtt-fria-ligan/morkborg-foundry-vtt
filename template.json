@@ -50,7 +50,7 @@
     }
   },
   "Item": {
-    "types": ["armor", "class", "container", "misc", "scroll", "shield", "weapon"],
+    "types": ["armor", "class", "container", "misc", "scroll", "shield", "special", "weapon"],
     "templates": {
       "baseEquipment": {
         "containerSpace": 1,
@@ -61,17 +61,17 @@
         "quantity": 1
       }
     },
+    "armor": {
+      "templates": ["baseEquipment"],
+      "currentTier": 1,
+      "maxTier": 1
+    },
     "class": {
       "abilities": "",
       "description": "",
       "omenDie": "1d2",
       "startingHitPoints": "1d8",
       "startingSilver": "2d6*10"
-    },
-    "armor": {
-      "templates": ["baseEquipment"],
-      "currentTier": 1,
-      "maxTier": 1
     },
     "container": {
       "templates": ["baseEquipment"],
@@ -86,7 +86,10 @@
     },
     "shield": {
       "templates": ["baseEquipment"]
-    },    
+    },
+    "special": {
+      "description": ""
+    },
     "weapon": {
       "templates": ["baseEquipment"],
       "damageDie": "1d1",
