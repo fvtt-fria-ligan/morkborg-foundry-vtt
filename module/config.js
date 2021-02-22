@@ -67,12 +67,12 @@ MB.itemTypeKeys = {
   "misc": "MB.ItemTypeMisc",
   "scroll": "MB.ItemTypeScroll",
   "shield": "MB.ItemTypeShield",
+  "special": "MB.ItemTypeSpecial",
   "weapon": "MB.ItemTypeWeapon"  
 }
 
 // these Item types are "equipment"
 MB.itemEquipmentTypes = [
-//  "armor", "container", "misc", "scroll", "shield", "weapon"
   MB.itemTypes.armor,
   MB.itemTypes.container,
   MB.itemTypes.misc,
