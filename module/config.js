@@ -35,7 +35,6 @@ MB.armorTiers = {
   },
 }
 
-
 MB.flagScope = "morkborg";  // must match system name
 
 MB.flags = {
@@ -80,7 +79,6 @@ MB.itemEquipmentTypes = [
   MB.itemTypes.shield,
   MB.itemTypes.weapon,
 ];
-
 
 MB.scrollTypes = {
   "sacred": "MB.ScrollTypeSacred",

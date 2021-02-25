@@ -569,6 +569,10 @@ alternately we could select as
 /* Character sheet obituary (class) tab */
 /* ====================== */
 
+.morkborg.sheet.actor .special-button {
+  min-width: 120px;
+}
+
 /* ====================== */
 /* Actor sheet violence tab */
 /* ====================== */
