@@ -50,7 +50,7 @@
     }
   },
   "Item": {
-    "types": ["armor", "class", "container", "misc", "scroll", "shield", "special", "weapon"],
+    "types": ["armor", "class", "container", "feat", "misc", "scroll", "shield", "weapon"],
     "templates": {
       "baseEquipment": {
         "containerSpace": 1,
@@ -77,6 +77,11 @@
       "templates": ["baseEquipment"],
       "capacity": 1
     },
+    "feat": {
+      "description": "",
+      "rollFormula": "",
+      "rollLabel": ""
+    },
     "misc": {
       "templates": ["baseEquipment"]
     },
@@ -86,11 +91,6 @@
     },
     "shield": {
       "templates": ["baseEquipment"]
-    },
-    "special": {
-      "description": "",
-      "rollFormula": "",
-      "rollLabel": ""
     },
     "weapon": {
       "templates": ["baseEquipment"],

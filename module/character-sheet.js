@@ -44,7 +44,8 @@ export class MBActorSheetCharacter extends ActorSheet {
    */
   _prepareCharacterItems(sheetData) {
     const byName = (a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);
-    sheetData.actor.data.specials = sheetData.items.filter(item => item.type === 'special').sort(byName);
+    sheetData.actor.data.feats = sheetData.items.filter(item => item.type === CONFIG.MB.itemTypes.feat).sort(byName);
+    sheetData.actor.data.class = sheetData.items.filter(item => item.type === CONFIG.MB.itemTypes.class)[0];
 
     // TODO: make better use of filters below
     let equipment = [];
@@ -59,7 +60,7 @@ export class MBActorSheetCharacter extends ActorSheet {
       let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
 
-      item.equippable = (i.type === 'armor' || i.type === 'shield' || i.type === 'weapon');
+      item.equippable = (i.type === CONFIG.MB.itemTypes.armor || i.type === CONFIG.MB.itemTypes.shield || i.type === CONFIG.MB.itemTypes.weapon);
       if (item.equippable) {
         const isEquipped = getProperty(item, "equipped");
         item.toggleClass = isEquipped ? "equipped" : "";
@@ -70,24 +71,24 @@ export class MBActorSheetCharacter extends ActorSheet {
         equipment.push(i);
       }      
       // TODO: use constants
-      if (i.type === 'armor') {
+      if (i.type === CONFIG.MB.itemTypes.armor) {
         item.damageReductionDie = CONFIG.MB.armorTiers[item.currentTier].damageReductionDie;
         if (item.equipped) {
           // only one armor may be equipped at a time
           equippedArmor = i;
         }
-      } else if (i.type === 'container') {
+      } else if (i.type === CONFIG.MB.itemTypes.container) {
         containers.push(i);
-      } else if (i.type === 'class') {
+      } else if (i.type === CONFIG.MB.itemTypes.class) {
         sheetData.actor.data.class = i;
-      } else if (i.type === 'scroll') {
+      } else if (i.type === CONFIG.MB.itemTypes.scroll) {
         scrolls.push(i);
-      } else if (i.type === 'shield') {
+      } else if (i.type === CONFIG.MB.itemTypes.shield) {
         if (item.equipped) {
           // only one shield may be equipped at a time
           equippedShield = i;
         }
-      } else if (i.type === 'weapon') {
+      } else if (i.type === CONFIG.MB.itemTypes.weapon) {
         if (item.equipped) {
           equippedWeapons.push(i);
         }
@@ -154,18 +155,23 @@ export class MBActorSheetCharacter extends ActorSheet {
     });
 
     // Handle rollable items.
+    // sheet header
     html.find(".ability-label.rollable.strength").on("click", this._onStrengthRoll.bind(this));
     html.find(".ability-label.rollable.agility").on("click", this._onAgilityRoll.bind(this));
     html.find(".ability-label.rollable.presence").on("click", this._onPresenceRoll.bind(this));
     html.find(".ability-label.rollable.toughness").on("click", this._onToughnessRoll.bind(this));
     html.find(".omens-row .rollable").on("click", this._onOmensRoll.bind(this));
-    html.find(".attack-button").on("click", this._onAttackRoll.bind(this));
+    // violence tab
+    html.find(".attack-button").on("click", this._onAttackRoll.bind(this));    
+    html.find('.tier-radio').click(this._onArmorTierRadio.bind(this));
     html.find(".defend-button").on("click", this._onDefendRoll.bind(this));
+    // feats tab
+    html.find(".feat-button").on("click", this._onRoll.bind(this));
+    // powers tab
     html.find(".wield-power-button").on("click", this._onWieldPowerRoll.bind(this));
     html.find(".powers-per-day-text").on("click", this._onPowersPerDayRoll.bind(this));
+    // treasures (and other) tab
     html.find('.item-toggle').click(this._onToggleItem.bind(this));
-    html.find('.tier-radio').click(this._onArmorTierRadio.bind(this));
-    html.find(".special-button").on("click", this._onRoll.bind(this));
   }
 
   _onStrengthRoll(event) {

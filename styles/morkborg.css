@@ -569,10 +569,6 @@ alternately we could select as
 /* Character sheet obituary (class) tab */
 /* ====================== */
 
-.morkborg.sheet.actor .special-button {
-  min-width: 120px;
-}
-
 /* ====================== */
 /* Actor sheet violence tab */
 /* ====================== */
@@ -717,6 +713,12 @@ alternately we could select as
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .defend-rule {
   text-align: center;
+}
+/* ====================== */
+/* Actor sheet feats tab */
+/* ====================== */
+.morkborg.sheet.actor .feat-button {
+  min-width: 120px;
 }
 /* ====================== */
 /* Character sheet powers tab */
