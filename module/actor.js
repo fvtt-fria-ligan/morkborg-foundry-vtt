@@ -209,7 +209,7 @@ export class MBActor extends Actor {
         targetArmorRoll.evaluate();
         damage = Math.max(damage - targetArmorRoll.total, 0);
       }
-      takeDamage = `${game.i18n.localize('MB.Take')} ${damage}`
+      takeDamage = `${game.i18n.localize('MB.Take')} ${damage} ${game.i18n.localize('MB.Damage')}`
     } else {
       // MISS!!!
       attackOutcome = game.i18n.localize(isFumble ? 'MB.AttackFumbleText' : 'MB.Miss');
@@ -401,7 +401,7 @@ export class MBActor extends Actor {
         armorRoll.evaluate();
         damage = Math.max(damage - armorRoll.total, 0);
       }
-      takeDamage = `${game.i18n.localize('MB.Take')} ${damage}`
+      takeDamage = `${game.i18n.localize('MB.Take')} ${damage} ${game.i18n.localize('MB.Damage')}`
     }
 
     const rollResult = {
