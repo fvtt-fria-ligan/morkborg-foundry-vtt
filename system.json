@@ -24,6 +24,13 @@
       "entity": "RollTable"
     },    
     {
+      "name": "class-feats",
+      "label": "Class Feats",
+      "system": "morkborg",
+      "path": "./packs/class-feats.db",
+      "entity": "Item"
+    },    
+    {
       "name": "class-items",
       "label": "Class Items",
       "system": "morkborg",
