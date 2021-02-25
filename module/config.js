@@ -53,6 +53,7 @@ MB.itemTypes = {
   armor: "armor",
   class: "class",
   container: "container",
+  feat: "feat",
   misc: "misc",
   scroll: "scroll",
   shield: "shield",
@@ -63,10 +64,10 @@ MB.itemTypeKeys = {
   "armor": "MB.ItemTypeArmor",
   "class": "MB.ItemTypeClass",
   "container": "MB.ItemTypeContainer",
+  "feat": "MB.ItemTypeFeat",
   "misc": "MB.ItemTypeMisc",
   "scroll": "MB.ItemTypeScroll",
   "shield": "MB.ItemTypeShield",
-  "special": "MB.ItemTypeSpecial",
   "weapon": "MB.ItemTypeWeapon"  
 }
 

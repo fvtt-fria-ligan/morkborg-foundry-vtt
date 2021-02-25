@@ -69,8 +69,8 @@
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="obituary">{{ localize 'MB.TabObituary' }}</a>
-        <a class="item" data-tab="specials">{{ localize 'MB.TabSpecials' }}</a>
         <a class="item" data-tab="violence">{{ localize 'MB.TabViolence' }}</a>
+        <a class="item" data-tab="feats">{{ localize 'MB.TabFeats' }}</a>
         <a class="item" data-tab="powers">{{ localize 'MB.Powers' }}</a>
         <a class="item" data-tab="equipment">{{ localize 'MB.TabTreasures' }}</a>
     </nav>
@@ -81,35 +81,6 @@
         {{!-- Obituary Tab --}}
         <div class="tab class-tab" data-group="primary" data-tab="obituary">
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
-        </div>
-
-        {{!-- Specials Tab --}}
-        <div class="tab specials-tab" data-group="primary" data-tab="specials">
-            <ol class="items-list inventory-list">
-                <li class="items-header flexrow">
-                    <h3 class="item-name flexrow">{{localize "MB.ItemTypeSpecialPlural"}}</h3>
-                    <div class="item-controls flexrow">
-                    </div>
-                </li>  
-                <ol class="item-list">
-                    {{#each data.specials as |item id|}}
-                    <li class="item flexrow" data-item-id="{{item._id}}">
-                        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
-                        <h4 class="item-name">{{item.name}}</h4>
-                        <div class="item-buttons">
-                            {{#if item.data.rollLabel}}
-                                <button type="button" class="item-button rollable special-button" data-roll="{{item.data.rollFormula}}" data-label="{{item.data.rollLabel}}"
-                                        title="{{item.data.rollLabel}}">{{item.data.rollLabel}}</button>                            
-                            {{/if}}
-                        </div>
-                        <div class="item-controls">
-                            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                        </div>
-                    </li>
-                    {{/each}}
-                </ol>   
-            </ol>
         </div>
 
         {{!-- Violence Tab --}}
@@ -204,6 +175,37 @@
                     </div>
                 </div>
             </ol>                        
+        </div>
+
+        {{!-- Feats Tab --}}
+        <div class="tab specials-tab" data-group="primary" data-tab="feats">
+            <ol class="items-list inventory-list">
+                {{!--
+                <li class="items-header flexrow">
+                    <h3 class="item-name flexrow">{{localize "MB.ItemTypeFeatPlural"}}</h3>
+                    <div class="item-controls flexrow">
+                    </div>
+                </li>  
+                --}}
+                <ol class="item-list">
+                    {{#each data.feats as |item id|}}
+                    <li class="item flexrow" data-item-id="{{item._id}}">
+                        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+                        <h4 class="item-name">{{item.name}}</h4>
+                        <div class="item-buttons">
+                            {{#if item.data.rollLabel}}
+                                <button type="button" class="item-button rollable feat-button" data-roll="{{item.data.rollFormula}}" data-label="{{item.data.rollLabel}}"
+                                        title="{{item.data.rollLabel}}">{{item.data.rollLabel}}</button>                            
+                            {{/if}}
+                        </div>
+                        <div class="item-controls">
+                            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ol>   
+            </ol>
         </div>
 
         {{!-- Powers Tab --}}
