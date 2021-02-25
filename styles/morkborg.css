@@ -1,7 +1,7 @@
 /* ====================== */
 /* Fonts */
 /* ====================== */
-@import url("https://fonts.googleapis.com/css2?family=Oswald&family=Special+Elite&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Oswald&family=Special+Elite&display=swap");
 @font-face {
   font-family: "Blood Crow";
   src: url("../fonts/bloodcrow.ttf") format("truetype");
@@ -1173,11 +1173,12 @@ form.editable .results .result-details input[type="text"]:focus {
 }
 #chat-log .chat-message {
   background: black;
-  color: white;
   border: 3px solid#252525;
-  margin-top: 6px;
   border-radius: 0;
-  font-family: "FetteTrumpDeutsch";
+  color: white;
+  margin-top: 6px;
+  font-family: "Alegreya", serif;
+  font-size: 16px;
 }
 #chat-log .message h4,
 #chat-log .message h3,
@@ -1217,7 +1218,8 @@ form.editable .results .result-details input[type="text"]:focus {
   color: white;
   background: black;
   border: 2px solid #252525;
-  font-family: "FetteTrumpDeutsch";
+  font-family: "Alegreya", serif;
+  font-size: 16px;
 }
 #chat-form textarea:focus {
   outline: 2px solid #ffe800;
@@ -1432,6 +1434,7 @@ a.inline-roll {
 .roll-card .card-title {
   background: #ffe800;
   color: black;
+  font-family: "FetteTrumpDeutsch";
   font-size: 20px;
   margin-bottom: 10px;
   text-align: center;
@@ -1447,16 +1450,19 @@ a.inline-roll {
   font-size: 14px;
 }
 .roll-card .roll-title {
-  font-family: "FetteTrumpDeutsch";  
+  font-family: "Alegreya";
+  font-size: 16px;
+  font-weight: bold;
   text-align: center;
   text-transform: capitalize;
 }
 .roll-card .roll-result {
   border: 1px solid gray;
+  font-family: "Alegreya";
+  font-size: 18px;
   margin-bottom: 10px;
   margin-left: 10px;
   margin-right: 10px;
-  padding: 5px;
   text-align: center;
 }
 .roll-card .roll-result span {
