@@ -43,6 +43,10 @@ export class MBActorSheetCharacter extends ActorSheet {
    * @return {undefined}
    */
   _prepareCharacterItems(sheetData) {
+    const byName = (a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);
+    sheetData.actor.data.specials = sheetData.items.filter(item => item.type === 'special').sort(byName);
+
+    // TODO: make better use of filters below
     let equipment = [];
     let equippedArmor = null;
     let equippedShield = null;
@@ -161,6 +165,7 @@ export class MBActorSheetCharacter extends ActorSheet {
     html.find(".powers-per-day-text").on("click", this._onPowersPerDayRoll.bind(this));
     html.find('.item-toggle').click(this._onToggleItem.bind(this));
     html.find('.tier-radio').click(this._onArmorTierRadio.bind(this));
+    html.find(".special-button").on("click", this._onRoll.bind(this));
   }
 
   _onStrengthRoll(event) {
@@ -300,6 +305,7 @@ export class MBActorSheetCharacter extends ActorSheet {
 
     if (dataset.roll) {
       let roll = new Roll(dataset.roll, this.actor.data.data);
+      console.log(roll);
       let label = dataset.label ? `Rolling ${dataset.label}` : '';
       roll.roll().toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),

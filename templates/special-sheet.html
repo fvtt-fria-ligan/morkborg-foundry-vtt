@@ -16,6 +16,7 @@
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="description">{{ localize "MB.TabDescription" }}</a>
+        <a class="item" data-tab="details">{{ localize "MB.TabDetails" }}</a>
     </nav>
 
     {{!-- Sheet Body --}}
@@ -24,5 +25,22 @@
         <div class="tab" data-group="primary" data-tab="description">
             {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
         </div>
+
+        {{!-- Details Tab --}}
+        <div class="tab" data-group="primary" data-tab="details">
+
+            {{!-- Roll Label --}}
+            <div class="form-group">
+                <label>{{ localize "MB.RollLabel" }}:</label>
+                <input type="text" name="data.rollLabel" value="{{data.rollLabel}}" placeholder="" data-dtype="String" />
+            </div>
+
+            {{!-- Roll Formula --}}
+            <div class="form-group">
+                <label>{{ localize "MB.RollFormula" }}:</label>
+                <input type="text" name="data.rollFormula" value="{{data.rollFormula}}" placeholder="" data-dtype="String" />
+            </div>
+            
+        </div>        
     </section>
 </form>

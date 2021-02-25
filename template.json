@@ -88,7 +88,9 @@
       "templates": ["baseEquipment"]
     },
     "special": {
-      "description": ""
+      "description": "",
+      "rollFormula": "",
+      "rollLabel": ""
     },
     "weapon": {
       "templates": ["baseEquipment"],
