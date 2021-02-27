@@ -1,0 +1,22 @@
+{
+  "name": "morkborg",
+  "version": "0.2.0",
+  "description": "Unofficial system for MÖRK BORG on Foundry VTT.",
+  "scripts": {
+    "build": "gulp dist",
+    "compile": "gulp css",
+    "watch": "gulp",
+    "gulp": "gulp",
+    "lint": "eslint --fix --ext .js ./"
+  },
+  "repository": "https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt.git",
+  "author": "mcglincy",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.20.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^3.0.0"
+  }
+}
