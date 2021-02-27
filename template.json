@@ -5,30 +5,39 @@
       "common": {
         "abilities": {
           "agility": {
-            "score": 0
+            "value": 0
           },
           "presence": {
-            "score": 0
+            "value": 0
           },
           "strength": {
-            "score": 0
+            "value": 0
           },
           "toughness": {
-            "score": 0
+            "value": 0
           }
         },
         "description": "",        
         "hp": {
-          "current": 1,
-          "max": 1
+          "max": 1,
+          "value": 1
         }
       }
     },
     "character": {
       "templates": ["common"],
-      "miseries": 0,
-      "omens": 0,
-      "powerUsesRemaining": 0,
+      "miseries": {
+        "max": 7,
+        "value": 0
+      },
+      "omens": {
+        "max": 0,
+        "value": 0
+      },
+      "powerUses": {
+        "max": 0,
+        "value": 0
+      },
       "silver": 0
     },
     "creature": {

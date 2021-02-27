@@ -7,7 +7,7 @@ export const _getInitiativeFormula = function(combatant) {
   if (actor) {
     const agility = actor.data.data.attributes.agility;
     if (agility) {
-      return `1d6+${agility.score}`
+      return `1d6+${agility.value}`
     }
   }
   // default

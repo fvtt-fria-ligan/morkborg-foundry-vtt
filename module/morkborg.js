@@ -31,7 +31,7 @@ Hooks.once("init", async function() {
     // decimals: 2
     // TODO: not sure how best to deal with NPCs not having abilities. Maybe giving them some, 
     // or do the _getInitiativeFormula patch to check for ability first.
-    formula: "1d6 + @abilities.agility.score",
+    formula: "1d6 + @abilities.agility.value",
   };
 
   game.morkborg = {
