@@ -1,0 +1,1797 @@
+/* ====================== */
+/* Fonts */
+/* ====================== */
+@import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Oswald&family=Special+Elite&display=swap");
+@font-face {
+  font-family: "Blood Crow";
+  src: url("../fonts/bloodcrow.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "FetteTrumpDeutsch";
+  src: url("../fonts/FetteTrumpDeutsch.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Old Cupboard";
+  src: url("../fonts/OldCupboard.otf") format("opentype");
+}
+
+/* ====================== */
+/* Flex */
+/* ====================== */
+.flexrow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.flexrow > * {
+  flex: 1;
+}
+
+.flexrow .flex1 {
+  flex: 1;
+}
+
+.flexrow .flex2 {
+  flex: 2;
+}
+
+.flexrow .flex3 {
+  flex: 3;
+}
+
+.flexrow .flex4 {
+  flex: 4;
+}
+
+.flexcol {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.flexcol > * {
+  flex: 1;
+}
+
+.flexcol .flex1 {
+  flex: 1;
+}
+
+.flexcol .flex2 {
+  flex: 2;
+}
+
+.flexcol .flex3 {
+  flex: 3;
+}
+
+.flexcol .flex4 {
+  flex: 4;
+}
+
+/* ====================== */
+/* MorkBorg */
+/* ====================== */
+.morkborg .window-content {
+  font-size: 13px;
+  color: #191813;
+}
+
+.morkborg form {
+  height: 100%;
+}
+
+.morkborg ::-webkit-scrollbar-thumb {
+  background: darkgray;
+  border: 1px solid lightgray;
+}
+
+.morkborg ::-moz-selection {
+  background: #ffe500;
+  color: black;
+}
+
+.morkborg ::selection {
+  background: #ffe500;
+  color: black;
+}
+
+.morkborg select {
+  height: 27px;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid #7a7971;
+  border-radius: 0px;
+  padding: 0 3px;
+  text-overflow: ellipsis;
+  color: white;
+}
+
+.morkborg select:focus {
+  box-shadow: 0 0 5px #ffe500;
+  outline: none;
+}
+
+.morkborg select[multiple] {
+  height: auto;
+  padding: 3px;
+}
+
+.morkborg select > option {
+  background-color: black !important;
+  color: white !important;
+}
+
+/* ====================== */
+/* Sheet */
+/* ====================== */
+.morkborg.window-app.sheet {
+  /* TODO: decide if we want non-black-default box-shadow;
+  /*box-shadow: 0 0 10px #222222; */
+}
+
+.morkborg.sheet .window-content {
+  overflow-y: hidden;
+  padding: 5px;
+  /* inherited background is parchment img bg */
+  background: black;
+  font-size: 13px;
+  color: white;
+  border-bottom: 1px solid #222222;
+  border-left: 1px solid #222222;
+  border-right: 1px solid #222222;
+}
+
+.morkborg.sheet .window-content form {
+  height: 100%;
+  overflow: hidden;
+}
+
+.morkborg.sheet {
+  margin-top: 0;
+}
+
+.morkborg.sheet .editable .rollable:hover {
+  color: #000;
+  text-shadow: 0 0 10px #ffe500;
+  cursor: pointer;
+}
+
+.morkborg.sheet input[type="text"],
+.morkborg.sheet input[type="number"],
+.morkborg.sheet input[type="password"],
+.morkborg.sheet input[type="date"] {
+  color: white;
+  border-radius: 0;
+}
+
+.morkborg.sheet input[type="text"]:focus,
+.morkborg.sheet input[type="number"]:focus,
+.morkborg.sheet input[type="password"]:focus,
+.morkborg.sheet input[type="date"]:focus,
+.morkborg.sheet input[type="time"]:focus,
+.morkborg.sheet input[type="text"]:hover,
+.morkborg.sheet input[type="number"]:hover,
+.morkborg.sheet input[type="password"]:hover,
+.morkborg.sheet input[type="date"]:hover,
+.morkborg.sheet input[type="time"]:hover {
+  box-shadow: 0 0 5px #ffe500;
+}
+
+.morkborg.sheet select:focus {
+  box-shadow: 0 0 5px #ffe500;
+}
+
+.morkborg.sheet button:hover,
+.morkborg.sheet button:focus {
+  box-shadow: 0 0 5px #ffe500;
+}
+
+.morkborg.sheet a:hover {
+  text-shadow: 0 0 8px #ffe500;
+}
+
+.morkborg.sheet textarea {
+  border: 1px solid #7a7971;
+  border-radius: 0;
+  color: white;
+  font-family: "Special Elite", cursive;
+  font-size: 14px;
+  resize: none;
+}
+
+.morkborg.sheet textarea:hover {
+  box-shadow: 0 0 5px #ffe500;
+}
+
+.morkborg.sheet textarea:focus {
+  box-shadow: 0 0 5px #ffe500;
+  outline: none;
+}
+
+/* ====================== */
+/* TinyMCE editor */
+/* ====================== */
+.morkborg.sheet .editor {
+  color: white;
+  border: 1px solid #7a7971;
+  font-family: "Special Elite";
+}
+
+/*.morkborg.sheet .editor-content {
+  color: white;
+}
+*/
+/* TODO: see if there's a better way for us to style TinyMCE */
+/* 
+Anchor hover affects font awesome icons, like the on-hover TinyMCE edit icon:;
+  <a class="editor-edit"><i class="fas fa-edit"></i></a>
+alternately we could select as
+.morkborg.sheet .editor:hover .editor-edit:hover .fa-edit {}        
+ */
+.morkborg.sheet .tox.tox-tinymce .tox-edit-area__iframe {
+  /* TODO: how do we style font color in tinymce? 
+  color: white;
+  */
+  background: black;
+}
+
+.mce-content-body {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  color: white;
+}
+
+.morkborg .editor,
+.morkborg .editor-content {
+  height: 100%;
+  /*  font-family: 'Special Elite', cursive;
+  font-size: 12px;
+  */
+}
+
+.morkborg.sheet .editor {
+  padding: 0 8px;
+}
+
+/* ====================== */
+/* Sheet Tabs */
+/* ====================== */
+.morkborg.sheet .sheet-tabs {
+  flex: 0 0 30px;
+  margin-bottom: 5px;
+  font-family: "Modesto Condensed", "Palatino Linotype", serif;
+  font-size: 20px;
+  font-weight: 700;
+  /* TODO: track down the border-top and border-bottom getting inherited on these */
+  border-top: none;
+  border-bottom: none;
+}
+
+.morkborg.sheet .sheet-tabs .item {
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 22px;
+  height: 30px;
+  line-height: 32px;
+  margin: 0 5px;
+  width: 120px;
+}
+
+.morkborg.sheet .sheet-tabs .item:hover {
+  color: black;
+  text-shadow: 0 0 10px #ffe500;
+}
+
+.morkborg.sheet .sheet-tabs .item.active {
+  text-shadow: none;
+  background-color: #ffe500;
+  color: black;
+}
+
+/* ====================== */
+/* Sheet Body */
+/* ====================== */
+.morkborg .sheet-body {
+  overflow: hidden;
+}
+
+.morkborg .sheet-body .tab {
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* ====================== */
+/* Actor sheet */
+/* ====================== */
+.morkborg.sheet.actor .rule-text {
+  font-family: "Special Elite", cursive;
+  font-size: 10pt;
+}
+
+/* ====================== */
+/* Actor sheet header */
+/* ====================== */
+.morkborg.sheet.actor .sheet-header {
+  margin-top: 0;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+}
+
+.morkborg.sheet.actor .sheet-header .header-gutter-col {
+  flex: 0 0 10px;
+}
+
+.morkborg.sheet.actor .sheet-header .profile-img {
+  height: 200px;
+  width: 200px;
+  margin: 0;
+  padding: 0;
+}
+
+.morkborg.sheet.actor .stat-label {
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 22px;
+  margin-right: 10px;
+}
+
+.morkborg.sheet.actor .stat-input {
+  border: 1px solid #7a7971;
+  font-family: "Special Elite", cursive;
+  font-size: 14pt;
+  text-align: center;
+  padding-top: 8px;
+  width: 50px;
+  color: white;
+}
+
+.morkborg.sheet.actor .stat-value {
+  font-family: "Special Elite", cursive;
+  font-size: 14pt;
+  text-align: center;
+  width: 50px;
+  color: white;
+}
+
+/* ====================== */
+/* Character sheet */
+/* ====================== */
+.morkborg.sheet.actor.character {
+  min-width: 742px;
+  min-height: 650px;
+}
+
+/* ====================== */
+/* Character sheet header */
+/* ====================== */
+.morkborg.sheet.actor.character .sheet-header {
+  flex: 0 0 200px;
+}
+
+.morkborg.sheet.actor.character .sheet-header .header-col1 {
+  flex: 0 0 200px;
+  margin: 5px;
+  padding: 0;
+}
+
+.morkborg.sheet.actor.character .sheet-header .header-col2 {
+  flex: 1 0 350px;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.morkborg.sheet.actor.character .sheet-header .header-col3 {
+  flex: 0 0 120px;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.morkborg.sheet.actor.character .sheet-header .profile-img {
+  height: 200px;
+  width: 200px;
+}
+
+.morkborg.sheet.actor input[type="text"].actor-name {
+  font-family: "Blood Crow", fantasy, serif;
+  font-size: 38px;
+}
+
+.morkborg.sheet.actor.character .sheet-header .name-row {
+  flex: 0 0 50px;
+  margin-bottom: 7px;
+}
+
+.morkborg.sheet.actor.character .sheet-header .name-row input[type="text"] {
+  height: 45px;
+  width: 100%;
+}
+
+.morkborg.sheet.actor.character .sheet-header .classname-row {
+  flex: 0 0 30px;
+  margin-bottom: 7px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.morkborg.sheet.actor.character .sheet-header .classname-row span.class-label {
+  border: 1px solid green;
+  /* flex: 0 0 60px; */
+}
+
+.morkborg.sheet.actor.character .sheet-header .classname-row img.classimg {
+  height: 24px;
+  width: 24px;
+  flex: 0 0 24px;
+  margin-right: 5px;
+}
+
+.morkborg.sheet.actor.character .sheet-header .classname-row label.classname {
+  font-family: "Old Cupboard", serif;
+  font-size: 28px;
+  width: 100%;
+}
+
+.morkborg.sheet.actor.character .sheet-header .classname-row .item-controls {
+  flex: 0 0 35px;
+  text-align: right;
+  margin-right: 0;
+  /* TODO: fix vertical alignment in a better way */
+  padding-top: 6px;
+}
+
+.morkborg.sheet.actor.character .sheet-header .hitpoints-row {
+  flex: 0 0 30px;
+  margin-bottom: 7px;
+}
+
+.morkborg.sheet.actor.character .sheet-header .omens-row {
+  flex: 0 0 30px;
+  margin-bottom: 7px;
+}
+
+.morkborg.sheet.actor.character .sheet-header .omen-rule {
+  margin-left: 10px;
+  text-transform: lowercase;
+}
+
+.morkborg.sheet.actor.character .sheet-header .miseries-row {
+  flex: 0 0 30px;
+}
+
+.morkborg.sheet.actor.character .sheet-header .stat-label {
+  text-align: right;
+  width: 140px;
+  float: left;
+}
+
+.morkborg.sheet.actor.character .sheet-header .miseries-label {
+  float: left;
+}
+
+.morkborg.sheet.actor.character .sheet-header ul.miseries {
+  list-style-type: none;
+  margin: 0;
+  margin-top: 3px;
+  padding: 0;
+  float: left;
+}
+
+.morkborg.sheet.actor.character .sheet-header ul.miseries li {
+  float: left;
+}
+
+.morkborg.sheet.actor.character .sheet-header ul.miseries label {
+  display: block;
+  padding: 4px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.morkborg.sheet.actor.character
+.sheet-header
+ul.miseries
+label
+input[type="radio"] {
+  display: none;
+}
+
+.morkborg.sheet.actor.character
+.sheet-header
+ul.miseries
+input[type="radio"]:checked
++ span {
+  background: #ffe500;
+  color: #000;
+  border: none;
+}
+
+.morkborg.sheet.actor.character .sheet-header ul.miseries label span {
+  border: 1px solid #7a7971;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  overflow: hidden;
+  line-height: 1.5;
+  text-align: center;
+  border-radius: 100%;
+  font-size: 10pt;
+  font-family: "Special Elite", cursive;
+  left: 0;
+  top: 50%;
+}
+
+.morkborg.sheet.actor.character
+.sheet-header
+ul.miseries
+li:last-child
+label
+span {
+  background: white;
+  color: black;
+}
+
+.morkborg.sheet.actor.character .sheet-header .ability-row {
+  margin-bottom: 10px;
+}
+
+.morkborg.sheet.actor.character .sheet-header .ability-row:last-child {
+  margin-bottom: 0;
+}
+
+.morkborg.sheet.actor.character .sheet-header .ability-label {
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 24px;
+  margin-left: 5px;
+  margin-top: 5px;
+  float: left;
+}
+
+.morkborg.sheet.actor.character .sheet-header .ability-input {
+  border: 1px solid #7a7971;
+  font-family: "Special Elite", cursive;
+  font-size: 14pt;
+  text-align: center;
+  padding: 5px;
+  padding-top: 10px;
+  line-height: 1.5;
+  width: 42px;
+  height: 42px;
+  float: left;
+  border-radius: 0;
+  color: white;
+}
+
+/* ====================== */
+/* Item list */
+/* ====================== */
+.morkborg .items-list .items-header {
+  height: 28px;
+  margin: 2px 0;
+  padding: 0;
+  align-items: center;
+}
+
+.morkborg .items-list .items-header > * {
+  font-size: 12px;
+  text-align: center;
+}
+
+.morkborg .items-list .items-header .item-name {
+  /*padding-left: 5px;*/
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 24px;
+}
+
+.morkborg .item-list {
+  list-style: none;
+  margin: 7px 0;
+  padding: 0;
+  overflow-y: auto;
+}
+
+.morkborg .item-list .item {
+  min-height: 30px;
+  line-height: 24px;
+  padding: 3px 0;
+  border-bottom: 1px solid #7a7971;
+  align-items: stretch;
+}
+
+.morkborg .item-list .item img {
+  flex: 0 0 24px;
+  margin-right: 5px;
+}
+
+.morkborg .item-list .item-name {
+  margin: 0;
+  font-family: "Special Elite", cursive;
+  font-size: 12pt;
+}
+
+.morkborg .item-list .item-fields {
+  font-family: "Special Elite", cursive;
+  font-size: 12pt;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 10px;
+  flex: 2;
+}
+
+.morkborg .item-list .item-field {
+  margin-right: 20px;
+}
+
+.morkborg .item-list .item-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: right;
+  flex: 1;
+  justify-content: flex-start;
+}
+
+.morkborg .item-list .item-controls {
+  flex: 0 0 70px;
+  text-align: right;
+}
+
+.morkborg.sheet.actor .sheet-body .item-controls .item-toggle {
+  color: darkgray;
+}
+
+.morkborg.sheet.actor .sheet-body .item-controls .item-toggle.equipped {
+  color: #ffe500;
+}
+
+.morkborg .item-list .item-button {
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 20px;
+  flex: none;
+  width: auto;
+  color: white;
+  background-color: white;
+  color: black;
+  border: none;
+  border-bottom: 2px solid #777;
+  border-radius: 0;
+}
+
+.morkborg .item-list .equipped {
+  color: white;
+}
+
+.morkborg .item-list .unequipped {
+  color: gray;
+}
+
+/* ====================== */
+/* Character sheet obituary (class) tab */
+/* ====================== */
+/* ====================== */
+/* Actor sheet violence tab */
+/* ====================== */
+.morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item {
+  align-items: center;
+}
+
+.morkborg.sheet.actor
+.sheet-body
+.violence-tab
+.item-list.weapon-list
+.item-button {
+  font-size: 20px;
+  width: 120px;
+}
+
+.morkborg.sheet.actor .sheet-body .violence-tab .item-list .item-name {
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.morkborg.sheet.actor .sheet-body .violence-tab .item-list .item-fields {
+  font-size: 16px;
+  margin-top: 6px;
+}
+
+.morkborg.sheet.actor .sheet-body .violence-tab .item-list .versus-armor {
+  margin-left: 10px;
+}
+
+.morkborg.sheet.actor .sheet-body .violence-tab .attack-rule {
+  text-align: center;
+}
+
+.morkborg.sheet.actor .sheet-body .violence-tab .violence-gutter {
+  height: 10px;
+}
+
+.morkborg.sheet.actor .sheet-body .violence-tab .tier-label {
+  float: left;
+  font-size: 20;
+  margin-right: 10px;
+}
+
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers {
+  list-style-type: none;
+  margin: 0;
+  margin-top: 3px;
+  padding: 0;
+  float: left;
+}
+
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers li {
+  float: left;
+  height: 45px;
+}
+
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers label {
+  display: block;
+  padding: 4px;
+  position: relative;
+  padding-left: 32px;
+}
+
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type="radio"] {
+  display: none;
+}
+
+.morkborg.sheet.actor
+.sheet-body
+.violence-tab
+ul.tiers
+input[type="radio"]:checked
++ span.tier-num {
+  background: #ffe500;
+  color: #000;
+  border: none;
+}
+
+.morkborg.sheet.actor
+.sheet-body
+.violence-tab
+ul.tiers
+input[type="radio"]:disabled
++ span.tier-num {
+  color: #444444;
+  border: 1px solid #444444;
+}
+
+.morkborg.sheet.actor
+.sheet-body
+.violence-tab
+ul.tiers
+input[type="radio"]:disabled
+~ span.tier-dmg {
+  color: #444444;
+}
+
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers span.tier-num {
+  border: 1px solid #7a7971;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  overflow: hidden;
+  line-height: 1.5;
+  text-align: center;
+  border-radius: 100%;
+  font-size: 14pt;
+  font-family: "Special Elite", cursive;
+  left: 0;
+  /*top: 50%; */
+  top: 0%;
+}
+
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers span.tier-dmg {
+  width: 30px;
+  height: 15px;
+  position: absolute;
+  overflow: hidden;
+  line-height: 1;
+  text-align: center;
+  font-family: "Special Elite", cursive;
+  font-size: 10pt;
+  left: -5px;
+  top: 30px;
+}
+
+.morkborg.sheet.actor .sheet-body .violence-tab .underarmor-row {
+  margin-top: 0px;
+  display: flex;
+  flex-direction: row;
+}
+
+.morkborg.sheet.actor
+.sheet-body
+.violence-tab
+.underarmor-row
+.incoming-attack {
+  flex: 1;
+  text-align: center;
+}
+
+.morkborg.sheet.actor .sheet-body .violence-tab .incoming-attack button {
+  margin-left: 10px;
+  width: 120px;
+  margin-bottom: 10px;
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 20px;
+  background-color: white;
+  color: black;
+  border: none;
+  border-bottom: 2px solid #777;
+  border-radius: 0;
+}
+
+.morkborg.sheet.actor .sheet-body .violence-tab .shield-rule {
+  margin-top: 5px;
+}
+
+.morkborg.sheet.actor .sheet-body .violence-tab .defend-rule {
+  text-align: center;
+}
+
+/* ====================== */
+/* Actor sheet feats tab */
+/* ====================== */
+.morkborg.sheet.actor .feat-button {
+  min-width: 120px;
+}
+
+/* ====================== */
+/* Character sheet powers tab */
+/* ====================== */
+.morkborg.sheet.actor.character .sheet-body .powers-top-row {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.morkborg.sheet.actor.character .sheet-body .wield-power {
+  flex: 0 0 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.morkborg.sheet.actor.character .sheet-body .powers-gutter {
+  flex: 0 0 20px;
+}
+
+.morkborg.sheet.actor.character .sheet-body .wield-power-button {
+  width: 200px;
+  margin-bottom: 10px;
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 24px;
+  background-color: white;
+  color: black;
+  border: none;
+  border-bottom: 2px solid #777;
+  border-radius: 0;
+}
+
+.morkborg.sheet.actor.character .sheet-body .wield-rule {
+  text-align: center;
+}
+
+.morkborg.sheet.actor.character .sheet-body div.uses-remaining {
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.morkborg.sheet.actor.character .sheet-body .uses-remaining div {
+  margin-bottom: 20px;
+}
+
+/* ====================== */
+/* Character sheet treasures (equipment) tab */
+/* ====================== */
+.morkborg.sheet.actor .sheet-body .equipment-top-row {
+  margin-top: 10px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.morkborg.sheet.actor .sheet-body .silver {
+  flex: 0 0 200px;
+}
+
+.morkborg.sheet.actor .sheet-body .silver-input {
+  width: 70px;
+}
+
+.morkborg.sheet.actor.character .sheet-body .carry-block {
+  flex: 1;
+  text-align: center;
+}
+
+.morkborg.sheet.actor.character .sheet-body .container-label {
+  margin-left: 40px;
+}
+
+.morkborg.sheet.actor.character .sheet-body .encumbered {
+  color: #ffe500;
+}
+
+/*
+TODO: figure out if we want a 2-col inventory
+.morkborg.sheet.actor .sheet-body .equipment-tab .item-list {
+  columns: 2;
+}
+*/
+/* ====================== */
+/* Creature sheet */
+/* ====================== */
+.morkborg.sheet.actor .roll-button {
+  margin-left: 10px;
+  width: 120px;
+  margin-bottom: 10px;
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 20px;
+  background-color: white;
+  color: black;
+  border: none;
+  border-bottom: 2px solid #777;
+  border-radius: 0;
+}
+
+.morkborg.sheet.actor.creature .sheet-header {
+  margin-top: 0;
+  flex: 0 0 90px;
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+}
+
+.morkborg.sheet.actor.creature .sheet-header .header-col1 {
+  flex: 0 0 100px;
+}
+
+.morkborg.sheet.actor.creature .sheet-header .header-col2 {
+  flex: 1;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.morkborg.sheet.actor.creature .sheet-header .profile-img {
+  height: 100px;
+  width: 100px;
+}
+
+.morkborg.sheet.actor.creature .sheet-header .name-row {
+  flex: 0 0 45px;
+  margin-bottom: 10px;
+  padding-left: 12px;
+  width: 100%;
+}
+
+.morkborg.sheet.actor.creature .sheet-header input[type="text"].creature-name {
+  height: 45px;
+}
+
+.morkborg.sheet.actor.creature .sheet-header .altname-row {
+  flex: 0 0 30px;
+  margin-bottom: 8px;
+  padding-left: 12px;
+}
+
+.morkborg.sheet.actor.creature .sheet-header .altname-row input[type="text"] {
+  font-family: "Old Cupboard", serif;
+  font-size: 24px;
+}
+
+.morkborg.sheet.actor.creature .sheet-header .hitpoints-row {
+  flex: 0 0 35px;
+  margin-left: 14px;
+}
+
+.morkborg.sheet.item .sheet-body {
+  margin-top: 8px;
+  padding: 5px;
+}
+
+.morkborg.sheet.creature .sheet-body .form-group {
+  margin-bottom: 8px;
+}
+
+.morkborg.sheet.creature .sheet-body .form-group label {
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 20px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.morkborg.sheet.creature .sheet-body .form-group input {
+  font-family: "Special Elite", cursive;
+  font-size: 14pt;
+}
+
+.morkborg.sheet.creature .sheet-body .form-group select {
+  font-family: "Special Elite", cursive;
+  font-size: 14pt;
+}
+
+.morkborg.sheet.creature .sheet-body .form-group.special {
+  flex: 1;
+}
+
+/* ====================== */
+/* Item sheet */
+/* ====================== */
+.morkborg.sheet.item .sheet-header {
+  margin-top: 0;
+  flex: 0 0 90px;
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+}
+
+.morkborg.sheet.item .sheet-header .item-name input[type="text"] {
+  font-family: "Blood Crow", fantasy, serif;
+  font-size: 38px;
+  flex: 1;
+  height: 45px;
+}
+
+.morkborg.sheet.item .sheet-header .item-subtitle {
+  font-family: "Old Cupboard", serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-left: 13px;
+}
+
+.morkborg.sheet.item .sheet-body {
+  margin-top: 8px;
+  padding: 5px;
+  padding-right: 5px;
+}
+
+.morkborg.sheet.item .sheet-body .form-group {
+  margin-bottom: 8px;
+}
+
+.morkborg.sheet.item .sheet-body .form-group label {
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 20px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.morkborg.sheet.item .sheet-body .form-group input {
+  font-family: "Special Elite", cursive;
+  font-size: 14pt;
+}
+
+.morkborg.sheet.item .sheet-body .form-group select {
+  font-family: "Special Elite", cursive;
+  font-size: 14pt;
+}
+
+/* ====================== */
+/* Follower sheet */
+/* ====================== */
+.morkborg.sheet.actor.follower .sheet-header {
+  margin-top: 0;
+  flex: 0 0 90px;
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+}
+
+.morkborg.sheet.actor.follower .sheet-header .header-col1 {
+  flex: 0 0 100px;
+}
+
+.morkborg.sheet.actor.follower .sheet-header .header-col2 {
+  flex: 1;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.morkborg.sheet.actor.follower .sheet-header .profile-img {
+  height: 100px;
+  width: 100px;
+}
+
+.morkborg.sheet.actor.follower .sheet-header .name-row {
+  flex: 0 0 45px;
+  margin-bottom: 10px;
+  padding-left: 12px;
+  width: 100%;
+}
+
+.morkborg.sheet.actor.follower .sheet-header input[type="text"].follower-name {
+  height: 45px;
+}
+
+.morkborg.sheet.actor.follower .sheet-header .altname-row {
+  flex: 0 0 30px;
+  padding-left: 12px;
+  margin-bottom: 8px;
+}
+
+.morkborg.sheet.actor.follower .sheet-header .altname-row input[type="text"] {
+  font-family: "Old Cupboard", serif;
+  font-size: 24px;
+}
+
+.morkborg.sheet.actor.follower .sheet-header .hitpoints-row {
+  flex: 0 0 35px;
+  margin-left: 14px;
+}
+
+.morkborg.sheet.item .sheet-body {
+  margin-top: 8px;
+  padding: 5px;
+}
+
+.morkborg.sheet.follower .sheet-body .form-group {
+  margin-bottom: 8px;
+}
+
+.morkborg.sheet.follower .sheet-body .form-group label {
+  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-size: 20px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.morkborg.sheet.follower .sheet-body .form-group input {
+  font-family: "Special Elite", cursive;
+  font-size: 14pt;
+}
+
+.morkborg.sheet.follower .sheet-body .form-group select {
+  font-family: "Special Elite", cursive;
+  font-size: 14pt;
+}
+
+.morkborg.sheet.follower .sheet-body .form-group.special {
+  flex: 1;
+}
+
+/* ====================== */
+/* UI/Dialog fixes */
+/* ====================== */
+/* TODO: figure out the right class/level to fix this stuff */
+.form-group input[type="text"] {
+  color: white;
+}
+
+.form-group input[type="text"]:hover {
+  box-shadow: 0 0 10px #fff160;
+}
+
+.form-group input[type="text"]:focus {
+  box-shadow: 0 0 10px #fff160;
+}
+
+.form-group textarea {
+  color: white;
+}
+
+.form-group textarea:hover {
+  box-shadow: 0 0 10px #fff160;
+}
+
+.form-group textarea:focus {
+  box-shadow: 0 0 10px #fff160;
+  outline: none;
+}
+
+form button {
+  color: white;
+}
+
+form button:hover {
+  box-shadow: 0 0 10px #fff160;
+}
+
+a:hover {
+  text-shadow: 0 0 8px #fff160;
+}
+
+input[type="text"] {
+  color: white;
+}
+
+input[type="text"]:hover {
+  box-shadow: 0 0 10px #fff160;
+}
+
+input[type="text"]:focus {
+  box-shadow: 0 0 10px #fff160;
+}
+
+/*form.editable .results .table-result {
+  color: white;
+}
+form.editable .results .table-result {
+  color: white;
+}*/
+form.editable .results .result-image img {
+  background-color: white;
+}
+
+form.editable .results .result-type select {
+  color: white;
+}
+
+form.editable .results .result-type select:hover {
+  box-shadow: 0 0 10px #fff160;
+}
+
+form.editable .results .result-type select:focus {
+  box-shadow: 0 0 10px #fff160;
+}
+
+form.editable .results .result-details select {
+  color: white;
+}
+
+form.editable .results .result-details select:hover {
+  box-shadow: 0 0 10px #fff160;
+}
+
+form.editable .results .result-details select:focus {
+  box-shadow: 0 0 10px #fff160;
+}
+
+form.editable .results .result-details input[type="text"] {
+  color: white;
+}
+
+form.editable .results .result-details input[type="text"]:hover {
+  box-shadow: 0 0 10px #fff160;
+}
+
+form.editable .results .result-details input[type="text"]:focus {
+  box-shadow: 0 0 10px #fff160;
+}
+
+.table-results .table-result .result-text .entity-link {
+  color: black;
+  background-color: #fff160;
+}
+
+/* Fixes Module Management dialog */
+#module-management .package-list .package-title,
+#module-management .package-list .package-metadata,
+#module-management .package-list .package-description {
+  color: white;
+}
+
+/* Fixes hard-to-read dark text on various system Dialogs */
+.window-app .window-content .notes {
+  color: #fff160;
+}
+
+.window-app .window-content form .form-header {
+  color: white;
+}
+
+.window-app .window-content form .notes {
+  color: #fff160;
+}
+
+.window-app .window-content .form-group span.units {
+  color: #fff160;
+}
+
+.window-app .window-content .form-group input {
+  color: white;
+}
+
+.window-app .window-content .form-group input:hover {
+  box-shadow: 0 0 10px #fff160;
+}
+
+.window-app .window-content .form-group input:focus {
+  box-shadow: 0 0 10px #fff160;
+}
+
+/* Fix readonly input on defend dialog */
+.window-app .window-content .form-group input.readonly {
+  color: gray;
+}
+
+.window-app .window-content .form-group input:hover.readonly {
+  box-shadow: none;
+  cursor: default;
+}
+
+.window-app .window-content .form-group input:focus.readonly {
+  box-shadow: none;
+  cursor: default;
+}
+
+/* Fixes Journal image select dialog */
+.journal-sheet.image-popout .window-content .form-group input {
+  color: black;
+}
+
+.journal-sheet.image-popout .window-content .form-group.picker button.file-picker {
+  background-color: black;
+}
+
+.journal-sheet form select:hover {
+  box-shadow: 0 0 10px #fff160;
+}
+
+.journal-sheet form select:focus {
+  box-shadow: 0 0 10px #fff160;
+}
+
+.journal-sheet form .form-group.title input[type="text"] {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.journal-sheet form .form-group.picker input[type="text"].image {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Fix Player Configuration dialog */
+#player-config form .form-group label {
+  color: white;
+}
+
+#player-config form .form-group .directory-list .actor.directory-item {
+  border-bottom-color: none;
+  border-top-color: none;
+}
+
+#player-config form .form-group .directory-list .actor.directory-item.context {
+  border-bottom-color: #ffe800;
+  border-top-color: #ffe800;
+  box-shadow: 0 0 5px #ffe800;
+}
+
+/* ====================== */
+/* UI / Chat */
+/* ====================== */
+.morkborg .button {
+  background: white;
+  color: black;
+  font-family: "FetteTrumpDeutsch";
+}
+
+#chat-controls {
+  color: white;
+}
+
+#chat-controls i.fas:hover {
+  color: #ffe800;
+  text-shadow: 0 0 5px #fff160;
+}
+
+#chat-controls .roll-type-select {
+  color: white;
+  background: black;
+}
+
+#chat-controls select:focus {
+  box-shadow: 0 0 10px #fff160;
+}
+
+#chat-log {
+  background: black;
+}
+
+#chat-log .chat-message {
+  background: black;
+  border: 3px solid #252525;
+  border-radius: 0;
+  color: white;
+  margin-top: 6px;
+  font-family: "Alegreya", serif;
+  font-size: 16px;
+}
+
+#chat-log .message h4,
+#chat-log .message h3,
+#chat-log .message h2,
+#chat-log .message-metadata {
+  color: white;
+}
+
+#chat-log .message h2 {
+  background: #ffe800;
+  color: black;
+}
+
+#chat-log .chat-message .message-header .message-sender {
+  font-family: "Blood Crow", fantasy, serif;
+  font-size: 20px;
+}
+
+#chat-log .chat-message .message-header .message-metadata {
+  font-family: "Oswald", sans-serif;
+  font-size: 12px;
+}
+
+#chat-log .chat-message .message-header span.flavor-text {
+  font-family: "Oswald", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+}
+
+#chat-log .message .dice-formula,
+#chat-log .message .dice-total {
+  font-size: 16px;
+  border: 1px solid #252525;
+  border-radius: 0;
+}
+
+/* #chat-log .flavor-text {
+  color: white;
+  font-size: 13.5px;
+} */
+#chat-form textarea {
+  color: white;
+  background: black;
+  border: 2px solid #252525;
+  font-family: "Alegreya", serif;
+  font-size: 16px;
+}
+
+#chat-form textarea:focus {
+  outline: 2px solid #ffe800;
+  box-shadow: 0 0 10px #fff160;
+}
+
+#client-settings button {
+  color: black;
+  background: white;
+}
+
+#client-settings h2 {
+  border-bottom: none;
+  background: #ffe800;
+  color: black;
+  font-family: "FetteTrumpDeutsch";
+}
+
+#client-settings select {
+  color: white;
+  background: black;
+}
+
+#client-settings select:focus {
+  outline: none;
+  box-shadow: 0 0 5px #ffe800;
+}
+
+#controls {
+  color: white;
+  background: black;
+}
+
+#controls .control-tool.toggle {
+  background: black;
+  border: 1px solid #252525;
+}
+
+#controls .control-tool.toggle.active {
+  background: black;
+  text-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px #fff160;
+}
+
+#controls .control-tools {
+  color: white;
+  background: black;
+}
+
+#controls .control-tool.active,
+#controls .control-tool:hover,
+#controls .scene-control.active,
+#controls .scene-control:hover {
+  color: white;
+  border: 1px solid #ffe800;
+  box-shadow: 0 0 10px #fff160;
+}
+
+#controls .scene-control.active {
+  color: white;
+  border: 1px solid #ffe800;
+  box-shadow: 0 0 10px #fff160;
+}
+
+.dialog .dialog-buttons button {
+  background: white;
+  color: black;
+  font-family: "FetteTrumpDeutsch";
+}
+
+.dialog .dialog-buttons button.default {
+  background: white;
+  color: black;
+  font-family: "FetteTrumpDeutsch";
+}
+
+form .form-group select {
+  color: white;
+  background: black;
+}
+
+form .form-group select:focus {
+  box-shadow: 0 0 10px #ffe800;
+}
+
+#hotbar #hotbar-directory-controls {
+  background: black;
+  color: white;
+}
+
+#navigation #nav-toggle {
+  background: black;
+  color: white;
+}
+
+#navigation #scene-list .scene.view {
+  background: black;
+  color: white;
+  border: 1px solid #ffe800;
+  box-shadow: 0 0 10px #fff160;
+}
+
+#navigation #scene-list .scene.gm {
+  border: 1px solid #252525;
+  background: black;
+}
+
+#players {
+  background: black;
+  color: white;
+}
+
+select:focus {
+  color: white;
+  background: black;
+}
+
+#settings button {
+  color: black;
+  background: white;
+  font-family: "FetteTrumpDeutsch";
+}
+
+#sidebar {
+  background: black;
+  color: white;
+}
+
+#sidebar.collapsed #sidebar-tabs > .item.active {
+  border-bottom: 1px solid #ffe800;
+  border-radius: 5px;
+}
+
+#sidebar-tabs {
+  background: black;
+  color: white;
+  border-bottom: 1px solid #ffe800;
+  box-shadow: 0 0 10px #fff160;
+}
+
+#sidebar-tabs > .item.active {
+  color: black;
+  background: #ffe500;
+  border: 1px solid #ffe800;
+  border-bottom: none;
+  box-shadow: 0 0 6px inset #fff160;
+  text-shadow: 0 0 10px #ffe800;
+}
+
+.sidebar-tab .action-buttons button {
+  background: white;
+  color: black;
+  border-radius: 0;
+  font-family: "FetteTrumpDeutsch";
+}
+
+.sidebar-tab .directory-header .header-search input {
+  background: black;
+  color: white;
+  border: 1px solid #252525;
+  border-radius: 0;
+  font-family: "FetteTrumpDeutsch";
+}
+
+.sidebar-tab .directory-header .header-search input[type="text"]:focus {
+  box-shadow: 0 0 5px #ffe800;
+}
+
+.sidebar-tab .directory-list .directory-item h4 {
+  font-family: "Special Elite";
+}
+
+.tabs .item.active,
+.tabs .item:hover {
+  text-shadow: 0 0 10px #ffe800;
+}
+
+::-webkit-scrollbar-thumb {
+  outline: none;
+  border-radius: 3px;
+  background: #ffe800 !important;
+  border: 1px solid black !important;
+}
+
+.window-app .window-content {
+  background: black;
+  color: white;
+}
+
+/* ================== 11. JOURNAL ENTRIES =================== */
+.window-app.app.journal-sheet .window-content {
+  background: white;
+  color: black;
+  background-position: -43px -120px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  padding: 0px;
+  margin: 0px;
+  font-family: "Special Elite";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.window-app.app.journal-sheet .window-content h1 {
+  font-family: "FetteTrumpDeutsch";
+  border-bottom: 2px solid #222222;
+}
+
+.window-app.app.journal-sheet .window-content h2 {
+  border-bottom: 1px solid #252525;
+}
+
+.journal-sheet form button[type="submit"] {
+  background: black;
+}
+
+.journal-sheet form input[name="name"] {
+  color: black;
+  font-family: "FetteTrumpDeutsch";
+  font-size: 32px;
+}
+
+.journal-sheet form select {
+  font-family: "Special Elite";
+}
+
+a.entity-link,
+a.inline-roll {
+  background: black;
+  color: white;
+  padding: 1px 4px;
+  border: 1px solid black;
+  border-radius: 2px;
+  white-space: nowrap;
+  word-break: break-all;
+}
+
+/* ====================== */
+/* Roll Cards */
+/* ====================== */
+.roll-card {
+  border: 1px solid #ffe800;
+}
+
+.roll-card .card-title {
+  background: #ffe800;
+  color: black;
+  font-family: "FetteTrumpDeutsch";
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.roll-card .item-row {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.roll-card .item-row span.item-name {
+  color: white;
+  font-family: "Special Elite";
+  font-size: 14px;
+}
+
+.roll-card .roll-title {
+  font-family: "Alegreya";
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.roll-card .roll-result {
+  border: 1px solid gray;
+  font-family: "Alegreya";
+  font-size: 18px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.roll-card .roll-result span {
+  color: white;
+  font-size: 20px;
+}
+
+.roll-card .outcome-text {
+  font-family: "Old Cupboard", serif;
+  font-size: 28px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.roll-card .reaction-text {
+  font-family: "Old Cupboard", serif;
+  font-size: 28px;
+  text-align: center;
+}
+
+.roll-card .outcome-text .attack-outcome,
+.roll-card .outcome-text .defend-outcome {
+  margin-left: 10px;
+}
+
+.roll-card .outcome-text .attack-outcome,
+.roll-card .outcome-text .defend-outcome,
+.roll-card .outcome-text .take-damage {
+  background-color: #ffe800;
+  color: black;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.dr-modifier {
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+/* ====================== */
+/* Custom Dialogs */
+/* ====================== */
+.custom-dialog .form-group {
+  margin-bottom: 10px;
+}
+
+.custom-dialog .form-group label {
+  font-family: "FetteTrumpDeutsch";
+  font-size: 20px;
+  margin-right: 10px;
+  text-align: right;
+}
+
+.dialog-button.attack,
+.dialog-button.create {
+  font-family: "FetteTrumpDeutsch";
+  font-size: 20px;
+}
+
+.dialog-buttons button.dialog-button:active,
+.dialog-buttons button.dialog-button:focus,
+.dialog-buttons button.dialog-button:hover {
+  box-shadow: 0 0 5px #ffe500;
+  text-shadow: 0 0 10px #ffe500;
+}

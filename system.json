@@ -2,12 +2,12 @@
   "name": "morkborg",
   "title": "MÖRK BORG",
   "description": "Foundry VTT system for MÖRK BORG.",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "templateVersion": 2,
   "author": "mcglincy",
   "scripts": [],
   "esmodules": ["module/morkborg.js"],
-  "styles": ["styles/morkborg.css"],
+  "styles": ["css/morkborg.css"],
   "packs": [
     {
       "name": "armor",
