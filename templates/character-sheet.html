@@ -27,7 +27,7 @@
             </div>
             <div class="omens-row">
                 <span class="stat-label">{{ localize "MB.Omens" }}:</span>
-                <input class="stat-input" name="data.omens" type="number" value="{{data.omens}}" data-dtype="Number"/>
+                <input class="stat-input" name="data.omens.value" type="number" value="{{data.omens.value}}" data-dtype="Number"/>
                 <span class="rule-text omen-rule rollable">{{data.class.data.omenDie}} {{ localize "MB.PerRest"}}</span>
             </div>
             <div class="miseries-row">
@@ -48,19 +48,19 @@
         </div>
         <div class="header-col3">
           <div class="ability-row">
-            <input class="ability-input" type="text" name="data.abilities.strength.score" value="{{numberFormat data.abilities.strength.score decimals=0 sign=true}}" data-dtype="Number" size="3" />
+            <input class="ability-input" type="text" name="data.abilities.strength.value" value="{{numberFormat data.abilities.strength.value decimals=0 sign=true}}" data-dtype="Number" size="3" />
             <span class="ability-label rollable strength">{{ localize 'MB.AbilityStrengthAbbrev' }}</span>
           </div>
           <div class="ability-row">
-            <input class="ability-input" type="text" name="data.abilities.agility.score" value="{{numberFormat data.abilities.agility.score decimals=0 sign=true}}" data-dtype="Number" size="3" />
+            <input class="ability-input" type="text" name="data.abilities.agility.value" value="{{numberFormat data.abilities.agility.value decimals=0 sign=true}}" data-dtype="Number" size="3" />
             <span class="ability-label rollable agility">{{ localize 'MB.AbilityAgilityAbbrev' }}</span>
           </div>
           <div class="ability-row">
-            <input class="ability-input" type="text" name="data.abilities.presence.score" value="{{numberFormat data.abilities.presence.score decimals=0 sign=true}}" data-dtype="Number" size="3" />
+            <input class="ability-input" type="text" name="data.abilities.presence.value" value="{{numberFormat data.abilities.presence.value decimals=0 sign=true}}" data-dtype="Number" size="3" />
             <span class="ability-label rollable presence">{{ localize 'MB.AbilityPresenceAbbrev' }}</span>
           </div>
           <div class="ability-row">
-            <input class="ability-input" type="text" name="data.abilities.toughness.score" value="{{numberFormat data.abilities.toughness.score decimals=0 sign=true}}" data-dtype="Number" size="3" />
+            <input class="ability-input" type="text" name="data.abilities.toughness.value" value="{{numberFormat data.abilities.toughness.value decimals=0 sign=true}}" data-dtype="Number" size="3" />
             <span class="ability-label rollable toughness">{{ localize 'MB.AbilityToughnessAbbrev' }}</span>
           </div>
         </div>
@@ -99,7 +99,7 @@
                             <span class="item-field">{{item.data.damageDie}}</span>
                         </div>
                         <div class="item-buttons">
-                            <button type="button" class="item-button rollable attack-button" data-roll="d20+@abilities.strength.score" data-label="attack_{{item._id}}"
+                            <button type="button" class="item-button rollable attack-button" data-roll="d20+@abilities.strength.value" data-label="attack_{{item._id}}"
                                     title="{{localize 'MB.Attack'}}">{{localize 'MB.Attack'}}</button>
                         </div>
                         <div class="item-controls">
@@ -214,15 +214,15 @@
                 <div class="powers-gutter">
                 </div>
                 <div class="wield-power">
-                    <button type="button" class="rollable wield-power-button" data-roll="d20+@abilities.presence.score" data-label="{{localize 'MB.WieldAPower'}}" >{{localize "MB.WieldAPower"}}</button>
+                    <button type="button" class="rollable wield-power-button" data-roll="d20+@abilities.presence.value" data-label="{{localize 'MB.WieldAPower'}}" >{{localize "MB.WieldAPower"}}</button>
                     <span class="rule-text wield-rule">{{localize 'MB.WieldAPowerText'}}</span>
                 </div>
                 <div class="powers-gutter">
                 </div>
                 <div class="uses-remaining">
                     <div>
-                        <label class="stat-label uses-remaining-label">{{localize "MB.PowerUsesRemaining"}}:</label>
-                        <input class="stat-input" name="data.powerUsesRemaining" type="number" value="{{data.powerUsesRemaining}}" data-dtype="Number" />
+                        <label class="stat-label uses-remaining-label">{{localize "MB.PowerUses.value"}}:</label>
+                        <input class="stat-input" name="data.powerUses.value" type="number" value="{{data.powerUses.value}}" data-dtype="Number" />
                     </div>
                     <span class="rule-text rollable powers-per-day-text">{{localize "MB.PowersPerDayText"}}</span>
                 </div>

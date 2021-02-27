@@ -11,18 +11,6 @@ export class MBActor extends Actor {
   /** @override */
   prepareData() {
     super.prepareData();
-
-    // TODO: tweak data.data, data.flags, etc
-    switch(this.data.type) {
-      case "character":
-        break;
-      case "creature":
-        break;
-      case "follower":
-        break;
-      default:
-        break;
-    }
   }
 
   /** @override */
@@ -49,7 +37,7 @@ export class MBActor extends Actor {
   }
 
   normalCarryingCapacity() {
-    return this.data.data.abilities.strength.score + 8;
+    return this.data.data.abilities.strength.value + 8;
   }
 
   maxCarryingCapacity() {
@@ -75,7 +63,7 @@ export class MBActor extends Actor {
   }
 
   async _testAbility(ability, abilityKey, drModifiers) {
-    let abilityRoll = new Roll(`1d20+@abilities.${ability}.score`, this.getRollData());
+    let abilityRoll = new Roll(`1d20+@abilities.${ability}.value`, this.getRollData());
     abilityRoll.evaluate();
     const rollResult = {
       abilityKey: abilityKey,
@@ -185,7 +173,7 @@ export class MBActor extends Actor {
     const isRanged = itemRollData.weaponType === 'ranged';
     // ranged weapons use agility; melee weapons use strength
     const ability = isRanged ? 'agility' : 'strength';
-    let attackRoll = new Roll(`d20+@abilities.${ability}.score`, actorRollData);
+    let attackRoll = new Roll(`d20+@abilities.${ability}.value`, actorRollData);
     attackRoll.evaluate();
     const d20Result = attackRoll.results[0];
     const isFumble = (d20Result === 1);
@@ -350,8 +338,8 @@ export class MBActor extends Actor {
     //rollData["armorDefenseAdjustment"] = armorDefenseAdjustment;  
 
     // roll 1: defend
-//    let defendRoll = new Roll("d20+@abilities.agility.score+@armorDefenseAdjustment", rollData);
-    let defendRoll = new Roll("d20+@abilities.agility.score", rollData);
+//    let defendRoll = new Roll("d20+@abilities.agility.value+@armorDefenseAdjustment", rollData);
+    let defendRoll = new Roll("d20+@abilities.agility.value", rollData);
     defendRoll.evaluate();
     const d20Result = defendRoll.results[0];
     const isFumble = (d20Result === 1);
