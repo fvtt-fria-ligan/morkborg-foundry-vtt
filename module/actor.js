@@ -80,6 +80,7 @@ export class MBActor extends Actor {
   async _testAbility(ability, abilityKey, drModifiers) {
     let abilityRoll = new Roll(`1d20+@abilities.${ability}.value`, this.getRollData());
     abilityRoll.evaluate();
+    await game.dice3d.showForRoll(abilityRoll);  // show roll for DiceSoNice
     const rollResult = {
       abilityKey: abilityKey,
       abilityRoll,
@@ -105,7 +106,7 @@ export class MBActor extends Actor {
     let drModifiers = [];
     const armor = this.equippedArmor();
     if (armor) {
-      const armorTier = CONFIG.MB.armorTiers[armor.data.maxTier];
+      const armorTier = CONFIG.MB.armorTiers[armor.data.tier.max];
       if (armorTier.agilityModifier) {
         drModifiers.push(`${armor.name}: ${game.i18n.localize('MB.DR')} +${armorTier.agilityModifier}`);
       }
@@ -268,7 +269,7 @@ export class MBActor extends Actor {
     if (armor) {
       // armor defense adjustment is based on its max tier, not current
       // TODO: maxTier is getting stored as a string
-      const maxTier = parseInt(armor.data.maxTier);
+      const maxTier = parseInt(armor.data.tier.max);
       const defenseModifier = CONFIG.MB.armorTiers[maxTier].defenseModifier;
       if (defenseModifier) { 
         drModifiers.push(`${armor.name}: ${game.i18n.localize('MB.DR')} +${defenseModifier}`);       
@@ -313,7 +314,7 @@ export class MBActor extends Actor {
     const armor = this.equippedArmor();
     if (armor) {
       // TODO: maxTier is getting stored as a string
-      const maxTier = parseInt(armor.data.maxTier);
+      const maxTier = parseInt(armor.data.tier.max);
       const defenseModifier = CONFIG.MB.armorTiers[maxTier].defenseModifier;
       if (defenseModifier) { 
         drModifier += defenseModifier;
