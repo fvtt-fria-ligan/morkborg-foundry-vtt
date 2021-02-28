@@ -399,7 +399,7 @@ export class MBActor extends Actor {
       // roll 3: damage reduction from equipped armor and shield
       let damageReductionDie = "";
       if (armor) {
-        damageReductionDie = CONFIG.MB.armorTiers[armor.data.currentTier].damageReductionDie;
+        damageReductionDie = CONFIG.MB.armorTiers[armor.data.tier.value].damageReductionDie;
         items.push(armor);
       }    
       if (shield) {

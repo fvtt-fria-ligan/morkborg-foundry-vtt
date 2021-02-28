@@ -61,7 +61,7 @@ import * as editor from "./editor.js";
         equipment.push(i);
       }      
       if (i.type === 'armor') {
-        item.damageReductionDie = CONFIG.MB.armorTierDamageReductionDie[item.currentTier];
+        item.damageReductionDie = CONFIG.MB.armorTierDamageReductionDie[item.tier.value];
         if (item.equipped) {
           // only one armor may be equipped at a time
           equippedArmor = i;
@@ -202,7 +202,7 @@ import * as editor from "./editor.js";
     let newTier = parseInt(input[0].value);
     let li = input.parents(".item");
     const item = this.actor.getOwnedItem(li.data("itemId"));
-    return item.update({["data.currentTier"]: newTier});
+    return item.update({["data.tier.value"]: newTier});
   }
 
   /**
