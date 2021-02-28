@@ -27,14 +27,17 @@
     "character": {
       "templates": ["common"],
       "miseries": {
+        "min": 0,
         "max": 7,
         "value": 0
       },
       "omens": {
+        "min": 0,
         "max": 0,
         "value": 0
       },
       "powerUses": {
+        "min": 0,
         "max": 0,
         "value": 0
       },
