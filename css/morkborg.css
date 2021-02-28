@@ -1,5 +1,5 @@
 /* TODO: alt yellows #ffe800 #XXXfff160 */
-@import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Lato&family=Open+Sans&family=Oswald&family=Roboto+Slab:wght@700&family=Source+Code+Pro&family=Special+Elite&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Lato&family=Oswald&family=Special+Elite&display=swap");
 :root {
   --background-color: #000000;
   --foreground-color: #ffffff;
@@ -1268,8 +1268,8 @@ form.editable .results .result-details input[type="text"]:focus {
 }
 
 .table-results .table-result .result-text .entity-link {
-  color: var(--background-color);
   background-color: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
 }
 
 /* Fixes Module Management dialog */
@@ -1281,7 +1281,9 @@ form.editable .results .result-details input[type="text"]:focus {
 
 /* Fixes hard-to-read dark text on various system Dialogs */
 .window-app .window-content .notes {
-  color: var(--highlight-background-color);
+  /* TODO: XXXX mcglincy */
+  background-color: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
 }
 
 .window-app .window-content form .form-header {
@@ -1289,11 +1291,13 @@ form.editable .results .result-details input[type="text"]:focus {
 }
 
 .window-app .window-content form .notes {
-  color: var(--highlight-background-color);
+  background-color: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
 }
 
 .window-app .window-content .form-group span.units {
-  color: var(--highlight-background-color);
+  background-color: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
 }
 
 .window-app .window-content .form-group input {
@@ -1378,7 +1382,7 @@ form.editable .results .result-details input[type="text"]:focus {
 }
 
 #chat-controls i.fas:hover {
-  /* TODO: fix XXX */
+  /* TODO: fix mcglincy XXX */
   color: var(--highlight-background-color);
   text-shadow: 0 0 5px var(--highlight-background-color);
 }
@@ -1415,7 +1419,7 @@ form.editable .results .result-details input[type="text"]:focus {
 
 #chat-log .message h2 {
   background: var(--highlight-background-color);
-  color: var(--background-color);
+  color: var(--highlight-foreground-color);
 }
 
 #chat-log .chat-message .message-header .message-sender {
@@ -1467,7 +1471,7 @@ form.editable .results .result-details input[type="text"]:focus {
 #client-settings h2 {
   border-bottom: none;
   background: var(--highlight-background-color);
-  color: var(--background-color);
+  color: var(--highlight-foreground-color);
   font-family: var(--h2-font);
 }
 
@@ -1594,7 +1598,7 @@ select:focus {
 }
 
 #sidebar-tabs > .item.active {
-  color: var(--background-color);
+  color: var(--highlight-foreground-color);
   background: var(--highlight-background-color);
   border: 1px solid var(--highlight-background-color);
   border-bottom: none;
@@ -1635,6 +1639,7 @@ select:focus {
   border-radius: 3px;
   background: var(--highlight-background-color) !important;
   border: 1px solid var(--background-color) !important;
+  color: var(--highlight-foreground-color) !important;
 }
 
 .window-app .window-content {
