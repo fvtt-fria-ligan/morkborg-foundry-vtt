@@ -104,22 +104,30 @@ const maybeMigrateWorld = () => {
 }
 
 const applyFontsAndColors = () => {
+  const fontSchemeSetting = game.settings.get("morkborg", "fontScheme");
+  // TODO: shouldn't default handle this?
+  if (!fontSchemeSetting) {
+    fontSchemeSetting = "blackletter";  // default
+    game.settings.set("morkborg", "fontScheme", fontSchemeSetting);
+  }
   const colorSchemeSetting = game.settings.get("morkborg", "colorScheme");
   if (!colorSchemeSetting) {
-    colorSchemeSetting = "WhiteOnBlackYellow";  // default
+    colorSchemeSetting = "whiteOnBlackYellow";  // default
     game.settings.set("morkborg", "colorScheme", colorSchemeSetting);
   }
-  let colorScheme = CONFIG.MB.colorSchemes[colorSchemeSetting];
-  console.log("******************");
-  console.log(colorSchemeSetting);
-  console.log(colorScheme);
+  const fontScheme = CONFIG.MB.fontSchemes[fontSchemeSetting];
+  const colorScheme = CONFIG.MB.colorSchemes[colorSchemeSetting];
   const r = document.querySelector(":root");
-  // r.style.setProperty('--aliengreen', game.settings.get('', 'fontColour'));
-  // r.style.setProperty('--alienfont', game.settings.get('alienrpg', 'fontStyle'));
-  r.style.setProperty('--background-color', colorScheme.background);
-  r.style.setProperty('--foreground-color', colorScheme.foreground);
-  r.style.setProperty('--highlight-background-color', colorScheme.highlightBackground);
-  r.style.setProperty('--highlight-foreground-color', colorScheme.highlightForeground);
+  r.style.setProperty("--background-color", colorScheme.background);
+  r.style.setProperty("--foreground-color", colorScheme.foreground);
+  r.style.setProperty("--highlight-background-color", colorScheme.highlightBackground);
+  r.style.setProperty("--highlight-foreground-color", colorScheme.highlightForeground);
+  r.style.setProperty("--chat-font", fontScheme.chat);
+  r.style.setProperty("--chat-info-font", fontScheme.chatInfo);
+  r.style.setProperty("--h1-font", fontScheme.h1);
+  r.style.setProperty("--h2-font", fontScheme.h2);
+  r.style.setProperty("--h3-font", fontScheme.h3);
+  r.style.setProperty("--item-font", fontScheme.item);
 };
 
 Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
