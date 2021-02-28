@@ -72,7 +72,7 @@ export class MBActorSheetCharacter extends ActorSheet {
       }      
       // TODO: use constants
       if (i.type === CONFIG.MB.itemTypes.armor) {
-        item.damageReductionDie = CONFIG.MB.armorTiers[item.currentTier].damageReductionDie;
+        item.damageReductionDie = CONFIG.MB.armorTiers[item.tier.value].damageReductionDie;
         if (item.equipped) {
           // only one armor may be equipped at a time
           equippedArmor = i;
@@ -354,7 +354,7 @@ export class MBActorSheetCharacter extends ActorSheet {
     let newTier = parseInt(input[0].value);
     let li = input.parents(".item");
     const item = this.actor.getOwnedItem(li.data("itemId"));
-    return item.update({["data.currentTier"]: newTier});
+    return item.update({["data.tier.value"]: newTier});
   }
 
   /**
