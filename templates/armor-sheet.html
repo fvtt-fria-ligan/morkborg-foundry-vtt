@@ -49,10 +49,11 @@
             {{!-- Armor Current Tier --}}
             <div class="form-group">
                 <label>{{ localize "MB.ArmorCurrentTier" }}:</label>
-                <select name="data.currentTier">
-                    {{#select data.currentTier}}
-                        {{#each config.armorTiers as |name tier|}}
-                            <option value="{{tier}}">{{tier}} ({{localize name}})</option>
+ {{!--                <input type="text" name="data.tier.value" value="{{data.tier.value}}" placeholder="1" data-dtype="Number" /> --}}
+                <select name="data.tier.value" data-dtype="Number">
+                    {{#select data.tier.value}}
+                        {{#each config.armorTiers as |tierObj tierNum|}}
+                            <option value="{{tierNum}}">{{tierNum}} ({{localize tierObj.key}})</option>
                         {{/each}}
                     {{/select}}
                 </select>
@@ -61,8 +62,8 @@
             {{!-- Armor Max Tier --}}
             <div class="form-group">
                 <label>{{ localize "MB.ArmorMaxTier" }}:</label>
-                <select name="data.maxTier">
-                    {{#select data.maxTier}}
+                <select name="data.tier.max" data-dtype="Number">
+                    {{#select data.tier.max}}
                         {{#each config.armorTiers as |tierObj tierNum|}}
                             <option value="{{tierNum}}">{{tierNum}} ({{localize tierObj.key}})</option>
                         {{/each}}

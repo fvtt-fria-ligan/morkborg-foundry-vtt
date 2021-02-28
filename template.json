@@ -75,8 +75,11 @@
     },
     "armor": {
       "templates": ["baseEquipment"],
-      "currentTier": 1,
-      "maxTier": 1
+      "tier": {
+        "min": 0,
+        "max": 1,
+        "value": 1
+      }
     },
     "class": {
       "abilities": "",
