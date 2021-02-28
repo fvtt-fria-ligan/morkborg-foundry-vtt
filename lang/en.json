@@ -135,5 +135,17 @@
 "MB.WeaponTypeMelee": "Melee",
 "MB.WeaponTypeRanged": "Ranged",
 "MB.WieldAPower": "Wield a Power",
-"MB.WieldAPowerText": "PRE DR12, or -d2 HP and no Powers for 1 hr"
+"MB.WieldAPowerText": "PRE DR12, or -d2 HP and no Powers for 1 hr",
+
+"SETTINGS.MBBackgroundColor": "Background Color",
+"SETTINGS.MBBackgroundColorHint": "Choose a color for the UI background.",
+"SETTINGS.MBBlack": "Black",
+"SETTINGS.MBForegroundColor": "Foreground Color",
+"SETTINGS.MBForegroundColorHint": "Choose a color for the UI foreground (text).",
+"SETTINGS.MBGray": "Gray",
+"SETTINGS.MBHighlightColor": "Highlight Color",
+"SETTINGS.MBHighlightColorHint": "Choose a color for the UI highlights.",
+"SETTINGS.MBPink": "Pink",
+"SETTINGS.MBWhite": "White",
+"SETTINGS.MBYellow": "Yellow"
 }
