@@ -49,7 +49,6 @@
             {{!-- Armor Current Tier --}}
             <div class="form-group">
                 <label>{{ localize "MB.ArmorCurrentTier" }}:</label>
- {{!--                <input type="text" name="data.tier.value" value="{{data.tier.value}}" placeholder="1" data-dtype="Number" /> --}}
                 <select name="data.tier.value" data-dtype="Number">
                     {{#select data.tier.value}}
                         {{#each config.armorTiers as |tierObj tierNum|}}
