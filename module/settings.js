@@ -10,6 +10,7 @@ export const registerSystemSettings = () => {
     default: ""
   });
 
+  /** Background color */
   game.settings.register("morkborg", "backgroundColor", {
     name: "SETTINGS.MBBackgroundColor",
     hint: "SETTINGS.MBBackgroundColorHint",
@@ -25,6 +26,7 @@ export const registerSystemSettings = () => {
     }
   });  
 
+  /** Foreground (text) color */
   game.settings.register("morkborg", "foregroundColor", {
     name: "SETTINGS.MBForegroundColor",
     hint: "SETTINGS.MBForegroundColorHint",
@@ -39,6 +41,7 @@ export const registerSystemSettings = () => {
     }
   });  
 
+  /** Highlight color */
   game.settings.register("morkborg", "highlightColor", {
     name: "SETTINGS.MBHighlightColor",
     hint: "SETTINGS.MBHighlightColorHint",
