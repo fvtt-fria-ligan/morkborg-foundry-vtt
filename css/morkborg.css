@@ -1,7 +1,20 @@
+/* pink #f242b0 */
+/* yellow #ffe500 */
+/* TODO: alt yellows #ffe800 #XXXfff160 */
+@import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Oswald&family=Special+Elite&display=swap");
+:root {
+  --background-color: #000000;
+  --foreground-color: #ffffff;
+  --highlight-color: #f242b0;
+  --item-font: "Special Elite";
+  --name-font: "Blood Crow";
+  --title-font: "FetteTrumpDeutsch";
+  --subtitle-font: "Old Cupboard";
+}
+
 /* ====================== */
 /* Fonts */
 /* ====================== */
-@import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Oswald&family=Special+Elite&display=swap");
 @font-face {
   font-family: "Blood Crow";
   src: url("../fonts/bloodcrow.ttf") format("truetype");
@@ -91,12 +104,12 @@
 }
 
 .morkborg ::-moz-selection {
-  background: #ffe500;
+  background: var(--highlight-color);
   color: black;
 }
 
 .morkborg ::selection {
-  background: #ffe500;
+  background: var(--highlight-color);
   color: black;
 }
 
@@ -111,7 +124,7 @@
 }
 
 .morkborg select:focus {
-  box-shadow: 0 0 5px #ffe500;
+  box-shadow: 0 0 5px var(--highlight-color);
   outline: none;
 }
 
@@ -156,7 +169,7 @@
 
 .morkborg.sheet .editable .rollable:hover {
   color: #000;
-  text-shadow: 0 0 10px #ffe500;
+  text-shadow: 0 0 10px var(--highlight-color);
   cursor: pointer;
 }
 
@@ -178,20 +191,20 @@
 .morkborg.sheet input[type="password"]:hover,
 .morkborg.sheet input[type="date"]:hover,
 .morkborg.sheet input[type="time"]:hover {
-  box-shadow: 0 0 5px #ffe500;
+  box-shadow: 0 0 5px var(--highlight-color);
 }
 
 .morkborg.sheet select:focus {
-  box-shadow: 0 0 5px #ffe500;
+  box-shadow: 0 0 5px var(--highlight-color);
 }
 
 .morkborg.sheet button:hover,
 .morkborg.sheet button:focus {
-  box-shadow: 0 0 5px #ffe500;
+  box-shadow: 0 0 5px var(--highlight-color);
 }
 
 .morkborg.sheet a:hover {
-  text-shadow: 0 0 8px #ffe500;
+  text-shadow: 0 0 8px var(--highlight-color);
 }
 
 .morkborg.sheet textarea {
@@ -204,11 +217,11 @@
 }
 
 .morkborg.sheet textarea:hover {
-  box-shadow: 0 0 5px #ffe500;
+  box-shadow: 0 0 5px var(--highlight-color);
 }
 
 .morkborg.sheet textarea:focus {
-  box-shadow: 0 0 5px #ffe500;
+  box-shadow: 0 0 5px var(--highlight-color);
   outline: none;
 }
 
@@ -282,12 +295,12 @@ alternately we could select as
 
 .morkborg.sheet .sheet-tabs .item:hover {
   color: black;
-  text-shadow: 0 0 10px #ffe500;
+  text-shadow: 0 0 10px var(--highlight-color);
 }
 
 .morkborg.sheet .sheet-tabs .item.active {
   text-shadow: none;
-  background-color: #ffe500;
+  background-color: var(--highlight-color);
   color: black;
 }
 
@@ -506,7 +519,7 @@ input[type="radio"] {
 ul.miseries
 input[type="radio"]:checked
 + span {
-  background: #ffe500;
+  background: var(--highlight-color);
   color: #000;
   border: none;
 }
@@ -647,7 +660,7 @@ span {
 }
 
 .morkborg.sheet.actor .sheet-body .item-controls .item-toggle.equipped {
-  color: #ffe500;
+  color: var(--highlight-color);
 }
 
 .morkborg .item-list .item-button {
@@ -748,7 +761,7 @@ span {
 ul.tiers
 input[type="radio"]:checked
 + span.tier-num {
-  background: #ffe500;
+  background: var(--highlight-color);
   color: #000;
   border: none;
 }
@@ -920,7 +933,7 @@ input[type="radio"]:disabled
 }
 
 .morkborg.sheet.actor.character .sheet-body .encumbered {
-  color: #ffe500;
+  color: var(--highlight-color);
 }
 
 /*
@@ -1171,11 +1184,11 @@ TODO: figure out if we want a 2-col inventory
 }
 
 .form-group input[type="text"]:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 
 .form-group input[type="text"]:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 
 .form-group textarea {
@@ -1183,11 +1196,11 @@ TODO: figure out if we want a 2-col inventory
 }
 
 .form-group textarea:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 
 .form-group textarea:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
   outline: none;
 }
 
@@ -1196,11 +1209,11 @@ form button {
 }
 
 form button:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 
 a:hover {
-  text-shadow: 0 0 8px #fff160;
+  text-shadow: 0 0 8px var(--highlight-color);
 }
 
 input[type="text"] {
@@ -1208,11 +1221,11 @@ input[type="text"] {
 }
 
 input[type="text"]:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 
 input[type="text"]:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 
 /*form.editable .results .table-result {
@@ -1230,11 +1243,11 @@ form.editable .results .result-type select {
 }
 
 form.editable .results .result-type select:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 
 form.editable .results .result-type select:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 
 form.editable .results .result-details select {
@@ -1242,11 +1255,11 @@ form.editable .results .result-details select {
 }
 
 form.editable .results .result-details select:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 
 form.editable .results .result-details select:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 
 form.editable .results .result-details input[type="text"] {
@@ -1254,16 +1267,16 @@ form.editable .results .result-details input[type="text"] {
 }
 
 form.editable .results .result-details input[type="text"]:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 
 form.editable .results .result-details input[type="text"]:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 
 .table-results .table-result .result-text .entity-link {
   color: black;
-  background-color: #fff160;
+  background-color: var(--highlight-color);
 }
 
 /* Fixes Module Management dialog */
@@ -1275,7 +1288,7 @@ form.editable .results .result-details input[type="text"]:focus {
 
 /* Fixes hard-to-read dark text on various system Dialogs */
 .window-app .window-content .notes {
-  color: #fff160;
+  color: var(--highlight-color);
 }
 
 .window-app .window-content form .form-header {
@@ -1283,11 +1296,11 @@ form.editable .results .result-details input[type="text"]:focus {
 }
 
 .window-app .window-content form .notes {
-  color: #fff160;
+  color: var(--highlight-color);
 }
 
 .window-app .window-content .form-group span.units {
-  color: #fff160;
+  color: var(--highlight-color);
 }
 
 .window-app .window-content .form-group input {
@@ -1295,11 +1308,11 @@ form.editable .results .result-details input[type="text"]:focus {
 }
 
 .window-app .window-content .form-group input:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 
 .window-app .window-content .form-group input:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 
 /* Fix readonly input on defend dialog */
@@ -1327,11 +1340,11 @@ form.editable .results .result-details input[type="text"]:focus {
 }
 
 .journal-sheet form select:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 
 .journal-sheet form select:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 
 .journal-sheet form .form-group.title input[type="text"] {
@@ -1353,9 +1366,9 @@ form.editable .results .result-details input[type="text"]:focus {
 }
 
 #player-config form .form-group .directory-list .actor.directory-item.context {
-  border-bottom-color: #ffe800;
-  border-top-color: #ffe800;
-  box-shadow: 0 0 5px #ffe800;
+  border-bottom-color: var(--highlight-color);
+  border-top-color: var(--highlight-color);
+  box-shadow: 0 0 5px var(--highlight-color);
 }
 
 /* ====================== */
@@ -1373,7 +1386,7 @@ form.editable .results .result-details input[type="text"]:focus {
 
 #chat-controls i.fas:hover {
   color: #ffe800;
-  text-shadow: 0 0 5px #fff160;
+  text-shadow: 0 0 5px var(--highlight-color);
 }
 
 #chat-controls .roll-type-select {
@@ -1382,7 +1395,7 @@ form.editable .results .result-details input[type="text"]:focus {
 }
 
 #chat-controls select:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 
 #chat-log {
@@ -1407,7 +1420,7 @@ form.editable .results .result-details input[type="text"]:focus {
 }
 
 #chat-log .message h2 {
-  background: #ffe800;
+  background: var(--highlight-color);
   color: black;
 }
 
@@ -1448,8 +1461,8 @@ form.editable .results .result-details input[type="text"]:focus {
 }
 
 #chat-form textarea:focus {
-  outline: 2px solid #ffe800;
-  box-shadow: 0 0 10px #fff160;
+  outline: 2px solid var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 
 #client-settings button {
@@ -1459,7 +1472,7 @@ form.editable .results .result-details input[type="text"]:focus {
 
 #client-settings h2 {
   border-bottom: none;
-  background: #ffe800;
+  background: var(--highlight-color);
   color: black;
   font-family: "FetteTrumpDeutsch";
 }
@@ -1471,7 +1484,7 @@ form.editable .results .result-details input[type="text"]:focus {
 
 #client-settings select:focus {
   outline: none;
-  box-shadow: 0 0 5px #ffe800;
+  box-shadow: 0 0 5px var(--highlight-color);
 }
 
 #controls {
@@ -1486,8 +1499,8 @@ form.editable .results .result-details input[type="text"]:focus {
 
 #controls .control-tool.toggle.active {
   background: black;
-  text-shadow: 0 0 10px #fff160;
-  box-shadow: 0 0 10px #fff160;
+  text-shadow: 0 0 10px var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 
 #controls .control-tools {
@@ -1500,14 +1513,14 @@ form.editable .results .result-details input[type="text"]:focus {
 #controls .scene-control.active,
 #controls .scene-control:hover {
   color: white;
-  border: 1px solid #ffe800;
-  box-shadow: 0 0 10px #fff160;
+  border: 1px solid var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 
 #controls .scene-control.active {
   color: white;
-  border: 1px solid #ffe800;
-  box-shadow: 0 0 10px #fff160;
+  border: 1px solid var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 
 .dialog .dialog-buttons button {
@@ -1528,7 +1541,7 @@ form .form-group select {
 }
 
 form .form-group select:focus {
-  box-shadow: 0 0 10px #ffe800;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 
 #hotbar #hotbar-directory-controls {
@@ -1544,8 +1557,8 @@ form .form-group select:focus {
 #navigation #scene-list .scene.view {
   background: black;
   color: white;
-  border: 1px solid #ffe800;
-  box-shadow: 0 0 10px #fff160;
+  border: 1px solid var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 
 #navigation #scene-list .scene.gm {
@@ -1575,24 +1588,24 @@ select:focus {
 }
 
 #sidebar.collapsed #sidebar-tabs > .item.active {
-  border-bottom: 1px solid #ffe800;
+  border-bottom: 1px solid var(--highlight-color);
   border-radius: 5px;
 }
 
 #sidebar-tabs {
   background: black;
   color: white;
-  border-bottom: 1px solid #ffe800;
-  box-shadow: 0 0 10px #fff160;
+  border-bottom: 1px solid var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 
 #sidebar-tabs > .item.active {
   color: black;
-  background: #ffe500;
-  border: 1px solid #ffe800;
+  background: var(--highlight-color);
+  border: 1px solid var(--highlight-color);
   border-bottom: none;
-  box-shadow: 0 0 6px inset #fff160;
-  text-shadow: 0 0 10px #ffe800;
+  box-shadow: 0 0 6px inset var(--highlight-color);
+  text-shadow: 0 0 10px var(--highlight-color);
 }
 
 .sidebar-tab .action-buttons button {
@@ -1611,7 +1624,7 @@ select:focus {
 }
 
 .sidebar-tab .directory-header .header-search input[type="text"]:focus {
-  box-shadow: 0 0 5px #ffe800;
+  box-shadow: 0 0 5px var(--highlight-color);
 }
 
 .sidebar-tab .directory-list .directory-item h4 {
@@ -1620,13 +1633,13 @@ select:focus {
 
 .tabs .item.active,
 .tabs .item:hover {
-  text-shadow: 0 0 10px #ffe800;
+  text-shadow: 0 0 10px var(--highlight-color);
 }
 
 ::-webkit-scrollbar-thumb {
   outline: none;
   border-radius: 3px;
-  background: #ffe800 !important;
+  background: var(--highlight-color) !important;
   border: 1px solid black !important;
 }
 
@@ -1690,11 +1703,11 @@ a.inline-roll {
 /* Roll Cards */
 /* ====================== */
 .roll-card {
-  border: 1px solid #ffe800;
+  border: 1px solid var(--highlight-color);
 }
 
 .roll-card .card-title {
-  background: #ffe800;
+  background: var(--highlight-color);
   color: black;
   font-family: "FetteTrumpDeutsch";
   font-size: 20px;
@@ -1758,7 +1771,7 @@ a.inline-roll {
 .roll-card .outcome-text .attack-outcome,
 .roll-card .outcome-text .defend-outcome,
 .roll-card .outcome-text .take-damage {
-  background-color: #ffe800;
+  background-color: var(--highlight-color);
   color: black;
   padding-left: 4px;
   padding-right: 4px;
@@ -1792,6 +1805,6 @@ a.inline-roll {
 .dialog-buttons button.dialog-button:active,
 .dialog-buttons button.dialog-button:focus,
 .dialog-buttons button.dialog-button:hover {
-  box-shadow: 0 0 5px #ffe500;
-  text-shadow: 0 0 10px #ffe500;
+  box-shadow: 0 0 5px var(--highlight-color);
+  text-shadow: 0 0 10px var(--highlight-color);
 }

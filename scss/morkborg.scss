@@ -1,3 +1,16 @@
+/* pink #f242b0 */
+/* yellow #ffe500 */
+/* TODO: alt yellows #ffe800 #XXXfff160 */
+:root {
+  --background-color: #000000;
+  --foreground-color: #ffffff;
+  --highlight-color: #f242b0;
+  --item-font: "Special Elite";
+  --name-font: "Blood Crow";
+  --title-font: "FetteTrumpDeutsch";
+  --subtitle-font: "Old Cupboard";
+}
+
 /* ====================== */
 /* Fonts */
 /* ====================== */
@@ -73,7 +86,7 @@
   border: 1px solid lightgray;
 }
 .morkborg ::selection {
-  background: #ffe500;
+  background: var(--highlight-color);
   color: black;
 }
 .morkborg select {
@@ -86,7 +99,7 @@
   color: white;
 }
 .morkborg select:focus {
-  box-shadow: 0 0 5px #ffe500;
+  box-shadow: 0 0 5px var(--highlight-color);
   outline: none;
 }
 .morkborg select[multiple] {
@@ -124,7 +137,7 @@
 }
 .morkborg.sheet .editable .rollable:hover {
   color: #000;
-  text-shadow: 0 0 10px #ffe500;
+  text-shadow: 0 0 10px var(--highlight-color);;
   cursor: pointer;
 }
 .morkborg.sheet input[type="text"],
@@ -144,17 +157,17 @@
 .morkborg.sheet input[type="password"]:hover,
 .morkborg.sheet input[type="date"]:hover,
 .morkborg.sheet input[type="time"]:hover {
-  box-shadow: 0 0 5px #ffe500;
+  box-shadow: 0 0 5px var(--highlight-color);;
 }
 .morkborg.sheet select:focus {
-  box-shadow: 0 0 5px #ffe500;
+  box-shadow: 0 0 5px var(--highlight-color);;
 }
 .morkborg.sheet button:hover,
 .morkborg.sheet button:focus {
-  box-shadow: 0 0 5px #ffe500;
+  box-shadow: 0 0 5px var(--highlight-color);;
 }
 .morkborg.sheet a:hover {
-  text-shadow: 0 0 8px #ffe500;
+  text-shadow: 0 0 8px var(--highlight-color);;
 }
 .morkborg.sheet textarea {
   border: 1px solid #7a7971;
@@ -165,10 +178,10 @@
   resize: none;
 }
 .morkborg.sheet textarea:hover {
-  box-shadow: 0 0 5px #ffe500;
+  box-shadow: 0 0 5px var(--highlight-color);;
 }
 .morkborg.sheet textarea:focus {
-  box-shadow: 0 0 5px #ffe500;
+  box-shadow: 0 0 5px var(--highlight-color);;
   outline: none;
 }
 /* ====================== */
@@ -234,11 +247,11 @@ alternately we could select as
 }
 .morkborg.sheet .sheet-tabs .item:hover {
   color: black;
-  text-shadow: 0 0 10px #ffe500;
+  text-shadow: 0 0 10px var(--highlight-color);;
 }
 .morkborg.sheet .sheet-tabs .item.active {
   text-shadow: none;
-  background-color: #ffe500;
+  background-color: var(--highlight-color);;
   color: black;
 }
 /* ====================== */
@@ -423,7 +436,7 @@ alternately we could select as
   ul.miseries
   input[type="radio"]:checked
   + span {
-  background: #ffe500;
+  background: var(--highlight-color);;
   color: #000;
   border: none;
 }
@@ -545,7 +558,7 @@ alternately we could select as
   color: darkgray;
 }
 .morkborg.sheet.actor .sheet-body .item-controls .item-toggle.equipped {
-  color: #ffe500;
+  color: var(--highlight-color);;
 }
 .morkborg .item-list .item-button {
   font-family: "FetteTrumpDeutsch", fantasy, serif;
@@ -635,7 +648,7 @@ alternately we could select as
   ul.tiers
   input[type="radio"]:checked
   + span.tier-num {
-  background: #ffe500;
+  background: var(--highlight-color);;
   color: #000;
   border: none;
 }
@@ -792,7 +805,7 @@ alternately we could select as
   margin-left: 40px;
 }
 .morkborg.sheet.actor.character .sheet-body .encumbered {
-  color: #ffe500;
+  color: var(--highlight-color);
 }
 /*
 TODO: figure out if we want a 2-col inventory
@@ -1002,38 +1015,38 @@ TODO: figure out if we want a 2-col inventory
   color: white;
 }
 .form-group input[type="text"]:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 .form-group input[type="text"]:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 .form-group textarea {
   color: white;
 }
 .form-group textarea:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 .form-group textarea:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
   outline: none;
 }
 form button {
   color: white;
 }
 form button:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 a:hover {
-  text-shadow: 0 0 8px #fff160;
+  text-shadow: 0 0 8px var(--highlight-color);
 }
 input[type="text"] {
   color: white;
 }
 input[type="text"]:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 input[type="text"]:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 /*form.editable .results .table-result {
   color: white;
@@ -1048,32 +1061,32 @@ form.editable .results .result-type select {
   color: white;
 }
 form.editable .results .result-type select:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 form.editable .results .result-type select:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 form.editable .results .result-details select {
   color: white;
 }
 form.editable .results .result-details select:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 form.editable .results .result-details select:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 form.editable .results .result-details input[type="text"] {
   color: white;
 }
 form.editable .results .result-details input[type="text"]:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 form.editable .results .result-details input[type="text"]:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 .table-results .table-result .result-text .entity-link {
   color: black;
-  background-color: #fff160;
+  background-color: var(--highlight-color);
 }
 /* Fixes Module Management dialog */
 #module-management .package-list .package-title,
@@ -1083,25 +1096,25 @@ form.editable .results .result-details input[type="text"]:focus {
 }
 /* Fixes hard-to-read dark text on various system Dialogs */
 .window-app .window-content .notes {
-  color: #fff160;
+  color: var(--highlight-color);
 }
 .window-app .window-content form .form-header {
   color: white;
 }
 .window-app .window-content form .notes {
-  color: #fff160;
+  color: var(--highlight-color);
 }
 .window-app .window-content .form-group span.units {
-  color: #fff160;
+  color: var(--highlight-color);
 }
 .window-app .window-content .form-group input {
   color: white;
 }
 .window-app .window-content .form-group input:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 .window-app .window-content .form-group input:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 /* Fix readonly input on defend dialog */
 .window-app .window-content .form-group input.readonly {
@@ -1123,10 +1136,10 @@ form.editable .results .result-details input[type="text"]:focus {
   background-color: black;
 }
 .journal-sheet form select:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 .journal-sheet form select:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 .journal-sheet form .form-group.title input[type="text"] {
   background-color: rgba(0, 0, 0, 0.05);
@@ -1143,9 +1156,9 @@ form.editable .results .result-details input[type="text"]:focus {
   border-top-color: none;
 }
 #player-config form .form-group .directory-list .actor.directory-item.context {
-  border-bottom-color: #ffe800;
-  border-top-color: #ffe800;
-  box-shadow: 0 0 5px #ffe800;
+  border-bottom-color: var(--highlight-color);
+  border-top-color: var(--highlight-color);
+  box-shadow: 0 0 5px var(--highlight-color);
 }
 
 /* ====================== */
@@ -1161,14 +1174,14 @@ form.editable .results .result-details input[type="text"]:focus {
 }
 #chat-controls i.fas:hover {
   color: #ffe800;
-  text-shadow: 0 0 5px #fff160;
+  text-shadow: 0 0 5px var(--highlight-color);
 }
 #chat-controls .roll-type-select {
   color: white;
   background: black;
 }
 #chat-controls select:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 #chat-log {
   background: black;
@@ -1189,7 +1202,7 @@ form.editable .results .result-details input[type="text"]:focus {
   color: white;
 }
 #chat-log .message h2 {
-  background: #ffe800;
+  background: var(--highlight-color);
   color: black;
 }
 #chat-log .chat-message .message-header .message-sender {
@@ -1224,8 +1237,8 @@ form.editable .results .result-details input[type="text"]:focus {
   font-size: 16px;
 }
 #chat-form textarea:focus {
-  outline: 2px solid #ffe800;
-  box-shadow: 0 0 10px #fff160;
+  outline: 2px solid var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 #client-settings button {
   color: black;
@@ -1233,7 +1246,7 @@ form.editable .results .result-details input[type="text"]:focus {
 }
 #client-settings h2 {
   border-bottom: none;
-  background: #ffe800;
+  background: var(--highlight-color);
   color: black;
   font-family: "FetteTrumpDeutsch";
 }
@@ -1243,7 +1256,7 @@ form.editable .results .result-details input[type="text"]:focus {
 }
 #client-settings select:focus {
   outline: none;
-  box-shadow: 0 0 5px #ffe800;
+  box-shadow: 0 0 5px var(--highlight-color);
 }
 #controls {
   color: white;
@@ -1255,8 +1268,8 @@ form.editable .results .result-details input[type="text"]:focus {
 }
 #controls .control-tool.toggle.active {
   background: black;
-  text-shadow: 0 0 10px #fff160;
-  box-shadow: 0 0 10px #fff160;
+  text-shadow: 0 0 10px var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 #controls .control-tools {
   color: white;
@@ -1267,13 +1280,13 @@ form.editable .results .result-details input[type="text"]:focus {
 #controls .scene-control.active,
 #controls .scene-control:hover {
   color: white;
-  border: 1px solid #ffe800;
-  box-shadow: 0 0 10px #fff160;
+  border: 1px solid var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 #controls .scene-control.active {
   color: white;
-  border: 1px solid #ffe800;
-  box-shadow: 0 0 10px #fff160;
+  border: 1px solid var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 .dialog .dialog-buttons button {
   background: white;
@@ -1290,7 +1303,7 @@ form .form-group select {
   background: black;
 }
 form .form-group select:focus {
-  box-shadow: 0 0 10px #ffe800;
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 #hotbar #hotbar-directory-controls {
   background: black;
@@ -1303,8 +1316,8 @@ form .form-group select:focus {
 #navigation #scene-list .scene.view {
   background: black;
   color: white;
-  border: 1px solid #ffe800;
-  box-shadow: 0 0 10px #fff160;
+  border: 1px solid var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 #navigation #scene-list .scene.gm {
   border: 1px solid #252525;
@@ -1328,22 +1341,22 @@ select:focus {
   color: white;
 }
 #sidebar.collapsed #sidebar-tabs > .item.active {
-  border-bottom: 1px solid #ffe800;
+  border-bottom: 1px solid var(--highlight-color);
   border-radius: 5px;
 }
 #sidebar-tabs {
   background: black;
   color: white;
-  border-bottom: 1px solid #ffe800;
-  box-shadow: 0 0 10px #fff160;
+  border-bottom: 1px solid var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-color);
 }
 #sidebar-tabs > .item.active {
   color: black;
-  background: #ffe500;
-  border: 1px solid #ffe800;
+  background: var(--highlight-color);;
+  border: 1px solid var(--highlight-color);
   border-bottom: none;
-  box-shadow: 0 0 6px inset #fff160;
-  text-shadow: 0 0 10px #ffe800;
+  box-shadow: 0 0 6px inset var(--highlight-color);
+  text-shadow: 0 0 10px var(--highlight-color);
 }
 .sidebar-tab .action-buttons button {
   background: white;
@@ -1359,19 +1372,19 @@ select:focus {
   font-family: "FetteTrumpDeutsch";
 }
 .sidebar-tab .directory-header .header-search input[type="text"]:focus {
-  box-shadow: 0 0 5px #ffe800;
+  box-shadow: 0 0 5px var(--highlight-color);
 }
 .sidebar-tab .directory-list .directory-item h4 {
   font-family: "Special Elite";
 }
 .tabs .item.active,
 .tabs .item:hover {
-  text-shadow: 0 0 10px #ffe800;
+  text-shadow: 0 0 10px var(--highlight-color);
 }
 ::-webkit-scrollbar-thumb {
   outline: none;
   border-radius: 3px;
-  background: #ffe800 !important;
+  background: var(--highlight-color) !important;
   border: 1px solid black !important;
 }
 .window-app .window-content {
@@ -1431,10 +1444,10 @@ a.inline-roll {
 /* Roll Cards */
 /* ====================== */
 .roll-card {
-  border: 1px solid #ffe800;
+  border: 1px solid var(--highlight-color);
 }
 .roll-card .card-title {
-  background: #ffe800;
+  background: var(--highlight-color);
   color: black;
   font-family: "FetteTrumpDeutsch";
   font-size: 20px;
@@ -1489,7 +1502,7 @@ a.inline-roll {
 .roll-card .outcome-text .attack-outcome,
 .roll-card .outcome-text .defend-outcome,
 .roll-card .outcome-text .take-damage {
-  background-color: #ffe800;
+  background-color: var(--highlight-color);
   color: black;
   padding-left: 4px;
   padding-right: 4px;
@@ -1518,6 +1531,6 @@ a.inline-roll {
 .dialog-buttons button.dialog-button:active,
 .dialog-buttons button.dialog-button:focus,
 .dialog-buttons button.dialog-button:hover {
-  box-shadow: 0 0 5px #ffe500;
-  text-shadow: 0 0 10px #ffe500;
+  box-shadow: 0 0 5px var(--highlight-color);;
+  text-shadow: 0 0 10px var(--highlight-color);;
 }
