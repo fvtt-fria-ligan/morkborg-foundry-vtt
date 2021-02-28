@@ -3,7 +3,7 @@ export const migrateWorld = async () => {
     await migrateActors();
     await migrateItems();
 
-    //game.settings.set("morkborg", "systemMigrationVersion", game.system.data.version);
+    game.settings.set("morkborg", "systemMigrationVersion", game.system.data.version);
     ui.notifications.info(`MÖRK BORG System Migration to version ${game.system.data.version} completed!`, {permanent: true});  
 };
 
