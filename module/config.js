@@ -33,7 +33,40 @@ MB.armorTiers = {
     agilityModifier: 4,
     defenseModifier: 2
   },
-}
+};
+
+MB.colorSchemes = {
+  "blackOnYellowWhite": {
+    "background": "#ffe500",
+    "foreground": "#000000",
+    "highlightForeground": "#000000",
+    "highlightBackground": "#ffffff"
+  },
+  "blackOnWhiteBlack": {
+    "background": "#ffffff",
+    "foreground": "#000000",
+    "highlightForeground": "#ffffff",
+    "highlightBackground": "#000000"
+  },
+  "whiteOnBlackYellow": {
+    "background": "#000000",
+    "foreground": "#ffffff",
+    "highlightForeground": "#000000",
+    "highlightBackground": "#ffe500"
+  },
+  "whiteOnBlackPink": {
+    "background": "#000000",
+    "foreground": "#ffffff",
+    "highlightForeground": "#000000",
+    "highlightBackground": "#f242b0"
+  },
+  "whiteOnPinkWhite": {
+    "background": "#f242b0",
+    "foreground": "#ffffff",
+    "highlightForeground": "#000000",
+    "highlightBackground": "#ffffff"
+  }
+};
 
 MB.flagScope = "morkborg";  // must match system name
 
@@ -69,7 +102,7 @@ MB.itemTypeKeys = {
   "scroll": "MB.ItemTypeScroll",
   "shield": "MB.ItemTypeShield",
   "weapon": "MB.ItemTypeWeapon"  
-}
+};
 
 // these Item types are "equipment"
 MB.itemEquipmentTypes = [

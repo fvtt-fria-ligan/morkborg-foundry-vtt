@@ -1,11 +1,10 @@
-/* pink #f242b0 */
-/* yellow #ffe500 */
 /* TODO: alt yellows #ffe800 #XXXfff160 */
 @import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Oswald&family=Special+Elite&display=swap");
 :root {
   --background-color: #000000;
   --foreground-color: #ffffff;
-  --highlight-color: #f242b0;
+  --highlight-background-color: #ffe500;
+  --highlight-foreground-color: #000000;
   --item-font: "Special Elite";
   --name-font: "Blood Crow";
   --title-font: "FetteTrumpDeutsch";
@@ -104,13 +103,13 @@
 }
 
 .morkborg ::-moz-selection {
-  background: var(--highlight-color);
-  color: black;
+  background: var(--highlight-background-color);
+  color: var(--background-color);
 }
 
 .morkborg ::selection {
-  background: var(--highlight-color);
-  color: black;
+  background: var(--highlight-background-color);
+  color: var(--background-color);
 }
 
 .morkborg select {
@@ -120,11 +119,11 @@
   border-radius: 0px;
   padding: 0 3px;
   text-overflow: ellipsis;
-  color: white;
+  color: var(--foreground-color);
 }
 
 .morkborg select:focus {
-  box-shadow: 0 0 5px var(--highlight-color);
+  box-shadow: 0 0 5px var(--highlight-background-color);
   outline: none;
 }
 
@@ -134,8 +133,8 @@
 }
 
 .morkborg select > option {
-  background-color: black !important;
-  color: white !important;
+  background-color: var(--background-color) !important;
+  color: var(--foreground-color) !important;
 }
 
 /* ====================== */
@@ -150,9 +149,9 @@
   overflow-y: hidden;
   padding: 5px;
   /* inherited background is parchment img bg */
-  background: black;
+  background: var(--background-color);
   font-size: 13px;
-  color: white;
+  color: var(--foreground-color);
   border-bottom: 1px solid #222222;
   border-left: 1px solid #222222;
   border-right: 1px solid #222222;
@@ -168,8 +167,8 @@
 }
 
 .morkborg.sheet .editable .rollable:hover {
-  color: #000;
-  text-shadow: 0 0 10px var(--highlight-color);
+  color: var(--highlight-foreground-color);
+  text-shadow: 0 0 10px var(--highlight-background-color);
   cursor: pointer;
 }
 
@@ -177,7 +176,7 @@
 .morkborg.sheet input[type="number"],
 .morkborg.sheet input[type="password"],
 .morkborg.sheet input[type="date"] {
-  color: white;
+  color: var(--foreground-color);
   border-radius: 0;
 }
 
@@ -191,79 +190,66 @@
 .morkborg.sheet input[type="password"]:hover,
 .morkborg.sheet input[type="date"]:hover,
 .morkborg.sheet input[type="time"]:hover {
-  box-shadow: 0 0 5px var(--highlight-color);
+  box-shadow: 0 0 5px var(--highlight-background-color);
 }
 
 .morkborg.sheet select:focus {
-  box-shadow: 0 0 5px var(--highlight-color);
+  box-shadow: 0 0 5px var(--highlight-background-color);
 }
 
 .morkborg.sheet button:hover,
 .morkborg.sheet button:focus {
-  box-shadow: 0 0 5px var(--highlight-color);
+  box-shadow: 0 0 5px var(--highlight-background-color);
 }
 
 .morkborg.sheet a:hover {
-  text-shadow: 0 0 8px var(--highlight-color);
+  text-shadow: 0 0 8px var(--highlight-background-color);
 }
 
 .morkborg.sheet textarea {
   border: 1px solid #7a7971;
   border-radius: 0;
-  color: white;
+  color: var(--foreground-color);
   font-family: "Special Elite", cursive;
   font-size: 14px;
   resize: none;
 }
 
 .morkborg.sheet textarea:hover {
-  box-shadow: 0 0 5px var(--highlight-color);
+  box-shadow: 0 0 5px var(--highlight-background-color);
 }
 
 .morkborg.sheet textarea:focus {
-  box-shadow: 0 0 5px var(--highlight-color);
+  box-shadow: 0 0 5px var(--highlight-background-color);
   outline: none;
+}
+
+.morkborg.sheet .profile-img {
+  border: none;
 }
 
 /* ====================== */
 /* TinyMCE editor */
 /* ====================== */
 .morkborg.sheet .editor {
-  color: white;
+  color: var(--foreground-color);
   border: 1px solid #7a7971;
   font-family: "Special Elite";
 }
 
-/*.morkborg.sheet .editor-content {
-  color: white;
-}
-*/
-/* TODO: see if there's a better way for us to style TinyMCE */
-/* 
-Anchor hover affects font awesome icons, like the on-hover TinyMCE edit icon:;
-  <a class="editor-edit"><i class="fas fa-edit"></i></a>
-alternately we could select as
-.morkborg.sheet .editor:hover .editor-edit:hover .fa-edit {}        
- */
 .morkborg.sheet .tox.tox-tinymce .tox-edit-area__iframe {
-  /* TODO: how do we style font color in tinymce? 
-  color: white;
-  */
-  background: black;
+  background: var(--background-color);
 }
 
 .mce-content-body {
   overflow-wrap: break-word;
   word-wrap: break-word;
-  color: white;
+  color: var(--foreground-color);
 }
 
 .morkborg .editor,
 .morkborg .editor-content {
   height: 100%;
-  /*  font-family: 'Special Elite', cursive;
-  font-size: 12px;
-  */
 }
 
 .morkborg.sheet .editor {
@@ -294,14 +280,14 @@ alternately we could select as
 }
 
 .morkborg.sheet .sheet-tabs .item:hover {
-  color: black;
-  text-shadow: 0 0 10px var(--highlight-color);
+  color: var(--highlight-foreground-color);
+  text-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 .morkborg.sheet .sheet-tabs .item.active {
   text-shadow: none;
-  background-color: var(--highlight-color);
-  color: black;
+  background-color: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
 }
 
 /* ====================== */
@@ -358,7 +344,7 @@ alternately we could select as
   text-align: center;
   padding-top: 8px;
   width: 50px;
-  color: white;
+  color: var(--foreground-color);
 }
 
 .morkborg.sheet.actor .stat-value {
@@ -366,7 +352,7 @@ alternately we could select as
   font-size: 14pt;
   text-align: center;
   width: 50px;
-  color: white;
+  color: var(--foreground-color);
 }
 
 /* ====================== */
@@ -433,7 +419,6 @@ alternately we could select as
 }
 
 .morkborg.sheet.actor.character .sheet-header .classname-row span.class-label {
-  border: 1px solid green;
   /* flex: 0 0 60px; */
 }
 
@@ -519,8 +504,8 @@ input[type="radio"] {
 ul.miseries
 input[type="radio"]:checked
 + span {
-  background: var(--highlight-color);
-  color: #000;
+  background: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
   border: none;
 }
 
@@ -545,8 +530,8 @@ ul.miseries
 li:last-child
 label
 span {
-  background: white;
-  color: black;
+  background: var(--foreground-color);
+  color: var(--background-color);
 }
 
 .morkborg.sheet.actor.character .sheet-header .ability-row {
@@ -577,7 +562,7 @@ span {
   height: 42px;
   float: left;
   border-radius: 0;
-  color: white;
+  color: var(--foreground-color);
 }
 
 /* ====================== */
@@ -660,7 +645,7 @@ span {
 }
 
 .morkborg.sheet.actor .sheet-body .item-controls .item-toggle.equipped {
-  color: var(--highlight-color);
+  color: var(--highlight-background-color);
 }
 
 .morkborg .item-list .item-button {
@@ -668,16 +653,16 @@ span {
   font-size: 20px;
   flex: none;
   width: auto;
-  color: white;
-  background-color: white;
-  color: black;
+  color: var(--foreground-color);
+  background-color: var(--foreground-color);
+  color: var(--background-color);
   border: none;
   border-bottom: 2px solid #777;
   border-radius: 0;
 }
 
 .morkborg .item-list .equipped {
-  color: white;
+  color: var(--foreground-color);
 }
 
 .morkborg .item-list .unequipped {
@@ -761,8 +746,8 @@ span {
 ul.tiers
 input[type="radio"]:checked
 + span.tier-num {
-  background: var(--highlight-color);
-  color: #000;
+  background: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
   border: none;
 }
 
@@ -835,8 +820,8 @@ input[type="radio"]:disabled
   margin-bottom: 10px;
   font-family: "FetteTrumpDeutsch", fantasy, serif;
   font-size: 20px;
-  background-color: white;
-  color: black;
+  background-color: var(--foreground-color);
+  color: var(--background-color);
   border: none;
   border-bottom: 2px solid #777;
   border-radius: 0;
@@ -883,8 +868,8 @@ input[type="radio"]:disabled
   margin-bottom: 10px;
   font-family: "FetteTrumpDeutsch", fantasy, serif;
   font-size: 24px;
-  background-color: white;
-  color: black;
+  background-color: var(--foreground-color);
+  color: var(--background-color);
   border: none;
   border-bottom: 2px solid #777;
   border-radius: 0;
@@ -933,7 +918,7 @@ input[type="radio"]:disabled
 }
 
 .morkborg.sheet.actor.character .sheet-body .encumbered {
-  color: var(--highlight-color);
+  color: var(--highlight-background-color);
 }
 
 /*
@@ -951,8 +936,8 @@ TODO: figure out if we want a 2-col inventory
   margin-bottom: 10px;
   font-family: "FetteTrumpDeutsch", fantasy, serif;
   font-size: 20px;
-  background-color: white;
-  color: black;
+  background-color: var(--foreground-color);
+  color: var(--background-color);
   border: none;
   border-bottom: 2px solid #777;
   border-radius: 0;
@@ -1180,52 +1165,52 @@ TODO: figure out if we want a 2-col inventory
 /* ====================== */
 /* TODO: figure out the right class/level to fix this stuff */
 .form-group input[type="text"] {
-  color: white;
+  color: var(--foreground-color);
 }
 
 .form-group input[type="text"]:hover {
-  box-shadow: 0 0 10px var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 .form-group input[type="text"]:focus {
-  box-shadow: 0 0 10px var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 .form-group textarea {
-  color: white;
+  color: var(--foreground-color);
 }
 
 .form-group textarea:hover {
-  box-shadow: 0 0 10px var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 .form-group textarea:focus {
-  box-shadow: 0 0 10px var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
   outline: none;
 }
 
 form button {
-  color: white;
+  color: var(--foreground-color);
 }
 
 form button:hover {
-  box-shadow: 0 0 10px var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 a:hover {
-  text-shadow: 0 0 8px var(--highlight-color);
+  text-shadow: 0 0 8px var(--highlight-background-color);
 }
 
 input[type="text"] {
-  color: white;
+  color: var(--foreground-color);
 }
 
 input[type="text"]:hover {
-  box-shadow: 0 0 10px var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 input[type="text"]:focus {
-  box-shadow: 0 0 10px var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 /*form.editable .results .table-result {
@@ -1235,84 +1220,84 @@ form.editable .results .table-result {
   color: white;
 }*/
 form.editable .results .result-image img {
-  background-color: white;
+  background-color: var(--foreground-color);
 }
 
 form.editable .results .result-type select {
-  color: white;
+  color: var(--foreground-color);
 }
 
 form.editable .results .result-type select:hover {
-  box-shadow: 0 0 10px var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 form.editable .results .result-type select:focus {
-  box-shadow: 0 0 10px var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 form.editable .results .result-details select {
-  color: white;
+  color: var(--foreground-color);
 }
 
 form.editable .results .result-details select:hover {
-  box-shadow: 0 0 10px var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 form.editable .results .result-details select:focus {
-  box-shadow: 0 0 10px var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 form.editable .results .result-details input[type="text"] {
-  color: white;
+  color: var(--foreground-color);
 }
 
 form.editable .results .result-details input[type="text"]:hover {
-  box-shadow: 0 0 10px var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 form.editable .results .result-details input[type="text"]:focus {
-  box-shadow: 0 0 10px var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 .table-results .table-result .result-text .entity-link {
-  color: black;
-  background-color: var(--highlight-color);
+  color: var(--background-color);
+  background-color: var(--highlight-background-color);
 }
 
 /* Fixes Module Management dialog */
 #module-management .package-list .package-title,
 #module-management .package-list .package-metadata,
 #module-management .package-list .package-description {
-  color: white;
+  color: var(--foreground-color);
 }
 
 /* Fixes hard-to-read dark text on various system Dialogs */
 .window-app .window-content .notes {
-  color: var(--highlight-color);
+  color: var(--highlight-background-color);
 }
 
 .window-app .window-content form .form-header {
-  color: white;
+  color: var(--foreground-color);
 }
 
 .window-app .window-content form .notes {
-  color: var(--highlight-color);
+  color: var(--highlight-background-color);
 }
 
 .window-app .window-content .form-group span.units {
-  color: var(--highlight-color);
+  color: var(--highlight-background-color);
 }
 
 .window-app .window-content .form-group input {
-  color: white;
+  color: var(--foreground-color);
 }
 
 .window-app .window-content .form-group input:hover {
-  box-shadow: 0 0 10px var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 .window-app .window-content .form-group input:focus {
-  box-shadow: 0 0 10px var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 /* Fix readonly input on defend dialog */
@@ -1332,19 +1317,19 @@ form.editable .results .result-details input[type="text"]:focus {
 
 /* Fixes Journal image select dialog */
 .journal-sheet.image-popout .window-content .form-group input {
-  color: black;
+  color: var(--background-color);
 }
 
 .journal-sheet.image-popout .window-content .form-group.picker button.file-picker {
-  background-color: black;
+  background-color: var(--background-color);
 }
 
 .journal-sheet form select:hover {
-  box-shadow: 0 0 10px var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 .journal-sheet form select:focus {
-  box-shadow: 0 0 10px var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 .journal-sheet form .form-group.title input[type="text"] {
@@ -1357,7 +1342,7 @@ form.editable .results .result-details input[type="text"]:focus {
 
 /* Fix Player Configuration dialog */
 #player-config form .form-group label {
-  color: white;
+  color: var(--foreground-color);
 }
 
 #player-config form .form-group .directory-list .actor.directory-item {
@@ -1366,47 +1351,48 @@ form.editable .results .result-details input[type="text"]:focus {
 }
 
 #player-config form .form-group .directory-list .actor.directory-item.context {
-  border-bottom-color: var(--highlight-color);
-  border-top-color: var(--highlight-color);
-  box-shadow: 0 0 5px var(--highlight-color);
+  border-bottom-color: var(--highlight-background-color);
+  border-top-color: var(--highlight-background-color);
+  box-shadow: 0 0 5px var(--highlight-background-color);
 }
 
 /* ====================== */
 /* UI / Chat */
 /* ====================== */
 .morkborg .button {
-  background: white;
-  color: black;
+  background: var(--foreground-color);
+  color: var(--background-color);
   font-family: "FetteTrumpDeutsch";
 }
 
 #chat-controls {
-  color: white;
+  color: var(--foreground-color);
 }
 
 #chat-controls i.fas:hover {
-  color: #ffe800;
-  text-shadow: 0 0 5px var(--highlight-color);
+  /* TODO: fix XXX */
+  color: var(--highlight-background-color);
+  text-shadow: 0 0 5px var(--highlight-background-color);
 }
 
 #chat-controls .roll-type-select {
-  color: white;
-  background: black;
+  color: var(--foreground-color);
+  background: var(--background-color);
 }
 
 #chat-controls select:focus {
-  box-shadow: 0 0 10px var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 #chat-log {
-  background: black;
+  background: var(--background-color);
 }
 
 #chat-log .chat-message {
-  background: black;
+  background: var(--background-color);
   border: 3px solid #252525;
   border-radius: 0;
-  color: white;
+  color: var(--foreground-color);
   margin-top: 6px;
   font-family: "Alegreya", serif;
   font-size: 16px;
@@ -1416,12 +1402,12 @@ form.editable .results .result-details input[type="text"]:focus {
 #chat-log .message h3,
 #chat-log .message h2,
 #chat-log .message-metadata {
-  color: white;
+  color: var(--foreground-color);
 }
 
 #chat-log .message h2 {
-  background: var(--highlight-color);
-  color: black;
+  background: var(--highlight-background-color);
+  color: var(--background-color);
 }
 
 #chat-log .chat-message .message-header .message-sender {
@@ -1438,7 +1424,7 @@ form.editable .results .result-details input[type="text"]:focus {
   font-family: "Oswald", sans-serif;
   font-size: 14px;
   font-weight: bold;
-  color: white;
+  color: var(--foreground-color);
 }
 
 #chat-log .message .dice-formula,
@@ -1453,178 +1439,178 @@ form.editable .results .result-details input[type="text"]:focus {
   font-size: 13.5px;
 } */
 #chat-form textarea {
-  color: white;
-  background: black;
+  color: var(--foreground-color);
+  background: var(--background-color);
   border: 2px solid #252525;
   font-family: "Alegreya", serif;
   font-size: 16px;
 }
 
 #chat-form textarea:focus {
-  outline: 2px solid var(--highlight-color);
-  box-shadow: 0 0 10px var(--highlight-color);
+  outline: 2px solid var(--highlight-background-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 #client-settings button {
-  color: black;
-  background: white;
+  color: var(--background-color);
+  background: var(--foreground-color);
 }
 
 #client-settings h2 {
   border-bottom: none;
-  background: var(--highlight-color);
-  color: black;
+  background: var(--highlight-background-color);
+  color: var(--background-color);
   font-family: "FetteTrumpDeutsch";
 }
 
 #client-settings select {
-  color: white;
-  background: black;
+  color: var(--foreground-color);
+  background: var(--background-color);
 }
 
 #client-settings select:focus {
   outline: none;
-  box-shadow: 0 0 5px var(--highlight-color);
+  box-shadow: 0 0 5px var(--highlight-background-color);
 }
 
 #controls {
-  color: white;
-  background: black;
+  color: var(--foreground-color);
+  background: var(--background-color);
 }
 
 #controls .control-tool.toggle {
-  background: black;
+  background: var(--background-color);
   border: 1px solid #252525;
 }
 
 #controls .control-tool.toggle.active {
-  background: black;
-  text-shadow: 0 0 10px var(--highlight-color);
-  box-shadow: 0 0 10px var(--highlight-color);
+  background: var(--background-color);
+  text-shadow: 0 0 10px var(--highlight-background-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 #controls .control-tools {
-  color: white;
-  background: black;
+  color: var(--foreground-color);
+  background: var(--background-color);
 }
 
 #controls .control-tool.active,
 #controls .control-tool:hover,
 #controls .scene-control.active,
 #controls .scene-control:hover {
-  color: white;
-  border: 1px solid var(--highlight-color);
-  box-shadow: 0 0 10px var(--highlight-color);
+  color: var(--foreground-color);
+  border: 1px solid var(--highlight-background-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 #controls .scene-control.active {
-  color: white;
-  border: 1px solid var(--highlight-color);
-  box-shadow: 0 0 10px var(--highlight-color);
+  color: var(--foreground-color);
+  border: 1px solid var(--highlight-background-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 .dialog .dialog-buttons button {
-  background: white;
-  color: black;
+  background: var(--foreground-color);
+  color: var(--background-color);
   font-family: "FetteTrumpDeutsch";
 }
 
 .dialog .dialog-buttons button.default {
-  background: white;
-  color: black;
+  background: var(--foreground-color);
+  color: var(--background-color);
   font-family: "FetteTrumpDeutsch";
 }
 
 form .form-group select {
-  color: white;
-  background: black;
+  color: var(--foreground-color);
+  background: var(--background-color);
 }
 
 form .form-group select:focus {
-  box-shadow: 0 0 10px var(--highlight-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 #hotbar #hotbar-directory-controls {
-  background: black;
-  color: white;
+  background: var(--background-color);
+  color: var(--foreground-color);
 }
 
 #navigation #nav-toggle {
-  background: black;
-  color: white;
+  background: var(--background-color);
+  color: var(--foreground-color);
 }
 
 #navigation #scene-list .scene.view {
-  background: black;
-  color: white;
-  border: 1px solid var(--highlight-color);
-  box-shadow: 0 0 10px var(--highlight-color);
+  background: var(--background-color);
+  color: var(--foreground-color);
+  border: 1px solid var(--highlight-background-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 #navigation #scene-list .scene.gm {
   border: 1px solid #252525;
-  background: black;
+  background: var(--background-color);
 }
 
 #players {
-  background: black;
-  color: white;
+  background: var(--background-color);
+  color: var(--foreground-color);
 }
 
 select:focus {
-  color: white;
-  background: black;
+  color: var(--foreground-color);
+  background: var(--background-color);
 }
 
 #settings button {
-  color: black;
-  background: white;
+  color: var(--background-color);
+  background: var(--foreground-color);
   font-family: "FetteTrumpDeutsch";
 }
 
 #sidebar {
-  background: black;
-  color: white;
+  background: var(--background-color);
+  color: var(--foreground-color);
 }
 
 #sidebar.collapsed #sidebar-tabs > .item.active {
-  border-bottom: 1px solid var(--highlight-color);
+  border-bottom: 1px solid var(--highlight-background-color);
   border-radius: 5px;
 }
 
 #sidebar-tabs {
-  background: black;
-  color: white;
-  border-bottom: 1px solid var(--highlight-color);
-  box-shadow: 0 0 10px var(--highlight-color);
+  background: var(--background-color);
+  color: var(--foreground-color);
+  border-bottom: 1px solid var(--highlight-background-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 #sidebar-tabs > .item.active {
-  color: black;
-  background: var(--highlight-color);
-  border: 1px solid var(--highlight-color);
+  color: var(--background-color);
+  background: var(--highlight-background-color);
+  border: 1px solid var(--highlight-background-color);
   border-bottom: none;
-  box-shadow: 0 0 6px inset var(--highlight-color);
-  text-shadow: 0 0 10px var(--highlight-color);
+  box-shadow: 0 0 6px inset var(--highlight-background-color);
+  text-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 .sidebar-tab .action-buttons button {
-  background: white;
-  color: black;
+  background: var(--foreground-color);
+  color: var(--background-color);
   border-radius: 0;
   font-family: "FetteTrumpDeutsch";
 }
 
 .sidebar-tab .directory-header .header-search input {
-  background: black;
-  color: white;
+  background: var(--background-color);
+  color: var(--foreground-color);
   border: 1px solid #252525;
   border-radius: 0;
   font-family: "FetteTrumpDeutsch";
 }
 
 .sidebar-tab .directory-header .header-search input[type="text"]:focus {
-  box-shadow: 0 0 5px var(--highlight-color);
+  box-shadow: 0 0 5px var(--highlight-background-color);
 }
 
 .sidebar-tab .directory-list .directory-item h4 {
@@ -1633,25 +1619,25 @@ select:focus {
 
 .tabs .item.active,
 .tabs .item:hover {
-  text-shadow: 0 0 10px var(--highlight-color);
+  text-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 ::-webkit-scrollbar-thumb {
   outline: none;
   border-radius: 3px;
-  background: var(--highlight-color) !important;
-  border: 1px solid black !important;
+  background: var(--highlight-background-color) !important;
+  border: 1px solid var(--background-color) !important;
 }
 
 .window-app .window-content {
-  background: black;
-  color: white;
+  background: var(--background-color);
+  color: var(--foreground-color);
 }
 
 /* ================== 11. JOURNAL ENTRIES =================== */
 .window-app.app.journal-sheet .window-content {
-  background: white;
-  color: black;
+  background: var(--foreground-color);
+  color: var(--background-color);
   background-position: -43px -120px;
   display: flex;
   flex-direction: column;
@@ -1675,11 +1661,11 @@ select:focus {
 }
 
 .journal-sheet form button[type="submit"] {
-  background: black;
+  background: var(--background-color);
 }
 
 .journal-sheet form input[name="name"] {
-  color: black;
+  color: var(--background-color);
   font-family: "FetteTrumpDeutsch";
   font-size: 32px;
 }
@@ -1690,10 +1676,10 @@ select:focus {
 
 a.entity-link,
 a.inline-roll {
-  background: black;
-  color: white;
+  background: var(--background-color);
+  color: var(--foreground-color);
   padding: 1px 4px;
-  border: 1px solid black;
+  border: 1px solid var(--background-color);
   border-radius: 2px;
   white-space: nowrap;
   word-break: break-all;
@@ -1703,12 +1689,12 @@ a.inline-roll {
 /* Roll Cards */
 /* ====================== */
 .roll-card {
-  border: 1px solid var(--highlight-color);
+  border: 1px solid var(--highlight-background-color);
 }
 
 .roll-card .card-title {
-  background: var(--highlight-color);
-  color: black;
+  background: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
   font-family: "FetteTrumpDeutsch";
   font-size: 20px;
   margin-bottom: 10px;
@@ -1722,7 +1708,7 @@ a.inline-roll {
 }
 
 .roll-card .item-row span.item-name {
-  color: white;
+  color: var(--foreground-color);
   font-family: "Special Elite";
   font-size: 14px;
 }
@@ -1746,7 +1732,7 @@ a.inline-roll {
 }
 
 .roll-card .roll-result span {
-  color: white;
+  color: var(--foreground-color);
   font-size: 20px;
 }
 
@@ -1771,8 +1757,8 @@ a.inline-roll {
 .roll-card .outcome-text .attack-outcome,
 .roll-card .outcome-text .defend-outcome,
 .roll-card .outcome-text .take-damage {
-  background-color: var(--highlight-color);
-  color: black;
+  background-color: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
   padding-left: 4px;
   padding-right: 4px;
 }
@@ -1805,6 +1791,6 @@ a.inline-roll {
 .dialog-buttons button.dialog-button:active,
 .dialog-buttons button.dialog-button:focus,
 .dialog-buttons button.dialog-button:hover {
-  box-shadow: 0 0 5px var(--highlight-color);
-  text-shadow: 0 0 10px var(--highlight-color);
+  box-shadow: 0 0 5px var(--highlight-background-color);
+  text-shadow: 0 0 10px var(--highlight-background-color);
 }
