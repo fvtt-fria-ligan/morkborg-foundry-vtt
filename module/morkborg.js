@@ -77,6 +77,7 @@ Hooks.once("init", async function() {
  */
 Hooks.once("ready", () => {
   maybeMigrateWorld();
+  applyFontsAndColors();
 });
 
 const maybeMigrateWorld = () => {
@@ -101,6 +102,25 @@ const maybeMigrateWorld = () => {
   console.log(`Migrating!`);
   migrateWorld();
 }
+
+const applyFontsAndColors = () => {
+  const colorSchemeSetting = game.settings.get("morkborg", "colorScheme");
+  if (!colorSchemeSetting) {
+    colorSchemeSetting = "WhiteOnBlackYellow";  // default
+    game.settings.set("morkborg", "colorScheme", colorSchemeSetting);
+  }
+  let colorScheme = CONFIG.MB.colorSchemes[colorSchemeSetting];
+  console.log("******************");
+  console.log(colorSchemeSetting);
+  console.log(colorScheme);
+  const r = document.querySelector(":root");
+  // r.style.setProperty('--aliengreen', game.settings.get('', 'fontColour'));
+  // r.style.setProperty('--alienfont', game.settings.get('alienrpg', 'fontStyle'));
+  r.style.setProperty('--background-color', colorScheme.background);
+  r.style.setProperty('--foreground-color', colorScheme.foreground);
+  r.style.setProperty('--highlight-background-color', colorScheme.highlightBackground);
+  r.style.setProperty('--highlight-foreground-color', colorScheme.highlightForeground);
+};
 
 Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
   if (data.type === "Item" && data.pack === "morkborg.classes") {

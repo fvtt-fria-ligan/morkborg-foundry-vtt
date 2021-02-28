@@ -10,50 +10,21 @@ export const registerSystemSettings = () => {
     default: ""
   });
 
-  /** Background color */
-  game.settings.register("morkborg", "backgroundColor", {
-    name: "SETTINGS.MBBackgroundColor",
-    hint: "SETTINGS.MBBackgroundColorHint",
-    scope: "world",
-    config: true,
-    default: "black",
-    type: String,
-    choices: {
-        "black": "SETTINGS.MBBlack",
-        "pink": "SETTINGS.MBPink",
-        "white": "SETTINGS.MBWhite",
-        "yellow": "SETTINGS.MBYellow"
-    }
-  });  
-
   /** Foreground (text) color */
-  game.settings.register("morkborg", "foregroundColor", {
-    name: "SETTINGS.MBForegroundColor",
-    hint: "SETTINGS.MBForegroundColorHint",
+  game.settings.register("morkborg", "colorScheme", {
+    name: "SETTINGS.MBColorScheme",
+    hint: "SETTINGS.MBColorSchemeHint",
     scope: "world",
     config: true,
     default: "white",
     type: String,
     choices: {
-        "black": "SETTINGS.MBBlack",
-        "gray": "SETTINGS.MBGray",
-        "white": "SETTINGS.MBWhite"
+      "blackOnYellowWhite": "SETTINGS.MBBlackOnYellowWhite",
+      "blackOnWhiteBlack": "SETTINGS.MBBlackOnWhiteBlack",
+      "whiteOnBlackYellow": "SETTINGS.MBWhiteOnBlackYellow",
+      "whiteOnBlackPink": "SETTINGS.MBWhiteOnBlackPink",
+      "whiteOnPinkWhite": "SETTINGS.MBWhiteOnPinkWhite",    
     }
   });  
-
-  /** Highlight color */
-  game.settings.register("morkborg", "highlightColor", {
-    name: "SETTINGS.MBHighlightColor",
-    hint: "SETTINGS.MBHighlightColorHint",
-    scope: "world",
-    config: true,
-    default: "yellow",
-    type: String,
-    choices: {
-        "black": "SETTINGS.MBBlack",
-        "pink": "SETTINGS.MBPink",
-        "white": "SETTINGS.MBWhite",
-        "yellow": "SETTINGS.MBYellow"
-    }
-  });   
+  
 };
