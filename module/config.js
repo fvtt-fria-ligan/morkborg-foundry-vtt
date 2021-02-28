@@ -37,7 +37,7 @@ MB.armorTiers = {
 
 MB.colorSchemes = {
   "blackOnYellowWhite": {
-    "background": "#ffe500",
+    "background": "#ffe900",
     "foreground": "#000000",
     "highlightForeground": "#000000",
     "highlightBackground": "#ffffff"
@@ -52,16 +52,16 @@ MB.colorSchemes = {
     "background": "#000000",
     "foreground": "#ffffff",
     "highlightForeground": "#000000",
-    "highlightBackground": "#ffe500"
+    "highlightBackground": "#ffe900"
   },
   "whiteOnBlackPink": {
     "background": "#000000",
     "foreground": "#ffffff",
     "highlightForeground": "#000000",
-    "highlightBackground": "#f242b0"
+    "highlightBackground": "#ff3eb5"
   },
   "whiteOnPinkWhite": {
-    "background": "#f242b0",
+    "background": "#ff3eb5",
     "foreground": "#ffffff",
     "highlightForeground": "#000000",
     "highlightBackground": "#ffffff"
