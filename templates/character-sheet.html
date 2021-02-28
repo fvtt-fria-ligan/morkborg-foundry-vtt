@@ -33,14 +33,14 @@
             <div class="miseries-row">
                 <label class="stat-label miseries-label">{{ localize "MB.Miseries" }}:</label>
                 <ul class="miseries">
-                    <li><label><input type="radio" name="data.miseries" value="0" data-dtype="Number" {{#ifEq data.miseries 0}}checked{{/ifEq}}/><span>0</span></label></li>                  
-                    <li><label><input type="radio" name="data.miseries" value="1" data-dtype="Number" {{#ifEq data.miseries 1}}checked{{/ifEq}}/><span>1</span></label></li>                  
-                    <li><label><input type="radio" name="data.miseries" value="2" data-dtype="Number" {{#ifEq data.miseries 2}}checked{{/ifEq}}/><span>2</span></label></li>                  
-                    <li><label><input type="radio" name="data.miseries" value="3" data-dtype="Number" {{#ifEq data.miseries 3}}checked{{/ifEq}}/><span>3</span></label></li>                  
-                    <li><label><input type="radio" name="data.miseries" value="4" data-dtype="Number" {{#ifEq data.miseries 4}}checked{{/ifEq}}/><span>4</span></label></li>                  
-                    <li><label><input type="radio" name="data.miseries" value="5" data-dtype="Number" {{#ifEq data.miseries 5}}checked{{/ifEq}}/><span>5</span></label></li>                  
-                    <li><label><input type="radio" name="data.miseries" value="6" data-dtype="Number" {{#ifEq data.miseries 6}}checked{{/ifEq}}/><span>6</span></label></li>                  
-                    <li><label><input type="radio" name="data.miseries" value="7" data-dtype="Number" {{#ifEq data.miseries 7}}checked{{/ifEq}}/><span>X</span></label></li>                  
+                    <li><label><input type="radio" name="data.miseries.value" value="0" data-dtype="Number" {{#ifEq data.miseries.value 0}}checked{{/ifEq}}/><span>0</span></label></li>                  
+                    <li><label><input type="radio" name="data.miseries.value" value="1" data-dtype="Number" {{#ifEq data.miseries.value 1}}checked{{/ifEq}}/><span>1</span></label></li>                  
+                    <li><label><input type="radio" name="data.miseries.value" value="2" data-dtype="Number" {{#ifEq data.miseries.value 2}}checked{{/ifEq}}/><span>2</span></label></li>                  
+                    <li><label><input type="radio" name="data.miseries.value" value="3" data-dtype="Number" {{#ifEq data.miseries.value 3}}checked{{/ifEq}}/><span>3</span></label></li>                  
+                    <li><label><input type="radio" name="data.miseries.value" value="4" data-dtype="Number" {{#ifEq data.miseries.value 4}}checked{{/ifEq}}/><span>4</span></label></li>                  
+                    <li><label><input type="radio" name="data.miseries.value" value="5" data-dtype="Number" {{#ifEq data.miseries.value 5}}checked{{/ifEq}}/><span>5</span></label></li>                  
+                    <li><label><input type="radio" name="data.miseries.value" value="6" data-dtype="Number" {{#ifEq data.miseries.value 6}}checked{{/ifEq}}/><span>6</span></label></li>                  
+                    <li><label><input type="radio" name="data.miseries.value" value="7" data-dtype="Number" {{#ifEq data.miseries.value 7}}checked{{/ifEq}}/><span>X</span></label></li>                  
                 </ul>
             </div>
         </div>
@@ -221,7 +221,7 @@
                 </div>
                 <div class="uses-remaining">
                     <div>
-                        <label class="stat-label uses-remaining-label">{{localize "MB.PowerUses.value"}}:</label>
+                        <label class="stat-label uses-remaining-label">{{localize "MB.PowerUsesRemaining"}}:</label>
                         <input class="stat-input" name="data.powerUses.value" type="number" value="{{data.powerUses.value}}" data-dtype="Number" />
                     </div>
                     <span class="rule-text rollable powers-per-day-text">{{localize "MB.PowersPerDayText"}}</span>
