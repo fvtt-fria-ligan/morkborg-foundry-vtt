@@ -1076,8 +1076,8 @@ form.editable .results .result-details input[type="text"]:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 .table-results .table-result .result-text .entity-link {
-  color: var(--background-color);
   background-color: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
 }
 /* Fixes Module Management dialog */
 #module-management .package-list .package-title,
@@ -1087,16 +1087,20 @@ form.editable .results .result-details input[type="text"]:focus {
 }
 /* Fixes hard-to-read dark text on various system Dialogs */
 .window-app .window-content .notes {
-  color: var(--highlight-background-color);
+  /* TODO: XXXX mcglincy */
+  background-color: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
 }
 .window-app .window-content form .form-header {
   color: var(--foreground-color);
 }
 .window-app .window-content form .notes {
-  color: var(--highlight-background-color);
+  background-color: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
 }
 .window-app .window-content .form-group span.units {
-  color: var(--highlight-background-color);
+  background-color: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
 }
 .window-app .window-content .form-group input {
   color: var(--foreground-color);
@@ -1164,7 +1168,7 @@ form.editable .results .result-details input[type="text"]:focus {
   color: var(--foreground-color);
 }
 #chat-controls i.fas:hover {
-  /* TODO: fix XXX */
+  /* TODO: fix mcglincy XXX */
   color: var(--highlight-background-color);
   text-shadow: 0 0 5px var(--highlight-background-color);
 }
@@ -1195,7 +1199,7 @@ form.editable .results .result-details input[type="text"]:focus {
 }
 #chat-log .message h2 {
   background: var(--highlight-background-color);
-  color: var(--background-color);
+  color: var(--highlight-foreground-color);
 }
 #chat-log .chat-message .message-header .message-sender {
   font-family: var(--h1-font);
@@ -1239,7 +1243,7 @@ form.editable .results .result-details input[type="text"]:focus {
 #client-settings h2 {
   border-bottom: none;
   background: var(--highlight-background-color);
-  color: var(--background-color);
+  color: var(--highlight-foreground-color);
   font-family: var(--h2-font);
 }
 #client-settings select {
@@ -1343,7 +1347,7 @@ select:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 #sidebar-tabs > .item.active {
-  color: var(--background-color);
+  color: var(--highlight-foreground-color);
   background: var(--highlight-background-color);;
   border: 1px solid var(--highlight-background-color);
   border-bottom: none;
@@ -1378,6 +1382,7 @@ select:focus {
   border-radius: 3px;
   background: var(--highlight-background-color) !important;
   border: 1px solid var(--background-color) !important;
+  color: var(--highlight-foreground-color) !important;
 }
 .window-app .window-content {
   background: var(--background-color);
