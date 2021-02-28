@@ -1,14 +1,16 @@
 /* TODO: alt yellows #ffe800 #XXXfff160 */
-@import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Oswald&family=Special+Elite&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Lato&family=Open+Sans&family=Oswald&family=Roboto+Slab:wght@700&family=Source+Code+Pro&family=Special+Elite&display=swap");
 :root {
   --background-color: #000000;
   --foreground-color: #ffffff;
   --highlight-background-color: #ffe500;
   --highlight-foreground-color: #000000;
+  --chat-font: "Alegreya";
+  --chat-info-font: "Oswald";
+  --h1-font: "Blood Crow";
+  --h2-font: "FetteTrumpDeutsch";
+  --h3-font: "Old Cupboard";
   --item-font: "Special Elite";
-  --name-font: "Blood Crow";
-  --title-font: "FetteTrumpDeutsch";
-  --subtitle-font: "Old Cupboard";
 }
 
 /* ====================== */
@@ -17,6 +19,11 @@
 @font-face {
   font-family: "Blood Crow";
   src: url("../fonts/bloodcrow.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Calling Code Regular";
+  src: url("../fonts/CallingCode-Regular.ttf") format("truetype");
 }
 
 @font-face {
@@ -210,7 +217,7 @@
   border: 1px solid #7a7971;
   border-radius: 0;
   color: var(--foreground-color);
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 14px;
   resize: none;
 }
@@ -234,7 +241,7 @@
 .morkborg.sheet .editor {
   color: var(--foreground-color);
   border: 1px solid #7a7971;
-  font-family: "Special Elite";
+  font-family: var(--item-font);
 }
 
 .morkborg.sheet .tox.tox-tinymce .tox-edit-area__iframe {
@@ -262,7 +269,7 @@
 .morkborg.sheet .sheet-tabs {
   flex: 0 0 30px;
   margin-bottom: 5px;
-  font-family: "Modesto Condensed", "Palatino Linotype", serif;
+  /* font-family: "Modesto Condensed", "Palatino Linotype", serif; */
   font-size: 20px;
   font-weight: 700;
   /* TODO: track down the border-top and border-bottom getting inherited on these */
@@ -271,7 +278,7 @@
 }
 
 .morkborg.sheet .sheet-tabs .item {
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-family: var(--h2-font);
   font-size: 22px;
   height: 30px;
   line-height: 32px;
@@ -306,7 +313,7 @@
 /* Actor sheet */
 /* ====================== */
 .morkborg.sheet.actor .rule-text {
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 10pt;
 }
 
@@ -332,14 +339,14 @@
 }
 
 .morkborg.sheet.actor .stat-label {
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-family: var(--h2-font);
   font-size: 22px;
   margin-right: 10px;
 }
 
 .morkborg.sheet.actor .stat-input {
   border: 1px solid #7a7971;
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 14pt;
   text-align: center;
   padding-top: 8px;
@@ -348,7 +355,7 @@
 }
 
 .morkborg.sheet.actor .stat-value {
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 14pt;
   text-align: center;
   width: 50px;
@@ -396,8 +403,9 @@
 }
 
 .morkborg.sheet.actor input[type="text"].actor-name {
-  font-family: "Blood Crow", fantasy, serif;
+  font-family: var(--h1-font);
   font-size: 38px;
+  text-transform: uppercase;
 }
 
 .morkborg.sheet.actor.character .sheet-header .name-row {
@@ -430,7 +438,7 @@
 }
 
 .morkborg.sheet.actor.character .sheet-header .classname-row label.classname {
-  font-family: "Old Cupboard", serif;
+  font-family: var(--h3-font);
   font-size: 28px;
   width: 100%;
 }
@@ -519,7 +527,7 @@ input[type="radio"]:checked
   text-align: center;
   border-radius: 100%;
   font-size: 10pt;
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   left: 0;
   top: 50%;
 }
@@ -543,7 +551,7 @@ span {
 }
 
 .morkborg.sheet.actor.character .sheet-header .ability-label {
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-family: var(--h2-font);
   font-size: 24px;
   margin-left: 5px;
   margin-top: 5px;
@@ -552,7 +560,7 @@ span {
 
 .morkborg.sheet.actor.character .sheet-header .ability-input {
   border: 1px solid #7a7971;
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 14pt;
   text-align: center;
   padding: 5px;
@@ -582,7 +590,7 @@ span {
 
 .morkborg .items-list .items-header .item-name {
   /*padding-left: 5px;*/
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-family: var(--h2-font);
   font-size: 24px;
 }
 
@@ -608,12 +616,12 @@ span {
 
 .morkborg .item-list .item-name {
   margin: 0;
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 12pt;
 }
 
 .morkborg .item-list .item-fields {
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 12pt;
   display: flex;
   flex-direction: row;
@@ -649,7 +657,7 @@ span {
 }
 
 .morkborg .item-list .item-button {
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-family: var(--h2-font);
   font-size: 20px;
   flex: none;
   width: auto;
@@ -780,7 +788,7 @@ input[type="radio"]:disabled
   text-align: center;
   border-radius: 100%;
   font-size: 14pt;
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   left: 0;
   /*top: 50%; */
   top: 0%;
@@ -793,7 +801,7 @@ input[type="radio"]:disabled
   overflow: hidden;
   line-height: 1;
   text-align: center;
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 10pt;
   left: -5px;
   top: 30px;
@@ -818,7 +826,7 @@ input[type="radio"]:disabled
   margin-left: 10px;
   width: 120px;
   margin-bottom: 10px;
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-family: var(--h2-font);
   font-size: 20px;
   background-color: var(--foreground-color);
   color: var(--background-color);
@@ -866,7 +874,7 @@ input[type="radio"]:disabled
 .morkborg.sheet.actor.character .sheet-body .wield-power-button {
   width: 200px;
   margin-bottom: 10px;
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-family: var(--h2-font);
   font-size: 24px;
   background-color: var(--foreground-color);
   color: var(--background-color);
@@ -934,7 +942,7 @@ TODO: figure out if we want a 2-col inventory
   margin-left: 10px;
   width: 120px;
   margin-bottom: 10px;
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-family: var(--h2-font);
   font-size: 20px;
   background-color: var(--foreground-color);
   color: var(--background-color);
@@ -985,7 +993,7 @@ TODO: figure out if we want a 2-col inventory
 }
 
 .morkborg.sheet.actor.creature .sheet-header .altname-row input[type="text"] {
-  font-family: "Old Cupboard", serif;
+  font-family: var(--h3-font);
   font-size: 24px;
 }
 
@@ -1004,19 +1012,19 @@ TODO: figure out if we want a 2-col inventory
 }
 
 .morkborg.sheet.creature .sheet-body .form-group label {
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-family: var(--h2-font);
   font-size: 20px;
   text-align: right;
   margin-right: 10px;
 }
 
 .morkborg.sheet.creature .sheet-body .form-group input {
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 14pt;
 }
 
 .morkborg.sheet.creature .sheet-body .form-group select {
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 14pt;
 }
 
@@ -1036,14 +1044,14 @@ TODO: figure out if we want a 2-col inventory
 }
 
 .morkborg.sheet.item .sheet-header .item-name input[type="text"] {
-  font-family: "Blood Crow", fantasy, serif;
+  font-family: var(--h1-font);
   font-size: 38px;
   flex: 1;
   height: 45px;
 }
 
 .morkborg.sheet.item .sheet-header .item-subtitle {
-  font-family: "Old Cupboard", serif;
+  font-family: var(--h3-font);
   font-size: 24px;
   text-transform: uppercase;
   margin-left: 13px;
@@ -1060,19 +1068,19 @@ TODO: figure out if we want a 2-col inventory
 }
 
 .morkborg.sheet.item .sheet-body .form-group label {
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-family: var(--h2-font);
   font-size: 20px;
   text-align: right;
   margin-right: 10px;
 }
 
 .morkborg.sheet.item .sheet-body .form-group input {
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 14pt;
 }
 
 .morkborg.sheet.item .sheet-body .form-group select {
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 14pt;
 }
 
@@ -1121,7 +1129,7 @@ TODO: figure out if we want a 2-col inventory
 }
 
 .morkborg.sheet.actor.follower .sheet-header .altname-row input[type="text"] {
-  font-family: "Old Cupboard", serif;
+  font-family: var(--h3-font);
   font-size: 24px;
 }
 
@@ -1140,19 +1148,19 @@ TODO: figure out if we want a 2-col inventory
 }
 
 .morkborg.sheet.follower .sheet-body .form-group label {
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-family: var(--h2-font);
   font-size: 20px;
   text-align: right;
   margin-right: 10px;
 }
 
 .morkborg.sheet.follower .sheet-body .form-group input {
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 14pt;
 }
 
 .morkborg.sheet.follower .sheet-body .form-group select {
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 14pt;
 }
 
@@ -1362,7 +1370,7 @@ form.editable .results .result-details input[type="text"]:focus {
 .morkborg .button {
   background: var(--foreground-color);
   color: var(--background-color);
-  font-family: "FetteTrumpDeutsch";
+  font-family: var(--h2-font);
 }
 
 #chat-controls {
@@ -1394,7 +1402,7 @@ form.editable .results .result-details input[type="text"]:focus {
   border-radius: 0;
   color: var(--foreground-color);
   margin-top: 6px;
-  font-family: "Alegreya", serif;
+  font-family: var(--chat-font);
   font-size: 16px;
 }
 
@@ -1411,17 +1419,17 @@ form.editable .results .result-details input[type="text"]:focus {
 }
 
 #chat-log .chat-message .message-header .message-sender {
-  font-family: "Blood Crow", fantasy, serif;
+  font-family: var(--h1-font);
   font-size: 20px;
 }
 
 #chat-log .chat-message .message-header .message-metadata {
-  font-family: "Oswald", sans-serif;
+  font-family: var(--chat-info-font);
   font-size: 12px;
 }
 
 #chat-log .chat-message .message-header span.flavor-text {
-  font-family: "Oswald", sans-serif;
+  font-family: var(--chat-info-font);
   font-size: 14px;
   font-weight: bold;
   color: var(--foreground-color);
@@ -1442,7 +1450,7 @@ form.editable .results .result-details input[type="text"]:focus {
   color: var(--foreground-color);
   background: var(--background-color);
   border: 2px solid #252525;
-  font-family: "Alegreya", serif;
+  font-family: var(--chat-font);
   font-size: 16px;
 }
 
@@ -1460,7 +1468,7 @@ form.editable .results .result-details input[type="text"]:focus {
   border-bottom: none;
   background: var(--highlight-background-color);
   color: var(--background-color);
-  font-family: "FetteTrumpDeutsch";
+  font-family: var(--h2-font);
 }
 
 #client-settings select {
@@ -1512,13 +1520,13 @@ form.editable .results .result-details input[type="text"]:focus {
 .dialog .dialog-buttons button {
   background: var(--foreground-color);
   color: var(--background-color);
-  font-family: "FetteTrumpDeutsch";
+  font-family: var(--h2-font);
 }
 
 .dialog .dialog-buttons button.default {
   background: var(--foreground-color);
   color: var(--background-color);
-  font-family: "FetteTrumpDeutsch";
+  font-family: var(--h2-font);
 }
 
 form .form-group select {
@@ -1565,7 +1573,7 @@ select:focus {
 #settings button {
   color: var(--background-color);
   background: var(--foreground-color);
-  font-family: "FetteTrumpDeutsch";
+  font-family: var(--h2-font);
 }
 
 #sidebar {
@@ -1598,7 +1606,7 @@ select:focus {
   background: var(--foreground-color);
   color: var(--background-color);
   border-radius: 0;
-  font-family: "FetteTrumpDeutsch";
+  font-family: var(--h2-font);
 }
 
 .sidebar-tab .directory-header .header-search input {
@@ -1606,7 +1614,7 @@ select:focus {
   color: var(--foreground-color);
   border: 1px solid #252525;
   border-radius: 0;
-  font-family: "FetteTrumpDeutsch";
+  font-family: var(--h2-font);
 }
 
 .sidebar-tab .directory-header .header-search input[type="text"]:focus {
@@ -1614,7 +1622,7 @@ select:focus {
 }
 
 .sidebar-tab .directory-list .directory-item h4 {
-  font-family: "Special Elite";
+  font-family: var(--item-font);
 }
 
 .tabs .item.active,
@@ -1645,14 +1653,14 @@ select:focus {
   overflow-y: hidden;
   padding: 0px;
   margin: 0px;
-  font-family: "Special Elite";
+  font-family: var(--item-font);
   font-weight: 500;
   font-size: 14px;
   line-height: 1.5;
 }
 
 .window-app.app.journal-sheet .window-content h1 {
-  font-family: "FetteTrumpDeutsch";
+  font-family: var(--h2-font);
   border-bottom: 2px solid #222222;
 }
 
@@ -1666,12 +1674,12 @@ select:focus {
 
 .journal-sheet form input[name="name"] {
   color: var(--background-color);
-  font-family: "FetteTrumpDeutsch";
+  font-family: var(--h2-font);
   font-size: 32px;
 }
 
 .journal-sheet form select {
-  font-family: "Special Elite";
+  font-family: var(--item-font);
 }
 
 a.entity-link,
@@ -1695,7 +1703,7 @@ a.inline-roll {
 .roll-card .card-title {
   background: var(--highlight-background-color);
   color: var(--highlight-foreground-color);
-  font-family: "FetteTrumpDeutsch";
+  font-family: var(--h2-font);
   font-size: 20px;
   margin-bottom: 10px;
   text-align: center;
@@ -1709,12 +1717,12 @@ a.inline-roll {
 
 .roll-card .item-row span.item-name {
   color: var(--foreground-color);
-  font-family: "Special Elite";
+  font-family: var(--item-font);
   font-size: 14px;
 }
 
 .roll-card .roll-title {
-  font-family: "Alegreya";
+  font-family: var(--chat-font);
   font-size: 16px;
   font-weight: bold;
   text-align: center;
@@ -1723,7 +1731,7 @@ a.inline-roll {
 
 .roll-card .roll-result {
   border: 1px solid gray;
-  font-family: "Alegreya";
+  font-family: var(--chat-font);
   font-size: 18px;
   margin-bottom: 10px;
   margin-left: 10px;
@@ -1737,14 +1745,14 @@ a.inline-roll {
 }
 
 .roll-card .outcome-text {
-  font-family: "Old Cupboard", serif;
+  font-family: var(--h3-font);
   font-size: 28px;
   margin-bottom: 10px;
   text-align: center;
 }
 
 .roll-card .reaction-text {
-  font-family: "Old Cupboard", serif;
+  font-family: var(--h3-font);
   font-size: 28px;
   text-align: center;
 }
@@ -1776,7 +1784,7 @@ a.inline-roll {
 }
 
 .custom-dialog .form-group label {
-  font-family: "FetteTrumpDeutsch";
+  font-family: var(--h2-font);
   font-size: 20px;
   margin-right: 10px;
   text-align: right;
@@ -1784,7 +1792,7 @@ a.inline-roll {
 
 .dialog-button.attack,
 .dialog-button.create {
-  font-family: "FetteTrumpDeutsch";
+  font-family: var(--h2-font);
   font-size: 20px;
 }
 

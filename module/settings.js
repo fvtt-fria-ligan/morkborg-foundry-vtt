@@ -10,13 +10,13 @@ export const registerSystemSettings = () => {
     default: ""
   });
 
-  /** Foreground (text) color */
+  /** UI Color scheme */
   game.settings.register("morkborg", "colorScheme", {
     name: "SETTINGS.MBColorScheme",
     hint: "SETTINGS.MBColorSchemeHint",
     scope: "world",
     config: true,
-    default: "white",
+    default: "whiteOnBlackYellow",
     type: String,
     choices: {
       "blackOnYellowWhite": "SETTINGS.MBBlackOnYellowWhite",
@@ -26,5 +26,19 @@ export const registerSystemSettings = () => {
       "whiteOnPinkWhite": "SETTINGS.MBWhiteOnPinkWhite",    
     }
   });  
-  
+
+  /** UI Font scheme */
+  game.settings.register("morkborg", "fontScheme", {
+    name: "SETTINGS.MBFontScheme",
+    hint: "SETTINGS.MBFontSchemeHint",
+    scope: "world",
+    config: true,
+    default: "blackletter",
+    type: String,
+    choices: {
+      "blackletter": "SETTINGS.MBBlackletter",
+      "legible": "SETTINGS.MBLegible",
+    }
+  });  
+
 };

@@ -77,6 +77,25 @@ MB.flags = {
   TARGET_ARMOR: "targetArmor"
 }
 
+MB.fontSchemes = {
+  "blackletter": {
+    "chat": "Alegreya",
+    "chatInfo": "Oswald",
+    "h1": "Blood Crow",
+    "h2": "FetteTrumpDeutsch",
+    "h3": "Old Cupboard",
+    "item": "Special Elite"
+  },
+  "legible": {
+    "chat": "Alegreya",
+    "chatInfo": "Oswald",
+    "h1": "Blood Crow",
+    "h2": "Calling Code Regular",
+    "h3": "Old Cupboard",
+    "item": "Lato"
+  }
+};
+
 MB.handed = {
   1: "MB.HandedOne",
   2: "MB.HandedTwo"
