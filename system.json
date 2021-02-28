@@ -110,7 +110,7 @@
   "initiative": "1d6",
   "gridDistance": 10,
   "gridUnits": "ft",
-  "primaryTokenAttribute": "attributes.hp",
+  "primaryTokenAttribute": "hp",
   "secondaryTokenAttribute": null,
   "minimumCoreVersion": "0.7.9",
   "compatibleCoreVersion": "0.7.9",
