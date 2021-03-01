@@ -204,8 +204,7 @@ export class MBActorSheetCharacter extends ActorSheet {
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: `<h2>${game.i18n.localize('MB.Omens')}</h2>`
       });
-      // TODO: also update omens.max
-      return this.actor.update({["data.omens.value"]: r.total});
+      return this.actor.update({["data.omens"]: {max: r.total, value: r.total}});
     }
   }
 
@@ -217,8 +216,7 @@ export class MBActorSheetCharacter extends ActorSheet {
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
       flavor: `<h2>${game.i18n.localize('MB.Powers')} ${game.i18n.localize('MB.PerDay')}</h2>`
     });
-    // TODO: also update powerUses.max
-    return this.actor.update({["data.powerUses.value"]: r.total});
+    return this.actor.update({["data.powerUses"]: {max: r.total, value: r.total}});
   }
 
   /**
