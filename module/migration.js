@@ -174,7 +174,7 @@ const migrateCompendiums = async () => {
   }
 };
 
-const migrateCompendium = (pack) => {
+const migrateCompendium = async (pack) => {
     const entity = pack.metadata.entity;
     if (!["Actor", "Item", "Scene"].includes(entity)) {
         return;
@@ -183,7 +183,7 @@ const migrateCompendium = (pack) => {
     // Unlock the pack for editing
     const wasLocked = pack.locked;
     await pack.configure({locked: false});
-  
+
     // Begin by requesting server-side data model migration and get the migrated content
     await pack.migrate();
     const content = await pack.getContent();
@@ -224,4 +224,3 @@ const migrateCompendium = (pack) => {
     pack.configure({locked: wasLocked});
     console.log(`Migrated all ${entity} entities from Compendium ${pack.collection}`);
 };
-  
