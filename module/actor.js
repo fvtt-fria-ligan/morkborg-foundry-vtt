@@ -80,7 +80,10 @@ export class MBActor extends Actor {
   async _testAbility(ability, abilityKey, drModifiers) {
     let abilityRoll = new Roll(`1d20+@abilities.${ability}.value`, this.getRollData());
     abilityRoll.evaluate();
-    await game.dice3d.showForRoll(abilityRoll);  // show roll for DiceSoNice
+    if (game.dice3d) {
+      // show roll for DiceSoNice
+      await game.dice3d.showForRoll(abilityRoll);
+    }
     const rollResult = {
       abilityKey: abilityKey,
       abilityRoll,
@@ -181,6 +184,7 @@ export class MBActor extends Actor {
    * Do the actual attack rolls and resolution.
    */
   async _rollAttack(itemId, attackDR, targetArmor) {
+    console.log("_rollAttack");
     const item = this.getOwnedItem(itemId);
     const itemRollData = item.getRollData();
     const actorRollData = this.getRollData();
@@ -191,7 +195,10 @@ export class MBActor extends Actor {
     const ability = isRanged ? 'agility' : 'strength';
     let attackRoll = new Roll(`d20+@abilities.${ability}.value`, actorRollData);
     attackRoll.evaluate();
-    await game.dice3d.showForRoll(attackRoll);  // show roll for DiceSoNice
+    if (game.dice3d) {
+      // show roll for DiceSoNice
+      await game.dice3d.showForRoll(attackRoll); 
+    }
     const d20Result = attackRoll.results[0];
     const isFumble = (d20Result === 1);
     const isCrit = (d20Result === 20);
@@ -207,17 +214,24 @@ export class MBActor extends Actor {
       const damageFormula = isCrit ? "@damageDie * 2" : "@damageDie";
       damageRoll = new Roll(damageFormula, itemRollData);
       damageRoll.evaluate();
-      const p1 = game.dice3d.showForRoll(damageRoll);  // show roll for DiceSoNice
+      let dicePromises = [];
+      if (game.dice3d) {
+        // show roll for DiceSoNice
+        dicePromises.push(game.dice3d.showForRoll(damageRoll));
+      }
       let damage = damageRoll.total;
       // roll 3: target damage reduction
       if (targetArmor) {
         targetArmorRoll = new Roll(targetArmor, {});
         targetArmorRoll.evaluate();
-        const p2 = game.dice3d.showForRoll(targetArmorRoll);  // show roll for DiceSoNice
+        if (game.dice3d) {
+          // show roll for DiceSoNice
+          dicePromises.push(game.dice3d.showForRoll(targetArmorRoll));
+        }
         damage = Math.max(damage - targetArmorRoll.total, 0);
-        await Promise.allSettled([Promise.resolve(p1), Promise.resolve(p2)])
-      } else {
-        await Promise.allSettled([Promise.resolve(p1)])
+      }
+      if (dicePromises) {
+        await Promise.all(dicePromises);
       }
       takeDamage = `${game.i18n.localize('MB.Take')} ${damage} ${game.i18n.localize('MB.Damage')}`
     } else {
@@ -361,7 +375,10 @@ export class MBActor extends Actor {
     // roll 1: defend
     let defendRoll = new Roll("d20+@abilities.agility.value", rollData);
     defendRoll.evaluate();
-    await game.dice3d.showForRoll(defendRoll);  // show roll for DiceSoNice
+    if (game.dice3d) {
+      // show roll for DiceSoNice
+      await game.dice3d.showForRoll(defendRoll);
+    }
     const d20Result = defendRoll.results[0];
     const isFumble = (d20Result === 1);
     const isCrit = (d20Result === 20);
@@ -393,7 +410,11 @@ export class MBActor extends Actor {
       }
       damageRoll = new Roll(damageFormula, {});
       damageRoll.evaluate();
-      const p1 = game.dice3d.showForRoll(damageRoll);  // show roll for DiceSoNice
+      let dicePromises = [];
+      if (game.dice3d) {
+        // show roll for DiceSoNice
+        dicePromises.push(game.dice3d.showForRoll(damageRoll));
+      }
       let damage = damageRoll.total;
 
       // roll 3: damage reduction from equipped armor and shield
@@ -409,11 +430,14 @@ export class MBActor extends Actor {
       if (damageReductionDie) {
         armorRoll = new Roll("@die", {die: damageReductionDie});
         armorRoll.evaluate();
-        const p2 = game.dice3d.showForRoll(targetArmorRoll);  // show roll for DiceSoNice
+        if (game.dice3d) {
+          // show roll for DiceSoNice
+          dicePromises.push(game.dice3d.showForRoll(targetArmorRoll));
+        }
         damage = Math.max(damage - armorRoll.total, 0);
-        await Promise.allSettled([Promise.resolve(p1), Promise.resolve(p2)]);
-      } else {
-        await Promise.allSettled([Promise.resolve(p1)]);
+      }
+      if (dicePromises) {
+        await Promise.all(dicePromises);
       }
       takeDamage = `${game.i18n.localize('MB.Take')} ${damage} ${game.i18n.localize('MB.Damage')}`
     }
@@ -449,12 +473,18 @@ export class MBActor extends Actor {
     const actorRollData = this.getRollData();
     const moraleRoll = new Roll("2d6", actorRollData);
     moraleRoll.evaluate();
-    await game.dice3d.showForRoll(moraleRoll);  // show roll for DiceSoNice
+    if (game.dice3d) {
+      // show roll for DiceSoNice
+      await game.dice3d.showForRoll(moraleRoll);
+    }
     let outcomeRoll = null;
     if (moraleRoll.total > this.data.data.morale) {
       outcomeRoll = new Roll("1d6", actorRollData);
       outcomeRoll.evaluate();
-      await game.dice3d.showForRoll(outcomeRoll);  // show roll for DiceSoNice
+      if (game.dice3d) {
+        // show roll for DiceSoNice
+        await game.dice3d.showForRoll(outcomeRoll);
+      }
     }
     await this._renderMoraleRollCard(moraleRoll, outcomeRoll);
   }
@@ -491,7 +521,10 @@ export class MBActor extends Actor {
     const actorRollData = this.getRollData();
     const reactionRoll = new Roll("2d6", actorRollData);
     reactionRoll.evaluate();
-    await game.dice3d.showForRoll(reactionRoll);  // show roll for DiceSoNice
+    if (game.dice3d) {
+      // show roll for DiceSoNice
+      await game.dice3d.showForRoll(reactionRoll);
+    }
     await this._renderReactionRollCard(reactionRoll);
   }
 
