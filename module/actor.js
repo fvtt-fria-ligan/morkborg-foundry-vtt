@@ -73,10 +73,6 @@ export class MBActor extends Actor {
     return this.carryingAmount() > this.normalCarryingCapacity();
   }
 
-  defenseDRModifier() {
-    
-  }
-
   async _testAbility(ability, abilityKey, drModifiers) {
     let abilityRoll = new Roll(`1d20+@abilities.${ability}.value`, this.getRollData());
     abilityRoll.evaluate();
@@ -92,7 +88,7 @@ export class MBActor extends Actor {
     const html = await renderTemplate(TEST_ABILITY_ROLL_CARD_TEMPLATE, rollResult)
     ChatMessage.create({
       content : html,
-      sound : CONFIG.sounds.dice,
+      sound : this._diceSound(),
       speaker : ChatMessage.getSpeaker({actor: this}),
     });
   }
@@ -261,7 +257,7 @@ export class MBActor extends Actor {
     const html = await renderTemplate(ATTACK_ROLL_CARD_TEMPLATE, rollResult)
     ChatMessage.create({
       content : html,
-      sound : CONFIG.sounds.dice,
+      sound : this._diceSound(),
       speaker : ChatMessage.getSpeaker({actor: this}),
     });
   }
@@ -432,7 +428,7 @@ export class MBActor extends Actor {
         armorRoll.evaluate();
         if (game.dice3d) {
           // show roll for DiceSoNice
-          dicePromises.push(game.dice3d.showForRoll(targetArmorRoll));
+          dicePromises.push(game.dice3d.showForRoll(armorRoll));
         }
         damage = Math.max(damage - armorRoll.total, 0);
       }
@@ -461,7 +457,7 @@ export class MBActor extends Actor {
     const html = await renderTemplate(DEFEND_ROLL_CARD_TEMPLATE, rollResult)
     ChatMessage.create({
       content : html,
-      sound : CONFIG.sounds.dice,
+      sound : this._diceSound(),
       speaker : ChatMessage.getSpeaker({actor: this}),
     });
   }
@@ -509,7 +505,7 @@ export class MBActor extends Actor {
     const html = await renderTemplate(MORALE_ROLL_CARD_TEMPLATE, rollResult)
     ChatMessage.create({
       content : html,
-      sound : CONFIG.sounds.dice,
+      sound : this._diceSound(),
       speaker : ChatMessage.getSpeaker({actor: this}),
     });
   }
@@ -553,9 +549,18 @@ export class MBActor extends Actor {
     const html = await renderTemplate(REACTION_ROLL_CARD_TEMPLATE, rollResult)
     ChatMessage.create({
       content : html,
-      sound : CONFIG.sounds.dice,
+      sound : this._diceSound(),
       speaker : ChatMessage.getSpeaker({actor: this}),
     });
+  }
+
+  _diceSound() {
+    if (game.dice3d) {
+      // let Dice So Nice do it
+      return false;
+    } else {
+      return CONFIG.sounds.dice;
+    }
   }
 }  
 
