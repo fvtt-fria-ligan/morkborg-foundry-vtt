@@ -1,10 +1,28 @@
+/* TODO: alt yellows #ffe800 #XXXfff160 */
+:root {
+  --background-color: #000000;
+  --foreground-color: #ffffff;
+  --highlight-background-color: #ffe900;
+  --highlight-foreground-color: #000000;
+  --chat-font: "Alegreya";
+  --chat-info-font: "Oswald";
+  --h1-font: "Blood Crow";
+  --h2-font: "FetteTrumpDeutsch";
+  --h3-font: "Old Cupboard";
+  --item-font: "Special Elite";
+}
+
 /* ====================== */
 /* Fonts */
 /* ====================== */
-@import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Oswald&family=Special+Elite&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Lato&family=Oswald&family=Rakkas&family=Special+Elite&display=swap");
 @font-face {
   font-family: "Blood Crow";
   src: url("../fonts/bloodcrow.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Calling Code Regular";
+  src: url("../fonts/CallingCode-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "FetteTrumpDeutsch";
@@ -73,8 +91,8 @@
   border: 1px solid lightgray;
 }
 .morkborg ::selection {
-  background: #ffe500;
-  color: black;
+  background: var(--highlight-background-color);
+  color: var(--background-color);
 }
 .morkborg select {
   height: 27px;
@@ -83,10 +101,10 @@
   border-radius: 0px;
   padding: 0 3px;
   text-overflow: ellipsis;
-  color: white;
+  color: var(--foreground-color);
 }
 .morkborg select:focus {
-  box-shadow: 0 0 5px #ffe500;
+  box-shadow: 0 0 5px var(--highlight-background-color);
   outline: none;
 }
 .morkborg select[multiple] {
@@ -94,8 +112,8 @@
   padding: 3px;
 }
 .morkborg select > option {
-  background-color: black !important;
-  color: white !important;
+  background-color: var(--background-color) !important;
+  color: var(--foreground-color) !important;
 }
 /* ====================== */
 /* Sheet */
@@ -108,9 +126,9 @@
   overflow-y: hidden;
   padding: 5px;
   /* inherited background is parchment img bg */
-  background: black;
+  background: var(--background-color);
   font-size: 13px;
-  color: white;
+  color: var(--foreground-color);
   border-bottom: 1px solid #222222;
   border-left: 1px solid #222222;
   border-right: 1px solid #222222;
@@ -123,15 +141,15 @@
   margin-top: 0;
 }
 .morkborg.sheet .editable .rollable:hover {
-  color: #000;
-  text-shadow: 0 0 10px #ffe500;
+  color: var(--highlight-foreground-color);
+  text-shadow: 0 0 10px var(--highlight-background-color);;
   cursor: pointer;
 }
 .morkborg.sheet input[type="text"],
 .morkborg.sheet input[type="number"],
 .morkborg.sheet input[type="password"],
 .morkborg.sheet input[type="date"] {
-  color: white;
+  color: var(--foreground-color);
   border-radius: 0;
 }
 .morkborg.sheet input[type="text"]:focus,
@@ -144,69 +162,55 @@
 .morkborg.sheet input[type="password"]:hover,
 .morkborg.sheet input[type="date"]:hover,
 .morkborg.sheet input[type="time"]:hover {
-  box-shadow: 0 0 5px #ffe500;
+  box-shadow: 0 0 5px var(--highlight-background-color);;
 }
 .morkborg.sheet select:focus {
-  box-shadow: 0 0 5px #ffe500;
+  box-shadow: 0 0 5px var(--highlight-background-color);;
 }
 .morkborg.sheet button:hover,
 .morkborg.sheet button:focus {
-  box-shadow: 0 0 5px #ffe500;
+  box-shadow: 0 0 5px var(--highlight-background-color);;
 }
 .morkborg.sheet a:hover {
-  text-shadow: 0 0 8px #ffe500;
+  text-shadow: 0 0 8px var(--highlight-background-color);;
 }
 .morkborg.sheet textarea {
   border: 1px solid #7a7971;
   border-radius: 0;
-  color: white;
-  font-family: "Special Elite", cursive;
+  color: var(--foreground-color);
+  font-family: var(--item-font);
   font-size: 14px;
   resize: none;
 }
 .morkborg.sheet textarea:hover {
-  box-shadow: 0 0 5px #ffe500;
+  box-shadow: 0 0 5px var(--highlight-background-color);;
 }
 .morkborg.sheet textarea:focus {
-  box-shadow: 0 0 5px #ffe500;
+  box-shadow: 0 0 5px var(--highlight-background-color);;
   outline: none;
+}
+.morkborg.sheet .profile-img {
+  border: none;
 }
 /* ====================== */
 /* TinyMCE editor */
 /* ====================== */
 .morkborg.sheet .editor {
-  color: white;
+  color: var(--foreground-color);
   border: 1px solid #7a7971;
-  font-family: "Special Elite";
+  font-family: var(--item-font);
 }
-/*.morkborg.sheet .editor-content {
-  color: white;
-}
-*/ /* TODO: see if there's a better way for us to style TinyMCE */
-/* 
-Anchor hover affects font awesome icons, like the on-hover TinyMCE edit icon:;
-  <a class="editor-edit"><i class="fas fa-edit"></i></a>
-alternately we could select as
-.morkborg.sheet .editor:hover .editor-edit:hover .fa-edit {}        
- */
 .morkborg.sheet .tox.tox-tinymce .tox-edit-area__iframe {
-  /* TODO: how do we style font color in tinymce? 
-  color: white;
-  */
-  background: black;
+  background: var(--background-color);
 }
-
 .mce-content-body {
   overflow-wrap: break-word;
   word-wrap: break-word;
-  color: white;
+  color: var(--foreground-color);
 }
 .morkborg .editor,
 .morkborg .editor-content {
   height: 100%;
-  /*  font-family: 'Special Elite', cursive;
-  font-size: 12px;
-  */
 }
 .morkborg.sheet .editor {
   padding: 0 8px;
@@ -217,7 +221,7 @@ alternately we could select as
 .morkborg.sheet .sheet-tabs {
   flex: 0 0 30px;
   margin-bottom: 5px;
-  font-family: "Modesto Condensed", "Palatino Linotype", serif;
+  /* font-family: "Modesto Condensed", "Palatino Linotype", serif; */
   font-size: 20px;
   font-weight: 700;
   /* TODO: track down the border-top and border-bottom getting inherited on these */
@@ -225,7 +229,7 @@ alternately we could select as
   border-bottom: none;
 }
 .morkborg.sheet .sheet-tabs .item {
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-family: var(--h2-font);
   font-size: 22px;
   height: 30px;
   line-height: 32px;
@@ -233,13 +237,13 @@ alternately we could select as
   width: 120px;
 }
 .morkborg.sheet .sheet-tabs .item:hover {
-  color: black;
-  text-shadow: 0 0 10px #ffe500;
+  color: var(--highlight-foreground-color);
+  text-shadow: 0 0 10px var(--highlight-background-color);;
 }
 .morkborg.sheet .sheet-tabs .item.active {
   text-shadow: none;
-  background-color: #ffe500;
-  color: black;
+  background-color: var(--highlight-background-color);;
+  color: var(--highlight-foreground-color);
 }
 /* ====================== */
 /* Sheet Body */
@@ -255,7 +259,7 @@ alternately we could select as
 /* Actor sheet */
 /* ====================== */
 .morkborg.sheet.actor .rule-text {
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 10pt;
 }
 /* ====================== */
@@ -277,25 +281,25 @@ alternately we could select as
   padding: 0;
 }
 .morkborg.sheet.actor .stat-label {
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-family: var(--h2-font);
   font-size: 22px;
   margin-right: 10px;
 }
 .morkborg.sheet.actor .stat-input {
   border: 1px solid #7a7971;
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 14pt;
   text-align: center;
   padding-top: 8px;
   width: 50px;
-  color: white;
+  color: var(--foreground-color);
 }
 .morkborg.sheet.actor .stat-value {
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 14pt;
   text-align: center;
   width: 50px;
-  color: white;
+  color: var(--foreground-color);
 }
 /* ====================== */
 /* Character sheet */
@@ -332,8 +336,9 @@ alternately we could select as
   width: 200px;
 }
 .morkborg.sheet.actor input[type="text"].actor-name {
-  font-family: "Blood Crow", fantasy, serif;
+  font-family: var(--h1-font);
   font-size: 38px;
+  text-transform: uppercase;
 }
 .morkborg.sheet.actor.character .sheet-header .name-row {
   flex: 0 0 50px;
@@ -351,7 +356,6 @@ alternately we could select as
   width: 100%;
 }
 .morkborg.sheet.actor.character .sheet-header .classname-row span.class-label {
-  border: 1px solid green;
   /* flex: 0 0 60px; */
 }
 .morkborg.sheet.actor.character .sheet-header .classname-row img.classimg {
@@ -361,7 +365,7 @@ alternately we could select as
   margin-right: 5px;
 }
 .morkborg.sheet.actor.character .sheet-header .classname-row label.classname {
-  font-family: "Old Cupboard", serif;
+  font-family: var(--h3-font);
   font-size: 28px;
   width: 100%;
 }
@@ -423,8 +427,8 @@ alternately we could select as
   ul.miseries
   input[type="radio"]:checked
   + span {
-  background: #ffe500;
-  color: #000;
+  background: var(--highlight-background-color);;
+  color: var(--highlight-foreground-color);
   border: none;
 }
 .morkborg.sheet.actor.character .sheet-header ul.miseries label span {
@@ -437,7 +441,7 @@ alternately we could select as
   text-align: center;
   border-radius: 100%;
   font-size: 10pt;
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   left: 0;
   top: 50%;
 }
@@ -447,8 +451,8 @@ alternately we could select as
   li:last-child
   label
   span {
-  background: white;
-  color: black;
+  background: var(--foreground-color);
+  color: var(--background-color);
 }
 .morkborg.sheet.actor.character .sheet-header .ability-row {
   margin-bottom: 10px;
@@ -457,7 +461,7 @@ alternately we could select as
   margin-bottom: 0;
 }
 .morkborg.sheet.actor.character .sheet-header .ability-label {
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-family: var(--h2-font);
   font-size: 24px;
   margin-left: 5px;
   margin-top: 5px;
@@ -465,7 +469,7 @@ alternately we could select as
 }
 .morkborg.sheet.actor.character .sheet-header .ability-input {
   border: 1px solid #7a7971;
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 14pt;
   text-align: center;
   padding: 5px;
@@ -475,7 +479,7 @@ alternately we could select as
   height: 42px;
   float: left;
   border-radius: 0;
-  color: white;
+  color: var(--foreground-color);
 }
 /* ====================== */
 /* Item list */
@@ -492,7 +496,7 @@ alternately we could select as
 }
 .morkborg .items-list .items-header .item-name {
   /*padding-left: 5px;*/
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-family: var(--h2-font);
   font-size: 24px;
 }
 .morkborg .item-list {
@@ -514,11 +518,11 @@ alternately we could select as
 }
 .morkborg .item-list .item-name {
   margin: 0;
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 12pt;
 }
 .morkborg .item-list .item-fields {
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 12pt;
   display: flex;
   flex-direction: row;
@@ -545,22 +549,22 @@ alternately we could select as
   color: darkgray;
 }
 .morkborg.sheet.actor .sheet-body .item-controls .item-toggle.equipped {
-  color: #ffe500;
+  color: var(--highlight-background-color);
 }
 .morkborg .item-list .item-button {
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-family: var(--h2-font);
   font-size: 20px;
   flex: none;
   width: auto;
-  color: white;
-  background-color: white;
-  color: black;
+  color: var(--foreground-color);
+  background-color: var(--foreground-color);
+  color: var(--background-color);
   border: none;
   border-bottom: 2px solid #777;
   border-radius: 0;
 }
 .morkborg .item-list .equipped {
-  color: white;
+  color: var(--foreground-color);
 }
 .morkborg .item-list .unequipped {
   color: gray;
@@ -635,8 +639,8 @@ alternately we could select as
   ul.tiers
   input[type="radio"]:checked
   + span.tier-num {
-  background: #ffe500;
-  color: #000;
+  background: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
   border: none;
 }
 .morkborg.sheet.actor
@@ -666,7 +670,7 @@ alternately we could select as
   text-align: center;
   border-radius: 100%;
   font-size: 14pt;
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   left: 0;
   /*top: 50%; */
   top: 0%;
@@ -678,7 +682,7 @@ alternately we could select as
   overflow: hidden;
   line-height: 1;
   text-align: center;
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 10pt;
   left: -5px;
   top: 30px;
@@ -700,10 +704,10 @@ alternately we could select as
   margin-left: 10px;
   width: 120px;
   margin-bottom: 10px;
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-family: var(--h2-font);
   font-size: 20px;
-  background-color: white;
-  color: black;
+  background-color: var(--foreground-color);
+  color: var(--background-color);
   border: none;
   border-bottom: 2px solid #777;
   border-radius: 0;
@@ -741,10 +745,10 @@ alternately we could select as
 .morkborg.sheet.actor.character .sheet-body .wield-power-button {
   width: 200px;
   margin-bottom: 10px;
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-family: var(--h2-font);
   font-size: 24px;
-  background-color: white;
-  color: black;
+  background-color: var(--foreground-color);
+  color: var(--background-color);
   border: none;
   border-bottom: 2px solid #777;
   border-radius: 0;
@@ -792,7 +796,7 @@ alternately we could select as
   margin-left: 40px;
 }
 .morkborg.sheet.actor.character .sheet-body .encumbered {
-  color: #ffe500;
+  color: var(--highlight-background-color);
 }
 /*
 TODO: figure out if we want a 2-col inventory
@@ -807,10 +811,10 @@ TODO: figure out if we want a 2-col inventory
   margin-left: 10px;
   width: 120px;
   margin-bottom: 10px;
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-family: var(--h2-font);
   font-size: 20px;
-  background-color: white;
-  color: black;
+  background-color: var(--foreground-color);
+  color: var(--background-color);
   border: none;
   border-bottom: 2px solid #777;
   border-radius: 0;
@@ -850,7 +854,7 @@ TODO: figure out if we want a 2-col inventory
   padding-left: 12px;
 }
 .morkborg.sheet.actor.creature .sheet-header .altname-row input[type="text"] {
-  font-family: "Old Cupboard", serif;
+  font-family: var(--h3-font);
   font-size: 24px;
 }
 .morkborg.sheet.actor.creature .sheet-header .hitpoints-row {
@@ -865,17 +869,17 @@ TODO: figure out if we want a 2-col inventory
   margin-bottom: 8px;
 }
 .morkborg.sheet.creature .sheet-body .form-group label {
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-family: var(--h2-font);
   font-size: 20px;
   text-align: right;
   margin-right: 10px;
 }
 .morkborg.sheet.creature .sheet-body .form-group input {
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 14pt;
 }
 .morkborg.sheet.creature .sheet-body .form-group select {
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 14pt;
 }
 .morkborg.sheet.creature .sheet-body .form-group.special {
@@ -892,13 +896,13 @@ TODO: figure out if we want a 2-col inventory
   padding: 5px;
 }
 .morkborg.sheet.item .sheet-header .item-name input[type="text"] {
-  font-family: "Blood Crow", fantasy, serif;
+  font-family: var(--h1-font);
   font-size: 38px;
   flex: 1;
   height: 45px;
 }
 .morkborg.sheet.item .sheet-header .item-subtitle {
-  font-family: "Old Cupboard", serif;
+  font-family: var(--h3-font);
   font-size: 24px;
   text-transform: uppercase;
   margin-left: 13px;
@@ -912,17 +916,17 @@ TODO: figure out if we want a 2-col inventory
   margin-bottom: 8px;
 }
 .morkborg.sheet.item .sheet-body .form-group label {
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-family: var(--h2-font);
   font-size: 20px;
   text-align: right;
   margin-right: 10px;
 }
 .morkborg.sheet.item .sheet-body .form-group input {
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 14pt;
 }
 .morkborg.sheet.item .sheet-body .form-group select {
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 14pt;
 }
 /* ====================== */
@@ -963,7 +967,7 @@ TODO: figure out if we want a 2-col inventory
   margin-bottom: 8px;
 }
 .morkborg.sheet.actor.follower .sheet-header .altname-row input[type="text"] {
-  font-family: "Old Cupboard", serif;
+  font-family: var(--h3-font);
   font-size: 24px;
 }
 .morkborg.sheet.actor.follower .sheet-header .hitpoints-row {
@@ -978,17 +982,17 @@ TODO: figure out if we want a 2-col inventory
   margin-bottom: 8px;
 }
 .morkborg.sheet.follower .sheet-body .form-group label {
-  font-family: "FetteTrumpDeutsch", fantasy, serif;
+  font-family: var(--h2-font);
   font-size: 20px;
   text-align: right;
   margin-right: 10px;
 }
 .morkborg.sheet.follower .sheet-body .form-group input {
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 14pt;
 }
 .morkborg.sheet.follower .sheet-body .form-group select {
-  font-family: "Special Elite", cursive;
+  font-family: var(--item-font);
   font-size: 14pt;
 }
 .morkborg.sheet.follower .sheet-body .form-group.special {
@@ -999,41 +1003,41 @@ TODO: figure out if we want a 2-col inventory
 /* ====================== */
 /* TODO: figure out the right class/level to fix this stuff */
 .form-group input[type="text"] {
-  color: white;
+  color: var(--foreground-color);
 }
 .form-group input[type="text"]:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 .form-group input[type="text"]:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 .form-group textarea {
-  color: white;
+  color: var(--foreground-color);
 }
 .form-group textarea:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 .form-group textarea:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-background-color);
   outline: none;
 }
 form button {
-  color: white;
+  color: var(--foreground-color);
 }
 form button:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 a:hover {
-  text-shadow: 0 0 8px #fff160;
+  text-shadow: 0 0 8px var(--highlight-background-color);
 }
 input[type="text"] {
-  color: white;
+  color: var(--foreground-color);
 }
 input[type="text"]:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 input[type="text"]:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 /*form.editable .results .table-result {
   color: white;
@@ -1042,66 +1046,70 @@ form.editable .results .table-result {
   color: white;
 }*/
 form.editable .results .result-image img {
-  background-color: white;
+  background-color: var(--foreground-color);
 }
 form.editable .results .result-type select {
-  color: white;
+  color: var(--foreground-color);
 }
 form.editable .results .result-type select:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 form.editable .results .result-type select:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 form.editable .results .result-details select {
-  color: white;
+  color: var(--foreground-color);
 }
 form.editable .results .result-details select:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 form.editable .results .result-details select:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 form.editable .results .result-details input[type="text"] {
-  color: white;
+  color: var(--foreground-color);
 }
 form.editable .results .result-details input[type="text"]:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 form.editable .results .result-details input[type="text"]:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 .table-results .table-result .result-text .entity-link {
-  color: black;
-  background-color: #fff160;
+  background-color: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
 }
 /* Fixes Module Management dialog */
 #module-management .package-list .package-title,
 #module-management .package-list .package-metadata,
 #module-management .package-list .package-description {
-  color: white;
+  color: var(--foreground-color);
 }
 /* Fixes hard-to-read dark text on various system Dialogs */
 .window-app .window-content .notes {
-  color: #fff160;
+  /* TODO: XXXX mcglincy */
+  background-color: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
 }
 .window-app .window-content form .form-header {
-  color: white;
+  color: var(--foreground-color);
 }
 .window-app .window-content form .notes {
-  color: #fff160;
+  background-color: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
 }
 .window-app .window-content .form-group span.units {
-  color: #fff160;
+  background-color: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
 }
 .window-app .window-content .form-group input {
-  color: white;
+  color: var(--foreground-color);
 }
 .window-app .window-content .form-group input:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 .window-app .window-content .form-group input:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 /* Fix readonly input on defend dialog */
 .window-app .window-content .form-group input.readonly {
@@ -1117,16 +1125,16 @@ form.editable .results .result-details input[type="text"]:focus {
 }
 /* Fixes Journal image select dialog */
 .journal-sheet.image-popout .window-content .form-group input {
-  color: black;
+  color: var(--background-color);
 }
 .journal-sheet.image-popout .window-content .form-group.picker button.file-picker {
-  background-color: black;
+  background-color: var(--background-color);
 }
 .journal-sheet form select:hover {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 .journal-sheet form select:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 .journal-sheet form .form-group.title input[type="text"] {
   background-color: rgba(0, 0, 0, 0.05);
@@ -1136,75 +1144,76 @@ form.editable .results .result-details input[type="text"]:focus {
 }
 /* Fix Player Configuration dialog */
 #player-config form .form-group label {
-  color: white;
+  color: var(--foreground-color);
 }
 #player-config form .form-group .directory-list .actor.directory-item {
   border-bottom-color: none;
   border-top-color: none;
 }
 #player-config form .form-group .directory-list .actor.directory-item.context {
-  border-bottom-color: #ffe800;
-  border-top-color: #ffe800;
-  box-shadow: 0 0 5px #ffe800;
+  border-bottom-color: var(--highlight-background-color);
+  border-top-color: var(--highlight-background-color);
+  box-shadow: 0 0 5px var(--highlight-background-color);
 }
 
 /* ====================== */
 /* UI / Chat */
 /* ====================== */
 .morkborg .button {
-  background: white;
-  color: black;
-  font-family: "FetteTrumpDeutsch";
+  background: var(--foreground-color);
+  color: var(--background-color);
+  font-family: var(--h2-font);
 }
 #chat-controls {
-  color: white;
+  color: var(--foreground-color);
 }
 #chat-controls i.fas:hover {
-  color: #ffe800;
-  text-shadow: 0 0 5px #fff160;
+  /* TODO: fix mcglincy XXX */
+  color: var(--highlight-background-color);
+  text-shadow: 0 0 5px var(--highlight-background-color);
 }
 #chat-controls .roll-type-select {
-  color: white;
-  background: black;
+  color: var(--foreground-color);
+  background: var(--background-color);
 }
 #chat-controls select:focus {
-  box-shadow: 0 0 10px #fff160;
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 #chat-log {
-  background: black;
+  background: var(--background-color);
 }
 #chat-log .chat-message {
-  background: black;
+  background: var(--background-color);
   border: 3px solid#252525;
   border-radius: 0;
-  color: white;
+  color: var(--foreground-color);
   margin-top: 6px;
-  font-family: "Alegreya", serif;
+  font-family: var(--chat-font);
   font-size: 16px;
 }
 #chat-log .message h4,
 #chat-log .message h3,
 #chat-log .message h2,
 #chat-log .message-metadata {
-  color: white;
+  color: var(--foreground-color);
 }
 #chat-log .message h2 {
-  background: #ffe800;
-  color: black;
+  background: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
 }
 #chat-log .chat-message .message-header .message-sender {
-  font-family: "Blood Crow", fantasy, serif;
+  font-family: var(--h1-font);
   font-size: 20px;
 }
 #chat-log .chat-message .message-header .message-metadata {
-  font-family: "Oswald", sans-serif;
+  font-family: var(--chat-info-font);
   font-size: 12px;
 }
 #chat-log .chat-message .message-header span.flavor-text {
-  font-family: "Oswald", sans-serif;
+  font-family: var(--chat-info-font);
   font-size: 14px;
   font-weight: bold;
-  color: white;
+  color: var(--foreground-color);
 }
 #chat-log .message .dice-formula,
 #chat-log .message .dice-total {
@@ -1217,171 +1226,172 @@ form.editable .results .result-details input[type="text"]:focus {
   font-size: 13.5px;
 } */
 #chat-form textarea {
-  color: white;
-  background: black;
+  color: var(--foreground-color);
+  background: var(--background-color);
   border: 2px solid #252525;
-  font-family: "Alegreya", serif;
+  font-family: var(--chat-font);
   font-size: 16px;
 }
 #chat-form textarea:focus {
-  outline: 2px solid #ffe800;
-  box-shadow: 0 0 10px #fff160;
+  outline: 2px solid var(--highlight-background-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 #client-settings button {
-  color: black;
-  background: white;
+  color: var(--background-color);
+  background: var(--foreground-color);
 }
 #client-settings h2 {
   border-bottom: none;
-  background: #ffe800;
-  color: black;
-  font-family: "FetteTrumpDeutsch";
+  background: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
+  font-family: var(--h2-font);
 }
 #client-settings select {
-  color: white;
-  background: black;
+  color: var(--foreground-color);
+  background: var(--background-color);
 }
 #client-settings select:focus {
   outline: none;
-  box-shadow: 0 0 5px #ffe800;
+  box-shadow: 0 0 5px var(--highlight-background-color);
 }
 #controls {
-  color: white;
-  background: black;
+  color: var(--foreground-color);
+  background: var(--background-color);
 }
 #controls .control-tool.toggle {
-  background: black;
+  background: var(--background-color);
   border: 1px solid #252525;
 }
 #controls .control-tool.toggle.active {
-  background: black;
-  text-shadow: 0 0 10px #fff160;
-  box-shadow: 0 0 10px #fff160;
+  background: var(--background-color);
+  text-shadow: 0 0 10px var(--highlight-background-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 #controls .control-tools {
-  color: white;
-  background: black;
+  color: var(--foreground-color);
+  background: var(--background-color);
 }
 #controls .control-tool.active,
 #controls .control-tool:hover,
 #controls .scene-control.active,
 #controls .scene-control:hover {
-  color: white;
-  border: 1px solid #ffe800;
-  box-shadow: 0 0 10px #fff160;
+  color: var(--foreground-color);
+  border: 1px solid var(--highlight-background-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 #controls .scene-control.active {
-  color: white;
-  border: 1px solid #ffe800;
-  box-shadow: 0 0 10px #fff160;
+  color: var(--foreground-color);
+  border: 1px solid var(--highlight-background-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 .dialog .dialog-buttons button {
-  background: white;
-  color: black;
-  font-family: "FetteTrumpDeutsch";
+  background: var(--foreground-color);
+  color: var(--background-color);
+  font-family: var(--h2-font);
 }
 .dialog .dialog-buttons button.default {
-  background: white;
-  color: black;
-  font-family: "FetteTrumpDeutsch";
+  background: var(--foreground-color);
+  color: var(--background-color);
+  font-family: var(--h2-font);
 }
 form .form-group select {
-  color: white;
-  background: black;
+  color: var(--foreground-color);
+  background: var(--background-color);
 }
 form .form-group select:focus {
-  box-shadow: 0 0 10px #ffe800;
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 #hotbar #hotbar-directory-controls {
-  background: black;
-  color: white;
+  background: var(--background-color);
+  color: var(--foreground-color);
 }
 #navigation #nav-toggle {
-  background: black;
-  color: white;
+  background: var(--background-color);
+  color: var(--foreground-color);
 }
 #navigation #scene-list .scene.view {
-  background: black;
-  color: white;
-  border: 1px solid #ffe800;
-  box-shadow: 0 0 10px #fff160;
+  background: var(--background-color);
+  color: var(--foreground-color);
+  border: 1px solid var(--highlight-background-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 #navigation #scene-list .scene.gm {
   border: 1px solid #252525;
-  background: black;
+  background: var(--background-color);
 }
 #players {
-  background: black;
-  color: white;
+  background: var(--background-color);
+  color: var(--foreground-color);
 }
 select:focus {
-  color: white;
-  background: black;
+  color: var(--foreground-color);
+  background: var(--background-color);
 }
 #settings button {
-  color: black;
-  background: white;
-  font-family: "FetteTrumpDeutsch";
+  color: var(--background-color);
+  background: var(--foreground-color);
+  font-family: var(--h2-font);
 }
 #sidebar {
-  background: black;
-  color: white;
+  background: var(--background-color);
+  color: var(--foreground-color);
 }
 #sidebar.collapsed #sidebar-tabs > .item.active {
-  border-bottom: 1px solid #ffe800;
+  border-bottom: 1px solid var(--highlight-background-color);
   border-radius: 5px;
 }
 #sidebar-tabs {
-  background: black;
-  color: white;
-  border-bottom: 1px solid #ffe800;
-  box-shadow: 0 0 10px #fff160;
+  background: var(--background-color);
+  color: var(--foreground-color);
+  border-bottom: 1px solid var(--highlight-background-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 #sidebar-tabs > .item.active {
-  color: black;
-  background: #ffe500;
-  border: 1px solid #ffe800;
+  color: var(--highlight-foreground-color);
+  background: var(--highlight-background-color);;
+  border: 1px solid var(--highlight-background-color);
   border-bottom: none;
-  box-shadow: 0 0 6px inset #fff160;
-  text-shadow: 0 0 10px #ffe800;
+  box-shadow: 0 0 6px inset var(--highlight-background-color);
+  text-shadow: 0 0 10px var(--highlight-background-color);
 }
 .sidebar-tab .action-buttons button {
-  background: white;
-  color: black;
+  background: var(--foreground-color);
+  color: var(--background-color);
   border-radius: 0;
-  font-family: "FetteTrumpDeutsch";
+  font-family: var(--h2-font);
 }
 .sidebar-tab .directory-header .header-search input {
-  background: black;
-  color: white;
+  background: var(--background-color);
+  color: var(--foreground-color);
   border: 1px solid #252525;
   border-radius: 0;
-  font-family: "FetteTrumpDeutsch";
+  font-family: var(--h2-font);
 }
 .sidebar-tab .directory-header .header-search input[type="text"]:focus {
-  box-shadow: 0 0 5px #ffe800;
+  box-shadow: 0 0 5px var(--highlight-background-color);
 }
 .sidebar-tab .directory-list .directory-item h4 {
-  font-family: "Special Elite";
+  font-family: var(--item-font);
 }
 .tabs .item.active,
 .tabs .item:hover {
-  text-shadow: 0 0 10px #ffe800;
+  text-shadow: 0 0 10px var(--highlight-background-color);
 }
 ::-webkit-scrollbar-thumb {
   outline: none;
   border-radius: 3px;
-  background: #ffe800 !important;
-  border: 1px solid black !important;
+  background: var(--highlight-background-color) !important;
+  border: 1px solid var(--background-color) !important;
+  color: var(--highlight-foreground-color) !important;
 }
 .window-app .window-content {
-  background: black;
-  color: white;
+  background: var(--background-color);
+  color: var(--foreground-color);
 }
 /* ================== 11. JOURNAL ENTRIES =================== */
 .window-app.app.journal-sheet .window-content {
-  background: white;
-  color: black;
+  background: var(--foreground-color);
+  color: var(--background-color);
   background-position: -43px -120px;
   display: flex;
   flex-direction: column;
@@ -1389,14 +1399,14 @@ select:focus {
   overflow-y: hidden;
   padding: 0px;
   margin: 0px;
-  font-family: "Special Elite";
+  font-family: var(--item-font);
   font-weight: 500;
   font-size: 14px;
   line-height: 1.5;
 }
 
 .window-app.app.journal-sheet .window-content h1 {
-  font-family: "FetteTrumpDeutsch";
+  font-family: var(--h2-font);
   border-bottom: 2px solid #222222;
 }
 
@@ -1405,24 +1415,24 @@ select:focus {
 }
 
 .journal-sheet form button[type="submit"] {
-  background: black;
+  background: var(--background-color);
 }
 
 .journal-sheet form input[name="name"] {
-  color: black;
-  font-family: "FetteTrumpDeutsch";
+  color: var(--background-color);
+  font-family: var(--h2-font);
   font-size: 32px;
 }
 
 .journal-sheet form select {
-  font-family: "Special Elite";
+  font-family: var(--item-font);
 }
 a.entity-link,
 a.inline-roll {
-  background: black;
-  color: white;
+  background: var(--background-color);
+  color: var(--foreground-color);
   padding: 1px 4px;
-  border: 1px solid black;
+  border: 1px solid var(--background-color);
   border-radius: 2px;
   white-space: nowrap;
   word-break: break-all;
@@ -1431,12 +1441,12 @@ a.inline-roll {
 /* Roll Cards */
 /* ====================== */
 .roll-card {
-  border: 1px solid #ffe800;
+  border: 1px solid var(--highlight-background-color);
 }
 .roll-card .card-title {
-  background: #ffe800;
-  color: black;
-  font-family: "FetteTrumpDeutsch";
+  background: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
+  font-family: var(--h2-font);
   font-size: 20px;
   margin-bottom: 10px;
   text-align: center;
@@ -1447,12 +1457,12 @@ a.inline-roll {
   margin-bottom: 10px;
 }
 .roll-card .item-row span.item-name {
-  color: white;
-  font-family: "Special Elite";
+  color: var(--foreground-color);
+  font-family: var(--item-font);
   font-size: 14px;
 }
 .roll-card .roll-title {
-  font-family: "Alegreya";
+  font-family: var(--chat-font);
   font-size: 16px;
   font-weight: bold;
   text-align: center;
@@ -1460,7 +1470,7 @@ a.inline-roll {
 }
 .roll-card .roll-result {
   border: 1px solid gray;
-  font-family: "Alegreya";
+  font-family: var(--chat-font);
   font-size: 18px;
   margin-bottom: 10px;
   margin-left: 10px;
@@ -1468,17 +1478,17 @@ a.inline-roll {
   text-align: center;
 }
 .roll-card .roll-result span {
-  color: white;  
+  color: var(--foreground-color);  
   font-size: 20px;
 }
 .roll-card .outcome-text {
-  font-family: "Old Cupboard", serif;
+  font-family: var(--h3-font);
   font-size: 28px;
   margin-bottom: 10px;
   text-align: center;
 }
 .roll-card .reaction-text {
-  font-family: "Old Cupboard", serif;
+  font-family: var(--h3-font);
   font-size: 28px;
   text-align: center;
 }
@@ -1489,8 +1499,8 @@ a.inline-roll {
 .roll-card .outcome-text .attack-outcome,
 .roll-card .outcome-text .defend-outcome,
 .roll-card .outcome-text .take-damage {
-  background-color: #ffe800;
-  color: black;
+  background-color: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
   padding-left: 4px;
   padding-right: 4px;
 }
@@ -1505,19 +1515,19 @@ a.inline-roll {
   margin-bottom: 10px;
 }
 .custom-dialog .form-group label {
-  font-family: "FetteTrumpDeutsch";  
+  font-family: var(--h2-font);  
   font-size: 20px;
   margin-right: 10px;
   text-align: right;
 }
 .dialog-button.attack,
 .dialog-button.create {
-  font-family: "FetteTrumpDeutsch";  
+  font-family: var(--h2-font);  
   font-size: 20px;
 }
 .dialog-buttons button.dialog-button:active,
 .dialog-buttons button.dialog-button:focus,
 .dialog-buttons button.dialog-button:hover {
-  box-shadow: 0 0 5px #ffe500;
-  text-shadow: 0 0 10px #ffe500;
+  box-shadow: 0 0 5px var(--highlight-background-color);;
+  text-shadow: 0 0 10px var(--highlight-background-color);;
 }
