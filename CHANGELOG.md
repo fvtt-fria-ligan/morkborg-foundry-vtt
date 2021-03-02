@@ -17,6 +17,8 @@
 - Added initial color schemes (a la scvmbirther) and fonts (blackletter, legible).
 - Fixed Dice So Nice integration for attack, defense, and ability tests.
 - Made flail and battle axe 1h.
+- Added roll tables for class-specific starting items/feats.
+- Added Portable Laboratory item for Occult Herbmaster.
 
 # 0.1.8
 - Added dialog popup for attack and defend to prompt for DR and target armor / incoming attack. Last entered values are persisted for easier repeat actions.
