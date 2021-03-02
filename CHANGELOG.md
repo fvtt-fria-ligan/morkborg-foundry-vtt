@@ -1,15 +1,16 @@
 # 0.2.0
-- Added support for armor and encumbrance DR modifiers (strength and agility tests, defense).
 - Added default 12 DR for attack and defense dialogs.
+- Added support for armor and encumbrance DR modifiers (strength and agility tests, defense).
+- Switched to Alegreya font for default chat text, for better readability.
 - Fixed You are What You Own (2) roll table.
 - Fixed metal file and lockpicks roll table entry to return two objects.
-- Switched to Alegreya for default chat text.
 - Added new "Feat" item type to represent special abilities and feats.
 - Added Class Feats compendium with feats for all classes.
+(Note: you have to manually drag these to the Character sheet yourself.)
 - Fixed character actor creation to default token link, vision, and disposition.
 - Added data migration framework.
-- Add migrations to clean up numerous stats: actor hp, omens, powerUses, str/agi/pre/tou; armor tier.
-- Modified hp, omens, and powerUses to be compatible with token bars.
+- Added migrations to clean up numerous fields: actor hp, omens, powerUses, str/agi/pre/tou; armor tier.
+- Modified hp, omens, and powerUses to be usable as token resource bars.
 - Set hp as primary attribute in system.
 - Switched to scss, gulp, and yarn under the hood.
 - Added system settings for font and color schemes.
