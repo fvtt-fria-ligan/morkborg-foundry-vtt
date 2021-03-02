@@ -72,7 +72,7 @@ export class MBActorSheetCharacter extends ActorSheet {
       }      
       // TODO: use constants
       if (i.type === CONFIG.MB.itemTypes.armor) {
-        item.damageReductionDie = CONFIG.MB.armorTiers[item.currentTier].damageReductionDie;
+        item.damageReductionDie = CONFIG.MB.armorTiers[item.tier.value].damageReductionDie;
         if (item.equipped) {
           // only one armor may be equipped at a time
           equippedArmor = i;
@@ -116,7 +116,7 @@ export class MBActorSheetCharacter extends ActorSheet {
 
     // all equipment with encumbrance counts towards carried/encumberance
     let carryingCount = equipment.reduce((a, b) => a + (b.data.carryWeight || 0), 0);
-    let carryingCapacity = sheetData.actor.data.abilities.strength.score + 8;
+    let carryingCapacity = sheetData.actor.data.abilities.strength.value + 8;
     sheetData.actor.data.carryingCount = carryingCount || 0;
     sheetData.actor.data.carryingCapacity = carryingCapacity;
     let isEncumbered = carryingCount > carryingCapacity;
@@ -204,19 +204,19 @@ export class MBActorSheetCharacter extends ActorSheet {
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: `<h2>${game.i18n.localize('MB.Omens')}</h2>`
       });
-      return this.actor.update({["data.omens"]: r.total});
+      return this.actor.update({["data.omens"]: {max: r.total, value: r.total}});
     }
   }
 
   _onPowersPerDayRoll(event) {
     event.preventDefault();
-    let r = new Roll("d4+@abilities.presence.score", this.actor.getRollData());
+    let r = new Roll("d4+@abilities.presence.value", this.actor.getRollData());
     r.roll().toMessage({
       user: game.user._id,
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
       flavor: `<h2>${game.i18n.localize('MB.Powers')} ${game.i18n.localize('MB.PerDay')}</h2>`
     });
-    return this.actor.update({["data.powerUsesRemaining"]: r.total});
+    return this.actor.update({["data.powerUses"]: {max: r.total, value: r.total}});
   }
 
   /**
@@ -352,7 +352,7 @@ export class MBActorSheetCharacter extends ActorSheet {
     let newTier = parseInt(input[0].value);
     let li = input.parents(".item");
     const item = this.actor.getOwnedItem(li.data("itemId"));
-    return item.update({["data.currentTier"]: newTier});
+    return item.update({["data.tier.value"]: newTier});
   }
 
   /**

@@ -10,6 +10,8 @@ import { MB } from "./config.js";
 import { MBItem } from "./item.js";
 import { MBItemSheet } from "./item-sheet.js";
 import { createMorkBorgMacro } from "./macro.js";
+import { migrateWorld } from "./migration.js";
+import { registerSystemSettings } from "./settings.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -26,12 +28,15 @@ Hooks.once("init", async function() {
   // CONFIG.Combat.initiative.formula = "1d20 + @attributes.init.mod + @attributes.init.prof + @attributes.init.bonus";
   // Combat.prototype._getInitiativeFormula = _getInitiativeFormula;
 
+  // Register System Settings
+  registerSystemSettings();
+
   CONFIG.Combat.initiative = {
     // formula: "1d6",
     // decimals: 2
     // TODO: not sure how best to deal with NPCs not having abilities. Maybe giving them some, 
     // or do the _getInitiativeFormula patch to check for ability first.
-    formula: "1d6 + @abilities.agility.score",
+    formula: "1d6 + @abilities.agility.value",
   };
 
   game.morkborg = {
@@ -66,6 +71,55 @@ Hooks.once("init", async function() {
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("morkborg", MBItemSheet, { makeDefault: true });
 });
+
+/**
+ * Once the entire VTT framework is initialized, check to see if we should perform a data migration
+ */
+Hooks.once("ready", () => {
+  maybeMigrateWorld();
+  applyFontsAndColors();
+});
+
+const maybeMigrateWorld = () => {
+  // Determine whether a system migration is required and feasible
+  if (!game.user.isGM) {
+    return;
+  }
+  const currentVersion = game.settings.get("morkborg", "systemMigrationVersion");
+  console.log(`Current version: ${currentVersion}`);
+  const NEEDS_MIGRATION_VERSION = "0.2.0";
+  // const COMPATIBLE_MIGRATION_VERSION = 0.80;
+  const needsMigration = currentVersion === null || isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
+  if (!needsMigration) {
+    console.log(`Version doesn't need migration.`);
+    return;
+  }
+  // Perform the migration
+  // if ( currentVersion && isNewerVersion(COMPATIBLE_MIGRATION_VERSION, currentVersion) ) {
+  //   const warning = `Your system data is from too old a Foundry version and cannot be reliably migrated to the latest version. The process will be attempted, but errors may occur.`;
+  //   ui.notifications.error(warning, {permanent: true});
+  // }
+  console.log(`Migrating!`);
+  migrateWorld();
+}
+
+const applyFontsAndColors = () => {
+  const fontSchemeSetting = game.settings.get("morkborg", "fontScheme");
+  const fontScheme = CONFIG.MB.fontSchemes[fontSchemeSetting];
+  const colorSchemeSetting = game.settings.get("morkborg", "colorScheme");
+  const colorScheme = CONFIG.MB.colorSchemes[colorSchemeSetting];
+  const r = document.querySelector(":root");
+  r.style.setProperty("--background-color", colorScheme.background);
+  r.style.setProperty("--foreground-color", colorScheme.foreground);
+  r.style.setProperty("--highlight-background-color", colorScheme.highlightBackground);
+  r.style.setProperty("--highlight-foreground-color", colorScheme.highlightForeground);
+  r.style.setProperty("--chat-font", fontScheme.chat);
+  r.style.setProperty("--chat-info-font", fontScheme.chatInfo);
+  r.style.setProperty("--h1-font", fontScheme.h1);
+  r.style.setProperty("--h2-font", fontScheme.h2);
+  r.style.setProperty("--h3-font", fontScheme.h3);
+  r.style.setProperty("--item-font", fontScheme.item);
+};
 
 Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
   if (data.type === "Item" && data.pack === "morkborg.classes") {

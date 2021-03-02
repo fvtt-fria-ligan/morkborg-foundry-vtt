@@ -9,20 +9,23 @@ const TEST_ABILITY_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/test-ability
  */
 export class MBActor extends Actor {
   /** @override */
+  static async create(data, options={}) {
+    data.token = data.token || {};
+    if (data.type === "character") {
+      mergeObject(data.token, {
+        vision: true,
+        dimSight: 30,
+        brightSight: 0,
+        actorLink: true,
+        disposition: 1
+      }, {overwrite: false});
+    }
+    return super.create(data, options);
+  }
+
+  /** @override */
   prepareData() {
     super.prepareData();
-
-    // TODO: tweak data.data, data.flags, etc
-    switch(this.data.type) {
-      case "character":
-        break;
-      case "creature":
-        break;
-      case "follower":
-        break;
-      default:
-        break;
-    }
   }
 
   /** @override */
@@ -49,7 +52,7 @@ export class MBActor extends Actor {
   }
 
   normalCarryingCapacity() {
-    return this.data.data.abilities.strength.score + 8;
+    return this.data.data.abilities.strength.value + 8;
   }
 
   maxCarryingCapacity() {
@@ -70,13 +73,13 @@ export class MBActor extends Actor {
     return this.carryingAmount() > this.normalCarryingCapacity();
   }
 
-  defenseDRModifier() {
-    
-  }
-
   async _testAbility(ability, abilityKey, drModifiers) {
-    let abilityRoll = new Roll(`1d20+@abilities.${ability}.score`, this.getRollData());
+    let abilityRoll = new Roll(`1d20+@abilities.${ability}.value`, this.getRollData());
     abilityRoll.evaluate();
+    if (game.dice3d) {
+      // show roll for DiceSoNice
+      await game.dice3d.showForRoll(abilityRoll);
+    }
     const rollResult = {
       abilityKey: abilityKey,
       abilityRoll,
@@ -85,7 +88,7 @@ export class MBActor extends Actor {
     const html = await renderTemplate(TEST_ABILITY_ROLL_CARD_TEMPLATE, rollResult)
     ChatMessage.create({
       content : html,
-      sound : CONFIG.sounds.dice,
+      sound : this._diceSound(),
       speaker : ChatMessage.getSpeaker({actor: this}),
     });
   }
@@ -102,7 +105,7 @@ export class MBActor extends Actor {
     let drModifiers = [];
     const armor = this.equippedArmor();
     if (armor) {
-      const armorTier = CONFIG.MB.armorTiers[armor.data.maxTier];
+      const armorTier = CONFIG.MB.armorTiers[armor.data.tier.max];
       if (armorTier.agilityModifier) {
         drModifiers.push(`${armor.name}: ${game.i18n.localize('MB.DR')} +${armorTier.agilityModifier}`);
       }
@@ -177,6 +180,7 @@ export class MBActor extends Actor {
    * Do the actual attack rolls and resolution.
    */
   async _rollAttack(itemId, attackDR, targetArmor) {
+    console.log("_rollAttack");
     const item = this.getOwnedItem(itemId);
     const itemRollData = item.getRollData();
     const actorRollData = this.getRollData();
@@ -185,8 +189,12 @@ export class MBActor extends Actor {
     const isRanged = itemRollData.weaponType === 'ranged';
     // ranged weapons use agility; melee weapons use strength
     const ability = isRanged ? 'agility' : 'strength';
-    let attackRoll = new Roll(`d20+@abilities.${ability}.score`, actorRollData);
+    let attackRoll = new Roll(`d20+@abilities.${ability}.value`, actorRollData);
     attackRoll.evaluate();
+    if (game.dice3d) {
+      // show roll for DiceSoNice
+      await game.dice3d.showForRoll(attackRoll); 
+    }
     const d20Result = attackRoll.results[0];
     const isFumble = (d20Result === 1);
     const isCrit = (d20Result === 20);
@@ -202,12 +210,24 @@ export class MBActor extends Actor {
       const damageFormula = isCrit ? "@damageDie * 2" : "@damageDie";
       damageRoll = new Roll(damageFormula, itemRollData);
       damageRoll.evaluate();
+      let dicePromises = [];
+      if (game.dice3d) {
+        // show roll for DiceSoNice
+        dicePromises.push(game.dice3d.showForRoll(damageRoll));
+      }
       let damage = damageRoll.total;
       // roll 3: target damage reduction
       if (targetArmor) {
         targetArmorRoll = new Roll(targetArmor, {});
         targetArmorRoll.evaluate();
+        if (game.dice3d) {
+          // show roll for DiceSoNice
+          dicePromises.push(game.dice3d.showForRoll(targetArmorRoll));
+        }
         damage = Math.max(damage - targetArmorRoll.total, 0);
+      }
+      if (dicePromises) {
+        await Promise.all(dicePromises);
       }
       takeDamage = `${game.i18n.localize('MB.Take')} ${damage} ${game.i18n.localize('MB.Damage')}`
     } else {
@@ -237,7 +257,7 @@ export class MBActor extends Actor {
     const html = await renderTemplate(ATTACK_ROLL_CARD_TEMPLATE, rollResult)
     ChatMessage.create({
       content : html,
-      sound : CONFIG.sounds.dice,
+      sound : this._diceSound(),
       speaker : ChatMessage.getSpeaker({actor: this}),
     });
   }
@@ -259,7 +279,7 @@ export class MBActor extends Actor {
     if (armor) {
       // armor defense adjustment is based on its max tier, not current
       // TODO: maxTier is getting stored as a string
-      const maxTier = parseInt(armor.data.maxTier);
+      const maxTier = parseInt(armor.data.tier.max);
       const defenseModifier = CONFIG.MB.armorTiers[maxTier].defenseModifier;
       if (defenseModifier) { 
         drModifiers.push(`${armor.name}: ${game.i18n.localize('MB.DR')} +${defenseModifier}`);       
@@ -304,7 +324,7 @@ export class MBActor extends Actor {
     const armor = this.equippedArmor();
     if (armor) {
       // TODO: maxTier is getting stored as a string
-      const maxTier = parseInt(armor.data.maxTier);
+      const maxTier = parseInt(armor.data.tier.max);
       const defenseModifier = CONFIG.MB.armorTiers[maxTier].defenseModifier;
       if (defenseModifier) { 
         drModifier += defenseModifier;
@@ -347,12 +367,14 @@ export class MBActor extends Actor {
     let armorDefenseAdjustment = 0;
     if (armor) {
     }
-    //rollData["armorDefenseAdjustment"] = armorDefenseAdjustment;  
 
     // roll 1: defend
-//    let defendRoll = new Roll("d20+@abilities.agility.score+@armorDefenseAdjustment", rollData);
-    let defendRoll = new Roll("d20+@abilities.agility.score", rollData);
+    let defendRoll = new Roll("d20+@abilities.agility.value", rollData);
     defendRoll.evaluate();
+    if (game.dice3d) {
+      // show roll for DiceSoNice
+      await game.dice3d.showForRoll(defendRoll);
+    }
     const d20Result = defendRoll.results[0];
     const isFumble = (d20Result === 1);
     const isCrit = (d20Result === 20);
@@ -384,12 +406,17 @@ export class MBActor extends Actor {
       }
       damageRoll = new Roll(damageFormula, {});
       damageRoll.evaluate();
+      let dicePromises = [];
+      if (game.dice3d) {
+        // show roll for DiceSoNice
+        dicePromises.push(game.dice3d.showForRoll(damageRoll));
+      }
       let damage = damageRoll.total;
 
       // roll 3: damage reduction from equipped armor and shield
       let damageReductionDie = "";
       if (armor) {
-        damageReductionDie = CONFIG.MB.armorTiers[armor.data.currentTier].damageReductionDie;
+        damageReductionDie = CONFIG.MB.armorTiers[armor.data.tier.value].damageReductionDie;
         items.push(armor);
       }    
       if (shield) {
@@ -399,7 +426,14 @@ export class MBActor extends Actor {
       if (damageReductionDie) {
         armorRoll = new Roll("@die", {die: damageReductionDie});
         armorRoll.evaluate();
+        if (game.dice3d) {
+          // show roll for DiceSoNice
+          dicePromises.push(game.dice3d.showForRoll(armorRoll));
+        }
         damage = Math.max(damage - armorRoll.total, 0);
+      }
+      if (dicePromises) {
+        await Promise.all(dicePromises);
       }
       takeDamage = `${game.i18n.localize('MB.Take')} ${damage} ${game.i18n.localize('MB.Damage')}`
     }
@@ -423,7 +457,7 @@ export class MBActor extends Actor {
     const html = await renderTemplate(DEFEND_ROLL_CARD_TEMPLATE, rollResult)
     ChatMessage.create({
       content : html,
-      sound : CONFIG.sounds.dice,
+      sound : this._diceSound(),
       speaker : ChatMessage.getSpeaker({actor: this}),
     });
   }
@@ -435,10 +469,18 @@ export class MBActor extends Actor {
     const actorRollData = this.getRollData();
     const moraleRoll = new Roll("2d6", actorRollData);
     moraleRoll.evaluate();
+    if (game.dice3d) {
+      // show roll for DiceSoNice
+      await game.dice3d.showForRoll(moraleRoll);
+    }
     let outcomeRoll = null;
     if (moraleRoll.total > this.data.data.morale) {
       outcomeRoll = new Roll("1d6", actorRollData);
       outcomeRoll.evaluate();
+      if (game.dice3d) {
+        // show roll for DiceSoNice
+        await game.dice3d.showForRoll(outcomeRoll);
+      }
     }
     await this._renderMoraleRollCard(moraleRoll, outcomeRoll);
   }
@@ -463,7 +505,7 @@ export class MBActor extends Actor {
     const html = await renderTemplate(MORALE_ROLL_CARD_TEMPLATE, rollResult)
     ChatMessage.create({
       content : html,
-      sound : CONFIG.sounds.dice,
+      sound : this._diceSound(),
       speaker : ChatMessage.getSpeaker({actor: this}),
     });
   }
@@ -475,6 +517,10 @@ export class MBActor extends Actor {
     const actorRollData = this.getRollData();
     const reactionRoll = new Roll("2d6", actorRollData);
     reactionRoll.evaluate();
+    if (game.dice3d) {
+      // show roll for DiceSoNice
+      await game.dice3d.showForRoll(reactionRoll);
+    }
     await this._renderReactionRollCard(reactionRoll);
   }
 
@@ -503,9 +549,18 @@ export class MBActor extends Actor {
     const html = await renderTemplate(REACTION_ROLL_CARD_TEMPLATE, rollResult)
     ChatMessage.create({
       content : html,
-      sound : CONFIG.sounds.dice,
+      sound : this._diceSound(),
       speaker : ChatMessage.getSpeaker({actor: this}),
     });
+  }
+
+  _diceSound() {
+    if (game.dice3d) {
+      // let Dice So Nice do it
+      return false;
+    } else {
+      return CONFIG.sounds.dice;
+    }
   }
 }  
 

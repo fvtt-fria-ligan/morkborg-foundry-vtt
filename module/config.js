@@ -33,7 +33,40 @@ MB.armorTiers = {
     agilityModifier: 4,
     defenseModifier: 2
   },
-}
+};
+
+MB.colorSchemes = {
+  "blackOnYellowWhite": {
+    "background": "#ffe900",
+    "foreground": "#000000",
+    "highlightForeground": "#000000",
+    "highlightBackground": "#ffffff"
+  },
+  "blackOnWhiteBlack": {
+    "background": "#ffffff",
+    "foreground": "#000000",
+    "highlightForeground": "#ffffff",
+    "highlightBackground": "#000000"
+  },
+  "whiteOnBlackYellow": {
+    "background": "#000000",
+    "foreground": "#ffffff",
+    "highlightForeground": "#000000",
+    "highlightBackground": "#ffe900"
+  },
+  "whiteOnBlackPink": {
+    "background": "#000000",
+    "foreground": "#ffffff",
+    "highlightForeground": "#000000",
+    "highlightBackground": "#ff3eb5"
+  },
+  "whiteOnPinkWhite": {
+    "background": "#ff3eb5",
+    "foreground": "#ffffff",
+    "highlightForeground": "#000000",
+    "highlightBackground": "#ffffff"
+  }
+};
 
 MB.flagScope = "morkborg";  // must match system name
 
@@ -43,6 +76,25 @@ MB.flags = {
   INCOMING_ATTACK: "incomingAttack",
   TARGET_ARMOR: "targetArmor"
 }
+
+MB.fontSchemes = {
+  "blackletter": {
+    "chat": "Alegreya",
+    "chatInfo": "Oswald",
+    "h1": "Blood Crow",
+    "h2": "FetteTrumpDeutsch",
+    "h3": "Old Cupboard",
+    "item": "Special Elite"
+  },
+  "legible": {
+    "chat": "Alegreya",
+    "chatInfo": "Oswald",
+    "h1": "Blood Crow",
+    "h2": "Calling Code Regular",
+    "h3": "Old Cupboard",
+    "item": "Lato"
+  }
+};
 
 MB.handed = {
   1: "MB.HandedOne",
@@ -69,7 +121,7 @@ MB.itemTypeKeys = {
   "scroll": "MB.ItemTypeScroll",
   "shield": "MB.ItemTypeShield",
   "weapon": "MB.ItemTypeWeapon"  
-}
+};
 
 // these Item types are "equipment"
 MB.itemEquipmentTypes = [
