@@ -6,12 +6,12 @@
 - Switched to Alegreya for default chat text.
 - Added new "Feat" item type to represent special abilities and feats.
 - Added Class Feats compendium with feats for all classes.
-- Switched to scss, gulp, and yarn under the hood.
 - Fixed character actor creation to default token link, vision, and disposition.
 - Added data migration framework.
 - Add migrations to clean up numerous stats: actor hp, omens, powers, str/agi/pre/tou; armor tier.
 - Modified hp, omens, and power-uses to be compatible with token bars.
 - Set hp as primary attribute in system.
+- Switched to scss, gulp, and yarn under the hood.
 - Added system settings for font and color schemes.
 - Added initial color schemes (a la scvmbirther) and fonts (blackletter, legible).
 - Fixed Dice So Nice integration for attack, defense, and ability tests.
