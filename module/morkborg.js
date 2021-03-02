@@ -105,17 +105,8 @@ const maybeMigrateWorld = () => {
 
 const applyFontsAndColors = () => {
   const fontSchemeSetting = game.settings.get("morkborg", "fontScheme");
-  // TODO: shouldn't default handle this?
-  if (!fontSchemeSetting) {
-    fontSchemeSetting = "blackletter";  // default
-    game.settings.set("morkborg", "fontScheme", fontSchemeSetting);
-  }
-  const colorSchemeSetting = game.settings.get("morkborg", "colorScheme");
-  if (!colorSchemeSetting) {
-    colorSchemeSetting = "whiteOnBlackYellow";  // default
-    game.settings.set("morkborg", "colorScheme", colorSchemeSetting);
-  }
   const fontScheme = CONFIG.MB.fontSchemes[fontSchemeSetting];
+  const colorSchemeSetting = game.settings.get("morkborg", "colorScheme");
   const colorScheme = CONFIG.MB.colorSchemes[colorSchemeSetting];
   const r = document.querySelector(":root");
   r.style.setProperty("--background-color", colorScheme.background);
