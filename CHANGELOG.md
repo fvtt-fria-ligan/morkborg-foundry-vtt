@@ -1,3 +1,22 @@
+# 0.2.0
+- Added support for armor and encumbrance DR modifiers (strength and agility tests, defense).
+- Added default 12 DR for attack and defense dialogs.
+- Fixed You are What You Own (2) roll table.
+- Fixed metal file and lockpicks roll table entry to return two objects.
+- Switched to Alegreya for default chat text.
+- Added new "Feat" item type to represent special abilities and feats.
+- Added Class Feats compendium with feats for all classes.
+- Switched to scss, gulp, and yarn under the hood.
+- Fixed character actor creation to default token link, vision, and disposition.
+- Added data migration framework.
+- Add migrations to clean up numerous stats: actor hp, omens, powers, str/agi/pre/tou; armor tier.
+- Modified hp, omens, and power-uses to be compatible with token bars.
+- Set hp as primary attribute in system.
+- Added system settings for font and color schemes.
+- Added initial color schemes (a la scvmbirther) and fonts (blackletter, legible).
+- Fixed Dice So Nice integration for attack, defense, and ability tests.
+
+
 # 0.1.8
 - Added dialog popup for attack and defend to prompt for DR and target armor / incoming attack. Last entered values are persisted for easier repeat actions.
 - Updated attack and defend logic to check DR before rolling damage / soak.
