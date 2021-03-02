@@ -26,7 +26,7 @@ This is a vanilla, no-homebrew implementation of the MÖRK BORG rules, with limi
   * Equipped items do not count towards your container space.
 
 ## Combat
-  * Initiative is handled by Foundry's Combat Tracker. All other combat roles are handled from a Character's sheet on the *Violence* tab.
+  * Initiative is handled by Foundry's Combat Tracker. All other combat rolls are handled from a Character's sheet on the *Violence* tab.
   * To use a weapon, armor, or shield, you need to equip it. You can do so on the *Treasures* tab. Any equippable items have a small shield icon next to their edit and delete buttons. Click the shield icon to make it turn yellow (equipped), and the item will appear on your *Violence* tab, ready for use. Note: you can only have a single armor and single shield equipped at one time.
   * Attacking
     * On the *Violence* tab of your character sheet, click the *Attack* button next to your weapon of choice.
