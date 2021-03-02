@@ -30,20 +30,24 @@ const migrateActors = async () => {
 };
 
 const migrateActorData = (data) => {
-    const updateData = {};    
-    if ("current" in data.data.hp) {
+    const updateData = {};
+    if (data.data.hp && "current" in data.data.hp) {
         updateData["data.hp.value"] = data.data.hp.current;
     }
-    if ("score" in data.data.abilities.agility) {
+    if (data.data.abilities && data.data.abilities.agility && 
+        "score" in data.data.abilities.agility) {
         updateData["data.abilities.agility.value"] = data.data.abilities.agility.score;
     }
-    if ("score" in data.data.abilities.presence) {
+    if (data.data.abilities && data.data.abilities.presence && 
+        "score" in data.data.abilities.presence) {
         updateData["data.abilities.presence.value"] = data.data.abilities.presence.score;
     }
-    if ("score" in data.data.abilities.strength) {
+    if (data.data.abilities && data.data.abilities.strength &&
+        "score" in data.data.abilities.strength) {
         updateData["data.abilities.strength.value"] = data.data.abilities.strength.score;
     }
-    if ("score" in data.data.abilities.toughness) {
+    if (data.data.abilities && data.data.abilities.toughness &&
+        "score" in data.data.abilities.toughness) {
         updateData["data.abilities.toughness.value"] = data.data.abilities.toughness.score;
     }
     if ("powerUsesRemaining" in data.data) {
