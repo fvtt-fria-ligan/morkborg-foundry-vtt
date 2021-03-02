@@ -8,8 +8,8 @@
 - Added Class Feats compendium with feats for all classes.
 - Fixed character actor creation to default token link, vision, and disposition.
 - Added data migration framework.
-- Add migrations to clean up numerous stats: actor hp, omens, powers, str/agi/pre/tou; armor tier.
-- Modified hp, omens, and power-uses to be compatible with token bars.
+- Add migrations to clean up numerous stats: actor hp, omens, powerUses, str/agi/pre/tou; armor tier.
+- Modified hp, omens, and powerUses to be compatible with token bars.
 - Set hp as primary attribute in system.
 - Switched to scss, gulp, and yarn under the hood.
 - Added system settings for font and color schemes.
