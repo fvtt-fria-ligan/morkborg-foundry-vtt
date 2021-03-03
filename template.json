@@ -41,6 +41,7 @@
         "max": 0,
         "value": 0
       },
+      "powerUsesRemaining": 0,
       "silver": 0
     },
     "creature": {
@@ -74,6 +75,8 @@
       }
     },
     "armor": {
+      "currentTier": 1,
+      "maxTier": 1,
       "templates": ["baseEquipment"],
       "tier": {
         "min": 0,
