@@ -17,11 +17,12 @@ const migrateActors = async () => {
         console.log(`Migrating Actor entity ${a.name}`);
         await a.update(updateData, {enforceTypes: false});
       }
-      const cleanData = cleanActorData(a.data);
-      if (!isObjectEmpty(cleanData)) {
-        console.log(`Cleaning Actor entity ${a.name}`);
-        await a.update(cleanData, {enforceTypes: false});
-      }
+      // TODO: don't do any cleaning for now
+      // const cleanData = cleanActorData(a.data);
+      // if (!isObjectEmpty(cleanData)) {
+      //   console.log(`Cleaning Actor entity ${a.name}`);
+      //   await a.update(cleanData, {enforceTypes: false});
+      // }
     } catch(err) {
       err.message = `Failed migration for Actor ${a.name}: ${err.message}`;
       console.error(err);
@@ -96,10 +97,12 @@ const migrateItems = async () => {
             console.log(`Migrating Item entity ${item.name}`);
             await item.update(updateData, {enforceTypes: false});
           }
-          const cleanData = cleanItemData(item.data);
-          if (!isObjectEmpty(cleanData)) {
-            console.log(`Cleaning Item entity ${item.name}`);
-          }
+          // TODO: don't do any cleaning for now
+          // const cleanData = cleanItemData(item.data);
+          // if (!isObjectEmpty(cleanData)) {
+          //   console.log(`Cleaning Item entity ${item.name}`);
+          //   await item.update(cleanData, {enforceTypes: false});
+          // }
         } catch(err) {
           err.message = `Failed migration for Item ${item.name}: ${err.message}`;
           console.error(err);
