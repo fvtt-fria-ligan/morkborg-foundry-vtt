@@ -1,4 +1,5 @@
 # 0.2.0
+*NOTE:* 0.2.0 migrates a variety of world data. *PLEASE BACK UP YOUR WORLD(S) BEFORE UPGRADING!*
 - Added default 12 DR for attack and defense dialogs.
 - Added support for armor and encumbrance DR modifiers (strength and agility tests, defense).
 - Switched to Alegreya font for default chat text, for better readability.
