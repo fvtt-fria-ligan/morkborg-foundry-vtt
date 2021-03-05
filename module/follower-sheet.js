@@ -59,9 +59,9 @@ import * as editor from "./editor.js";
         || i.type === 'shield'
         || i.type === 'weapon') {
         equipment.push(i);
-      }      
+      }
       if (i.type === 'armor') {
-        item.damageReductionDie = CONFIG.MB.armorTierDamageReductionDie[item.tier.value];
+        item.damageReductionDie = CONFIG.MB.armorTiers[item.tier.value].damageReductionDie;
         if (item.equipped) {
           // only one armor may be equipped at a time
           equippedArmor = i;
