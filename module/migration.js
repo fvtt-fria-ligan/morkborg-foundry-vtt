@@ -2,9 +2,10 @@ export const migrateWorld = async () => {
     ui.notifications.info(`Applying MÖRK BORG System Migration for version ${game.system.data.version}. Please be patient and do not close your game or shut down your server.`, {permanent: true});
     await migrateActors();
     await migrateItems();
-    await migrateScenes();
-    await migrateCompendiums();
-
+    // TODO: fix scene and compendium migration.
+    // Our scene/token/actorData don't seem to align with dnd5e's, and that causes bad things to happen.
+    //await migrateScenes();
+    //await migrateCompendiums();
     game.settings.set("morkborg", "systemMigrationVersion", game.system.data.version);
     ui.notifications.info(`MÖRK BORG System Migration to version ${game.system.data.version} completed!`, {permanent: true});  
 };
@@ -130,6 +131,8 @@ const cleanItemData = (data) => {
   return data;  
 };
 
+// TODO: make this work for MB
+/*
 const migrateScenes = async () => {
     // Migrate Actor Override Tokens
     for (let s of game.scenes.entities) {
@@ -145,14 +148,18 @@ const migrateScenes = async () => {
         }
     }
 };
-  
+*/
+
+// TODO: make this work for MB
+/*
 const migrateSceneData = (data) => {
     const tokens = duplicate(data.tokens);
     return {
         // migrate actor tokens
         tokens: tokens.map(t => {
+        // TODO: MB follower tokens don't seem to have actorData.data, which causes this check to nuke their actorData
         if (!t.actorId || t.actorLink || !t.actorData.data) {
-          t.actorData = {};
+            t.actorData = {};
           return t;
         }
         const token = new Token(t);
@@ -167,7 +174,10 @@ const migrateSceneData = (data) => {
       })
     };    
 }
+*/
 
+// TODO: make this work for MB
+/*
 const migrateCompendiums = async () => {
   // Migrate World Compendium Packs
   for (let p of game.packs) {
@@ -180,7 +190,10 @@ const migrateCompendiums = async () => {
     await migrateCompendium(p);
   }
 };
+*/
 
+// TODO: make this work for MB
+/*
 const migrateCompendium = async (pack) => {
     const entity = pack.metadata.entity;
     if (!["Actor", "Item", "Scene"].includes(entity)) {
@@ -231,3 +244,4 @@ const migrateCompendium = async (pack) => {
     pack.configure({locked: wasLocked});
     console.log(`Migrated all ${entity} entities from Compendium ${pack.collection}`);
 };
+*/
