@@ -70,7 +70,6 @@ export class MBActorSheetCharacter extends ActorSheet {
       if (CONFIG.MB.itemEquipmentTypes.includes(i.type)) {
         equipment.push(i);
       }      
-      // TODO: use constants
       if (i.type === CONFIG.MB.itemTypes.armor) {
         item.damageReductionDie = CONFIG.MB.armorTiers[item.tier.value].damageReductionDie;
         if (item.equipped) {
