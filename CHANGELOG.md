@@ -1,3 +1,6 @@
+# 0.2.1
+- Fix github release workflow to include new css dir.
+
 # 0.2.0
 *NOTE:* 0.2.0 migrates a variety of world data. *PLEASE BACK UP YOUR WORLD(S) BEFORE UPGRADING!*
 - Added default 12 DR for attack and defense dialogs.
