@@ -6,9 +6,10 @@ This is a vanilla, no-homebrew implementation of the MÖRK BORG rules, with limi
 ## Creating a character
   * Create a new Actor of type *character*. By default, a new character will have the *Adventurer* class (a fancier name for the default classless character).
   * If desired, drag a different Class from the *Classes* compendium folder onto your sheet.
-  * If needed, use the RollTables in the *Character Creation* RollTable compendium folder. E.g., for the d6+d12+d12+weapon+armor rolls for a default classless character.
+  * If needed, use the RollTables in the *Character Creation* RollTable compendium folder. E.g., for the "You are what you own" starting equipment rolls, or for various class-specific random items.
   * Drag out any needed equipment/items from the various compendium folders.
-    * The *Class Items* compendium folder has various class-specific gear found in optional class' abilities, like the Fanged Deserter's bit attack.
+    * The *Class Items* compendium has various class-specific gear found in optional class' abilities, like the Fanged Deserter's bite attack.
+    * The *Class Feats* compendium has various class-specific special abilities, like Gutterborn Scum's specialities.
   * Manually roll and update your abilities and hit points.
   * Equip some items on your *Treasure* tab, and they'll show up for use on your *Violence* tab.
   * Go kill stuff!
@@ -16,14 +17,14 @@ This is a vanilla, no-homebrew implementation of the MÖRK BORG rules, with limi
 ## Inventory
   * All items in your possession show up on your *Treasures* tab.
   * Carrying capacity (encumbrance) is calculated as per the Mork Borg rules.
-  * Items have a carryWeight field for how much they contribute to the total. Most items are 1, with a few exceptions (e.g., the Wretched Royalty's Jester is an item with 0 carryWeight, since he can walk).
-  * If you are encumbered (i.e., you are carrying more than your capacity), the rules for encumbrance will turn red.
-  * It's up to you to manually apply negative encumbrance modifiers to your AGI checks.
+  * Items have a *carryWeight* field for how much they contribute to the total.
+    * Most items are 1, with a few exceptions (e.g., the Wretched Royalty's Jester is an item with 0 carryWeight, since he can walk).
+    * If you are encumbered (i.e., you are carrying more than your capacity), the rules for encumbrance will change color to alert you. You'll also see the effects on the DR for STR, AGI, and defense tests.
   * Container space and usage is also calculated.
-  * Items of type container have a capacity field indicating how much they can hold. Your total item capacity is the sum of your containers' capacities.
-  * Items have a containerSpace field indicating how much space they take up in a container. Most items are 1.
-  * Containers do not count towards your container space.
-  * Equipped items do not count towards your container space.
+    * Items of type *container* have a capacity field indicating how much they can hold. Your total item capacity is the sum of your containers' capacities.
+    * Items have a *containerSpace* field indicating how much space they take up in a container. Most items are 1.
+    * Containers do not count towards your container space.
+    * Equipped items do not count towards your container space.
 
 ## Combat
   * Initiative is handled by Foundry's Combat Tracker. All other combat rolls are handled from a Character's sheet on the *Violence* tab.
@@ -40,7 +41,6 @@ This is a vanilla, no-homebrew implementation of the MÖRK BORG rules, with limi
     * It's up to you to manually apply the final damage (i.e., reduce your HPs on your character sheet).
   * Armor
     * Armor has both a current and a max tier. The current tier is shown on the *Violence* tab as a radio button. The current tier radio buttons won't let you choose a current tier higher than the armor's max tier. There is no zero tier shown, since at zero tier armor is considered destroyed and should just be deleted. 
-    * It's currently up to you to apply negative modifiers for heavy armor to your AGI and defense checks. [Fixing this is an open TODO]
 
 ## Powers
   * Any scrolls in your inventory will show up on both your sheet's *Treasures* and *Powers* tabs.
