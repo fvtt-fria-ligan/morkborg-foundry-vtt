@@ -142,7 +142,7 @@
 }
 .morkborg.sheet .editable .rollable:hover {
   color: var(--highlight-foreground-color);
-  text-shadow: 0 0 10px var(--highlight-background-color);;
+  text-shadow: 0 0 10px var(--highlight-background-color);
   cursor: pointer;
 }
 .morkborg.sheet input[type="text"],
@@ -162,17 +162,17 @@
 .morkborg.sheet input[type="password"]:hover,
 .morkborg.sheet input[type="date"]:hover,
 .morkborg.sheet input[type="time"]:hover {
-  box-shadow: 0 0 5px var(--highlight-background-color);;
+  box-shadow: 0 0 5px var(--highlight-background-color);
 }
 .morkborg.sheet select:focus {
-  box-shadow: 0 0 5px var(--highlight-background-color);;
+  box-shadow: 0 0 5px var(--highlight-background-color);
 }
 .morkborg.sheet button:hover,
 .morkborg.sheet button:focus {
-  box-shadow: 0 0 5px var(--highlight-background-color);;
+  box-shadow: 0 0 5px var(--highlight-background-color);
 }
 .morkborg.sheet a:hover {
-  text-shadow: 0 0 8px var(--highlight-background-color);;
+  text-shadow: 0 0 8px var(--highlight-background-color);
 }
 .morkborg.sheet textarea {
   border: 1px solid #7a7971;
@@ -183,10 +183,10 @@
   resize: none;
 }
 .morkborg.sheet textarea:hover {
-  box-shadow: 0 0 5px var(--highlight-background-color);;
+  box-shadow: 0 0 5px var(--highlight-background-color);
 }
 .morkborg.sheet textarea:focus {
-  box-shadow: 0 0 5px var(--highlight-background-color);;
+  box-shadow: 0 0 5px var(--highlight-background-color);
   outline: none;
 }
 .morkborg.sheet .profile-img {
@@ -238,11 +238,11 @@
 }
 .morkborg.sheet .sheet-tabs .item:hover {
   color: var(--highlight-foreground-color);
-  text-shadow: 0 0 10px var(--highlight-background-color);;
+  text-shadow: 0 0 10px var(--highlight-background-color);
 }
 .morkborg.sheet .sheet-tabs .item.active {
   text-shadow: none;
-  background-color: var(--highlight-background-color);;
+  background-color: var(--highlight-background-color);
   color: var(--highlight-foreground-color);
 }
 /* ====================== */
@@ -325,6 +325,22 @@
   display: flex;
   flex-direction: column;
 }
+
+.morkborg.sheet.actor.character .sheet-header .header-col2 .rest-buttons {
+  flex: 1;
+  display: flex;
+}
+
+.morkborg.sheet.actor.character
+  .sheet-header
+  .header-col2
+  .rest-buttons
+  .button {
+  width: 50%;
+  margin-left: 5px;
+  padding: 0px;
+}
+
 .morkborg.sheet.actor.character .sheet-header .header-col3 {
   flex: 0 0 120px;
   margin: 5px;
@@ -378,6 +394,7 @@
 }
 .morkborg.sheet.actor.character .sheet-header .hitpoints-row {
   flex: 0 0 30px;
+  display: flex;
   margin-bottom: 7px;
 }
 .morkborg.sheet.actor.character .sheet-header .omens-row {
@@ -392,8 +409,6 @@
   flex: 0 0 30px;
 }
 .morkborg.sheet.actor.character .sheet-header .stat-label {
-  text-align: right;
-  width: 140px;
   float: left;
 }
 .morkborg.sheet.actor.character .sheet-header .miseries-label {
@@ -427,7 +442,7 @@
   ul.miseries
   input[type="radio"]:checked
   + span {
-  background: var(--highlight-background-color);;
+  background: var(--highlight-background-color);
   color: var(--highlight-foreground-color);
   border: none;
 }
@@ -845,7 +860,7 @@ TODO: figure out if we want a 2-col inventory
   padding-left: 12px;
   width: 100%;
 }
-.morkborg.sheet.actor.creature .sheet-header input[type="text"].creature-name  {
+.morkborg.sheet.actor.creature .sheet-header input[type="text"].creature-name {
   height: 45px;
 }
 .morkborg.sheet.actor.creature .sheet-header .altname-row {
@@ -960,7 +975,7 @@ TODO: figure out if we want a 2-col inventory
 }
 .morkborg.sheet.actor.follower .sheet-header input[type="text"].follower-name {
   height: 45px;
-} 
+}
 .morkborg.sheet.actor.follower .sheet-header .altname-row {
   flex: 0 0 30px;
   padding-left: 12px;
@@ -1127,7 +1142,10 @@ form.editable .results .result-details input[type="text"]:focus {
 .journal-sheet.image-popout .window-content .form-group input {
   color: var(--background-color);
 }
-.journal-sheet.image-popout .window-content .form-group.picker button.file-picker {
+.journal-sheet.image-popout
+  .window-content
+  .form-group.picker
+  button.file-picker {
   background-color: var(--background-color);
 }
 .journal-sheet form select:hover {
@@ -1348,7 +1366,7 @@ select:focus {
 }
 #sidebar-tabs > .item.active {
   color: var(--highlight-foreground-color);
-  background: var(--highlight-background-color);;
+  background: var(--highlight-background-color);
   border: 1px solid var(--highlight-background-color);
   border-bottom: none;
   box-shadow: 0 0 6px inset var(--highlight-background-color);
@@ -1478,7 +1496,7 @@ a.inline-roll {
   text-align: center;
 }
 .roll-card .roll-result span {
-  color: var(--foreground-color);  
+  color: var(--foreground-color);
   font-size: 20px;
 }
 .roll-card .outcome-text {
@@ -1515,19 +1533,19 @@ a.inline-roll {
   margin-bottom: 10px;
 }
 .custom-dialog .form-group label {
-  font-family: var(--h2-font);  
+  font-family: var(--h2-font);
   font-size: 20px;
   margin-right: 10px;
   text-align: right;
 }
 .dialog-button.attack,
 .dialog-button.create {
-  font-family: var(--h2-font);  
+  font-family: var(--h2-font);
   font-size: 20px;
 }
 .dialog-buttons button.dialog-button:active,
 .dialog-buttons button.dialog-button:focus,
 .dialog-buttons button.dialog-button:hover {
-  box-shadow: 0 0 5px var(--highlight-background-color);;
-  text-shadow: 0 0 10px var(--highlight-background-color);;
+  box-shadow: 0 0 5px var(--highlight-background-color);
+  text-shadow: 0 0 10px var(--highlight-background-color);
 }
