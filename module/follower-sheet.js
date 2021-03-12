@@ -40,6 +40,7 @@ import * as editor from "./editor.js";
     let equippedArmor = null;
     let equippedShield = null;
     let equippedWeapons = [];
+    let containers = [];
 
     for (let i of sheetData.items) {
       let item = i.data;
@@ -52,32 +53,27 @@ import * as editor from "./editor.js";
         item.toggleTitle = game.i18n.localize(isEquipped ? "MB.ItemEquipped" : "MB.ItemUnequipped");
       }
 
-      if (i.type === 'armor' 
-        || i.type === 'container'
-        || i.type === 'misc'
-        || i.type === 'scroll'
-        || i.type === 'shield'
-        || i.type === 'weapon') {
+      if (CONFIG.MB.itemEquipmentTypes.includes(i.type)) {
         equipment.push(i);
-      }
-      if (i.type === 'armor') {
+      }      
+      if (i.type === CONFIG.MB.itemTypes.armor) {
         item.damageReductionDie = CONFIG.MB.armorTiers[item.tier.value].damageReductionDie;
         if (item.equipped) {
           // only one armor may be equipped at a time
           equippedArmor = i;
         }
-      } else if (i.type === 'container') {
+      } else if (i.type === CONFIG.MB.itemTypes.container) {
         containers.push(i);
-      } else if (i.type === 'shield') {
+      } else if (i.type === CONFIG.MB.itemTypes.shield) {
         if (item.equipped) {
           // only one shield may be equipped at a time
           equippedShield = i;
         }
-      } else if (i.type === 'weapon') {
+      } else if (i.type === CONFIG.MB.itemTypes.weapon) {
         if (item.equipped) {
           equippedWeapons.push(i);
         }
-      }
+      }      
     }
     equipment.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
     equippedWeapons.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
