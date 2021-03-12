@@ -111,6 +111,7 @@ const applyFontsAndColors = () => {
   const r = document.querySelector(":root");
   r.style.setProperty("--background-color", colorScheme.background);
   r.style.setProperty("--foreground-color", colorScheme.foreground);
+  r.style.setProperty("--foreground-alt-color", colorScheme.foregroundAlt);
   r.style.setProperty("--highlight-background-color", colorScheme.highlightBackground);
   r.style.setProperty("--highlight-foreground-color", colorScheme.highlightForeground);
   r.style.setProperty("--chat-font", fontScheme.chat);

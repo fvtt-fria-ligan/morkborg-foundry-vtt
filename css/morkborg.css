@@ -1,8 +1,8 @@
-/* TODO: alt yellows #ffe800 #XXXfff160 */
 @import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Lato&family=Oswald&family=Rakkas&family=Special+Elite&display=swap");
 :root {
   --background-color: #000000;
   --foreground-color: #ffffff;
+  --foreground-alt-color: #ffe900;
   --highlight-background-color: #ffe900;
   --highlight-foreground-color: #000000;
   --chat-font: "Alegreya";
@@ -1281,7 +1281,6 @@ form.editable .results .result-details input[type="text"]:focus {
 
 /* Fixes hard-to-read dark text on various system Dialogs */
 .window-app .window-content .notes {
-  /* TODO: XXXX mcglincy */
   background-color: var(--highlight-background-color);
   color: var(--highlight-foreground-color);
 }
@@ -1290,9 +1289,10 @@ form.editable .results .result-details input[type="text"]:focus {
   color: var(--foreground-color);
 }
 
+/* TODO: determine if we need both .notes and form .notes styles specified */
 .window-app .window-content form .notes {
-  background-color: var(--highlight-background-color);
-  color: var(--highlight-foreground-color);
+  background-color: var(--background-color);
+  color: var(--foreground-alt-color);
 }
 
 .window-app .window-content .form-group span.units {

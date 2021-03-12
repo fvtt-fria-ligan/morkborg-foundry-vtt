@@ -39,30 +39,35 @@ MB.colorSchemes = {
   "blackOnYellowWhite": {
     "background": "#ffe900",
     "foreground": "#000000",
+    "foregroundAlt": "#808080",
     "highlightForeground": "#000000",
     "highlightBackground": "#ffffff"
   },
   "blackOnWhiteBlack": {
     "background": "#ffffff",
     "foreground": "#000000",
+    "foregroundAlt": "#808080",
     "highlightForeground": "#ffffff",
     "highlightBackground": "#000000"
   },
   "whiteOnBlackYellow": {
     "background": "#000000",
     "foreground": "#ffffff",
+    "foregroundAlt": "#ffe900",
     "highlightForeground": "#000000",
     "highlightBackground": "#ffe900"
   },
   "whiteOnBlackPink": {
     "background": "#000000",
     "foreground": "#ffffff",
+    "foregroundAlt": "#ff3eb5",
     "highlightForeground": "#000000",
     "highlightBackground": "#ff3eb5"
   },
   "whiteOnPinkWhite": {
     "background": "#ff3eb5",
     "foreground": "#ffffff",
+    "foregroundAlt": "#000000",
     "highlightForeground": "#000000",
     "highlightBackground": "#ffffff"
   }
