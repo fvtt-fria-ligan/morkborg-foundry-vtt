@@ -1,10 +1,10 @@
 # 0.2.2
 - New token assets from iPwnedMSCS and Nohr!
 - New weapon icon assets from vil!
+- Added short and long rest buttons for hit point regain.
 - Fixed adding container items to followers.
 - Changed color and font scheme settings to be per-user.
 - Changed settings alt-text / notes styling to be less obnoxious.
-
 
 # 0.2.1
 - Fixed github release workflow to include new css dir.
