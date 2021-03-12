@@ -1,5 +1,13 @@
+# 0.2.2
+- New token assets from iPwnedMSCS and Nohr!
+- New weapon icon assets from vil!
+- Fixed adding container items to followers.
+- Changed color and font scheme settings to be per-user.
+- Changed settings alt-text / notes styling to be less obnoxious.
+
+
 # 0.2.1
-- Fix github release workflow to include new css dir.
+- Fixed github release workflow to include new css dir.
 
 # 0.2.0
 *NOTE:* 0.2.0 migrates a variety of world data. *PLEASE BACK UP YOUR WORLD(S) BEFORE UPGRADING!*
