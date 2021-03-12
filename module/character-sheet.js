@@ -200,18 +200,31 @@ export class MBActorSheetCharacter extends ActorSheet {
     const dataset = button.dataset;
     const actr = this.actor.data;
     const actorUpdate = {};
-    let hpg;
+    let hpgDie;
+    let hpgKey;
     if (dataset.label === "rest-short") {
-      hpg = 4;
+      hpgDie = "1d4";
+      hpgKey = "MB.ShortRest";
     } else if (dataset.label === "rest-long") {
-      hpg = 6;
+      hpgDie = "1d6";
+      hpgKey = "MB.LongRest";
     }
+    if (!hpgDie) {
+      return;
+    }
+    let r = new Roll(hpgDie, this.actor.getRollData());
+    r.roll().toMessage({
+      user: game.user._id,
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: `<h2>${game.i18n.localize(hpgKey)}</h2>`
+    });
+    const hpg = r.total;
     if ((actr.data.hp.value + hpg) > actr.data.hp.max) {
       actorUpdate['data.hp.value'] = this.actor.data.data.hp.max;
     } else {
       actorUpdate['data.hp.value'] = this.actor.data.data.hp.value + hpg;
     }
-    this.actor.update(actorUpdate);
+    return this.actor.update(actorUpdate);
   }
 
   _onOmensRoll(event) {
