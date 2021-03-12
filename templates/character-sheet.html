@@ -20,10 +20,18 @@
                 </div>
             </div>
             <div class="hitpoints-row">
-                <span class="stat-label">{{ localize "MB.HitPoints" }}:</span>
-                <input class="stat-input" name="data.hp.value" type="number" value="{{data.hp.value}}" data-dtype="Number"/>
-                /
-                <input class="stat-input" name="data.hp.max" type="number" value="{{data.hp.max}}" data-dtype="Number"/>
+                <div class="hp-entries">
+                    <span class="stat-label">{{ localize "MB.HP" }}:</span>
+                    <input class="stat-input" name="data.hp.value" type="number" value="{{data.hp.value}}" data-dtype="Number"/>
+                    /
+                    <input class="stat-input" name="data.hp.max" type="number" value="{{data.hp.max}}" data-dtype="Number"/>
+                </div>
+                <div class="rest-buttons">
+                    <button type="button" class="button item-button rest-button" data-label="rest-short"
+                    title="{{localize 'MB.ShortRest'}}">{{localize 'MB.ShortRest'}}</button>
+                    <button type="button" class="button item-button rest-button" data-label="rest-long"
+                    title="{{localize 'MB.LongRest'}}">{{localize 'MB.LongRest'}}</button>
+                </div>
             </div>
             <div class="omens-row">
                 <span class="stat-label">{{ localize "MB.Omens" }}:</span>
@@ -88,7 +96,7 @@
             <ol class="items-list inventory-list">
                 <li class="items-header flexrow">
                     <h3 class="item-name flexrow">{{localize "MB.ItemTypeWeaponPlural"}}</h3>
-                </li>            
+                </li>
                 <ol class="item-list weapon-list">
                     {{#each data.equippedWeapons as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}">
@@ -117,13 +125,13 @@
                     {{else}}
                         {{localize 'MB.EquipAWeaponToAttack'}}
                     {{/if}}
-                </div>        
+                </div>
                 <div class="violence-gutter"></div>
                 <li class="items-header flexrow">
                     <h3 class="item-name flexrow">{{localize "MB.ItemTypeArmorPlural"}}</h3>
                     <div class="item-controls flexrow">
                     </div>
-                </li>   
+                </li>
                 <ol class="item-list armor-list">
                     {{#if data.equippedArmor}}
                     <li class="item flexrow" data-item-id="{{data.equippedArmor._id}}">
@@ -162,7 +170,7 @@
                         </div>
                     </li>
                     {{/if}}
-                </ol>  
+                </ol>
                 <div class="underarmor-row">
                     <div class="incoming-attack">
                         <div>
@@ -174,7 +182,7 @@
                         </div>
                     </div>
                 </div>
-            </ol>                        
+            </ol>
         </div>
 
         {{!-- Feats Tab --}}
@@ -185,7 +193,7 @@
                     <h3 class="item-name flexrow">{{localize "MB.ItemTypeFeatPlural"}}</h3>
                     <div class="item-controls flexrow">
                     </div>
-                </li>  
+                </li>
                 --}}
                 <ol class="item-list">
                     {{#each data.feats as |item id|}}
@@ -195,7 +203,7 @@
                         <div class="item-buttons">
                             {{#if item.data.rollLabel}}
                                 <button type="button" class="item-button rollable feat-button" data-roll="{{item.data.rollFormula}}" data-label="{{item.data.rollLabel}}"
-                                        title="{{item.data.rollLabel}}">{{item.data.rollLabel}}</button>                            
+                                        title="{{item.data.rollLabel}}">{{item.data.rollLabel}}</button>
                             {{/if}}
                         </div>
                         <div class="item-controls">
@@ -204,7 +212,7 @@
                         </div>
                     </li>
                     {{/each}}
-                </ol>   
+                </ol>
             </ol>
         </div>
 
@@ -232,7 +240,7 @@
                     <h3 class="item-name flexrow">{{localize "MB.ItemTypeScrollPlural"}}</h3>
                     <div class="item-controls flexrow">
                     </div>
-                </li>  
+                </li>
                 <ol class="item-list">
                     {{#each data.scrolls as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}">
@@ -246,7 +254,7 @@
                         </div>
                     </li>
                     {{/each}}
-                </ol>   
+                </ol>
             </ol>
         </div>
 
@@ -273,7 +281,7 @@
                             {{localize 'MB.CarryingRule'}}
                         </span>
                     </div>
-                </div> 
+                </div>
             </div>
             <ol class="items-list equipment-list">
                 <li class="items-header flexrow">
