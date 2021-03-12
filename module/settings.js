@@ -14,7 +14,7 @@ export const registerSystemSettings = () => {
   game.settings.register("morkborg", "colorScheme", {
     name: "SETTINGS.MBColorScheme",
     hint: "SETTINGS.MBColorSchemeHint",
-    scope: "world",
+    scope: "client",
     config: true,
     default: "whiteOnBlackYellow",
     type: String,
@@ -31,7 +31,7 @@ export const registerSystemSettings = () => {
   game.settings.register("morkborg", "fontScheme", {
     name: "SETTINGS.MBFontScheme",
     hint: "SETTINGS.MBFontSchemeHint",
-    scope: "world",
+    scope: "client",
     config: true,
     default: "blackletter",
     type: String,
