@@ -69,7 +69,7 @@ export class MBActorSheetCharacter extends ActorSheet {
 
       if (CONFIG.MB.itemEquipmentTypes.includes(i.type)) {
         equipment.push(i);
-      }      
+      }
       if (i.type === CONFIG.MB.itemTypes.armor) {
         item.damageReductionDie = CONFIG.MB.armorTiers[item.tier.value].damageReductionDie;
         if (item.equipped) {
@@ -121,7 +121,7 @@ export class MBActorSheetCharacter extends ActorSheet {
     let isEncumbered = carryingCount > carryingCapacity;
     sheetData.actor.data.encumbered = isEncumbered;
     sheetData.actor.data.encumberedClass = isEncumbered ? "encumbered" : "";
-  }  
+  }
 
   /** @override */
   activateEditor(name, options={}, initialContent="") {
@@ -159,9 +159,10 @@ export class MBActorSheetCharacter extends ActorSheet {
     html.find(".ability-label.rollable.agility").on("click", this._onAgilityRoll.bind(this));
     html.find(".ability-label.rollable.presence").on("click", this._onPresenceRoll.bind(this));
     html.find(".ability-label.rollable.toughness").on("click", this._onToughnessRoll.bind(this));
+    html.find(".rest-buttons .rest-button").on("click", this._onRest.bind(this));
     html.find(".omens-row .rollable").on("click", this._onOmensRoll.bind(this));
     // violence tab
-    html.find(".attack-button").on("click", this._onAttackRoll.bind(this));    
+    html.find(".attack-button").on("click", this._onAttackRoll.bind(this));
     html.find('.tier-radio').click(this._onArmorTierRadio.bind(this));
     html.find(".defend-button").on("click", this._onDefendRoll.bind(this));
     // feats tab
@@ -191,6 +192,26 @@ export class MBActorSheetCharacter extends ActorSheet {
   _onToughnessRoll(event) {
     event.preventDefault();
     this.actor.testToughness();
+  }
+
+  _onRest(event) {
+    event.preventDefault();
+    const button = event.currentTarget;
+    const dataset = button.dataset;
+    const actr = this.actor.data;
+    const actorUpdate = {};
+    let hpg;
+    if (dataset.label === "rest-short") {
+      hpg = 4;
+    } else if (dataset.label === "rest-long") {
+      hpg = 6;
+    }
+    if ((actr.data.hp.value + hpg) > actr.data.hp.max) {
+      actorUpdate['data.hp.value'] = this.actor.data.data.hp.max;
+    } else {
+      actorUpdate['data.hp.value'] = this.actor.data.data.hp.value + hpg;
+    }
+    this.actor.update(actorUpdate);
   }
 
   _onOmensRoll(event) {
@@ -277,7 +298,7 @@ export class MBActorSheetCharacter extends ActorSheet {
       }
     }
     return item.update({[attr]: !getProperty(item.data, attr)});
-  }  
+  }
 
   /**
    * Listen for roll buttons on items.
@@ -285,7 +306,7 @@ export class MBActorSheetCharacter extends ActorSheet {
    * @param {MouseEvent} event    The originating left click event
    */
   _onItemRoll(event) {
-    event.preventDefault();    
+    event.preventDefault();
     let button = $(event.currentTarget);
     let r = new Roll(button.data('roll'), this.actor.getRollData());
     const li = button.parents(".item");
@@ -335,7 +356,7 @@ export class MBActorSheetCharacter extends ActorSheet {
   }
 
   _onAttackRoll(event) {
-    event.preventDefault();   
+    event.preventDefault();
     const button = $(event.currentTarget);
     const li = button.parents(".item");
     const itemId = li.data("itemId");
@@ -358,7 +379,7 @@ export class MBActorSheetCharacter extends ActorSheet {
    * Handle a click on the Defend button.
    */
   _onDefendRoll(event) {
-    event.preventDefault();  
+    event.preventDefault();
     const sheetData = this.getData();
     const armorItemId = sheetData.data.equippedArmor ? sheetData.data.equippedArmor._id : null;
     const shieldItemId = sheetData.data.equippedShield ? sheetData.data.equippedShield._id : null;

@@ -390,6 +390,21 @@
   flex-direction: column;
 }
 
+.morkborg.sheet.actor.character .sheet-header .header-col2 .rest-buttons {
+  flex: 1;
+  display: flex;
+}
+
+.morkborg.sheet.actor.character
+.sheet-header
+.header-col2
+.rest-buttons
+.button {
+  width: 50%;
+  margin-left: 5px;
+  padding: 0px;
+}
+
 .morkborg.sheet.actor.character .sheet-header .header-col3 {
   flex: 0 0 120px;
   margin: 5px;
@@ -453,6 +468,7 @@
 
 .morkborg.sheet.actor.character .sheet-header .hitpoints-row {
   flex: 0 0 30px;
+  display: flex;
   margin-bottom: 7px;
 }
 
@@ -471,8 +487,6 @@
 }
 
 .morkborg.sheet.actor.character .sheet-header .stat-label {
-  text-align: right;
-  width: 140px;
   float: left;
 }
 
@@ -1332,7 +1346,10 @@ form.editable .results .result-details input[type="text"]:focus {
   color: var(--background-color);
 }
 
-.journal-sheet.image-popout .window-content .form-group.picker button.file-picker {
+.journal-sheet.image-popout
+.window-content
+.form-group.picker
+button.file-picker {
   background-color: var(--background-color);
 }
 
