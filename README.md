@@ -23,7 +23,9 @@ morkborg-foundry-vtt is an independent production by community contributors, and
   * Explicit permission has been given by the MÖRK BORG authors for inclusion of the following game content:
     * Names, stats, and descriptions of Weapons, Armor, Equipment, Scrolls, Optional Classes, Creatures, and Outcasts/Followers.
   * Images
-    * Icons by https://game-icons.net/ under [Creative Commons 3.0](https://creativecommons.org/licenses/by/3.0/).
+    * Tokens by [Chris Betancourt](https://github.com/iPwned) with original art by [Johan Nohr](https://twitter.com/JohanNohr), and used with permission from the creators.
+    * Weapon icons by @vil, and used with permission of the creator.
+    * Other icons by https://game-icons.net/ under [Creative Commons 3.0](https://creativecommons.org/licenses/by/3.0/).
   * Fonts
     * [Blood Crow](https://www.dafont.com/blood-crow.font) by [Iconian Fonts](http://www.iconian.com/), and free for personal use.
     * [Calling Code Regular](https://www.dafont.com/calling-code.font) by Ryoichi Tsunekawa / [DharmaType](https://dharmatype.com/), under Public domain / GPL / OFL.
