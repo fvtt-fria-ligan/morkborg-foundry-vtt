@@ -1,3 +1,8 @@
+# 0.2.3
+- Updated compendiums to refer to all creatures by type (e.g., "Goblin") and not by first name (e.g., "Seth).
+- Removed now-unneed alt name field from creature sheet.
+- Added tier 0 for armor, so players can wear useless armor.
+
 # 0.2.2
 - New token assets from iPwnedMSCS and Nohr!
 - New weapon icon assets from vil!
