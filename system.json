@@ -106,7 +106,7 @@
       "path": "lang/sv.json"
     }
   ],  
-  "socket": false,
+  "socket": true,
   "initiative": "1d6",
   "gridDistance": 10,
   "gridUnits": "ft",
