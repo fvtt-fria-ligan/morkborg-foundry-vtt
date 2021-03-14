@@ -76,10 +76,7 @@ export class MBActor extends Actor {
   async _testAbility(ability, abilityKey, drModifiers) {
     let abilityRoll = new Roll(`1d20+@abilities.${ability}.value`, this.getRollData());
     abilityRoll.evaluate();
-    if (game.dice3d) {
-      // show roll for DiceSoNice
-      await game.dice3d.showForRoll(abilityRoll);
-    }
+    await this._showDice(abilityRoll);
     const rollResult = {
       abilityKey: abilityKey,
       abilityRoll,
@@ -177,6 +174,24 @@ export class MBActor extends Actor {
   }
 
   /**
+   * Show roll in Dice So Nice if it's available.
+   */
+  async _showDice(theRoll) {
+    if (game.dice3d) {
+      await game.dice3d.showForRoll(roll);
+    }
+  }
+
+  _diceSound() {
+    if (game.dice3d) {
+      // let Dice So Nice do it
+      return false;
+    } else {
+      return CONFIG.sounds.dice;
+    }
+  }
+
+  /**
    * Do the actual attack rolls and resolution.
    */
   async _rollAttack(itemId, attackDR, targetArmor) {
@@ -191,10 +206,7 @@ export class MBActor extends Actor {
     const ability = isRanged ? 'agility' : 'strength';
     let attackRoll = new Roll(`d20+@abilities.${ability}.value`, actorRollData);
     attackRoll.evaluate();
-    if (game.dice3d) {
-      // show roll for DiceSoNice
-      await game.dice3d.showForRoll(attackRoll); 
-    }
+    await this._showDice(attackRoll);
     const d20Result = attackRoll.results[0];
     const isFumble = (d20Result === 1);
     const isCrit = (d20Result === 20);
@@ -371,10 +383,8 @@ export class MBActor extends Actor {
     // roll 1: defend
     let defendRoll = new Roll("d20+@abilities.agility.value", rollData);
     defendRoll.evaluate();
-    if (game.dice3d) {
-      // show roll for DiceSoNice
-      await game.dice3d.showForRoll(defendRoll);
-    }
+    await this._showDice(defendRoll);
+
     const d20Result = defendRoll.results[0];
     const isFumble = (d20Result === 1);
     const isCrit = (d20Result === 20);
@@ -469,18 +479,13 @@ export class MBActor extends Actor {
     const actorRollData = this.getRollData();
     const moraleRoll = new Roll("2d6", actorRollData);
     moraleRoll.evaluate();
-    if (game.dice3d) {
-      // show roll for DiceSoNice
-      await game.dice3d.showForRoll(moraleRoll);
-    }
+    await this._showDice(moraleRoll);
+
     let outcomeRoll = null;
     if (moraleRoll.total > this.data.data.morale) {
       outcomeRoll = new Roll("1d6", actorRollData);
       outcomeRoll.evaluate();
-      if (game.dice3d) {
-        // show roll for DiceSoNice
-        await game.dice3d.showForRoll(outcomeRoll);
-      }
+      await this._showDice(outcomeRoll);
     }
     await this._renderMoraleRollCard(moraleRoll, outcomeRoll);
   }
@@ -517,10 +522,7 @@ export class MBActor extends Actor {
     const actorRollData = this.getRollData();
     const reactionRoll = new Roll("2d6", actorRollData);
     reactionRoll.evaluate();
-    if (game.dice3d) {
-      // show roll for DiceSoNice
-      await game.dice3d.showForRoll(reactionRoll);
-    }
+    await this._showDice(reactionRoll);
     await this._renderReactionRollCard(reactionRoll);
   }
 
@@ -552,15 +554,6 @@ export class MBActor extends Actor {
       sound : this._diceSound(),
       speaker : ChatMessage.getSpeaker({actor: this}),
     });
-  }
-
-  _diceSound() {
-    if (game.dice3d) {
-      // let Dice So Nice do it
-      return false;
-    } else {
-      return CONFIG.sounds.dice;
-    }
   }
 }  
 
