@@ -227,9 +227,15 @@ export class MBActorSheetCharacter extends ActorSheet {
     return this.actor.update(actorUpdate);
   }
 
-  _onOmensRoll(event) {
+_onOmensRoll(event) {
     event.preventDefault();
     const classItem = this.actor.items.filter(x => x.type === "class").pop();
+
+    let roll = new Roll("@omenDie", classItem.getRollData());
+    //game.dice3d.showForRoll(roll.roll());
+    game.dice3d.showForRoll(roll.roll(), game.user, true, null, false);
+    return;
+
     if (classItem) {
       let r = new Roll("@omenDie", classItem.getRollData());
       r.roll().toMessage({
