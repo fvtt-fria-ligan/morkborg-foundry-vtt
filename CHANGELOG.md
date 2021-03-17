@@ -3,6 +3,7 @@
 - Removed now-unneed alt name field from creature sheet.
 - Added tier 0 for armor, so players can wear useless armor.
 - Fixed Dice So Nice integration so dice rolls show up for all players.
+- New item icons from vil!
 
 # 0.2.2
 - New token assets from iPwnedMSCS and Nohr!
