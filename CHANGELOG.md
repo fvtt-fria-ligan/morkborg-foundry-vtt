@@ -1,6 +1,6 @@
 # 0.2.3
 - New armor, follower, and item icons from vil!
-- Updated compendiums to refer to all creatures by type (e.g., "Goblin") and not by first name (e.g., "Seth).
+- Updated compendiums to refer to all creatures by type (e.g., "Goblin") and not by first name (e.g., "Seth").
 - Added tier 0 for armor, so players can wear useless armor.
 - Fixed Dice So Nice integration so dice rolls show up for all players.
 - Fixed heretical priest crucifix item to read "MʁOИҼ ՂEƧꓵƧ".
