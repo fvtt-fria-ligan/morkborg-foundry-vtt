@@ -393,8 +393,8 @@
   padding-top: 6px;
 }
 .morkborg.sheet.actor.character .sheet-header .hitpoints-row {
-  flex: 0 0 30px;
   display: flex;
+  flex: 0 0 30px;
   margin-bottom: 7px;
 }
 .morkborg.sheet.actor.character .sheet-header .omens-row {
@@ -835,24 +835,26 @@ TODO: figure out if we want a 2-col inventory
   border-radius: 0;
 }
 .morkborg.sheet.actor.creature .sheet-header {
-  margin-top: 0;
-  flex: 0 0 90px;
   display: flex;
+  flex: 0 0 90px;
   flex-direction: row;
+  margin-top: 0;
   padding: 5px;
 }
 .morkborg.sheet.actor.creature .sheet-header .header-col1 {
-  flex: 0 0 100px;
+  flex: 0 0 200px;
 }
 .morkborg.sheet.actor.creature .sheet-header .header-col2 {
-  flex: 1;
-  margin: 5px;
   display: flex;
+  flex: 1;
   flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  margin: 5px;
 }
 .morkborg.sheet.actor.creature .sheet-header .profile-img {
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 200px;
 }
 .morkborg.sheet.actor.creature .sheet-header .name-row {
   flex: 0 0 45px;
@@ -863,17 +865,9 @@ TODO: figure out if we want a 2-col inventory
 .morkborg.sheet.actor.creature .sheet-header input[type="text"].creature-name {
   height: 45px;
 }
-.morkborg.sheet.actor.creature .sheet-header .altname-row {
-  flex: 0 0 30px;
-  margin-bottom: 8px;
-  padding-left: 12px;
-}
-.morkborg.sheet.actor.creature .sheet-header .altname-row input[type="text"] {
-  font-family: var(--h3-font);
-  font-size: 24px;
-}
 .morkborg.sheet.actor.creature .sheet-header .hitpoints-row {
   flex: 0 0 35px;
+  margin-bottom: 10px;
   margin-left: 14px;
 }
 .morkborg.sheet.item .sheet-body {
@@ -955,17 +949,19 @@ TODO: figure out if we want a 2-col inventory
   padding: 5px;
 }
 .morkborg.sheet.actor.follower .sheet-header .header-col1 {
-  flex: 0 0 100px;
+  flex: 0 0 200px;
 }
 .morkborg.sheet.actor.follower .sheet-header .header-col2 {
-  flex: 1;
-  margin: 5px;
   display: flex;
+  flex: 1;
   flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  margin: 5px;
 }
 .morkborg.sheet.actor.follower .sheet-header .profile-img {
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 200px;
 }
 .morkborg.sheet.actor.follower .sheet-header .name-row {
   flex: 0 0 45px;
@@ -976,17 +972,9 @@ TODO: figure out if we want a 2-col inventory
 .morkborg.sheet.actor.follower .sheet-header input[type="text"].follower-name {
   height: 45px;
 }
-.morkborg.sheet.actor.follower .sheet-header .altname-row {
-  flex: 0 0 30px;
-  padding-left: 12px;
-  margin-bottom: 8px;
-}
-.morkborg.sheet.actor.follower .sheet-header .altname-row input[type="text"] {
-  font-family: var(--h3-font);
-  font-size: 24px;
-}
 .morkborg.sheet.actor.follower .sheet-header .hitpoints-row {
   flex: 0 0 35px;
+  margin-bottom: 10px;
   margin-left: 14px;
 }
 .morkborg.sheet.item .sheet-body {
