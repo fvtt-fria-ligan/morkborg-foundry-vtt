@@ -5,7 +5,8 @@
 - Fixed Dice So Nice integration so dice rolls show up for all players.
 - New armor, follower, and item icons from vil!
 - Fixed heretical priest crucifix item to read "MʁOИҼ ՂEƧꓵƧ".
-
+- Updated creature, follower, and item sheets to show bigger images.
+- Updated all item sheets to show item type.
 
 # 0.2.2
 - New token assets from iPwnedMSCS and Nohr!
