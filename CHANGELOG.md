@@ -1,5 +1,6 @@
 # 0.2.3
 - New armor, follower, and item icons from vil!
+- Added followers for Hamfund and Poltroon. Now you can play them as either RP-only items on a character sheet or as actual followers on the map.
 - Updated compendiums to refer to all creatures by type (e.g., "Goblin") and not by first name (e.g., "Seth).
 - Added tier 0 for armor, so players can wear useless armor.
 - Fixed Dice So Nice integration so dice rolls show up for all players.
