@@ -1,12 +1,12 @@
 # 0.2.3
+- New armor, follower, and item icons from vil!
 - Updated compendiums to refer to all creatures by type (e.g., "Goblin") and not by first name (e.g., "Seth).
-- Removed now-unneed alt name field from creature sheet.
 - Added tier 0 for armor, so players can wear useless armor.
 - Fixed Dice So Nice integration so dice rolls show up for all players.
-- New armor, follower, and item icons from vil!
-- Fixed heretical priest crucifix item to read "MʁOИҼ ՂEƧꓵƧ".
 - Updated creature, follower, and item sheets to show bigger images.
+- Removed now-unneeded alt name field from creature and follower sheets.
 - Updated all item sheets to show item type.
+- Fixed heretical priest crucifix item to read "MʁOИҼ ՂEƧꓵƧ".
 
 # 0.2.2
 - New token assets from iPwnedMSCS and Nohr!
