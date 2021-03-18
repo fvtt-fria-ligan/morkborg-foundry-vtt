@@ -870,10 +870,6 @@ TODO: figure out if we want a 2-col inventory
   margin-bottom: 10px;
   margin-left: 14px;
 }
-.morkborg.sheet.item .sheet-body {
-  margin-top: 8px;
-  padding: 5px;
-}
 .morkborg.sheet.creature .sheet-body .form-group {
   margin-bottom: 8px;
 }
@@ -904,11 +900,16 @@ TODO: figure out if we want a 2-col inventory
   flex-direction: row;
   padding: 5px;
 }
+.morkborg.sheet.item .sheet-header .profile-img {
+  height: 150px;
+  width: 150px;
+}
 .morkborg.sheet.item .sheet-header .item-name input[type="text"] {
   font-family: var(--h1-font);
   font-size: 38px;
   flex: 1;
   height: 45px;
+  margin-bottom: 10px;
 }
 .morkborg.sheet.item .sheet-header .item-subtitle {
   font-family: var(--h3-font);
