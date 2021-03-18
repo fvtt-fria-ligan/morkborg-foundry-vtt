@@ -3,7 +3,9 @@
 - Removed now-unneed alt name field from creature sheet.
 - Added tier 0 for armor, so players can wear useless armor.
 - Fixed Dice So Nice integration so dice rolls show up for all players.
-- New item icons from vil!
+- New armor, follower, and item icons from vil!
+- Fixed heretical priest crucifix item to read "MʁOИҼ ՂEƧꓵƧ".
+
 
 # 0.2.2
 - New token assets from iPwnedMSCS and Nohr!
