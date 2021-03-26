@@ -302,10 +302,19 @@
                             {{#ifEq item.type 'container'}}
                               ({{localize 'MB.ContainerHolds'}} {{item.data.capacity}})
                             {{/ifEq}}
+                            {{#ifGt item.data.quantity 1}}
+                              ({{item.data.quantity}})
+                            {{/ifGt}}
                         </h4>
                         <div class="item-buttons">
                         </div>
                         <div class="item-controls">
+                            {{#ifEq item.type 'misc'}}
+                                <a class="item-control item-qty-plus" title="Add Quantity"><i class="fas fa-plus"></i></a>
+                                &nbsp;
+                                <a class="item-control item-qty-minus" title="Subtract Quantity"><i class="fas fa-minus"></i></a>
+                                &nbsp;
+                            {{/ifEq}}
                             {{#if item.data.equippable}}
                                 <a class="item-control item-toggle {{item.data.toggleClass}}" title='{{item.data.toggleTitle}}'><i class="fas fa-shield-alt"></i></a>
                             {{/if}}

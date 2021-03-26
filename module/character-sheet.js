@@ -93,8 +93,7 @@ export class MBActorSheetCharacter extends ActorSheet {
         }
       }
     }
-    // TODO: figure out what we want to do wrt sorting, drag-drop reordering, etc
-    //equipment.sort((a, b) => (a.sort > b.sort) ? 1 : ((b.sort > a.sort) ? -1 : 0)); 
+    // sort alphabetically
     equipment.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
     equippedWeapons.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
 
@@ -105,20 +104,12 @@ export class MBActorSheetCharacter extends ActorSheet {
     sheetData.actor.data.equippedWeapons = equippedWeapons;
     sheetData.actor.data.scrolls = scrolls;
 
-    // Calculate carried-in-container count - all non-container non-equipped equipment
-    let itemsInContainers = equipment.filter(item => item.type !== 'container' && !item.data.equipped);
-    let totalContainerSpace = itemsInContainers.reduce((total, item) => total + (item.data.containerSpace || 0), 0);
-    // Calculate container capacity from containers
-    let containerCapacity = containers.reduce((total, item) => total + item.data.capacity, 0);
-    sheetData.actor.data.containerSpace = totalContainerSpace || 0;
-    sheetData.actor.data.containerCapacity = containerCapacity;
-
-    // all equipment with encumbrance counts towards carried/encumberance
-    let carryingCount = equipment.reduce((a, b) => a + (b.data.carryWeight || 0), 0);
-    let carryingCapacity = sheetData.actor.data.abilities.strength.value + 8;
-    sheetData.actor.data.carryingCount = carryingCount || 0;
-    sheetData.actor.data.carryingCapacity = carryingCapacity;
-    let isEncumbered = carryingCount > carryingCapacity;
+    sheetData.actor.data.containerSpace = this.actor.containerSpace();
+    sheetData.actor.data.containerCapacity = this.actor.containerCapacity();
+    // TODO: rename to carryingWeight?
+    sheetData.actor.data.carryingCount = this.actor.carryingWeight();
+    sheetData.actor.data.carryingCapacity = this.actor.normalCarryingCapacity();
+    const isEncumbered = this.actor.isEncumbered();
     sheetData.actor.data.encumbered = isEncumbered;
     sheetData.actor.data.encumberedClass = isEncumbered ? "encumbered" : "";
   }
@@ -171,6 +162,8 @@ export class MBActorSheetCharacter extends ActorSheet {
     html.find(".wield-power-button").on("click", this._onWieldPowerRoll.bind(this));
     html.find(".powers-per-day-text").on("click", this._onPowersPerDayRoll.bind(this));
     // treasures (and other) tab
+    html.find('.item-qty-plus').click(this._onItemAddQuantity.bind(this));
+    html.find('.item-qty-minus').click(this._onItemSubtractQuantity.bind(this));
     html.find('.item-toggle').click(this._onToggleItem.bind(this));
   }
 
@@ -287,6 +280,37 @@ _onOmensRoll(event) {
         }).render(true);
     });
   }
+
+  /**
+   * Handle adding quantity of an Owned Item within the Actor
+   */
+  async _onItemAddQuantity(event) {
+    event.preventDefault();
+    let anchor = $(event.currentTarget);
+    const li = anchor.parents(".item");
+    const itemId = li.data("itemId");
+    const item = this.actor.getOwnedItem(itemId);
+    const attr = "data.quantity";
+    const currQuantity = getProperty(item.data, attr);
+    return item.update({[attr]: currQuantity + 1});
+  }
+
+  /**
+   * Handle subtracting quantity of an Owned Item within the Actor
+   */
+     async _onItemSubtractQuantity(event) {
+      event.preventDefault();
+      let anchor = $(event.currentTarget);
+      const li = anchor.parents(".item");
+      const itemId = li.data("itemId");
+      const item = this.actor.getOwnedItem(itemId);
+      const attr = "data.quantity";
+      const currQuantity = getProperty(item.data, attr);
+      // can't reduce quantity below one
+      if (currQuantity > 1) {
+        return item.update({[attr]: currQuantity - 1});  
+      }
+    }
 
   /**
    * Handle toggling the state of an Owned Item within the Actor
