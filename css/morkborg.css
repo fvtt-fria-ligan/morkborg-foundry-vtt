@@ -649,11 +649,11 @@ span {
 }
 
 .morkborg .item-list .item-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
   align-items: right;
+  display: flex;
   flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: flex-start;
 }
 
@@ -671,16 +671,15 @@ span {
 }
 
 .morkborg .item-list .item-button {
-  font-family: var(--h2-font);
-  font-size: 20px;
-  flex: none;
-  width: auto;
-  color: var(--foreground-color);
   background-color: var(--foreground-color);
-  color: var(--background-color);
   border: none;
   border-bottom: 2px solid #777;
   border-radius: 0;
+  color: var(--background-color);
+  flex: none;
+  font-family: var(--h2-font);
+  font-size: 20px;
+  width: auto;
 }
 
 .morkborg .item-list .equipped {

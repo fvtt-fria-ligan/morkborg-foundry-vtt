@@ -153,7 +153,7 @@ Handlebars.registerHelper('ifGe', function(arg1, arg2, options) {
   return (arg1 >= arg2) ? options.fn(this) : options.inverse(this);
 });
 Handlebars.registerHelper('ifGt', function(arg1, arg2, options) {
-  return (arg1 < arg2) ? options.fn(this) : options.inverse(this);
+  return (arg1 > arg2) ? options.fn(this) : options.inverse(this);
 });
 Handlebars.registerHelper('ifLe', function(arg1, arg2, options) {
   return (arg1 <= arg2) ? options.fn(this) : options.inverse(this);

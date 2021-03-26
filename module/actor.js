@@ -61,18 +61,43 @@ export class MBActor extends Actor {
     return 2 * this.normalCarryingCapacity();
   }
 
-  carryingAmount() {
+  carryingWeight() {
     let total = 0;
     for (const item of this.data.items) {
       if (CONFIG.MB.itemEquipmentTypes.includes(item.type) && item.data.carryWeight) {
-        total += item.data.carryWeight;
+        const roundedWeight = Math.ceil(item.data.carryWeight * item.data.quantity);
+        total += roundedWeight;
       }
     }
     return total;
   }
 
   isEncumbered() {
-    return this.carryingAmount() > this.normalCarryingCapacity();
+    return this.carryingWeight() > this.normalCarryingCapacity();
+  }
+
+  containerSpace() {
+    let total = 0;
+    for (const item of this.data.items) {
+      if (CONFIG.MB.itemEquipmentTypes.includes(item.type) && 
+          item.type !== 'container' &&
+          !item.data.equipped &&
+          item.data.containerSpace) {  
+          const roundedSpace = Math.ceil(item.data.containerSpace * item.data.quantity);
+          total += roundedSpace;
+      }
+    }
+    return total;
+  }
+
+  containerCapacity() {
+    let total = 0;
+    for (const item of this.data.items) {
+      if (item.type === 'container' && item.data.capacity) {
+        total += item.data.capacity;
+      }
+    }
+    return total;
   }
 
   async _testAbility(ability, abilityKey, drModifiers) {
