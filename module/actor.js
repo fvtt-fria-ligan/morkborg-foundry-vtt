@@ -548,5 +548,14 @@ export class MBActor extends Actor {
       speaker : ChatMessage.getSpeaker({actor: this}),
     });
   }
+
+  async wieldPower() {
+    const roll = new Roll("d20+@abilities.presence.value", this.getRollData());
+    let label = `Rolling ${game.i18n.localize('MB.WieldAPower')}`;
+    return roll.roll().toMessage({
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: label
+    });
+  }
 }  
 

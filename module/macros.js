@@ -14,8 +14,9 @@ export async function createMorkBorgMacro(data, slot) {
     return ui.notifications.warn("You can only create macro buttons for owned Items");
   }
   const item = data.data;
-  if (item.type !== "weapon" && item.type !== "armor" && item.type !== "shield") {
-    return ui.notifications.warn("Only weapons and armor support macros.");
+  const supportedItemTypes = ["armor", "scroll", "shield", "weapon"];
+  if (!supportedItemTypes.includes(item.type)) {
+    return ui.notifications.warn(`Macros only supported for item types: ${supportedItemTypes.join(', ')}`);
   }
 
   // Create the macro command
@@ -63,5 +64,7 @@ export async function createMorkBorgMacro(data, slot) {
     actor.attack(item.data._id);
   } else if (item.data.type === "armor" || item.data.type == "shield") {
     actor.defend();
+  } else if (item.data.type == "scroll") {
+    actor.wieldPower();
   }
 }
