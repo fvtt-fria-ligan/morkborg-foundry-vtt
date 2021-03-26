@@ -9,7 +9,7 @@ import { MBActorSheetFollower } from "./follower-sheet.js";
 import { MB } from "./config.js";
 import { MBItem } from "./item.js";
 import { MBItemSheet } from "./item-sheet.js";
-import { createMorkBorgMacro } from "./macro.js";
+import { createMorkBorgMacro, rollItemMacro } from "./macros.js";
 import { migrateWorld } from "./migration.js";
 import { registerSystemSettings } from "./settings.js";
 
@@ -43,7 +43,8 @@ Hooks.once("init", async function() {
     config: MB,
     createMorkBorgMacro,
     MBActor,
-    MBItem
+    MBItem,
+    rollItemMacro,
   };
 
   // Define custom Entity classes
@@ -78,6 +79,8 @@ Hooks.once("init", async function() {
 Hooks.once("ready", () => {
   maybeMigrateWorld();
   applyFontsAndColors();
+  // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
+  Hooks.on("hotbarDrop", (bar, data, slot) => createMorkBorgMacro(data, slot));  
 });
 
 const maybeMigrateWorld = () => {
