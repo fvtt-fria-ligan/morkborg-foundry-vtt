@@ -1,3 +1,11 @@
+# 0.2.4
+- Added quantity for misc inventory type, along with +/- buttons.
+- Added weapon compendium items for arrows, bolts, and sling stones.
+- Added drag-and-drop macro toolbar support for weapons, armor/shield, feats, and scrolls.
+- Changed default tab on item sheets to Details (instead of Description).
+- Added "Equip armor to absorb damage" message when no armor/shield equipped.
+- Added "You have no Feats/Scrolls" messages when no feats/scrolls.
+
 # 0.2.3
 - New armor, follower, and item icons from vil!
 - Updated compendiums to refer to all creatures by type (e.g., "Goblin") and not by first name (e.g., "Seth").
