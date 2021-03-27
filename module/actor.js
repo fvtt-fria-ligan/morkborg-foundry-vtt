@@ -550,8 +550,23 @@ export class MBActor extends Actor {
   }
 
   async wieldPower() {
+    // TODO: use custom roll card
     const roll = new Roll("d20+@abilities.presence.value", this.getRollData());
     let label = `Rolling ${game.i18n.localize('MB.WieldAPower')}`;
+    return roll.roll().toMessage({
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: label
+    });
+  }
+
+  async useFeat(itemId) {
+    const item = this.getOwnedItem(itemId);
+    if (!item || !item.data.data.rollLabel || !item.data.data.rollFormula) {
+      return;
+    }
+    // TODO: use custom roll card
+    const roll = new Roll(item.data.data.rollFormula, this.getRollData());
+    let label = `Rolling ${item.data.data.rollLabel}`;
     return roll.roll().toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
       flavor: label

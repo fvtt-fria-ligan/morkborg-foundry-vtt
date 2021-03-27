@@ -157,7 +157,7 @@ export class MBActorSheetCharacter extends ActorSheet {
     html.find('.tier-radio').click(this._onArmorTierRadio.bind(this));
     html.find(".defend-button").on("click", this._onDefendRoll.bind(this));
     // feats tab
-    html.find(".feat-button").on("click", this._onRoll.bind(this));
+    html.find(".feat-button").on("click", this._onFeatRoll.bind(this));
     // powers tab
     html.find(".wield-power-button").on("click", this._onWieldPowerRoll.bind(this));
     html.find(".powers-per-day-text").on("click", this._onPowersPerDayRoll.bind(this));
@@ -374,13 +374,20 @@ _onOmensRoll(event) {
 
     if (dataset.roll) {
       let roll = new Roll(dataset.roll, this.actor.data.data);
-      console.log(roll);
       let label = dataset.label ? `Rolling ${dataset.label}` : '';
       roll.roll().toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label
       });
     }
+  }
+
+  _onFeatRoll(event) {
+    event.preventDefault();
+    const button = $(event.currentTarget);
+    const li = button.parents(".item");
+    const itemId = li.data("itemId");
+    this.actor.useFeat(itemId);
   }
 
   _onWieldPowerRoll(event) {
