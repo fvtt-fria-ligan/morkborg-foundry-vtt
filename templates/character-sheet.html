@@ -118,14 +118,16 @@
                     </li>
                     {{/each}}
                 </ol>
-                <div class="rule-text attack-rule">
-                    {{#if data.equippedWeapons.length}}
+                {{#if data.equippedWeapons.length}}
+                    <div class="rule-text attack-rule">
                         {{localize 'MB.AttackCritText'}}
                         {{localize 'MB.AttackFumbleText'}}
-                    {{else}}
+                    </div>
+                {{else}}
+                    <div class="rule-text you-have-no">
                         {{localize 'MB.EquipAWeaponToAttack'}}
-                    {{/if}}
-                </div>
+                    </div>
+                {{/if}}
                 <div class="violence-gutter"></div>
                 <li class="items-header flexrow">
                     <h3 class="item-name flexrow">{{localize "MB.ItemTypeArmorPlural"}}</h3>
@@ -171,6 +173,13 @@
                         </div>
                     </li>
                     {{/if}}
+                    {{#unless data.equippedArmor}}
+                      {{#unless data.equippedShield}}
+                        <div class="rule-text you-have-no">
+                            {{localize 'MB.EquipArmorToAbsorb'}}
+                        </div>
+                      {{/unless}}
+                    {{/unless}}
                 </ol>
                 <div class="underarmor-row">
                     <div class="incoming-attack">
@@ -214,6 +223,11 @@
                     </li>
                     {{/each}}
                 </ol>
+                {{#unless data.feats.length}}
+                    <div class="rule-text you-have-no">
+                        {{localize 'MB.YouHaveNoFeats'}}
+                    </div>
+                {{/unless}}
             </ol>
         </div>
 
@@ -256,6 +270,11 @@
                     </li>
                     {{/each}}
                 </ol>
+                {{#unless data.scrolls.length}}
+                    <div class="rule-text you-have-no">
+                        {{localize 'MB.YouHaveNoScrolls'}}
+                    </div>
+                {{/unless}}
             </ol>
         </div>
 

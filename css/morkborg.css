@@ -317,6 +317,11 @@
   font-size: 10pt;
 }
 
+.morkborg.sheet.actor .you-have-no {
+  /* TODO: decide if this is better left-align or centered */
+  /* text-align: center; */
+}
+
 /* ====================== */
 /* Actor sheet header */
 /* ====================== */
