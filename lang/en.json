@@ -48,6 +48,7 @@
 "MB.Dodge": "Dodge",
 "MB.DR": "DR",
 "MB.Encumbered": "Encumbered",
+"MB.EquipArmorToAbsorb": "Equip armor to absorb damage.",
 "MB.EquipAWeaponToAttack": "Equip a weapon to attack.",
 "MB.Equipment": "Equipment",
 "MB.FollowerSpeciality": "Speciality",
@@ -140,6 +141,8 @@
 "MB.WeaponTypeRanged": "Ranged",
 "MB.WieldAPower": "Wield a Power",
 "MB.WieldAPowerText": "PRE DR12, or -d2 HP and no Powers for 1 hr",
+"MB.YouHaveNoFeats": "You have no Feats",
+"MB.YouHaveNoScrolls": "You have no Scrolls",
 
 "SETTINGS.MBBlackletter": "Blackletter",
 "SETTINGS.MBBlackOnWhiteBlack": "Black on white (black)",

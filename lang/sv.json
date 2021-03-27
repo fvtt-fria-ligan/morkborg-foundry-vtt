@@ -48,6 +48,7 @@
 "MB.Dodge": "Undvika",
 "MB.DR": "SG",
 "MB.Encumbered": "Överbelastad",
+"MB.EquipArmorToAbsorb": "Utrusta rustning för absorbera skador.",
 "MB.EquipAWeaponToAttack": "Utrusta ett vapen för att attackera.",
 "MB.Equipment": "Utrustning",
 "MB.FollowerSpeciality": "Specialitet",
@@ -140,6 +141,8 @@
 "MB.WeaponTypeRanged": "Avstånd",
 "MB.WieldAPower": "Nyttja en Kraft",
 "MB.WieldAPowerText": "NÄR SG12 eller -t2 TP och inga Krafter i 1 tim.",
+"MB.YouHaveNoFeats": "Du har inga Förmågor",
+"MB.YouHaveNoScrolls": "Du har inga Rullar",
 
 "SETTINGS.MBBlackletter": "Blackletter",
 "SETTINGS.MBBlackOnWhiteBlack": "Svart på vit (svart)",
