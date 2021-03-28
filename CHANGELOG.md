@@ -1,3 +1,9 @@
+# 0.2.5
+- Reorganized compendiums. 
+- Broke up big class items/feats into separate per-class compendiums.
+- Re-did roll tables for new compendiums.
+- Added "Class - " and "Equipment - " prefixes to compendium names for better sorting.
+
 # 0.2.4
 - Added quantity for misc inventory type, along with +/- buttons.
 - Added weapon compendium items for arrows, bolts, and sling stones.
