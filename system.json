@@ -10,52 +10,94 @@
   "styles": ["css/morkborg.css"],
   "packs": [
     {
-      "name": "armor",
-      "label": "Armor",
-      "system": "morkborg",
-      "path": "./packs/armor.db",
-      "entity": "Item"
-    },
-    {
       "name": "character-creation",
       "label": "Character Creation",
       "system": "morkborg",
       "path": "./packs/character-creation.db",
       "entity": "RollTable"
-    },    
+    },
     {
-      "name": "class-feats",
-      "label": "Class Feats",
+      "name": "class-classless-adventurer",
+      "label": "Class - Classless Adventurer",
       "system": "morkborg",
-      "path": "./packs/class-feats.db",
+      "path": "./packs/class-classless-adventurer.db",
+      "entity": "Item"
+    },
+    {
+      "name": "class-esoteric-hermit",
+      "label": "Class - Esoteric Hermit",
+      "system": "morkborg",
+      "path": "./packs/class-esoteric-hermit.db",
+      "entity": "Item"
+    },
+    {
+      "name": "class-fanged-deserter",
+      "label": "Class - Fanged Deserter",
+      "system": "morkborg",
+      "path": "./packs/class-fanged-deserter.db",
+      "entity": "Item"
+    },
+    {
+      "name": "class-gutterborn-scum",
+      "label": "Class - Gutterborn Scum",
+      "system": "morkborg",
+      "path": "./packs/class-gutterborn-scum.db",
+      "entity": "Item"
+    },
+    {
+      "name": "class-heretical-priest",
+      "label": "Class - Heretical Priest",
+      "system": "morkborg",
+      "path": "./packs/class-heretical-priest.db",
+      "entity": "Item"
+    },
+    {
+      "name": "class-occult-herbmaster",
+      "label": "Class - Occult Herbmaster",
+      "system": "morkborg",
+      "path": "./packs/class-occult-herbmaster.db",
       "entity": "Item"
     },    
     {
-      "name": "class-items",
-      "label": "Class Items",
+      "name": "class-wretched-royalty",
+      "label": "Class - Wretched Royalty",
       "system": "morkborg",
-      "path": "./packs/class-items.db",
+      "path": "./packs/class-wretched-royalty.db",
       "entity": "Item"
-    },    
-    {
-      "name": "classes",
-      "label": "Classes",
-      "system": "morkborg",
-      "path": "./packs/classes.db",
-      "entity": "Item"
-    },    
+    },
     {
       "name": "creatures",
       "label": "Creatures",
       "system": "morkborg",
       "path": "./packs/creatures.db",
       "entity": "Actor"
-    },    
+    },
     {
-      "name": "equipment",
-      "label": "Equipment",
+      "name": "equipment-armor",
+      "label": "Equipment - Armor",
       "system": "morkborg",
-      "path": "./packs/equipment.db",
+      "path": "./packs/equipment-armor.db",
+      "entity": "Item"
+    },
+    {
+      "name": "equipment-misc",
+      "label": "Equipment - Misc",
+      "system": "morkborg",
+      "path": "./packs/equipment-misc.db",
+      "entity": "Item"
+    },
+    {
+      "name": "equipment-scrolls",
+      "label": "Equipment - Scrolls",
+      "system": "morkborg",
+      "path": "./packs/equipment-scrolls.db",
+      "entity": "Item"
+    },
+    {
+      "name": "equipment-weapons",
+      "label": "Equipment - Weapons",
+      "system": "morkborg",
+      "path": "./packs/equipment-weapons.db",
       "entity": "Item"
     },
     {
@@ -78,20 +120,6 @@
       "system": "morkborg",
       "path": "./packs/random-scrolls.db",
       "entity": "RollTable"
-    },
-    {
-      "name": "scrolls",
-      "label": "Scrolls",
-      "system": "morkborg",
-      "path": "./packs/scrolls.db",
-      "entity": "Item"
-    },
-    {
-      "name": "weapons",
-      "label": "Weapons",
-      "system": "morkborg",
-      "path": "./packs/weapons.db",
-      "entity": "Item"
     }
   ],
   "languages": [
