@@ -145,7 +145,7 @@ export class MBActor extends Actor {
   }
 
   async testToughness() {
-    await this._testAbility("agility", "MB.AbilityToughness", null);
+    await this._testAbility("toughness", "MB.AbilityToughness", null);
   }
 
   /**
