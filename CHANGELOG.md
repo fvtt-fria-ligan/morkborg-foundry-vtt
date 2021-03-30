@@ -1,3 +1,8 @@
+# 0.2.6
+- New container and misc item icons from Vil!
+- Re-added "Armored Caster" Heretical Priest feat.
+- Fixed Toughness test roll bug.
+
 # 0.2.5
 - Reorganized compendiums. 
 - Broke up big class items/feats into separate per-class compendiums.
