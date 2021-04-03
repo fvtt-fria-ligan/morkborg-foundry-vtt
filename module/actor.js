@@ -211,8 +211,8 @@ export class MBActor extends Actor {
 
     // roll 1: attack
     const isRanged = itemRollData.weaponType === 'ranged';
-    // ranged weapons use agility; melee weapons use strength
-    const ability = isRanged ? 'agility' : 'strength';
+    // ranged weapons use presence; melee weapons use strength
+    const ability = isRanged ? 'presence' : 'strength';
     let attackRoll = new Roll(`d20+@abilities.${ability}.value`, actorRollData);
     attackRoll.evaluate();
     await showDice(attackRoll);
