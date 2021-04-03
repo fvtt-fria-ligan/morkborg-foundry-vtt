@@ -1,3 +1,7 @@
+# 0.2.7
+- Fixed bug with setting new character default adventurer class.
+- Fixed omens and powers rolls not properly updating fields.
+
 # 0.2.6
 - New container and misc item icons from Vil!
 - Re-added "Armored Caster" Heretical Priest feat.
