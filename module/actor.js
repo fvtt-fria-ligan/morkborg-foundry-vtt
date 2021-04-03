@@ -572,5 +572,28 @@ export class MBActor extends Actor {
       flavor: label
     });
   }
-}  
 
+  async rollOmens() {
+    const classItem = this.items.filter(x => x.type === "class").pop();
+    if (!classItem) {
+      return;
+    }
+    let r = new Roll("@omenDie", classItem.getRollData());
+    await r.roll().toMessage({
+      user: game.user._id,
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: `<h2>${game.i18n.localize('MB.Omens')}</h2>`
+    });
+    return this.update({["data.omens"]: {max: r.total, value: r.total}});
+  }
+
+  async rollPowersPerDay() {
+    let r = new Roll("d4+@abilities.presence.value", this.getRollData());
+    await r.roll().toMessage({
+      user: game.user._id,
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: `<h2>${game.i18n.localize('MB.Powers')} ${game.i18n.localize('MB.PerDay')}</h2>`
+    });
+    return this.update({["data.powerUses"]: {max: r.total, value: r.total}});
+  }
+}  
