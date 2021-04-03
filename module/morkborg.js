@@ -138,7 +138,7 @@ Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
 Hooks.on('createActor', async (actor, options, userId) => {
   // give Characters a default class
   if (actor.data.type === "character" && game.packs) {
-    const pack = game.packs.get("morkborg.classes");
+    const pack = game.packs.get("morkborg.class-classless-adventurer");
     let index = await pack.getIndex();
     let entry = index.find(e => e.name === "Adventurer");
     let entity = await pack.getEntity(entry._id);
