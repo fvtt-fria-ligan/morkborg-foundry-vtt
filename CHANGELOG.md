@@ -1,3 +1,6 @@
+# 0.2.8
+- Fixed bug where agility was incorrectly used instead of presence for ranged attacks.
+
 # 0.2.7
 - Fixed bug with setting new character default adventurer class.
 - Fixed omens and powers rolls not properly updating fields.
