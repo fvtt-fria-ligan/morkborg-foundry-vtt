@@ -187,6 +187,16 @@ export class MBActorSheetCharacter extends ActorSheet {
     this.actor.testToughness();
   }
 
+  _onOmensRoll(event) {
+    event.preventDefault();
+    this.actor.rollOmens();
+  }
+
+  _onPowersPerDayRoll(event) {
+    event.preventDefault();
+    this.actor.rollPowersPerDay();
+  }
+
   _onRest(event) {
     event.preventDefault();
     const button = event.currentTarget;
@@ -218,37 +228,6 @@ export class MBActorSheetCharacter extends ActorSheet {
       actorUpdate['data.hp.value'] = this.actor.data.data.hp.value + hpg;
     }
     return this.actor.update(actorUpdate);
-  }
-
-_onOmensRoll(event) {
-    event.preventDefault();
-    const classItem = this.actor.items.filter(x => x.type === "class").pop();
-
-    let roll = new Roll("@omenDie", classItem.getRollData());
-    //game.dice3d.showForRoll(roll.roll());
-    game.dice3d.showForRoll(roll.roll(), game.user, true, null, false);
-    return;
-
-    if (classItem) {
-      let r = new Roll("@omenDie", classItem.getRollData());
-      r.roll().toMessage({
-        user: game.user._id,
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        flavor: `<h2>${game.i18n.localize('MB.Omens')}</h2>`
-      });
-      return this.actor.update({["data.omens"]: {max: r.total, value: r.total}});
-    }
-  }
-
-  _onPowersPerDayRoll(event) {
-    event.preventDefault();
-    let r = new Roll("d4+@abilities.presence.value", this.actor.getRollData());
-    r.roll().toMessage({
-      user: game.user._id,
-      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: `<h2>${game.i18n.localize('MB.Powers')} ${game.i18n.localize('MB.PerDay')}</h2>`
-    });
-    return this.actor.update({["data.powerUses"]: {max: r.total, value: r.total}});
   }
 
   /**
