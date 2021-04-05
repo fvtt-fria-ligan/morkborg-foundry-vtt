@@ -8,7 +8,7 @@ morkborg-foundry-vtt is an independent production by community contributors, and
 
 ## Getting Started
   * Install the system from within Foundry (*Configuration and Setup*, *Game Systems* tab, *Install System* button). Find package *MÖRK BORG* and install.
-  * Read the [implementation notes](https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/blob/main/implementation-notes.md).
+  * Read [how to use this system](https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/blob/main/how-to-use-this-system.md).
   * Kill and be killed.
 
 ## Questions? Suggestions? Bugs?
