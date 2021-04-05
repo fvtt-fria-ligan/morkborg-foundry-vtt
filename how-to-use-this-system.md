@@ -23,6 +23,8 @@ This is an implementation of the MÖRK BORG rules, with limited adaptations to m
     * Items have a *containerSpace* field indicating how much space they take up in a container. Most items are 1.
     * Containers do not count towards your container space.
     * Equipped items do not count towards your container space.
+  * Misc items have a modifiable *quantity* field. You can more easily increase or decrease this using the "+" and "-" buttons that appear in the item row, in the *Treasures* tab.
+    * You can combine quantity with carryWeight and containerSpace fields set less than zero, to allow "stacking" of items occupying less than 1 unit or occupying less than 1 slot.
 
 ## Combat
   * Initiative is handled by Foundry's Combat Tracker. All other combat rolls are handled from a Character's sheet on the *Violence* tab.
