@@ -6,7 +6,8 @@ This is an implementation of the MÖRK BORG rules, with limited adaptations to m
 ## Creating a character
   * Create a new Actor of type *character*. By default, a new character will have the *Adventurer* class (a fancier name for the default classless character).
   * Use the RollTables in the *Character Creation* RollTable compendium folder. E.g., for the "You are what you own" starting equipment rolls, or for various class-specific random items.
-  * If desired, drag a different Class from the particular class compendium (e.g., "Class - Fanged Deserter") folder onto your sheet. Drag out class-specific feats or attacks (like the Fanged Deserter's bite attack) from the per-class compendium folder.
+  * If desired, drag a different Class from the particular class compendium (e.g., "Class - Fanged Deserter") folder onto your sheet.
+    * Drag out class-specific feats or attacks (like the Fanged Deserter's bite attack) from the per-class compendium folder.
   * Manually roll and update your abilities and hit points.
   * If buying equipment, drag items from the various Equipment compendiums onto your character sheet.
   * Equip some items on your *Treasure* tab, and they'll show up for use on your *Violence* tab.
@@ -57,4 +58,6 @@ This is an implementation of the MÖRK BORG rules, with limited adaptations to m
 ## Followers
   * Followers work similarly to characters. They have a *Violence* tab to fight and a *Treasures* tab for inventory, equipping weapons or armor, etc.
   * Followers can be dragged out of the Followers compendium folder. Give players permission to control a Follower via the right click *Configure Permissions* context menu in the Actors Directory in the sidebar.
-  * It's up to you to enforce the rule that the Wild Wickhead will carry up to five items for you.
+  * It's up to you to enforce the rule that the *Wild Wickhead* will carry up to five items for you.
+  * *Poltroon the Jester* and *Hamfund the Squire* are implemented as both follower and items in the compendiums, so you can play them how you prefer.
+
