@@ -11,6 +11,8 @@ morkborg-foundry-vtt is an independent production by community contributors, and
   * Read [how to use this system](https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/blob/main/how-to-use-this-system.md).
   * Kill and be killed.
 
+If you want some third-party content, be sure to check out the *MÖRK BORG Third-Party Content* module, also installable from within Foundry. It includes additional classes, optional feats, roll tables, etc.
+
 ## Questions? Suggestions? Bugs?
 [File an issue](https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/issues), or hop on the [Foundry Discord](https://discord.gg/foundryvtt), *#free-league* channel.
 
