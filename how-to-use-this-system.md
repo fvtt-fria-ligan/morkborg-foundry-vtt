@@ -1,4 +1,4 @@
-# Implementation Notes
+# How to use this system
 
 ## General
 This is a vanilla, no-homebrew implementation of the MÖRK BORG rules, with limited adaptations to make things work in Foundry VTT. There are compendiums covering all the classes, items, creatures, and followers described in the MÖRK BORG book.
