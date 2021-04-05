@@ -28,19 +28,20 @@ This is an implementation of the MÖRK BORG rules, with limited adaptations to m
 
 ## Combat
   * Initiative is handled by Foundry's Combat Tracker. All other combat rolls are handled from a Character's sheet on the *Violence* tab.
+    * NOTE: There is an open dev TODO to make inventory work more like the official rules (player vs creature initiative, and being able to easily re-roll initiative each round.)
   * To use a weapon, armor, or shield, you need to equip it. You can do so on the *Treasures* tab. Any equippable items have a small shield icon next to their edit and delete buttons. Click the shield icon to make it turn yellow (equipped), and the item will appear on your *Violence* tab, ready for use. Note: you can only have a single armor and single shield equipped at one time.
   * Attacking
     * On the *Violence* tab of your character sheet, click the *Attack* button next to your weapon of choice.
     * A popup window will appear, prompting you for the DR of the attack (usually 12), as well as the target's armor damage reduction (e.g., 1d2).
     * The system will resolve your attack, calculating hit or miss, critical or fumble, damage and damage reduction. Everything will appear in a chat message "roll card".
-    * Final damage can then be manually applied to the target (i.e., DM reduces the target creature's HPs on their sheet).
+    * Final damage can then be manually applied to the target (i.e., DM reduces the target creature's HPs on the creature sheet).
   * Defending
     * On the *Violence* tab of your character sheet, Click the *Defend* button.
     * A popup window will appear, prompting you for the DR of the defense (usually 12) and the incoming attack damage die (e.g., 1d6).
     * The system will resolve the defense, calculating dodge or hit, critical or fumble, damage and damage reduction. Everything will appear in a chat message "roll card".
     * It's up to you to manually apply the final damage (i.e., reduce your HPs on your character sheet).
   * Armor
-    * Armor has both a current and a max tier. The current tier is shown on the *Violence* tab as a radio button. The current tier radio buttons won't let you choose a current tier higher than the armor's max tier. There is no zero tier shown, since at zero tier armor is considered destroyed and should just be deleted. 
+    * Armor has both a current and a max tier. The current tier is shown on the *Violence* tab as a radio button. The current tier radio buttons won't let you choose a current tier higher than the armor's max tier. There is a zero tier shown, in case you want to wear useless armor. You're welcome? 
 
 ## Powers
   * Any scrolls in your inventory will show up on both your sheet's *Treasures* and *Powers* tabs.
