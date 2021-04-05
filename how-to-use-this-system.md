@@ -1,15 +1,12 @@
 # How to use this system
 
 ## General
-This is a vanilla, no-homebrew implementation of the MÖRK BORG rules, with limited adaptations to make things work in Foundry VTT. There are compendiums covering all the classes, items, creatures, and followers described in the MÖRK BORG book.
+This is an implementation of the MÖRK BORG rules, with limited adaptations to make things work in Foundry VTT. There are compendiums covering all the classes, items, creatures, and followers described in the MÖRK BORG book.
 
 ## Creating a character
   * Create a new Actor of type *character*. By default, a new character will have the *Adventurer* class (a fancier name for the default classless character).
-  * If desired, drag a different Class from the *Classes* compendium folder onto your sheet.
-  * If needed, use the RollTables in the *Character Creation* RollTable compendium folder. E.g., for the "You are what you own" starting equipment rolls, or for various class-specific random items.
-  * Drag out any needed equipment/items from the various compendium folders.
-    * The *Class Items* compendium has various class-specific gear found in optional class' abilities, like the Fanged Deserter's bite attack.
-    * The *Class Feats* compendium has various class-specific special abilities, like Gutterborn Scum's specialities.
+  * Use the RollTables in the *Character Creation* RollTable compendium folder. E.g., for the "You are what you own" starting equipment rolls, or for various class-specific random items.
+  * If desired, drag a different Class from the particular class compendium (e.g., "Class - Fanged Deserter") folder onto your sheet. Drag out class-specific feats or attacks (like the Fanged Deserter's bite attack) from the per-class compendium folder.
   * Manually roll and update your abilities and hit points.
   * Equip some items on your *Treasure* tab, and they'll show up for use on your *Violence* tab.
   * Go kill stuff!
