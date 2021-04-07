@@ -7,7 +7,7 @@
             <span>{{localize 'MB.Morale'}}: {{moraleRoll.formula}}</span>
         </div>
         <div class="roll-result">
-            <span>{{moraleRoll.total}}</span>
+            <span>{{xtotal moraleRoll}}</span>
         </div>
         {{#if outcomeRoll}}
             <div class="outcome-roll">
@@ -15,7 +15,7 @@
                     <span>{{localize 'MB.Outcome'}}: {{outcomeRoll.formula}}</span>
                 </div>
                 <div class="roll-result">
-                    <span>{{outcomeRoll.total}}</span>
+                    <span>{{xtotal outcomeRoll}}</span>
                 </div>
             </div>
         {{/if}}
