@@ -215,7 +215,9 @@ export class MBActor extends Actor {
     const ability = isRanged ? 'presence' : 'strength';
     let attackRoll = new Roll(`d20+@abilities.${ability}.value`, actorRollData);
     attackRoll.evaluate();
+    console.log(attackRoll);
     await showDice(attackRoll);
+
     const d20Result = attackRoll.results[0];
     const isFumble = (d20Result === 1);
     const isCrit = (d20Result === 20);
@@ -254,6 +256,7 @@ export class MBActor extends Actor {
     const weaponTypeKey = isRanged ? 'MB.WeaponTypeRanged' : 'MB.WeaponTypeMelee';
     const rollResult = {
       actor: this,
+      attackDR,
       attackRoll,
       attackOutcome,
       damageRoll,      
@@ -444,7 +447,8 @@ export class MBActor extends Actor {
     const rollResult = {
       actor: this,
       armorRoll,
-      damageRoll,      
+      damageRoll,
+      defendDR,
       defendOutcome,
       defendRoll,
       items,

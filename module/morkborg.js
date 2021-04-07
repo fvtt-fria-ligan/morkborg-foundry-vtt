@@ -168,3 +168,10 @@ Handlebars.registerHelper('ifNe', function(arg1, arg2, options) {
   // TODO: verify whether we want == or === for this equality check
   return (arg1 != arg2) ? options.fn(this) : options.inverse(this);
 });
+/**
+ * Formats a Roll as either the total or x + y + z = total if the roll has multiple results.
+ */
+Handlebars.registerHelper('xtotal', (roll) => {
+  const resultPrefix = roll.results.length > 1 ? roll.results.join(" ") + " = " : "";
+  return `${resultPrefix}${roll.total}`;
+});

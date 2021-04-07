@@ -10,10 +10,10 @@
     {{/each}}
     <div class="attack-roll">
         <div class="roll-title">
-            <span>{{localize 'MB.Attack'}}: {{attackRoll.formula}}</span>
+            <span>{{localize 'MB.Attack'}}: {{attackRoll.formula}} {{localize 'MB.Vs'}} {{localize 'MB.DR'}} {{attackDR}}</span>
         </div>
         <div class="roll-result">
-            <span>{{attackRoll.total}}</span>
+            <span>{{xtotal attackRoll}}</span>
         </div>
     </div>
     <div class="outcome-text">
@@ -25,7 +25,7 @@
                 <span>{{localize 'MB.Damage'}}: {{damageRoll.formula}}</span>
             </div>
             <div class="roll-result">
-                <span>{{damageRoll.total}}</span>
+                <span>{{xtotal damageRoll}}</span>
             </div>
         </div>
     {{/if}}
@@ -35,7 +35,7 @@
                 <span>{{localize 'MB.TargetArmor'}}: {{targetArmorRoll.formula}}</span>
             </div>
             <div class="roll-result">
-                <span>{{targetArmorRoll.total}}</span>
+                <span>{{xtotal targetArmorRoll}}</span>
             </div>
         </div>
     {{/if}}
