@@ -1,16 +1,15 @@
-# Implementation Notes
+# How to use this system
 
 ## General
-This is a vanilla, no-homebrew implementation of the MÖRK BORG rules, with limited adaptations to make things work in Foundry VTT. There are compendiums covering all the classes, items, creatures, and followers described in the MÖRK BORG book.
+This is an implementation of the MÖRK BORG rules, with limited adaptations to make things work in Foundry VTT. There are compendiums covering all the classes, items, creatures, and followers described in the MÖRK BORG book.
 
 ## Creating a character
   * Create a new Actor of type *character*. By default, a new character will have the *Adventurer* class (a fancier name for the default classless character).
-  * If desired, drag a different Class from the *Classes* compendium folder onto your sheet.
-  * If needed, use the RollTables in the *Character Creation* RollTable compendium folder. E.g., for the "You are what you own" starting equipment rolls, or for various class-specific random items.
-  * Drag out any needed equipment/items from the various compendium folders.
-    * The *Class Items* compendium has various class-specific gear found in optional class' abilities, like the Fanged Deserter's bite attack.
-    * The *Class Feats* compendium has various class-specific special abilities, like Gutterborn Scum's specialities.
+  * Use the RollTables in the *Character Creation* RollTable compendium folder. E.g., for the "You are what you own" starting equipment rolls, or for various class-specific random items.
+  * If desired, drag a different Class from the particular class compendium (e.g., "Class - Fanged Deserter") folder onto your sheet.
+    * Drag out class-specific feats or attacks (like the Fanged Deserter's bite attack) from the per-class compendium folder.
   * Manually roll and update your abilities and hit points.
+  * If buying equipment, drag items from the various Equipment compendiums onto your character sheet.
   * Equip some items on your *Treasure* tab, and they'll show up for use on your *Violence* tab.
   * Go kill stuff!
 
@@ -25,22 +24,25 @@ This is a vanilla, no-homebrew implementation of the MÖRK BORG rules, with limi
     * Items have a *containerSpace* field indicating how much space they take up in a container. Most items are 1.
     * Containers do not count towards your container space.
     * Equipped items do not count towards your container space.
+  * Misc items have a modifiable *quantity* field. You can more easily increase or decrease this using the "+" and "-" buttons that appear in the item row, in the *Treasures* tab.
+    * You can combine quantity with carryWeight and containerSpace fields set less than zero, to allow "stacking" of items occupying less than 1 unit or occupying less than 1 slot.
 
 ## Combat
   * Initiative is handled by Foundry's Combat Tracker. All other combat rolls are handled from a Character's sheet on the *Violence* tab.
+    * NOTE: There is an open dev TODO to make inventory work more like the official rules (player vs creature initiative, and being able to easily re-roll initiative each round.)
   * To use a weapon, armor, or shield, you need to equip it. You can do so on the *Treasures* tab. Any equippable items have a small shield icon next to their edit and delete buttons. Click the shield icon to make it turn yellow (equipped), and the item will appear on your *Violence* tab, ready for use. Note: you can only have a single armor and single shield equipped at one time.
   * Attacking
     * On the *Violence* tab of your character sheet, click the *Attack* button next to your weapon of choice.
     * A popup window will appear, prompting you for the DR of the attack (usually 12), as well as the target's armor damage reduction (e.g., 1d2).
     * The system will resolve your attack, calculating hit or miss, critical or fumble, damage and damage reduction. Everything will appear in a chat message "roll card".
-    * Final damage can then be manually applied to the target (i.e., DM reduces the target creature's HPs on their sheet).
+    * Final damage can then be manually applied to the target (i.e., DM reduces the target creature's HPs on the creature sheet).
   * Defending
     * On the *Violence* tab of your character sheet, Click the *Defend* button.
     * A popup window will appear, prompting you for the DR of the defense (usually 12) and the incoming attack damage die (e.g., 1d6).
     * The system will resolve the defense, calculating dodge or hit, critical or fumble, damage and damage reduction. Everything will appear in a chat message "roll card".
     * It's up to you to manually apply the final damage (i.e., reduce your HPs on your character sheet).
   * Armor
-    * Armor has both a current and a max tier. The current tier is shown on the *Violence* tab as a radio button. The current tier radio buttons won't let you choose a current tier higher than the armor's max tier. There is no zero tier shown, since at zero tier armor is considered destroyed and should just be deleted. 
+    * Armor has both a current and a max tier. The current tier is shown on the *Violence* tab as a radio button. The current tier radio buttons won't let you choose a current tier higher than the armor's max tier. There is a zero tier shown, in case you want to wear useless armor. You're welcome? 
 
 ## Powers
   * Any scrolls in your inventory will show up on both your sheet's *Treasures* and *Powers* tabs.
@@ -56,4 +58,6 @@ This is a vanilla, no-homebrew implementation of the MÖRK BORG rules, with limi
 ## Followers
   * Followers work similarly to characters. They have a *Violence* tab to fight and a *Treasures* tab for inventory, equipping weapons or armor, etc.
   * Followers can be dragged out of the Followers compendium folder. Give players permission to control a Follower via the right click *Configure Permissions* context menu in the Actors Directory in the sidebar.
-  * It's up to you to enforce the rule that the Wild Wickhead will carry up to five items for you.
+  * It's up to you to enforce the rule that the *Wild Wickhead* will carry up to five items for you.
+  * *Poltroon the Jester* and *Hamfund the Squire* are implemented as both follower and items in the compendiums, so you can play them how you prefer.
+
