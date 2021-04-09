@@ -63,3 +63,7 @@ This is an implementation of the MÖRK BORG rules, with limited adaptations to m
 
 ## Settings
   * There are user-configurable settings for alternate font and color schemes (upper right *Game Settings* icon button => *Configure Settings* button => *System Settings* tab). This can be helpful if anyone find the default fonts or colors hard to read, or if more eye-bleeding colors are desired :)
+
+## More Third-Party Content
+If you want some third-party content, be sure to check out the [MÖRK BORG Third-Party Content module](https://foundryvtt.com/packages/morkborg-3p), also installable from within Foundry. It includes additional classes, optional feats, roll tables, etc.
+
