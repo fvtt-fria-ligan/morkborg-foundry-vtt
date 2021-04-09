@@ -29,7 +29,7 @@ This is an implementation of the MÖRK BORG rules, with limited adaptations to m
 
 ## Combat
   * Initiative is handled by Foundry's Combat Tracker. All other combat rolls are handled from a Character's sheet on the *Violence* tab.
-    * NOTE: There is an open dev TODO to make inventory work more like the official rules (player vs creature initiative, and being able to easily re-roll initiative each round.)
+    * NOTE: There is an open developer TODO to make inventory work more like the official rules (player vs creature initiative, and being able to easily re-roll initiative each round.)
   * To use a weapon, armor, or shield, you need to equip it. You can do so on the *Treasures* tab. Any equippable items have a small shield icon next to their edit and delete buttons. Click the shield icon to make it turn yellow (equipped), and the item will appear on your *Violence* tab, ready for use. Note: you can only have a single armor and single shield equipped at one time.
   * Attacking
     * On the *Violence* tab of your character sheet, click the *Attack* button next to your weapon of choice.
@@ -42,7 +42,12 @@ This is an implementation of the MÖRK BORG rules, with limited adaptations to m
     * The system will resolve the defense, calculating dodge or hit, critical or fumble, damage and damage reduction. Everything will appear in a chat message "roll card".
     * It's up to you to manually apply the final damage (i.e., reduce your HPs on your character sheet).
   * Armor
-    * Armor has both a current and a max tier. The current tier is shown on the *Violence* tab as a radio button. The current tier radio buttons won't let you choose a current tier higher than the armor's max tier. There is a zero tier shown, in case you want to wear useless armor. You're welcome? 
+    * Armor has both a current and a max tier. The current tier is shown on the *Violence* tab as a radio button. The current tier radio buttons won't let you choose a current tier higher than the armor's max tier. There is a zero tier shown, in case you want to wear useless armor. You're welcome?
+
+## Health, Status, and Resting
+  * It's up to you to keep track of death, broken-ness, infection, etc.
+  * Currently there are several different buttons for resting/re-filling various stats: short and long rest buttons next to your hit points, a "1dX per rest" link next to your omens, and a "PRE+d4 times per day" link on the *Powers* tab.
+    *  NOTE: there is an open developer TODO to improve this (e.g., via a single "rest" button and dialog).
 
 ## Powers
   * Any scrolls in your inventory will show up on both your sheet's *Treasures* and *Powers* tabs.
