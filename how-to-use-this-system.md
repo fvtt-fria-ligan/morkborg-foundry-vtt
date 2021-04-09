@@ -5,12 +5,12 @@ This is an implementation of the MÖRK BORG rules, with limited adaptations to m
 
 ## Creating a character
   * Create a new Actor of type *character*. By default, a new character will have the *Adventurer* class (a fancier name for the default classless character).
-  * Use the RollTables in the *Character Creation* RollTable compendium folder. E.g., for the "You are what you own" starting equipment rolls, or for various class-specific random items.
   * If desired, drag a different Class from the particular class compendium (e.g., "Class - Fanged Deserter") folder onto your sheet.
     * Drag out class-specific feats or attacks (like the Fanged Deserter's bite attack) from the per-class compendium folder.
-  * Manually roll and update your abilities and hit points.
-  * If buying equipment, drag items from the various Equipment compendiums onto your character sheet.
-  * Equip some items on your *Treasure* tab, and they'll show up for use on your *Violence* tab.
+  * Use the RollTables in the *Character Creation* RollTable compendium folder. E.g., for the "You are what you own" starting equipment rolls, or for various class-specific random items.
+  * Manually roll and update your abilities, hit points, silver, and omens.
+  * If buying equipment, drag items from the various *Equipment* compendiums onto your character sheet.
+  * Equip some items on your *Treasure* tab using the little shield icon on the right, and they'll show up for use on your *Violence* tab.
   * Go kill stuff!
 
 ## Inventory
