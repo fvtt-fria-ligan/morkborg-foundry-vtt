@@ -10,7 +10,7 @@ This is an implementation of the MÖRK BORG rules, with limited adaptations to m
   * Use the RollTables in the *Character Creation* RollTable compendium folder. E.g., for the "You are what you own" starting equipment rolls, or for various class-specific random items.
   * Manually roll and update your abilities, hit points, silver, and omens.
   * If buying equipment, drag items from the various *Equipment* compendiums onto your character sheet.
-  * Equip some items on your *Treasure* tab using the little shield icon on the right, and they'll show up for use on your *Violence* tab.
+  * Equip some items on your *Treasure* tab (using the little shield icon on the right of each item row), and they'll show up for use on your *Violence* tab.
   * Go kill stuff!
 
 ## Inventory
