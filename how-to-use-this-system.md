@@ -62,4 +62,4 @@ This is an implementation of the MÖRK BORG rules, with limited adaptations to m
   * *Poltroon the Jester* and *Hamfund the Squire* are implemented as both follower and items in the compendiums, so you can play them how you prefer.
 
 ## Settings
-  * There are user-configurable settings for alternate font and color schemes (upper right *Game Settings* icon button => *Configure Settings* button => *System Settings* tab). This can be helpful if anyone find the default fonts or colors hard to read.
+  * There are user-configurable settings for alternate font and color schemes (upper right *Game Settings* icon button => *Configure Settings* button => *System Settings* tab). This can be helpful if anyone find the default fonts or colors hard to read, or if more eye-bleeding colors are desired :)
