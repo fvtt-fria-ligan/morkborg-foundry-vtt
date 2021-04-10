@@ -153,6 +153,8 @@ export class MBActorSheetCharacter extends ActorSheet {
     html.find(".rest-buttons .rest-button").on("click", this._onRest.bind(this));
     html.find(".omens-row .rollable").on("click", this._onOmensRoll.bind(this));
     // violence tab
+    html.find('.party-initiative').click(this._onPartyInitiativeRoll.bind(this));
+    html.find('.individual-initiative').click(this._onIndividualInitiativeRoll.bind(this));
     html.find(".attack-button").on("click", this._onAttackRoll.bind(this));
     html.find('.tier-radio').click(this._onArmorTierRadio.bind(this));
     html.find(".defend-button").on("click", this._onDefendRoll.bind(this));
@@ -165,6 +167,16 @@ export class MBActorSheetCharacter extends ActorSheet {
     html.find('.item-qty-plus').click(this._onItemAddQuantity.bind(this));
     html.find('.item-qty-minus').click(this._onItemSubtractQuantity.bind(this));
     html.find('.item-toggle').click(this._onToggleItem.bind(this));
+  }
+
+  _onPartyInitiativeRoll(event) {
+    event.preventDefault();
+    this.actor.rollPartyInitiative();
+  }
+
+  _onIndividualInitiativeRoll(event) {
+    event.preventDefault();
+    this.actor.rollIndividualInitiative();
   }
 
   _onStrengthRoll(event) {

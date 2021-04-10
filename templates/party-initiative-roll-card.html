@@ -1,0 +1,16 @@
+<form class="roll-card morale-roll-card">
+    <div class="card-title">
+        {{localize 'MB.PartyInitiative'}}
+    </div>
+    <div class="initiative-roll">
+        <div class="roll-title">
+            <span>{{localize 'MB.PartyInitiative'}}: {{initiativeRoll.formula}}</span>
+        </div>
+        <div class="roll-result">
+            <span>{{xtotal initiativeRoll}}</span>
+        </div>
+        <div class="outcome-text">
+            {{outcomeText}}
+        </div>
+    </div>
+</form>
