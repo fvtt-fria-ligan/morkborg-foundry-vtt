@@ -2,7 +2,9 @@ import { addShowDicePromise, diceSound, showDice } from "./dice.js";
 
 const ATTACK_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/attack-roll-card.html";
 const DEFEND_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/defend-roll-card.html";
+const INDIVIDUAL_INITIATIVE_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/individual-initiative-roll-card.html";
 const MORALE_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/morale-roll-card.html";
+const PARTY_INITIATIVE_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/party-initiative-roll-card.html";
 const REACTION_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/reaction-roll-card.html";
 const TEST_ABILITY_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/test-ability-roll-card.html";
 
@@ -599,5 +601,45 @@ export class MBActor extends Actor {
       flavor: `<h2>${game.i18n.localize('MB.Powers')} ${game.i18n.localize('MB.PerDay')}</h2>`
     });
     return this.update({["data.powerUses"]: {max: r.total, value: r.total}});
+  }
+
+  async rollPartyInitiative() {
+    let initiativeRoll = new Roll("d6", {});
+    initiativeRoll.evaluate();
+    await showDice(initiativeRoll);
+
+    let outcomeText = "";
+    if (initiativeRoll.total <= 3) {
+      outcomeText = game.i18n.localize('MB.InitiativeEnemiesBegin');
+    } else {
+      outcomeText = game.i18n.localize('MB.InitiativePlayerCharactersBegin');
+    }
+
+    const rollResult = {
+      initiativeRoll,
+      outcomeText,
+    };
+    const html = await renderTemplate(PARTY_INITIATIVE_ROLL_CARD_TEMPLATE, rollResult)
+    ChatMessage.create({
+      content : html,
+      sound : diceSound(),
+      speaker : ChatMessage.getSpeaker({actor: this}),
+    });
+  }
+
+  async rollIndividualInitiative() {
+    // TODO: does armor effect initiative?
+    let initiativeRoll = new Roll("d6+@abilities.agility.value", this.getRollData());
+    initiativeRoll.evaluate();
+    await showDice(initiativeRoll);
+    const rollResult = {
+      initiativeRoll,
+    };
+    const html = await renderTemplate(INDIVIDUAL_INITIATIVE_ROLL_CARD_TEMPLATE, rollResult)
+    ChatMessage.create({
+      content : html,
+      sound : diceSound(),
+      speaker : ChatMessage.getSpeaker({actor: this}),
+    });
   }
 }  
