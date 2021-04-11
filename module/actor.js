@@ -35,6 +35,8 @@ export class MBActor extends Actor {
   /** @override */
   getRollData() {
     const data = super.getRollData();
+    //XXX
+//    data.initiativeOffset = game.combat.initiativeOffset(this);
     return data;
   }
 
@@ -601,45 +603,5 @@ export class MBActor extends Actor {
       flavor: `<h2>${game.i18n.localize('MB.Powers')} ${game.i18n.localize('MB.PerDay')}</h2>`
     });
     return this.update({["data.powerUses"]: {max: r.total, value: r.total}});
-  }
-
-  async rollPartyInitiative() {
-    let initiativeRoll = new Roll("d6", {});
-    initiativeRoll.evaluate();
-    await showDice(initiativeRoll);
-
-    let outcomeText = "";
-    if (initiativeRoll.total <= 3) {
-      outcomeText = game.i18n.localize('MB.InitiativeEnemiesBegin');
-    } else {
-      outcomeText = game.i18n.localize('MB.InitiativePlayerCharactersBegin');
-    }
-
-    const rollResult = {
-      initiativeRoll,
-      outcomeText,
-    };
-    const html = await renderTemplate(PARTY_INITIATIVE_ROLL_CARD_TEMPLATE, rollResult)
-    ChatMessage.create({
-      content : html,
-      sound : diceSound(),
-      speaker : ChatMessage.getSpeaker({actor: this}),
-    });
-  }
-
-  async rollIndividualInitiative() {
-    // TODO: does armor effect initiative?
-    let initiativeRoll = new Roll("d6+@abilities.agility.value", this.getRollData());
-    initiativeRoll.evaluate();
-    await showDice(initiativeRoll);
-    const rollResult = {
-      initiativeRoll,
-    };
-    const html = await renderTemplate(INDIVIDUAL_INITIATIVE_ROLL_CARD_TEMPLATE, rollResult)
-    ChatMessage.create({
-      content : html,
-      sound : diceSound(),
-      speaker : ChatMessage.getSpeaker({actor: this}),
-    });
   }
 }  
