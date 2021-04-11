@@ -1,11 +1,10 @@
 # 0.2.9
-- Added "Roll Party Initiative" to Combat Tracker, along with custom chat roll card.
+- Added "Roll Party Initiative" button to Combat Tracker, along with custom chat roll card.
 - Added Combat Tracker sorting by player/monsters, based on party initiative roll and token disposition (friendly vs. neutral/hostile).
 - Added more misc item icons from Vil!
 - Added better display of target DR and "exploded" roll result for Attack and Defend chat roll cards.
 - Added back accidentally deleted Bite Attack for Fanged Deserter.
 - Added back accidentally deleted Hook Hand weapon.
-
 
 # 0.2.8
 - Fixed bug where agility was incorrectly used instead of presence for ranged attacks.
