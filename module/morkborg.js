@@ -5,7 +5,7 @@ import { MBActor } from "./actor.js";
 import { MBActorSheetCharacter } from "./character-sheet.js";
 import { MBActorSheetCreature } from "./creature-sheet.js";
 import { MBActorSheetFollower } from "./follower-sheet.js";
-//import { _getInitiativeFormula } from "./combat.js";
+import { MBCombat } from "./combat.js";
 import { MB } from "./config.js";
 import { MBItem } from "./item.js";
 import { MBItemSheet } from "./item-sheet.js";
@@ -31,14 +31,6 @@ Hooks.once("init", async function() {
   // Register System Settings
   registerSystemSettings();
 
-  CONFIG.Combat.initiative = {
-    // formula: "1d6",
-    // decimals: 2
-    // TODO: not sure how best to deal with NPCs not having abilities. Maybe giving them some, 
-    // or do the _getInitiativeFormula patch to check for ability first.
-    formula: "1d6 + @abilities.agility.value",
-  };
-
   game.morkborg = {
     config: MB,
     createMorkBorgMacro,
@@ -48,7 +40,12 @@ Hooks.once("init", async function() {
   };
 
   // Define custom Entity classes
-  CONFIG.Actor.entityClass = MBActor;  
+  CONFIG.Actor.entityClass = MBActor;
+  CONFIG.Combat.entityClass = MBCombat;
+  // TODO: push this into MBCombat?
+  CONFIG.Combat.initiative = {
+    formula: "1d6 + @abilities.agility.value",
+  };
   CONFIG.Item.entityClass = MBItem;
   CONFIG.MB = MB;
 
@@ -144,6 +141,20 @@ Hooks.on('createActor', async (actor, options, userId) => {
     let entity = await pack.getEntity(entry._id);
     actor.createEmbeddedEntity("OwnedItem", duplicate(entity.data));
   }
+});
+
+const rollPartyInitiative = () => {
+  if (game.combats && game.combat) {
+    game.combat.rollPartyInitiative();
+  } else {
+    // TODO: localize
+    ui.notifications.info(`${game.i18n.localize('MB.NoActiveEncounter')}!`);
+  }  
+};
+Hooks.on('renderCombatTracker', (tracker, html) => {
+  const partyInitiativeButton = `<a class="combat-control" title="${game.i18n.localize('MB.RollPartyInitiative')}" dataControl="rollParty"><i class="fas fa-dice-six"></i></a>`;
+  html.find("header").find("nav").find("h3").before(partyInitiativeButton);
+  html.find("a[dataControl=rollParty]").click(ev => { rollPartyInitiative() });
 });
 
 // Handlebars helpers
