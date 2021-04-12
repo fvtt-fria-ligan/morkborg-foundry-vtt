@@ -1,3 +1,6 @@
+# 0.2.10
+- Added back MB.PartyInitiative translation.
+
 # 0.2.9
 - Added "Roll Party Initiative" button to Combat Tracker, along with custom chat roll card.
 - Added Combat Tracker sorting by player/monsters, based on party initiative roll and token disposition (friendly vs. neutral/hostile).
