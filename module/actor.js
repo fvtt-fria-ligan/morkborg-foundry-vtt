@@ -290,7 +290,10 @@ export class MBActor extends Actor {
     if (!defendDR) {
       defendDR = 12;  // default
     }
-    const incomingAttack = await this.getFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.INCOMING_ATTACK);
+    let incomingAttack = await this.getFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.INCOMING_ATTACK);
+    if (!incomingAttack) {
+      incomingAttack = "1d4";  // default
+    }
     const template = "systems/morkborg/templates/defend-dialog.html";
 
     const armor = this.equippedArmor();
