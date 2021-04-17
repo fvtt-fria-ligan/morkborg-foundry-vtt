@@ -395,19 +395,25 @@
   flex-direction: column;
 }
 
-.morkborg.sheet.actor.character .sheet-header .header-col2 .rest-buttons {
-  flex: 1;
-  display: flex;
+.morkborg.sheet.actor.character
+.sheet-header
+.header-col2
+.rest-buttons {
+  margin-left: 20px;
 }
 
 .morkborg.sheet.actor.character
 .sheet-header
 .header-col2
 .rest-buttons
-.button {
-  width: 50%;
-  margin-left: 5px;
-  padding: 0px;
+.rest-button {
+  border: none;
+  border-bottom: 2px solid #777;
+  border-radius: 0;
+  font-family: var(--h2-font);
+  font-size: 16px;
+  height: 28px;
+  width: 80px;
 }
 
 .morkborg.sheet.actor.character .sheet-header .header-col3 {
@@ -726,6 +732,16 @@ span {
 
 .morkborg.sheet.actor .sheet-body .violence-tab .item-list .versus-armor {
   margin-left: 10px;
+}
+
+.morkborg.sheet.actor .sheet-body .violence-tab .weapon-list .item-field.handed {
+  text-align: right;
+  width: 30px;
+}
+
+.morkborg.sheet.actor .sheet-body .violence-tab .weapon-list .item-field.damage-die {
+  text-align: right;
+  width: 70px;
 }
 
 .morkborg.sheet.actor .sheet-body .violence-tab .attack-rule {
@@ -1778,7 +1794,7 @@ a.inline-roll {
 }
 
 /* ====================== */
-/* Custom Dialogs */
+/* Attack/Defend Custom Dialogs */
 /* ====================== */
 .custom-dialog .form-group {
   margin-bottom: 10px;
@@ -1800,6 +1816,69 @@ a.inline-roll {
 .dialog-buttons button.dialog-button:active,
 .dialog-buttons button.dialog-button:focus,
 .dialog-buttons button.dialog-button:hover {
+  box-shadow: 0 0 5px var(--highlight-background-color);
+  text-shadow: 0 0 10px var(--highlight-background-color);
+}
+
+/* ====================== */
+/* Rest Dialog */
+/* ====================== */
+.rest-dialog {
+  border: 1px solid #7a7971;
+  font-size: 14px;
+  margin: 0;
+}
+
+.rest-dialog .section {
+  margin: 10px 10px 20px 10px;
+}
+
+.rest-dialog .subtitle {
+  font-family: var(--h2-font);
+  font-size: 22px;
+}
+
+.rest-dialog ul {
+  list-style-type: none;
+}
+
+.rest-dialog li {
+  margin: 0 0 10px 0;
+}
+
+.rest-dialog li input[type=checkbox],
+.rest-dialog li input[type=radio] {
+  float: left;
+}
+
+.rest-dialog li input[type=checkbox] {
+  height: 14px;
+  width: 14px;
+}
+
+.rest-dialog li label {
+  display: block;
+  margin-left: 30px;
+}
+
+.rest-dialog .button-row {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.rest-dialog .button-row .rest-button {
+  border: none;
+  border-bottom: 2px solid #777;
+  border-radius: 0;
+  font-family: var(--h2-font);
+  font-size: 20px;
+  width: 200px;
+}
+
+.rest-dialog .button-row .rest-button:active,
+.rest-dialog .button-row .rest-button:focus,
+.rest-dialog .button-row .rest-button:hover {
   box-shadow: 0 0 5px var(--highlight-background-color);
   text-shadow: 0 0 10px var(--highlight-background-color);
 }

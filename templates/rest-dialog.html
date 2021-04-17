@@ -1,0 +1,55 @@
+<form id="rest-form" class="custom-dialog rest-dialog">
+
+    <div class="section">
+        <div class="subtitle">Rest Length</div>
+        <div>
+            <ul>
+                <li>
+                    <input name="rest-length" type="radio" value="short" checked>
+                    <label>Short - Catch your breath, have a drink. Restore d4 HP.</label>
+                </li>
+                <li>
+                    <input name="rest-length" type="radio" value="long">
+                    <label>Long - Full night's sleep. Restore d6 HP, regain Omens if depleted,
+                        regain PRE+d4 Power uses for the day.</label>        
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="subtitle">Food and Drink</div>
+        <div>
+            <ul>
+                <li>
+                    <input name="food-and-drink" type="radio" value="eat" checked>
+                    <label>Eat - Restore stats as above, deduct food or drink.</label>
+                </li>
+                <li>
+                    <input name="food-and-drink" type="radio" value="donteat" >
+                    <label>Don't eat - Restore no stats.</label>
+                </li>
+                <li>
+                    <input name="food-and-drink" type="radio" value="starve">
+                    <label>Starve - 2+ days without food or drink. Restore no stats, lose d4 HP/day.</label>
+                </li>
+            </ul>
+    </div>
+    </div>
+
+    <div class="section">
+        <div class="subtitle">Infection</div>
+        <div>
+            <ul>
+                <li>
+                    <input name="infected" type="checkbox">
+                    <label>Infected - Restore no stats, lose d6 HP per day.</label>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="button-row">
+        <button type="submit" class="button rest-button" name="rest" value="1">Rest</button>
+    </div>
+</form>
