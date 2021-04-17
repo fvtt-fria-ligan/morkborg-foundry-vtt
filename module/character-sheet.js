@@ -1,4 +1,5 @@
 import * as editor from "./editor.js";
+import RestDialog from "./rest-dialog.js";
 
 /**
  * @extends {ActorSheet}
@@ -211,35 +212,11 @@ export class MBActorSheetCharacter extends ActorSheet {
 
   _onRest(event) {
     event.preventDefault();
-    const button = event.currentTarget;
-    const dataset = button.dataset;
-    const actr = this.actor.data;
-    const actorUpdate = {};
-    let hpgDie;
-    let hpgKey;
-    if (dataset.label === "rest-short") {
-      hpgDie = "1d4";
-      hpgKey = "MB.ShortRest";
-    } else if (dataset.label === "rest-long") {
-      hpgDie = "1d6";
-      hpgKey = "MB.LongRest";
-    }
-    if (!hpgDie) {
-      return;
-    }
-    let r = new Roll(hpgDie, this.actor.getRollData());
-    r.roll().toMessage({
-      user: game.user._id,
-      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: `<h2>${game.i18n.localize(hpgKey)}</h2>`
-    });
-    const hpg = r.total;
-    if ((actr.data.hp.value + hpg) > actr.data.hp.max) {
-      actorUpdate['data.hp.value'] = this.actor.data.data.hp.max;
-    } else {
-      actorUpdate['data.hp.value'] = this.actor.data.data.hp.value + hpg;
-    }
-    return this.actor.update(actorUpdate);
+    const restDialog = new RestDialog();
+    // TODO: maybe move this into a constructor,
+    // if we can resolve the mergeObject() Maximum call stack size exceeded error
+    restDialog.actor = this.actor;
+    restDialog.render(true);
   }
 
   /**
