@@ -147,8 +147,7 @@ const rollPartyInitiative = () => {
   if (game.combats && game.combat) {
     game.combat.rollPartyInitiative();
   } else {
-    // TODO: localize
-    ui.notifications.info(`${game.i18n.localize('MB.NoActiveEncounter')}!`);
+    ui.notifications.warn(`${game.i18n.localize('MB.NoActiveEncounter')}!`);
   }  
 };
 Hooks.on('renderCombatTracker', (tracker, html) => {

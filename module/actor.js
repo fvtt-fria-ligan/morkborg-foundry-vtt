@@ -558,13 +558,10 @@ export class MBActor extends Actor {
   }
 
   async wieldPower() {
-    // TODO: use custom wield power roll card
-    // const roll = new Roll("d20+@abilities.presence.value", this.getRollData());
-    // let label = `Rolling ${game.i18n.localize('MB.WieldAPower')}`;
-    // return roll.roll().toMessage({
-    //   speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-    //   flavor: label
-    // });
+    if (this.data.data.powerUses.value < 1) {
+      ui.notifications.warn(`${game.i18n.localize('MB.NoPowerUsesRemaining')}!`);
+      return;
+    }
 
     const wieldRoll = new Roll("d20+@abilities.presence.value", this.getRollData());
     wieldRoll.evaluate();
@@ -583,7 +580,7 @@ export class MBActor extends Actor {
       wieldOutcome = game.i18n.localize(isCrit ? 'MB.CriticalSuccess' : 'MB.Success');
     } else {
       // FAILURE
-      wieldOutcome = game.i18n.localize(isFumble ? 'MB.Fumble' : 'MB.Failure');
+      wieldOutcome = game.i18n.localize(isFumble ? 'MB.WieldAPowerFumble' : 'MB.Failure');
       damageRoll = new Roll("1d2", this.getRollData());
       damageRoll.evaluate();
       await showDice(damageRoll);
@@ -603,6 +600,9 @@ export class MBActor extends Actor {
       sound : diceSound(),
       speaker : ChatMessage.getSpeaker({actor: this}),
     });
+
+    const newPowerUses = Math.max(0, this.data.data.powerUses.value - 1);
+    return this.update({["data.powerUses.value"]: newPowerUses});
   }
 
   async useFeat(itemId) {
@@ -610,13 +610,6 @@ export class MBActor extends Actor {
     if (!item || !item.data.data.rollLabel || !item.data.data.rollFormula) {
       return;
     }
-    // TODO: use custom roll card
-    // const roll = new Roll(item.data.data.rollFormula, this.getRollData());
-    // let label = `Rolling ${item.data.data.rollLabel}`;
-    // return roll.roll().toMessage({
-    //   speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-    //   flavor: label
-    // });
     await this._rollOutcome(
       item.data.data.rollFormula,
       this.getRollData(),
