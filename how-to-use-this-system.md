@@ -50,14 +50,15 @@ This is an implementation of the MÖRK BORG rules, with limited adaptations to m
 
 ## Health, Status, and Resting
   * It's up to you to keep track of death, broken-ness, infection, etc.
-  * Currently there are several different buttons for resting/re-filling various stats: short and long rest buttons next to your hit points, a "1dX per rest" link next to your omens, and a "PRE+d4 times per day" link on the *Powers* tab.
-    *  NOTE: there is an open developer TODO to improve this (e.g., via a single "rest" button and dialog).
+  * There is a *Rest* button on the character sheet that will open a dialog window, where you can choose between short or long rest, eat or don't eat or starve, and whether you are infected.
+    * Starvation and Infection will only damage you during long rests, but will prevent healing on both short and long rests.
 
 ## Powers
   * Any scrolls in your inventory will show up on both your sheet's *Treasures* and *Powers* tabs.
   * On the *Powers* tab, use the *Wield a Power* button to make a usage attempt roll.
-  * It's up to you to decide if the roll succeeds, and to manually deduct the usage from you Uses Remaining.
-  * Crits and fumbles must also be manually identified and handled.
+    * The results of your roll vs. DR 12 will be shown as a chat message, along with any crit or fumble roll.
+    * Failures cause you 1d2 damage and dizziness, also shown in the chat message.
+    * It's up to you to manually roll an Arcane Catastrophe when you fumble.
   * It's up to you to prohibit using powers when wielding zwiehand weapons or medium/heavy armor.
 
 ## Creatures
