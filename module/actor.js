@@ -7,6 +7,7 @@ const OUTCOME_ONLY_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/outcome-only
 const OUTCOME_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/outcome-roll-card.html";
 const REACTION_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/reaction-roll-card.html";
 const TEST_ABILITY_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/test-ability-roll-card.html";
+const WIELD_POWER_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/wield-power-roll-card.html";
 
 /**
  * @extends {Actor}
@@ -216,7 +217,6 @@ export class MBActor extends Actor {
     const ability = isRanged ? 'presence' : 'strength';
     let attackRoll = new Roll(`d20+@abilities.${ability}.value`, actorRollData);
     attackRoll.evaluate();
-    console.log(attackRoll);
     await showDice(attackRoll);
 
     const d20Result = attackRoll.results[0];
@@ -559,14 +559,50 @@ export class MBActor extends Actor {
 
   async wieldPower() {
     // TODO: use custom wield power roll card
-    const roll = new Roll("d20+@abilities.presence.value", this.getRollData());
-    let label = `Rolling ${game.i18n.localize('MB.WieldAPower')}`;
-    return roll.roll().toMessage({
-      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: label
-    });
+    // const roll = new Roll("d20+@abilities.presence.value", this.getRollData());
+    // let label = `Rolling ${game.i18n.localize('MB.WieldAPower')}`;
+    // return roll.roll().toMessage({
+    //   speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+    //   flavor: label
+    // });
 
-    // need to test vs DR12, success or d2 dmg, become dizzy, etc
+    const wieldRoll = new Roll("d20+@abilities.presence.value", this.getRollData());
+    wieldRoll.evaluate();
+    await showDice(wieldRoll);
+
+    const d20Result = wieldRoll.results[0];
+    const isFumble = (d20Result === 1);
+    const isCrit = (d20Result === 20);
+    const wieldDR = 12;
+
+    let wieldOutcome = null;
+    let damageRoll = null;
+    let takeDamage = null;
+    if (wieldRoll.total >= wieldDR) {
+      // SUCCESS!!!
+      wieldOutcome = game.i18n.localize(isCrit ? 'MB.CriticalSuccess' : 'MB.Success');
+    } else {
+      // FAILURE
+      wieldOutcome = game.i18n.localize(isFumble ? 'MB.Fumble' : 'MB.Failure');
+      damageRoll = new Roll("1d2", this.getRollData());
+      damageRoll.evaluate();
+      await showDice(damageRoll);
+      takeDamage = `${game.i18n.localize('MB.Take')} ${damageRoll.total} ${game.i18n.localize('MB.Damage')}, ${game.i18n.localize('MB.WieldAPowerDizzy')}`;
+    }
+
+    const rollResult = {
+      damageRoll,
+      wieldDR,
+      wieldOutcome,
+      wieldRoll,
+      takeDamage,
+    };
+    const html = await renderTemplate(WIELD_POWER_ROLL_CARD_TEMPLATE, rollResult)
+    ChatMessage.create({
+      content : html,
+      sound : diceSound(),
+      speaker : ChatMessage.getSpeaker({actor: this}),
+    });
   }
 
   async useFeat(itemId) {
