@@ -1,3 +1,13 @@
+# 0.2.11
+- Added new Rest dialog window to select long/short rest, eat/donteat/starve, infected-or-not choices.
+- Created new "Wield a Power" chat roll card, showing success/failure, damage & dizziness, etc.
+- Made "Wield a Power" deduct power uses.
+- Show "no power uses remaining" when attempting to use a power when <1 power uses remaining.
+- Added standard-style roll cards for omens and power uses rolls.
+- Changed defend dialog to default to 1d4 attack.
+- Fixed typo in Palms scroll.
+- Made crossbow 2-handed.
+
 # 0.2.10
 - Added back MB.PartyInitiative translation.
 
