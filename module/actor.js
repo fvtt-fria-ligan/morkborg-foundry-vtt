@@ -644,8 +644,9 @@ export class MBActor extends Actor {
       "@omenDie",
       classItem.getRollData(),
       `${game.i18n.localize('MB.Omens')}`, 
-      (roll) => `${roll.total} ${game.i18n.localize('MB.Omens')}`);
-    return this.update({["data.omens"]: {max: roll.total, value: roll.total}});
+      (roll) => ` ${game.i18n.localize('MB.Omens')}: ${Math.max(0, roll.total)}`);
+    const newOmens = Math.max(0, roll.total);
+    return this.update({["data.omens"]: {max: newOmens, value: newOmens}});
   }
 
   async rollPowersPerDay() {
@@ -653,9 +654,9 @@ export class MBActor extends Actor {
       "d4+@abilities.presence.value",
       this.getRollData(),
       `${game.i18n.localize('MB.Powers')} ${game.i18n.localize('MB.PerDay')}`, 
-      (roll) => `${roll.total} ${game.i18n.localize('MB.PowerUsesRemaining')}`);
-    const newHP = Math.min(this.data.data.hp.max, this.data.data.hp.value + roll.total);
-    return this.update({["data.powerUses"]: {max: roll.total, value: roll.total}});
+      (roll) => ` ${game.i18n.localize('MB.PowerUsesRemaining')}: ${Math.max(0, roll.total)}`);
+    const newUses = Math.max(0, roll.total);
+    return this.update({["data.powerUses"]: {max: newUses, value: newUses}});
   }
 
   /**
