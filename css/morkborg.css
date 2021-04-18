@@ -1858,7 +1858,7 @@ a.inline-roll {
 
 .rest-dialog li label {
   display: block;
-  margin-left: 30px;
+  margin-left: 0px;
 }
 
 .rest-dialog .button-row {
