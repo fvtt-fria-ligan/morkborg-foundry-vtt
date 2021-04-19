@@ -1,3 +1,6 @@
+# 0.2.12
+- Added "Get Better" button to roll Getting Better (hp, abilities, left in the debris).
+
 # 0.2.11
 - Added new Rest dialog window to select long/short rest, eat/donteat/starve, infected-or-not choices.
 - Created new "Wield a Power" chat roll card, showing success/failure, damage & dizziness, etc.
