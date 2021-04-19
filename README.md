@@ -24,6 +24,8 @@ If you want some third-party content, be sure to check out the *MÖRK BORG Third
   * MÖRK BORG is copyright Ockult Örtmästare Games and Stockholm Kartell.
   * Explicit permission has been given by the MÖRK BORG authors for inclusion of the following game content:
     * Names, stats, and descriptions of Weapons, Armor, Equipment, Scrolls, Optional Classes, Creatures, and Outcasts/Followers.
+  * Programming
+    * System implementation by mcglintlock and eeyun.
   * Images
     * Tokens by [Chris Betancourt](https://github.com/iPwned) with original art by [Johan Nohr](https://twitter.com/JohanNohr), and used with permission from the creators.
     * Weapon icons by [@vil](https://zordvil.itch.io/), and used with permission from the creator.
