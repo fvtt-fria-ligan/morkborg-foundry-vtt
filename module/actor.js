@@ -2,6 +2,10 @@ import { addShowDicePromise, diceSound, showDice } from "./dice.js";
 
 const ATTACK_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/attack-roll-card.html";
 const DEFEND_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/defend-roll-card.html";
+const GET_BETTER_ABILITY_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/get-better-ability-roll-card.html";
+const GET_BETTER_DEBRIS_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/get-better-debris-roll-card.html";
+const GET_BETTER_HP_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/get-better-hp-roll-card.html";
+const GET_BETTER_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/get-better-roll-card.html";
 const MORALE_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/morale-roll-card.html";
 const OUTCOME_ONLY_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/outcome-only-roll-card.html";
 const OUTCOME_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/outcome-roll-card.html";
@@ -735,5 +739,89 @@ export class MBActor extends Actor {
       (roll) => `${game.i18n.localize('MB.Take')} ${roll.total} ${game.i18n.localize('MB.Damage')}`);
     const newHP = this.data.data.hp.value - roll.total;
     return this.update({["data.hp.value"]: newHP});
+  }
+
+  _abilityOutcome(abilityName, oldVal, newVal) {
+    if (newVal < oldVal) {
+      return `Lose ${oldVal - newVal} ${abilityName}`;
+    } else if (newVal > oldVal) {
+      return `Gain ${newVal - oldVal} ${abilityName}`;
+    } else {
+      return `${abilityName} unchanged`;
+    }
+  }
+
+  async getBetter() {
+    const oldHp = this.data.data.hp.max;
+    const newHp = this._betterHp(oldHp);
+    const oldStr = this.data.data.abilities.strength.value;
+    const newStr = this._betterAbility(oldStr);
+    const oldAgi = this.data.data.abilities.agility.value;
+    const newAgi = this._betterAbility(oldAgi);
+    const oldPre = this.data.data.abilities.presence.value
+    const newPre = this._betterAbility(oldPre);
+    const oldTou = this.data.data.abilities.toughness.value;
+    const newTou = this._betterAbility(oldTou);
+    // TODO: item thingy
+
+    let hpOutcome = this._abilityOutcome(game.i18n.localize('MB.HP'), oldHp, newHp);
+    let strOutcome = this._abilityOutcome(game.i18n.localize('MB.AbilityStrength'), oldStr, newStr);
+    let agiOutcome = this._abilityOutcome(game.i18n.localize('MB.AbilityAgility'), oldAgi, newAgi);
+    let preOutcome = this._abilityOutcome(game.i18n.localize('MB.AbilityPresence'), oldPre, newPre);
+    let touOutcome = this._abilityOutcome(game.i18n.localize('MB.AbilityToughness'), oldTou, newTou);
+
+    const data = {
+      agiOutcome,
+      hpOutcome,
+      preOutcome,
+      strOutcome,
+      touOutcome,
+    };
+    const html = await renderTemplate(GET_BETTER_ROLL_CARD_TEMPLATE, data);
+    ChatMessage.create({
+      content : html,
+      sound : CONFIG.sounds.dice,
+      speaker : ChatMessage.getSpeaker({actor: this}),
+    });
+
+    return this.update({
+      ["data.abilities.strength.value"]: newStr,
+      ["data.abilities.agility.value"]: newAgi,
+      ["data.abilities.presence.value"]: newPre,
+      ["data.abilities.toughness.value"]: newTou,
+      ["data.hp.max"]: newHp,
+    });
+  }
+
+  _betterHp(oldHp) {
+    const hpRoll = new Roll("6d10", this.getRollData()).evaluate();
+    if (hpRoll.total >= oldHp) {
+      const howMuchRoll = new Roll("1d6", this.getRollData()).evaluate();
+      return oldHp + howMuchRoll.total;
+    } else {
+      return oldHp;
+    }
+  }
+
+  _betterAbility(oldVal) {
+    const roll = new Roll("1d6", this.getRollData()).evaluate();
+    if (roll.total === 1 || roll.total < oldVal) {
+      // decrease, to a minimum of -3
+      return Math.max(-3, oldVal - 1);
+    } else {
+      // increase, to a max of +6
+      return Math.min(6, oldVal + 1);
+    }
+  }
+
+  async _getBetterDebris() {
+    // Left in the debris you find
+    // 1-3 nothing
+    // 4 3d10 silver
+    // 5 an unclean scroll
+    // 6 a sacred scroll
+    const debrisRoll = new Roll("1d6", rollData);
+
+
   }
 }  

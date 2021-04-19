@@ -399,7 +399,21 @@
 .sheet-header
 .header-col2
 .rest-buttons {
-  margin-left: 20px;
+  margin-left: 14px;
+  width: 170px;
+}
+
+.morkborg.sheet.actor.character
+.sheet-header
+.header-col2
+.rest-buttons
+button {
+  border: none;
+  border-bottom: 2px solid #777;
+  border-radius: 0;
+  font-family: var(--h2-font);
+  font-size: 14px;
+  height: 28px;
 }
 
 .morkborg.sheet.actor.character
@@ -407,13 +421,15 @@
 .header-col2
 .rest-buttons
 .rest-button {
-  border: none;
-  border-bottom: 2px solid #777;
-  border-radius: 0;
-  font-family: var(--h2-font);
-  font-size: 16px;
-  height: 28px;
-  width: 80px;
+  width: 70px;
+}
+
+.morkborg.sheet.actor.character
+.sheet-header
+.header-col2
+.rest-buttons
+.get-better-button {
+  width: 90px;
 }
 
 .morkborg.sheet.actor.character .sheet-header .header-col3 {
@@ -1873,7 +1889,7 @@ a.inline-roll {
   border-radius: 0;
   font-family: var(--h2-font);
   font-size: 20px;
-  width: 200px;
+  width: 150px;
 }
 
 .rest-dialog .button-row .rest-button:active,
