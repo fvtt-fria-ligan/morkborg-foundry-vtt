@@ -225,7 +225,7 @@ export class MBActorSheetCharacter extends ActorSheet {
     // confirm before doing get better
     let d = new Dialog({
       title: game.i18n.localize('MB.GetBetter'),
-      content: "<p>&nbsp;<p>The game master decides when a character should be improved.<p>It can be after completing a scenario, killing mighting foes, or bringing home treasure.<p>&nbsp;",
+      content: "<p>&nbsp;<p>The game master decides when a character should be improved.<p>It can be after completing a scenario, killing mighty foes, or bringing home treasure.<p>&nbsp;",
       buttons: {
        getbetter: {
         icon: '<i class="fas fa-check"></i>',
