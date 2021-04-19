@@ -741,16 +741,6 @@ export class MBActor extends Actor {
     return this.update({["data.hp.value"]: newHP});
   }
 
-  _abilityOutcome(abilityName, oldVal, newVal) {
-    if (newVal < oldVal) {
-      return `Lose ${oldVal - newVal} ${abilityName}`;
-    } else if (newVal > oldVal) {
-      return `Gain ${newVal - oldVal} ${abilityName}`;
-    } else {
-      return `${abilityName} unchanged`;
-    }
-  }
-
   async getBetter() {
     const oldHp = this.data.data.hp.max;
     const newHp = this._betterHp(oldHp);
@@ -762,14 +752,33 @@ export class MBActor extends Actor {
     const newPre = this._betterAbility(oldPre);
     const oldTou = this.data.data.abilities.toughness.value;
     const newTou = this._betterAbility(oldTou);
+    let newSilver = this.data.data.silver;
 
     let hpOutcome = this._abilityOutcome(game.i18n.localize('MB.HP'), oldHp, newHp);
     let strOutcome = this._abilityOutcome(game.i18n.localize('MB.AbilityStrength'), oldStr, newStr);
     let agiOutcome = this._abilityOutcome(game.i18n.localize('MB.AbilityAgility'), oldAgi, newAgi);
     let preOutcome = this._abilityOutcome(game.i18n.localize('MB.AbilityPresence'), oldPre, newPre);
     let touOutcome = this._abilityOutcome(game.i18n.localize('MB.AbilityToughness'), oldTou, newTou);
-    let debrisOutcome = this._debrisOutcome();
 
+    // Left in the debris you find...
+    let debrisOutcome = null;
+    let scrollTableName = null;
+    const debrisRoll = new Roll("1d6", this.getRollData()).evaluate();
+    if (debrisRoll.total < 4) {
+      debrisOutcome = "Nothing";
+    } else if (debrisRoll.total === 4) {
+      const silverRoll = new Roll("3d10", this.getRollData()).evaluate();
+      debrisOutcome = `${silverRoll.total} silver`;
+      newSilver += silverRoll.total;
+    } else if (debrisRoll.total === 5) {
+      debrisOutcome = "an unclean scroll";
+      scrollTableName = "Unclean Scrolls";
+    } else {
+      debrisOutcome = "a sacred scroll";
+      scrollTableName = "Sacred Scrolls";
+    }
+
+    // show a single chat message for everything
     const data = {
       agiOutcome,
       debrisOutcome,
@@ -781,25 +790,37 @@ export class MBActor extends Actor {
     const html = await renderTemplate(GET_BETTER_ROLL_CARD_TEMPLATE, data);
     ChatMessage.create({
       content : html,
-      sound : CONFIG.sounds.dice,
+      sound : CONFIG.sounds.dice,  // make a single dice sound
       speaker : ChatMessage.getSpeaker({actor: this}),
     });
 
+    if (scrollTableName) {
+      // roll a scroll
+      const pack = game.packs.get('morkborg.random-scrolls');
+      const content = await pack.getContent();
+      const table = content.find(i => i.name === scrollTableName);
+      await table.draw();
+    }
+
+    // set new stats on the actor
     return this.update({
       ["data.abilities.strength.value"]: newStr,
       ["data.abilities.agility.value"]: newAgi,
       ["data.abilities.presence.value"]: newPre,
       ["data.abilities.toughness.value"]: newTou,
       ["data.hp.max"]: newHp,
+      ["data.silver"]: newSilver,
     });
   }
 
   _betterHp(oldHp) {
     const hpRoll = new Roll("6d10", this.getRollData()).evaluate();
     if (hpRoll.total >= oldHp) {
+      // success, increase HP
       const howMuchRoll = new Roll("1d6", this.getRollData()).evaluate();
       return oldHp + howMuchRoll.total;
     } else {
+      // no soup for you
       return oldHp;
     }
   }
@@ -815,20 +836,13 @@ export class MBActor extends Actor {
     }
   }
 
-  _debrisOutcome() {
-    const debrisRoll = new Roll("1d6", this.getRollData()).evaluate();
-    let debris = null;
-    if (debrisRoll.total < 4) {
-      debris = "Nothing";
-    } else if (debrisRoll.total === 4) {
-      const silverRoll = new Roll("3d10", this.getRollData()).evaluate();
-      debris = `${silverRoll.total} silver`;
-    } else if (debrisRoll.total === 5) {
-      debris = "an unclean scroll";
+  _abilityOutcome(abilityName, oldVal, newVal) {
+    if (newVal < oldVal) {
+      return `Lose ${oldVal - newVal} ${abilityName}`;
+    } else if (newVal > oldVal) {
+      return `Gain ${newVal - oldVal} ${abilityName}`;
     } else {
-      debris = "a sacred scroll";
+      return `${abilityName} unchanged`;
     }
-    // TODO: choose random scroll, and show that in chat
-    return `Left in the debris you find: ${debris}`;
   }
 }  
