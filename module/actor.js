@@ -762,16 +762,17 @@ export class MBActor extends Actor {
     const newPre = this._betterAbility(oldPre);
     const oldTou = this.data.data.abilities.toughness.value;
     const newTou = this._betterAbility(oldTou);
-    // TODO: item thingy
 
     let hpOutcome = this._abilityOutcome(game.i18n.localize('MB.HP'), oldHp, newHp);
     let strOutcome = this._abilityOutcome(game.i18n.localize('MB.AbilityStrength'), oldStr, newStr);
     let agiOutcome = this._abilityOutcome(game.i18n.localize('MB.AbilityAgility'), oldAgi, newAgi);
     let preOutcome = this._abilityOutcome(game.i18n.localize('MB.AbilityPresence'), oldPre, newPre);
     let touOutcome = this._abilityOutcome(game.i18n.localize('MB.AbilityToughness'), oldTou, newTou);
+    let debrisOutcome = this._debrisOutcome();
 
     const data = {
       agiOutcome,
+      debrisOutcome,
       hpOutcome,
       preOutcome,
       strOutcome,
@@ -814,14 +815,20 @@ export class MBActor extends Actor {
     }
   }
 
-  async _getBetterDebris() {
-    // Left in the debris you find
-    // 1-3 nothing
-    // 4 3d10 silver
-    // 5 an unclean scroll
-    // 6 a sacred scroll
-    const debrisRoll = new Roll("1d6", rollData);
-
-
+  _debrisOutcome() {
+    const debrisRoll = new Roll("1d6", this.getRollData()).evaluate();
+    let debris = null;
+    if (debrisRoll.total < 4) {
+      debris = "Nothing";
+    } else if (debrisRoll.total === 4) {
+      const silverRoll = new Roll("3d10", this.getRollData()).evaluate();
+      debris = `${silverRoll.total} silver`;
+    } else if (debrisRoll.total === 5) {
+      debris = "an unclean scroll";
+    } else {
+      debris = "a sacred scroll";
+    }
+    // TODO: choose random scroll, and show that in chat
+    return `Left in the debris you find: ${debris}`;
   }
 }  
