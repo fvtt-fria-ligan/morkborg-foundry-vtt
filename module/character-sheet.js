@@ -152,6 +152,7 @@ export class MBActorSheetCharacter extends ActorSheet {
     html.find(".ability-label.rollable.presence").on("click", this._onPresenceRoll.bind(this));
     html.find(".ability-label.rollable.toughness").on("click", this._onToughnessRoll.bind(this));
     html.find(".rest-buttons .rest-button").on("click", this._onRest.bind(this));
+    html.find(".rest-buttons .get-better-button").on("click", this._onGetBetter.bind(this));
     html.find(".omens-row .rollable").on("click", this._onOmensRoll.bind(this));
     // violence tab
     html.find('.party-initiative').click(this._onPartyInitiativeRoll.bind(this));
@@ -217,6 +218,24 @@ export class MBActorSheetCharacter extends ActorSheet {
     // if we can resolve the mergeObject() Maximum call stack size exceeded error
     restDialog.actor = this.actor;
     restDialog.render(true);
+  }
+
+  _onGetBetter(event) {
+    event.preventDefault();
+    // confirm before doing get better
+    let d = new Dialog({
+      title: game.i18n.localize('MB.GetBetter'),
+      content: "<p>&nbsp;<p>The game master decides when a character should be improved.<p>It can be after completing a scenario, killing mighting foes, or bringing home treasure.<p>&nbsp;",
+      buttons: {
+       getbetter: {
+        icon: '<i class="fas fa-check"></i>',
+        label: game.i18n.localize('MB.GetBetter'),
+        callback: () => this.actor.getBetter()
+       },
+      },
+      default: "getbetter",
+     });
+     d.render(true);
   }
 
   /**
