@@ -11,6 +11,7 @@ import { MBItem } from "./item.js";
 import { MBItemSheet } from "./item-sheet.js";
 import { createMorkBorgMacro, rollItemMacro } from "./macros.js";
 import { migrateWorld } from "./migration.js";
+import { createScvm } from "./scvmfactory.js";
 import { registerSystemSettings } from "./settings.js";
 
 /* -------------------------------------------- */
@@ -155,19 +156,7 @@ Hooks.on('renderActorDirectory', (app,  html, data) => {
       <button class="create-scvm-button"><i class="fas fa-skull"></i>Create Scvm</button>
     </div>
     `);
-
-  section.querySelector('.create-scvm-button').addEventListener('click', (ev) => console.log("***** click ****"));
-
-  /*
-          this.section = document.createElement('section')
-        this.section.classList.add('token-mold');
-        // Add menu before directory header
-        const dirHeader = html[0].querySelector('.directory-header');
-        dirHeader.parentNode.insertBefore(this.section, dirHeader);
-
-        if (this.data !== undefined)
-            this._renderActorDirectoryMenu();
-            */
+  section.querySelector('.create-scvm-button').addEventListener('click', (ev) => createScvm());
 });
 
 const rollPartyInitiative = () => {
