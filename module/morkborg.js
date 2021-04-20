@@ -143,6 +143,33 @@ Hooks.on('createActor', async (actor, options, userId) => {
   }
 });
 
+Hooks.on('renderActorDirectory', (app,  html, data) => {
+  const section = document.createElement('header');
+  section.classList.add('scvmfactory');
+  section.classList.add('directory-header');
+  // Add menu before directory header
+  const dirHeader = html[0].querySelector('.directory-header');
+  dirHeader.parentNode.insertBefore(section, dirHeader);
+  section.insertAdjacentHTML('afterbegin',`
+    <div class="header-actions action-buttons flexrow">
+      <button class="create-scvm-button"><i class="fas fa-skull"></i>Create Scvm</button>
+    </div>
+    `);
+
+  section.querySelector('.create-scvm-button').addEventListener('click', (ev) => console.log("***** click ****"));
+
+  /*
+          this.section = document.createElement('section')
+        this.section.classList.add('token-mold');
+        // Add menu before directory header
+        const dirHeader = html[0].querySelector('.directory-header');
+        dirHeader.parentNode.insertBefore(this.section, dirHeader);
+
+        if (this.data !== undefined)
+            this._renderActorDirectoryMenu();
+            */
+});
+
 const rollPartyInitiative = () => {
   if (game.combats && game.combat) {
     game.combat.rollPartyInitiative();
