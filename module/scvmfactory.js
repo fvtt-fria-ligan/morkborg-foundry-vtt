@@ -1,4 +1,6 @@
+import {MBActorSheetCharacter} from "./character-sheet.js";
 import {MBItem} from "./item.js";
+import {randomName} from "./names.js";
 
 export const createScvm = async () => {
     console.log("***** SCVM FACTORY *****")
@@ -114,7 +116,7 @@ const createActorWithClass = async (clazz) => {
 
 
     let actor = await Actor.create({
-        name: "New Test Actor",
+        name: randomName(),
         type: "character",
         // img: "artwork/character-profile.jpg",
         // folder: folder.data._id,
@@ -145,9 +147,9 @@ const createActorWithClass = async (clazz) => {
         items: items,
         flags: {}
       });
-      // TODO: fix onActorCreate hook so we don't have to do this class-reset after
+      // TODO: fix onActorCreate hook so we don't have to do this class-overwrite after
       actor.createEmbeddedEntity("OwnedItem", duplicate(clazz.data));
-
+      actor.sheet.render(true);
 };
 
 const entitiesFromResults = async (results) => {
