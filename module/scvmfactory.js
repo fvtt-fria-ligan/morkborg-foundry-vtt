@@ -92,13 +92,11 @@ const createActorWithClass = async (clazz) => {
     const startingItems = [];
     if (clazz.data.data.startingItems) {
         const lines = clazz.data.data.startingItems.split("\n");
-        console.log(lines);
         for (const line of lines) {
             const [packName, itemName] = line.split(",");
             const pack = game.packs.get(packName);
             if (pack) {
                 const content = await pack.getContent();
-                console.log(`*****${itemName}*****`);
                 const item = content.find(i => i.data.name === itemName);
                 if (item) {
                     startingItems.push(item);
@@ -107,18 +105,60 @@ const createActorWithClass = async (clazz) => {
         }
     }
 
-    // TODO: starting rolls
+    // add non-items as description flavor text
+    const descriptionLines = [];
+    descriptionLines.push(clazz.data.data.description);
+    descriptionLines.push("<p>&nbsp;</p>");
+    
+    // starting rolls
+    const startingRollItems = [];
+    if (clazz.data.data.startingRolls) {
+        const lines = clazz.data.data.startingRolls.split("\n");
+        for (const line of lines) {
+            console.log(line);
+            const [packName, tableName, rolls] = line.split(",");
+            const numRolls = parseInt(rolls);
+            const pack = game.packs.get(packName);
+            if (pack) {
+                const content = await pack.getContent();
+                const table = content.find(i => i.name === tableName);
+                if (table) {
+                    // TODO: handle number of rolls
+                    const tableDraw = await table.draw({displayChat: false});
+                    //const items = await entitiesFromResults(tableDraw.results);
+                    //startingRollItems.push(...items); 
+                    for (const result of tableDraw.results) {                        
+                        // draw result type: text (0), entity (1), or compendium (2)
+                        if (result.type === 0) {
+                            // text
+                            if (table.data.description) {
+                                descriptionLines.push(`<p>${table.data.description}: ${result.text}</p>`);
+                            } else {
+                                descriptionLines.push(`<p>${table.name}: ${result.text}</p>`);
+                            }
+                        } else if (result.type === 1) {
+                            // entity
+                            // TODO: what do we want to do here?
+                        } else if (result.type === 2) {
+                            const entity = entityFromResult(result);
+                            startingRollItems.push(entity);
+                        }
+                    }
+                }
+            }
+        }
+    }
 
-    // TODO: set clazz? is that going to get overwritten?
-    const ents = [].concat(eq1, eq2, eq3, weapons, armors, startingItems);
+    const ents = [].concat(eq1, eq2, eq3, weapons, armors, startingItems, startingRollItems);
 
     // add items as owned items
     const items = ents.filter(e => e instanceof MBItem);
 
-    // add non-items as description flavor text
-    const descriptionLines = [];
-    descriptionLines.push(clazz.description);
     const nonItems = ents.filter(e => !(e instanceof MBItem));
+    for (const nonItem of nonItems) {
+        //console.log(nonItem);
+    }
+
 
     // for actors, just add some flavor text to description
     // console.log(item);
@@ -132,8 +172,8 @@ const createActorWithClass = async (clazz) => {
 
     let actor = await Actor.create({
         name: randomName(),
+        img: clazz.img,
         type: "character",
-        // img: "artwork/character-profile.jpg",
         // folder: folder.data._id,
         // sort: 12000,
         data: {
@@ -143,7 +183,7 @@ const createActorWithClass = async (clazz) => {
                 presence: { value: presence },
                 toughness: { value: toughness },
             },
-            description: descriptionLines.join("<br>"),
+            description: descriptionLines.join(""),
             hp: {
                 max: hpRoll.total + toughness,
                 value: hpRoll.total + toughness,
@@ -158,7 +198,9 @@ const createActorWithClass = async (clazz) => {
             },
             silver: silverRoll.total,
         },
-        token: {},
+        token: {
+            img: clazz.img,
+        },
         items: items,
         flags: {}
       });
