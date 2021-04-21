@@ -16,7 +16,8 @@ const pickRandomClass = async () => {
     }
     // TODO: debugging
     //const packName = classPacks[Math.floor(Math.random() * classPacks.length)];
-    const packName = "morkborg.class-classless-adventurer";
+//    const packName = "morkborg.class-classless-adventurer";
+    const packName = "morkborg.class-fanged-deserter";
     
     const pack = game.packs.get(packName);
     let content = await pack.getContent();
@@ -60,7 +61,6 @@ const createActorWithClass = async (clazz) => {
     const equipTable2 = content.find(i => i.name === 'You are What You Own (2)');
     const equipTable3 = content.find(i => i.name === 'You are What You Own (3)');
     const eqDraw1 = await equipTable1.draw({displayChat: false});
-    // const eqDraw1 = await equipTable1.draw();
     const eqDraw2 = await equipTable2.draw({displayChat: false});
     const eqDraw3 = await equipTable3.draw({displayChat: false});
 
@@ -88,16 +88,32 @@ const createActorWithClass = async (clazz) => {
     const armorDraw = await armorTable.draw({roll: armorRoll, displayChat: false});
     const armors = await entitiesFromResults(armorDraw.results);
 
-    // TODO: starting items
+    // starting items
+    const startingItems = [];
+    if (clazz.data.data.startingItems) {
+        const lines = clazz.data.data.startingItems.split("\n");
+        console.log(lines);
+        for (const line of lines) {
+            const [packName, itemName] = line.split(",");
+            const pack = game.packs.get(packName);
+            if (pack) {
+                const content = await pack.getContent();
+                console.log(`*****${itemName}*****`);
+                const item = content.find(i => i.data.name === itemName);
+                if (item) {
+                    startingItems.push(item);
+                }    
+            }
+        }
+    }
 
     // TODO: starting rolls
 
     // TODO: set clazz? is that going to get overwritten?
-    const ents = [].concat(eq1, eq2, eq3, weapons, armors);
+    const ents = [].concat(eq1, eq2, eq3, weapons, armors, startingItems);
 
     // add items as owned items
     const items = ents.filter(e => e instanceof MBItem);
-    console.log(items);
 
     // add non-items as description flavor text
     const descriptionLines = [];
@@ -113,7 +129,6 @@ const createActorWithClass = async (clazz) => {
     //     // add to owned items
     //     return item;
     // }
-
 
     let actor = await Actor.create({
         name: randomName(),
