@@ -121,27 +121,29 @@ const createActorWithClass = async (clazz) => {
             const pack = game.packs.get(packName);
             if (pack) {
                 const content = await pack.getContent();
+                // note: we rely on replacement true/false being properly set
+                // on the rolltable, to allow or prevent dupe draws
                 const table = content.find(i => i.name === tableName);
+                table.data.replacement = false;
                 if (table) {
-                    // TODO: handle number of rolls
-                    const tableDraw = await table.draw({displayChat: false});
-                    //const items = await entitiesFromResults(tableDraw.results);
-                    //startingRollItems.push(...items); 
-                    for (const result of tableDraw.results) {                        
-                        // draw result type: text (0), entity (1), or compendium (2)
-                        if (result.type === 0) {
-                            // text
-                            if (table.data.description) {
-                                descriptionLines.push(`<p>${table.data.description}: ${result.text}</p>`);
-                            } else {
-                                descriptionLines.push(`<p>${table.name}: ${result.text}</p>`);
+                    for (let i = 0; i < numRolls; i++) {
+                        const tableDraw = await table.draw({displayChat: false});
+                        for (const result of tableDraw.results) {                        
+                            // draw result type: text (0), entity (1), or compendium (2)
+                            if (result.type === 0) {
+                                // text
+                                if (table.data.description) {
+                                    descriptionLines.push(`<p>${table.data.description}: ${result.text}</p>`);
+                                } else {
+                                    descriptionLines.push(`<p>${table.data.name}: ${result.text}</p>`);
+                                }
+                            } else if (result.type === 1) {
+                                // entity
+                                // TODO: what do we want to do here?
+                            } else if (result.type === 2) {
+                                const entity = entityFromResult(result);
+                                startingRollItems.push(entity);
                             }
-                        } else if (result.type === 1) {
-                            // entity
-                            // TODO: what do we want to do here?
-                        } else if (result.type === 2) {
-                            const entity = entityFromResult(result);
-                            startingRollItems.push(entity);
                         }
                     }
                 }
@@ -154,23 +156,13 @@ const createActorWithClass = async (clazz) => {
     // add items as owned items
     const items = ents.filter(e => e instanceof MBItem);
 
+    // for other non-item entities, just add some description text
     const nonItems = ents.filter(e => !(e instanceof MBItem));
     for (const nonItem of nonItems) {
-        //console.log(nonItem);
+        descriptionLines.push(`<p>${nonItem.data.type}: ${nonItem.data.name}</p>`);
     }
 
-
-    // for actors, just add some flavor text to description
-    // console.log(item);
-    // if (item.data.type === "Follower") {
-    //     // TODO: localize
-    //     return `You have a follower: ${item.data.description}`;
-    // } else {
-    //     // add to owned items
-    //     return item;
-    // }
-
-    let actor = await Actor.create({
+    const actor = await Actor.create({
         name: randomName(),
         img: clazz.img,
         type: "character",
