@@ -86,10 +86,18 @@
     },
     "class": {
       "abilities": "",
+      "armorTableDie": "1d4",
       "description": "",
       "omenDie": "1d2",
+      "startingAgility": "3d6",
       "startingHitPoints": "1d8",
-      "startingSilver": "2d6*10"
+      "startingItems": null,
+      "startingPresence": "3d6",
+      "startingRolls": null,
+      "startingSilver": "2d6*10",
+      "startingStrength": "3d6",
+      "startingToughness": "3d6",
+      "weaponTableDie": "1d10"
     },
     "container": {
       "templates": ["baseEquipment"],

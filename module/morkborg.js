@@ -11,6 +11,7 @@ import { MBItem } from "./item.js";
 import { MBItemSheet } from "./item-sheet.js";
 import { createMorkBorgMacro, rollItemMacro } from "./macros.js";
 import { migrateWorld } from "./migration.js";
+import { createScvm } from "./scvmfactory.js";
 import { registerSystemSettings } from "./settings.js";
 
 /* -------------------------------------------- */
@@ -135,12 +136,30 @@ Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
 Hooks.on('createActor', async (actor, options, userId) => {
   // give Characters a default class
   if (actor.data.type === "character" && game.packs) {
-    const pack = game.packs.get("morkborg.class-classless-adventurer");
-    let index = await pack.getIndex();
-    let entry = index.find(e => e.name === "Adventurer");
-    let entity = await pack.getEntity(entry._id);
-    actor.createEmbeddedEntity("OwnedItem", duplicate(entity.data));
+    const hasAClass = actor.items.filter(i => i.data.type === "class").length > 0;
+    if (!hasAClass) {
+      const pack = game.packs.get("morkborg.class-classless-adventurer");
+      let index = await pack.getIndex();
+      let entry = index.find(e => e.name === "Adventurer");
+      let entity = await pack.getEntity(entry._id);
+      await actor.createEmbeddedEntity("OwnedItem", duplicate(entity.data));  
+    }
   }
+});
+
+Hooks.on('renderActorDirectory', (app,  html, data) => {
+  const section = document.createElement('header');
+  section.classList.add('scvmfactory');
+  section.classList.add('directory-header');
+  // Add menu before directory header
+  const dirHeader = html[0].querySelector('.directory-header');
+  dirHeader.parentNode.insertBefore(section, dirHeader);
+  section.insertAdjacentHTML('afterbegin',`
+    <div class="header-actions action-buttons flexrow">
+      <button class="create-scvm-button"><i class="fas fa-skull"></i>Create Scvm</button>
+    </div>
+    `);
+  section.querySelector('.create-scvm-button').addEventListener('click', (ev) => createScvm());
 });
 
 const rollPartyInitiative = () => {

@@ -35,22 +35,64 @@
                 <textarea name="data.description" rows="8">{{data.description}}</textarea>
             </div>
 
-           {{!-- Starting hit points --}}
-            <div class="form-group">
-                <label>{{ localize "MB.ClassStartingHitPoints" }}:</label>
-                <input type="text" name="data.startingHitPoints" value="{{data.startingHitPoints}}" placeholder="1d8" data-dtype="String" />
-            </div>
+            <br>
 
            {{!-- Starting silver --}}
             <div class="form-group">
-                <label>{{ localize "MB.ClassStartingSilver" }}:</label>
+                <label>{{ localize "MB.Silver" }}:</label>
                 <input type="text" name="data.startingSilver" value="{{data.startingSilver}}" placeholder="2d6*10" data-dtype="String" />
             </div>
 
             {{!-- Omen Die --}}
             <div class="form-group">
-                <label>{{ localize "MB.ClassOmenDie" }}:</label>
+                <label>{{ localize "MB.Omens" }}:</label>
                 <input type="text" name="data.omenDie" value="{{data.omenDie}}" placeholder="1d2" data-dtype="String" />
+            </div>
+
+            {{!-- Starting hit points --}}
+            <div class="form-group">
+                <label>{{ localize "MB.HitPoints" }}:</label>
+                <input type="text" name="data.startingHitPoints" value="{{data.startingHitPoints}}" placeholder="1d8" data-dtype="String" />
+            </div>
+
+            <br>
+
+            {{!-- Starting abilities --}}
+            <div class="form-group">
+                <label>{{ localize "MB.AbilityStrength" }}:</label>
+                <input type="text" name="data.startingStrength" value="{{data.startingStrength}}" placeholder="3d6" data-dtype="String" />
+            </div>
+            <div class="form-group">
+                <label>{{ localize "MB.AbilityAgility" }}:</label>
+                <input type="text" name="data.startingAgility" value="{{data.startingAgility}}" placeholder="3d6" data-dtype="String" />
+            </div>
+            <div class="form-group">
+                <label>{{ localize "MB.AbilityPresence" }}:</label>
+                <input type="text" name="data.startingPresence" value="{{data.startingPresence}}" placeholder="3d6" data-dtype="String" />
+            </div>
+            <div class="form-group">
+                <label>{{ localize "MB.AbilityToughness" }}:</label>
+                <input type="text" name="data.startingToughness" value="{{data.startingToughness}}" placeholder="3d6" data-dtype="String" />
+            </div>
+
+            <br>
+
+            {{!-- Starting equipment --}}
+            <div class="form-group">
+                <label>{{ localize "MB.WeaponTable" }}:</label>
+                <input type="text" name="data.weaponTableDie" value="{{data.weaponTableDie}}" placeholder="1d10" data-dtype="String" />
+            </div>
+            <div class="form-group">
+                <label>{{ localize "MB.ArmorTable" }}:</label>
+                <input type="text" name="data.armorTableDie" value="{{data.armorTableDie}}" placeholder="1d4" data-dtype="String" />
+            </div>
+            <div class="form-group">
+                <label>{{ localize "MB.Items" }}:</label>
+                <textarea name="data.startingItems" rows="4">{{data.startingItems}}</textarea>
+            </div>
+            <div class="form-group">
+                <label>{{ localize "MB.Rolls" }}:</label>
+                <textarea name="data.startingRolls" rows="4">{{data.startingRolls}}</textarea>
             </div>
         </div>
 
