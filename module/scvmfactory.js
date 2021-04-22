@@ -18,7 +18,7 @@ const pickRandomClass = async () => {
     //const packName = classPacks[Math.floor(Math.random() * classPacks.length)];
 //    const packName = "morkborg.class-classless-adventurer";
 //    const packName = "morkborg.class-fanged-deserter";
-    // const packName = "morkborg.class-gutterborn-scum";
+    //  const packName = "morkborg.class-gutterborn-scum";
     // const packName = "morkborg.class-esoteric-hermit";
     // const packName = "morkborg.class-wretched-royalty";
     // const packName = "morkborg.class-occult-herbmaster";
@@ -161,7 +161,7 @@ const createActorWithClass = async (clazz) => {
     }
 
     // all new entities
-    const ents = [].concat(eq1, eq2, eq3, weapons, armors, startingItems, startingRollItems);
+    const ents = [].concat([clazz], eq1, eq2, eq3, weapons, armors, startingItems, startingRollItems);
 
     // add items as owned items
     const items = ents.filter(e => e instanceof MBItem);
@@ -209,6 +209,9 @@ const createActorWithClass = async (clazz) => {
         flags: {}
       });
       // TODO: fix onActorCreate hook so we don't have to do this class-overwrite after
+    //   let entry = index.find(e => e.name === "Adventurer");
+    //   let entity = await pack.getEntity(entry._id);
+    //   actor.createEmbeddedEntity("OwnedItem", duplicate(entity.data));
       await actor.createEmbeddedEntity("OwnedItem", duplicate(clazz.data));
       actor.sheet.render(true);
 };
