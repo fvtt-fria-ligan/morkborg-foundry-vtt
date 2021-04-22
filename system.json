@@ -120,6 +120,48 @@
       "system": "morkborg",
       "path": "./packs/random-scrolls.db",
       "entity": "RollTable"
+    },
+    {
+      "name": "rolls-esoteric-hermit",
+      "label": "Rolls - Esoteric Hermit",
+      "system": "morkborg",
+      "path": "./packs/rolls-esoteric-hermit.db",
+      "entity": "RollTable"
+    },
+    {
+      "name": "rolls-fanged-deserter",
+      "label": "Rolls - Fanged Deserter",
+      "system": "morkborg",
+      "path": "./packs/rolls-fanged-deserter.db",
+      "entity": "RollTable"
+    },
+    {
+      "name": "rolls-gutterborn-scum",
+      "label": "Rolls - Gutterborn Scum",
+      "system": "morkborg",
+      "path": "./packs/rolls-gutterborn-scum.db",
+      "entity": "RollTable"
+    },
+    {
+      "name": "rolls-heretical-priest",
+      "label": "Rolls - Heretical Priest",
+      "system": "morkborg",
+      "path": "./packs/rolls-heretical-priest.db",
+      "entity": "RollTable"
+    },
+    {
+      "name": "rolls-occult-herbmaster",
+      "label": "Rolls - Occult Herbmaster",
+      "system": "morkborg",
+      "path": "./packs/rolls-occult-herbmaster.db",
+      "entity": "RollTable"
+    },    
+    {
+      "name": "rolls-wretched-royalty",
+      "label": "Rolls - Wretched Royalty",
+      "system": "morkborg",
+      "path": "./packs/rolls-wretched-royalty.db",
+      "entity": "RollTable"
     }
   ],
   "languages": [
