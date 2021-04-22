@@ -14,13 +14,13 @@ const pickRandomClass = async () => {
         // TODO: error on 0-length classPaths
         return;
     }
+    //const packName = classPacks[Math.floor(Math.random() * classPacks.length)];
     // TODO: debugging hardcodes
-    const packName = classPacks[Math.floor(Math.random() * classPacks.length)];
     //const packName = "morkborg.class-classless-adventurer";
     //const packName = "morkborg.class-fanged-deserter";
     //const packName = "morkborg.class-gutterborn-scum";
     //const packName = "morkborg.class-esoteric-hermit";
-    //const packName = "morkborg.class-wretched-royalty";
+    const packName = "morkborg.class-wretched-royalty";
     //const packName = "morkborg.class-occult-herbmaster";
     //const packName = "morkborg.class-heretical-priest";    
     const pack = game.packs.get(packName);
@@ -144,24 +144,22 @@ const createActorWithClass = async (clazz) => {
             const pack = game.packs.get(packName);
             if (pack) {
                 const content = await pack.getContent();
-                // note: we rely on replacement true/false being properly set
-                // on the rolltable, to allow or prevent dupe draws
                 const table = content.find(i => i.name === tableName);
                 if (table) {
-                    for (let i = 0; i < numRolls; i++) {
-                        const tableDraw = await table.draw({displayChat: false});
-                        for (const result of tableDraw.results) {                        
-                            // draw result type: text (0), entity (1), or compendium (2)
-                            if (result.type === 0) {
-                                // text
-                                descriptionLines.push(`<p>${table.data.name}: ${result.text}</p>`);
-                            } else if (result.type === 1) {
-                                // entity
-                                // TODO: what do we want to do here?
-                            } else if (result.type === 2) {
-                                const entity = await entityFromResult(result);
-                                startingRollItems.push(entity);
-                            }
+                    // const tableDraw = await table.drawMany(numRolls, {displayChat: false});
+                    // const results = tableDraw.results;
+                    const results = await compendiumTableDrawMany(table, numRolls);
+                    for (const result of results) {
+                        // draw result type: text (0), entity (1), or compendium (2)
+                        if (result.type === 0) {
+                            // text
+                            descriptionLines.push(`<p>${table.data.name}: ${result.text}</p>`);
+                        } else if (result.type === 1) {
+                            // entity
+                            // TODO: what do we want to do here?
+                        } else if (result.type === 2) {
+                            const entity = await entityFromResult(result);
+                            startingRollItems.push(entity);
                         }
                     }
                 }
@@ -217,8 +215,6 @@ const createActorWithClass = async (clazz) => {
         items: items,
         flags: {}
       });
-      // TODO: fix onActorCreate hook so we don't have to do this class-overwrite after
-    //   await actor.createEmbeddedEntity("OwnedItem", duplicate(clazz.data));
       actor.sheet.render(true);
 };
 
@@ -257,11 +253,10 @@ const entityFromResult = async (result) => {
     // TODO: handle scroll lookup / rolls
     // TODO: can we make a recursive random scroll thingy
 
-    if (result.type === 1) {
+    if (result.type === 0) {
         // hack for not having recursive roll tables set up
         // TODO: set up recursive roll tables :P
         if (result.text === "Roll on Random Unclean Scrolls") {
-            console.log("***** BINGO ******");
             const collection = game.packs.get("morkborg.random-scrolls");
             const content = await collection.getContent();
             const table = content.find(i => i.name === "Unclean Scrolls");
@@ -269,7 +264,6 @@ const entityFromResult = async (result) => {
             const items = await entitiesFromResults(draw.results);
             return items[0];
         } else if (result.text === "Roll on Random Sacred Scrolls") {
-            console.log("***** BINGO2 ******");
             const collection = game.packs.get("morkborg.random-scrolls");
             const content = await collection.getContent();
             const table = content.find(i => i.name === "Sacred Scrolls");
@@ -305,4 +299,21 @@ const abilityBonus = (rollTotal) => {
         // 17 - 20+
         return 3;
     }
+};
+
+
+/** Workaround for compendium RollTables not honoring replacement=false */
+const compendiumTableDrawMany = async (rollTable, numDesired) => {
+    let rollTotals = [];
+    let results = [];
+    while (rollTotals.length < numDesired) {
+        const tableDraw = await rollTable.draw({displayChat: false});
+        if (rollTotals.includes(tableDraw.roll.total)) {
+            // already rolled this, so roll again
+            continue;
+        }
+        rollTotals.push(tableDraw.roll.total);
+        results = results.concat(tableDraw.results);
+    }
+    return results;
 };
