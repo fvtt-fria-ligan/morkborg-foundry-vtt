@@ -20,7 +20,8 @@ const pickRandomClass = async () => {
 //    const packName = "morkborg.class-fanged-deserter";
     // const packName = "morkborg.class-gutterborn-scum";
     // const packName = "morkborg.class-esoteric-hermit";
-    const packName = "morkborg.class-wretched-royalty";
+    // const packName = "morkborg.class-wretched-royalty";
+    const packName = "morkborg.class-occult-herbmaster";
     
     const pack = game.packs.get(packName);
     let content = await pack.getContent();
