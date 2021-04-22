@@ -14,13 +14,13 @@ const pickRandomClass = async () => {
         // TODO: error on 0-length classPaths
         return;
     }
-    //const packName = classPacks[Math.floor(Math.random() * classPacks.length)];
+    const packName = classPacks[Math.floor(Math.random() * classPacks.length)];
     // TODO: debugging hardcodes
     //const packName = "morkborg.class-classless-adventurer";
     //const packName = "morkborg.class-fanged-deserter";
     //const packName = "morkborg.class-gutterborn-scum";
     //const packName = "morkborg.class-esoteric-hermit";
-    const packName = "morkborg.class-wretched-royalty";
+    //const packName = "morkborg.class-wretched-royalty";
     //const packName = "morkborg.class-occult-herbmaster";
     //const packName = "morkborg.class-heretical-priest";    
     const pack = game.packs.get(packName);
