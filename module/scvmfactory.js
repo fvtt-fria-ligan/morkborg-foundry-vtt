@@ -18,7 +18,8 @@ const pickRandomClass = async () => {
     //const packName = classPacks[Math.floor(Math.random() * classPacks.length)];
 //    const packName = "morkborg.class-classless-adventurer";
 //    const packName = "morkborg.class-fanged-deserter";
-    const packName = "morkborg.class-gutterborn-scum";
+    // const packName = "morkborg.class-gutterborn-scum";
+    const packName = "morkborg.class-esoteric-hermit";
     
     const pack = game.packs.get(packName);
     let content = await pack.getContent();
@@ -146,6 +147,7 @@ const createActorWithClass = async (clazz) => {
         }
     }
 
+    // all new entities
     const ents = [].concat(eq1, eq2, eq3, weapons, armors, startingItems, startingRollItems);
 
     // add items as owned items
@@ -162,6 +164,7 @@ const createActorWithClass = async (clazz) => {
         name: randomName(),
         img: clazz.img,
         type: "character",
+        // TODO: do we need to set folder or sort?
         // folder: folder.data._id,
         // sort: 12000,
         data: {
