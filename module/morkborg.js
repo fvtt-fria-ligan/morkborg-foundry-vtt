@@ -148,18 +148,21 @@ Hooks.on('createActor', async (actor, options, userId) => {
 });
 
 Hooks.on('renderActorDirectory', (app,  html, data) => {
-  const section = document.createElement('header');
-  section.classList.add('scvmfactory');
-  section.classList.add('directory-header');
-  // Add menu before directory header
-  const dirHeader = html[0].querySelector('.directory-header');
-  dirHeader.parentNode.insertBefore(section, dirHeader);
-  section.insertAdjacentHTML('afterbegin',`
-    <div class="header-actions action-buttons flexrow">
-      <button class="create-scvm-button"><i class="fas fa-skull"></i>Create Scvm</button>
-    </div>
-    `);
-  section.querySelector('.create-scvm-button').addEventListener('click', (ev) => createScvm());
+  if (game.user.isGM) {
+    // GMs have permission to create actors, so show the Create Scvm button.
+    const section = document.createElement('header');
+    section.classList.add('scvmfactory');
+    section.classList.add('directory-header');
+    // Add menu before directory header
+    const dirHeader = html[0].querySelector('.directory-header');
+    dirHeader.parentNode.insertBefore(section, dirHeader);
+    section.insertAdjacentHTML('afterbegin',`
+      <div class="header-actions action-buttons flexrow">
+        <button class="create-scvm-button"><i class="fas fa-skull"></i>Create Scvm</button>
+      </div>
+      `);
+    section.querySelector('.create-scvm-button').addEventListener('click', (ev) => createScvm());  
+  }
 });
 
 const rollPartyInitiative = () => {
