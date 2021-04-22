@@ -14,16 +14,15 @@ const pickRandomClass = async () => {
         // TODO: error on 0-length classPaths
         return;
     }
-    // TODO: debugging
-    //const packName = classPacks[Math.floor(Math.random() * classPacks.length)];
-//    const packName = "morkborg.class-classless-adventurer";
-//    const packName = "morkborg.class-fanged-deserter";
-    //  const packName = "morkborg.class-gutterborn-scum";
-    // const packName = "morkborg.class-esoteric-hermit";
-    // const packName = "morkborg.class-wretched-royalty";
-    // const packName = "morkborg.class-occult-herbmaster";
-    const packName = "morkborg.class-heretical-priest";
-    
+    // TODO: debugging hardcodes
+    const packName = classPacks[Math.floor(Math.random() * classPacks.length)];
+    //const packName = "morkborg.class-classless-adventurer";
+    //const packName = "morkborg.class-fanged-deserter";
+    //const packName = "morkborg.class-gutterborn-scum";
+    //const packName = "morkborg.class-esoteric-hermit";
+    //const packName = "morkborg.class-wretched-royalty";
+    //const packName = "morkborg.class-occult-herbmaster";
+    //const packName = "morkborg.class-heretical-priest";    
     const pack = game.packs.get(packName);
     let content = await pack.getContent();
     return content.find(i => i.data.type === "class");
@@ -209,10 +208,7 @@ const createActorWithClass = async (clazz) => {
         flags: {}
       });
       // TODO: fix onActorCreate hook so we don't have to do this class-overwrite after
-    //   let entry = index.find(e => e.name === "Adventurer");
-    //   let entity = await pack.getEntity(entry._id);
-    //   actor.createEmbeddedEntity("OwnedItem", duplicate(entity.data));
-      await actor.createEmbeddedEntity("OwnedItem", duplicate(clazz.data));
+    //   await actor.createEmbeddedEntity("OwnedItem", duplicate(clazz.data));
       actor.sheet.render(true);
 };
 
@@ -228,6 +224,7 @@ const entitiesFromResults = async (results) => {
 }
 
 const entityFromResult = async (result) => {
+    // Example RollTable draw result:
     // {
     //     "_id": "7zhVYYsOyl39p64R",
     //     "flags": {},
