@@ -193,7 +193,7 @@ const createActorWithClass = async (clazz) => {
         flags: {}
       });
       // TODO: fix onActorCreate hook so we don't have to do this class-overwrite after
-      actor.createEmbeddedEntity("OwnedItem", duplicate(clazz.data));
+      await actor.createEmbeddedEntity("OwnedItem", duplicate(clazz.data));
       actor.sheet.render(true);
 };
 
