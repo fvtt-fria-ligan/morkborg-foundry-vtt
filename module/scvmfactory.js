@@ -69,40 +69,50 @@ const createActorWithClass = async (clazz) => {
     const touRoll = new Roll(clazz.data.data.startingToughness).evaluate();
     const toughness = abilityBonus(touRoll.total);
 
-    const pack = game.packs.get('morkborg.character-creation');
-    const content = await pack.getContent();
-    const equipTable1 = content.find(i => i.name === 'Starting Equipment (1)');
-    const equipTable2 = content.find(i => i.name === 'Starting Equipment (2)');
-    const equipTable3 = content.find(i => i.name === 'Starting Equipment (3)');
+    // everybody gets food and water
+    const miscPack = game.packs.get('morkborg.equipment-misc');
+    const miscContent = await miscPack.getContent();
+    const waterskin = miscContent.find(i => i.data.name === "Waterskin");
+    const food = miscContent.find(i => i.data.name === "Dried food");
+    const foodRoll = new Roll("1d4", {}).evaluate();
+    // TODO: need to mutate _data to get it to change for our owned item creation.
+    // Is there a better way to do this? 
+    food._data.data.quantity = foodRoll.total;
+
+    // 3 starting equipment tables
+    const ccPack = game.packs.get('morkborg.character-creation');
+    const ccContent = await ccPack.getContent();
+    const equipTable1 = ccContent.find(i => i.name === 'Starting Equipment (1)');
+    const equipTable2 = ccContent.find(i => i.name === 'Starting Equipment (2)');
+    const equipTable3 = ccContent.find(i => i.name === 'Starting Equipment (3)');
     const eqDraw1 = await equipTable1.draw({displayChat: false});
     const eqDraw2 = await equipTable2.draw({displayChat: false});
     const eqDraw3 = await equipTable3.draw({displayChat: false});
-
     const eq1 = await entitiesFromResults(eqDraw1.results);
     const eq2 = await entitiesFromResults(eqDraw2.results);
     const eq3 = await entitiesFromResults(eqDraw3.results);
     let allEq = [].concat(eq1, eq2, eq3);
+    const rolledScroll = allEq.filter(i => i.data.type === "scroll").length > 0;
 
     // starting weapon
     let weaponRoll = new Roll(clazz.data.data.weaponTableDie);
-    const rolledScroll = allEq.filter(i => i.data.type === "scroll").length > 0;
     if (rolledScroll) {
         // TODO: should only the classless adventurer get gimped down to d6?
         if (weaponRoll === "1d10") {
             weaponRoll = "1d6";
         }
     }
-    const weaponTable = content.find(i => i.name === 'Starting Weapon');
+    const weaponTable = ccContent.find(i => i.name === 'Starting Weapon');
     const weaponDraw = await weaponTable.draw({roll: weaponRoll, displayChat: false});
     const weapons = await entitiesFromResults(weaponDraw.results);
 
     // starting armor
     const armorRoll = new Roll(clazz.data.data.armorTableDie);
-    const armorTable = content.find(i => i.name === 'Starting Armor');
+    const armorTable = ccContent.find(i => i.name === 'Starting Armor');
     const armorDraw = await armorTable.draw({roll: armorRoll, displayChat: false});
     const armors = await entitiesFromResults(armorDraw.results);
 
-    // starting items
+    // class-specific starting items
     const startingItems = [];
     if (clazz.data.data.startingItems) {
         const lines = clazz.data.data.startingItems.split("\n");
@@ -119,12 +129,12 @@ const createActorWithClass = async (clazz) => {
         }
     }
 
-    // add non-items as description flavor text
+    // start accumulating character description, starting with the class description
     const descriptionLines = [];
     descriptionLines.push(clazz.data.data.description);
     descriptionLines.push("<p>&nbsp;</p>");
     
-    // starting rolls
+    // class-specific starting rolls
     const startingRollItems = [];
     if (clazz.data.data.startingRolls) {
         const lines = clazz.data.data.startingRolls.split("\n");
@@ -160,7 +170,7 @@ const createActorWithClass = async (clazz) => {
     }
 
     // all new entities
-    const ents = [].concat([clazz], eq1, eq2, eq3, weapons, armors, startingItems, startingRollItems);
+    const ents = [].concat([clazz], [waterskin, food], eq1, eq2, eq3, weapons, armors, startingItems, startingRollItems);
 
     // add items as owned items
     const items = ents.filter(e => e instanceof MBItem);
