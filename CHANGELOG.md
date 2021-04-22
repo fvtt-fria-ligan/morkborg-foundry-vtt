@@ -1,3 +1,14 @@
+# 0.3.0
+- Added GM-visible "Create Scvm" button and character generation... AKA "The Scvmfactory".
+- Added fields to Class schema to allow auto-generation.
+- Populated new fields for all classes.
+- Moved class-specific roll tables into separate Compendiums. E.g., "Roll - Fanged Deserter".
+- Added new roll tables for various class rolls. E.g., Gutterborn Scum's "Bad Birth".
+- Renamed "You are What You Own" roll tables to "Starting Equipment".
+- Added "All Scrolls" roll table to allow random draw of both sacred + unclean scrolls.
+- Fixed typo in Rest dialog text.
+- Fixed img path for Silver Crucifix in equipment roll table.
+
 # 0.2.12
 - Added "Get Better" button to roll Getting Better (hp, abilities, left in the debris).
 
