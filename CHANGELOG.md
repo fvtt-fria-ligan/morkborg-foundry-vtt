@@ -2,7 +2,7 @@
 - Added GM-visible "Create Scvm" button and character generation... AKA "The Scvmfactory".
 - Added fields to Class schema to allow auto-generation.
 - Populated new fields for all classes.
-- Moved class-specific roll tables into separate Compendiums. E.g., "Roll - Fanged Deserter".
+- Moved class-specific roll tables into separate Compendiums. E.g., "Rolls - Fanged Deserter".
 - Added new roll tables for various class creation rolls. E.g., Gutterborn Scum's "Bad Birth".
 - Renamed "You are What You Own" roll tables to "Starting Equipment".
 - Added "All Scrolls" roll table to allow random draw of both sacred + unclean scrolls.
