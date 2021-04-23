@@ -8,6 +8,7 @@
 - Added "All Scrolls" roll table to allow random draw of both sacred + unclean scrolls.
 - Fixed typo in Rest dialog text.
 - Fixed img path for Silver Crucifix in equipment roll table.
+- Fixed potion and poison weights to be 0.25. I.e., 4 doses per inventory slot.
 
 # 0.2.12
 - Added "Get Better" button to roll Getting Better (hp, abilities, left in the debris).
