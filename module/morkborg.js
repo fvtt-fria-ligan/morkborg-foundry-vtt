@@ -148,8 +148,8 @@ Hooks.on('createActor', async (actor, options, userId) => {
 });
 
 Hooks.on('renderActorDirectory', (app,  html, data) => {
-  if (game.user.isGM) {
-    // GMs have permission to create actors, so show the Create Scvm button.
+  if (game.user.can("ACTOR_CREATE")) {
+    // only show the Create Scvm button to users who can create actors
     const section = document.createElement('header');
     section.classList.add('scvmfactory');
     section.classList.add('directory-header');
