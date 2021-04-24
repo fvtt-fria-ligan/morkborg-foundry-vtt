@@ -2,6 +2,7 @@
 - Added "Scumify" skull-button and confirmation dialog to character sheet, to allow players to re-roll their characters.
 - Changed "Create Scvm" button to show for any user with permissions to create actors.
 - Add minimum 1 hp and 0 power uses for newly-rolled characters.
+- Fixed newly-rolled characters to have correct default disposition, actor link, and vision.
 - Added cancel button to "Get Better" dialog.
 - Made all weapon/armor/feat/scroll/item names hoverable and clickable, to open the item sheet.
 - Changed item sheet to default to description tab.
