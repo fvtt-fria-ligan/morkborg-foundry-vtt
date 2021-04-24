@@ -217,7 +217,7 @@ export class MBActorSheetCharacter extends ActorSheet {
     // confirm before doing get better
     let d = new Dialog({
       title: game.i18n.localize('MB.Scvmify'),
-      content: "<p>&nbsp;<p>Destroy this character, and replace it with new Scvm?</p><p>This cannot be undone!</p><p>&nbsp;</p>",
+      content: "<p>&nbsp;<p>Destroy this character, and replace it with a new Scvm?</p><p>This cannot be undone!</p><p>&nbsp;</p>",
       buttons: {
         cancel: {
           label: game.i18n.localize('MB.Cancel'),
