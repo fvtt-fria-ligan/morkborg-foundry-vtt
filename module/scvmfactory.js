@@ -77,7 +77,7 @@ const rollScvmForClass = async (clazz) => {
     const toughness = abilityBonus(touRoll.total);
 
     const hitPoints = Math.max(1, hpRoll.total + toughness);
-    const powerUses = Math.max(0, powerUsesRoll + presence);
+    const powerUses = Math.max(0, powerUsesRoll.total + presence);
 
     // everybody gets food and water
     const miscPack = game.packs.get('morkborg.equipment-misc');
