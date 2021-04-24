@@ -1,3 +1,4 @@
+import {MBActor} from "./actor.js";
 import {MBItem} from "./item.js";
 import {randomName} from "./names.js";
 
@@ -195,7 +196,6 @@ const rollScvmForClass = async (clazz) => {
         description: descriptionLines.join(""),
         hitPoints,
         items,
-        name: randomName(),
         omens: omensRoll.total,
         powerUses,
         presence,
@@ -208,7 +208,6 @@ const rollScvmForClass = async (clazz) => {
 
 const scvmToActorData = (s) => {
     return {
-        name: s.name,
         type: "character",
         // TODO: do we need to set folder or sort?
         // folder: folder.data._id,
@@ -242,10 +241,11 @@ const scvmToActorData = (s) => {
 
 const createActorWithScvm = async (s) => {
     const data = scvmToActorData(s);
-    // also set avatar and token images
+    // set some additional fields for new characters
+    data.name = randomName();
     data.img = s.actorImg;
-    data.token = { img: s.tokenImg };
-    const actor = await Actor.create(data);
+    // use MBActor.create() so we get default disposition, actor link, vision, etc
+    const actor = await MBActor.create(data);
     actor.sheet.render(true);
 };
 
