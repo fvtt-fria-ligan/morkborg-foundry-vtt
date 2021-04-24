@@ -1,4 +1,5 @@
 import { addShowDicePromise, diceSound, showDice } from "./dice.js";
+import { scvmifyActor } from "./scvmfactory.js";
 
 const ATTACK_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/attack-roll-card.html";
 const DEFEND_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/defend-roll-card.html";
@@ -844,5 +845,9 @@ export class MBActor extends Actor {
     } else {
       return `${abilityName} unchanged`;
     }
+  }
+
+  async scvmify() {
+    await scvmifyActor(this);
   }
 }  

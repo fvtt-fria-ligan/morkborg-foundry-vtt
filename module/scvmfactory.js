@@ -1,11 +1,17 @@
-import {MBActorSheetCharacter} from "./character-sheet.js";
 import {MBItem} from "./item.js";
 import {randomName} from "./names.js";
 
 export const createScvm = async () => {
     console.log("***** SCVM FACTORY *****")
     const clazz = await pickRandomClass();
-    const scvm = createActorWithClass(clazz);
+    const scvm = await rollScvmForClass(clazz);
+    await createActorWithScvm(scvm);
+};
+
+export const scvmifyActor = async (actor) => {
+    const clazz = await pickRandomClass();
+    const scvm = await rollScvmForClass(clazz);
+    await updateActorWithScvm(actor, scvm);
 };
 
 const pickRandomClass = async () => {
@@ -52,7 +58,7 @@ const findClassPacks = () => {
     return classPacks;
 };
 
-const createActorWithClass = async (clazz) => {
+const rollScvmForClass = async (clazz) => {
     console.log(`Creating new ${clazz.data.name}`);
 
     const silverRoll = new Roll(clazz.data.data.startingSilver).evaluate();
@@ -69,8 +75,8 @@ const createActorWithClass = async (clazz) => {
     const touRoll = new Roll(clazz.data.data.startingToughness).evaluate();
     const toughness = abilityBonus(touRoll.total);
 
-    const newHP = Math.max(1, hpRoll.total + toughness);
-    const newPowerUses = Max.max(0, powerUsesRoll + presence);
+    const hitPoints = Math.max(1, hpRoll.total + toughness);
+    const powerUses = Math.max(0, powerUsesRoll + presence);
 
     // everybody gets food and water
     const miscPack = game.packs.get('morkborg.equipment-misc');
@@ -183,42 +189,70 @@ const createActorWithClass = async (clazz) => {
         descriptionLines.push(`<p>&nbsp;</p><p>${upperType}: ${nonItem.data.name}</p>`);
     }
 
-    const actor = await Actor.create({
+    return {
+        actorImg: clazz.img,
+        agility,
+        description: descriptionLines.join(""),
+        hitPoints,
+        items,
         name: randomName(),
-        img: clazz.img,
+        omens: omensRoll.total,
+        powerUses,
+        presence,
+        silver: silverRoll.total,
+        strength,
+        tokenImg: clazz.img,
+        toughness,
+    };
+}
+
+const scvmToActorData = (s) => {
+    return {
+        name: s.name,
+        img: s.actorImg,
         type: "character",
         // TODO: do we need to set folder or sort?
         // folder: folder.data._id,
         // sort: 12000,
         data: {
             abilities: {
-                strength: { value: strength },
-                agility: { value: agility },
-                presence: { value: presence },
-                toughness: { value: toughness },
+                strength: { value: s.strength },
+                agility: { value: s.agility },
+                presence: { value: s.presence },
+                toughness: { value: s.toughness },
             },
-            description: descriptionLines.join(""),
+            description: s.description,
             hp: {
-                max: newHP,
-                value: newHP,
+                max: s.hitPoints,
+                value: s.hitPoints,
             },
             omens: {
-                max: omensRoll.total,
-                value: omensRoll.total,
+                max: s.omens,
+                value: s.omens,
             },
             powerUses: {
-                max: newPowerUses,
-                value: newPpowerUses,
+                max: s.powerUses,
+                value: s.powerUses,
             },
-            silver: silverRoll.total,
+            silver: s.silver,
         },
         token: {
-            img: clazz.img,
+            img: s.tokenImg,
         },
-        items: items,
+        items: s.items,
         flags: {}
-      });
-      actor.sheet.render(true);
+    }
+};
+
+const createActorWithScvm = async (s) => {
+    const data = scvmToActorData(s);
+    const actor = await Actor.create(data);
+    actor.sheet.render(true);
+};
+
+const updateActorWithScvm = async (actor, s) => {
+    const data = scvmToActorData(s);
+    await actor.update(data);
 };
 
 const entitiesFromResults = async (results) => {
