@@ -8,7 +8,7 @@
         </div>
         <div class="header-col2">
             <div class="name-row">
-                <input class="actor-name" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'MB.Name' }}" spellcheck="false"/>                
+                <input class="actor-name" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'MB.Name' }}" spellcheck="false"/>
             </div>
             {{!-- we are cheating a bit here, using the 'item' class usually used on LI elements,
              so we can get the item _id to be found by the common click handler --}}
@@ -17,6 +17,7 @@
                 <label class="classname" >{{data.class.name}}</label>
                 <div class="item-controls">
                     <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                    <a class="item-control item-scvmify" title="Scvmify"><i class="fas fa-skull"></i></a>
                 </div>
             </div>
             <div class="hitpoints-row">

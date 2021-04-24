@@ -151,6 +151,7 @@ export class MBActorSheetCharacter extends ActorSheet {
     html.find(".ability-label.rollable.agility").on("click", this._onAgilityRoll.bind(this));
     html.find(".ability-label.rollable.presence").on("click", this._onPresenceRoll.bind(this));
     html.find(".ability-label.rollable.toughness").on("click", this._onToughnessRoll.bind(this));
+    html.find('.item-scvmify').click(this._onScvmify.bind(this));
     html.find(".rest-buttons .rest-button").on("click", this._onRest.bind(this));
     html.find(".rest-buttons .get-better-button").on("click", this._onGetBetter.bind(this));
     html.find(".omens-row .rollable").on("click", this._onOmensRoll.bind(this));
@@ -211,6 +212,27 @@ export class MBActorSheetCharacter extends ActorSheet {
     this.actor.rollPowersPerDay();
   }
 
+  _onScvmify(event) {
+    event.preventDefault();
+    // confirm before doing get better
+    let d = new Dialog({
+      title: game.i18n.localize('MB.Scvmify'),
+      content: "<p>&nbsp;<p>Destroy this character, and replace it with new Scvm?</p><p>This cannot be undone!</p><p>&nbsp;</p>",
+      buttons: {
+        cancel: {
+          label: game.i18n.localize('MB.Cancel'),
+        },
+        scvmify: {
+          icon: '<i class="fas fa-skull"></i>',
+          label: game.i18n.localize('MB.Scvmify'),
+          callback: () => this.actor.scvmify()
+       },
+      },
+      default: "cancel",
+     });
+     d.render(true);
+  }
+
   _onRest(event) {
     event.preventDefault();
     const restDialog = new RestDialog();
@@ -227,13 +249,16 @@ export class MBActorSheetCharacter extends ActorSheet {
       title: game.i18n.localize('MB.GetBetter'),
       content: "<p>&nbsp;<p>The game master decides when a character should be improved.<p>It can be after completing a scenario, killing mighty foes, or bringing home treasure.<p>&nbsp;",
       buttons: {
-       getbetter: {
-        icon: '<i class="fas fa-check"></i>',
-        label: game.i18n.localize('MB.GetBetter'),
-        callback: () => this.actor.getBetter()
-       },
+        cancel: {
+          label: game.i18n.localize('MB.Cancel'),
+        },
+        getbetter: {
+          icon: '<i class="fas fa-check"></i>',
+          label: game.i18n.localize('MB.GetBetter'),
+          callback: () => this.actor.getBetter()
+        },
       },
-      default: "getbetter",
+      default: "cancel",
      });
      d.render(true);
   }

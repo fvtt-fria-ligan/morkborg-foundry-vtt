@@ -209,7 +209,6 @@ const rollScvmForClass = async (clazz) => {
 const scvmToActorData = (s) => {
     return {
         name: s.name,
-        img: s.actorImg,
         type: "character",
         // TODO: do we need to set folder or sort?
         // folder: folder.data._id,
@@ -236,9 +235,6 @@ const scvmToActorData = (s) => {
             },
             silver: s.silver,
         },
-        token: {
-            img: s.tokenImg,
-        },
         items: s.items,
         flags: {}
     }
@@ -246,6 +242,9 @@ const scvmToActorData = (s) => {
 
 const createActorWithScvm = async (s) => {
     const data = scvmToActorData(s);
+    // also set avatar and token images
+    data.img = s.actorImg;
+    data.token = { img: s.tokenImg };
     const actor = await Actor.create(data);
     actor.sheet.render(true);
 };
