@@ -69,6 +69,9 @@ const createActorWithClass = async (clazz) => {
     const touRoll = new Roll(clazz.data.data.startingToughness).evaluate();
     const toughness = abilityBonus(touRoll.total);
 
+    const newHP = Math.max(1, hpRoll.total + toughness);
+    const newPowerUses = Max.max(0, powerUsesRoll + presence);
+
     // everybody gets food and water
     const miscPack = game.packs.get('morkborg.equipment-misc');
     const miscContent = await miscPack.getContent();
@@ -196,16 +199,16 @@ const createActorWithClass = async (clazz) => {
             },
             description: descriptionLines.join(""),
             hp: {
-                max: hpRoll.total + toughness,
-                value: hpRoll.total + toughness,
+                max: newHP,
+                value: newHP,
             },
             omens: {
                 max: omensRoll.total,
                 value: omensRoll.total,
             },
             powerUses: {
-                max: powerUsesRoll.total + presence,
-                value: powerUsesRoll.total + presence,
+                max: newPowerUses,
+                value: newPpowerUses,
             },
             silver: silverRoll.total,
         },
