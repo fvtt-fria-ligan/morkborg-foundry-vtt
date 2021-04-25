@@ -11,6 +11,15 @@ if (actor !== null) {
 There are equivalent functions for testAgility(), testPresence(), and testToughness().
 
 
+## Defend
+
+```
+if (actor !== null) {
+  actor.defend();
+}
+```
+
+
 ## Herbmaster Decoctions
 
 ```
@@ -21,13 +30,4 @@ let table = content.find(i => i.name === 'Occult Herbmaster Decoctions');
 await table.draw();
 new Roll('1d4').toMessage({ flavor: 'Doses Brewed' });
 })();
-```
-
-
-## Defend
-
-```
-if (actor !== null) {
-  actor.defend();
-}
 ```
