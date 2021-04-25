@@ -70,22 +70,28 @@ export default class ScvmDialog extends Application {
 
         if (selected.length === 0) {
             // nothing selected, so bail
-            // TODO: show error
             return;
         }
 
         const packName = selected[Math.floor(Math.random() * selected.length)];
         const clazz = await classItemFromPack(packName);
         if (!clazz) {
-            // couldn't find class, so bail
-            // TODO: show error
+            // couldn't find class item, so bail
+            const err = `No class item found in pack ${packName}`;
+            console.error(err);
+            ui.notifications.error(err);
             return;
         }
 
-        if (this.actor) {
-            await scvmifyActor(this.actor, clazz);
-        } else {
-            await createScvm(clazz);
+        try {
+            if (this.actor) {
+                await scvmifyActor(this.actor, clazz);
+            } else {
+                await createScvm(clazz);
+            }    
+        } catch (err) {
+            console.error(err);
+            ui.notifications.error(`Error creating ${clazz.name}. Check console for error log.`);
         }
 
         this.close();

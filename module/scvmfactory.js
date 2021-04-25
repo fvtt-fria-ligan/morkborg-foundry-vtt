@@ -39,14 +39,14 @@ const pickRandomClass = async () => {
 
 export const findClassPacks = () => {
     // TODO: hard-code this until we've converted all classes in morkborg and morkborg-3p
-    return [
-        "morkborg.class-classless-adventurer",
-        "morkborg.class-esoteric-hermit",
-        "morkborg.class-fanged-deserter",
-        "morkborg.class-gutterborn-scum",
-        "morkborg.class-occult-herbmaster",
-        "morkborg.class-wretched-royalty",
-    ];
+    // return [
+    //     "morkborg.class-classless-adventurer",
+    //     "morkborg.class-esoteric-hermit",
+    //     "morkborg.class-fanged-deserter",
+    //     "morkborg.class-gutterborn-scum",
+    //     "morkborg.class-occult-herbmaster",
+    //     "morkborg.class-wretched-royalty",
+    // ];
 
     const classPacks = [];
     const packKeys = game.packs.keys();
