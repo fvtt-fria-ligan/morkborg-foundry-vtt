@@ -3,7 +3,7 @@
 ## Test Ability
 
 ```
-if (actor !=== null) {
+if (actor !== null) {
   actor.testStrength();
 }
 ```
@@ -27,7 +27,7 @@ new Roll('1d4').toMessage({ flavor: 'Doses Brewed' });
 ## Defend
 
 ```
-if (actor !=== null) {
+if (actor !== null) {
   actor.defend();
 }
 ```
