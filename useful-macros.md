@@ -23,3 +23,11 @@ new Roll('1d4').toMessage({ flavor: 'Doses Brewed' });
 })();
 ```
 
+
+## Defend
+
+```
+if (actor !=== null) {
+  actor.defend();
+}
+```
