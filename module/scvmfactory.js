@@ -2,15 +2,17 @@ import {MBActor} from "./actor.js";
 import {MBItem} from "./item.js";
 import {randomName} from "./names.js";
 
-export const createScvm = async () => {
-    console.log("***** SCVM FACTORY *****")
+export const createRandomScvm = async () => {
     const clazz = await pickRandomClass();
+    await createScvm(clazz);
+};
+
+export const createScvm = async (clazz) => {
     const scvm = await rollScvmForClass(clazz);
     await createActorWithScvm(scvm);
 };
 
-export const scvmifyActor = async (actor) => {
-    const clazz = await pickRandomClass();
+export const scvmifyActor = async (actor, clazz) => {
     const scvm = await rollScvmForClass(clazz);
     await updateActorWithScvm(actor, scvm);
 };
@@ -35,7 +37,7 @@ const pickRandomClass = async () => {
     return content.find(i => i.data.type === "class");
 };
 
-const findClassPacks = () => {
+export const findClassPacks = () => {
     // TODO: hard-code this until we've converted all classes in morkborg and morkborg-3p
     return [
         "morkborg.class-classless-adventurer",
@@ -57,6 +59,12 @@ const findClassPacks = () => {
         }
     }
     return classPacks;
+};
+
+export const classItemFromPack = async (packName) => { 
+    const pack = game.packs.get(packName); 
+    const content = await pack.getContent(); 
+    return content.find(i => i.data.type === "class");
 };
 
 const rollScvmForClass = async (clazz) => {

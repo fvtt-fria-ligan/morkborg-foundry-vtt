@@ -1554,44 +1554,46 @@ a.inline-roll {
   text-shadow: 0 0 10px var(--highlight-background-color);
 }
 /* ====================== */
-/* Rest Dialog */
+/* Rest and Scvm Dialogs */
 /* ====================== */
-.rest-dialog {
+.custom-dialog {
   border: 1px solid #7a7971;
   font-size: 14px;
   margin: 0;
 }
-.rest-dialog .section {
+.custom-dialog .section {
   margin: 10px 10px 20px 10px;
 }
-.rest-dialog .subtitle {
+.custom-dialog .subtitle {
   font-family: var(--h2-font);
   font-size: 22px;
 }
-.rest-dialog ul {
+.custom-dialog ul {
   list-style-type: none;
 }
-.rest-dialog li {
+.custom-dialog li {
   margin: 0 0 10px 0;
 }
-.rest-dialog li input[type=checkbox],
-.rest-dialog li input[type=radio] {
+.custom-dialog li input[type=checkbox],
+.custom-dialog li input[type=radio] {
   float: left;
 }
-.rest-dialog li input[type=checkbox] {
+.custom-dialog li input[type=checkbox] {
   height: 14px;
   width: 14px;
 }
-.rest-dialog li label div {
+.custom-dialog li label div {
   display: block;
   margin-left: 30px;
 }
-.rest-dialog .button-row {
+.custom-dialog .button-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
   margin-bottom: 10px;
   margin-top: 10px;
-  text-align: center;
 }
-.rest-dialog .button-row .rest-button {
+.custom-dialog .button-row button {
   border: none;
   border-bottom: 2px solid #777;
   border-radius: 0;
@@ -1599,9 +1601,12 @@ a.inline-roll {
   font-size: 20px;
   width: 150px;
 }
-.rest-dialog .button-row .rest-button:active,
-.rest-dialog .button-row .rest-button:focus,
-.rest-dialog .button-row .rest-button:hover {
+.custom-dialog .button-row button:active,
+.custom-dialog .button-row button:focus,
+.custom-dialog .button-row button:hover {
   box-shadow: 0 0 5px var(--highlight-background-color);
   text-shadow: 0 0 10px var(--highlight-background-color);
+}
+.scvmify-dialog .class-name {
+  text-transform: capitalize;
 }

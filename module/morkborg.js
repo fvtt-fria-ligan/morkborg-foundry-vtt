@@ -11,7 +11,7 @@ import { MBItem } from "./item.js";
 import { MBItemSheet } from "./item-sheet.js";
 import { createMorkBorgMacro, rollItemMacro } from "./macros.js";
 import { migrateWorld } from "./migration.js";
-import { createScvm } from "./scvmfactory.js";
+import ScvmDialog from "./scvm-dialog.js";
 import { registerSystemSettings } from "./settings.js";
 
 /* -------------------------------------------- */
@@ -161,7 +161,9 @@ Hooks.on('renderActorDirectory', (app,  html, data) => {
         <button class="create-scvm-button"><i class="fas fa-skull"></i>Create Scvm</button>
       </div>
       `);
-    section.querySelector('.create-scvm-button').addEventListener('click', (ev) => createScvm());  
+    section.querySelector('.create-scvm-button').addEventListener('click', (ev) => {
+      new ScvmDialog().render(true);
+    });  
   }
 });
 

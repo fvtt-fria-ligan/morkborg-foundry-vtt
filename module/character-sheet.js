@@ -1,5 +1,6 @@
 import * as editor from "./editor.js";
 import RestDialog from "./rest-dialog.js";
+import ScvmDialog from "./scvm-dialog.js";
 
 /**
  * @extends {ActorSheet}
@@ -214,23 +215,7 @@ export class MBActorSheetCharacter extends ActorSheet {
 
   _onScvmify(event) {
     event.preventDefault();
-    // confirm before doing get better
-    let d = new Dialog({
-      title: game.i18n.localize('MB.Scvmify'),
-      content: "<p>&nbsp;<p>Destroy this character, and replace it with a new Scvm?</p><p>This cannot be undone!</p><p>&nbsp;</p>",
-      buttons: {
-        cancel: {
-          label: game.i18n.localize('MB.Cancel'),
-        },
-        scvmify: {
-          icon: '<i class="fas fa-skull"></i>',
-          label: game.i18n.localize('MB.Scvmify'),
-          callback: () => this.actor.scvmify()
-       },
-      },
-      default: "cancel",
-     });
-     d.render(true);
+    new ScvmDialog().render(true);
   }
 
   _onRest(event) {
