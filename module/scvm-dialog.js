@@ -30,7 +30,7 @@ export default class ScvmDialog extends Application {
     getData(options={}) {
         return mergeObject(super.getData(options), {
             classes: this.classes,
-            forActor: this.actor !== undefined,
+            forActor: (this.actor !== undefined && this.actor !== null),
         });
     }
 
