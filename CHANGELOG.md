@@ -1,3 +1,6 @@
+# 0.3.3
+- Fixed bug when calling Scvmfactory from character sheet.
+
 # 0.3.2
 - Added checkboxes to select generated classes to Scvmfactory dialog.
 - Updated Scvmfactory to include all compendiums with name prefix "class-".
