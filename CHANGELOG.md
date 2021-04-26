@@ -1,3 +1,7 @@
+# 0.3.2
+- Added checkboxes to select generated classes to Scvmfactory dialog.
+- Updated Scvmfactory to include all compendiums with name prefix "class-".
+
 # 0.3.1
 - Added "Scumify" skull-button and confirmation dialog to character sheet, to allow players to re-roll their characters.
 - Changed "Create Scvm" button to show for any user with permissions to create actors.
