@@ -215,7 +215,7 @@ export class MBActorSheetCharacter extends ActorSheet {
 
   _onScvmify(event) {
     event.preventDefault();
-    new ScvmDialog().render(true);
+    new ScvmDialog(this.actor).render(true);
   }
 
   _onRest(event) {

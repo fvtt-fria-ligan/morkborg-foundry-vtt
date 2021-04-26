@@ -97,4 +97,3 @@ export default class ScvmDialog extends Application {
         this.close();
     }    
 }  
-
