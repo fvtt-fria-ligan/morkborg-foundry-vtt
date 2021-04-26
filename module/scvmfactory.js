@@ -51,7 +51,6 @@ export const findClassPacks = () => {
     const classPacks = [];
     const packKeys = game.packs.keys();
     for (const packKey of packKeys) {
-        console.log(packKey);
         // moduleOrSystemName.packName
         const packName = packKey.split(".")[1];
         if (packName.startsWith("class-")) {
@@ -114,22 +113,28 @@ const rollScvmForClass = async (clazz) => {
     const rolledScroll = allEq.filter(i => i.data.type === "scroll").length > 0;
 
     // starting weapon
-    let weaponRoll = new Roll(clazz.data.data.weaponTableDie);
-    if (rolledScroll) {
-        // TODO: should only the classless adventurer get gimped down to d6?
-        if (weaponRoll === "1d10") {
-            weaponRoll = "1d6";
+    let weapons = [];
+    if (clazz.data.data.weaponTableDie) {
+        let weaponRoll = new Roll(clazz.data.data.weaponTableDie);
+        if (rolledScroll) {
+            // TODO: should only the classless adventurer get gimped down to d6?
+            if (weaponRoll === "1d10") {
+                weaponRoll = "1d6";
+            }
         }
+        const weaponTable = ccContent.find(i => i.name === 'Starting Weapon');
+        const weaponDraw = await weaponTable.draw({roll: weaponRoll, displayChat: false});
+        weapons = await entitiesFromResults(weaponDraw.results);
     }
-    const weaponTable = ccContent.find(i => i.name === 'Starting Weapon');
-    const weaponDraw = await weaponTable.draw({roll: weaponRoll, displayChat: false});
-    const weapons = await entitiesFromResults(weaponDraw.results);
 
     // starting armor
-    const armorRoll = new Roll(clazz.data.data.armorTableDie);
-    const armorTable = ccContent.find(i => i.name === 'Starting Armor');
-    const armorDraw = await armorTable.draw({roll: armorRoll, displayChat: false});
-    const armors = await entitiesFromResults(armorDraw.results);
+    let armors = [];
+    if (clazz.data.data.armorTableDie) {
+        const armorRoll = new Roll(clazz.data.data.armorTableDie);
+        const armorTable = ccContent.find(i => i.name === 'Starting Armor');
+        const armorDraw = await armorTable.draw({roll: armorRoll, displayChat: false});
+        armors = await entitiesFromResults(armorDraw.results);
+    }
 
     // class-specific starting items
     const startingItems = [];
@@ -159,7 +164,8 @@ const rollScvmForClass = async (clazz) => {
         const lines = clazz.data.data.startingRolls.split("\n");
         for (const line of lines) {
             const [packName, tableName, rolls] = line.split(",");
-            const numRolls = parseInt(rolls);
+            // assume 1 roll unless otherwise specified in the csv
+            const numRolls = rolls ? parseInt(rolls) : 1;
             const pack = game.packs.get(packName);
             if (pack) {
                 const content = await pack.getContent();
@@ -181,7 +187,11 @@ const rollScvmForClass = async (clazz) => {
                             startingRollItems.push(entity);
                         }
                     }
+                } else {
+                    console.log(`Could not find RollTable ${tableName}`);
                 }
+            } else {
+                console.log(`Could not find compendium ${packName}`);
             }
         }
     }
@@ -195,8 +205,12 @@ const rollScvmForClass = async (clazz) => {
     // for other non-item entities, just add some description text
     const nonItems = ents.filter(e => !(e instanceof MBItem));
     for (const nonItem of nonItems) {
-        const upperType = nonItem.data.type.toUpperCase();
-        descriptionLines.push(`<p>&nbsp;</p><p>${upperType}: ${nonItem.data.name}</p>`);
+        if (nonItem && nonItem.data && nonItem.data.type) {
+            const upperType = nonItem.data.type.toUpperCase();
+            descriptionLines.push(`<p>&nbsp;</p><p>${upperType}: ${nonItem.data.name}</p>`);
+        } else {
+            console.log(`Skipping non-item ${nonItem}`);
+        }
     }
 
     return {
@@ -345,7 +359,6 @@ const abilityBonus = (rollTotal) => {
         return 3;
     }
 };
-
 
 /** Workaround for compendium RollTables not honoring replacement=false */
 const compendiumTableDrawMany = async (rollTable, numDesired) => {
