@@ -51,6 +51,7 @@ export const findClassPacks = () => {
     const classPacks = [];
     const packKeys = game.packs.keys();
     for (const packKey of packKeys) {
+        console.log(packKey);
         // moduleOrSystemName.packName
         const packName = packKey.split(".")[1];
         if (packName.startsWith("class-")) {

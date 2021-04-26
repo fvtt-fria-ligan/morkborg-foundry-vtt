@@ -8,7 +8,7 @@ export default class ScvmDialog extends Application {
         const classPacks = findClassPacks();
         this.classes = classPacks.map(p => {
             return {
-                name: p.split("class-")[1].replace("-", " "),
+                name: p.split("class-")[1].replaceAll("-", " "),
                 pack: p
             }});
         this.classes.sort((a, b) => (a.name > b.name) ? 1 : -1);
@@ -45,13 +45,13 @@ export default class ScvmDialog extends Application {
 
     _onToggleAll(event) {
         event.preventDefault();
-        const form = $(event.currentTarget).parents(".scvmify-dialog")[0];
+        const form = $(event.currentTarget).parents(".scvm-dialog")[0];
         $(form).find(".class-checkbox").prop('checked', true);
     }
 
     _onToggleNone(event) {
         event.preventDefault();
-        const form = $(event.currentTarget).parents(".scvmify-dialog")[0];
+        const form = $(event.currentTarget).parents(".scvm-dialog")[0];
         $(form).find(".class-checkbox").prop('checked', false);
     }
 
@@ -62,9 +62,9 @@ export default class ScvmDialog extends Application {
 
     async _onScvm(event) {
         event.preventDefault();
-        const form = $(event.currentTarget).parents(".scvmify-dialog")[0];
+        const form = $(event.currentTarget).parents(".scvm-dialog")[0];
         const selected = [];
-        $(form).find('input:checked').each(function() {
+        $(form).find("input:checked").each(function() {
            selected.push($(this).attr("name"));
         });
 
@@ -77,7 +77,7 @@ export default class ScvmDialog extends Application {
         const clazz = await classItemFromPack(packName);
         if (!clazz) {
             // couldn't find class item, so bail
-            const err = `No class item found in pack ${packName}`;
+            const err = `No class item found in compendium ${packName}`;
             console.error(err);
             ui.notifications.error(err);
             return;

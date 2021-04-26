@@ -1837,7 +1837,7 @@ a.inline-roll {
 }
 
 /* ====================== */
-/* Rest and Scvmify Dialogs */
+/* Rest and Scvm Dialogs */
 /* ====================== */
 .custom-dialog {
   border: 1px solid #7a7971;
@@ -1901,6 +1901,6 @@ a.inline-roll {
   text-shadow: 0 0 10px var(--highlight-background-color);
 }
 
-.scvmify-dialog .class-name {
+.scvm-dialog .class-name {
   text-transform: capitalize;
 }
