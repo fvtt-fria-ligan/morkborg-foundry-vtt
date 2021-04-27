@@ -47,15 +47,17 @@ export const findClassPacks = () => {
     //     "morkborg.class-occult-herbmaster",
     //     "morkborg.class-wretched-royalty",
     // ];
-
     const classPacks = [];
     const packKeys = game.packs.keys();
     for (const packKey of packKeys) {
         // moduleOrSystemName.packName
-        const packName = packKey.split(".")[1];
-        if (packName.startsWith("class-")) {
-            // class pack
-            classPacks.push(packKey);
+        const keyParts = packKey.split(".");
+        if (keyParts.length === 2) {
+            const packName = keyParts[1];
+            if (packName.startsWith("class-") && packName.length > 6) {
+                // class pack
+                classPacks.push(packKey);
+            }
         }
     }
     return classPacks;

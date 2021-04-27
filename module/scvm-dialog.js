@@ -8,7 +8,7 @@ export default class ScvmDialog extends Application {
         const classPacks = findClassPacks();
         this.classes = classPacks.map(p => {
             return {
-                name: p.split("class-")[1].replaceAll("-", " "),
+                name: p.split("class-")[1].replace(/-/g, " "),
                 pack: p
             }});
         this.classes.sort((a, b) => (a.name > b.name) ? 1 : -1);
