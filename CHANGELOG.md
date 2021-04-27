@@ -1,3 +1,6 @@
+# 0.3.4
+- Fixed bug when using Scvmfactory from Foundry console.
+
 # 0.3.3
 - Fixed bug when calling Scvmfactory from character sheet.
 
