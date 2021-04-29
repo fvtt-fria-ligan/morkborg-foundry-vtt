@@ -153,9 +153,10 @@ export class MBActorSheetCharacter extends ActorSheet {
     html.find(".ability-label.rollable.presence").on("click", this._onPresenceRoll.bind(this));
     html.find(".ability-label.rollable.toughness").on("click", this._onToughnessRoll.bind(this));
     html.find('.item-scvmify').click(this._onScvmify.bind(this));
-    html.find(".rest-buttons .rest-button").on("click", this._onRest.bind(this));
-    html.find(".rest-buttons .get-better-button").on("click", this._onGetBetter.bind(this));
-    html.find(".omens-row .rollable").on("click", this._onOmensRoll.bind(this));
+    html.find(".broken-button").on("click", this._onBroken.bind(this));
+    html.find(".rest-button").on("click", this._onRest.bind(this));
+    html.find(".omens-row span.rollable").on("click", this._onOmensRoll.bind(this));
+    html.find(".get-better-button").on("click", this._onGetBetter.bind(this));
     // violence tab
     html.find('.party-initiative').click(this._onPartyInitiativeRoll.bind(this));
     html.find('.individual-initiative').click(this._onIndividualInitiativeRoll.bind(this));
@@ -216,6 +217,11 @@ export class MBActorSheetCharacter extends ActorSheet {
   _onScvmify(event) {
     event.preventDefault();
     new ScvmDialog(this.actor).render(true);
+  }
+
+  _onBroken(event) {
+    event.preventDefault();
+    this.actor.rollBroken();
   }
 
   _onRest(event) {

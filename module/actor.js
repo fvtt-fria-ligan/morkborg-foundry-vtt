@@ -2,10 +2,8 @@ import { addShowDicePromise, diceSound, showDice } from "./dice.js";
 import { scvmifyActor } from "./scvmfactory.js";
 
 const ATTACK_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/attack-roll-card.html";
+const BROKEN_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/broken-roll-card.html";
 const DEFEND_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/defend-roll-card.html";
-const GET_BETTER_ABILITY_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/get-better-ability-roll-card.html";
-const GET_BETTER_DEBRIS_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/get-better-debris-roll-card.html";
-const GET_BETTER_HP_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/get-better-hp-roll-card.html";
 const GET_BETTER_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/get-better-roll-card.html";
 const MORALE_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/morale-roll-card.html";
 const OUTCOME_ONLY_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/outcome-only-roll-card.html";
@@ -849,5 +847,53 @@ export class MBActor extends Actor {
 
   async scvmify() {
     await scvmifyActor(this);
+  }
+
+  async rollBroken() {
+    const brokenRoll = new Roll("1d4").evaluate();
+    await showDice(brokenRoll);
+
+    let outcomeLines = [];
+    let additionalRolls = [];
+    if (brokenRoll.total === 1) {
+      const unconsciousRoll = new Roll("1d4").evaluate();
+      const s = unconsciousRoll.total > 1 ? "s" : "";
+      const hpRoll = new Roll("1d4").evaluate();
+      outcomeLines = [`Fall unconscious`, `for ${unconsciousRoll.total} round${s},`, `awaken with ${hpRoll.total} HP.`];
+      additionalRolls = [unconsciousRoll, hpRoll];
+    } else if (brokenRoll.total === 2) {
+      const limbRoll = new Roll("1d6").evaluate();
+      const actRoll = new Roll("1d4").evaluate();
+      const hpRoll = new Roll("1d4").evaluate();
+      const s = actRoll.total > 1 ? "s" : "";
+      if (limbRoll.total <= 5) {
+        outcomeLines = [`Broken or severed limb.`, `Can't act for ${actRoll.total} round${s} then become active`, `with ${hpRoll.total} HP.`];
+      } else {
+        outcomeLines = [`Lost eye.`, `Can't act for ${actRoll.total} round${s} then become active with ${hpRoll.total} HP.`];
+      }
+      additionalRolls = [limbRoll, actRoll, hpRoll];
+    } else if (brokenRoll.total === 3) {
+      const hemorrhageRoll = new Roll("1d2").evaluate(); 
+      const s = hemorrhageRoll.total > 1 ? "s" : "";
+      outcomeLines = [`Hemorrhage:`, `dead in ${hemorrhageRoll.total} hour${s}`, `unless treated.`, `All tests are DR16`, `the first hour.`];
+      if (hemorrhageRoll.total == 2) {
+        outcomeLines.push( `DR18 the last hour.`);
+      }
+      additionalRolls = [hemorrhageRoll];
+    } else {
+      outcomeLines = [`You are dead.`];
+    }
+
+    const data = {
+      additionalRolls,
+      brokenRoll,
+      outcomeLines
+    };
+    const html = await renderTemplate(BROKEN_ROLL_CARD_TEMPLATE, data);
+    ChatMessage.create({
+      content : html,
+      sound : diceSound(),
+      speaker : ChatMessage.getSpeaker({actor: this}),
+    });
   }
 }  

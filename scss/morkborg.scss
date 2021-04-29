@@ -339,7 +339,6 @@
 .morkborg.sheet.actor.character
   .sheet-header
   .header-col2
-  .rest-buttons
   button {
     border: none;
     border-bottom: 2px solid #777;
@@ -351,14 +350,18 @@
 .morkborg.sheet.actor.character
   .sheet-header
   .header-col2
-  .rest-buttons
-  .rest-button {
-    width: 70px;
+  .broken-button {
+    width: 80px;
 }
 .morkborg.sheet.actor.character
   .sheet-header
   .header-col2
-  .rest-buttons
+  .rest-button {
+    width: 80px;
+}
+.morkborg.sheet.actor.character
+  .sheet-header
+  .header-col2
   .get-better-button {
     width: 90px;
 }
@@ -386,14 +389,11 @@
   width: 100%;
 }
 .morkborg.sheet.actor.character .sheet-header .classname-row {
-  flex: 0 0 30px;
-  margin-bottom: 7px;
   display: flex;
+  flex: 0 0 30px;
   flex-direction: row;
+  margin-bottom: 7px;
   width: 100%;
-}
-.morkborg.sheet.actor.character .sheet-header .classname-row span.class-label {
-  /* flex: 0 0 60px; */
 }
 .morkborg.sheet.actor.character .sheet-header .classname-row img.classimg {
   height: 24px;
@@ -419,11 +419,16 @@
   margin-bottom: 7px;
 }
 .morkborg.sheet.actor.character .sheet-header .omens-row {
+  display: flex;
   flex: 0 0 30px;
   margin-bottom: 7px;
+  width: 100%;
 }
 .morkborg.sheet.actor.character .sheet-header .omen-rule {
+  flex: 0 0 90px;
   margin-left: 10px;
+  margin-right: 11px;
+  margin-top: 10px;
   text-transform: lowercase;
 }
 .morkborg.sheet.actor.character .sheet-header .miseries-row {

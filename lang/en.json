@@ -22,6 +22,7 @@
 "MB.AttackCritText": "Crit: x2 damage, target armor reduced one tier.",
 "MB.AttackFumbleText": "Fumble: Weapon breaks or is lost.",
 "MB.Base": "Base",
+"MB.Broken": "Broken",
 "MB.CarryWeight": "Carry Weight",
 "MB.Carrying": "Carrying",
 "MB.CarryingCapacity": "Carrying Capacity",
