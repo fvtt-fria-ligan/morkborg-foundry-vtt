@@ -1,3 +1,6 @@
+# 0.3.5
+- Implement broken, as a button on the character sheet + custom roll card.
+
 # 0.3.4
 - Fixed bug when using Scvmfactory from Foundry console.
 
