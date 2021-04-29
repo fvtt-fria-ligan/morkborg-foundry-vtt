@@ -10,7 +10,7 @@ export class MBActorSheetCharacter extends ActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["morkborg", "sheet", "actor", "character"],
-      template: "systems/morkborg/templates/character-sheet.html",
+      template: "systems/morkborg/templates/actor/character-sheet.html",
       width: 720,
       height: 680,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "violence"}],

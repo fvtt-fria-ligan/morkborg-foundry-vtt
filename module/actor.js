@@ -1,16 +1,18 @@
 import { addShowDicePromise, diceSound, showDice } from "./dice.js";
 import { scvmifyActor } from "./scvmfactory.js";
 
-const ATTACK_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/attack-roll-card.html";
-const BROKEN_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/broken-roll-card.html";
-const DEFEND_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/defend-roll-card.html";
-const GET_BETTER_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/get-better-roll-card.html";
-const MORALE_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/morale-roll-card.html";
-const OUTCOME_ONLY_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/outcome-only-roll-card.html";
-const OUTCOME_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/outcome-roll-card.html";
-const REACTION_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/reaction-roll-card.html";
-const TEST_ABILITY_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/test-ability-roll-card.html";
-const WIELD_POWER_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/wield-power-roll-card.html";
+const ATTACK_DIALOG_TEMPLATE = "systems/morkborg/templates/dialog/attack-dialog.html";
+const ATTACK_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/chat/attack-roll-card.html";
+const BROKEN_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/chat/broken-roll-card.html";
+const DEFEND_DIALOG_TEMPLATE = "systems/morkborg/templates/dialog/defend-dialog.html";
+const DEFEND_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/chat/defend-roll-card.html";
+const GET_BETTER_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/chat/get-better-roll-card.html";
+const MORALE_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/chat/morale-roll-card.html";
+const OUTCOME_ONLY_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/chat/outcome-only-roll-card.html";
+const OUTCOME_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/chat/outcome-roll-card.html";
+const REACTION_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/chat/reaction-roll-card.html";
+const TEST_ABILITY_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/chat/test-ability-roll-card.html";
+const WIELD_POWER_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/chat/wield-power-roll-card.html";
 
 /**
  * @extends {Actor}
@@ -163,14 +165,13 @@ export class MBActor extends Actor {
       attackDR = 12;  // default
     }
     const targetArmor = await this.getFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.TARGET_ARMOR);    
-    const template = "systems/morkborg/templates/attack-dialog.html";
     let dialogData = {
       attackDR,
       config: CONFIG.MorkBorg,
       itemId,
       targetArmor
     };
-    const html = await renderTemplate(template, dialogData);
+    const html = await renderTemplate(ATTACK_DIALOG_TEMPLATE, dialogData);
     return new Promise(resolve => {
       new Dialog({
          title: game.i18n.localize('MB.Attack'),
@@ -297,7 +298,6 @@ export class MBActor extends Actor {
     if (!incomingAttack) {
       incomingAttack = "1d4";  // default
     }
-    const template = "systems/morkborg/templates/defend-dialog.html";
 
     const armor = this.equippedArmor();
     let drModifiers = [];
@@ -319,7 +319,7 @@ export class MBActor extends Actor {
       drModifiers,
       incomingAttack,
     };
-    const html = await renderTemplate(template, dialogData);
+    const html = await renderTemplate(DEFEND_DIALOG_TEMPLATE, dialogData);
 
     return new Promise(resolve => {
       new Dialog({

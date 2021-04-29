@@ -8,7 +8,7 @@ import * as editor from "./editor.js";
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["morkborg", "sheet", "actor", "creature"],
-      template: "systems/morkborg/templates/creature-sheet.html",
+      template: "systems/morkborg/templates/actor/creature-sheet.html",
       width: 720,
       height: 680,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}],

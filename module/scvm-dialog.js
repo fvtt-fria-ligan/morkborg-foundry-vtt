@@ -20,7 +20,7 @@ export default class ScvmDialog extends Application {
         options.id = "scvm-dialog";
         options.classes = ["morkborg"];
         options.title = "The Scvmfactory";
-        options.template = "systems/morkborg/templates/scvm-dialog.html";
+        options.template = "systems/morkborg/templates/dialog/scvm-dialog.html";
         options.width = 420;
         options.height = "auto";
         return options;
