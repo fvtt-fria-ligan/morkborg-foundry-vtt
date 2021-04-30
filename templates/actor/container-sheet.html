@@ -39,6 +39,10 @@
         {{!-- Details Tab --}}
         <div class="tab" data-group="primary" data-tab="details">
             <div class="form-group">
+                <label>{{ localize "MB.ItemPrice" }}:</label>
+                <input type="text" name="data.price" value="{{data.price}}" placeholder="2" data-dtype="Number" />
+            </div> 
+            <div class="form-group">
                 <label>{{ localize "MB.ItemCapacity" }}:</label>
                 <input name="data.capacity.max" type="text" value="{{data.capacity.max}}" placeholder="10" data-dtype="Number"/>
             </div>
