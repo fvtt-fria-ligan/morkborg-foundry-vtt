@@ -8,8 +8,11 @@
         </div>
         <div class="header-col2">
             <div class="name-row">
-                <input class="actor-name follower-name" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'MB.Name' }}"/>
+                <input class="actor-name container-name" name="name" type="text" value="{{actor.name}}" placeholder="{{ localize 'MB.Name' }}"/>
             </div>
+            <div class="actor-subtitle">
+                <h4 class="actor-type">{{actor.type}}</h4>
+            </div>            
         </div>      
     </header>
 
@@ -17,7 +20,7 @@
     <nav class="sheet-tabs tabs" data-group="primary">
         <a class="item" data-tab="description">{{ localize "MB.TabDescription" }}</a>
         <a class="item" data-tab="details">{{ localize "MB.TabDetails" }}</a>
-        <a class="item" data-tab="treasures">{{ localize "MB.TabContents" }}</a>
+        <a class="item" data-tab="contents">{{ localize "MB.TabContents" }}</a>
     </nav>
 
     {{!-- Sheet Body --}}
@@ -29,40 +32,14 @@
 
         {{!-- Details Tab --}}
         <div class="tab" data-group="primary" data-tab="details">
-            {{!-- Morale --}}
             <div class="form-group">
-                <label>{{ localize "MB.Morale" }}:</label>
-                <input name="data.morale" type="text" value="{{data.morale}}" placeholder="10" data-dtype="Number"/>
+                <label>{{ localize "MB.ItemCapacity" }}:</label>
+                <input name="data.capacity.max" type="text" value="{{data.capacity.max}}" placeholder="10" data-dtype="Number"/>
             </div>
-
-            {{!-- Trait --}}
-            <div class="form-group">
-                <label>{{ localize "MB.FollowerTrait" }}:</label>
-                <input type="text" name="data.trait" value="{{data.trait}}" placeholder="None" data-dtype="String" />
-            </div>
-
-            {{!-- Speciality --}}
-            <div class="form-group">
-                <label>{{ localize "MB.FollowerSpeciality" }}:</label>
-                <input type="text" name="data.speciality" value="{{data.speciality}}" placeholder="None" data-dtype="String" />
-            </div>
-
-            {{!-- Value --}}
-            <div class="form-group">
-                <label>{{ localize "MB.FollowerValue" }}:</label>
-                <input type="text" name="data.value" value="{{data.value}}" placeholder="None" data-dtype="String" />
-            </div>
-
         </div>
 
         {{!-- Contents Tab --}}
         <div class="tab equipment-tab" data-group="primary" data-tab="contents">
-            <div class="equipment-top-row">
-                <div class="silver">
-                    <span class="stat-label silver-label">{{ localize "MB.Silver" }}:</span>
-                    <input class="stat-input silver-input" name="data.silver" type="number" value="{{data.silver}}" data-dtype="Number" />  
-                </div>
-            </div>
             <ol class="items-list equipment-list">
                 <li class="items-header flexrow">
                     <h3 class="item-name flexrow">{{localize "MB.Equipment"}}</h3>
@@ -76,15 +53,24 @@
                     {{#each data.equipment as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}">
                         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
-                        <h4 class="item-name">
+                        <h4 class="item-name item-edit rollable">
                             {{item.name}}
                             {{#ifEq item.type 'container'}}
                               ({{localize 'MB.ContainerHolds'}} {{item.data.capacity}})
                             {{/ifEq}}
+                            {{#ifGt item.data.quantity 1}}
+                              ({{item.data.quantity}})
+                            {{/ifGt}}
                         </h4>
                         <div class="item-buttons">
                         </div>
                         <div class="item-controls">
+                            {{#ifEq item.type 'misc'}}
+                                <a class="item-control item-qty-plus" title="Add Quantity"><i class="fas fa-plus"></i></a>
+                                &nbsp;
+                                <a class="item-control item-qty-minus" title="Subtract Quantity"><i class="fas fa-minus"></i></a>
+                                &nbsp;
+                            {{/ifEq}}
                             {{#if item.data.equippable}}
                                 <a class="item-control item-toggle {{item.data.toggleClass}}" title='{{item.data.toggleTitle}}'><i class="fas fa-shield-alt"></i></a>
                             {{/if}}
@@ -95,6 +81,7 @@
                     {{/each}}
                 </ol>
             </ol>
+
         </div>
     </section>
 </form>

@@ -36,7 +36,6 @@ import MBActorSheet from "./actor-sheet.js";
    * @return {undefined}
    */
   _prepareContainerItems(sheetData) {
-    // TODO: refactor / DRY with character-sheet.js. Maybe move into MBActor for better reuse?
     let equipment = [];
     for (let i of sheetData.items) {
       i.img = i.img || DEFAULT_TOKEN;

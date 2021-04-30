@@ -250,9 +250,35 @@
   height: 100%;
   overflow-y: auto;
 }
+.morkborg.sheet .sheet-body .form-group {
+  margin-bottom: 8px;
+}
+.morkborg.sheet .sheet-body .form-group label {
+  font-family: var(--h2-font);
+  font-size: 20px;
+  text-align: right;
+  margin-right: 10px;
+}
+.morkborg.sheet .sheet-body .form-group input {
+  font-family: var(--item-font);
+  font-size: 14pt;
+}
+.morkborg.sheet .sheet-body .form-group select {
+  font-family: var(--item-font);
+  font-size: 14pt;
+}
+.morkborg.sheet .sheet-body .form-group.special {
+  flex: 1;
+}
 /* ====================== */
 /* Actor sheet */
 /* ====================== */
+.morkborg.sheet.actor .sheet-header .actor-subtitle {
+  font-family: var(--h3-font);
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-left: 13px;
+}
 .morkborg.sheet.actor .rule-text {
   font-family: var(--item-font);
   font-size: 10pt;
@@ -784,10 +810,6 @@
   flex-direction: column;
   align-items: center;
 }
-.morkborg.sheet.actor.character .sheet-body .uses-remaining label {
-}
-.morkborg.sheet.actor.character .sheet-body .uses-remaining input {
-}
 .morkborg.sheet.actor.character .sheet-body .uses-remaining div {
   margin-bottom: 20px;
 }
@@ -867,26 +889,6 @@
   margin-bottom: 10px;
   margin-left: 14px;
 }
-.morkborg.sheet.creature .sheet-body .form-group {
-  margin-bottom: 8px;
-}
-.morkborg.sheet.creature .sheet-body .form-group label {
-  font-family: var(--h2-font);
-  font-size: 20px;
-  text-align: right;
-  margin-right: 10px;
-}
-.morkborg.sheet.creature .sheet-body .form-group input {
-  font-family: var(--item-font);
-  font-size: 14pt;
-}
-.morkborg.sheet.creature .sheet-body .form-group select {
-  font-family: var(--item-font);
-  font-size: 14pt;
-}
-.morkborg.sheet.creature .sheet-body .form-group.special {
-  flex: 1;
-}
 /* ====================== */
 /* Item sheet */
 /* ====================== */
@@ -917,24 +919,6 @@
 .morkborg.sheet.item .sheet-body {
   margin-top: 8px;
   padding: 5px;
-  padding-right: 5px;
-}
-.morkborg.sheet.item .sheet-body .form-group {
-  margin-bottom: 8px;
-}
-.morkborg.sheet.item .sheet-body .form-group label {
-  font-family: var(--h2-font);
-  font-size: 20px;
-  text-align: right;
-  margin-right: 10px;
-}
-.morkborg.sheet.item .sheet-body .form-group input {
-  font-family: var(--item-font);
-  font-size: 14pt;
-}
-.morkborg.sheet.item .sheet-body .form-group select {
-  font-family: var(--item-font);
-  font-size: 14pt;
 }
 /* ====================== */
 /* Follower sheet */
@@ -975,29 +959,39 @@
   margin-bottom: 10px;
   margin-left: 14px;
 }
-.morkborg.sheet.item .sheet-body {
-  margin-top: 8px;
+/* ====================== */
+/* Container sheet */
+/* ====================== */
+.morkborg.sheet.actor.container .sheet-header {
+  margin-top: 0;
+  flex: 0 0 90px;
+  display: flex;
+  flex-direction: row;
   padding: 5px;
 }
-.morkborg.sheet.follower .sheet-body .form-group {
-  margin-bottom: 8px;
+.morkborg.sheet.actor.container .sheet-header .header-col1 {
+  flex: 0 0 200px;
 }
-.morkborg.sheet.follower .sheet-body .form-group label {
-  font-family: var(--h2-font);
-  font-size: 20px;
-  text-align: right;
-  margin-right: 10px;
-}
-.morkborg.sheet.follower .sheet-body .form-group input {
-  font-family: var(--item-font);
-  font-size: 14pt;
-}
-.morkborg.sheet.follower .sheet-body .form-group select {
-  font-family: var(--item-font);
-  font-size: 14pt;
-}
-.morkborg.sheet.follower .sheet-body .form-group.special {
+.morkborg.sheet.actor.container .sheet-header .header-col2 {
+  display: flex;
   flex: 1;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  margin: 5px;
+}
+.morkborg.sheet.actor.container .sheet-header .profile-img {
+  height: 200px;
+  width: 200px;
+}
+.morkborg.sheet.actor.container .sheet-header .name-row {
+  flex: 0 0 45px;
+  margin-bottom: 10px;
+  padding-left: 12px;
+  width: 100%;
+}
+.morkborg.sheet.actor.container .sheet-header input[type="text"].container-name {
+  height: 45px;
 }
 /* ====================== */
 /* UI/Dialog fixes */
