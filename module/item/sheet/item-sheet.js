@@ -1,5 +1,5 @@
-import { MB } from "./config.js";
-import * as editor from "./editor.js";
+import { MB } from "../../config.js";
+import * as editor from "../../editor.js";
 
 /*
  * @extends {ItemSheet}

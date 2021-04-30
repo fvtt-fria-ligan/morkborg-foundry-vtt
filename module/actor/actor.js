@@ -1,5 +1,5 @@
-import { addShowDicePromise, diceSound, showDice } from "./dice.js";
-import { scvmifyActor } from "./scvmfactory.js";
+import { addShowDicePromise, diceSound, showDice } from "../dice.js";
+import { scvmifyActor } from "../scvm/scvmfactory.js";
 
 const ATTACK_DIALOG_TEMPLATE = "systems/morkborg/templates/dialog/attack-dialog.html";
 const ATTACK_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/chat/attack-roll-card.html";

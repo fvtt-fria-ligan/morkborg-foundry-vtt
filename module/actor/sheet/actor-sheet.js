@@ -1,4 +1,4 @@
-import * as editor from "./editor.js";
+import * as editor from "../../editor.js";
 
 /**
  * @extends {ActorSheet}

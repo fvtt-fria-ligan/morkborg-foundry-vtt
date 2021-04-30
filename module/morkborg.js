@@ -1,17 +1,18 @@
 /**
  * Mork Borg module.
  */
-import { MBActor } from "./actor.js";
-import { MBActorSheetCharacter } from "./character-sheet.js";
-import { MBActorSheetCreature } from "./creature-sheet.js";
-import { MBActorSheetFollower } from "./follower-sheet.js";
+import { MBActor } from "./actor/actor.js";
+import { MBActorSheetCharacter } from "./actor/sheet/character-sheet.js";
+import { MBActorSheetContainer } from "./actor/sheet/container-sheet.js";
+import { MBActorSheetCreature } from "./actor/sheet/creature-sheet.js";
+import { MBActorSheetFollower } from "./actor/sheet/follower-sheet.js";
 import { MBCombat } from "./combat.js";
 import { MB } from "./config.js";
-import { MBItem } from "./item.js";
-import { MBItemSheet } from "./item-sheet.js";
+import { MBItem } from "./item/item.js";
+import { MBItemSheet } from "./item/sheet/item-sheet.js";
 import { createMorkBorgMacro, rollItemMacro } from "./macros.js";
 import { migrateWorld } from "./migration.js";
-import ScvmDialog from "./scvm-dialog.js";
+import ScvmDialog from "./scvm/scvm-dialog.js";
 import { registerSystemSettings } from "./settings.js";
 
 /* -------------------------------------------- */
@@ -56,6 +57,11 @@ Hooks.once("init", async function() {
     types: ["character"],
     makeDefault: true,
     label: "MB.SheetClassCharacter"
+  });
+  Actors.registerSheet("morkborg", MBActorSheetContainer, {
+    types: ["container"],
+    makeDefault: true,
+    label: "MB.SheetClassContainer"
   });
   Actors.registerSheet("morkborg", MBActorSheetCreature, {
     types: ["creature"],

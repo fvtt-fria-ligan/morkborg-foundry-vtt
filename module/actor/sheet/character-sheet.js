@@ -1,6 +1,6 @@
 import MBActorSheet from "./actor-sheet.js";
 import RestDialog from "./rest-dialog.js";
-import ScvmDialog from "./scvm-dialog.js";
+import ScvmDialog from "../../scvm/scvm-dialog.js";
 
 /**
  * @extends {ActorSheet}

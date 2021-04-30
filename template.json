@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["character", "creature", "follower"],
+    "types": ["character", "container", "creature", "follower"],
     "templates": {
       "common": {
         "abilities": {
@@ -43,6 +43,13 @@
       },
       "powerUsesRemaining": 0,
       "silver": 0
+    },
+    "container": {
+      "capacity": {
+        "max": 0,
+        "value": 0
+      },
+      "description": ""
     },
     "creature": {
       "templates": ["common"],

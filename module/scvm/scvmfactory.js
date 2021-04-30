@@ -1,5 +1,5 @@
-import {MBActor} from "./actor.js";
-import {MBItem} from "./item.js";
+import {MBActor} from "../actor/actor.js";
+import {MBItem} from "../item/item.js";
 import {randomName} from "./names.js";
 
 export const createRandomScvm = async () => {
