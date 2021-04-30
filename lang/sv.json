@@ -31,6 +31,7 @@
 "MB.Class": "Klass",
 "MB.ClassAbilities": "Egenskaper",
 "MB.ContainerAmountIn": "I en Behållare",
+"MB.ContainerHolding": "Bärande",
 "MB.ContainerHolds": "håller",
 "MB.ContainerSpace": "Volym",
 "MB.CreateNewItem": "Skapa Nytt Objekt",

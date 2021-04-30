@@ -45,5 +45,18 @@ import MBActorSheet from "./actor-sheet.js";
     }
     equipment.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
     sheetData.actor.data.equipment = equipment;
+    sheetData.actor.data.containerSpace = this._containerSpace(sheetData);
+  }
+
+  _containerSpace(sheetData) {
+    let total = 0;
+    for (const item of sheetData.items) {
+      if (CONFIG.MB.itemEquipmentTypes.includes(item.type) &&         
+          item.data.containerSpace) {  
+          const roundedSpace = Math.ceil(item.data.containerSpace * item.data.quantity);
+          total += roundedSpace;
+      }
+    }
+    return total;
   }
 }

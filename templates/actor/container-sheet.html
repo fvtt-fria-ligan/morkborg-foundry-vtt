@@ -12,7 +12,13 @@
             </div>
             <div class="actor-subtitle">
                 <h4 class="actor-type">{{actor.type}}</h4>
-            </div>            
+            </div>
+            <div class="holding-row">
+                <span class="stat-label container-label">{{ localize "MB.ContainerHolding" }}:</span>
+                <span class="stat-value">{{data.containerSpace}}</span>
+                /
+                <span class="stat-value">{{data.capacity.max}}</span>    
+            </div>
         </div>      
     </header>
 
