@@ -1,5 +1,12 @@
+# 0.3.6
+- Implemented "container" type actors, to allow having shared containers as tokens on the map.
+- Added "Containers" actor compendium pack, with Small Wagon and Donkey.
+- Added Barbarister as a follower.
+- Added tokens for wagon, donkey, and Barbarister.
+- Lowered donkey capacity to 15.
+
 # 0.3.5
-- Implement broken, as a button on the character sheet + custom roll card.
+- Implemented support for broken, as a button on the character sheet + custom roll card.
 
 # 0.3.4
 - Fixed bug when using Scvmfactory from Foundry console.
