@@ -11,7 +11,6 @@
   --h3-font: "Old Cupboard";
   --item-font: "Special Elite";
 }
-
 /* ====================== */
 /* Fonts */
 /* ====================== */
@@ -118,10 +117,6 @@
 /* ====================== */
 /* Sheet */
 /* ====================== */
-.morkborg.window-app.sheet {
-  /* TODO: decide if we want non-black-default box-shadow;
-  /*box-shadow: 0 0 10px #222222; */
-}
 .morkborg.sheet .window-content {
   overflow-y: hidden;
   padding: 5px;
@@ -261,10 +256,6 @@
 .morkborg.sheet.actor .rule-text {
   font-family: var(--item-font);
   font-size: 10pt;
-}
-.morkborg.sheet.actor .you-have-no {
-  /* TODO: decide if this is better left-align or centered */
-  /* text-align: center; */
 }
 /* ====================== */
 /* Actor sheet header */
@@ -610,10 +601,6 @@
   color: gray;
 }
 /* ====================== */
-/* Character sheet obituary (class) tab */
-/* ====================== */
-
-/* ====================== */
 /* Actor sheet violence tab */
 /* ====================== */
 .morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item {
@@ -816,8 +803,6 @@
 .morkborg.sheet.actor .sheet-body .silver {
   flex: 0 0 200px;
 }
-.morkborg.sheet.actor .sheet-body .silver-label {
-}
 .morkborg.sheet.actor .sheet-body .silver-input {
   width: 70px;
 }
@@ -825,20 +810,12 @@
   flex: 1;
   text-align: center;
 }
-.morkborg.sheet.actor.character .sheet-body .carrying-label {
-}
 .morkborg.sheet.actor.character .sheet-body .container-label {
   margin-left: 40px;
 }
 .morkborg.sheet.actor.character .sheet-body .encumbered {
   color: var(--highlight-background-color);
 }
-/*
-TODO: figure out if we want a 2-col inventory
-.morkborg.sheet.actor .sheet-body .equipment-tab .item-list {
-  columns: 2;
-}
-*/
 /* ====================== */
 /* Creature sheet */
 /* ====================== */
@@ -1025,7 +1002,6 @@ TODO: figure out if we want a 2-col inventory
 /* ====================== */
 /* UI/Dialog fixes */
 /* ====================== */
-/* TODO: figure out the right class/level to fix this stuff */
 .form-group input[type="text"] {
   color: var(--foreground-color);
 }
@@ -1063,12 +1039,6 @@ input[type="text"]:hover {
 input[type="text"]:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
-/*form.editable .results .table-result {
-  color: white;
-}
-form.editable .results .table-result {
-  color: white;
-}*/
 form.editable .results .result-image img {
   background-color: var(--foreground-color);
 }
@@ -1182,7 +1152,6 @@ form.editable .results .result-details input[type="text"]:focus {
   border-top-color: var(--highlight-background-color);
   box-shadow: 0 0 5px var(--highlight-background-color);
 }
-
 /* ====================== */
 /* UI / Chat */
 /* ====================== */
@@ -1195,7 +1164,6 @@ form.editable .results .result-details input[type="text"]:focus {
   color: var(--foreground-color);
 }
 #chat-controls i.fas:hover {
-  /* TODO: fix mcglincy XXX */
   color: var(--highlight-background-color);
   text-shadow: 0 0 5px var(--highlight-background-color);
 }
@@ -1248,10 +1216,6 @@ form.editable .results .result-details input[type="text"]:focus {
   border: 1px solid #252525;
   border-radius: 0;
 }
-/* #chat-log .flavor-text {
-  color: white;
-  font-size: 13.5px;
-} */
 #chat-form textarea {
   color: var(--foreground-color);
   background: var(--background-color);
@@ -1431,26 +1395,21 @@ select:focus {
   font-size: 14px;
   line-height: 1.5;
 }
-
 .window-app.app.journal-sheet .window-content h1 {
   font-family: var(--h2-font);
   border-bottom: 2px solid #222222;
 }
-
 .window-app.app.journal-sheet .window-content h2 {
   border-bottom: 1px solid #252525;
 }
-
 .journal-sheet form button[type="submit"] {
   background: var(--background-color);
 }
-
 .journal-sheet form input[name="name"] {
   color: var(--background-color);
   font-family: var(--h2-font);
   font-size: 32px;
 }
-
 .journal-sheet form select {
   font-family: var(--item-font);
 }
