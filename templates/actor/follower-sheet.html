@@ -177,15 +177,24 @@
                     {{#each data.equipment as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}">
                         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
-                        <h4 class="item-name">
+                        <h4 class="item-name item-edit rollable">
                             {{item.name}}
                             {{#ifEq item.type 'container'}}
                               ({{localize 'MB.ContainerHolds'}} {{item.data.capacity}})
                             {{/ifEq}}
+                            {{#ifGt item.data.quantity 1}}
+                              ({{item.data.quantity}})
+                            {{/ifGt}}
                         </h4>
                         <div class="item-buttons">
                         </div>
                         <div class="item-controls">
+                            {{#ifEq item.type 'misc'}}
+                                <a class="item-control item-qty-plus" title="Add Quantity"><i class="fas fa-plus"></i></a>
+                                &nbsp;
+                                <a class="item-control item-qty-minus" title="Subtract Quantity"><i class="fas fa-minus"></i></a>
+                                &nbsp;
+                            {{/ifEq}}
                             {{#if item.data.equippable}}
                                 <a class="item-control item-toggle {{item.data.toggleClass}}" title='{{item.data.toggleTitle}}'><i class="fas fa-shield-alt"></i></a>
                             {{/if}}
@@ -195,7 +204,7 @@
                     </li>
                     {{/each}}
                 </ol>
-            </ol>
+            </ol>            
         </div>
     </section>
 </form>
