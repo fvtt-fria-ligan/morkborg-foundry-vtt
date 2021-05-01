@@ -17,7 +17,7 @@ This is an implementation of the MÖRK BORG rules, with limited adaptations to m
   * You can also create randomly-generated characters through the built-in *Scvmfactory*.
   * You can trigger random scvm generation in two ways:
     * GMs and players with "Create Actor" privileges will see a "Create Scvm" button at the top of the right sidebar *Actors Directory* tab. This will create a new character.
-    * Every character sheet has a little skull icon button to the right of the current class. This will throwaway all items and stats from the current character, and replace it with a randomly-generated scvm. **Warning**: you cannot be undone.
+    * Every character sheet has a little skull icon button to the right of the current class. This will throwaway all items and stats from the current character, and replace it with a randomly-generated scvm. **Warning**: this cannot be undone.
   * Either trigger will show a dialog window, allowing you to choose which classes to include as possible random scvm fodder.
   * Scvmfactory will attempt to include any Item compendium with a name that begins "Class - ". E.g., "Class - Fanged Deserter".
 
