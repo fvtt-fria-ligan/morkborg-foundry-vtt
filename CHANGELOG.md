@@ -1,3 +1,6 @@
+# 0.3.7
+- Added inventory plus / minus buttons to follower sheet.
+
 # 0.3.6
 - Implemented "container" type actors, to allow having shared containers as tokens on the map.
 - Added "Containers" actor compendium pack, with Small Wagon and Donkey.
