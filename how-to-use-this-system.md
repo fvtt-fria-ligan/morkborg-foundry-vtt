@@ -81,8 +81,9 @@ This is an implementation of the MÖRK BORG rules, with limited adaptations to m
   * *Poltroon the Jester*, *Hamfund the Squire*, and *Barbarister the Incredible Horse* are implemented as both follower and items in the compendiums, so you can play them how you prefer.
 
 ## Container Actors
-  * In addition to the usual *container* Item type (e.g., the backpack), there is a *container* Actor type. This allows you to option to represent things like the Small Wagon and Donkey as tokens on the map, store items separately inside them, etc.
+  * In addition to the usual *container* Item type (e.g., the backpack), there is a *container* Actor type. This gives you the option to represent things like the Small Wagon and Donkey as tokens on the map, store items separately inside them, etc.
   * Currently drag-and-drop from anything to a container actor will duplicate the dragged/dropped item. You have to manually delete it (or decrement quantity) from the source.
+  * There is a *Containers* compendium with the Small Wagon and Donkey.
 
 ## Settings
   * There are user-configurable settings for alternate font and color schemes (upper right *Game Settings* icon button => *Configure Settings* button => *System Settings* tab). This can be helpful if anyone find the default fonts or colors hard to read, or if more eye-bleeding colors are desired :)
