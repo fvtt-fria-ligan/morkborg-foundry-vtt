@@ -129,13 +129,25 @@ const applyFontsAndColors = () => {
   r.style.setProperty("--item-font", fontScheme.item);
 };
 
-Hooks.on('dropActorSheetData', async (actor, sheet, data) => {
+Hooks.on('dropActorSheetData', async (actor, actorSheet, data) => {
+  // Handle one-only Class item
   if (data.type === "Item" && data.pack === "morkborg.classes") {
     // Dropping a new class, so nuke any pre-existing class item(s),
     // to enforce that a character only has one class item at a time.
     const classes = actor.items.filter(i => i.data.type === "class");
     const deletions = classes.map(i => i._id);
-    const deleted = await actor.deleteEmbeddedEntity("OwnedItem", deletions);
+    await actor.deleteEmbeddedEntity("OwnedItem", deletions);
+  }
+
+  // Handle container actor destructive drag-drop
+  if (data.type === "Item" && data.data._id) {
+    const sourceActor = data.tokenId ? game.actors.tokens[data.tokenId] : game.actors.get(data.actorId);
+    if (sourceActor && actor._id !== sourceActor._id && 
+      (sourceActor.data.type === "container" || actor.data.type === "container")) {
+      // either the source or target actor is a container,
+      // so delete the item from the source
+      await sourceActor.deleteOwnedItem(data.data._id);
+    }
   }
 });
 
