@@ -21,15 +21,37 @@ export class MBActor extends Actor {
   /** @override */
   static async create(data, options={}) {
     data.token = data.token || {};
+    let defaults = {};
     if (data.type === "character") {
-      mergeObject(data.token, {
+      defaults = {
+        actorLink: true,
+        disposition: 1,
         vision: true,
         dimSight: 30,
         brightSight: 0,
+      };
+    } else if (data.type === "container") {
+      defaults = {
+        actorLink: false,
+        disposition: 0,
+        vision: false,
+      };
+    } else if (data.type === "creature") {
+      defaults = {
+        actorLink: false,
+        disposition: -1,
+        vision: false,
+      };
+    } else if (data.type === "follower") {
+      defaults = {
         actorLink: true,
-        disposition: 1
-      }, {overwrite: false});
+        disposition: 1,
+        vision: true,
+        dimSight: 30,
+        brightSight: 0,
+      };
     }
+    mergeObject(data.token, defaults, {overwrite: false});
     return super.create(data, options);
   }
 
