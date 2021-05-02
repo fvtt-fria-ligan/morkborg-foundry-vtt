@@ -1,5 +1,7 @@
 # 0.3.7
 - Added inventory plus / minus buttons to follower sheet.
+- Implemented destructive drag-and-drop for container actor inventory.
+- Set sensible default disposition. actor link, and vision for all actor types.
 
 # 0.3.6
 - Implemented "container" type actors, to allow having shared containers as tokens on the map.
