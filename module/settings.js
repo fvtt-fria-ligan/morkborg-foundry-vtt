@@ -21,6 +21,7 @@ export const registerSystemSettings = () => {
     choices: {
       "blackOnYellowWhite": "SETTINGS.MBBlackOnYellowWhite",
       "blackOnWhiteBlack": "SETTINGS.MBBlackOnWhiteBlack",
+      "foundryDefault": "SETTINGS.MBFoundryDefault",
       "whiteOnBlackYellow": "SETTINGS.MBWhiteOnBlackYellow",
       "whiteOnBlackPink": "SETTINGS.MBWhiteOnBlackPink",
       "whiteOnPinkWhite": "SETTINGS.MBWhiteOnPinkWhite",    

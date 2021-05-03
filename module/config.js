@@ -41,35 +41,48 @@ MB.colorSchemes = {
     "foreground": "#000000",
     "foregroundAlt": "#808080",
     "highlightForeground": "#000000",
-    "highlightBackground": "#ffffff"
+    "highlightBackground": "#ffffff",
+    "windowBackground": "#ffe900"
   },
   "blackOnWhiteBlack": {
     "background": "#ffffff",
     "foreground": "#000000",
     "foregroundAlt": "#808080",
     "highlightForeground": "#ffffff",
-    "highlightBackground": "#000000"
+    "highlightBackground": "#000000",
+    "windowBackground": "#ffffff"
+  },
+  "foundryDefault": {
+    "background": "#f0f0e0",
+    "foreground": "#191813",
+    "foregroundAlt": "red",
+    "highlightForeground": "#f0f0e0",
+    "highlightBackground": "#191813",
+    "windowBackground": "url(../ui/parchment.jpg) repeat"
   },
   "whiteOnBlackYellow": {
     "background": "#000000",
     "foreground": "#ffffff",
     "foregroundAlt": "#ffe900",
     "highlightForeground": "#000000",
-    "highlightBackground": "#ffe900"
+    "highlightBackground": "#ffe900",
+    "windowBackground": "000000"
   },
   "whiteOnBlackPink": {
     "background": "#000000",
     "foreground": "#ffffff",
     "foregroundAlt": "#ff3eb5",
     "highlightForeground": "#000000",
-    "highlightBackground": "#ff3eb5"
+    "highlightBackground": "#ff3eb5",
+    "windowBackground": "000000"
   },
   "whiteOnPinkWhite": {
     "background": "#ff3eb5",
     "foreground": "#ffffff",
     "foregroundAlt": "#000000",
     "highlightForeground": "#000000",
-    "highlightBackground": "#ffffff"
+    "highlightBackground": "#ffffff",
+    "windowBackground": "ff3eb5"
   }
 };
 

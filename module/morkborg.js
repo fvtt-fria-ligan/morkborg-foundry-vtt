@@ -116,6 +116,7 @@ const applyFontsAndColors = () => {
   const colorSchemeSetting = game.settings.get("morkborg", "colorScheme");
   const colorScheme = CONFIG.MB.colorSchemes[colorSchemeSetting];
   const r = document.querySelector(":root");
+  r.style.setProperty("--window-background", colorScheme.windowBackground);
   r.style.setProperty("--background-color", colorScheme.background);
   r.style.setProperty("--foreground-color", colorScheme.foreground);
   r.style.setProperty("--foreground-alt-color", colorScheme.foregroundAlt);

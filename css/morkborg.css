@@ -5,6 +5,7 @@
   --foreground-alt-color: #ffe900;
   --highlight-background-color: #ffe900;
   --highlight-foreground-color: #000000;
+  --window-background: red;
   --chat-font: "Alegreya";
   --chat-info-font: "Oswald";
   --h1-font: "Blood Crow";
@@ -151,7 +152,8 @@
   overflow-y: hidden;
   padding: 5px;
   /* inherited background is parchment img bg */
-  background: var(--background-color);
+  background: var(--window-background);
+  /* background: url(../ui/parchment.jpg) repeat */
   font-size: 13px;
   color: var(--foreground-color);
   border-bottom: 1px solid #222222;
