@@ -122,6 +122,8 @@ const applyFontsAndColors = () => {
   r.style.setProperty("--foreground-alt-color", colorScheme.foregroundAlt);
   r.style.setProperty("--highlight-background-color", colorScheme.highlightBackground);
   r.style.setProperty("--highlight-foreground-color", colorScheme.highlightForeground);
+  r.style.setProperty("--sidebar-background-color", colorScheme.sidebarBackground);
+  r.style.setProperty("--sidebar-foreground-color", colorScheme.sidebarForeground);
   r.style.setProperty("--chat-font", fontScheme.chat);
   r.style.setProperty("--chat-info-font", fontScheme.chatInfo);
   r.style.setProperty("--h1-font", fontScheme.h1);

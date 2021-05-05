@@ -4,6 +4,8 @@
   --foreground-alt-color: #ffe900;
   --highlight-background-color: #ffe900;
   --highlight-foreground-color: #000000;
+  --sidebar-background-color: #000000;
+  --sidebar-foreground-color: #ffffff;
   --window-background: #000000;
   --chat-font: "Alegreya";
   --chat-info-font: "Oswald";
@@ -123,7 +125,6 @@
   padding: 5px;
   /* inherited background is parchment img bg */
   background: var(--window-background);
-  /* background: url(../ui/parchment.jpg) repeat */;
   font-size: 13px;
   color: var(--foreground-color);
   border-bottom: 1px solid #222222;
@@ -1176,10 +1177,10 @@ form.editable .results .result-details input[type="text"]:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 #chat-log {
-  background: var(--background-color);
+  background: var(--sidebar-background-color);
 }
 #chat-log .chat-message {
-  background: var(--background-color);
+  background: var(--window-background);
   border: 3px solid#252525;
   border-radius: 0;
   color: var(--foreground-color);
@@ -1246,9 +1247,12 @@ form.editable .results .result-details input[type="text"]:focus {
   outline: none;
   box-shadow: 0 0 5px var(--highlight-background-color);
 }
+/* XXX */
+/* XXX maybe only set controls li color and background ? */
+
 #controls {
   color: var(--foreground-color);
-  background: var(--background-color);
+/*  background: var(--background-color); */
 }
 #controls .control-tool.toggle {
   background: var(--background-color);
@@ -1261,7 +1265,11 @@ form.editable .results .result-details input[type="text"]:focus {
 }
 #controls .control-tools {
   color: var(--foreground-color);
-  background: var(--background-color);
+/*  background: var(--background-color); */
+}
+#controls li {
+  background: var(--background-color);  
+  background-color: var(--background-color);  
 }
 #controls .control-tool.active,
 #controls .control-tool:hover,
@@ -1325,16 +1333,16 @@ select:focus {
   font-family: var(--h2-font);
 }
 #sidebar {
-  background: var(--background-color);
-  color: var(--foreground-color);
+  background: var(--sidebar-background-color);
+  color: var(--sidebar-foreground-color);
 }
 #sidebar.collapsed #sidebar-tabs > .item.active {
   border-bottom: 1px solid var(--highlight-background-color);
   border-radius: 5px;
 }
 #sidebar-tabs {
-  background: var(--background-color);
-  color: var(--foreground-color);
+  background: var(--sidebar-background-color);
+  color: var(--sidebar-foreground-color);
   border-bottom: 1px solid var(--highlight-background-color);
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
@@ -1347,14 +1355,14 @@ select:focus {
   text-shadow: 0 0 10px var(--highlight-background-color);
 }
 .sidebar-tab .action-buttons button {
-  background: var(--foreground-color);
-  color: var(--background-color);
+  background: var(--sidebar-foreground-color);
+  color: var(--sidebar-background-color);
   border-radius: 0;
   font-family: var(--h2-font);
 }
 .sidebar-tab .directory-header .header-search input {
-  background: var(--background-color);
-  color: var(--foreground-color);
+  background: var(--sidebar-background-color);
+  color: var(--sidebar-foreground-color);
   border: 1px solid #252525;
   border-radius: 0;
   font-family: var(--h2-font);
