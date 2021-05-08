@@ -44,6 +44,8 @@ MB.colorSchemes = {
     "highlightForeground": "#000000",
     "sidebarBackground": "#ffe900",
     "sidebarForeground": "000000",
+    "sidebarButtonBackground": "#000000",
+    "sidebarButtonForeground": "#ffe900",
     "windowBackground": "#ffe900"
   },
   "blackOnWhiteBlack": {
@@ -54,6 +56,8 @@ MB.colorSchemes = {
     "highlightForeground": "#ffffff",
     "sidebarBackground": "#ffffff",
     "sidebarForeground": "#000000",
+    "sidebarButtonBackground": "#000000",
+    "sidebarButtonForeground": "#ffffff",
     "windowBackground": "#ffffff"
   },
   "foundryDefault": {
@@ -64,6 +68,8 @@ MB.colorSchemes = {
     "highlightForeground": "#f0f0e0",
     "sidebarBackground": "url(../ui/denim.jpg) repeat",
     "sidebarForeground": "#f0f0e0",
+    "sidebarButtonBackground": "#f0f0e0",
+    "sidebarButtonForeground": "#000000",
     "windowBackground": "url(../ui/parchment.jpg) repeat"
   },
   "whiteOnBlackYellow": {
@@ -74,6 +80,8 @@ MB.colorSchemes = {
     "highlightForeground": "#000000",
     "sidebarBackground": "#000000",
     "sidebarForeground": "#ffffff",
+    "sidebarButtonBackground": "#ffffff",
+    "sidebarButtonForeground": "#000000",
     "windowBackground": "#000000"
   },
   "whiteOnBlackPink": {
@@ -84,6 +92,8 @@ MB.colorSchemes = {
     "highlightForeground": "#000000",
     "sidebarBackground": "#000000",
     "sidebarForeground": "#ffffff",
+    "sidebarButtonBackground": "#ffffff",
+    "sidebarButtonForeground": "#000000",
     "windowBackground": "#000000"
   },
   "whiteOnPinkWhite": {
@@ -94,7 +104,9 @@ MB.colorSchemes = {
     "highlightForeground": "#000000",
     "sidebarBackground": "#ff3eb5",
     "sidebarForeground": "#ffffff",
-    "windowBackground": "ff3eb5"
+    "sidebarButtonBackground": "#ffffff",
+    "sidebarButtonForeground": "#ff3eb5",
+    "windowBackground": "#ff3eb5"
   }
 };
 

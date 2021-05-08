@@ -6,6 +6,8 @@
   --highlight-foreground-color: #000000;
   --sidebar-background-color: #000000;
   --sidebar-foreground-color: #ffffff;
+  --sidebar-button-background-color: #000000;
+  --sidebar-button-foreground-color: #ffffff;
   --window-background: #000000;
   --chat-font: "Alegreya";
   --chat-info-font: "Oswald";
@@ -1255,11 +1257,17 @@ form.editable .results .result-details input[type="text"]:focus {
 /*  background: var(--background-color); */
 }
 #controls .control-tool.toggle {
-  background: var(--background-color);
+  // background: var(--background-color);
+  background: unset;
   border: 1px solid #252525;
 }
 #controls .control-tool.toggle.active {
   background: var(--background-color);
+  text-shadow: 0 0 10px var(--highlight-background-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
+}
+#controls .control-tool.toggle:hover {
+  background: unset;
   text-shadow: 0 0 10px var(--highlight-background-color);
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
@@ -1275,6 +1283,7 @@ form.editable .results .result-details input[type="text"]:focus {
 #controls .control-tool:hover,
 #controls .scene-control.active,
 #controls .scene-control:hover {
+  background: var(--background-color);
   color: var(--foreground-color);
   border: 1px solid var(--highlight-background-color);
   box-shadow: 0 0 10px var(--highlight-background-color);
@@ -1301,27 +1310,32 @@ form .form-group select {
 form .form-group select:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
-#hotbar #hotbar-directory-controls {
+// TODO: style or not?
+#hotbar #hotbar-directory-controls,
+#hotbar #hotbar-page-controls {
   background: var(--background-color);
   color: var(--foreground-color);
 }
-#navigation #nav-toggle {
-  background: var(--background-color);
-  color: var(--foreground-color);
-}
-#navigation #scene-list .scene.view {
+#hotbar #action-bar li.macro:hover {
   background: var(--background-color);
   color: var(--foreground-color);
   border: 1px solid var(--highlight-background-color);
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
-#navigation #scene-list .scene.gm {
-  border: 1px solid #252525;
-  background: var(--background-color);
-}
-#players {
+// TODO: style or not?
+#navigation #nav-toggle {
   background: var(--background-color);
   color: var(--foreground-color);
+}
+#navigation #scene-list li.scene.nav-item {
+  border: 1px solid #252525;
+}
+#navigation #scene-list li.scene.nav-item.active,
+#navigation #scene-list li.scene.nav-item:hover {
+  background: var(--background-color);
+  color: var(--foreground-color);
+  border: 1px solid var(--highlight-background-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
 }
 select:focus {
   color: var(--foreground-color);
@@ -1355,14 +1369,14 @@ select:focus {
   text-shadow: 0 0 10px var(--highlight-background-color);
 }
 .sidebar-tab .action-buttons button {
-  background: var(--sidebar-foreground-color);
-  color: var(--sidebar-background-color);
+  background: var(--sidebar-button-background-color);
+  color: var(--sidebar-button-foreground-color);
   border-radius: 0;
   font-family: var(--h2-font);
 }
 .sidebar-tab .directory-header .header-search input {
-  background: var(--sidebar-background-color);
-  color: var(--sidebar-foreground-color);
+  background: var(--sidebar-button-background-color);
+  color: var(--sidebar-button-foreground-color);
   border: 1px solid #252525;
   border-radius: 0;
   font-family: var(--h2-font);
