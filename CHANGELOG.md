@@ -2,6 +2,8 @@
 - Added inventory plus / minus buttons to follower sheet.
 - Implemented destructive drag-and-drop for container actor inventory.
 - Set sensible default disposition. actor link, and vision for all actor types.
+- Added "Foundry default" color scheme.
+- Made minor tweaks to color styling of various Foundry UI elements, so things are visible for all color schemes.
 
 # 0.3.6
 - Implemented "container" type actors, to allow having shared containers as tokens on the map.
