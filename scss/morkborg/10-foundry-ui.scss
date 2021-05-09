@@ -1,0 +1,444 @@
+/* ====================== */
+/* UI/Dialog fixes */
+/* ====================== */
+.form-group input[type="text"] {
+    color: var(--foreground-color);
+  }
+  .form-group input[type="text"]:hover {
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  .form-group input[type="text"]:focus {
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  .form-group textarea {
+    color: var(--foreground-color);
+  }
+  .form-group textarea:hover {
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  .form-group textarea:focus {
+    box-shadow: 0 0 10px var(--highlight-background-color);
+    outline: none;
+  }
+  form button {
+    color: var(--foreground-color);
+  }
+  form button:hover {
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  a:hover {
+    text-shadow: 0 0 8px var(--highlight-background-color);
+  }
+  input[type="text"] {
+    color: var(--foreground-color);
+  }
+  input[type="text"]:hover {
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  input[type="text"]:focus {
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  form.editable .results .result-image img {
+    background-color: var(--foreground-color);
+  }
+  form.editable .results .result-type select {
+    color: var(--foreground-color);
+  }
+  form.editable .results .result-type select:hover {
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  form.editable .results .result-type select:focus {
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  form.editable .results .result-details select {
+    color: var(--foreground-color);
+  }
+  form.editable .results .result-details select:hover {
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  form.editable .results .result-details select:focus {
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  form.editable .results .result-details input[type="text"] {
+    color: var(--foreground-color);
+  }
+  form.editable .results .result-details input[type="text"]:hover {
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  form.editable .results .result-details input[type="text"]:focus {
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  .table-results .table-result .result-text .entity-link {
+    background-color: var(--highlight-background-color);
+    color: var(--highlight-foreground-color);
+  }
+  /* Fixes Module Management dialog */
+  #module-management .package-list .package-title,
+  #module-management .package-list .package-metadata,
+  #module-management .package-list .package-description {
+    color: var(--foreground-color);
+  }
+  /* Fixes hard-to-read dark text on various system Dialogs */
+  .window-app .window-content .notes {
+    background-color: var(--highlight-background-color);
+    color: var(--highlight-foreground-color);
+  }
+  .window-app .window-content form .form-header {
+    color: var(--foreground-color);
+  }
+  /* TODO: determine if we need both .notes and form .notes styles specified */
+  .window-app .window-content form .notes {
+    background-color: var(--background-color);
+    color: var(--foreground-alt-color);
+  }
+  .window-app .window-content .form-group span.units {
+    background-color: var(--highlight-background-color);
+    color: var(--highlight-foreground-color);
+  }
+  .window-app .window-content .form-group input {
+    color: var(--foreground-color);
+  }
+  .window-app .window-content .form-group input:hover {
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  .window-app .window-content .form-group input:focus {
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  /* Fix readonly input on defend dialog */
+  .window-app .window-content .form-group input.readonly {
+    color: gray;
+  }
+  .window-app .window-content .form-group input:hover.readonly {
+    box-shadow: none;
+    cursor: default;
+  }
+  .window-app .window-content .form-group input:focus.readonly {
+    box-shadow: none;
+    cursor: default;
+  }
+  /* Fixes Journal image select dialog */
+  .journal-sheet.image-popout .window-content .form-group input {
+    color: var(--background-color);
+  }
+  .journal-sheet.image-popout
+    .window-content
+    .form-group.picker
+    button.file-picker {
+    background-color: var(--background-color);
+  }
+  .journal-sheet form select:hover {
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  .journal-sheet form select:focus {
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  .journal-sheet form .form-group.title input[type="text"] {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  .journal-sheet form .form-group.picker input[type="text"].image {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  /* Fix Player Configuration dialog */
+  #player-config form .form-group label {
+    color: var(--foreground-color);
+  }
+  #player-config form .form-group .directory-list .actor.directory-item {
+    border-bottom-color: none;
+    border-top-color: none;
+  }
+  #player-config form .form-group .directory-list .actor.directory-item.context {
+    border-bottom-color: var(--highlight-background-color);
+    border-top-color: var(--highlight-background-color);
+    box-shadow: 0 0 5px var(--highlight-background-color);
+  }
+  /* ====================== */
+  /* UI / Chat */
+  /* ====================== */
+  .morkborg .button {
+    background: var(--foreground-color);
+    color: var(--background-color);
+    font-family: var(--h2-font);
+  }
+  #chat-controls {
+    color: var(--foreground-color);
+  }
+  #chat-controls i.fas:hover {
+    color: var(--highlight-background-color);
+    text-shadow: 0 0 5px var(--highlight-background-color);
+  }
+  #chat-controls .roll-type-select {
+    color: var(--foreground-color);
+    background: var(--background-color);
+  }
+  #chat-controls select:focus {
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  #chat-log {
+    background: var(--sidebar-background-color);
+  }
+  #chat-log .chat-message {
+    background: var(--window-background);
+    border: 3px solid#252525;
+    border-radius: 0;
+    color: var(--foreground-color);
+    margin-top: 6px;
+    font-family: var(--chat-font);
+    font-size: 16px;
+  }
+  #chat-log .message h4,
+  #chat-log .message h3,
+  #chat-log .message h2,
+  #chat-log .message-metadata {
+    color: var(--foreground-color);
+  }
+  #chat-log .message h2 {
+    background: var(--highlight-background-color);
+    color: var(--highlight-foreground-color);
+  }
+  #chat-log .chat-message .message-header .message-sender {
+    font-family: var(--h1-font);
+    font-size: 20px;
+  }
+  #chat-log .chat-message .message-header .message-metadata {
+    font-family: var(--chat-info-font);
+    font-size: 12px;
+  }
+  #chat-log .chat-message .message-header span.flavor-text {
+    font-family: var(--chat-info-font);
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--foreground-color);
+  }
+  #chat-log .message .dice-formula,
+  #chat-log .message .dice-total {
+    font-size: 16px;
+    border: 1px solid #252525;
+    border-radius: 0;
+  }
+  #chat-form textarea {
+    color: var(--foreground-color);
+    background: var(--background-color);
+    border: 2px solid #252525;
+    font-family: var(--chat-font);
+    font-size: 16px;
+  }
+  #chat-form textarea:focus {
+    outline: 2px solid var(--highlight-background-color);
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  #client-settings button {
+    color: var(--background-color);
+    background: var(--foreground-color);
+  }
+  #client-settings h2 {
+    border-bottom: none;
+    background: var(--highlight-background-color);
+    color: var(--highlight-foreground-color);
+    font-family: var(--h2-font);
+  }
+  #client-settings select {
+    color: var(--foreground-color);
+    background: var(--background-color);
+  }
+  #client-settings select:focus {
+    outline: none;
+    box-shadow: 0 0 5px var(--highlight-background-color);
+  }
+  /* XXX */
+  /* XXX maybe only set controls li color and background ? */
+  
+  #controls {
+    color: var(--foreground-color);
+  /*  background: var(--background-color); */
+  }
+  #controls .control-tool.toggle {
+    // background: var(--background-color);
+    background: unset;
+    border: 1px solid #252525;
+  }
+  #controls .control-tool.toggle.active {
+    background: var(--background-color);
+    text-shadow: 0 0 10px var(--highlight-background-color);
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  #controls .control-tool.toggle:hover {
+    background: unset;
+    text-shadow: 0 0 10px var(--highlight-background-color);
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  #controls .control-tools {
+    color: var(--foreground-color);
+  /*  background: var(--background-color); */
+  }
+  #controls li {
+    background: var(--background-color);  
+    background-color: var(--background-color);  
+  }
+  #controls .control-tool.active,
+  #controls .control-tool:hover,
+  #controls .scene-control.active,
+  #controls .scene-control:hover {
+    background: var(--background-color);
+    color: var(--foreground-color);
+    border: 1px solid var(--highlight-background-color);
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  #controls .scene-control.active {
+    color: var(--foreground-color);
+    border: 1px solid var(--highlight-background-color);
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  .dialog .dialog-buttons button {
+    background: var(--foreground-color);
+    color: var(--background-color);
+    font-family: var(--h2-font);
+  }
+  .dialog .dialog-buttons button.default {
+    background: var(--foreground-color);
+    color: var(--background-color);
+    font-family: var(--h2-font);
+  }
+  form .form-group select {
+    color: var(--foreground-color);
+    background: var(--background-color);
+  }
+  form .form-group select:focus {
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  // TODO: style or not?
+  #hotbar #hotbar-directory-controls,
+  #hotbar #hotbar-page-controls {
+    background: var(--background-color);
+    color: var(--foreground-color);
+  }
+  #hotbar #action-bar li.macro:hover {
+    background: var(--background-color);
+    color: var(--foreground-color);
+    border: 1px solid var(--highlight-background-color);
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  // TODO: style or not?
+  #navigation #nav-toggle {
+    background: var(--background-color);
+    color: var(--foreground-color);
+  }
+  #navigation #scene-list li.scene.nav-item {
+    border: 1px solid #252525;
+  }
+  #navigation #scene-list li.scene.nav-item.active,
+  #navigation #scene-list li.scene.nav-item:hover {
+    background: var(--background-color);
+    color: var(--foreground-color);
+    border: 1px solid var(--highlight-background-color);
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  select:focus {
+    color: var(--foreground-color);
+    background: var(--background-color);
+  }
+  #settings button {
+    color: var(--background-color);
+    background: var(--foreground-color);
+    font-family: var(--h2-font);
+  }
+  #sidebar {
+    background: var(--sidebar-background-color);
+    color: var(--sidebar-foreground-color);
+  }
+  #sidebar.collapsed #sidebar-tabs > .item.active {
+    border-bottom: 1px solid var(--highlight-background-color);
+    border-radius: 5px;
+  }
+  #sidebar-tabs {
+    background: var(--sidebar-background-color);
+    color: var(--sidebar-foreground-color);
+    border-bottom: 1px solid var(--highlight-background-color);
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  #sidebar-tabs > .item.active {
+    color: var(--highlight-foreground-color);
+    background: var(--highlight-background-color);
+    border: 1px solid var(--highlight-background-color);
+    border-bottom: none;
+    box-shadow: 0 0 6px inset var(--highlight-background-color);
+    text-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  .sidebar-tab .action-buttons button {
+    background: var(--sidebar-button-background-color);
+    color: var(--sidebar-button-foreground-color);
+    border-radius: 0;
+    font-family: var(--h2-font);
+  }
+  .sidebar-tab .directory-header .header-search input {
+    background: var(--sidebar-button-background-color);
+    color: var(--sidebar-button-foreground-color);
+    border: 1px solid #252525;
+    border-radius: 0;
+    font-family: var(--h2-font);
+  }
+  .sidebar-tab .directory-header .header-search input[type="text"]:focus {
+    box-shadow: 0 0 5px var(--highlight-background-color);
+  }
+  .sidebar-tab .directory-list .directory-item h4 {
+    font-family: var(--item-font);
+  }
+  .tabs .item.active,
+  .tabs .item:hover {
+    text-shadow: 0 0 10px var(--highlight-background-color);
+  }
+  ::-webkit-scrollbar-thumb {
+    outline: none;
+    border-radius: 3px;
+    background: var(--highlight-background-color) !important;
+    border: 1px solid var(--background-color) !important;
+    color: var(--highlight-foreground-color) !important;
+  }
+  .window-app .window-content {
+    background: var(--background-color);
+    color: var(--foreground-color);
+  }
+  /* ================== 11. JOURNAL ENTRIES =================== */
+  .window-app.app.journal-sheet .window-content {
+    background: var(--foreground-color);
+    color: var(--background-color);
+    background-position: -43px -120px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow-y: hidden;
+    padding: 0px;
+    margin: 0px;
+    font-family: var(--item-font);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .window-app.app.journal-sheet .window-content h1 {
+    font-family: var(--h2-font);
+    border-bottom: 2px solid #222222;
+  }
+  .window-app.app.journal-sheet .window-content h2 {
+    border-bottom: 1px solid #252525;
+  }
+  .journal-sheet form button[type="submit"] {
+    background: var(--background-color);
+  }
+  .journal-sheet form input[name="name"] {
+    color: var(--background-color);
+    font-family: var(--h2-font);
+    font-size: 32px;
+  }
+  .journal-sheet form select {
+    font-family: var(--item-font);
+  }
+  a.entity-link,
+  a.inline-roll {
+    background: var(--background-color);
+    color: var(--foreground-color);
+    padding: 1px 4px;
+    border: 1px solid var(--background-color);
+    border-radius: 2px;
+    white-space: nowrap;
+    word-break: break-all;
+  }
+  

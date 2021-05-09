@@ -1,0 +1,216 @@
+/* ====================== */
+/* Actor sheet */
+/* ====================== */
+.morkborg.sheet.actor .sheet-header .actor-subtitle {
+    font-family: var(--h3-font);
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-left: 13px;
+  }
+  .morkborg.sheet.actor .rule-text {
+    font-family: var(--item-font);
+    font-size: 10pt;
+  }
+  /* ====================== */
+  /* Actor sheet header */
+  /* ====================== */
+  .morkborg.sheet.actor .sheet-header {
+    margin-top: 0;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+  }
+  .morkborg.sheet.actor .sheet-header .header-gutter-col {
+    flex: 0 0 10px;
+  }
+  .morkborg.sheet.actor .sheet-header .profile-img {
+    height: 200px;
+    width: 200px;
+    margin: 0;
+    padding: 0;
+  }
+  .morkborg.sheet.actor .stat-label {
+    font-family: var(--h2-font);
+    font-size: 22px;
+    margin-right: 10px;
+  }
+  .morkborg.sheet.actor .stat-input {
+    border: 1px solid #7a7971;
+    font-family: var(--item-font);
+    font-size: 14pt;
+    text-align: center;
+    padding-top: 8px;
+    width: 50px;
+    color: var(--foreground-color);
+  }
+  .morkborg.sheet.actor .stat-value {
+    font-family: var(--item-font);
+    font-size: 14pt;
+    text-align: center;
+    width: 50px;
+    color: var(--foreground-color);
+  }
+  .morkborg.sheet.actor .sheet-body .item-controls .item-toggle {
+  color: darkgray;
+}
+.morkborg.sheet.actor .sheet-body .item-controls .item-toggle.equipped {
+  color: var(--highlight-background-color);
+}
+/* ====================== */
+/* Actor sheet violence tab */
+/* ====================== */
+.morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item {
+    align-items: center;
+  }
+  .morkborg.sheet.actor
+    .sheet-body
+    .violence-tab
+    .item-list.weapon-list
+    .item-button {
+    font-size: 20px;
+    width: 120px;
+  }
+  .morkborg.sheet.actor .sheet-body .violence-tab .item-list .item-name {
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  .morkborg.sheet.actor .sheet-body .violence-tab .item-list .item-fields {
+    font-size: 16px;
+    margin-top: 6px;
+  }
+  .morkborg.sheet.actor .sheet-body .violence-tab .item-list .versus-armor {
+    margin-left: 10px;
+  }
+  .morkborg.sheet.actor .sheet-body .violence-tab .weapon-list .item-field.handed {
+    text-align: right;
+    width: 30px;
+  }
+  .morkborg.sheet.actor .sheet-body .violence-tab .weapon-list .item-field.damage-die {
+    text-align: right;
+    width: 70px;
+  }
+  .morkborg.sheet.actor .sheet-body .violence-tab .attack-rule {
+    text-align: center;
+  }
+  .morkborg.sheet.actor .sheet-body .violence-tab .violence-gutter {
+    height: 10px;
+  }
+  .morkborg.sheet.actor .sheet-body .violence-tab .tier-label {
+    float: left;
+    font-size: 20;
+    margin-right: 10px;
+  }
+  .morkborg.sheet.actor .sheet-body .violence-tab ul.tiers {
+    list-style-type: none;
+    margin: 0;
+    margin-top: 3px;
+    padding: 0;
+    float: left;
+  }
+  .morkborg.sheet.actor .sheet-body .violence-tab ul.tiers li {
+    float: left;
+    height: 45px;
+  }
+  .morkborg.sheet.actor .sheet-body .violence-tab ul.tiers label {
+    display: block;
+    padding: 4px;
+    position: relative;
+    padding-left: 32px;
+  }
+  .morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type="radio"] {
+    display: none;
+  }
+  .morkborg.sheet.actor
+    .sheet-body
+    .violence-tab
+    ul.tiers
+    input[type="radio"]:checked
+    + span.tier-num {
+    background: var(--highlight-background-color);
+    color: var(--highlight-foreground-color);
+    border: none;
+  }
+  .morkborg.sheet.actor
+    .sheet-body
+    .violence-tab
+    ul.tiers
+    input[type="radio"]:disabled
+    + span.tier-num {
+    color: #444444;
+    border: 1px solid #444444;
+  }
+  .morkborg.sheet.actor
+    .sheet-body
+    .violence-tab
+    ul.tiers
+    input[type="radio"]:disabled
+    ~ span.tier-dmg {
+    color: #444444;
+  }
+  .morkborg.sheet.actor .sheet-body .violence-tab ul.tiers span.tier-num {
+    border: 1px solid #7a7971;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    overflow: hidden;
+    line-height: 1.5;
+    text-align: center;
+    border-radius: 100%;
+    font-size: 14pt;
+    font-family: var(--item-font);
+    left: 0;
+    /*top: 50%; */
+    top: 0%;
+  }
+  .morkborg.sheet.actor .sheet-body .violence-tab ul.tiers span.tier-dmg {
+    width: 30px;
+    height: 15px;
+    position: absolute;
+    overflow: hidden;
+    line-height: 1;
+    text-align: center;
+    font-family: var(--item-font);
+    font-size: 10pt;
+    left: -5px;
+    top: 30px;
+  }
+  .morkborg.sheet.actor .sheet-body .violence-tab .underarmor-row {
+    margin-top: 0px;
+    text-align: center;
+  }
+  .morkborg.sheet.actor .sheet-body .violence-tab .underarmor-row button {
+    margin-left: 10px;
+    width: 120px;
+    margin-bottom: 10px;
+    font-family: var(--h2-font);
+    font-size: 20px;
+    background-color: var(--foreground-color);
+    color: var(--background-color);
+    border: none;
+    border-bottom: 2px solid #777;
+    border-radius: 0;
+  }
+  .morkborg.sheet.actor .sheet-body .violence-tab .shield-rule {
+    margin-top: 5px;
+  }
+  .morkborg.sheet.actor .sheet-body .violence-tab .defend-rule {
+    text-align: center;
+  }
+  /* ====================== */
+  /* Actor sheet feats tab */
+  /* ====================== */
+  .morkborg.sheet.actor .feat-button {
+    min-width: 120px;
+  }
+  .morkborg.sheet.actor .roll-button {
+    margin-left: 10px;
+    width: 120px;
+    margin-bottom: 10px;
+    font-family: var(--h2-font);
+    font-size: 20px;
+    background-color: var(--foreground-color);
+    color: var(--background-color);
+    border: none;
+    border-bottom: 2px solid #777;
+    border-radius: 0;
+  }

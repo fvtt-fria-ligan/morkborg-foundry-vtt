@@ -1,0 +1,71 @@
+/* ====================== */
+/* Roll Cards */
+/* ====================== */
+.roll-card {
+    border: 1px solid var(--highlight-background-color);
+  }
+  .roll-card .card-title {
+    background: var(--highlight-background-color);
+    color: var(--highlight-foreground-color);
+    font-family: var(--h2-font);
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .roll-card .item-row {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .roll-card .item-row span.item-name {
+    color: var(--foreground-color);
+    font-family: var(--item-font);
+    font-size: 14px;
+  }
+  .roll-card .roll-title {
+    font-family: var(--chat-font);
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: capitalize;
+  }
+  .roll-card .roll-result {
+    border: 1px solid gray;
+    font-family: var(--chat-font);
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+  }
+  .roll-card .roll-result span {
+    color: var(--foreground-color);
+    font-size: 20px;
+  }
+  .roll-card .outcome-text {
+    font-family: var(--h3-font);
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .roll-card .reaction-text {
+    font-family: var(--h3-font);
+    font-size: 28px;
+    text-align: center;
+  }
+  .roll-card .outcome-text .attack-outcome,
+  .roll-card .outcome-text .defend-outcome {
+    margin-left: 10px;
+  }
+  .roll-card .outcome-text .attack-outcome,
+  .roll-card .outcome-text .defend-outcome,
+  .roll-card .outcome-text .take-damage {
+    background-color: var(--highlight-background-color);
+    color: var(--highlight-foreground-color);
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+  .dr-modifier {
+    margin-bottom: 5px;
+    text-align: center;
+  }
