@@ -1,6 +1,6 @@
 import { diceSound, showDice } from "./dice.js";
 
-const PARTY_INITIATIVE_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/party-initiative-roll-card.html";
+const PARTY_INITIATIVE_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/chat/party-initiative-roll-card.html";
 
 export class MBCombat extends Combat {
 
