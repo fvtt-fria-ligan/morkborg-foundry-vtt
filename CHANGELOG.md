@@ -1,3 +1,6 @@
+# 0.3.8
+- Fix broken template paths.
+
 # 0.3.7
 - Added inventory plus / minus buttons to follower sheet.
 - Implemented destructive drag-and-drop for container actor inventory.
