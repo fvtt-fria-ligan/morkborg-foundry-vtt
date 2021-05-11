@@ -1,5 +1,8 @@
+# 0.3.9
+- Fixed create item function on actors. 
+
 # 0.3.8
-- Fix broken template paths.
+- Fixed broken template paths.
 
 # 0.3.7
 - Added inventory plus / minus buttons to follower sheet.
