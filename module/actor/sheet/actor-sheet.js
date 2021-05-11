@@ -189,14 +189,11 @@ export default class MBActorSheet extends ActorSheet {
     const shieldItemId = sheetData.data.equippedShield ? sheetData.data.equippedShield._id : null;
     this.actor.defend(armorItemId, shieldItemId);
   }
-
-
  }
 
- /**
+/**
  * Create a new Owned Item for the given actor, based on the name/type from the form.
  */
-/*
 const _createItem = (actor, form) => {
     const itemData = {
       name: form.itemname.value,
@@ -205,4 +202,3 @@ const _createItem = (actor, form) => {
     };
     actor.createOwnedItem(itemData);
 };
-*/
