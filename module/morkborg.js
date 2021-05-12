@@ -229,7 +229,6 @@ Handlebars.registerHelper('ifNe', function(arg1, arg2, options) {
  * Formats a Roll as either the total or x + y + z = total if the roll has multiple results.
  */
 Handlebars.registerHelper('xtotal', (roll) => {
-  console.log(roll);
   const resultPrefix = roll.result.length > 1 ? roll.result + " = " : "";
   return `${resultPrefix}${roll.total}`;
 });
