@@ -215,11 +215,6 @@ const rollScvmForClass = async (clazz) => {
         }
     }
 
-    // monkeying for foundry 0.8.x changes
-    //items.forEach((item, index) => delete item._id);
-    
-    console.log(items);
-
     return {
         actorImg: clazz.img,
         agility,
@@ -282,6 +277,11 @@ const createActorWithScvm = async (s) => {
 
 const updateActorWithScvm = async (actor, s) => {
     const data = scvmToActorData(s);
+    // Explicitly nuke all items before updating.
+    // Before Foundry 0.8.x, actor.update() used to overwrite items,
+    // but now doesn't. Maybe because we're passing items: [item.data]?
+    // Dunno.
+    await actor.deleteEmbeddedDocuments("Item", [], {deleteAll: true});
     await actor.update(data);
 };
 
