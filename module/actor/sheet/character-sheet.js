@@ -20,11 +20,12 @@ export class MBActorSheetCharacter extends MBActorSheet {
 
   /** @override */
   getData() {
-    const data = super.getData();
+    const superData = super.getData();
+    const data = superData.data;
     data.config = CONFIG.MB;
 
     // Ability Scores
-    for (let [a, abl] of Object.entries(data.actor.data.abilities)) {
+    for (let [a, abl] of Object.entries(data.data.abilities)) {
       const translationKey = CONFIG.MB.abilities[a];
       abl.label = game.i18n.localize(translationKey);
     }
@@ -35,7 +36,8 @@ export class MBActorSheetCharacter extends MBActorSheet {
       this._prepareCharacterItems(data);
     }
 
-    return data;
+    console.log(data);
+    return superData;
   }
 
   /**
@@ -46,8 +48,8 @@ export class MBActorSheetCharacter extends MBActorSheet {
    */
   _prepareCharacterItems(sheetData) {
     const byName = (a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);
-    sheetData.actor.data.feats = sheetData.items.filter(item => item.type === CONFIG.MB.itemTypes.feat).sort(byName);
-    sheetData.actor.data.class = sheetData.items.filter(item => item.type === CONFIG.MB.itemTypes.class)[0];
+    sheetData.data.feats = sheetData.items.filter(item => item.type === CONFIG.MB.itemTypes.feat).sort(byName);
+    sheetData.data.class = sheetData.items.filter(item => item.type === CONFIG.MB.itemTypes.class)[0];
 
     // TODO: make better use of filters below
     let equipment = [];
@@ -80,8 +82,6 @@ export class MBActorSheetCharacter extends MBActorSheet {
         }
       } else if (i.type === CONFIG.MB.itemTypes.container) {
         containers.push(i);
-      } else if (i.type === CONFIG.MB.itemTypes.class) {
-        sheetData.actor.data.class = i;
       } else if (i.type === CONFIG.MB.itemTypes.scroll) {
         scrolls.push(i);
       } else if (i.type === CONFIG.MB.itemTypes.shield) {
@@ -100,20 +100,20 @@ export class MBActorSheetCharacter extends MBActorSheet {
     equippedWeapons.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
 
     // Assign to new properties
-    sheetData.actor.data.equipment = equipment;
-    sheetData.actor.data.equippedArmor = equippedArmor;
-    sheetData.actor.data.equippedShield = equippedShield;
-    sheetData.actor.data.equippedWeapons = equippedWeapons;
-    sheetData.actor.data.scrolls = scrolls;
+    sheetData.data.equipment = equipment;
+    sheetData.data.equippedArmor = equippedArmor;
+    sheetData.data.equippedShield = equippedShield;
+    sheetData.data.equippedWeapons = equippedWeapons;
+    sheetData.data.scrolls = scrolls;
 
-    sheetData.actor.data.containerSpace = this.actor.containerSpace();
-    sheetData.actor.data.containerCapacity = this.actor.containerCapacity();
+    sheetData.data.containerSpace = this.actor.containerSpace();
+    sheetData.data.containerCapacity = this.actor.containerCapacity();
     // TODO: rename to carryingWeight?
-    sheetData.actor.data.carryingCount = this.actor.carryingWeight();
-    sheetData.actor.data.carryingCapacity = this.actor.normalCarryingCapacity();
+    sheetData.data.carryingCount = this.actor.carryingWeight();
+    sheetData.data.carryingCapacity = this.actor.normalCarryingCapacity();
     const isEncumbered = this.actor.isEncumbered();
-    sheetData.actor.data.encumbered = isEncumbered;
-    sheetData.actor.data.encumberedClass = isEncumbered ? "encumbered" : "";
+    sheetData.data.encumbered = isEncumbered;
+    sheetData.data.encumberedClass = isEncumbered ? "encumbered" : "";
   }
 
   /** @override */
