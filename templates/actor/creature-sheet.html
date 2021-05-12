@@ -12,9 +12,9 @@
             </div>
             <div class="hitpoints-row">
                 <span class="stat-label">{{ localize "MB.HitPoints" }}:</span>
-                <input class="stat-input" name="data.hp.value" type="number" value="{{data.hp.value}}" data-dtype="Number"/>
+                <input class="stat-input" name="data.hp.value" type="number" value="{{data.data.hp.value}}" data-dtype="Number"/>
                 /
-                <input class="stat-input" name="data.hp.max" type="number" value="{{data.hp.max}}" data-dtype="Number"/>
+                <input class="stat-input" name="data.hp.max" type="number" value="{{data.data.hp.max}}" data-dtype="Number"/>
             </div>
             <div class="buttons-row">
                 <button type="button" class="roll-button reaction rollable">{{localize "MB.Reaction"}}</button>
@@ -34,7 +34,7 @@
     <section class="sheet-body">
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
-            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+            {{editor content=data.data.description target="data.description" button=true owner=owner editable=true}}
         </div>
 
         {{!-- Details Tab --}}
@@ -43,25 +43,25 @@
             {{!-- Morale --}}
             <div class="form-group">
                 <label>{{ localize "MB.Morale" }}:</label>
-                <input name="data.morale" type="text" value="{{data.morale}}" placeholder="10" data-dtype="Number"/>
+                <input name="data.morale" type="text" value="{{data.data.morale}}" placeholder="10" data-dtype="Number"/>
             </div>
 
             {{!-- Armor --}}
             <div class="form-group">
                 <label>{{ localize "MB.CreatureArmor" }}:</label>
-                <input type="text" name="data.armor.name" value="{{data.armor.name}}" placeholder="None" data-dtype="String" />
+                <input type="text" name="data.armor.name" value="{{data.data.armor.name}}" placeholder="None" data-dtype="String" />
             </div>
 
             {{!-- Attack --}}
             <div class="form-group">
                 <label>{{ localize "MB.CreatureAttack" }}:</label>
-                <input type="text" name="data.attack.name" value="{{data.attack.name}}" placeholder="None" data-dtype="String" />
+                <input type="text" name="data.attack.name" value="{{data.data.attack.name}}" placeholder="None" data-dtype="String" />
             </div> 
 
             {{!-- Special --}}
             <div class="form-group">
                 <label>{{ localize "MB.CreatureSpecial" }}:</label>
-                <textarea name="data.special" rows="10">{{data.special}}</textarea>
+                <textarea name="data.special" rows="10">{{data.data.special}}</textarea>
             </div>
         </div>
     </section>
