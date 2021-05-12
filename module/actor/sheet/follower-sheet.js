@@ -20,12 +20,13 @@ import MBActorSheet from "./actor-sheet.js";
 
   /** @override */
   getData() {
-    const data = super.getData();
+    const superData = super.getData();
+    const data = superData.data;
     data.config = CONFIG.MB;
     if (this.actor.data.type == 'follower') {
       this._prepareFollowerItems(data);
     }
-    return data;
+    return superData;
   }
 
   /**
@@ -80,10 +81,10 @@ import MBActorSheet from "./actor-sheet.js";
     equippedWeapons.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
 
     // Assign to new properties
-    sheetData.actor.data.equipment = equipment;
-    sheetData.actor.data.equippedArmor = equippedArmor;
-    sheetData.actor.data.equippedShield = equippedShield;
-    sheetData.actor.data.equippedWeapons = equippedWeapons;
+    sheetData.data.equipment = equipment;
+    sheetData.data.equippedArmor = equippedArmor;
+    sheetData.data.equippedShield = equippedShield;
+    sheetData.data.equippedWeapons = equippedWeapons;
   }
 
   /** @override */

@@ -36,7 +36,6 @@ export class MBActorSheetCharacter extends MBActorSheet {
       this._prepareCharacterItems(data);
     }
 
-    console.log(data);
     return superData;
   }
 

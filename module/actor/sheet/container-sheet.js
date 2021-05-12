@@ -20,12 +20,13 @@ import MBActorSheet from "./actor-sheet.js";
 
   /** @override */
   getData() {
-    const data = super.getData();
+    const superData = super.getData();
+    const data = super.data;
     data.config = CONFIG.MB;
     if (this.actor.data.type == 'container') {
       this._prepareContainerItems(data);
     }
-    return data;
+    return superData;
   }
 
   /**
