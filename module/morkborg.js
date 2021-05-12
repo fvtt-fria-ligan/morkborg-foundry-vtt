@@ -145,7 +145,7 @@ Hooks.on('dropActorSheetData', async (actor, actorSheet, data) => {
   }
 
   // Handle container actor destructive drag-drop
-  if (data.type === "Item" && data.data._id) {
+  if (data.type === "Item" && data.data && data.data._id) {
     const sourceActor = data.tokenId ? game.actors.tokens[data.tokenId] : game.actors.get(data.actorId);
     if (sourceActor && actor._id !== sourceActor._id && 
       (sourceActor.data.type === "container" || actor.data.type === "container")) {

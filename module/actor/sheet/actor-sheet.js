@@ -24,7 +24,7 @@ export default class MBActorSheet extends ActorSheet {
     // Update Inventory Item
     html.find('.item-edit').click(ev => {
       const li = $(ev.currentTarget).parents(".item");
-      const item = this.actor.getOwnedItem(li.data("itemId"));
+      const item = this.actor.items.get(li.data("itemId"));
       item.sheet.render(true);
     });
 
@@ -84,7 +84,7 @@ export default class MBActorSheet extends ActorSheet {
     let anchor = $(event.currentTarget);
     const li = anchor.parents(".item");
     const itemId = li.data("itemId");
-    const item = this.actor.getOwnedItem(itemId);
+    const item = this.actor.items.get(itemId);
     const attr = "data.quantity";
     const currQuantity = getProperty(item.data, attr);
     return item.update({[attr]: currQuantity + 1});
@@ -98,7 +98,7 @@ export default class MBActorSheet extends ActorSheet {
       let anchor = $(event.currentTarget);
       const li = anchor.parents(".item");
       const itemId = li.data("itemId");
-      const item = this.actor.getOwnedItem(itemId);
+      const item = this.actor.items.get(itemId);
       const attr = "data.quantity";
       const currQuantity = getProperty(item.data, attr);
       // can't reduce quantity below one
@@ -118,7 +118,7 @@ export default class MBActorSheet extends ActorSheet {
     let anchor = $(event.currentTarget);
     const li = anchor.parents(".item");
     const itemId = li.data("itemId");
-    const item = this.actor.getOwnedItem(itemId);
+    const item = this.actor.items.get(itemId);
     const attr = "data.equipped";
     const currEquipped = getProperty(item.data, attr);
     if (!currEquipped) {
@@ -148,7 +148,7 @@ export default class MBActorSheet extends ActorSheet {
     let button = $(event.currentTarget);
     let r = new Roll(button.data('roll'), this.actor.getRollData());
     const li = button.parents(".item");
-    const item = this.actor.getOwnedItem(li.data("itemId"));
+    const item = this.actor.items.get(li.data("itemId"));
     r.roll().toMessage({
         user: game.user._id,
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -175,7 +175,7 @@ export default class MBActorSheet extends ActorSheet {
     let input = $(event.currentTarget);
     let newTier = parseInt(input[0].value);
     let li = input.parents(".item");
-    const item = this.actor.getOwnedItem(li.data("itemId"));
+    const item = this.actor.items.get(li.data("itemId"));
     return item.update({["data.tier.value"]: newTier});
   }
 

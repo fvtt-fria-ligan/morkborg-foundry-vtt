@@ -233,7 +233,7 @@ export class MBActor extends Actor {
    * Do the actual attack rolls and resolution.
    */
   async _rollAttack(itemId, attackDR, targetArmor) {
-    const item = this.getOwnedItem(itemId);
+    const item = this.items.get(itemId);
     const itemRollData = item.getRollData();
     const actorRollData = this.getRollData();
 
@@ -631,7 +631,7 @@ export class MBActor extends Actor {
   }
 
   async useFeat(itemId) {
-    const item = this.getOwnedItem(itemId);
+    const item = this.items.get(itemId);
     if (!item || !item.data.data.rollLabel || !item.data.data.rollFormula) {
       return;
     }
