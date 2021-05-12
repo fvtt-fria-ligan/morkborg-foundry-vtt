@@ -21,7 +21,7 @@ import MBActorSheet from "./actor-sheet.js";
   /** @override */
   getData() {
     const superData = super.getData();
-    const data = super.data;
+    const data = superData.data;
     data.config = CONFIG.MB;
     if (this.actor.data.type == 'container') {
       this._prepareContainerItems(data);
@@ -45,8 +45,8 @@ import MBActorSheet from "./actor-sheet.js";
       }
     }
     equipment.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
-    sheetData.actor.data.equipment = equipment;
-    sheetData.actor.data.containerSpace = this._containerSpace(sheetData);
+    sheetData.data.equipment = equipment;
+    sheetData.data.containerSpace = this._containerSpace(sheetData);
   }
 
   _containerSpace(sheetData) {
