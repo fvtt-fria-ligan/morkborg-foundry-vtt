@@ -245,7 +245,7 @@ export class MBActor extends Actor {
     attackRoll.evaluate();
     await showDice(attackRoll);
 
-    const d20Result = attackRoll.results[0];
+    const d20Result = attackRoll.terms[0].results[0].result;
     const isFumble = (d20Result === 1);
     const isCrit = (d20Result === 20);
 
