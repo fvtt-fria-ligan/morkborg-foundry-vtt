@@ -592,7 +592,7 @@ export class MBActor extends Actor {
     wieldRoll.evaluate();
     await showDice(wieldRoll);
 
-    const d20Result = wieldRoll.results[0];
+    const d20Result = wieldRoll.terms[0].results[0].result;
     const isFumble = (d20Result === 1);
     const isCrit = (d20Result === 20);
     const wieldDR = 12;
