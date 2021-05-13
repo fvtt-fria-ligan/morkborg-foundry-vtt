@@ -1,5 +1,5 @@
 import { addShowDicePromise, diceSound, showDice } from "../dice.js";
-import { scvmifyActor } from "../scvm/scvmfactory.js";
+import ScvmDialog from "../scvm/scvm-dialog.js";
 
 const ATTACK_DIALOG_TEMPLATE = "systems/morkborg/templates/dialog/attack-dialog.html";
 const ATTACK_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/chat/attack-roll-card.html";
@@ -868,7 +868,7 @@ export class MBActor extends Actor {
   }
 
   async scvmify() {
-    await scvmifyActor(this);
+    new ScvmDialog(this).render(true);
   }
 
   async rollBroken() {

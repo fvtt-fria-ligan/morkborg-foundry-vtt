@@ -1,6 +1,5 @@
 import MBActorSheet from "./actor-sheet.js";
 import RestDialog from "./rest-dialog.js";
-import ScvmDialog from "../../scvm/scvm-dialog.js";
 
 /**
  * @extends {ActorSheet}
@@ -171,7 +170,7 @@ export class MBActorSheetCharacter extends MBActorSheet {
 
   _onScvmify(event) {
     event.preventDefault();
-    new ScvmDialog(this.actor).render(true);
+    this.actor.scvmify();
   }
 
   _onBroken(event) {
