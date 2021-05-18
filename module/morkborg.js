@@ -136,22 +136,27 @@ const applyFontsAndColors = () => {
 
 Hooks.on('dropActorSheetData', async (actor, actorSheet, data) => {
   // Handle one-only Class item
-  if (data.type === "Item" && data.pack === "morkborg.classes") {
-    // Dropping a new class, so nuke any pre-existing class item(s),
-    // to enforce that a character only has one class item at a time.
-    const classes = actor.items.filter(i => i.data.type === "class");
-    const deletions = classes.map(i => i._id);
-    await actor.deleteEmbeddedEntity("OwnedItem", deletions);
+  console.log(data);
+  if (data.type === "Item" && data.pack) {
+    const packName = data.pack.split(".")[1];
+    if (packName.startsWith("class-")) {
+      // Dropping a new class, so nuke any pre-existing class item(s),
+      // to enforce that a character only has one class item at a time.
+      const classes = actor.items.filter(i => i.data.type === "class");
+      const deletions = classes.map(i => i.id);
+      await actor.deleteEmbeddedDocuments("Item", deletions);
+    }
   }
+  // TODO: test this when dropping a Class item from sidebar, rather than from compendium
 
   // Handle container actor destructive drag-drop
-  if (data.type === "Item" && data.data && data.data._id) {
+  if (data.type === "Item" && data.data && data.data.id) {
     const sourceActor = data.tokenId ? game.actors.tokens[data.tokenId] : game.actors.get(data.actorId);
-    if (sourceActor && actor._id !== sourceActor._id && 
+    if (sourceActor && actor.id !== sourceActor.id && 
       (sourceActor.data.type === "container" || actor.data.type === "container")) {
       // either the source or target actor is a container,
       // so delete the item from the source
-      await sourceActor.deleteOwnedItem(data.data._id);
+      await sourceActor.deleteOwnedItem(data.data.id);
     }
   }
 });
@@ -164,8 +169,8 @@ Hooks.on('createActor', async (actor, options, userId) => {
       const pack = game.packs.get("morkborg.class-classless-adventurer");
       let index = await pack.getIndex();
       let entry = index.find(e => e.name === "Adventurer");
-      let entity = await pack.getEntity(entry._id);
-      await actor.createEmbeddedEntity("OwnedItem", duplicate(entity.data));  
+      let entity = await pack.getDocument(entry._id);
+      await actor.createEmbeddedDocuments("Item", [duplicate(entity.data)]);
     }
   }
 });

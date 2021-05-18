@@ -34,7 +34,7 @@ export class MBCombat extends Combat {
     // TODO: this seems like a stupidly-hacky way to do this. Is there no better way?
     const updates = this.turns.map((t) => {
       return {
-          _id: t._id, 
+          id: t.id, 
           initiative: t.initiative,
       }
     });
