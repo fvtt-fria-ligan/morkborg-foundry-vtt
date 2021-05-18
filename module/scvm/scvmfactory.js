@@ -296,23 +296,6 @@ const entitiesFromResults = async (results) => {
 }
 
 const entityFromResult = async (result) => {
-    // Example RollTable draw result:
-    // {
-    //     "_id": "7zhVYYsOyl39p64R",
-    //     "flags": {},
-    //     "type": 2,
-    //     "text": "Donkey",
-    //     "img": "systems/morkborg/icons/items/containers/donkey.png",
-    //     "collection": "morkborg.equipment-misc",
-    //     "resultId": "xZrAhOxxJSj2czwp",
-    //     "weight": 1,
-    //     "range": [
-    //         6,
-    //         6
-    //     ],
-    //     "drawn": false
-    // }
-
     // draw result type: text (0), entity (1), or compendium (2)
     // TODO: figure out how we want to handle an entity result
 
