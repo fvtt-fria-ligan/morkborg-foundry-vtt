@@ -136,7 +136,6 @@ const applyFontsAndColors = () => {
 
 Hooks.on('dropActorSheetData', async (actor, actorSheet, data) => {
   // Handle one-only Class item
-  console.log(data);
   if (data.type === "Item" && data.pack) {
     const packName = data.pack.split(".")[1];
     if (packName.startsWith("class-")) {
@@ -169,7 +168,7 @@ Hooks.on('createActor', async (actor, options, userId) => {
       const pack = game.packs.get("morkborg.class-classless-adventurer");
       let index = await pack.getIndex();
       let entry = index.find(e => e.name === "Adventurer");
-      let entity = await pack.getDocument(entry._id);
+      let entity = await pack.getDocument(entry.id);
       await actor.createEmbeddedDocuments("Item", [duplicate(entity.data)]);
     }
   }

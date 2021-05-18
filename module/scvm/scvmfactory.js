@@ -270,7 +270,6 @@ const createActorWithScvm = async (s) => {
     data.name = randomName();
     data.img = s.actorImg;
     // use MBActor.create() so we get default disposition, actor link, vision, etc
-    console.log(data);
     const actor = await MBActor.create(data);
     actor.sheet.render(true);
 };
