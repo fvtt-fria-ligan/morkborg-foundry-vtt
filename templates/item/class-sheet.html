@@ -23,7 +23,7 @@
     <section class="sheet-body">
         {{!-- Abilities Tab --}}
         <div class="tab" data-group="primary" data-tab="abilities">
-            {{editor content=data.abilities target="data.abilities" button=true owner=owner editable=true}}               
+            {{editor content=data.data.abilities target="data.abilities" button=true owner=owner editable=true}}               
         </div>
 
         {{!-- Details Tab --}}
@@ -32,7 +32,7 @@
             {{!-- Description --}}
             <div class="form-group">
                 <label>{{ localize "MB.Description" }}:</label>
-                <textarea name="data.description" rows="8">{{data.description}}</textarea>
+                <textarea name="data.description" rows="8">{{data.data.description}}</textarea>
             </div>
 
             <br>
@@ -40,19 +40,19 @@
            {{!-- Starting silver --}}
             <div class="form-group">
                 <label>{{ localize "MB.Silver" }}:</label>
-                <input type="text" name="data.startingSilver" value="{{data.startingSilver}}" placeholder="2d6*10" data-dtype="String" />
+                <input type="text" name="data.startingSilver" value="{{data.data.startingSilver}}" placeholder="2d6*10" data-dtype="String" />
             </div>
 
             {{!-- Omen Die --}}
             <div class="form-group">
                 <label>{{ localize "MB.Omens" }}:</label>
-                <input type="text" name="data.omenDie" value="{{data.omenDie}}" placeholder="1d2" data-dtype="String" />
+                <input type="text" name="data.omenDie" value="{{data.data.omenDie}}" placeholder="1d2" data-dtype="String" />
             </div>
 
             {{!-- Starting hit points --}}
             <div class="form-group">
                 <label>{{ localize "MB.HitPoints" }}:</label>
-                <input type="text" name="data.startingHitPoints" value="{{data.startingHitPoints}}" placeholder="1d8" data-dtype="String" />
+                <input type="text" name="data.startingHitPoints" value="{{data.data.startingHitPoints}}" placeholder="1d8" data-dtype="String" />
             </div>
 
             <br>
@@ -60,19 +60,19 @@
             {{!-- Starting abilities --}}
             <div class="form-group">
                 <label>{{ localize "MB.AbilityStrength" }}:</label>
-                <input type="text" name="data.startingStrength" value="{{data.startingStrength}}" placeholder="3d6" data-dtype="String" />
+                <input type="text" name="data.startingStrength" value="{{data.data.startingStrength}}" placeholder="3d6" data-dtype="String" />
             </div>
             <div class="form-group">
                 <label>{{ localize "MB.AbilityAgility" }}:</label>
-                <input type="text" name="data.startingAgility" value="{{data.startingAgility}}" placeholder="3d6" data-dtype="String" />
+                <input type="text" name="data.startingAgility" value="{{data.data.startingAgility}}" placeholder="3d6" data-dtype="String" />
             </div>
             <div class="form-group">
                 <label>{{ localize "MB.AbilityPresence" }}:</label>
-                <input type="text" name="data.startingPresence" value="{{data.startingPresence}}" placeholder="3d6" data-dtype="String" />
+                <input type="text" name="data.startingPresence" value="{{data.data.startingPresence}}" placeholder="3d6" data-dtype="String" />
             </div>
             <div class="form-group">
                 <label>{{ localize "MB.AbilityToughness" }}:</label>
-                <input type="text" name="data.startingToughness" value="{{data.startingToughness}}" placeholder="3d6" data-dtype="String" />
+                <input type="text" name="data.startingToughness" value="{{data.data.startingToughness}}" placeholder="3d6" data-dtype="String" />
             </div>
 
             <br>
@@ -80,19 +80,19 @@
             {{!-- Starting equipment --}}
             <div class="form-group">
                 <label>{{ localize "MB.WeaponTable" }}:</label>
-                <input type="text" name="data.weaponTableDie" value="{{data.weaponTableDie}}" placeholder="1d10" data-dtype="String" />
+                <input type="text" name="data.weaponTableDie" value="{{data.data.weaponTableDie}}" placeholder="1d10" data-dtype="String" />
             </div>
             <div class="form-group">
                 <label>{{ localize "MB.ArmorTable" }}:</label>
-                <input type="text" name="data.armorTableDie" value="{{data.armorTableDie}}" placeholder="1d4" data-dtype="String" />
+                <input type="text" name="data.armorTableDie" value="{{data.data.armorTableDie}}" placeholder="1d4" data-dtype="String" />
             </div>
             <div class="form-group">
                 <label>{{ localize "MB.Items" }}:</label>
-                <textarea name="data.startingItems" rows="4">{{data.startingItems}}</textarea>
+                <textarea name="data.startingItems" rows="4">{{data.data.startingItems}}</textarea>
             </div>
             <div class="form-group">
                 <label>{{ localize "MB.Rolls" }}:</label>
-                <textarea name="data.startingRolls" rows="4">{{data.startingRolls}}</textarea>
+                <textarea name="data.startingRolls" rows="4">{{data.data.startingRolls}}</textarea>
             </div>
         </div>
 

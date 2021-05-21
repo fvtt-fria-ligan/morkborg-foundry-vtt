@@ -25,28 +25,12 @@ const pickRandomClass = async () => {
     }
     const packName = classPacks[Math.floor(Math.random() * classPacks.length)];
     // TODO: debugging hardcodes
-    //const packName = "morkborg.class-classless-adventurer";
-    //const packName = "morkborg.class-fanged-deserter";
-    //const packName = "morkborg.class-gutterborn-scum";
-    //const packName = "morkborg.class-esoteric-hermit";
-    //const packName = "morkborg.class-wretched-royalty";
-    //const packName = "morkborg.class-occult-herbmaster";
-    //const packName = "morkborg.class-heretical-priest";    
     const pack = game.packs.get(packName);
     let content = await pack.getDocuments();
     return content.find(i => i.data.type === "class");
 };
 
 export const findClassPacks = () => {
-    // TODO: hard-code this until we've converted all classes in morkborg and morkborg-3p
-    // return [
-    //     "morkborg.class-classless-adventurer",
-    //     "morkborg.class-esoteric-hermit",
-    //     "morkborg.class-fanged-deserter",
-    //     "morkborg.class-gutterborn-scum",
-    //     "morkborg.class-occult-herbmaster",
-    //     "morkborg.class-wretched-royalty",
-    // ];
     const classPacks = [];
     const packKeys = game.packs.keys();
     for (const packKey of packKeys) {
@@ -178,13 +162,14 @@ const rollScvmForClass = async (clazz) => {
                     const results = await compendiumTableDrawMany(table, numRolls);
                     for (const result of results) {
                         // draw result type: text (0), entity (1), or compendium (2)
-                        if (result.type === 0) {
+                        if (result.data.type === 0) {
                             // text
-                            descriptionLines.push(`<p>${table.data.name}: ${result.text}</p>`);
-                        } else if (result.type === 1) {
+                            descriptionLines.push(`<p>${table.data.name}: ${result.data.text}</p>`);
+                        } else if (result.data.type === 1) {
                             // entity
                             // TODO: what do we want to do here?
-                        } else if (result.type === 2) {
+                        } else if (result.data.type === 2) {
+                            // compendium
                             const entity = await entityFromResult(result);
                             startingRollItems.push(entity);
                         }
