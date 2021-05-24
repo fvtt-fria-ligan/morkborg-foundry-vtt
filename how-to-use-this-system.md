@@ -82,7 +82,7 @@ This is an implementation of the MÖRK BORG rules, with limited adaptations to m
 
 ## Container Actors
   * In addition to the usual *container* Item type (e.g., the backpack), there is a *container* Actor type. This gives you the option to represent things like the Small Wagon and Donkey as tokens on the map, store items separately inside them, etc.
-  * Currently drag-and-drop from anything to a container actor will duplicate the dragged/dropped item. You have to manually delete it (or decrement quantity) from the source.
+  * Currently drag-and-drop from anything to a container actor will duplicate the dragged/dropped item. Drag and drop to/from contain actors is *destructive* - a drag-dropped item should get added to the dragged-from, and added to the dragged-to.
   * There is a *Containers* compendium with the Small Wagon and Donkey.
 
 ## Settings
