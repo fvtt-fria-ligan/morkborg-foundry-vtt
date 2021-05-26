@@ -32,7 +32,7 @@ new Roll('1d4').toMessage({ flavor: 'Doses Brewed' });
 })();
 ```
 
-## Esoteric Hermit - Initiate of the Invisible Collect
+## Esoteric Hermit - Initiate of the Invisible College
 ```
 (async () => {
 const numRoll = new Roll('1d2');
