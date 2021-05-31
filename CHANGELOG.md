@@ -1,3 +1,6 @@
+# 1.0.0
+- Compatibility with Foundry 0.8.6.
+
 # 0.3.9
 - Fixed create item function on actors. 
 
