@@ -23,7 +23,7 @@
     <section class="sheet-body">
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
-            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+            {{editor content=data.description target="data.description" button=true owner=owner editable=true}}
         </div>
 
         {{!-- Details Tab --}}
@@ -32,13 +32,13 @@
             {{!-- Roll Label --}}
             <div class="form-group">
                 <label>{{ localize "MB.RollLabel" }}:</label>
-                <input type="text" name="data.rollLabel" value="{{data.rollLabel}}" placeholder="" data-dtype="String" />
+                <input type="text" name="data.rollLabel" value="{{data.data.rollLabel}}" placeholder="" data-dtype="String" />
             </div>
 
             {{!-- Roll Formula --}}
             <div class="form-group">
                 <label>{{ localize "MB.RollFormula" }}:</label>
-                <input type="text" name="data.rollFormula" value="{{data.rollFormula}}" placeholder="" data-dtype="String" />
+                <input type="text" name="data.rollFormula" value="{{data.data.rollFormula}}" placeholder="" data-dtype="String" />
             </div>
             
         </div>        

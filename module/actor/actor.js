@@ -1,5 +1,5 @@
 import { addShowDicePromise, diceSound, showDice } from "../dice.js";
-import { scvmifyActor } from "../scvm/scvmfactory.js";
+import ScvmDialog from "../scvm/scvm-dialog.js";
 
 const ATTACK_DIALOG_TEMPLATE = "systems/morkborg/templates/dialog/attack-dialog.html";
 const ATTACK_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/chat/attack-roll-card.html";
@@ -233,7 +233,7 @@ export class MBActor extends Actor {
    * Do the actual attack rolls and resolution.
    */
   async _rollAttack(itemId, attackDR, targetArmor) {
-    const item = this.getOwnedItem(itemId);
+    const item = this.items.get(itemId);
     const itemRollData = item.getRollData();
     const actorRollData = this.getRollData();
 
@@ -245,7 +245,7 @@ export class MBActor extends Actor {
     attackRoll.evaluate();
     await showDice(attackRoll);
 
-    const d20Result = attackRoll.results[0];
+    const d20Result = attackRoll.terms[0].results[0].result;
     const isFumble = (d20Result === 1);
     const isCrit = (d20Result === 20);
 
@@ -416,7 +416,7 @@ export class MBActor extends Actor {
     defendRoll.evaluate();
     await showDice(defendRoll);
 
-    const d20Result = defendRoll.results[0];
+    const d20Result = defendRoll.terms[0].results[0].result;
     const isFumble = (d20Result === 1);
     const isCrit = (d20Result === 20);
 
@@ -592,7 +592,7 @@ export class MBActor extends Actor {
     wieldRoll.evaluate();
     await showDice(wieldRoll);
 
-    const d20Result = wieldRoll.results[0];
+    const d20Result = wieldRoll.terms[0].results[0].result;
     const isFumble = (d20Result === 1);
     const isCrit = (d20Result === 20);
     const wieldDR = 12;
@@ -631,7 +631,7 @@ export class MBActor extends Actor {
   }
 
   async useFeat(itemId) {
-    const item = this.getOwnedItem(itemId);
+    const item = this.items.get(itemId);
     if (!item || !item.data.data.rollLabel || !item.data.data.rollFormula) {
       return;
     }
@@ -868,7 +868,7 @@ export class MBActor extends Actor {
   }
 
   async scvmify() {
-    await scvmifyActor(this);
+    new ScvmDialog(this).render(true);
   }
 
   async rollBroken() {

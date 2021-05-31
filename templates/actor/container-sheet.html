@@ -15,9 +15,9 @@
             </div>
             <div class="holding-row">
                 <span class="stat-label container-label">{{ localize "MB.ContainerHolding" }}:</span>
-                <span class="stat-value">{{data.containerSpace}}</span>
+                <span class="stat-value">{{data.data.containerSpace}}</span>
                 /
-                <span class="stat-value">{{data.capacity.max}}</span>    
+                <span class="stat-value">{{data.data.capacity.max}}</span>    
             </div>
         </div>      
     </header>
@@ -33,18 +33,18 @@
     <section class="sheet-body">
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
-            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+            {{editor content=data.data.description target="data.description" button=true owner=owner editable=true}}
         </div>
 
         {{!-- Details Tab --}}
         <div class="tab" data-group="primary" data-tab="details">
             <div class="form-group">
                 <label>{{ localize "MB.ItemPrice" }}:</label>
-                <input type="text" name="data.price" value="{{data.price}}" placeholder="2" data-dtype="Number" />
+                <input type="text" name="data.price" value="{{data.data.price}}" placeholder="2" data-dtype="Number" />
             </div> 
             <div class="form-group">
                 <label>{{ localize "MB.ItemCapacity" }}:</label>
-                <input name="data.capacity.max" type="text" value="{{data.capacity.max}}" placeholder="10" data-dtype="Number"/>
+                <input name="data.capacity.max" type="text" value="{{data.data.capacity.max}}" placeholder="10" data-dtype="Number"/>
             </div>
         </div>
 
@@ -60,7 +60,7 @@
                     </div>
                 </li>
                 <ol class="item-list">
-                    {{#each data.equipment as |item id|}}
+                    {{#each data.data.equipment as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}">
                         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
                         <h4 class="item-name item-edit rollable">

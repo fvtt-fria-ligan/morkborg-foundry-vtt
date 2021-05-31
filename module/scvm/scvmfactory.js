@@ -25,28 +25,12 @@ const pickRandomClass = async () => {
     }
     const packName = classPacks[Math.floor(Math.random() * classPacks.length)];
     // TODO: debugging hardcodes
-    //const packName = "morkborg.class-classless-adventurer";
-    //const packName = "morkborg.class-fanged-deserter";
-    //const packName = "morkborg.class-gutterborn-scum";
-    //const packName = "morkborg.class-esoteric-hermit";
-    //const packName = "morkborg.class-wretched-royalty";
-    //const packName = "morkborg.class-occult-herbmaster";
-    //const packName = "morkborg.class-heretical-priest";    
     const pack = game.packs.get(packName);
-    let content = await pack.getContent();
+    let content = await pack.getDocuments();
     return content.find(i => i.data.type === "class");
 };
 
 export const findClassPacks = () => {
-    // TODO: hard-code this until we've converted all classes in morkborg and morkborg-3p
-    // return [
-    //     "morkborg.class-classless-adventurer",
-    //     "morkborg.class-esoteric-hermit",
-    //     "morkborg.class-fanged-deserter",
-    //     "morkborg.class-gutterborn-scum",
-    //     "morkborg.class-occult-herbmaster",
-    //     "morkborg.class-wretched-royalty",
-    // ];
     const classPacks = [];
     const packKeys = game.packs.keys();
     for (const packKey of packKeys) {
@@ -65,25 +49,25 @@ export const findClassPacks = () => {
 
 export const classItemFromPack = async (packName) => { 
     const pack = game.packs.get(packName); 
-    const content = await pack.getContent(); 
+    const content = await pack.getDocuments(); 
     return content.find(i => i.data.type === "class");
 };
 
 const rollScvmForClass = async (clazz) => {
     console.log(`Creating new ${clazz.data.name}`);
 
-    const silverRoll = new Roll(clazz.data.data.startingSilver).evaluate();
-    const omensRoll = new Roll(clazz.data.data.omenDie).evaluate();
-    const hpRoll = new Roll(clazz.data.data.startingHitPoints).evaluate();
-    const powerUsesRoll = new Roll("1d4").evaluate();
+    const silverRoll = new Roll(clazz.data.data.startingSilver).evaluate({async: false});
+    const omensRoll = new Roll(clazz.data.data.omenDie).evaluate({async: false});
+    const hpRoll = new Roll(clazz.data.data.startingHitPoints).evaluate({async: false});
+    const powerUsesRoll = new Roll("1d4").evaluate({async: false});
 
-    const strRoll = new Roll(clazz.data.data.startingStrength).evaluate();
+    const strRoll = new Roll(clazz.data.data.startingStrength).evaluate({async: false});
     const strength = abilityBonus(strRoll.total);
-    const agiRoll = new Roll(clazz.data.data.startingAgility).evaluate();
+    const agiRoll = new Roll(clazz.data.data.startingAgility).evaluate({async: false});
     const agility = abilityBonus(agiRoll.total);
-    const preRoll = new Roll(clazz.data.data.startingPresence).evaluate();
+    const preRoll = new Roll(clazz.data.data.startingPresence).evaluate({async: false});
     const presence = abilityBonus(preRoll.total);
-    const touRoll = new Roll(clazz.data.data.startingToughness).evaluate();
+    const touRoll = new Roll(clazz.data.data.startingToughness).evaluate({async: false});
     const toughness = abilityBonus(touRoll.total);
 
     const hitPoints = Math.max(1, hpRoll.total + toughness);
@@ -91,17 +75,17 @@ const rollScvmForClass = async (clazz) => {
 
     // everybody gets food and water
     const miscPack = game.packs.get('morkborg.equipment-misc');
-    const miscContent = await miscPack.getContent();
+    const miscContent = await miscPack.getDocuments();
     const waterskin = miscContent.find(i => i.data.name === "Waterskin");
     const food = miscContent.find(i => i.data.name === "Dried food");
-    const foodRoll = new Roll("1d4", {}).evaluate();
+    const foodRoll = new Roll("1d4", {}).evaluate({async: false});
     // TODO: need to mutate _data to get it to change for our owned item creation.
     // Is there a better way to do this? 
-    food._data.data.quantity = foodRoll.total;
+    food.data._source.quantity = foodRoll.total;
 
     // 3 starting equipment tables
     const ccPack = game.packs.get('morkborg.character-creation');
-    const ccContent = await ccPack.getContent();
+    const ccContent = await ccPack.getDocuments();
     const equipTable1 = ccContent.find(i => i.name === 'Starting Equipment (1)');
     const equipTable2 = ccContent.find(i => i.name === 'Starting Equipment (2)');
     const equipTable3 = ccContent.find(i => i.name === 'Starting Equipment (3)');
@@ -146,7 +130,7 @@ const rollScvmForClass = async (clazz) => {
             const [packName, itemName] = line.split(",");
             const pack = game.packs.get(packName);
             if (pack) {
-                const content = await pack.getContent();
+                const content = await pack.getDocuments();
                 const item = content.find(i => i.data.name === itemName);
                 if (item) {
                     startingItems.push(item);
@@ -170,7 +154,7 @@ const rollScvmForClass = async (clazz) => {
             const numRolls = rolls ? parseInt(rolls) : 1;
             const pack = game.packs.get(packName);
             if (pack) {
-                const content = await pack.getContent();
+                const content = await pack.getDocuments();
                 const table = content.find(i => i.name === tableName);
                 if (table) {
                     // const tableDraw = await table.drawMany(numRolls, {displayChat: false});
@@ -178,13 +162,14 @@ const rollScvmForClass = async (clazz) => {
                     const results = await compendiumTableDrawMany(table, numRolls);
                     for (const result of results) {
                         // draw result type: text (0), entity (1), or compendium (2)
-                        if (result.type === 0) {
+                        if (result.data.type === 0) {
                             // text
-                            descriptionLines.push(`<p>${table.data.name}: ${result.text}</p>`);
-                        } else if (result.type === 1) {
+                            descriptionLines.push(`<p>${table.data.name}: ${result.data.text}</p>`);
+                        } else if (result.data.type === 1) {
                             // entity
                             // TODO: what do we want to do here?
-                        } else if (result.type === 2) {
+                        } else if (result.data.type === 2) {
+                            // compendium
                             const entity = await entityFromResult(result);
                             startingRollItems.push(entity);
                         }
@@ -220,7 +205,7 @@ const rollScvmForClass = async (clazz) => {
         agility,
         description: descriptionLines.join(""),
         hitPoints,
-        items,
+        items: items.map(i => i.data),
         omens: omensRoll.total,
         powerUses,
         presence,
@@ -261,7 +246,7 @@ const scvmToActorData = (s) => {
         },
         items: s.items,
         flags: {}
-    }
+    };
 };
 
 const createActorWithScvm = async (s) => {
@@ -276,6 +261,11 @@ const createActorWithScvm = async (s) => {
 
 const updateActorWithScvm = async (actor, s) => {
     const data = scvmToActorData(s);
+    // Explicitly nuke all items before updating.
+    // Before Foundry 0.8.x, actor.update() used to overwrite items,
+    // but now doesn't. Maybe because we're passing items: [item.data]?
+    // Dunno.
+    await actor.deleteEmbeddedDocuments("Item", [], {deleteAll: true});
     await actor.update(data);
 };
 
@@ -291,54 +281,37 @@ const entitiesFromResults = async (results) => {
 }
 
 const entityFromResult = async (result) => {
-    // Example RollTable draw result:
-    // {
-    //     "_id": "7zhVYYsOyl39p64R",
-    //     "flags": {},
-    //     "type": 2,
-    //     "text": "Donkey",
-    //     "img": "systems/morkborg/icons/items/containers/donkey.png",
-    //     "collection": "morkborg.equipment-misc",
-    //     "resultId": "xZrAhOxxJSj2czwp",
-    //     "weight": 1,
-    //     "range": [
-    //         6,
-    //         6
-    //     ],
-    //     "drawn": false
-    // }
-
     // draw result type: text (0), entity (1), or compendium (2)
     // TODO: figure out how we want to handle an entity result
 
     // TODO: handle scroll lookup / rolls
     // TODO: can we make a recursive random scroll thingy
 
-    if (result.type === 0) {
+    if (result.data.type === 0) {
         // hack for not having recursive roll tables set up
         // TODO: set up recursive roll tables :P
-        if (result.text === "Roll on Random Unclean Scrolls") {
+        if (result.data.text === "Roll on Random Unclean Scrolls") {
             const collection = game.packs.get("morkborg.random-scrolls");
-            const content = await collection.getContent();
+            const content = await collection.getDocuments();
             const table = content.find(i => i.name === "Unclean Scrolls");
             const draw = await table.draw({displayChat: false});
             const items = await entitiesFromResults(draw.results);
             return items[0];
-        } else if (result.text === "Roll on Random Sacred Scrolls") {
+        } else if (result.data.text === "Roll on Random Sacred Scrolls") {
             const collection = game.packs.get("morkborg.random-scrolls");
-            const content = await collection.getContent();
+            const content = await collection.getDocuments();
             const table = content.find(i => i.name === "Sacred Scrolls");
             const draw = await table.draw({displayChat: false});
             const items = await entitiesFromResults(draw.results);
             return items[0];
         }
-    } else if (result.type === 2) {
+    } else if (result.data.type === 2) {
         // grab the item from the compendium
-        const collection = game.packs.get(result.collection);
+        const collection = game.packs.get(result.data.collection);
         // TODO: should we use pack.getEntity(entryId) ?
         // const item = await collection.getEntity(result._id);
-        const content = await collection.getContent();
-        const entity = content.find(i => i.name === result.text);
+        const content = await collection.getDocuments();
+        const entity = content.find(i => i.name === result.data.text);
         return entity;
     }
 };

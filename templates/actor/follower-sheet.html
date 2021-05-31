@@ -12,9 +12,9 @@
             </div>
             <div class="hitpoints-row">
                 <span class="stat-label">{{ localize "MB.HitPoints" }}:</span>
-                <input class="stat-input" name="data.hp.value" type="number" value="{{data.hp.value}}" data-dtype="Number"/>
+                <input class="stat-input" name="data.hp.value" type="number" value="{{data.data.hp.value}}" data-dtype="Number"/>
                 /
-                <input class="stat-input" name="data.hp.max" type="number" value="{{data.hp.max}}" data-dtype="Number"/>
+                <input class="stat-input" name="data.hp.max" type="number" value="{{data.data.hp.max}}" data-dtype="Number"/>
             </div>
             <div class="buttons-row">
                 <button type="button" class="roll-button morale rollable">{{localize "MB.Morale"}}</button>
@@ -34,7 +34,7 @@
     <section class="sheet-body">
         {{!-- Description Tab --}}
         <div class="tab" data-group="primary" data-tab="description">
-            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+            {{editor content=data.data.description target="data.description" button=true owner=owner editable=true}}
         </div>
 
         {{!-- Details Tab --}}
@@ -42,25 +42,25 @@
             {{!-- Morale --}}
             <div class="form-group">
                 <label>{{ localize "MB.Morale" }}:</label>
-                <input name="data.morale" type="text" value="{{data.morale}}" placeholder="10" data-dtype="Number"/>
+                <input name="data.morale" type="text" value="{{data.data.morale}}" placeholder="10" data-dtype="Number"/>
             </div>
 
             {{!-- Trait --}}
             <div class="form-group">
                 <label>{{ localize "MB.FollowerTrait" }}:</label>
-                <input type="text" name="data.trait" value="{{data.trait}}" placeholder="None" data-dtype="String" />
+                <input type="text" name="data.trait" value="{{data.data.trait}}" placeholder="None" data-dtype="String" />
             </div>
 
             {{!-- Speciality --}}
             <div class="form-group">
                 <label>{{ localize "MB.FollowerSpeciality" }}:</label>
-                <input type="text" name="data.speciality" value="{{data.speciality}}" placeholder="None" data-dtype="String" />
+                <input type="text" name="data.speciality" value="{{data.data.speciality}}" placeholder="None" data-dtype="String" />
             </div>
 
             {{!-- Value --}}
             <div class="form-group">
                 <label>{{ localize "MB.FollowerValue" }}:</label>
-                <input type="text" name="data.value" value="{{data.value}}" placeholder="None" data-dtype="String" />
+                <input type="text" name="data.value" value="{{data.data.value}}" placeholder="None" data-dtype="String" />
             </div>
 
         </div>
@@ -72,7 +72,7 @@
                     <h3 class="item-name flexrow">{{localize "MB.ItemTypeWeaponPlural"}}</h3>
                 </li>            
                 <ol class="item-list weapon-list">
-                    {{#each data.equippedWeapons as |item id|}}
+                    {{#each data.data.equippedWeapons as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}">
                         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
                         <h4 class="item-name">{{item.name}}</h4>
@@ -103,39 +103,39 @@
                     </div>
                 </li>   
                 <ol class="item-list armor-list">
-                    {{#if data.equippedArmor}}
+                    {{#if data.data.equippedArmor}}
                     <li class="item flexrow" data-item-id="{{data.equippedArmor._id}}">
-                        <img src="{{data.equippedArmor.img}}" title="{{data.equippedArmor.name}}" width="24" height="24" />
-                        <h4 class="item-name">{{data.equippedArmor.name}}</h4>
+                        <img src="{{data.data.equippedArmor.img}}" title="{{data.data.equippedArmor.name}}" width="24" height="24" />
+                        <h4 class="item-name">{{data.data.equippedArmor.name}}</h4>
                         <div class="item-buttons">
                             <div class="armor-tiers">
                                 <div class="tiers">
                                     <label class="stat-label tier-label">{{ localize "MB.Tier" }}:</label>
                                     <ul class="tiers">
-                                        <li><label><input class="tier-radio" type="radio" name="tier.value" value="0" {{#ifEq data.equippedArmor.data.tier.value 0}}checked{{/ifEq}}/><span class="tier-num">0</span><span class="tier-dmg">-0</span></label></li>
-                                        <li><label><input class="tier-radio" type="radio" name="tier.value" value="1" {{#ifEq data.equippedArmor.data.tier.value 1}}checked{{/ifEq}}/><span class="tier-num">1</span><span class="tier-dmg">-d2</span></label></li>
-                                        <li><label><input class="tier-radio" type="radio" name="tier.value" value="2" {{#ifEq data.equippedArmor.data.tier.value 2}}checked{{/ifEq}} {{#ifLt data.equippedArmor.data.tier.max 2}}disabled="true"{{/ifLt}}/><span class="tier-num">2</span><span class="tier-dmg">-d4</span></label></li>
-                                        <li><label><input class="tier-radio" type="radio" name="tier.value" value="3" {{#ifEq data.equippedArmor.data.tier.value 3}}checked{{/ifEq}} {{#ifLt data.equippedArmor.data.tier.max 3}}disabled="true"{{/ifLt}}/><span class="tier-num">3</span><span class="tier-dmg">-d6</span></label></li>
+                                        <li><label><input class="tier-radio" type="radio" name="tier.value" value="0" {{#ifEq data.data.equippedArmor.data.tier.value 0}}checked{{/ifEq}}/><span class="tier-num">0</span><span class="tier-dmg">-0</span></label></li>
+                                        <li><label><input class="tier-radio" type="radio" name="tier.value" value="1" {{#ifEq data.data.equippedArmor.data.tier.value 1}}checked{{/ifEq}}/><span class="tier-num">1</span><span class="tier-dmg">-d2</span></label></li>
+                                        <li><label><input class="tier-radio" type="radio" name="tier.value" value="2" {{#ifEq data.data.equippedArmor.data.tier.value 2}}checked{{/ifEq}} {{#ifLt data.data.equippedArmor.data.tier.max 2}}disabled="true"{{/ifLt}}/><span class="tier-num">2</span><span class="tier-dmg">-d4</span></label></li>
+                                        <li><label><input class="tier-radio" type="radio" name="tier.value" value="3" {{#ifEq data.data.equippedArmor.data.tier.value 3}}checked{{/ifEq}} {{#ifLt data.data.equippedArmor.data.tier.max 3}}disabled="true"{{/ifLt}}/><span class="tier-num">3</span><span class="tier-dmg">-d6</span></label></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="item-controls">
-                            <a class="item-control item-toggle {{data.equippedArmor.data.toggleClass}}" title='{{data.equippedArmor.data.toggleTitle}}'><i class="fas fa-shield-alt"></i></a>
+                            <a class="item-control item-toggle {{data.data.equippedArmor.data.toggleClass}}" title='{{data.data.equippedArmor.data.toggleTitle}}'><i class="fas fa-shield-alt"></i></a>
                             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                             <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                         </div>
                     </li>
                     {{/if}}
                     {{#if data.equippedShield}}
-                    <li class="item flexrow" data-item-id="{{data.equippedShield._id}}">
-                        <img src="{{data.equippedShield.img}}" title="{{data.equippedShield.name}}" width="24" height="24" />
-                        <h4 class="item-name">{{data.equippedShield.name}}</h4>
+                    <li class="item flexrow" data-item-id="{{data.data.equippedShield._id}}">
+                        <img src="{{data.data.equippedShield.img}}" title="{{data.data.equippedShield.name}}" width="24" height="24" />
+                        <h4 class="item-name">{{data.data.equippedShield.name}}</h4>
                         <div class="item-buttons">
                             <span class="rule-text shield-rule">{{localize 'MB.ShieldUseText'}}</span>
                         </div>
                         <div class="item-controls">
-                            <a class="item-control item-toggle {{data.equippedShield.data.toggleClass}}" title='{{data.equippedShield.data.toggleTitle}}'><i class="fas fa-shield-alt"></i></a>
+                            <a class="item-control item-toggle {{data.data.equippedShield.data.toggleClass}}" title='{{data.data.equippedShield.data.toggleTitle}}'><i class="fas fa-shield-alt"></i></a>
                             <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                             <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
                         </div>
@@ -161,7 +161,7 @@
             <div class="equipment-top-row">
                 <div class="silver">
                     <span class="stat-label silver-label">{{ localize "MB.Silver" }}:</span>
-                    <input class="stat-input silver-input" name="data.silver" type="number" value="{{data.silver}}" data-dtype="Number" />  
+                    <input class="stat-input silver-input" name="data.silver" type="number" value="{{data.data.silver}}" data-dtype="Number" />  
                 </div>
             </div>
             <ol class="items-list equipment-list">
@@ -174,7 +174,7 @@
                     </div>
                 </li>
                 <ol class="item-list">
-                    {{#each data.equipment as |item id|}}
+                    {{#each data.data.equipment as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}">
                         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
                         <h4 class="item-name item-edit rollable">

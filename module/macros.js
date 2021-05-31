@@ -65,12 +65,12 @@ export async function createMorkBorgMacro(data, slot) {
   const item = items[0];
 
   if (item.data.type === "weapon") {
-    actor.attack(item.data._id);
+    actor.attack(item.data.id);
   } else if (item.data.type === "armor" || item.data.type === "shield") {
     actor.defend();
   } else if (item.data.type === "scroll") {
     actor.wieldPower();
   } else if (item.data.type === "feat") {
-    actor.useFeat(item.data._id);
+    actor.useFeat(item.data.id);
   }
 }
