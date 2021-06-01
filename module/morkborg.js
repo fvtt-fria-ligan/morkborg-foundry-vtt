@@ -134,10 +134,10 @@ const applyFontsAndColors = () => {
   r.style.setProperty("--item-font", fontScheme.item);
 };
 
-Hooks.on('dropActorSheetData', async (actor, actorSheet, data) => {
+Hooks.on('dropActorSheetData', async (actor, actorSheet, dropped) => {
   // Handle one-only Class item
-  if (data.type === "Item" && data.pack) {
-    const packName = data.pack.split(".")[1];
+  if (dropped.type === "Item" && dropped.pack) {
+    const packName = dropped.pack.split(".")[1];
     if (packName.startsWith("class-")) {
       // Dropping a new class, so nuke any pre-existing class item(s),
       // to enforce that a character only has one class item at a time.
@@ -149,13 +149,13 @@ Hooks.on('dropActorSheetData', async (actor, actorSheet, data) => {
   // TODO: test this when dropping a Class item from sidebar, rather than from compendium
 
   // Handle container actor destructive drag-drop
-  if (data.type === "Item" && data.data && data.data.id) {
-    const sourceActor = data.tokenId ? game.actors.tokens[data.tokenId] : game.actors.get(data.actorId);
+  if (dropped.type === "Item" && dropped.data && dropped.data._id) {
+    const sourceActor = dropped.tokenId ? game.actors.tokens[dropped.tokenId] : game.actors.get(dropped.actorId);
     if (sourceActor && actor.id !== sourceActor.id && 
       (sourceActor.data.type === "container" || actor.data.type === "container")) {
       // either the source or target actor is a container,
       // so delete the item from the source
-      await sourceActor.deleteOwnedItem(data.data.id);
+      await sourceActor.deleteEmbeddedDocuments("Item", [dropped.data._id]);
     }
   }
 });
