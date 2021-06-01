@@ -94,8 +94,8 @@ export class MBActor extends Actor {
   carryingWeight() {
     let total = 0;
     for (const item of this.data.items) {
-      if (CONFIG.MB.itemEquipmentTypes.includes(item.type) && item.data.carryWeight) {
-        const roundedWeight = Math.ceil(item.data.carryWeight * item.data.quantity);
+      if (CONFIG.MB.itemEquipmentTypes.includes(item.data.type) && item.data.data.carryWeight) {
+        const roundedWeight = Math.ceil(item.data.data.carryWeight * item.data.data.quantity);
         total += roundedWeight;
       }
     }
@@ -110,10 +110,10 @@ export class MBActor extends Actor {
     let total = 0;
     for (const item of this.data.items) {
       if (CONFIG.MB.itemEquipmentTypes.includes(item.type) && 
-          item.type !== 'container' &&
-          !item.data.equipped &&
-          item.data.containerSpace) {  
-          const roundedSpace = Math.ceil(item.data.containerSpace * item.data.quantity);
+          item.data.type !== 'container' &&
+          !item.data.data.equipped &&
+          item.data.data.containerSpace) {  
+          const roundedSpace = Math.ceil(item.data.data.containerSpace * item.data.data.quantity);
           total += roundedSpace;
       }
     }
@@ -123,8 +123,8 @@ export class MBActor extends Actor {
   containerCapacity() {
     let total = 0;
     for (const item of this.data.items) {
-      if (item.type === 'container' && item.data.capacity) {
-        total += item.data.capacity;
+      if (item.data.type === 'container' && item.data.data.capacity) {
+        total += item.data.data.capacity;
       }
     }
     return total;
