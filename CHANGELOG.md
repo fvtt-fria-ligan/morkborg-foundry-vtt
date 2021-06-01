@@ -1,3 +1,7 @@
+# 1.0.1
+- Fix character capacity/container calculations.
+- Fix container destructive drag-drop.
+
 # 1.0.0
 - Compatibility with Foundry 0.8.6.
 
