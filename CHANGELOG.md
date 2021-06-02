@@ -1,3 +1,6 @@
+# 1.0.2
+- Fix description on various item sheets.
+
 # 1.0.1
 - Fix character capacity/container calculations.
 - Fix container destructive drag-drop.
