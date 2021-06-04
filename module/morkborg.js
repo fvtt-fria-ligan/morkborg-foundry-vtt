@@ -166,9 +166,21 @@ Hooks.on('createActor', async (actor, options, userId) => {
     const hasAClass = actor.items.filter(i => i.data.type === "class").length > 0;
     if (!hasAClass) {
       const pack = game.packs.get("morkborg.class-classless-adventurer");
-      let index = await pack.getIndex();
-      let entry = index.find(e => e.name === "Adventurer");
-      let entity = await pack.getDocument(entry.id);
+      if (!pack) {
+        console.error("Could not find compendium morkborg.class-classless-adventurer");
+        return;
+      }
+      const index = await pack.getIndex();
+      const entry = index.find(e => e.name === "Adventurer");
+      if (!entry) {
+        console.error("Could not find Adventurer class in compendium.");
+        return;
+      }
+      const entity = await pack.getDocument(entry._id);
+      if (!entity) {
+        console.error("Could not get document for Adventurer class.");
+        return;
+      }
       await actor.createEmbeddedDocuments("Item", [duplicate(entity.data)]);
     }
   }
