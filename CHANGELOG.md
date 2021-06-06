@@ -1,9 +1,12 @@
+# 1.0.3
+- Fixed default class for new Character actors.
+
 # 1.0.2
-- Fix description on various item sheets.
+- Fixed description on various item sheets.
 
 # 1.0.1
-- Fix character capacity/container calculations.
-- Fix container destructive drag-drop.
+- Fixed character capacity/container calculations.
+- Fixed container destructive drag-drop.
 
 # 1.0.0
 - Compatibility with Foundry 0.8.6.
