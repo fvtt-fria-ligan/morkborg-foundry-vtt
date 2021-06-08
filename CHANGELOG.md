@@ -1,3 +1,7 @@
+# 1.0.4
+- Added Terribler Traits, Brokener Bodies, and Badder Habits tables.
+- Added trait/body/habit rolls to Scvmfactory character generation.
+
 # 1.0.3
 - Fixed default class for new Character actors.
 
