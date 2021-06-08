@@ -98,6 +98,17 @@ const rollScvmForClass = async (clazz) => {
     let allEq = [].concat(eq1, eq2, eq3);
     const rolledScroll = allEq.filter(i => i.data.type === "scroll").length > 0;
 
+    const ttTable = ccContent.find(i => i.name === 'Terribler Traits');
+    const bbTable = ccContent.find(i => i.name === 'Brokener Bodies');
+    const bhTable = ccContent.find(i => i.name === 'Badder Habits');
+    const ttResults = await compendiumTableDrawMany(ttTable, 2);
+    const bbDraw = await bbTable.draw({displayChat: false});
+    const bhDraw = await bhTable.draw({displayChat: false});
+    const terribleTrait1 = ttResults[0].data.text;
+    const terribleTrait2 = ttResults[1].data.text;
+    const brokenBody = bbDraw.results[0].data.text;
+    const badHabit = bhDraw.results[0].data.text;
+
     // starting weapon
     let weapons = [];
     if (clazz.data.data.weaponTableDie) {
@@ -143,7 +154,10 @@ const rollScvmForClass = async (clazz) => {
     const descriptionLines = [];
     descriptionLines.push(clazz.data.data.description);
     descriptionLines.push("<p>&nbsp;</p>");
-    
+    // BrokenBodies and BadHabits end with a period, but TerribleTraits don't.
+    descriptionLines.push(`${terribleTrait1} and ${terribleTrait2.charAt(0).toLowerCase()}${terribleTrait2.slice(1)}. ${brokenBody} ${badHabit}`);
+    descriptionLines.push("<p>&nbsp;</p>");
+
     // class-specific starting rolls
     const startingRollItems = [];
     if (clazz.data.data.startingRolls) {
