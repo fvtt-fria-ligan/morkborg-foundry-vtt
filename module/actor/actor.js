@@ -68,7 +68,7 @@ export class MBActor extends Actor {
 
   _firstEquipped(itemType) {
     for (const item of this.data.items) {
-      if (item.type === itemType && item.data.equipped) {
+      if (item.type === itemType && item.data.data.equipped) {
         return item;
       }
     }
@@ -132,7 +132,7 @@ export class MBActor extends Actor {
 
   async _testAbility(ability, abilityKey, drModifiers) {
     let abilityRoll = new Roll(`1d20+@abilities.${ability}.value`, this.getRollData());
-    abilityRoll.evaluate();
+    abilityRoll.evaluate({async: false});
     await showDice(abilityRoll);
     const rollResult = {
       abilityKey: abilityKey,
@@ -159,7 +159,7 @@ export class MBActor extends Actor {
     let drModifiers = [];
     const armor = this.equippedArmor();
     if (armor) {
-      const armorTier = CONFIG.MB.armorTiers[armor.data.tier.max];
+      const armorTier = CONFIG.MB.armorTiers[armor.data.data.tier.max];
       if (armorTier.agilityModifier) {
         drModifiers.push(`${armor.name}: ${game.i18n.localize('MB.DR')} +${armorTier.agilityModifier}`);
       }
@@ -242,7 +242,7 @@ export class MBActor extends Actor {
     // ranged weapons use presence; melee weapons use strength
     const ability = isRanged ? 'presence' : 'strength';
     let attackRoll = new Roll(`d20+@abilities.${ability}.value`, actorRollData);
-    attackRoll.evaluate();
+    attackRoll.evaluate({async: false});
     await showDice(attackRoll);
 
     const d20Result = attackRoll.terms[0].results[0].result;
@@ -259,14 +259,14 @@ export class MBActor extends Actor {
       // roll 2: damage
       const damageFormula = isCrit ? "@damageDie * 2" : "@damageDie";
       damageRoll = new Roll(damageFormula, itemRollData);
-      damageRoll.evaluate();
+      damageRoll.evaluate({async: false});
       let dicePromises = [];
       addShowDicePromise(dicePromises, damageRoll);
       let damage = damageRoll.total;
       // roll 3: target damage reduction
       if (targetArmor) {
         targetArmorRoll = new Roll(targetArmor, {});
-        targetArmorRoll.evaluate();
+        targetArmorRoll.evaluate({async: false});
         addShowDicePromise(dicePromises, targetArmorRoll);
         damage = Math.max(damage - targetArmorRoll.total, 0);
       }
@@ -326,7 +326,7 @@ export class MBActor extends Actor {
     if (armor) {
       // armor defense adjustment is based on its max tier, not current
       // TODO: maxTier is getting stored as a string
-      const maxTier = parseInt(armor.data.tier.max);
+      const maxTier = parseInt(armor.data.data.tier.max);
       const defenseModifier = CONFIG.MB.armorTiers[maxTier].defenseModifier;
       if (defenseModifier) { 
         drModifiers.push(`${armor.name}: ${game.i18n.localize('MB.DR')} +${defenseModifier}`);       
@@ -371,7 +371,7 @@ export class MBActor extends Actor {
     const armor = this.equippedArmor();
     if (armor) {
       // TODO: maxTier is getting stored as a string
-      const maxTier = parseInt(armor.data.tier.max);
+      const maxTier = parseInt(armor.data.data.tier.max);
       const defenseModifier = CONFIG.MB.armorTiers[maxTier].defenseModifier;
       if (defenseModifier) { 
         drModifier += defenseModifier;
@@ -413,7 +413,7 @@ export class MBActor extends Actor {
 
     // roll 1: defend
     let defendRoll = new Roll("d20+@abilities.agility.value", rollData);
-    defendRoll.evaluate();
+    defendRoll.evaluate({async: false});
     await showDice(defendRoll);
 
     const d20Result = defendRoll.terms[0].results[0].result;
@@ -446,7 +446,7 @@ export class MBActor extends Actor {
         damageFormula += " * 2";
       }
       damageRoll = new Roll(damageFormula, {});
-      damageRoll.evaluate();
+      damageRoll.evaluate({async: false});
       let dicePromises = [];
       addShowDicePromise(dicePromises, damageRoll);
       let damage = damageRoll.total;
@@ -454,7 +454,7 @@ export class MBActor extends Actor {
       // roll 3: damage reduction from equipped armor and shield
       let damageReductionDie = "";
       if (armor) {
-        damageReductionDie = CONFIG.MB.armorTiers[armor.data.tier.value].damageReductionDie;
+        damageReductionDie = CONFIG.MB.armorTiers[armor.data.data.tier.value].damageReductionDie;
         items.push(armor);
       }    
       if (shield) {
@@ -463,7 +463,7 @@ export class MBActor extends Actor {
       }
       if (damageReductionDie) {
         armorRoll = new Roll("@die", {die: damageReductionDie});
-        armorRoll.evaluate();
+        armorRoll.evaluate({async: false});
         addShowDicePromise(dicePromises, armorRoll);
         damage = Math.max(damage - armorRoll.total, 0);
       }
@@ -504,13 +504,13 @@ export class MBActor extends Actor {
   async checkMorale(sheetData) {
     const actorRollData = this.getRollData();
     const moraleRoll = new Roll("2d6", actorRollData);
-    moraleRoll.evaluate();
+    moraleRoll.evaluate({async: false});
     await showDice(moraleRoll);
 
     let outcomeRoll = null;
     if (moraleRoll.total > this.data.data.morale) {
       outcomeRoll = new Roll("1d6", actorRollData);
-      outcomeRoll.evaluate();
+      outcomeRoll.evaluate({async: false});
       await showDice(outcomeRoll);
     }
     await this._renderMoraleRollCard(moraleRoll, outcomeRoll);
@@ -547,7 +547,7 @@ export class MBActor extends Actor {
   async checkReaction(sheetData) {
     const actorRollData = this.getRollData();
     const reactionRoll = new Roll("2d6", actorRollData);
-    reactionRoll.evaluate();
+    reactionRoll.evaluate({async: false});
     await showDice(reactionRoll);
     await this._renderReactionRollCard(reactionRoll);
   }
@@ -589,7 +589,7 @@ export class MBActor extends Actor {
     }
 
     const wieldRoll = new Roll("d20+@abilities.presence.value", this.getRollData());
-    wieldRoll.evaluate();
+    wieldRoll.evaluate({async: false});
     await showDice(wieldRoll);
 
     const d20Result = wieldRoll.terms[0].results[0].result;
@@ -607,7 +607,7 @@ export class MBActor extends Actor {
       // FAILURE
       wieldOutcome = game.i18n.localize(isFumble ? 'MB.WieldAPowerFumble' : 'MB.Failure');
       damageRoll = new Roll("1d2", this.getRollData());
-      damageRoll.evaluate();
+      damageRoll.evaluate({async: false});
       await showDice(damageRoll);
       takeDamage = `${game.i18n.localize('MB.Take')} ${damageRoll.total} ${game.i18n.localize('MB.Damage')}, ${game.i18n.localize('MB.WieldAPowerDizzy')}`;
     }
@@ -644,7 +644,7 @@ export class MBActor extends Actor {
 
   async _rollOutcome(dieRoll, rollData, cardTitle, outcomeTextFn) {
     let roll = new Roll(dieRoll, rollData);
-    roll.evaluate();
+    roll.evaluate({async: false});
     await showDice(roll);
     const rollResult = {
       cardTitle: cardTitle,
@@ -784,11 +784,11 @@ export class MBActor extends Actor {
     // Left in the debris you find...
     let debrisOutcome = null;
     let scrollTableName = null;
-    const debrisRoll = new Roll("1d6", this.getRollData()).evaluate();
+    const debrisRoll = new Roll("1d6", this.getRollData()).evaluate({async: false});
     if (debrisRoll.total < 4) {
       debrisOutcome = "Nothing";
     } else if (debrisRoll.total === 4) {
-      const silverRoll = new Roll("3d10", this.getRollData()).evaluate();
+      const silverRoll = new Roll("3d10", this.getRollData()).evaluate({async: false});
       debrisOutcome = `${silverRoll.total} silver`;
       newSilver += silverRoll.total;
     } else if (debrisRoll.total === 5) {
@@ -835,10 +835,10 @@ export class MBActor extends Actor {
   }
 
   _betterHp(oldHp) {
-    const hpRoll = new Roll("6d10", this.getRollData()).evaluate();
+    const hpRoll = new Roll("6d10", this.getRollData()).evaluate({async: false});
     if (hpRoll.total >= oldHp) {
       // success, increase HP
-      const howMuchRoll = new Roll("1d6", this.getRollData()).evaluate();
+      const howMuchRoll = new Roll("1d6", this.getRollData()).evaluate({async: false});
       return oldHp + howMuchRoll.total;
     } else {
       // no soup for you
@@ -847,7 +847,7 @@ export class MBActor extends Actor {
   }
 
   _betterAbility(oldVal) {
-    const roll = new Roll("1d6", this.getRollData()).evaluate();
+    const roll = new Roll("1d6", this.getRollData()).evaluate({async: false});
     if (roll.total === 1 || roll.total < oldVal) {
       // decrease, to a minimum of -3
       return Math.max(-3, oldVal - 1);
@@ -872,21 +872,21 @@ export class MBActor extends Actor {
   }
 
   async rollBroken() {
-    const brokenRoll = new Roll("1d4").evaluate();
+    const brokenRoll = new Roll("1d4").evaluate({async: false});
     await showDice(brokenRoll);
 
     let outcomeLines = [];
     let additionalRolls = [];
     if (brokenRoll.total === 1) {
-      const unconsciousRoll = new Roll("1d4").evaluate();
+      const unconsciousRoll = new Roll("1d4").evaluate({async: false});
       const s = unconsciousRoll.total > 1 ? "s" : "";
-      const hpRoll = new Roll("1d4").evaluate();
+      const hpRoll = new Roll("1d4").evaluate({async: false});
       outcomeLines = [`Fall unconscious`, `for ${unconsciousRoll.total} round${s},`, `awaken with ${hpRoll.total} HP.`];
       additionalRolls = [unconsciousRoll, hpRoll];
     } else if (brokenRoll.total === 2) {
-      const limbRoll = new Roll("1d6").evaluate();
-      const actRoll = new Roll("1d4").evaluate();
-      const hpRoll = new Roll("1d4").evaluate();
+      const limbRoll = new Roll("1d6").evaluate({async: false});
+      const actRoll = new Roll("1d4").evaluate({async: false});
+      const hpRoll = new Roll("1d4").evaluate({async: false});
       const s = actRoll.total > 1 ? "s" : "";
       if (limbRoll.total <= 5) {
         outcomeLines = [`Broken or severed limb.`, `Can't act for ${actRoll.total} round${s} then become active`, `with ${hpRoll.total} HP.`];
@@ -895,7 +895,7 @@ export class MBActor extends Actor {
       }
       additionalRolls = [limbRoll, actRoll, hpRoll];
     } else if (brokenRoll.total === 3) {
-      const hemorrhageRoll = new Roll("1d2").evaluate(); 
+      const hemorrhageRoll = new Roll("1d2").evaluate({async: false}); 
       const s = hemorrhageRoll.total > 1 ? "s" : "";
       outcomeLines = [`Hemorrhage:`, `dead in ${hemorrhageRoll.total} hour${s}`, `unless treated.`, `All tests are DR16`, `the first hour.`];
       if (hemorrhageRoll.total == 2) {

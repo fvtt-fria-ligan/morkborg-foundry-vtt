@@ -6,7 +6,7 @@ export class MBCombat extends Combat {
 
   async rollPartyInitiative() {
     let initiativeRoll = new Roll("d6", {});
-    initiativeRoll.evaluate();
+    initiativeRoll.evaluate({async: false});
     await showDice(initiativeRoll);
   
     let outcomeText = "";

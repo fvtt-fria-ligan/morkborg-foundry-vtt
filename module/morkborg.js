@@ -42,13 +42,13 @@ Hooks.once("init", async function() {
   };
 
   // Define custom Entity classes
-  CONFIG.Actor.entityClass = MBActor;
-  CONFIG.Combat.entityClass = MBCombat;
+  CONFIG.Actor.documentClass = MBActor;
+  CONFIG.Combat.documentClass = MBCombat;
   // TODO: push this into MBCombat?
   CONFIG.Combat.initiative = {
     formula: "1d6 + @abilities.agility.value",
   };
-  CONFIG.Item.entityClass = MBItem;
+  CONFIG.Item.documentClass = MBItem;
   CONFIG.MB = MB;
 
   // Register sheet application classes
