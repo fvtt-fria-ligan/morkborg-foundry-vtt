@@ -1,3 +1,8 @@
+# 1.0.5
+- Fixed several broken fields on item sheets: weapon damage die, scroll type, default item carry weight.
+- Fixed armor/shield not being used in defense.
+- Fixed numerous warning messages.
+
 # 1.0.4
 - Added Terribler Traits, Brokener Bodies, and Badder Habits tables.
 - Added trait/body/habit rolls to Scvmfactory character generation.
