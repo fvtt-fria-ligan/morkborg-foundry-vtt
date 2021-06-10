@@ -52,7 +52,7 @@
             <div class="form-group">
                 <label>{{ localize "MB.ItemScrollType" }}:</label>
                 <select name="data.scrollType">
-                    {{#select data.scrollType}}
+                    {{#select data.data.scrollType}}
                     {{#each config.scrollTypes as |name value|}}
                     <option value="{{value}}">{{localize name}}</option>
                     {{/each}}
