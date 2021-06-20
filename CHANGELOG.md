@@ -1,3 +1,9 @@
+# 1.0.6
+- Added Party and Individual initiative buttons to character and follower sheet violence tab.
+- Added new misc item icons from vil.
+- Fixed 0.8.x-related issues with Party initiative and the combat tracker.
+- Marked system as compatible with Foundry 0.8.7.
+
 # 1.0.5
 - Fixed several broken fields on item sheets: weapon damage die, scroll type, default item carry weight.
 - Fixed armor/shield not being used in defense.
