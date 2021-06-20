@@ -405,6 +405,32 @@
 /* ====================== */
 /* Actor sheet violence tab */
 /* ====================== */
+.morkborg.sheet.actor .sheet-body .violence-tab div.initiative {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.morkborg.sheet.actor .sheet-body .violence-tab .roll-initiative {
+  font-family: var(--item-font);
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.morkborg.sheet.actor .sheet-body .violence-tab .initiative-button {
+  background-color: var(--foreground-color);
+  border: none;
+  border-bottom: 2px solid #777;
+  border-radius: 0;
+  color: var(--background-color);
+  font-family: var(--h2-font);
+  font-size: 20px;
+  width: 150px;
+}
+
+.morkborg.sheet.actor .sheet-body .violence-tab .items-list {
+  margin-top: 0px;
+}
+
 .morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item {
   align-items: center;
 }

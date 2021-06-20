@@ -11,7 +11,7 @@ export class MBActorSheetCharacter extends MBActorSheet {
       classes: ["morkborg", "sheet", "actor", "character"],
       template: "systems/morkborg/templates/actor/character-sheet.html",
       width: 720,
-      height: 680,
+      height: 690,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "violence"}],
       dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
     });

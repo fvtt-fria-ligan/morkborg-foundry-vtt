@@ -1,4 +1,5 @@
 import * as editor from "../../editor.js";
+import { rollIndividualInitiative, rollPartyInitiative } from "../../combat.js";
 
 /**
  * @extends {ActorSheet}
@@ -41,6 +42,8 @@ export default class MBActorSheet extends ActorSheet {
     html.find('.item-toggle').click(this._onToggleItem.bind(this));
 
     // Violence-related buttons
+    html.find(".party-initiative-button").on("click", this._onPartyInitiativeRoll.bind(this));
+    html.find(".individual-initiative-button").on("click", this._onIndividualInitiativeRoll.bind(this));
     html.find(".attack-button").on("click", this._onAttackRoll.bind(this));
     html.find(".defend-button").on("click", this._onDefendRoll.bind(this));
     html.find('.tier-radio').click(this._onArmorTierRadio.bind(this));    
@@ -52,7 +55,7 @@ export default class MBActorSheet extends ActorSheet {
    * @param {Event} event   The originating click event
    * @private
    */
-   async _onItemCreate(event) {
+  async _onItemCreate(event) {
     event.preventDefault();
     const template = "systems/morkborg/templates/dialog/add-item-dialog.html";
     let dialogData = {
@@ -93,19 +96,19 @@ export default class MBActorSheet extends ActorSheet {
   /**
    * Handle subtracting quantity of an Owned Item within the Actor
    */
-     async _onItemSubtractQuantity(event) {
-      event.preventDefault();
-      let anchor = $(event.currentTarget);
-      const li = anchor.parents(".item");
-      const itemId = li.data("itemId");
-      const item = this.actor.items.get(itemId);
-      const attr = "data.quantity";
-      const currQuantity = getProperty(item.data, attr);
-      // can't reduce quantity below one
-      if (currQuantity > 1) {
-        return item.update({[attr]: currQuantity - 1});  
-      }
+  async _onItemSubtractQuantity(event) {
+    event.preventDefault();
+    let anchor = $(event.currentTarget);
+    const li = anchor.parents(".item");
+    const itemId = li.data("itemId");
+    const item = this.actor.items.get(itemId);
+    const attr = "data.quantity";
+    const currQuantity = getProperty(item.data, attr);
+    // can't reduce quantity below one
+    if (currQuantity > 1) {
+      return item.update({[attr]: currQuantity - 1});  
     }
+  }
 
   /**
    * Handle toggling the state of an Owned Item within the Actor
@@ -155,7 +158,23 @@ export default class MBActorSheet extends ActorSheet {
         flavor: `<h2>${item.name}</h2><h3>${button.text()}</h3>`
     });
   }
-        
+
+  /**
+   * Handle a click on the Party Initiative button.
+   */
+   async _onPartyInitiativeRoll(event) {
+    event.preventDefault();
+    rollPartyInitiative();
+  }
+
+  /**
+   * Handle a click on the Individual Initiative button.
+   */
+  async _onIndividualInitiativeRoll(event) {
+    event.preventDefault();
+    rollIndividualInitiative(this.actor);
+  }
+
   /**
    * Handle a click on an item Attack button.
    */

@@ -96,6 +96,11 @@
 
         {{!-- Violence Tab --}}
         <div class="tab violence-tab" data-group="primary" data-tab="violence">
+            <div class="initiative">
+                <span class="roll-initiative">{{localize "MB.Roll"}} {{localize "MB.Initiative"}}:</span>
+                <button type="button" class="button item-button rollable initiative-button party-initiative-button" title="{{localize 'MB.Party'}}">{{localize "MB.Party"}}</button>
+                <button type="button" class="button item-button rollable initiative-button individual-initiative-button" title="{{localize 'MB.IndividualI'}}">{{localize "MB.Individual"}}</button>
+            </div>
             <ol class="items-list inventory-list">
                 <li class="items-header flexrow">
                     <h3 class="item-name flexrow">{{localize "MB.ItemTypeWeaponPlural"}}</h3>

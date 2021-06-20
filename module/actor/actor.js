@@ -273,7 +273,7 @@ export class MBActor extends Actor {
       if (dicePromises) {
         await Promise.all(dicePromises);
       }
-      takeDamage = `${game.i18n.localize('MB.Take')} ${damage} ${game.i18n.localize('MB.Damage')}`
+      takeDamage = `${game.i18n.localize('MB.Inflict')} ${damage} ${game.i18n.localize('MB.Damage')}`
     } else {
       // MISS!!!
       attackOutcome = game.i18n.localize(isFumble ? 'MB.AttackFumbleText' : 'MB.Miss');

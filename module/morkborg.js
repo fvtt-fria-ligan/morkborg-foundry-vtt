@@ -213,6 +213,7 @@ const rollPartyInitiative = () => {
     ui.notifications.warn(`${game.i18n.localize('MB.NoActiveEncounter')}!`);
   }  
 };
+
 Hooks.on('renderCombatTracker', (tracker, html) => {
   const partyInitiativeButton = `<a class="combat-control" title="${game.i18n.localize('MB.RollPartyInitiative')}" dataControl="rollParty"><i class="fas fa-dice-six"></i></a>`;
   html.find("header").find("nav").last().prepend(partyInitiativeButton);
