@@ -36,12 +36,11 @@ This is an implementation of the MÖRK BORG rules, with limited adaptations to m
     * You can combine quantity with carryWeight and containerSpace fields set less than zero, to allow "stacking" of items occupying less than 1 unit or occupying less than 1 slot.
 
 ## Combat
-  * Initiative is handled by Foundry's Combat Tracker. All other combat rolls are handled from the *Violence* tab on a Character's sheet.
-  * To start a battle:
-    * Create a new Encounter in the Combat Tracker right sidebar tab. (Either through the *Create Encounter* plus button, or by selecting all desired tokens, right-clicking, and choosing *Toggle Combat State*.)
-    * Roll for players begin / enemies begin by clicking the "Roll Party Initiative" (six-sided die icon) button on the Combat Tracker. The d6 roll and result will be shown in chat.
-    * Roll initiative for each individual in the fight, using the d20 die icon button in the Combat Tracker. (GameMasters can also use their "Roll All" button.) Combatants will be first sorted according to token disposition (friendly vs. neutral/hostile), and then their individual initiative within the friendly/enemy grouping. E.g., if the Party Initiative roll was a 5 -- "Player Characters Begin" -- then friendly combatants will be show up higher on the Combat Tracker.
-    * If desired, you can repeat "Roll Party Initiative" every round. Depending on the die roll, friendlies/enemies may be reordered to show up on top.
+  * Combat rolls are handled from the *Violence* tab on a Character's sheet.
+  * Party and Individual initiative can be handled either with or without Foundry's Combat Tracker.
+    *  With: GameMaster has started a Combat Encounter and added players and enemies to it. Party Initiative will sort combatants ("Players go first", "Enemies go first") based on their token disposition (friendly is a player/ally, neutral or hostile is an enemy), and Individual Initiative will sort combatants within that grouping. There are also buttons on the combat tracker for party initiative (6-sided die icon) and individual initiative (regular 20-sided die icon).
+      * If desired, you can repeat "Roll Party Initiative" every round. Depending on the die roll, friendlies/enemies may be reordered to show up on top.
+    *  Without: initiative buttons will show messages in chat, but it's up to you to track the ordering.
   * To use a weapon, armor, or shield, you need to equip it. You can do so on the *Treasures* tab. Any equippable items have a small shield icon next to their edit and delete buttons. Click the shield icon to make it turn yellow (equipped), and the item will appear on your *Violence* tab, ready for use. Note: you can only have a single armor and single shield equipped at one time.
   * Attacking
     * On the *Violence* tab of your character sheet, click the *Attack* button next to your weapon of choice.
