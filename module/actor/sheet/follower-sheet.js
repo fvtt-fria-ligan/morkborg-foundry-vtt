@@ -11,7 +11,7 @@ import MBActorSheet from "./actor-sheet.js";
       classes: ["morkborg", "sheet", "actor", "follower"],
       template: "systems/morkborg/templates/actor/follower-sheet.html",
       width: 720,
-      height: 680,
+      height: 690,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}],
       // is dragDrop needed?
       // dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
