@@ -6,7 +6,7 @@ import { MBActorSheetCharacter } from "./actor/sheet/character-sheet.js";
 import { MBActorSheetContainer } from "./actor/sheet/container-sheet.js";
 import { MBActorSheetCreature } from "./actor/sheet/creature-sheet.js";
 import { MBActorSheetFollower } from "./actor/sheet/follower-sheet.js";
-import { MBCombat } from "./combat.js";
+import { MBCombat, rollPartyInitiative } from "./combat.js";
 import { MB } from "./config.js";
 import { MBItem } from "./item/item.js";
 import { MBItemSheet } from "./item/sheet/item-sheet.js";
@@ -14,6 +14,7 @@ import { createMorkBorgMacro, rollItemMacro } from "./macros.js";
 import { migrateWorld } from "./migration.js";
 import ScvmDialog from "./scvm/scvm-dialog.js";
 import { registerSystemSettings } from "./settings.js";
+
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -205,14 +206,6 @@ Hooks.on('renderActorDirectory', (app,  html, data) => {
     });  
   }
 });
-
-const rollPartyInitiative = () => {
-  if (game.combats && game.combat) {
-    game.combat.rollPartyInitiative();
-  } else {
-    ui.notifications.warn(`${game.i18n.localize('MB.NoActiveEncounter')}!`);
-  }  
-};
 
 Hooks.on('renderCombatTracker', (tracker, html) => {
   const partyInitiativeButton = `<a class="combat-control" title="${game.i18n.localize('MB.RollPartyInitiative')}" dataControl="rollParty"><i class="fas fa-dice-six"></i></a>`;
