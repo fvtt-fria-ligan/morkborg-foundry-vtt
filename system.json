@@ -190,7 +190,7 @@
   "primaryTokenAttribute": "hp",
   "secondaryTokenAttribute": null,
   "minimumCoreVersion": "0.8.6",
-  "compatibleCoreVersion": "0.8.7",
+  "compatibleCoreVersion": "0.8.8",
   "manifest": "https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/releases/latest/download/system.json",  
   "download": "https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/releases/latest/download/system.zip"
 }
