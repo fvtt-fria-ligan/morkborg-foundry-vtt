@@ -1,3 +1,7 @@
+# 1.0.7
+- Fixed party initiative button on the combat tracker.
+- Marked system as compatible with Foundry 0.8.8.
+
 # 1.0.6
 - Added Party and Individual initiative buttons to character and follower sheet violence tab.
 - Added new misc item icons from vil.
