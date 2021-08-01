@@ -112,13 +112,14 @@ const rollScvmForClass = async (clazz) => {
     // starting weapon
     let weapons = [];
     if (clazz.data.data.weaponTableDie) {
-        let weaponRoll = new Roll(clazz.data.data.weaponTableDie);
+        let weaponDie = clazz.data.data.weaponTableDie;
         if (rolledScroll) {
             // TODO: should only the classless adventurer get gimped down to d6?
-            if (weaponRoll === "1d10") {
-                weaponRoll = "1d6";
+            if (weaponDie === "1d10") {
+                weaponDie = "1d6";
             }
         }
+        let weaponRoll = new Roll(weaponDie);
         const weaponTable = ccContent.find(i => i.name === 'Starting Weapon');
         const weaponDraw = await weaponTable.draw({roll: weaponRoll, displayChat: false});
         weapons = await entitiesFromResults(weaponDraw.results);
