@@ -1,3 +1,6 @@
+# 1.0.8
+- Fixed torch quantity.
+
 # 1.0.7
 - Fixed party initiative button on the combat tracker.
 - Marked system as compatible with Foundry 0.8.8.
