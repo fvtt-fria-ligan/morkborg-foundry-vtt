@@ -1,5 +1,6 @@
 # 1.0.8
 - Fixed torch quantity.
+- Added support for new scroll type: Tablet of Ochre Obscurity.
 
 # 1.0.7
 - Fixed party initiative button on the combat tracker.
