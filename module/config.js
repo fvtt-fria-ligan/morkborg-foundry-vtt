@@ -177,6 +177,7 @@ MB.itemEquipmentTypes = [
 
 MB.scrollTypes = {
   "sacred": "MB.ScrollTypeSacred",
+  "tablet": "MB.ScrollTypeTablet",
   "unclean": "MB.ScrollTypeUnclean"
 };
 

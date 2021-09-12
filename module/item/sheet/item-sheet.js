@@ -32,6 +32,9 @@ export class MBItemSheet extends ItemSheet {
   async getData(options) {
     const data = super.getData(options);
     data.config = CONFIG.MB;
+    if (data.data.data.scrollType) {
+      data.data.data.localizedScrollType = game.i18n.localize(MB.scrollTypes[data.data.data.scrollType]);
+    }
     return data;
   }
 
