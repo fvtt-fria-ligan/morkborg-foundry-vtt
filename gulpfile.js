@@ -1,12 +1,7 @@
 const concat = require('gulp-concat');
 const gulp = require('gulp');
 const prefix = require('gulp-autoprefixer');
-// const sass = require('sass');
 const gsass = require('gulp-sass')(require('sass'));
-
-/* ----------------------------------------- */
-/*  Compile Sass
-/* ----------------------------------------- */
 
 // concatenate all morkborg scss into an uber morkborg.css
 gulp.task('mork-sass', function () {
