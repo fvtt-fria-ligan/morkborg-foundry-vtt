@@ -1,8 +1,8 @@
 const concat = require('gulp-concat');
 const gulp = require('gulp');
 const prefix = require('gulp-autoprefixer');
-const sass = require('gulp-sass');
-const sourcemaps = require('gulp-sourcemaps');
+// const sass = require('sass');
+const gsass = require('gulp-sass')(require('sass'));
 
 /* ----------------------------------------- */
 /*  Compile Sass
@@ -11,9 +11,9 @@ const sourcemaps = require('gulp-sourcemaps');
 // concatenate all morkborg scss into an uber morkborg.css
 gulp.task('mork-sass', function () {
   return gulp.src('scss/morkborg/**/*.scss')
-    .pipe(sass({
+    .pipe(gsass({
       outputStyle: 'expanded'
-    }).on('error', sass.logError))
+    }).on('error', gsass.logError))
     .pipe(prefix({
       // TODO: switch to true?
       cascade: false
@@ -25,9 +25,9 @@ gulp.task('mork-sass', function () {
 // keep tinymce skin files separate
 gulp.task('skin-sass', function () {
   return gulp.src('scss/skins/**/*.scss')
-    .pipe(sass({
+    .pipe(gsass({
       outputStyle: 'expanded'
-    }).on('error', sass.logError))
+    }).on('error', gsass.logError))
     .pipe(prefix({
       // TODO: switch to true?
       cascade: false

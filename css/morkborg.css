@@ -25,22 +25,18 @@
   font-family: "Blood Crow";
   src: url("../fonts/bloodcrow.ttf") format("truetype");
 }
-
 @font-face {
   font-family: "Calling Code Regular";
   src: url("../fonts/CallingCode-Regular.ttf") format("truetype");
 }
-
 @font-face {
   font-family: "FetteTrumpDeutsch";
   src: url("../fonts/FetteTrumpDeutsch.ttf") format("truetype");
 }
-
 @font-face {
   font-family: "Old Cupboard";
   src: url("../fonts/OldCupboard.otf") format("opentype");
 }
-
 /* ====================== */
 /* Flex */
 /* ====================== */
@@ -148,7 +144,6 @@
   background-color: var(--background-color) !important;
   color: var(--foreground-color) !important;
 }
-
 /* ====================== */
 /* Sheet */
 /* ====================== */
@@ -179,24 +174,24 @@
   cursor: pointer;
 }
 
-.morkborg.sheet input[type="text"],
-.morkborg.sheet input[type="number"],
-.morkborg.sheet input[type="password"],
-.morkborg.sheet input[type="date"] {
+.morkborg.sheet input[type=text],
+.morkborg.sheet input[type=number],
+.morkborg.sheet input[type=password],
+.morkborg.sheet input[type=date] {
   color: var(--foreground-color);
   border-radius: 0;
 }
 
-.morkborg.sheet input[type="text"]:focus,
-.morkborg.sheet input[type="number"]:focus,
-.morkborg.sheet input[type="password"]:focus,
-.morkborg.sheet input[type="date"]:focus,
-.morkborg.sheet input[type="time"]:focus,
-.morkborg.sheet input[type="text"]:hover,
-.morkborg.sheet input[type="number"]:hover,
-.morkborg.sheet input[type="password"]:hover,
-.morkborg.sheet input[type="date"]:hover,
-.morkborg.sheet input[type="time"]:hover {
+.morkborg.sheet input[type=text]:focus,
+.morkborg.sheet input[type=number]:focus,
+.morkborg.sheet input[type=password]:focus,
+.morkborg.sheet input[type=date]:focus,
+.morkborg.sheet input[type=time]:focus,
+.morkborg.sheet input[type=text]:hover,
+.morkborg.sheet input[type=number]:hover,
+.morkborg.sheet input[type=password]:hover,
+.morkborg.sheet input[type=date]:hover,
+.morkborg.sheet input[type=time]:hover {
   box-shadow: 0 0 5px var(--highlight-background-color);
 }
 
@@ -333,7 +328,6 @@
 .morkborg.sheet .sheet-body .form-group.special {
   flex: 1;
 }
-
 /* ====================== */
 /* Actor sheet */
 /* ====================== */
@@ -435,11 +429,7 @@
   align-items: center;
 }
 
-.morkborg.sheet.actor
-.sheet-body
-.violence-tab
-.item-list.weapon-list
-.item-button {
+.morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item-button {
   font-size: 20px;
   width: 120px;
 }
@@ -502,37 +492,22 @@
   padding-left: 32px;
 }
 
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type="radio"] {
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type=radio] {
   display: none;
 }
 
-.morkborg.sheet.actor
-.sheet-body
-.violence-tab
-ul.tiers
-input[type="radio"]:checked
-+ span.tier-num {
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type=radio]:checked + span.tier-num {
   background: var(--highlight-background-color);
   color: var(--highlight-foreground-color);
   border: none;
 }
 
-.morkborg.sheet.actor
-.sheet-body
-.violence-tab
-ul.tiers
-input[type="radio"]:disabled
-+ span.tier-num {
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type=radio]:disabled + span.tier-num {
   color: #444444;
   border: 1px solid #444444;
 }
 
-.morkborg.sheet.actor
-.sheet-body
-.violence-tab
-ul.tiers
-input[type="radio"]:disabled
-~ span.tier-dmg {
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type=radio]:disabled ~ span.tier-dmg {
   color: #444444;
 }
 
@@ -610,7 +585,6 @@ input[type="radio"]:disabled
   border-bottom: 2px solid #777;
   border-radius: 0;
 }
-
 /* ====================== */
 /* Character sheet */
 /* ====================== */
@@ -639,18 +613,12 @@ input[type="radio"]:disabled
   flex-direction: column;
 }
 
-.morkborg.sheet.actor.character
-.sheet-header
-.header-col2
-.rest-buttons {
+.morkborg.sheet.actor.character .sheet-header .header-col2 .rest-buttons {
   margin-left: 14px;
   width: 170px;
 }
 
-.morkborg.sheet.actor.character
-.sheet-header
-.header-col2
-button {
+.morkborg.sheet.actor.character .sheet-header .header-col2 button {
   border: none;
   border-bottom: 2px solid #777;
   border-radius: 0;
@@ -659,24 +627,15 @@ button {
   height: 28px;
 }
 
-.morkborg.sheet.actor.character
-.sheet-header
-.header-col2
-.broken-button {
+.morkborg.sheet.actor.character .sheet-header .header-col2 .broken-button {
   width: 80px;
 }
 
-.morkborg.sheet.actor.character
-.sheet-header
-.header-col2
-.rest-button {
+.morkborg.sheet.actor.character .sheet-header .header-col2 .rest-button {
   width: 80px;
 }
 
-.morkborg.sheet.actor.character
-.sheet-header
-.header-col2
-.get-better-button {
+.morkborg.sheet.actor.character .sheet-header .header-col2 .get-better-button {
   width: 90px;
 }
 
@@ -692,7 +651,7 @@ button {
   width: 200px;
 }
 
-.morkborg.sheet.actor input[type="text"].actor-name {
+.morkborg.sheet.actor input[type=text].actor-name {
   font-family: var(--h1-font);
   font-size: 38px;
   text-transform: uppercase;
@@ -703,7 +662,7 @@ button {
   margin-bottom: 7px;
 }
 
-.morkborg.sheet.actor.character .sheet-header .name-row input[type="text"] {
+.morkborg.sheet.actor.character .sheet-header .name-row input[type=text] {
   height: 45px;
   width: 100%;
 }
@@ -789,19 +748,11 @@ button {
   padding-left: 20px;
 }
 
-.morkborg.sheet.actor.character
-.sheet-header
-ul.miseries
-label
-input[type="radio"] {
+.morkborg.sheet.actor.character .sheet-header ul.miseries label input[type=radio] {
   display: none;
 }
 
-.morkborg.sheet.actor.character
-.sheet-header
-ul.miseries
-input[type="radio"]:checked
-+ span {
+.morkborg.sheet.actor.character .sheet-header ul.miseries input[type=radio]:checked + span {
   background: var(--highlight-background-color);
   color: var(--highlight-foreground-color);
   border: none;
@@ -822,12 +773,7 @@ input[type="radio"]:checked
   top: 50%;
 }
 
-.morkborg.sheet.actor.character
-.sheet-header
-ul.miseries
-li:last-child
-label
-span {
+.morkborg.sheet.actor.character .sheet-header ul.miseries li:last-child label span {
   background: var(--foreground-color);
   color: var(--background-color);
 }
@@ -941,7 +887,6 @@ span {
 .morkborg.sheet.actor.character .sheet-body .encumbered {
   color: var(--highlight-background-color);
 }
-
 /* ====================== */
 /* Item list */
 /* ====================== */
@@ -1036,7 +981,6 @@ span {
 .morkborg .item-list .unequipped {
   color: gray;
 }
-
 /* ====================== */
 /* Creature sheet */
 /* ====================== */
@@ -1073,7 +1017,7 @@ span {
   width: 100%;
 }
 
-.morkborg.sheet.actor.creature .sheet-header input[type="text"].creature-name {
+.morkborg.sheet.actor.creature .sheet-header input[type=text].creature-name {
   height: 45px;
 }
 
@@ -1082,7 +1026,6 @@ span {
   margin-bottom: 10px;
   margin-left: 14px;
 }
-
 /* ====================== */
 /* Item sheet */
 /* ====================== */
@@ -1099,7 +1042,7 @@ span {
   width: 150px;
 }
 
-.morkborg.sheet.item .sheet-header .item-name input[type="text"] {
+.morkborg.sheet.item .sheet-header .item-name input[type=text] {
   font-family: var(--h1-font);
   font-size: 38px;
   flex: 1;
@@ -1118,7 +1061,6 @@ span {
   margin-top: 8px;
   padding: 5px;
 }
-
 /* ====================== */
 /* Follower sheet */
 /* ====================== */
@@ -1155,7 +1097,7 @@ span {
   width: 100%;
 }
 
-.morkborg.sheet.actor.follower .sheet-header input[type="text"].follower-name {
+.morkborg.sheet.actor.follower .sheet-header input[type=text].follower-name {
   height: 45px;
 }
 
@@ -1164,7 +1106,6 @@ span {
   margin-bottom: 10px;
   margin-left: 14px;
 }
-
 /* ====================== */
 /* Container sheet */
 /* ====================== */
@@ -1201,7 +1142,7 @@ span {
   width: 100%;
 }
 
-.morkborg.sheet.actor.container .sheet-header input[type="text"].container-name {
+.morkborg.sheet.actor.container .sheet-header input[type=text].container-name {
   height: 45px;
 }
 
@@ -1210,19 +1151,18 @@ span {
   margin-bottom: 10px;
   margin-left: 14px;
 }
-
 /* ====================== */
 /* UI/Dialog fixes */
 /* ====================== */
-.form-group input[type="text"] {
+.form-group input[type=text] {
   color: var(--foreground-color);
 }
 
-.form-group input[type="text"]:hover {
+.form-group input[type=text]:hover {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
-.form-group input[type="text"]:focus {
+.form-group input[type=text]:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
@@ -1251,15 +1191,15 @@ a:hover {
   text-shadow: 0 0 8px var(--highlight-background-color);
 }
 
-input[type="text"] {
+input[type=text] {
   color: var(--foreground-color);
 }
 
-input[type="text"]:hover {
+input[type=text]:hover {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
-input[type="text"]:focus {
+input[type=text]:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
@@ -1291,15 +1231,15 @@ form.editable .results .result-details select:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
-form.editable .results .result-details input[type="text"] {
+form.editable .results .result-details input[type=text] {
   color: var(--foreground-color);
 }
 
-form.editable .results .result-details input[type="text"]:hover {
+form.editable .results .result-details input[type=text]:hover {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
-form.editable .results .result-details input[type="text"]:focus {
+form.editable .results .result-details input[type=text]:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
@@ -1368,10 +1308,7 @@ form.editable .results .result-details input[type="text"]:focus {
   color: var(--background-color);
 }
 
-.journal-sheet.image-popout
-.window-content
-.form-group.picker
-button.file-picker {
+.journal-sheet.image-popout .window-content .form-group.picker button.file-picker {
   background-color: var(--background-color);
 }
 
@@ -1383,11 +1320,11 @@ button.file-picker {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
-.journal-sheet form .form-group.title input[type="text"] {
+.journal-sheet form .form-group.title input[type=text] {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-.journal-sheet form .form-group.picker input[type="text"].image {
+.journal-sheet form .form-group.picker input[type=text].image {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
@@ -1672,7 +1609,7 @@ select:focus {
   font-family: var(--h2-font);
 }
 
-.sidebar-tab .directory-header .header-search input[type="text"]:focus {
+.sidebar-tab .directory-header .header-search input[type=text]:focus {
   box-shadow: 0 0 5px var(--highlight-background-color);
 }
 
@@ -1724,11 +1661,11 @@ select:focus {
   border-bottom: 1px solid #252525;
 }
 
-.journal-sheet form button[type="submit"] {
+.journal-sheet form button[type=submit] {
   background: var(--background-color);
 }
 
-.journal-sheet form input[name="name"] {
+.journal-sheet form input[name=name] {
   color: var(--background-color);
   font-family: var(--h2-font);
   font-size: 32px;
@@ -1748,7 +1685,6 @@ a.inline-roll {
   white-space: nowrap;
   word-break: break-all;
 }
-
 /* ====================== */
 /* Roll Cards */
 /* ====================== */
@@ -1831,7 +1767,6 @@ a.inline-roll {
   margin-bottom: 5px;
   text-align: center;
 }
-
 /* ====================== */
 /* Attack/Defend Custom Dialogs */
 /* ====================== */

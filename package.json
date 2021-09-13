@@ -1,6 +1,6 @@
 {
   "name": "morkborg",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Unofficial system for MÖRK BORG on Foundry VTT.",
   "scripts": {
     "build": "gulp dist",
@@ -13,11 +13,12 @@
   "author": "mcglincy",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^7.20.0",
+    "eslint": "^7.32.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-concat": "^2.6.1",
-    "gulp-sass": "^4.1.0",
-    "gulp-sourcemaps": "^3.0.0"
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "sass": "^1.39.2"
   }
 }
