@@ -4,7 +4,7 @@ An unoffical, community-supported system for playing [MÖRK BORG](https://morkbo
 
 morkborg-foundry-vtt is an independent production by community contributors, and is not affiliated with Ockult Örtmästare Games or Stockholm Kartell. It is published under the [MÖRK BORG Third Party License](https://morkborg.com/license/).
 
-![Screenshot](https://raw.githubusercontent.com/fvtt-fria-ligan/morkborg-foundry-vtt/main/screenshot.png)
+![screenshot](https://user-images.githubusercontent.com/189172/133104673-60734e50-ad00-4b54-9dbd-7edb5dafb6a9.png)
 
 ## Getting Started
   * Install the system from within Foundry (*Configuration and Setup*, *Game Systems* tab, *Install System* button). Find package *MÖRK BORG* and install.
