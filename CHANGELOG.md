@@ -1,3 +1,6 @@
+# 1.0.9
+- Fixed logic for equip a weapon help text showing.
+
 # 1.0.8
 - Fixed torch quantity.
 - Added support for new scroll type: Tablet of Ochre Obscurity.
