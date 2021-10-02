@@ -185,3 +185,20 @@ MB.weaponTypes = {
   "melee": "MB.WeaponTypeMelee",
   "ranged": "MB.WeaponTypeRanged"
 };
+
+// Config variables for the Scvmfactory character generator
+MB.scvmFactory = {
+  foodAndWaterPack: "morkborg.equipment-misc",
+  foodItemName: "Dried food",
+  waterItemName: "Waterskin",
+
+  characterCreationPack: "morkborg.character-creation",
+  startingEquipmentTable1: "Starting Equipment (1)",
+  startingEquipmentTable2: "Starting Equipment (2)",
+  startingEquipmentTable3: "Starting Equipment (3)",
+  startingWeaponTable: "Starting Weapon",
+  startingArmorTable: "Starting Armor",
+  terribleTraitsTable: "Terribler Traits",
+  brokenBodiesTable: "Brokener Bodies",
+  badHabitsTable: "Badder Habits",
+};

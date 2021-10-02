@@ -1,4 +1,5 @@
 import {MBActor} from "../actor/actor.js";
+import { MB } from "../config.js";
 import {MBItem} from "../item/item.js";
 import {randomName} from "./names.js";
 
@@ -73,70 +74,79 @@ const rollScvmForClass = async (clazz) => {
     const hitPoints = Math.max(1, hpRoll.total + toughness);
     const powerUses = Math.max(0, powerUsesRoll.total + presence);
 
-    // everybody gets food and water
-    const miscPack = game.packs.get('morkborg.equipment-misc');
-    const miscContent = await miscPack.getDocuments();
-    const waterskin = miscContent.find(i => i.data.name === "Waterskin");
-    const food = miscContent.find(i => i.data.name === "Dried food");
-    const foodRoll = new Roll("1d4", {}).evaluate({async: false});
-    // TODO: need to mutate _data to get it to change for our owned item creation.
-    // Is there a better way to do this? 
-    food.data._source.quantity = foodRoll.total;
+    const allEntities = [clazz];
+
+    if (MB.scvmFactory.foodAndWaterPack) {
+        // everybody gets food and water
+        const miscPack = game.packs.get(MB.scvmFactory.foodAndWaterPack);
+        const miscContent = await miscPack.getDocuments();
+        if (MB.scvmFactory.foodItemName) {
+            const food = miscContent.find(i => i.data.name === MB.scvmFactory.foodItemName);
+            const foodRoll = new Roll("1d4", {}).evaluate({async: false});
+            // TODO: need to mutate _data to get it to change for our owned item creation.
+            // Is there a better way to do this?
+            food.data._source.quantity = foodRoll.total;
+            allEntities.push(food);
+        }
+        if (MB.scvmFactory.waterItemName) {
+            const waterskin = miscContent.find(i => i.data.name === MB.scvmFactory.waterItemName);
+            allEntities.push(waterskin);
+        }
+    }
+
+    // starting equipment, weapons, armor, and traits etc all come from the same pack
+    const ccPack = game.packs.get(MB.scvmFactory.characterCreationPack);
+    const ccContent = await ccPack.getDocuments();
 
     // 3 starting equipment tables
-    const ccPack = game.packs.get('morkborg.character-creation');
-    const ccContent = await ccPack.getDocuments();
-    const equipTable1 = ccContent.find(i => i.name === 'Starting Equipment (1)');
-    const equipTable2 = ccContent.find(i => i.name === 'Starting Equipment (2)');
-    const equipTable3 = ccContent.find(i => i.name === 'Starting Equipment (3)');
-    const eqDraw1 = await equipTable1.draw({displayChat: false});
-    const eqDraw2 = await equipTable2.draw({displayChat: false});
-    const eqDraw3 = await equipTable3.draw({displayChat: false});
-    const eq1 = await entitiesFromResults(eqDraw1.results);
-    const eq2 = await entitiesFromResults(eqDraw2.results);
-    const eq3 = await entitiesFromResults(eqDraw3.results);
-    let allEq = [].concat(eq1, eq2, eq3);
-    const rolledScroll = allEq.filter(i => i.data.type === "scroll").length > 0;
-
-    const ttTable = ccContent.find(i => i.name === 'Terribler Traits');
-    const bbTable = ccContent.find(i => i.name === 'Brokener Bodies');
-    const bhTable = ccContent.find(i => i.name === 'Badder Habits');
-    const ttResults = await compendiumTableDrawMany(ttTable, 2);
-    const bbDraw = await bbTable.draw({displayChat: false});
-    const bhDraw = await bhTable.draw({displayChat: false});
-    const terribleTrait1 = ttResults[0].data.text;
-    const terribleTrait2 = ttResults[1].data.text;
-    const brokenBody = bbDraw.results[0].data.text;
-    const badHabit = bhDraw.results[0].data.text;
+    if (MB.scvmFactory.startingEquipmentTable1) {
+        const equipTable1 = ccContent.find(i => i.name === MB.scvmFactory.startingEquipmentTable1);
+        const eqDraw1 = await equipTable1.draw({displayChat: false});
+        const eq1 = await entitiesFromResults(eqDraw1.results);
+        allEntities.push(...eq1);
+    }
+    if (MB.scvmFactory.startingEquipmentTable1) {
+        const equipTable2 = ccContent.find(i => i.name === MB.scvmFactory.startingEquipmentTable2);
+        const eqDraw2 = await equipTable2.draw({displayChat: false});
+        const eq2 = await entitiesFromResults(eqDraw2.results);
+        allEntities.push(...eq2);
+    }
+    if (MB.scvmFactory.startingEquipmentTable1) {
+        const equipTable3 = ccContent.find(i => i.name === MB.scvmFactory.startingEquipmentTable3);
+        const eqDraw3 = await equipTable3.draw({displayChat: false});
+        const eq3 = await entitiesFromResults(eqDraw3.results);
+        allEntities.push(...eq3);
+    }
 
     // starting weapon
-    let weapons = [];
-    if (clazz.data.data.weaponTableDie) {
+    if (MB.scvmFactory.startingWeaponTable && clazz.data.data.weaponTableDie) {
         let weaponDie = clazz.data.data.weaponTableDie;
+        const rolledScroll = allEntities.filter(i => i.data.type === "scroll").length > 0;
         if (rolledScroll) {
             // TODO: should only the classless adventurer get gimped down to d6?
-            if (weaponDie === "1d10") {
+            if (weaponDie === "1d10" || weaponDie === "1d8") {
                 weaponDie = "1d6";
             }
         }
         let weaponRoll = new Roll(weaponDie);
-        const weaponTable = ccContent.find(i => i.name === 'Starting Weapon');
+        const weaponTable = ccContent.find(i => i.name === MB.scvmFactory.startingWeaponTable);
         const weaponDraw = await weaponTable.draw({roll: weaponRoll, displayChat: false});
-        weapons = await entitiesFromResults(weaponDraw.results);
+        const weapons = await entitiesFromResults(weaponDraw.results);
+        allEntities.push(...weapons);
     }
 
     // starting armor
-    let armors = [];
-    if (clazz.data.data.armorTableDie) {
+    if (MB.scvmFactory.startingArmorTable && clazz.data.data.armorTableDie) {
         const armorRoll = new Roll(clazz.data.data.armorTableDie);
-        const armorTable = ccContent.find(i => i.name === 'Starting Armor');
+        const armorTable = ccContent.find(i => i.name === MB.scvmFactory.startingArmorTable);
         const armorDraw = await armorTable.draw({roll: armorRoll, displayChat: false});
-        armors = await entitiesFromResults(armorDraw.results);
+        const armor = await entitiesFromResults(armorDraw.results);
+        allEntities.push(...armor);
     }
 
     // class-specific starting items
-    const startingItems = [];
     if (clazz.data.data.startingItems) {
+        const startingItems = [];
         const lines = clazz.data.data.startingItems.split("\n");
         for (const line of lines) {
             const [packName, itemName] = line.split(",");
@@ -149,15 +159,39 @@ const rollScvmForClass = async (clazz) => {
                 }    
             }
         }
+        allEntities.push(...startingItems);
     }
 
     // start accumulating character description, starting with the class description
     const descriptionLines = [];
     descriptionLines.push(clazz.data.data.description);
     descriptionLines.push("<p>&nbsp;</p>");
-    // BrokenBodies and BadHabits end with a period, but TerribleTraits don't.
-    descriptionLines.push(`${terribleTrait1} and ${terribleTrait2.charAt(0).toLowerCase()}${terribleTrait2.slice(1)}. ${brokenBody} ${badHabit}`);
-    descriptionLines.push("<p>&nbsp;</p>");
+
+    let descriptionLine = "";
+    if (MB.scvmFactory.terribleTraitsTable) {
+        const ttTable = ccContent.find(i => i.name === MB.scvmFactory.terribleTraitsTable);
+        const ttResults = await compendiumTableDrawMany(ttTable, 2);
+        const terribleTrait1 = ttResults[0].data.text;
+        const terribleTrait2 = ttResults[1].data.text;
+        // BrokenBodies and BadHabits end with a period, but TerribleTraits don't.
+        descriptionLine += `${terribleTrait1} and ${terribleTrait2.charAt(0).toLowerCase()}${terribleTrait2.slice(1)}.`;
+    }
+    if (MB.scvmFactory.brokenBodiesTable) {
+        const bbTable = ccContent.find(i => i.name === MB.scvmFactory.brokenBodiesTable);
+        const bbDraw = await bbTable.draw({displayChat: false});
+        const brokenBody = bbDraw.results[0].data.text;
+        descriptionLine += ` ${brokenBody}`;
+    }
+    if (MB.scvmFactory.badHabitsTable) {
+        const bhTable = ccContent.find(i => i.name === MB.scvmFactory.badHabitsTable);
+        const bhDraw = await bhTable.draw({displayChat: false});
+        const badHabit = bhDraw.results[0].data.text;
+        descriptionLine += ` ${badHabit}`;
+    }
+    if (descriptionLine) {
+        descriptionLines.push(descriptionLine);
+        descriptionLines.push("<p>&nbsp;</p>");
+    }
 
     // class-specific starting rolls
     const startingRollItems = [];
@@ -197,15 +231,12 @@ const rollScvmForClass = async (clazz) => {
             }
         }
     }
+    allEntities.push(...startingRollItems);
 
-    // all new entities
-    const ents = [].concat([clazz], [waterskin, food], eq1, eq2, eq3, weapons, armors, startingItems, startingRollItems);
-
-    // add items as owned items
-    const items = ents.filter(e => e instanceof MBItem);
-
-    // for other non-item entities, just add some description text
-    const nonItems = ents.filter(e => !(e instanceof MBItem));
+    // add item entities as owned items
+    const items = allEntities.filter(e => e instanceof MBItem);
+    // for other non-item entities, just add some description text (ITEMTYPE: Item Name)
+    const nonItems = allEntities.filter(e => !(e instanceof MBItem));
     for (const nonItem of nonItems) {
         if (nonItem && nonItem.data && nonItem.data.type) {
             const upperType = nonItem.data.type.toUpperCase();
