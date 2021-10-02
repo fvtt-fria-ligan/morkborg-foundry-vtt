@@ -264,6 +264,7 @@ const rollScvmForClass = async (clazz) => {
 
 const scvmToActorData = (s) => {
     return {
+        name: randomName(),
         type: "character",
         // TODO: do we need to set folder or sort?
         // folder: folder.data._id,
@@ -298,7 +299,6 @@ const scvmToActorData = (s) => {
 const createActorWithScvm = async (s) => {
     const data = scvmToActorData(s);
     // set some additional fields for new characters
-    data.name = randomName();
     data.img = s.actorImg;
     // use MBActor.create() so we get default disposition, actor link, vision, etc
     const actor = await MBActor.create(data);
