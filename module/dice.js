@@ -25,7 +25,7 @@ export const showDice = async (roll) => {
 export const diceSound = () => {
   if (game.dice3d) {
     // let Dice So Nice do it
-    return false;
+    return null;
   } else {
     return CONFIG.sounds.dice;
   }
