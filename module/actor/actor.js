@@ -632,14 +632,44 @@ export class MBActor extends Actor {
 
   async useFeat(itemId) {
     const item = this.items.get(itemId);
-    if (!item || !item.data.data.rollLabel || !item.data.data.rollFormula) {
+    if (!item || !item.data.data.rollLabel) {
       return;
     }
-    await this._rollOutcome(
-      item.data.data.rollFormula,
-      this.getRollData(),
-      item.data.data.rollLabel,
-      (roll) => ``);
+
+    if (item.data.data.rollMacro) {
+      // roll macro
+      if (item.data.data.rollMacro.includes(",")) {
+        // assume it's a CSV string for {pack},{macro name}
+        const [packName, macroName] = item.data.data.rollMacro.split(",");
+        const pack = game.packs.get(packName);
+        if (pack) {
+            const content = await pack.getDocuments();
+            const macro = content.find(i => i.name === macroName);
+            if (macro) {
+              macro.execute();
+            } else {
+              console.log(`Could not find macro ${macroName} in pack ${packName}.`);
+            }
+        } else {
+          console.log(`Pack ${packName} not found.`);
+        }
+      } else {
+        // assume it's the name of a macro in the current world/game
+        const macro = game.macros.find(m => m.name === item.data.data.rollMacro);
+        if (macro) {
+          macro.execute();
+        } else {
+          console.log(`Could not find macro ${item.data.data.rollMacro}.`);
+        }
+      }
+    } else if (item.data.data.rollFormula) {
+      // roll formula
+      await this._rollOutcome(
+        item.data.data.rollFormula,
+        this.getRollData(),
+        item.data.data.rollLabel,
+        (roll) => ``);
+    }
   }
 
   async _rollOutcome(dieRoll, rollData, cardTitle, outcomeTextFn) {

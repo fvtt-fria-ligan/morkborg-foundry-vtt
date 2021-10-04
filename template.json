@@ -114,6 +114,7 @@
     "feat": {
       "description": "",
       "rollFormula": "",
+      "rollMacro": "",
       "rollLabel": ""
     },
     "misc": {

@@ -122,6 +122,13 @@
       "entity": "Actor"
     },
     {
+      "name": "macros-occult-herbmaster",
+      "label": "Macros - Occult Herbmaster",
+      "system": "morkborg",
+      "path": "./packs/macros-occult-herbmaster.db",
+      "entity": "Macro"
+    },
+    {
       "name": "random-scrolls",
       "label": "Random Scrolls",
       "system": "morkborg",
