@@ -18,9 +18,9 @@ export async function createMorkBorgMacro(data, slot) {
   if (!supportedItemTypes.includes(item.type)) {
     return ui.notifications.warn(`Macros only supported for item types: ${supportedItemTypes.join(', ')}`);
   }
-  if (item.type === "feat" && (!item.data.rollLabel || !item.data.rollFormula)) {
+  if (item.type === "feat" && (!item.data.rollLabel || (!item.data.rollFormula && !item.data.rollMacro))) {
     // we only allow rollable feats
-    return ui.notifications.warn("Macros only supported for feats with roll label and formula.");
+    return ui.notifications.warn("Macros only supported for feats with roll label and either a formula or macro.");
   }
 
   // Create the macro command
@@ -65,12 +65,12 @@ export async function createMorkBorgMacro(data, slot) {
   const item = items[0];
 
   if (item.data.type === "weapon") {
-    actor.attack(item.data.id);
+    actor.attack(item.id);
   } else if (item.data.type === "armor" || item.data.type === "shield") {
     actor.defend();
   } else if (item.data.type === "scroll") {
     actor.wieldPower();
   } else if (item.data.type === "feat") {
-    actor.useFeat(item.data.id);
+    actor.useFeat(item.id);
   }
 }
