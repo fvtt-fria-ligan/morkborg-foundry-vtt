@@ -1,3 +1,10 @@
+# 1.1.0
+- Added support for Feat rollMacro field.
+- Changed Scvmfactory to set new random name when scvmifying existing character.
+- Moved numerous scvmfactory config values into MB.scvmfactory.
+- Fixed dice API error appearing in console.
+- Fixed bug in weapon/feat macro drop using a non-existent item id field.
+
 # 1.0.9
 - Fixed logic for equip a weapon help text showing.
 
