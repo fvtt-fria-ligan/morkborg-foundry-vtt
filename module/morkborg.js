@@ -135,19 +135,34 @@ const applyFontsAndColors = () => {
   r.style.setProperty("--item-font", fontScheme.item);
 };
 
-Hooks.on('dropActorSheetData', async (actor, actorSheet, dropped) => {
-  // Handle one-only Class item
-  if (dropped.type === "Item" && dropped.pack) {
-    const packName = dropped.pack.split(".")[1];
-    if (packName.startsWith("class-")) {
-      // Dropping a new class, so nuke any pre-existing class item(s),
-      // to enforce that a character only has one class item at a time.
-      const classes = actor.items.filter(i => i.data.type === "class");
-      const deletions = classes.map(i => i.id);
-      await actor.deleteEmbeddedDocuments("Item", deletions);
-    }
+const classWasDropped = async (dropped) => {
+  if (dropped.type !== "Item") {
+    return false;
   }
-  // TODO: test this when dropping a Class item from sidebar, rather than from compendium
+  if (dropped.pack) {
+    const collection = game.packs.get(dropped.pack);
+    const content = await collection.getDocuments();
+    const item = content.find(i => i.id === dropped.id);
+    return item && item.data && item.data.type === "class";
+  }
+  // not from pack, see if it's in world/game items
+  const item = game.items.find(i => i.id === dropped.id);
+  if (item && item.data) {
+    return item.data.type === "class";
+  }
+  return false;
+};
+
+Hooks.on('dropActorSheetData', async (actor, actorSheet, dropped) => {
+  // Handle only allowing one Class item at a time
+  const isAClass = await classWasDropped(dropped);
+  if (isAClass) {
+    // Dropping a new class, so nuke any pre-existing class item(s),
+    // to enforce that a character only has one class item at a time.
+    const classes = actor.items.filter(i => i.data.type === "class");
+    const deletions = classes.map(i => i.id);
+    await actor.deleteEmbeddedDocuments("Item", deletions);
+  }
 
   // Handle container actor destructive drag-drop
   if (dropped.type === "Item" && dropped.data && dropped.data._id) {

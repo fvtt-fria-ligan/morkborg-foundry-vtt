@@ -1,3 +1,7 @@
+# 1.1.1
+- Fixed drag-and-drop of Class from sidebar Items Directory.
+- Added more error logging to scvmfactory.
+
 # 1.1.0
 - Added support for Feat rollMacro field.
 - Changed Scvmfactory to set new random name when scvmifying existing character.
