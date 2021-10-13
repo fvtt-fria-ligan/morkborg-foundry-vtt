@@ -27,7 +27,7 @@ if (actor !== null) {
 let pack = game.packs.get('morkborg.rolls-occult-herbmaster');
 let content = await pack.getContent();
 let table = content.find(i => i.name === 'Occult Herbmaster Decoctions');
-await table.draw();
+await table.drawMany(2);
 new Roll('1d4').toMessage({ flavor: 'Doses Brewed' });
 })();
 ```
