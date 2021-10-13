@@ -354,11 +354,15 @@ const entityFromResult = async (result) => {
     } else if (result.data.type === 2) {
         // grab the item from the compendium
         const collection = game.packs.get(result.data.collection);
-        // TODO: should we use pack.getEntity(entryId) ?
-        // const item = await collection.getEntity(result._id);
-        const content = await collection.getDocuments();
-        const entity = content.find(i => i.name === result.data.text);
-        return entity;
+        if (collection) {
+            // TODO: should we use pack.getEntity(entryId) ?
+            // const item = await collection.getEntity(result._id);
+            const content = await collection.getDocuments();
+            const entity = content.find(i => i.name === result.data.text);
+            return entity;
+        } else {
+            console.log(`Could not find pack ${result.data.collection}`);
+        }
     }
 };
 
