@@ -35,6 +35,7 @@ export class MBActorSheetCharacter extends MBActorSheet {
       this._prepareCharacterItems(data);
     }
 
+    // console.log(superData);
     return superData;
   }
 
@@ -47,7 +48,7 @@ export class MBActorSheetCharacter extends MBActorSheet {
   _prepareCharacterItems(sheetData) {
     const byName = (a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);
     sheetData.data.feats = sheetData.items.filter(item => item.type === CONFIG.MB.itemTypes.feat).sort(byName);
-    sheetData.data.class = sheetData.items.filter(item => item.type === CONFIG.MB.itemTypes.class)[0];
+    sheetData.data.class = sheetData.items.filter(item => item.type === CONFIG.MB.itemTypes.class).pop();
 
     // TODO: make better use of filters below
     let equipment = [];
