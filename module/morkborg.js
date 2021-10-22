@@ -160,10 +160,6 @@ Hooks.on('dropActorSheetData', async (actor, actorSheet, dropped) => {
     // Dropping a new class, so nuke any pre-existing class item(s),
     // to enforce that a character only has one class item at a time.
     const classes = actor.items.filter(i => i.data.type === "class");
-    // console.log("Actor items:");
-    // console.log(actor.items);
-    // console.log("Deleting classes:");
-    // console.log(classes);
     const deletions = classes.map(i => i.id);
     await actor.deleteEmbeddedDocuments("Item", deletions);
   }
