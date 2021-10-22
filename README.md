@@ -1,7 +1,5 @@
 # MÖRK BORG for Foundry VTT
 
-![Latest Release Download Count](https://img.shields.io/github/downloads/fvtt-fria-ligan/morkborg-foundry-vtt/latest/system.zip?color=2b82fc&label=DOWNLOADS&style=for-the-badge) [![Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fmorkborg-foundry-vtt&colorB=03ff1c&style=for-the-badge)](https://forge-vtt.com/bazaar#package=morkborg-foundry-vtt) ![Foundry Core Compatible Version](https://img.shields.io/badge/dynamic/json.svg?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffvtt-fria-ligan%2Fmorkborg-foundry-vtt%2Fsystem.json&label=Foundry%20Version&query=$.compatibleCoreVersion&colorB=orange&style=for-the-badge)
-
 An unoffical, community-supported system for playing [MÖRK BORG](https://morkborg.com/) on [Foundry VTT](http://foundryvtt.com/).
 
 morkborg-foundry-vtt is an independent production by community contributors, and is not affiliated with Ockult Örtmästare Games or Stockholm Kartell. It is published under the [MÖRK BORG Third Party License](https://morkborg.com/license/).
