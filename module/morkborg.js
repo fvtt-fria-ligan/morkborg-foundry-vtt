@@ -135,35 +135,7 @@ const applyFontsAndColors = () => {
   r.style.setProperty("--item-font", fontScheme.item);
 };
 
-const classWasDropped = async (dropped) => {
-  if (dropped.type !== "Item") {
-    return false;
-  }
-  if (dropped.pack) {
-    const collection = game.packs.get(dropped.pack);
-    const content = await collection.getDocuments();
-    const item = content.find(i => i.id === dropped.id);
-    return item && item.data && item.data.type === "class";
-  }
-  // not from pack, see if it's in world/game items
-  const item = game.items.find(i => i.id === dropped.id);
-  if (item && item.data) {
-    return item.data.type === "class";
-  }
-  return false;
-};
-
 Hooks.on('dropActorSheetData', async (actor, actorSheet, dropped) => {
-  // Handle only allowing one Class item at a time
-  const isAClass = await classWasDropped(dropped);
-  if (isAClass) {
-    // Dropping a new class, so nuke any pre-existing class item(s),
-    // to enforce that a character only has one class item at a time.
-    const classes = actor.items.filter(i => i.data.type === "class");
-    const deletions = classes.map(i => i.id);
-    await actor.deleteEmbeddedDocuments("Item", deletions);
-  }
-
   // Handle container actor destructive drag-drop
   if (dropped.type === "Item" && dropped.data && dropped.data._id) {
     const sourceActor = dropped.tokenId ? game.actors.tokens[dropped.tokenId] : game.actors.get(dropped.actorId);
@@ -172,32 +144,6 @@ Hooks.on('dropActorSheetData', async (actor, actorSheet, dropped) => {
       // either the source or target actor is a container,
       // so delete the item from the source
       await sourceActor.deleteEmbeddedDocuments("Item", [dropped.data._id]);
-    }
-  }
-});
-
-Hooks.on('createActor', async (actor, options, userId) => {
-  // give Characters a default class
-  if (actor.data.type === "character" && game.packs) {
-    const hasAClass = actor.items.filter(i => i.data.type === "class").length > 0;
-    if (!hasAClass) {
-      const pack = game.packs.get("morkborg.class-classless-adventurer");
-      if (!pack) {
-        console.error("Could not find compendium morkborg.class-classless-adventurer");
-        return;
-      }
-      const index = await pack.getIndex();
-      const entry = index.find(e => e.name === "Adventurer");
-      if (!entry) {
-        console.error("Could not find Adventurer class in compendium.");
-        return;
-      }
-      const entity = await pack.getDocument(entry._id);
-      if (!entity) {
-        console.error("Could not get document for Adventurer class.");
-        return;
-      }
-      await actor.createEmbeddedDocuments("Item", [duplicate(entity.data)]);
     }
   }
 });

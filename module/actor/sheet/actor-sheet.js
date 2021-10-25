@@ -208,6 +208,18 @@ export default class MBActorSheet extends ActorSheet {
     const shieldItemId = sheetData.data.equippedShield ? sheetData.data.equippedShield.id : null;
     this.actor.defend(armorItemId, shieldItemId);
   }
+
+  _onInlineEdit(event) {
+    event.preventDefault();
+    const row = $(event.currentTarget).parents(".item");
+    if (row) {
+      const item = this.actor.items.get(row.data("itemId"));
+      if (item) {
+        const temp = event.currentTarget.dataset.mod;
+        return item.update({ [temp]: event.currentTarget.value }, {});
+      }
+    }
+  }  
  }
 
 /**
