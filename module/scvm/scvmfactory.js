@@ -263,9 +263,9 @@ const rollScvmForClass = async (clazz) => {
 }
 
 const scvmToActorData = (s) => {
+    const newName = randomName();
     return {
-        name: randomName(),
-        type: "character",
+        name: newName,
         // TODO: do we need to set folder or sort?
         // folder: folder.data._id,
         // sort: 12000,
@@ -291,15 +291,19 @@ const scvmToActorData = (s) => {
             },
             silver: s.silver,
         },
+        img: s.actorImg,
         items: s.items,
-        flags: {}
+        flags: {},
+        token: {
+          img: s.actorImg,
+          name: newName
+        },
+        type: "character"
     };
 };
 
 const createActorWithScvm = async (s) => {
     const data = scvmToActorData(s);
-    // set some additional fields for new characters
-    data.img = s.actorImg;
     // use MBActor.create() so we get default disposition, actor link, vision, etc
     const actor = await MBActor.create(data);
     actor.sheet.render(true);
@@ -313,6 +317,13 @@ const updateActorWithScvm = async (actor, s) => {
     // Dunno.
     await actor.deleteEmbeddedDocuments("Item", [], {deleteAll: true});
     await actor.update(data);
+    // update any actor tokens in the scene, too
+    for (let token of actor.getActiveTokens()) {
+      await token.document.update({
+        img: actor.data.img,
+        name: actor.name
+      });
+    }
 };
 
 const entitiesFromResults = async (results) => {
