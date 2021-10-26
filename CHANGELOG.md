@@ -1,4 +1,5 @@
 # 1.1.2
+- Change character image and token name/image when scvmifying.
 - Show weapon type (melee/ranged) instead of 1h/2h.
 - Adjusted weapon name display width.
 - Refactored logic for default class and single class per character.
