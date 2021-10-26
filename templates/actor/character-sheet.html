@@ -111,8 +111,8 @@
                         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
                         <h4 class="item-name item-edit rollable">{{item.name}}</h4>
                         <div class="item-fields">
-                            <span class="item-field handed">{{item.data.handed}}H</span>
                             <span class="item-field damage-die">{{item.data.damageDie}}</span>
+                            <span class="item-field weapon-type">{{item.data.weaponType}}</span>
                         </div>
                         <div class="item-buttons">
                             <button type="button" class="item-button rollable attack-button" data-roll="d20+@abilities.strength.value" data-label="attack_{{item._id}}"

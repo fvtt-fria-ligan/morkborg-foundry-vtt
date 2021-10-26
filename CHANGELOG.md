@@ -1,3 +1,7 @@
+# 1.1.2
+- Refactored logic for allowing character only one class item at a time.
+- Adjusted weapon name width.
+
 # 1.1.1
 - Fixed drag-and-drop of Class from sidebar Items Directory.
 - Added more error logging to scvmfactory.
