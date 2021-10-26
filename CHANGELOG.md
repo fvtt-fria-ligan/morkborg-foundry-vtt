@@ -1,6 +1,8 @@
 # 1.1.2
-- Refactored logic for allowing character only one class item at a time.
-- Adjusted weapon name width.
+- Show weapon type (melee/ranged) instead of 1h/2h.
+- Adjusted weapon name display width.
+- Refactored logic for default class and single class per character.
+- Tweaked flail damage die: "d8" => "1d8".
 
 # 1.1.1
 - Fixed drag-and-drop of Class from sidebar Items Directory.
