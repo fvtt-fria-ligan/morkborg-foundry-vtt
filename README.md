@@ -4,6 +4,8 @@ An unoffical, community-supported system for playing [MÖRK BORG](https://morkbo
 
 morkborg-foundry-vtt is an independent production by community contributors, and is not affiliated with Ockult Örtmästare Games or Stockholm Kartell. It is published under the [MÖRK BORG Third Party License](https://morkborg.com/license/).
 
+![Latest Release Download Count](https://img.shields.io/github/downloads/fvtt-fria-ligan/morkborg-foundry-vtt/latest/system.zip)
+
 ![screenshot](https://user-images.githubusercontent.com/189172/133104673-60734e50-ad00-4b54-9dbd-7edb5dafb6a9.png)
 
 ## Getting Started
