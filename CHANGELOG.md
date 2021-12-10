@@ -1,3 +1,7 @@
+# 1.1.3
+- Fixed character creation "roll d2 for armor if you rolled a scroll".
+- Added call to new hook morkborgReady after system is ready.
+
 # 1.1.2
 - Change character image and token name/image when scvmifying.
 - Show weapon type (melee/ranged) instead of 1h/2h.

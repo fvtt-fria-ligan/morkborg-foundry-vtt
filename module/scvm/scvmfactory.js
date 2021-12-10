@@ -74,7 +74,7 @@ const rollScvmForClass = async (clazz) => {
     const hitPoints = Math.max(1, hpRoll.total + toughness);
     const powerUses = Math.max(0, powerUsesRoll.total + presence);
 
-    const allEntities = [clazz];
+    const allDocs = [clazz];
 
     if (MB.scvmFactory.foodAndWaterPack) {
         // everybody gets food and water
@@ -86,11 +86,11 @@ const rollScvmForClass = async (clazz) => {
             // TODO: need to mutate _data to get it to change for our owned item creation.
             // Is there a better way to do this?
             food.data._source.quantity = foodRoll.total;
-            allEntities.push(food);
+            allDocs.push(food);
         }
         if (MB.scvmFactory.waterItemName) {
             const waterskin = miscContent.find(i => i.data.name === MB.scvmFactory.waterItemName);
-            allEntities.push(waterskin);
+            allDocs.push(waterskin);
         }
     }
 
@@ -102,46 +102,56 @@ const rollScvmForClass = async (clazz) => {
     if (MB.scvmFactory.startingEquipmentTable1) {
         const equipTable1 = ccContent.find(i => i.name === MB.scvmFactory.startingEquipmentTable1);
         const eqDraw1 = await equipTable1.draw({displayChat: false});
-        const eq1 = await entitiesFromResults(eqDraw1.results);
-        allEntities.push(...eq1);
+        const eq1 = await docsFromResults(eqDraw1.results);
+        allDocs.push(...eq1);
     }
     if (MB.scvmFactory.startingEquipmentTable1) {
         const equipTable2 = ccContent.find(i => i.name === MB.scvmFactory.startingEquipmentTable2);
         const eqDraw2 = await equipTable2.draw({displayChat: false});
-        const eq2 = await entitiesFromResults(eqDraw2.results);
-        allEntities.push(...eq2);
+        const eq2 = await docsFromResults(eqDraw2.results);
+        allDocs.push(...eq2);
     }
     if (MB.scvmFactory.startingEquipmentTable1) {
         const equipTable3 = ccContent.find(i => i.name === MB.scvmFactory.startingEquipmentTable3);
         const eqDraw3 = await equipTable3.draw({displayChat: false});
-        const eq3 = await entitiesFromResults(eqDraw3.results);
-        allEntities.push(...eq3);
+        const eq3 = await docsFromResults(eqDraw3.results);
+        allDocs.push(...eq3);
     }
+
+    const rolledScroll = allDocs.filter(i => i.data.type === "scroll").length > 0;
 
     // starting weapon
     if (MB.scvmFactory.startingWeaponTable && clazz.data.data.weaponTableDie) {
         let weaponDie = clazz.data.data.weaponTableDie;
-        const rolledScroll = allEntities.filter(i => i.data.type === "scroll").length > 0;
         if (rolledScroll) {
-            // TODO: should only the classless adventurer get gimped down to d6?
-            if (weaponDie === "1d10" || weaponDie === "1d8") {
-                weaponDie = "1d6";
+            // TODO: this check for "is it a higher die roll" assumes a d10 weapon table,
+            // and doesn't handle not having a leading 1 in the string
+            if (weaponDie === "1d8" || weaponDie === "2d4" || weaponDie === "1d10") {
+                weaponDie = MB.scvmFactory.weaponDieIfRolledScroll;
             }
         }
         let weaponRoll = new Roll(weaponDie);
         const weaponTable = ccContent.find(i => i.name === MB.scvmFactory.startingWeaponTable);
         const weaponDraw = await weaponTable.draw({roll: weaponRoll, displayChat: false});
-        const weapons = await entitiesFromResults(weaponDraw.results);
-        allEntities.push(...weapons);
+        const weapons = await docsFromResults(weaponDraw.results);
+        allDocs.push(...weapons);
     }
 
     // starting armor
     if (MB.scvmFactory.startingArmorTable && clazz.data.data.armorTableDie) {
-        const armorRoll = new Roll(clazz.data.data.armorTableDie);
-        const armorTable = ccContent.find(i => i.name === MB.scvmFactory.startingArmorTable);
-        const armorDraw = await armorTable.draw({roll: armorRoll, displayChat: false});
-        const armor = await entitiesFromResults(armorDraw.results);
-        allEntities.push(...armor);
+      let armorDie = clazz.data.data.armorTableDie;
+      if (rolledScroll) {
+            // TODO: this check for "is it a higher die roll" assumes a d4 armor table
+            // and doesn't handle not having a leading 1 in the string
+            if (armorDie === "1d3" || weaponDie === "1d4") {
+              armorDie = MB.scvmFactory.armorDieIfRolledScroll;
+          }
+      }
+      let armorRoll = new Roll(armorDie);
+      const armorTable = ccContent.find(i => i.name === MB.scvmFactory.startingArmorTable);
+      const armorDraw = await armorTable.draw({roll: armorRoll, displayChat: false});
+      const armor = await docsFromResults(armorDraw.results);
+      allDocs.push(...armor);
     }
 
     // class-specific starting items
@@ -159,7 +169,7 @@ const rollScvmForClass = async (clazz) => {
                 }    
             }
         }
-        allEntities.push(...startingItems);
+        allDocs.push(...startingItems);
     }
 
     // start accumulating character description, starting with the class description
@@ -231,12 +241,12 @@ const rollScvmForClass = async (clazz) => {
             }
         }
     }
-    allEntities.push(...startingRollItems);
+    allDocs.push(...startingRollItems);
 
-    // add item entities as owned items
-    const items = allEntities.filter(e => e instanceof MBItem);
-    // for other non-item entities, just add some description text (ITEMTYPE: Item Name)
-    const nonItems = allEntities.filter(e => !(e instanceof MBItem));
+    // add items as owned items
+    const items = allDocs.filter(e => e instanceof MBItem);
+    // for other non-item documents, just add some description text (ITEMTYPE: Item Name)
+    const nonItems = allDocs.filter(e => !(e instanceof MBItem));
     for (const nonItem of nonItems) {
         if (nonItem && nonItem.data && nonItem.data.type) {
             const upperType = nonItem.data.type.toUpperCase();
@@ -326,7 +336,7 @@ const updateActorWithScvm = async (actor, s) => {
     }
 };
 
-const entitiesFromResults = async (results) => {
+const docsFromResults = async (results) => {
     const ents = [];
     for (let result of results) {
         const entity = await entityFromResult(result);
@@ -352,14 +362,14 @@ const entityFromResult = async (result) => {
             const content = await collection.getDocuments();
             const table = content.find(i => i.name === "Unclean Scrolls");
             const draw = await table.draw({displayChat: false});
-            const items = await entitiesFromResults(draw.results);
+            const items = await docsFromResults(draw.results);
             return items[0];
         } else if (result.data.text === "Roll on Random Sacred Scrolls") {
             const collection = game.packs.get("morkborg.random-scrolls");
             const content = await collection.getDocuments();
             const table = content.find(i => i.name === "Sacred Scrolls");
             const draw = await table.draw({displayChat: false});
-            const items = await entitiesFromResults(draw.results);
+            const items = await docsFromResults(draw.results);
             return items[0];
         }
     } else if (result.data.type === 2) {

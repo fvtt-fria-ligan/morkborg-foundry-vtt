@@ -11,7 +11,7 @@ export const migrateWorld = async () => {
 };
 
 const migrateActors = async () => {
-  for (let a of game.actors.entities) {
+  for (let a of game.actors.values()) {
     try {
       const updateData = migrateActorData(a.data);
       if (!isObjectEmpty(updateData)) {
@@ -91,7 +91,7 @@ const cleanActorData = (data) => {
 };
 
 const migrateItems = async () => {
-    for (let item of game.items.entities) {
+    for (let item of game.items.values()) {
         try {
           const updateData = migrateItemData(item.data);
           if (!isObjectEmpty(updateData)) {
@@ -130,118 +130,3 @@ const cleanItemData = (data) => {
   // TODO: Scrub system flags?
   return data;  
 };
-
-// TODO: make this work for MB
-/*
-const migrateScenes = async () => {
-    // Migrate Actor Override Tokens
-    for (let s of game.scenes.entities) {
-        try {
-          const updateData = migrateSceneData(s.data);
-          if (!isObjectEmpty(updateData)) {
-            console.log(`Migrating Scene entity ${s.name}`);
-            await s.update(updateData, {enforceTypes: false});
-          }
-        } catch(err) {
-          err.message = `Failed migration for Scene ${s.name}: ${err.message}`;
-          console.error(err);
-        }
-    }
-};
-*/
-
-// TODO: make this work for MB
-/*
-const migrateSceneData = (data) => {
-    const tokens = duplicate(data.tokens);
-    return {
-        // migrate actor tokens
-        tokens: tokens.map(t => {
-        // TODO: MB follower tokens don't seem to have actorData.data, which causes this check to nuke their actorData
-        if (!t.actorId || t.actorLink || !t.actorData.data) {
-            t.actorData = {};
-          return t;
-        }
-        const token = new Token(t);
-        if (!token.actor) {
-          t.actorId = null;
-          t.actorData = {};
-        } else if (!t.actorLink) {
-          const updateData = migrateActorData(token.data.actorData);
-          t.actorData = mergeObject(token.data.actorData, updateData);
-        }
-        return t;
-      })
-    };    
-}
-*/
-
-// TODO: make this work for MB
-/*
-const migrateCompendiums = async () => {
-  // Migrate World Compendium Packs
-  for (let p of game.packs) {
-    if (p.metadata.package !== "world") {
-        continue;
-    }
-    if (!["Actor", "Item", "Scene"].includes(p.metadata.entity)){
-        continue;
-    }
-    await migrateCompendium(p);
-  }
-};
-*/
-
-// TODO: make this work for MB
-/*
-const migrateCompendium = async (pack) => {
-    const entity = pack.metadata.entity;
-    if (!["Actor", "Item", "Scene"].includes(entity)) {
-        return;
-    }
-  
-    // Unlock the pack for editing
-    const wasLocked = pack.locked;
-    await pack.configure({locked: false});
-
-    // Begin by requesting server-side data model migration and get the migrated content
-    await pack.migrate();
-    const content = await pack.getContent();
-  
-    // Iterate over compendium entries - applying fine-tuned migration functions
-    for (let ent of content) {
-      let updateData = {};
-      try {
-        switch (entity) {
-          case "Actor":
-            updateData = migrateActorData(ent.data);
-            break;
-          case "Item":
-            updateData = migrateItemData(ent.data);
-            break;
-          case "Scene":
-            updateData = migrateSceneData(ent.data);
-            break;
-        }
-        if (isObjectEmpty(updateData)) {
-            continue;
-        }
-  
-        // Save the entry, if data was changed
-        updateData["_id"] = ent._id;
-        await pack.updateEntity(updateData);
-        console.log(`Migrated ${entity} entity ${ent.name} in Compendium ${pack.collection}`);
-      }
-  
-      // Handle migration failures
-      catch(err) {
-        err.message = `Failed migration for entity ${ent.name} in pack ${pack.collection}: ${err.message}`;
-        console.error(err);
-      }
-    }
-  
-    // Apply the original locked status for the pack
-    pack.configure({locked: wasLocked});
-    console.log(`Migrated all ${entity} entities from Compendium ${pack.collection}`);
-};
-*/
