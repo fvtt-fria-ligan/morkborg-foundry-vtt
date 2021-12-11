@@ -1,5 +1,5 @@
 # 1.2.0
-- Make MÖRK BORG system compatible with v9.
+- Made MÖRK BORG system compatible with v9.
 
 # 1.1.3
 - Fixed character creation "roll d2 for armor if you rolled a scroll".
