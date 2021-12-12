@@ -736,7 +736,8 @@ export class MBActor extends Actor {
     }
 
     const wieldRoll = new Roll(
-      "d20+@abilities.presence.value",
+      //"d20+@abilities.presence.value",
+      "1d20",
       this.getRollData()
     );
     wieldRoll.evaluate({ async: false });
@@ -786,6 +787,26 @@ export class MBActor extends Actor {
       sound: diceSound(),
       speaker: ChatMessage.getSpeaker({ actor: this }),
     });
+
+    if (isFumble) {
+      // Fumbles roll on the Arcane Catastrophes table
+      const pack = game.packs.get("morkborg.random-scrolls");
+      const content = await pack.getDocuments();
+      const table = content.find(i => i.name === "Arcane Catastrophes");
+      await table.draw();   
+    } else if (isCrit) {
+      // Criticals roll on Eldritch Elevations table, if available
+      // TODO: this could be moved into the 3p module and implemented as a hook 
+      const pack = game.packs.get("morkborg-3p.eldritch-elevations");
+      if (pack) {
+        const content = await pack.getDocuments();
+        const table = content.find(i => i.name === "Eldritch Elevations");
+        if (table) {
+          await table.draw();
+        }
+      }
+    }
+
 
     const newPowerUses = Math.max(0, this.data.data.powerUses.value - 1);
     return this.update({ ["data.powerUses.value"]: newPowerUses });
