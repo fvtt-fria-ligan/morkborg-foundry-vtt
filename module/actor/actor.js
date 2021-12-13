@@ -736,8 +736,7 @@ export class MBActor extends Actor {
     }
 
     const wieldRoll = new Roll(
-      //"d20+@abilities.presence.value",
-      "1d20",
+      "d20+@abilities.presence.value",
       this.getRollData()
     );
     wieldRoll.evaluate({ async: false });

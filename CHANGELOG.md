@@ -1,3 +1,7 @@
+# 1.3.0
+- Add Arcane Catastrophes roll table.
+- Roll on catastrophes for wield power fumble, elevations (if available) for crit.
+
 # 1.2.0
 - Made MÖRK BORG system compatible with v9.
 
