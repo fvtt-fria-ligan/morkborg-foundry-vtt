@@ -210,7 +210,7 @@ export class MBActor extends Actor {
     return total;
   }
 
-  async _testAbility(ability, abilityKey, drModifiers) {
+  async _testAbility(ability, abilityKey, abilityAbbrevKey, drModifiers) {
     let abilityRoll = new Roll(
       `1d20+@abilities.${ability}.value`,
       this.getRollData()
@@ -218,8 +218,9 @@ export class MBActor extends Actor {
     abilityRoll.evaluate({ async: false });
     await showDice(abilityRoll);
     const rollResult = {
-      abilityKey: abilityKey,
+      abilityKey,
       abilityRoll,
+      displayFormula: `1d20 + ${game.i18n.localize(abilityAbbrevKey)}`,
       drModifiers,
     };
     const html = await renderTemplate(
@@ -242,7 +243,7 @@ export class MBActor extends Actor {
         )} +2`
       );
     }
-    await this._testAbility("strength", "MB.AbilityStrength", drModifiers);
+    await this._testAbility("strength", "MB.AbilityStrength", "MB.AbilityStrengthAbbrev", drModifiers);
   }
 
   async testAgility() {
@@ -265,15 +266,15 @@ export class MBActor extends Actor {
         )} +2`
       );
     }
-    await this._testAbility("agility", "MB.AbilityAgility", drModifiers);
+    await this._testAbility("agility", "MB.AbilityAgility", "MB.AbilityAgilityAbbrev", drModifiers);
   }
 
   async testPresence() {
-    await this._testAbility("presence", "MB.AbilityPresence", null);
+    await this._testAbility("presence", "MB.AbilityPresence", "MB.AbilityPresenceAbbrev", null);
   }
 
   async testToughness() {
-    await this._testAbility("toughness", "MB.AbilityToughness", null);
+    await this._testAbility("toughness", "MB.AbilityToughness", "MB.AbilityToughnessAbbrev", null);
   }
 
   /**
@@ -397,13 +398,15 @@ export class MBActor extends Actor {
       );
     }
 
-    // TODO: decide key in handlebars/template?
+    // TODO: decide keys in handlebars/template?
+    const abilityAbbrevKey = isRanged ? "MB.AbilityPresenceAbbrev" : "MB.AbilityStrengthAbbrev";
     const weaponTypeKey = isRanged
       ? "MB.WeaponTypeRanged"
       : "MB.WeaponTypeMelee";
     const rollResult = {
       actor: this,
       attackDR,
+      attackFormula: `1d20 + ${game.i18n.localize(abilityAbbrevKey)}`,
       attackRoll,
       attackOutcome,
       damageRoll,
@@ -578,7 +581,7 @@ export class MBActor extends Actor {
       if (isFumble) {
         defendOutcome = game.i18n.localize("MB.DefendFumbleText");
       } else {
-        defendOutcome = game.i18n.localize("MB.Hit");
+        defendOutcome = game.i18n.localize("MB.YouAreHit");
       }
 
       // roll 2: incoming damage
@@ -622,6 +625,7 @@ export class MBActor extends Actor {
       armorRoll,
       damageRoll,
       defendDR,
+      defendFormula: `1d20 + ${game.i18n.localize("MB.AbilityAgilityAbbrev")}`,
       defendOutcome,
       defendRoll,
       items,
@@ -773,6 +777,7 @@ export class MBActor extends Actor {
     const rollResult = {
       damageRoll,
       wieldDR,
+      wieldFormula: `1d20 + ${game.i18n.localize("MB.AbilityAgilityAbbrev")}`,
       wieldOutcome,
       wieldRoll,
       takeDamage,
@@ -858,7 +863,7 @@ export class MBActor extends Actor {
     }
   }
 
-  async _rollOutcome(dieRoll, rollData, cardTitle, outcomeTextFn) {
+  async _rollOutcome(dieRoll, rollData, cardTitle, outcomeTextFn, rollFormula=null) {
     let roll = new Roll(dieRoll, rollData);
     roll.evaluate({ async: false });
     await showDice(roll);
@@ -866,6 +871,7 @@ export class MBActor extends Actor {
       cardTitle: cardTitle,
       outcomeText: outcomeTextFn(roll),
       roll,
+      rollFormula: rollFormula ?? roll.formula,
     };
     const html = await renderTemplate(OUTCOME_ROLL_CARD_TEMPLATE, rollResult);
     ChatMessage.create({
@@ -900,7 +906,8 @@ export class MBActor extends Actor {
         ` ${game.i18n.localize("MB.PowerUsesRemaining")}: ${Math.max(
           0,
           roll.total
-        )}`
+        )}`,
+     `1d4 + ${game.i18n.localize("MB.AbilityPresenceAbbrev")}` 
     );
     const newUses = Math.max(0, roll.total);
     return this.update({
