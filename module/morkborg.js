@@ -201,7 +201,6 @@ Handlebars.registerHelper('ifNe', function(arg1, arg2, options) {
  * Formats a Roll as either the total or x + y + z = total if the roll has multiple terms.
  */
 Handlebars.registerHelper('xtotal', (roll) => {
-  console.log(roll);
   // collapse addition of negatives into just subtractions
   // e.g., 15 +  - 1 => 15 - 1
   // Also: apparently roll.result uses 2 spaces as separators?
