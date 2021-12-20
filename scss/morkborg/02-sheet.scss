@@ -75,9 +75,10 @@
   /* TinyMCE editor */
   /* ====================== */
   .morkborg.sheet .editor {
-    color: var(--foreground-color);
     border: 1px solid #7a7971;
+    color: var(--foreground-color);
     font-family: var(--item-font);
+    font-size: 14px;
   }
   .morkborg.sheet .tox.tox-tinymce .tox-edit-area__iframe {
     background: var(--background-color);
