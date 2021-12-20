@@ -1,3 +1,8 @@
+# 1.5.0
+- Localize Rest dialog.
+- Localize Make Scvm dialog.
+- Localize Broken chat messages.
+
 # 1.4.0
 - Added German translations by Samurro.
 
