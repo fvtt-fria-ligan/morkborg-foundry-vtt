@@ -1,6 +1,6 @@
 <form id="scvm-form" class="custom-dialog scvm-dialog">
     <div class="section">
-        <div class="subtitle">Choose from Classes</div>
+        <div class="subtitle">{{localize "MB.ScvmfactoryChooseFromClasses"}}</div>
         <ul>
             {{#each this.classes}}
                 <li>
@@ -9,20 +9,19 @@
                 </li>
             {{/each}}    
         </ul>
-        <div><a class="toggle-none">Toggle None</a>&nbsp; / &nbsp;<a class="toggle-all">Toggle All</a></div>
+        <div><a class="toggle-none">{{localize "MB.ScvmfactoryToggleNone"}}</a>&nbsp; / &nbsp;<a class="toggle-all">{{localize "MB.ScvmfactoryToggleAll"}}</a></div>
     </div>
 
     {{#if forActor}}
     <div class="section">
         <p>
-            Destroy this character, and replace it with a new Scvm?
-            WARNING: This cannot be undone!
+          {{localize "MB.ScvmfactoryWarning"}}
         </p>
     </div>
     {{/if}}
 
     <div class="button-row">
-        <button type="submit" class="button cancel-button" name="cancel" value="1">Cancel</button>
-        <button type="submit" class="button scvm-button" name="scvm" value="1">Make Scvm</button>
+        <button type="submit" class="button cancel-button" name="cancel" value="1">{{localize "MB.Cancel"}}</button>
+        <button type="submit" class="button scvm-button" name="scvm" value="1">{{localize "MB.ScvmfactoryMakeScvm"}}</button>
     </div>
 </form>

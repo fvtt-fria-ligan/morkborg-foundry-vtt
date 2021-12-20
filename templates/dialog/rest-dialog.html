@@ -1,55 +1,54 @@
 <form id="rest-form" class="custom-dialog rest-dialog">
 
     <div class="section">
-        <div class="subtitle">Rest Length</div>
+        <div class="subtitle">{{localize 'MB.RestDialogLength'}}</div>
         <div>
             <ul>
                 <li>
                     <label><input name="rest-length" type="radio" value="short" checked>
-                    <div>Short - Catch your breath, have a drink. Restore d4 HP.</div></label>
+                    <div>{{localize 'MB.RestDialogLengthShort'}}</div></label>
                 </li>
                 <li>
                     <label><input name="rest-length" type="radio" value="long">
-                        <div>Long - Full night's sleep. Restore d6 HP, regain Omens if depleted,
-                            regain PRE+d4 Power uses for the day.</div></label>        
+                        <div>{{localize 'MB.RestDialogLengthLong'}}</div></label>        
                 </li>
             </ul>
         </div>
     </div>
 
     <div class="section">
-        <div class="subtitle">Food and Drink</div>
+        <div class="subtitle">{{localize 'MB.RestDialogFoodAndDrink'}}</div>
         <div>
             <ul>
                 <li>
                     <label><input name="food-and-drink" type="radio" value="eat" checked>
-                        <div>Eat - Restore stats as above, deduct food or drink.</div></label>
+                        <div>{{localize 'MB.RestDialogEat'}}</div></label>
                 </li>
                 <li>
                     <label><input name="food-and-drink" type="radio" value="donteat" >
-                        <div>Don't eat - Restore no stats.</div></label>
+                        <div>{{localize 'MB.RestDialogDontEat'}}</div></label>
                 </li>
                 <li>
                     <label><input name="food-and-drink" type="radio" value="starve">
-                        <div>Starve - 2+ days without food or drink. Restore no stats, lose d4 HP/day.</div></label>
+                        <div>{{localize 'MB.RestDialogStarve'}}</div></label>
                 </li>
             </ul>
     </div>
     </div>
 
     <div class="section">
-        <div class="subtitle">Infection</div>
+        <div class="subtitle">{{localize 'MB.Infection'}}</div>
         <div>
             <ul>
                 <li>
                     <label><input name="infected" type="checkbox">
-                        <div>Infected - Restore no stats, lose d6 HP per day.</div></label>
+                        <div>{{localize 'MB.RestDialogInfected'}}</div></label>
                 </li>
             </ul>
         </div>
     </div>
 
     <div class="button-row">
-        <button type="submit" class="button rest-button" name="rest" value="1">Rest</button>
+        <button type="submit" class="button rest-button" name="rest" value="1">{{localize 'MB.Rest'}}</button>
     </div>
 </form>

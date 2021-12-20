@@ -1,3 +1,7 @@
+# 1.4.1
+- Localize more stuff: Rest dialog, Make Scvm dialog, Broken roll card.
+- Increase editor font size.
+
 # 1.4.0
 - Added German translations by Samurro.
 
