@@ -225,11 +225,11 @@ export default class MBActorSheet extends ActorSheet {
 /**
  * Create a new Owned Item for the given actor, based on the name/type from the form.
  */
-const _createItem = (actor, form) => {
+const _createItem = async (actor, form) => {
     const itemData = {
       name: form.itemname.value,
       type: form.itemtype.value,
       data: {}
     };
-    actor.createOwnedItem(itemData);
+    await actor.createEmbeddedDocuments("Item", [itemData]);
 };
