@@ -1,3 +1,6 @@
+# 1.4.2
+- Fixed bug when deleting item from character sheet.
+
 # 1.4.1
 - Localized more stuff: Rest dialog, Make Scvm dialog, Broken roll card.
 - Added more German translations by Samurro.
