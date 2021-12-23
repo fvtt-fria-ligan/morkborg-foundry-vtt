@@ -1,5 +1,6 @@
 # 1.4.1
 - Localized more stuff: Rest dialog, Make Scvm dialog, Broken roll card.
+- Added more German translations by Samurro.
 - Increased editor font size.
 - Fixed bug in +Add item on Treasures tab.
 
