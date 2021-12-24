@@ -1,3 +1,6 @@
+# 1.5.1
+- Fixed bug in Scvmfactory when reducing armor die if character rolled scroll.
+
 # 1.5.0
 - Added French translation by Italemyae.
 - Fixed occult herbmaster macro for Foundry v9.
