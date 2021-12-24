@@ -1,3 +1,7 @@
+# 1.5.0
+- Added French translation by Italemyae.
+- Fixed occult herbmaster macro for Foundry v9.
+
 # 1.4.2
 - Fixed bug when deleting item from character sheet.
 
