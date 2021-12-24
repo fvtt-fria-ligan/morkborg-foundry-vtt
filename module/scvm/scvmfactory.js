@@ -122,7 +122,6 @@ const rollScvmForClass = async (clazz) => {
 
     // starting weapon
     if (MB.scvmFactory.startingWeaponTable && clazz.data.data.weaponTableDie) {
-        let weaponDie = clazz.data.data.weaponTableDie;
         if (rolledScroll) {
             // TODO: this check for "is it a higher die roll" assumes a d10 weapon table,
             // and doesn't handle not having a leading 1 in the string
@@ -143,7 +142,7 @@ const rollScvmForClass = async (clazz) => {
       if (rolledScroll) {
             // TODO: this check for "is it a higher die roll" assumes a d4 armor table
             // and doesn't handle not having a leading 1 in the string
-            if (armorDie === "1d3" || weaponDie === "1d4") {
+            if (armorDie === "1d3" || armorDie === "1d4") {
               armorDie = MB.scvmFactory.armorDieIfRolledScroll;
           }
       }
