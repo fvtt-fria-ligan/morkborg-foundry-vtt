@@ -44,7 +44,7 @@ import MBActorSheet from "./actor-sheet.js";
     let equippedWeapons = [];
     let containers = [];
 
-    for (let i of sheetData.items) {
+    for (const i of sheetData.items) {
       let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
 

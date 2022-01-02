@@ -327,7 +327,7 @@ const updateActorWithScvm = async (actor, s) => {
     await actor.deleteEmbeddedDocuments("Item", [], {deleteAll: true});
     await actor.update(data);
     // update any actor tokens in the scene, too
-    for (let token of actor.getActiveTokens()) {
+    for (const token of actor.getActiveTokens()) {
       await token.document.update({
         img: actor.data.img,
         name: actor.name
@@ -337,7 +337,7 @@ const updateActorWithScvm = async (actor, s) => {
 
 const docsFromResults = async (results) => {
     const ents = [];
-    for (let result of results) {
+    for (const result of results) {
         const entity = await entityFromResult(result);
         if (entity) {            
             ents.push(entity);

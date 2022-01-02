@@ -11,7 +11,7 @@ export const migrateWorld = async () => {
 };
 
 const migrateActors = async () => {
-  for (let a of game.actors.values()) {
+  for (const a of game.actors.values()) {
     try {
       const updateData = migrateActorData(a.data);
       if (!isObjectEmpty(updateData)) {
@@ -91,7 +91,7 @@ const cleanActorData = (data) => {
 };
 
 const migrateItems = async () => {
-    for (let item of game.items.values()) {
+    for (const item of game.items.values()) {
         try {
           const updateData = migrateItemData(item.data);
           if (!isObjectEmpty(updateData)) {

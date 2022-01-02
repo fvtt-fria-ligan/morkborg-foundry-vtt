@@ -24,7 +24,7 @@ export class MBActorSheetCharacter extends MBActorSheet {
     data.config = CONFIG.MB;
 
     // Ability Scores
-    for (let [a, abl] of Object.entries(data.data.abilities)) {
+    for (const [a, abl] of Object.entries(data.data.abilities)) {
       const translationKey = CONFIG.MB.abilities[a];
       abl.label = game.i18n.localize(translationKey);
     }
@@ -59,7 +59,7 @@ export class MBActorSheetCharacter extends MBActorSheet {
     let scrolls = [];
     let containers = [];
 
-    for (let i of sheetData.items) {
+    for (const i of sheetData.items) {
       let item = i.data;
       i.img = i.img || DEFAULT_TOKEN;
 

@@ -38,7 +38,7 @@ import MBActorSheet from "./actor-sheet.js";
    */
   _prepareContainerItems(sheetData) {
     let equipment = [];
-    for (let i of sheetData.items) {
+    for (const i of sheetData.items) {
       i.img = i.img || DEFAULT_TOKEN;
       if (CONFIG.MB.itemEquipmentTypes.includes(i.type)) {
         equipment.push(i);
