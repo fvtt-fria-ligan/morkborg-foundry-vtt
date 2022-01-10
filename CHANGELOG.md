@@ -1,3 +1,6 @@
+# 1.5.2
+- Fix incorrectly-deleted line of code in 1.5.1.
+
 # 1.5.1
 - Fixed bug in Scvmfactory when reducing armor die if character rolled scroll.
 
