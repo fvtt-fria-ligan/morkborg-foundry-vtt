@@ -1,6 +1,10 @@
+# 1.6.0
+- Minor tweaks to character sheet: "CLASS:" text instead of icon, omens usage rules as hover text for "OMENS:".
+- Increased default character sheet width to prevent wrapping.
+
 # 1.5.1
 - Fixed bug in Scvmfactory when reducing armor die if character rolled scroll.
-- Fix incorrectly-deleted line of code.
+- Fixed incorrectly-deleted line of code.
 
 # 1.5.0
 - Added French translation by Italemyae.

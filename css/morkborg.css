@@ -711,6 +711,12 @@
   width: 100%;
 }
 
+.morkborg.sheet.actor.character .sheet-header .omens-row .omens-label:hover {
+  color: var(--highlight-foreground-color);
+  text-shadow: 0 0 10px var(--highlight-background-color);
+  cursor: pointer;
+}
+
 .morkborg.sheet.actor.character .sheet-header .omen-rule {
   flex: 0 0 90px;
   margin-left: 10px;
