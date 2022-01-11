@@ -30,12 +30,10 @@ export class MBActorSheetCharacter extends MBActorSheet {
     }
 
     // Prepare items.
-    // TODO: should preparing items move into the MBActor class?
     if (this.actor.data.type == 'character') {
       this._prepareCharacterItems(data);
     }
 
-    // console.log(superData);
     return superData;
   }
 
