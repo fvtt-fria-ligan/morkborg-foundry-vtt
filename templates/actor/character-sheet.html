@@ -13,7 +13,7 @@
             {{!-- we are cheating a bit here, using the 'item' class usually used on LI elements,
              so we can get the item _id to be found by the common click handler --}}
             <div class="classname-row item" data-item-id="{{data.data.class._id}}">
-                <img class="classimg" src="{{data.data.class.img}}" title="{{data.data.class.name}}" width="24" height="24" />
+                <span class="stat-label">{{ localize "MB.Class" }}:</span>
                 <label class="classname item-edit rollable">{{data.data.class.name}}</label>
                 <div class="item-controls">
                     <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
@@ -33,13 +33,10 @@
                 </div>
             </div>
             <div class="omens-row">
-                <span class="stat-label">{{ localize "MB.Omens" }}:</span>
+                <span class="stat-label" title="{{ localize 'MB.OmensHelpText' }}">{{ localize "MB.Omens" }}:</span>
                 <input class="stat-input" name="data.omens.value" type="number" value="{{data.data.omens.value}}" data-dtype="Number"/>
                 <span class="rule-text omen-rule rollable">{{data.data.class.data.omenDie}} {{ localize "MB.PerRest"}}</span>
-                <!--
-                <div class="rest-buttons">
-                -->
-                    <button type="button" class="button item-button get-better-button rollable" title="{{localize 'MB.GetBetter'}}">{{localize 'MB.GetBetter'}}</button>
+                <button type="button" class="button item-button get-better-button rollable" title="{{localize 'MB.GetBetter'}}">{{localize 'MB.GetBetter'}}</button>
             </div>
             <div class="miseries-row">
                 <label class="stat-label miseries-label">{{ localize "MB.Miseries" }}:</label>
@@ -99,7 +96,7 @@
             <div class="initiative">
                 <span class="roll-initiative">{{localize "MB.Roll"}} {{localize "MB.Initiative"}}:</span>
                 <button type="button" class="button item-button rollable initiative-button party-initiative-button" title="{{localize 'MB.Party'}}">{{localize "MB.Party"}}</button>
-                <button type="button" class="button item-button rollable initiative-button individual-initiative-button" title="{{localize 'MB.IndividualI'}}">{{localize "MB.Individual"}}</button>
+                <button type="button" class="button item-button rollable initiative-button individual-initiative-button" title="{{localize 'MB.Individual'}}">{{localize "MB.Individual"}}</button>
             </div>
             <ol class="items-list inventory-list">
                 <li class="items-header flexrow">
