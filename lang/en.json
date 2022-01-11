@@ -121,6 +121,7 @@
 "MB.NoEffect": "No effect",
 "MB.NoPowerUsesRemaining": "No Power uses remaining",
 "MB.Omens": "Omens",
+"MB.OmensHelpText": "Max damage, re-roll, -d6 damage, DR -4, no crit/fumble",
 "MB.Outcome": "Outcome",
 "MB.Party": "Party",
 "MB.PartyInitiative": "Party Initiative",
