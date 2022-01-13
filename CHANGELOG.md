@@ -1,3 +1,6 @@
+# 1.6.1
+- Fix displayed formula for wield power roll.
+
 # 1.6.0
 - Minor tweaks to character sheet: "CLASS:" text instead of icon, omens usage rules as hover text for "OMENS:".
 - Increased default character sheet width to prevent wrapping.

@@ -777,7 +777,7 @@ export class MBActor extends Actor {
     const rollResult = {
       damageRoll,
       wieldDR,
-      wieldFormula: `1d20 + ${game.i18n.localize("MB.AbilityAgilityAbbrev")}`,
+      wieldFormula: `1d20 + ${game.i18n.localize("MB.AbilityPresenceAbbrev")}`,
       wieldOutcome,
       wieldRoll,
       takeDamage,
