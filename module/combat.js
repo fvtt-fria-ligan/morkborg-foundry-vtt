@@ -81,7 +81,13 @@ export class MBCombat extends Combat {
   }
 
   isFriendlyCombatant(combatant) {
-    return combatant._token.data.disposition === 1;
+    if (combatant._token) {
+      // v8 compatible
+      return combatant._token.data.disposition === 1;
+    } else {
+      // v9+
+      return combatant.token.data.disposition === 1;
+    }
   }
 
   /**

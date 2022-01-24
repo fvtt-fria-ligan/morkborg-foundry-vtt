@@ -1,5 +1,8 @@
+# 1.6.2
+- Fixed party initiative + combat tracker reordering.
+
 # 1.6.1
-- Fix displayed formula for wield power roll.
+- Fixed displayed formula for wield power roll.
 
 # 1.6.0
 - Minor tweaks to character sheet: "CLASS:" text instead of icon, omens usage rules as hover text for "OMENS:".
