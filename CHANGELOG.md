@@ -1,5 +1,6 @@
 # 1.7.0
-- Added system setting to enable/disable character overcapacity encumbrance penalty. 
+- Added system setting to enable/disable character overcapacity encumbrance penalty.
+- Made creature sheet default to details tab.
 
 # 1.6.2
 - Fixed party initiative + combat tracker reordering.

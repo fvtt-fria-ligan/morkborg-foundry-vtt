@@ -11,7 +11,7 @@ export class MBActorSheetCreature extends MBActorSheet {
       template: "systems/morkborg/templates/actor/creature-sheet.html",
       width: 720,
       height: 680,
-      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}],
+      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "details"}],
       // is dragDrop needed?
       // dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
     });
