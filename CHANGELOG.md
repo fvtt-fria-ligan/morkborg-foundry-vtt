@@ -1,3 +1,6 @@
+# 1.7.0
+- Added system setting to enable/disable character overcapacity encumbrance penalty. 
+
 # 1.6.2
 - Fixed party initiative + combat tracker reordering.
 

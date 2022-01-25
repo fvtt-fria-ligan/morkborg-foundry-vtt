@@ -303,7 +303,11 @@
                     </div>
                     <div>
                         <span class="rule-text {{data.data.encumberedClass}}">
+                          {{#if data.data.trackCarryingCapacity}}
                             {{localize 'MB.CarryingRule'}}
+                          {{else}}
+                            {{localize 'MB.CarryingRuleNoPenalty'}}
+                          {{/if}}
                         </span>
                     </div>
                 </div>

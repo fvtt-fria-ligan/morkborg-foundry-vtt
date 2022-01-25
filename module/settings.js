@@ -10,36 +10,50 @@ export const registerSystemSettings = () => {
     default: ""
   });
 
+  /** Whether to keep track of carrying capacity */
+  game.settings.register("morkborg", "trackCarryingCapacity", {
+    name: "MB.SettingsApplyOvercapacityPenalty",
+    hint: "MB.SettingsApplyOvercapacityPenaltyHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true
+  });
+
   /** UI Color scheme */
   game.settings.register("morkborg", "colorScheme", {
-    name: "SETTINGS.MBColorScheme",
-    hint: "SETTINGS.MBColorSchemeHint",
+    name: "MB.SettingsColorScheme",
+    hint: "MB.SettingsColorSchemeHint",
     scope: "client",
     config: true,
     default: "whiteOnBlackYellow",
     type: String,
     choices: {
-      "blackOnYellowWhite": "SETTINGS.MBBlackOnYellowWhite",
-      "blackOnWhiteBlack": "SETTINGS.MBBlackOnWhiteBlack",
-      "foundryDefault": "SETTINGS.MBFoundryDefault",
-      "whiteOnBlackYellow": "SETTINGS.MBWhiteOnBlackYellow",
-      "whiteOnBlackPink": "SETTINGS.MBWhiteOnBlackPink",
-      "whiteOnPinkWhite": "SETTINGS.MBWhiteOnPinkWhite",    
+      "blackOnYellowWhite": "MB.SettingsBlackOnYellowWhite",
+      "blackOnWhiteBlack": "MB.SettingsBlackOnWhiteBlack",
+      "foundryDefault": "MB.SettingsFoundryDefault",
+      "whiteOnBlackYellow": "MB.SettingsWhiteOnBlackYellow",
+      "whiteOnBlackPink": "MB.SettingsWhiteOnBlackPink",
+      "whiteOnPinkWhite": "MB.SettingsWhiteOnPinkWhite",    
     }
   });  
 
   /** UI Font scheme */
   game.settings.register("morkborg", "fontScheme", {
-    name: "SETTINGS.MBFontScheme",
-    hint: "SETTINGS.MBFontSchemeHint",
+    name: "MB.SettingsFontScheme",
+    hint: "MB.SettingsFontSchemeHint",
     scope: "client",
     config: true,
     default: "blackletter",
     type: String,
     choices: {
-      "blackletter": "SETTINGS.MBBlackletter",
-      "legible": "SETTINGS.MBLegible",
+      "blackletter": "MB.SettingsBlackletter",
+      "legible": "MB.SettingsLegible",
     }
   });  
 
 };
+
+export const trackCarryingCapacity = () => {
+  return game.settings.get("morkborg", "trackCarryingCapacity");
+}

@@ -1,5 +1,6 @@
 import { addShowDicePromise, diceSound, showDice } from "../dice.js";
 import ScvmDialog from "../scvm/scvm-dialog.js";
+import { trackCarryingCapacity } from "../settings.js";
 
 const ATTACK_DIALOG_TEMPLATE =
   "systems/morkborg/templates/dialog/attack-dialog.html";
@@ -179,6 +180,9 @@ export class MBActor extends Actor {
   }
 
   isEncumbered() {
+    if (!trackCarryingCapacity()) {
+      return false;
+    }
     return this.carryingWeight() > this.normalCarryingCapacity();
   }
 
