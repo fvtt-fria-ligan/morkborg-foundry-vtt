@@ -37,7 +37,6 @@ export class MBActorSheetCharacter extends MBActorSheet {
 
     data.data.trackCarryingCapacity = trackCarryingCapacity();
 
-    console.log(superData);
     return superData;
   }
 
