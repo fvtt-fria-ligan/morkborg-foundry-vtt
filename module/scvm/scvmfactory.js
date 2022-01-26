@@ -85,7 +85,7 @@ const rollScvmForClass = async (clazz) => {
             const foodRoll = new Roll("1d4", {}).evaluate({async: false});
             // TODO: need to mutate _data to get it to change for our owned item creation.
             // Is there a better way to do this?
-            food.data._source.quantity = foodRoll.total;
+            food.data._source.data.quantity = foodRoll.total;
             allDocs.push(food);
         }
         if (MB.scvmFactory.waterItemName) {
