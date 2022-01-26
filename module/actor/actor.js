@@ -660,7 +660,8 @@ export class MBActor extends Actor {
     await showDice(moraleRoll);
 
     let outcomeRoll = null;
-    if (moraleRoll.total > this.data.data.morale) {
+    // must have a non-zero morale to possibly fail a morale check
+    if (this.data.data.morale && moraleRoll.total > this.data.data.morale) {
       outcomeRoll = new Roll("1d6", actorRollData);
       outcomeRoll.evaluate({ async: false });
       await showDice(outcomeRoll);

@@ -1,3 +1,6 @@
+# 1.8.0
+- Treat empty/zero morale as "always stands firm".
+
 # 1.7.0
 - Added system setting to enable/disable character overcapacity encumbrance penalty.
 - Fixed scvmfactory food quantity not getting set.
