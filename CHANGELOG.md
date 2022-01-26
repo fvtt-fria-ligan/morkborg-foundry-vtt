@@ -1,5 +1,6 @@
 # 1.7.0
 - Added system setting to enable/disable character overcapacity encumbrance penalty.
+- Fixed scvmfactory food quantity not getting set.
 - Made creature sheet default to details tab.
 
 # 1.6.2
