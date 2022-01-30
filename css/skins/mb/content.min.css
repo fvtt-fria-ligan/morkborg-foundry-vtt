@@ -69,7 +69,6 @@ pre[class*=language-] {
   word-wrap: normal;
   line-height: 1.5;
   -moz-tab-size: 4;
-  -o-tab-size: 4;
   tab-size: 4;
   -webkit-hyphens: none;
   -ms-hyphens: none;
@@ -80,11 +79,6 @@ code[class*=language-] ::-moz-selection,
 code[class*=language-]::-moz-selection,
 pre[class*=language-] ::-moz-selection,
 pre[class*=language-]::-moz-selection {
-  text-shadow: none;
-  background: #b3d4fc;
-}
-
-code[class*=language-] ::-moz-selection, code[class*=language-]::-moz-selection, pre[class*=language-] ::-moz-selection, pre[class*=language-]::-moz-selection {
   text-shadow: none;
   background: #b3d4fc;
 }
@@ -581,10 +575,6 @@ pre[class*=language-] {
   background: 0 0;
 }
 
-.mce-content-body td[data-mce-selected]::-moz-selection, .mce-content-body th[data-mce-selected]::-moz-selection {
-  background: 0 0;
-}
-
 .mce-content-body td[data-mce-selected]::selection,
 .mce-content-body th[data-mce-selected]::selection {
   background: 0 0;
@@ -868,3 +858,5 @@ table {
   background: #ffe800 !important;
   border: 1px solid black !important;
 }
+
+/*# sourceMappingURL=content.min.css.map */

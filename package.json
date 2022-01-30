@@ -3,23 +3,17 @@
   "version": "1.0.0",
   "description": "Unofficial system for MÖRK BORG on Foundry VTT.",
   "scripts": {
-    "build": "gulp dist",
-    "sass": "gulp sass",
-    "watch": "gulp watch",
-    "gulp": "gulp",
-    "lint": "eslint --fix --ext .js ./"
+    "foo": "sass --help",
+    "sass": "sass ./scss:./css",
+    "lint": "eslint --fix --ext .js ./",
+    "watch": "sass --watch ./scss:./css"
   },
   "repository": "https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt.git",
   "author": "mcglincy",
   "license": "MIT",
   "devDependencies": {
     "eslint": "^7.32.0",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^6.1.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-sass": "^5.0.0",
-    "gulp-sourcemaps": "^3.0.0",
-    "sass": "^1.39.2"
+    "sass": "^1.49.0"
   },
   "dependencies": {}
 }

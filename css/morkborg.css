@@ -110,11 +110,6 @@
   border: 1px solid lightgray;
 }
 
-.morkborg ::-moz-selection {
-  background: var(--highlight-background-color);
-  color: var(--background-color);
-}
-
 .morkborg ::selection {
   background: var(--highlight-background-color);
   color: var(--background-color);
@@ -144,6 +139,7 @@
   background-color: var(--background-color) !important;
   color: var(--foreground-color) !important;
 }
+
 /* ====================== */
 /* Sheet */
 /* ====================== */
@@ -329,6 +325,7 @@
 .morkborg.sheet .sheet-body .form-group.special {
   flex: 1;
 }
+
 /* ====================== */
 /* Actor sheet */
 /* ====================== */
@@ -587,6 +584,7 @@
   border-bottom: 2px solid #777;
   border-radius: 0;
 }
+
 /* ====================== */
 /* Character sheet */
 /* ====================== */
@@ -895,6 +893,7 @@
 .morkborg.sheet.actor.character .sheet-body .encumbered {
   color: var(--highlight-background-color);
 }
+
 /* ====================== */
 /* Item list */
 /* ====================== */
@@ -989,6 +988,7 @@
 .morkborg .item-list .unequipped {
   color: gray;
 }
+
 /* ====================== */
 /* Creature sheet */
 /* ====================== */
@@ -1034,6 +1034,7 @@
   margin-bottom: 10px;
   margin-left: 14px;
 }
+
 /* ====================== */
 /* Item sheet */
 /* ====================== */
@@ -1069,6 +1070,7 @@
   margin-top: 8px;
   padding: 5px;
 }
+
 /* ====================== */
 /* Follower sheet */
 /* ====================== */
@@ -1114,6 +1116,7 @@
   margin-bottom: 10px;
   margin-left: 14px;
 }
+
 /* ====================== */
 /* Container sheet */
 /* ====================== */
@@ -1159,6 +1162,7 @@
   margin-bottom: 10px;
   margin-left: 14px;
 }
+
 /* ====================== */
 /* UI/Dialog fixes */
 /* ====================== */
@@ -1693,6 +1697,7 @@ a.inline-roll {
   white-space: nowrap;
   word-break: break-all;
 }
+
 /* ====================== */
 /* Roll Cards */
 /* ====================== */
@@ -1775,6 +1780,7 @@ a.inline-roll {
   margin-bottom: 5px;
   text-align: center;
 }
+
 /* ====================== */
 /* Attack/Defend Custom Dialogs */
 /* ====================== */
@@ -1870,3 +1876,5 @@ a.inline-roll {
 .scvm-dialog .class-name {
   text-transform: capitalize;
 }
+
+/*# sourceMappingURL=morkborg.css.map */

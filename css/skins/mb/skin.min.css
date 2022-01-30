@@ -1395,7 +1395,6 @@ button::-moz-focus-inner {
 }
 
 .tox .tox-dialog__draghandle {
-  cursor: -webkit-grab;
   cursor: grab;
   height: 100%;
   left: 0;
@@ -1405,7 +1404,6 @@ button::-moz-focus-inner {
 }
 
 .tox .tox-dialog__draghandle:active {
-  cursor: -webkit-grabbing;
   cursor: grabbing;
 }
 
@@ -2974,7 +2972,6 @@ body.tox-dialog__disable-scroll {
 }
 
 .tox .tox-spinner > div {
-  -webkit-animation: tam-bouncing-dots 1.5s ease-in-out 0s infinite both;
   animation: tam-bouncing-dots 1.5s ease-in-out 0s infinite both;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 100%;
@@ -2983,22 +2980,11 @@ body.tox-dialog__disable-scroll {
 }
 
 .tox .tox-spinner > div:nth-child(1) {
-  -webkit-animation-delay: -0.32s;
   animation-delay: -0.32s;
 }
 
 .tox .tox-spinner > div:nth-child(2) {
-  -webkit-animation-delay: -0.16s;
   animation-delay: -0.16s;
-}
-
-@-webkit-keyframes tam-bouncing-dots {
-  0%, 100%, 80% {
-    transform: scale(0);
-  }
-  40% {
-    transform: scale(1);
-  }
 }
 
 @keyframes tam-bouncing-dots {
@@ -3561,3 +3547,5 @@ body.tox-dialog__disable-scroll {
 .tox .tox-image-tools__sidebar {
   height: 60px;
 }
+
+/*# sourceMappingURL=skin.min.css.map */
