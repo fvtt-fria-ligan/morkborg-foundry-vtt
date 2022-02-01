@@ -3,6 +3,7 @@
 - Code cleanup: add linter (eslint), formatter (prettier), and presubmit (husky).
 - Format and de-lint entire codebase.
 - Refactor css/scss files.
+- Fix style for Dice Tray dialog textarea/buttons.
 
 # 1.8.0
 

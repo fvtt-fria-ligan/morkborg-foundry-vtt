@@ -1,0 +1,20 @@
+// Fixes for Dice Tray dialog
+.window-app {
+  .window-content {
+    textarea {
+      color: var(--foreground-color);
+      background: var(--background-color);
+      border: 2px solid #252525;
+      &:hover {
+        box-shadow: 0 0 10px var(--highlight-background-color);
+      }
+      &:focus {
+        box-shadow: 0 0 10px var(--highlight-background-color);
+        outline: none;
+      }
+    }
+  }
+}
+button.dice-calculator--button {
+  color: var(--foreground-color);
+}
