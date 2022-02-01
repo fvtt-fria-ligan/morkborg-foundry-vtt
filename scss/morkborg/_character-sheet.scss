@@ -1,0 +1,280 @@
+.morkborg {
+  &.sheet {
+    &.actor.character {
+      min-width: 742px;
+      min-height: 650px;
+
+      .sheet-header {
+        flex: 0 0 200px;
+
+        .header-col1 {
+          flex: 0 0 200px;
+          margin: 5px;
+          padding: 0;
+        }
+
+        .header-col2 {
+          flex: 1 0 350px;
+          margin: 5px;
+          display: flex;
+          flex-direction: column;
+
+          .rest-buttons {
+            margin-left: 14px;
+            width: 170px;
+          }
+
+          button {
+            border: none;
+            border-bottom: 2px solid #777;
+            border-radius: 0;
+            font-family: var(--h2-font);
+            font-size: 14px;
+            height: 28px;
+          }
+
+          .broken-button,
+          .rest-button {
+            width: 80px;
+          }
+
+          .get-better-button {
+            width: 90px;
+          }
+        }
+
+        .header-col3 {
+          flex: 0 0 120px;
+          margin: 5px;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .profile-img {
+          height: 200px;
+          width: 200px;
+        }
+
+        .name-row {
+          flex: 0 0 50px;
+          margin-bottom: 7px;
+
+          input[type="text"] {
+            height: 45px;
+            width: 100%;
+          }
+        }
+
+        .classname-row {
+          display: flex;
+          flex: 0 0 30px;
+          flex-direction: row;
+          margin-bottom: 7px;
+          width: 100%;
+
+          img.classimg {
+            height: 24px;
+            width: 24px;
+            flex: 0 0 24px;
+            margin-right: 5px;
+          }
+
+          label.classname {
+            font-family: var(--h3-font);
+            font-size: 28px;
+            width: 100%;
+          }
+
+          .item-controls {
+            flex: 0 0 35px;
+            text-align: right;
+            margin-right: 0;
+
+            /* TODO: fix vertical alignment in a better way */
+            padding-top: 6px;
+          }
+        }
+
+        .hitpoints-row {
+          display: flex;
+          flex: 0 0 30px;
+          margin-bottom: 7px;
+        }
+
+        .omens-row {
+          display: flex;
+          flex: 0 0 30px;
+          margin-bottom: 7px;
+          width: 100%;
+
+          .omens-label:hover {
+            color: var(--highlight-foreground-color);
+            text-shadow: 0 0 10px var(--highlight-background-color);
+            cursor: pointer;
+          }
+        }
+
+        .omen-rule {
+          flex: 0 0 90px;
+          margin-left: 10px;
+          margin-right: 11px;
+          margin-top: 10px;
+          text-transform: lowercase;
+        }
+
+        .miseries-row {
+          flex: 0 0 30px;
+        }
+
+        .stat-label,
+        .miseries-label {
+          float: left;
+        }
+
+        ul.miseries {
+          list-style-type: none;
+          margin: 0;
+          margin-top: 3px;
+          padding: 0;
+          float: left;
+
+          li {
+            float: left;
+          }
+
+          label {
+            display: block;
+            padding: 4px;
+            position: relative;
+            padding-left: 20px;
+
+            input[type="radio"] {
+              display: none;
+            }
+          }
+
+          input[type="radio"]:checked + span {
+            background: var(--highlight-background-color);
+            color: var(--highlight-foreground-color);
+            border: none;
+          }
+
+          label span {
+            border: 1px solid #7a7971;
+            width: 17px;
+            height: 17px;
+            position: absolute;
+            overflow: hidden;
+            line-height: 1.5;
+            text-align: center;
+            border-radius: 100%;
+            font-size: 10pt;
+            font-family: var(--item-font);
+            left: 0;
+            top: 50%;
+          }
+
+          li:last-child label span {
+            background: var(--foreground-color);
+            color: var(--background-color);
+          }
+        }
+
+        .ability-row {
+          margin-bottom: 10px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        .ability-label {
+          font-family: var(--h2-font);
+          font-size: 24px;
+          margin-left: 5px;
+          margin-top: 5px;
+          float: left;
+        }
+
+        .ability-input {
+          border: 1px solid #7a7971;
+          font-family: var(--item-font);
+          font-size: 14pt;
+          text-align: center;
+          padding: 5px;
+          padding-top: 10px;
+          line-height: 1.5;
+          width: 42px;
+          height: 42px;
+          float: left;
+          border-radius: 0;
+          color: var(--foreground-color);
+        }
+      }
+
+      .sheet-body {
+        .feat-button {
+          min-width: 120px;
+        }
+
+        .powers-top-row {
+          margin-top: 15px;
+          margin-bottom: 10px;
+          display: flex;
+          flex-direction: row;
+        }
+
+        .wield-power {
+          flex: 0 0 300px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .powers-gutter {
+          flex: 0 0 20px;
+        }
+
+        .wield-power-button {
+          width: 200px;
+          margin-bottom: 10px;
+          font-family: var(--h2-font);
+          font-size: 24px;
+          background-color: var(--foreground-color);
+          color: var(--background-color);
+          border: none;
+          border-bottom: 2px solid #777;
+          border-radius: 0;
+        }
+
+        .wield-rule {
+          text-align: center;
+        }
+
+        div.uses-remaining {
+          flex: 0 0 320px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .uses-remaining div {
+          margin-bottom: 20px;
+        }
+
+        .carry-block {
+          flex: 1;
+          text-align: center;
+        }
+
+        .container-label {
+          margin-left: 40px;
+        }
+
+        .encumbered {
+          color: var(--highlight-background-color);
+        }
+      }
+    }
+  }
+}

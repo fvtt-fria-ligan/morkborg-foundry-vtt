@@ -1,21 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Lato&family=Oswald&family=Rakkas&family=Special+Elite&display=swap");
 :root {
-  --background-color:#000000;
-  --foreground-color:#ffffff;
-  --foreground-alt-color:#ffe900;
-  --highlight-background-color:#ffe900;
-  --highlight-foreground-color:#000000;
-  --sidebar-background-color:#000000;
-  --sidebar-foreground-color:#ffffff;
-  --sidebar-button-background-color:#000000;
-  --sidebar-button-foreground-color:#ffffff;
-  --window-background:#000000;
-  --chat-font:"Alegreya";
-  --chat-info-font:"Oswald";
-  --h1-font:"Blood Crow";
-  --h2-font:"FetteTrumpDeutsch";
-  --h3-font:"Old Cupboard";
-  --item-font:"Special Elite";
+  --background-color: #000000;
+  --foreground-color: #ffffff;
+  --foreground-alt-color: #ffe900;
+  --highlight-background-color: #ffe900;
+  --highlight-foreground-color: #000000;
+  --sidebar-background-color: #000000;
+  --sidebar-foreground-color: #ffffff;
+  --sidebar-button-background-color: #000000;
+  --sidebar-button-foreground-color: #ffffff;
+  --window-background: #000000;
+  --chat-font: "Alegreya";
+  --chat-info-font: "Oswald";
+  --h1-font: "Blood Crow";
+  --h2-font: "FetteTrumpDeutsch";
+  --h3-font: "Old Cupboard";
+  --item-font: "Special Elite";
 }
 
 /* ====================== */
@@ -46,7 +46,8 @@
   flex-wrap: wrap;
   justify-content: flex-start;
 }
-.flexrow > *, .flexrow .flex1 {
+.flexrow > *,
+.flexrow .flex1 {
   flex: 1;
 }
 .flexrow .flex2 {
@@ -64,7 +65,8 @@
   flex-direction: column;
   flex-wrap: nowrap;
 }
-.flexcol > *, .flexcol .flex1 {
+.flexcol > *,
+.flexcol .flex1 {
   flex: 1;
 }
 .flexcol .flex2 {
@@ -77,9 +79,6 @@
   flex: 4;
 }
 
-/* ====================== */
-/* MorkBorg */
-/* ====================== */
 .morkborg .window-content {
   font-size: 13px;
   color: #191813;
@@ -116,6 +115,17 @@
   background-color: var(--background-color) !important;
   color: var(--foreground-color) !important;
 }
+.morkborg .editor,
+.morkborg .editor-content {
+  height: 100%;
+}
+
+.mce-content-body {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  color: var(--foreground-color);
+}
+
 .morkborg.sheet {
   margin-top: 0;
 }
@@ -139,17 +149,30 @@
   text-shadow: 0 0 10px var(--highlight-background-color);
   cursor: pointer;
 }
-.morkborg.sheet input[type=text], .morkborg.sheet input[type=number], .morkborg.sheet input[type=password], .morkborg.sheet input[type=date] {
+.morkborg.sheet input[type="text"],
+.morkborg.sheet input[type="number"],
+.morkborg.sheet input[type="password"],
+.morkborg.sheet input[type="date"] {
   color: var(--foreground-color);
   border-radius: 0;
 }
-.morkborg.sheet input[type=text]:focus, .morkborg.sheet input[type=number]:focus, .morkborg.sheet input[type=password]:focus, .morkborg.sheet input[type=date]:focus, .morkborg.sheet input[type=time]:focus, .morkborg.sheet input[type=text]:hover, .morkborg.sheet input[type=number]:hover, .morkborg.sheet input[type=password]:hover, .morkborg.sheet input[type=date]:hover, .morkborg.sheet input[type=time]:hover {
+.morkborg.sheet input[type="text"]:focus,
+.morkborg.sheet input[type="number"]:focus,
+.morkborg.sheet input[type="password"]:focus,
+.morkborg.sheet input[type="date"]:focus,
+.morkborg.sheet input[type="time"]:focus,
+.morkborg.sheet input[type="text"]:hover,
+.morkborg.sheet input[type="number"]:hover,
+.morkborg.sheet input[type="password"]:hover,
+.morkborg.sheet input[type="date"]:hover,
+.morkborg.sheet input[type="time"]:hover {
   box-shadow: 0 0 5px var(--highlight-background-color);
 }
 .morkborg.sheet select:focus {
   box-shadow: 0 0 5px var(--highlight-background-color);
 }
-.morkborg.sheet button:hover, .morkborg.sheet button:focus {
+.morkborg.sheet button:hover,
+.morkborg.sheet button:focus {
   box-shadow: 0 0 5px var(--highlight-background-color);
 }
 .morkborg.sheet a:hover {
@@ -181,22 +204,6 @@
 }
 .morkborg.sheet .tox.tox-tinymce .tox-edit-area__iframe {
   background: var(--background-color);
-}
-
-/* ====================== */
-/* Sheet */
-/* ====================== */
-/* ====================== */
-/* TinyMCE editor */
-/* ====================== */
-.mce-content-body {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  color: var(--foreground-color);
-}
-
-.morkborg .editor, .morkborg .editor-content {
-  height: 100%;
 }
 .morkborg.sheet .editor {
   padding: 0 8px;
@@ -244,37 +251,18 @@
   text-align: right;
   margin-right: 10px;
 }
-.morkborg.sheet .sheet-body .form-group input, .morkborg.sheet .sheet-body .form-group select {
+.morkborg.sheet .sheet-body .form-group input,
+.morkborg.sheet .sheet-body .form-group select {
   font-family: var(--item-font);
   font-size: 14pt;
 }
 .morkborg.sheet .sheet-body .form-group.special {
   flex: 1;
 }
-.morkborg.sheet.actor .sheet-header .actor-subtitle {
-  font-family: var(--h3-font);
-  font-size: 24px;
-  text-transform: uppercase;
-  margin-left: 13px;
-}
+
 .morkborg.sheet.actor .rule-text {
   font-family: var(--item-font);
   font-size: 10pt;
-}
-.morkborg.sheet.actor .sheet-header {
-  margin-top: 0;
-  padding: 5px;
-  display: flex;
-  flex-direction: row;
-}
-.morkborg.sheet.actor .sheet-header .header-gutter-col {
-  flex: 0 0 10px;
-}
-.morkborg.sheet.actor .sheet-header .profile-img {
-  height: 200px;
-  width: 200px;
-  margin: 0;
-  padding: 0;
 }
 .morkborg.sheet.actor .stat-label {
   font-family: var(--h2-font);
@@ -296,6 +284,27 @@
   text-align: center;
   width: 50px;
   color: var(--foreground-color);
+}
+.morkborg.sheet.actor .sheet-header {
+  margin-top: 0;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+}
+.morkborg.sheet.actor .sheet-header .header-gutter-col {
+  flex: 0 0 10px;
+}
+.morkborg.sheet.actor .sheet-header .profile-img {
+  height: 200px;
+  width: 200px;
+  margin: 0;
+  padding: 0;
+}
+.morkborg.sheet.actor .sheet-header .actor-subtitle {
+  font-family: var(--h3-font);
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-left: 13px;
 }
 .morkborg.sheet.actor .sheet-body .item-controls .item-toggle {
   color: darkgray;
@@ -328,7 +337,18 @@
 .morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item {
   align-items: center;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item-button {
+.morkborg.sheet.actor
+  .sheet-body
+  .violence-tab
+  .item-list.weapon-list
+  .item-buttons {
+  flex: 0.5;
+}
+.morkborg.sheet.actor
+  .sheet-body
+  .violence-tab
+  .item-list.weapon-list
+  .item-button {
   font-size: 20px;
   width: 120px;
 }
@@ -342,15 +362,20 @@
   font-size: 16px;
   margin-top: 6px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .weapon-list .item-field.damage-die {
+.morkborg.sheet.actor
+  .sheet-body
+  .violence-tab
+  .weapon-list
+  .item-field.damage-die {
   text-align: right;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .weapon-list .item-field.weapon-type {
+.morkborg.sheet.actor
+  .sheet-body
+  .violence-tab
+  .weapon-list
+  .item-field.weapon-type {
   text-align: right;
   width: 60px;
-}
-.morkborg .sheet-body .violence-tab .weapon-list .item-buttons {
-  flex: 0.5;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .attack-rule {
   text-align: center;
@@ -380,19 +405,34 @@
   position: relative;
   padding-left: 32px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type=radio] {
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type="radio"] {
   display: none;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type=radio]:checked + span.tier-num {
+.morkborg.sheet.actor
+  .sheet-body
+  .violence-tab
+  ul.tiers
+  input[type="radio"]:checked
+  + span.tier-num {
   background: var(--highlight-background-color);
   color: var(--highlight-foreground-color);
   border: none;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type=radio]:disabled + span.tier-num {
+.morkborg.sheet.actor
+  .sheet-body
+  .violence-tab
+  ul.tiers
+  input[type="radio"]:disabled
+  + span.tier-num {
   color: #444444;
   border: 1px solid #444444;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type=radio]:disabled ~ span.tier-dmg {
+.morkborg.sheet.actor
+  .sheet-body
+  .violence-tab
+  ul.tiers
+  input[type="radio"]:disabled
+  ~ span.tier-dmg {
   color: #444444;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab ul.tiers span.tier-num {
@@ -459,6 +499,24 @@
   border-bottom: 2px solid #777;
   border-radius: 0;
 }
+.morkborg.sheet.actor input[type="text"].actor-name {
+  font-family: var(--h1-font);
+  font-size: 38px;
+  text-transform: uppercase;
+}
+.morkborg.sheet.actor .sheet-body .equipment-top-row {
+  margin-top: 10px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+}
+.morkborg.sheet.actor .sheet-body .silver {
+  flex: 0 0 200px;
+}
+.morkborg.sheet.actor .sheet-body .silver-input {
+  width: 70px;
+}
+
 .morkborg.sheet.actor.character {
   min-width: 742px;
   min-height: 650px;
@@ -489,7 +547,8 @@
   font-size: 14px;
   height: 28px;
 }
-.morkborg.sheet.actor.character .sheet-header .header-col2 .broken-button, .morkborg.sheet.actor.character .sheet-header .header-col2 .rest-button {
+.morkborg.sheet.actor.character .sheet-header .header-col2 .broken-button,
+.morkborg.sheet.actor.character .sheet-header .header-col2 .rest-button {
   width: 80px;
 }
 .morkborg.sheet.actor.character .sheet-header .header-col2 .get-better-button {
@@ -505,16 +564,11 @@
   height: 200px;
   width: 200px;
 }
-.morkborg.sheet.actor input[type=text].actor-name {
-  font-family: var(--h1-font);
-  font-size: 38px;
-  text-transform: uppercase;
-}
 .morkborg.sheet.actor.character .sheet-header .name-row {
   flex: 0 0 50px;
   margin-bottom: 7px;
 }
-.morkborg.sheet.actor.character .sheet-header .name-row input[type=text] {
+.morkborg.sheet.actor.character .sheet-header .name-row input[type="text"] {
   height: 45px;
   width: 100%;
 }
@@ -569,7 +623,8 @@
 .morkborg.sheet.actor.character .sheet-header .miseries-row {
   flex: 0 0 30px;
 }
-.morkborg.sheet.actor.character .sheet-header .stat-label, .morkborg.sheet.actor.character .sheet-header .miseries-label {
+.morkborg.sheet.actor.character .sheet-header .stat-label,
+.morkborg.sheet.actor.character .sheet-header .miseries-label {
   float: left;
 }
 .morkborg.sheet.actor.character .sheet-header ul.miseries {
@@ -588,10 +643,18 @@
   position: relative;
   padding-left: 20px;
 }
-.morkborg.sheet.actor.character .sheet-header ul.miseries label input[type=radio] {
+.morkborg.sheet.actor.character
+  .sheet-header
+  ul.miseries
+  label
+  input[type="radio"] {
   display: none;
 }
-.morkborg.sheet.actor.character .sheet-header ul.miseries input[type=radio]:checked + span {
+.morkborg.sheet.actor.character
+  .sheet-header
+  ul.miseries
+  input[type="radio"]:checked
+  + span {
   background: var(--highlight-background-color);
   color: var(--highlight-foreground-color);
   border: none;
@@ -610,7 +673,12 @@
   left: 0;
   top: 50%;
 }
-.morkborg.sheet.actor.character .sheet-header ul.miseries li:last-child label span {
+.morkborg.sheet.actor.character
+  .sheet-header
+  ul.miseries
+  li:last-child
+  label
+  span {
   background: var(--foreground-color);
   color: var(--background-color);
 }
@@ -640,6 +708,9 @@
   float: left;
   border-radius: 0;
   color: var(--foreground-color);
+}
+.morkborg.sheet.actor.character .sheet-body .feat-button {
+  min-width: 120px;
 }
 .morkborg.sheet.actor.character .sheet-body .powers-top-row {
   margin-top: 15px;
@@ -679,18 +750,6 @@
 .morkborg.sheet.actor.character .sheet-body .uses-remaining div {
   margin-bottom: 20px;
 }
-.morkborg.sheet.actor .sheet-body .equipment-top-row {
-  margin-top: 10px;
-  margin-left: 20px;
-  display: flex;
-  flex-direction: row;
-}
-.morkborg.sheet.actor .sheet-body .silver {
-  flex: 0 0 200px;
-}
-.morkborg.sheet.actor .sheet-body .silver-input {
-  width: 70px;
-}
 .morkborg.sheet.actor.character .sheet-body .carry-block {
   flex: 1;
   text-align: center;
@@ -701,6 +760,7 @@
 .morkborg.sheet.actor.character .sheet-body .encumbered {
   color: var(--highlight-background-color);
 }
+
 .morkborg .items-list .items-header {
   height: 28px;
   margin: 2px 0;
@@ -779,6 +839,7 @@
 .morkborg .item-list .unequipped {
   color: gray;
 }
+
 .morkborg.sheet.actor.creature .sheet-header {
   display: flex;
   flex: 0 0 90px;
@@ -807,7 +868,7 @@
   padding-left: 12px;
   width: 100%;
 }
-.morkborg.sheet.actor.creature .sheet-header input[type=text].creature-name {
+.morkborg.sheet.actor.creature .sheet-header input[type="text"].creature-name {
   height: 45px;
 }
 .morkborg.sheet.actor.creature .sheet-header .hitpoints-row {
@@ -815,6 +876,7 @@
   margin-bottom: 10px;
   margin-left: 14px;
 }
+
 .morkborg.sheet.item .sheet-header {
   margin-top: 0;
   flex: 0 0 90px;
@@ -826,7 +888,7 @@
   height: 150px;
   width: 150px;
 }
-.morkborg.sheet.item .sheet-header .item-name input[type=text] {
+.morkborg.sheet.item .sheet-header .item-name input[type="text"] {
   font-family: var(--h1-font);
   font-size: 38px;
   flex: 1;
@@ -843,6 +905,7 @@
   margin-top: 8px;
   padding: 5px;
 }
+
 .morkborg.sheet.actor.follower .sheet-header {
   margin-top: 0;
   flex: 0 0 90px;
@@ -871,7 +934,7 @@
   padding-left: 12px;
   width: 100%;
 }
-.morkborg.sheet.actor.follower .sheet-header input[type=text].follower-name {
+.morkborg.sheet.actor.follower .sheet-header input[type="text"].follower-name {
   height: 45px;
 }
 .morkborg.sheet.actor.follower .sheet-header .hitpoints-row {
@@ -879,6 +942,7 @@
   margin-bottom: 10px;
   margin-left: 14px;
 }
+
 .morkborg.sheet.actor.container .sheet-header {
   margin-top: 0;
   flex: 0 0 90px;
@@ -907,7 +971,9 @@
   padding-left: 12px;
   width: 100%;
 }
-.morkborg.sheet.actor.container .sheet-header input[type=text].container-name {
+.morkborg.sheet.actor.container
+  .sheet-header
+  input[type="text"].container-name {
   height: 45px;
 }
 .morkborg.sheet.actor.container .sheet-header .holding-row {
@@ -916,58 +982,11 @@
   margin-left: 14px;
 }
 
-/* ====================== */
-/* Sheet Tabs */
-/* ====================== */
-/* ====================== */
-/* Sheet Body */
-/* ====================== */
-/* ====================== */
-/* Actor sheet */
-/* ====================== */
-/* ====================== */
-/* Actor sheet header */
-/* ====================== */
-/* ====================== */
-/* Actor sheet violence tab */
-/* ====================== */
-/* ====================== */
-/* Actor sheet feats tab */
-/* ====================== */
-/* ====================== */
-/* Character sheet */
-/* ====================== */
-/* ====================== */
-/* Character sheet header */
-/* ====================== */
-/* ====================== */
-/* Character sheet powers tab */
-/* ====================== */
-/* ====================== */
-/* Character sheet treasures (equipment) tab */
-/* ====================== */
-/* ====================== */
-/* Item list */
-/* ====================== */
-/* ====================== */
-/* Creature sheet */
-/* ====================== */
-/* ====================== */
-/* Item sheet */
-/* ====================== */
-/* ====================== */
-/* Follower sheet */
-/* ====================== */
-/* ====================== */
-/* Container sheet */
-/* ====================== */
-/* ====================== */
-/* UI/Dialog fixes */
-/* ====================== */
-.form-group input[type=text] {
+.form-group input[type="text"] {
   color: var(--foreground-color);
 }
-.form-group input[type=text]:hover, .form-group input[type=text]:focus {
+.form-group input[type="text"]:hover,
+.form-group input[type="text"]:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 .form-group textarea {
@@ -992,10 +1011,11 @@ a:hover {
   text-shadow: 0 0 8px var(--highlight-background-color);
 }
 
-input[type=text] {
+input[type="text"] {
   color: var(--foreground-color);
 }
-input[type=text]:hover, input[type=text]:focus {
+input[type="text"]:hover,
+input[type="text"]:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
@@ -1005,19 +1025,22 @@ form.editable .results .result-image img {
 form.editable .results .result-type select {
   color: var(--foreground-color);
 }
-form.editable .results .result-type select:hover, form.editable .results .result-type select:focus {
+form.editable .results .result-type select:hover,
+form.editable .results .result-type select:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 form.editable .results .result-details select {
   color: var(--foreground-color);
 }
-form.editable .results .result-details select:hover, form.editable .results .result-details select:focus {
+form.editable .results .result-details select:hover,
+form.editable .results .result-details select:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
-form.editable .results .result-details input[type=text] {
+form.editable .results .result-details input[type="text"] {
   color: var(--foreground-color);
 }
-form.editable .results .result-details input[type=text]:hover, form.editable .results .result-details input[type=text]:focus {
+form.editable .results .result-details input[type="text"]:hover,
+form.editable .results .result-details input[type="text"]:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
@@ -1027,7 +1050,9 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
 }
 
 /* Fixes Module Management dialog */
-#module-management .package-list .package-title, #module-management .package-list .package-metadata, #module-management .package-list .package-description {
+#module-management .package-list .package-title,
+#module-management .package-list .package-metadata,
+#module-management .package-list .package-description {
   color: var(--foreground-color);
 }
 
@@ -1050,13 +1075,15 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
 .window-app .window-content .form-group input {
   color: var(--foreground-color);
 }
-.window-app .window-content .form-group input:hover, .window-app .window-content .form-group input:focus {
+.window-app .window-content .form-group input:hover,
+.window-app .window-content .form-group input:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 .window-app .window-content .form-group input.readonly {
   color: gray;
 }
-.window-app .window-content .form-group input:hover.readonly, .window-app .window-content .form-group input:focus.readonly {
+.window-app .window-content .form-group input:hover.readonly,
+.window-app .window-content .form-group input:focus.readonly {
   box-shadow: none;
   cursor: default;
 }
@@ -1067,13 +1094,18 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
 .journal-sheet.image-popout .window-content .form-group input {
   color: var(--background-color);
 }
-.journal-sheet.image-popout .window-content .form-group.picker button.file-picker {
+.journal-sheet.image-popout
+  .window-content
+  .form-group.picker
+  button.file-picker {
   background-color: var(--background-color);
 }
-.journal-sheet form select:hover, .journal-sheet form select:focus {
+.journal-sheet form select:hover,
+.journal-sheet form select:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
-.journal-sheet form .form-group.title input[type=text], .journal-sheet form .form-group.picker input[type=text].image {
+.journal-sheet form .form-group.title input[type="text"],
+.journal-sheet form .form-group.picker input[type="text"].image {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
@@ -1127,7 +1159,9 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
   font-family: var(--chat-font);
   font-size: 16px;
 }
-#chat-log .message h4, #chat-log .message h3, #chat-log .message h2 {
+#chat-log .message h4,
+#chat-log .message h3,
+#chat-log .message h2 {
   color: var(--foreground-color);
 }
 #chat-log .message-metadata {
@@ -1151,7 +1185,8 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
   font-weight: bold;
   color: var(--foreground-color);
 }
-#chat-log .message .dice-formula, #chat-log .message .dice-total {
+#chat-log .message .dice-formula,
+#chat-log .message .dice-total {
   font-size: 16px;
   border: 1px solid #252525;
   border-radius: 0;
@@ -1216,13 +1251,15 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
   background: var(--background-color);
   background-color: var(--background-color);
 }
-#controls .control-tool.active, #controls .control-tool:hover {
+#controls .control-tool.active,
+#controls .control-tool:hover {
   background: var(--background-color);
   color: var(--foreground-color);
   border: 1px solid var(--highlight-background-color);
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
-#controls .scene-control.active, #controls .scene-control:hover {
+#controls .scene-control.active,
+#controls .scene-control:hover {
   background: var(--background-color);
   color: var(--foreground-color);
   border: 1px solid var(--highlight-background-color);
@@ -1253,7 +1290,8 @@ form .form-group select:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
-#hotbar #hotbar-directory-controls, #hotbar #hotbar-page-controls {
+#hotbar #hotbar-directory-controls,
+#hotbar #hotbar-page-controls {
   background: var(--background-color);
   color: var(--foreground-color);
 }
@@ -1271,7 +1309,8 @@ form .form-group select:focus {
 #navigation #scene-list li.scene.nav-item {
   border: 1px solid #252525;
 }
-#navigation #scene-list li.scene.nav-item.active, #navigation #scene-list li.scene.nav-item:hover {
+#navigation #scene-list li.scene.nav-item.active,
+#navigation #scene-list li.scene.nav-item:hover {
   background: var(--background-color);
   color: var(--foreground-color);
   border: 1px solid var(--highlight-background-color);
@@ -1326,14 +1365,15 @@ select:focus {
   border-radius: 0;
   font-family: var(--h2-font);
 }
-.sidebar-tab .directory-header .header-search input[type=text]:focus {
+.sidebar-tab .directory-header .header-search input[type="text"]:focus {
   box-shadow: 0 0 5px var(--highlight-background-color);
 }
 .sidebar-tab .directory-list .directory-item h4 {
   font-family: var(--item-font);
 }
 
-.tabs .item.active, .tabs .item:hover {
+.tabs .item.active,
+.tabs .item:hover {
   text-shadow: 0 0 10px var(--highlight-background-color);
 }
 
@@ -1373,10 +1413,10 @@ select:focus {
 }
 
 /* ================== 11. JOURNAL ENTRIES =================== */
-.journal-sheet form button[type=submit] {
+.journal-sheet form button[type="submit"] {
   background: var(--background-color);
 }
-.journal-sheet form input[name=name] {
+.journal-sheet form input[name="name"] {
   color: var(--background-color);
   font-family: var(--h2-font);
   font-size: 32px;
@@ -1385,7 +1425,8 @@ select:focus {
   font-family: var(--item-font);
 }
 
-a.entity-link, a.inline-roll {
+a.entity-link,
+a.inline-roll {
   background: var(--background-color);
   color: var(--foreground-color);
   padding: 1px 4px;
@@ -1450,10 +1491,13 @@ a.entity-link, a.inline-roll {
   font-size: 28px;
   text-align: center;
 }
-.roll-card .outcome-text .attack-outcome, .roll-card .outcome-text .defend-outcome {
+.roll-card .outcome-text .attack-outcome,
+.roll-card .outcome-text .defend-outcome {
   margin-left: 10px;
 }
-.roll-card .outcome-text .attack-outcome, .roll-card .outcome-text .defend-outcome, .roll-card .outcome-text .take-damage {
+.roll-card .outcome-text .attack-outcome,
+.roll-card .outcome-text .defend-outcome,
+.roll-card .outcome-text .take-damage {
   background-color: var(--highlight-background-color);
   color: var(--highlight-foreground-color);
   padding-left: 4px;
@@ -1478,12 +1522,15 @@ a.entity-link, a.inline-roll {
   text-align: right;
 }
 
-.dialog-button.attack, .dialog-button.create {
+.dialog-button.attack,
+.dialog-button.create {
   font-family: var(--h2-font);
   font-size: 20px;
 }
 
-.dialog-buttons button.dialog-button:active, .dialog-buttons button.dialog-button:focus, .dialog-buttons button.dialog-button:hover {
+.dialog-buttons button.dialog-button:active,
+.dialog-buttons button.dialog-button:focus,
+.dialog-buttons button.dialog-button:hover {
   box-shadow: 0 0 5px var(--highlight-background-color);
   text-shadow: 0 0 10px var(--highlight-background-color);
 }
@@ -1509,10 +1556,11 @@ a.entity-link, a.inline-roll {
 .custom-dialog li {
   margin: 0 0 10px 0;
 }
-.custom-dialog li input[type=checkbox], .custom-dialog li input[type=radio] {
+.custom-dialog li input[type="checkbox"],
+.custom-dialog li input[type="radio"] {
   float: left;
 }
-.custom-dialog li input[type=checkbox] {
+.custom-dialog li input[type="checkbox"] {
   height: 14px;
   width: 14px;
 }
@@ -1535,7 +1583,9 @@ a.entity-link, a.inline-roll {
   font-size: 20px;
   width: 150px;
 }
-.custom-dialog .button-row button:active, .custom-dialog .button-row button:focus, .custom-dialog .button-row button:hover {
+.custom-dialog .button-row button:active,
+.custom-dialog .button-row button:focus,
+.custom-dialog .button-row button:hover {
   box-shadow: 0 0 5px var(--highlight-background-color);
   text-shadow: 0 0 10px var(--highlight-background-color);
 }
@@ -1543,7 +1593,5 @@ a.entity-link, a.inline-roll {
 .scvm-dialog .class-name {
   text-transform: capitalize;
 }
-
-/*# sourceMappingURL=morkborg.css.map */
 
 /*# sourceMappingURL=morkborg.css.map */

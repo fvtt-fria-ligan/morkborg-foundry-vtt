@@ -1,0 +1,288 @@
+.morkborg {
+  &.sheet.actor {
+    .rule-text {
+      font-family: var(--item-font);
+      font-size: 10pt;
+    }
+
+    .stat-label {
+      font-family: var(--h2-font);
+      font-size: 22px;
+      margin-right: 10px;
+    }
+
+    .stat-input {
+      border: 1px solid #7a7971;
+      font-family: var(--item-font);
+      font-size: 14pt;
+      text-align: center;
+      padding-top: 8px;
+      width: 50px;
+      color: var(--foreground-color);
+    }
+
+    .stat-value {
+      font-family: var(--item-font);
+      font-size: 14pt;
+      text-align: center;
+      width: 50px;
+      color: var(--foreground-color);
+    }
+
+    .sheet-header {
+      margin-top: 0;
+      padding: 5px;
+      display: flex;
+      flex-direction: row;
+
+      .header-gutter-col {
+        flex: 0 0 10px;
+      }
+
+      .profile-img {
+        height: 200px;
+        width: 200px;
+        margin: 0;
+        padding: 0;
+      }
+
+      .actor-subtitle {
+        font-family: var(--h3-font);
+        font-size: 24px;
+        text-transform: uppercase;
+        margin-left: 13px;
+      }
+    }
+
+    .sheet-body {
+      .item-controls .item-toggle {
+        color: darkgray;
+
+        &.equipped {
+          color: var(--highlight-background-color);
+        }
+      }
+
+      .violence-tab {
+        div.initiative {
+          margin-top: 10px;
+          text-align: center;
+        }
+
+        .roll-initiative {
+          font-family: var(--item-font);
+          font-size: 16px;
+          margin-right: 10px;
+        }
+
+        .initiative-button {
+          background-color: var(--foreground-color);
+          border: none;
+          border-bottom: 2px solid #777;
+          border-radius: 0;
+          color: var(--background-color);
+          font-family: var(--h2-font);
+          font-size: 20px;
+          width: 150px;
+        }
+
+        .items-list {
+          margin-top: 0px;
+        }
+
+        .item-list {
+          &.weapon-list {
+            .item {
+              align-items: center;
+            }
+
+            .item-buttons {
+              flex: 0.5;
+            }
+
+            .item-button {
+              font-size: 20px;
+              width: 120px;
+            }
+          }
+
+          .item-name {
+            flex: 1;
+            font-size: 16px;
+            margin-top: 5px;
+          }
+
+          .item-fields {
+            flex: 0.5;
+            font-size: 16px;
+            margin-top: 6px;
+          }
+        }
+
+        .weapon-list .item-field {
+          &.damage-die {
+            text-align: right;
+          }
+
+          &.weapon-type {
+            text-align: right;
+            width: 60px;
+          }
+        }
+
+        .attack-rule {
+          text-align: center;
+        }
+
+        .violence-gutter {
+          height: 10px;
+        }
+
+        .tier-label {
+          float: left;
+          font-size: 20;
+          margin-right: 10px;
+        }
+
+        ul.tiers {
+          list-style-type: none;
+          margin: 0;
+          margin-top: 3px;
+          padding: 0;
+          float: left;
+
+          li {
+            float: left;
+            height: 45px;
+          }
+
+          label {
+            display: block;
+            padding: 4px;
+            position: relative;
+            padding-left: 32px;
+          }
+
+          input[type="radio"] {
+            display: none;
+
+            &:checked + span.tier-num {
+              background: var(--highlight-background-color);
+              color: var(--highlight-foreground-color);
+              border: none;
+            }
+
+            &:disabled {
+              + span.tier-num {
+                color: #444444;
+                border: 1px solid #444444;
+              }
+
+              ~ span.tier-dmg {
+                color: #444444;
+              }
+            }
+          }
+
+          span {
+            &.tier-num {
+              border: 1px solid #7a7971;
+              width: 24px;
+              height: 24px;
+              position: absolute;
+              overflow: hidden;
+              line-height: 1.5;
+              text-align: center;
+              border-radius: 100%;
+              font-size: 14pt;
+              font-family: var(--item-font);
+              left: 0;
+
+              /*top: 50%; */
+              top: 0%;
+            }
+
+            &.tier-dmg {
+              width: 30px;
+              height: 15px;
+              position: absolute;
+              overflow: hidden;
+              line-height: 1;
+              text-align: center;
+              font-family: var(--item-font);
+              font-size: 10pt;
+              left: -5px;
+              top: 30px;
+            }
+          }
+        }
+
+        .underarmor-row {
+          margin-top: 0px;
+          text-align: center;
+
+          button {
+            margin-left: 10px;
+            width: 120px;
+            margin-bottom: 10px;
+            font-family: var(--h2-font);
+            font-size: 20px;
+            background-color: var(--foreground-color);
+            color: var(--background-color);
+            border: none;
+            border-bottom: 2px solid #777;
+            border-radius: 0;
+          }
+        }
+
+        .shield-rule {
+          margin-top: 5px;
+        }
+
+        .defend-rule {
+          text-align: center;
+        }
+      }
+    }
+
+    .feat-button {
+      min-width: 120px;
+    }
+
+    .roll-button {
+      margin-left: 10px;
+      width: 120px;
+      margin-bottom: 10px;
+      font-family: var(--h2-font);
+      font-size: 20px;
+      background-color: var(--foreground-color);
+      color: var(--background-color);
+      border: none;
+      border-bottom: 2px solid #777;
+      border-radius: 0;
+    }
+
+    input[type="text"].actor-name {
+      font-family: var(--h1-font);
+      font-size: 38px;
+      text-transform: uppercase;
+    }
+
+    .sheet-body {
+      .equipment-top-row {
+        margin-top: 10px;
+        margin-left: 20px;
+        display: flex;
+        flex-direction: row;
+      }
+
+      .silver {
+        flex: 0 0 200px;
+      }
+
+      .silver-input {
+        width: 70px;
+      }
+    }
+  }
+}

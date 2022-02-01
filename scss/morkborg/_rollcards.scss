@@ -1,0 +1,85 @@
+/* ====================== */
+/* Roll Cards */
+/* ====================== */
+
+.roll-card {
+  border: 1px solid var(--highlight-background-color);
+
+  .card-title {
+    background: var(--highlight-background-color);
+    color: var(--highlight-foreground-color);
+    font-family: var(--h2-font);
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .item-row {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    span.item-name {
+      color: var(--foreground-color);
+      font-family: var(--item-font);
+      font-size: 14px;
+    }
+  }
+
+  .roll-title {
+    font-family: var(--chat-font);
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: capitalize;
+  }
+
+  .roll-result {
+    border: 1px solid gray;
+    font-family: var(--chat-font);
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+
+    span {
+      color: var(--foreground-color);
+      font-size: 20px;
+    }
+  }
+
+  .outcome-text {
+    font-family: var(--h3-font);
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .reaction-text {
+    font-family: var(--h3-font);
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .outcome-text {
+    .attack-outcome,
+    .defend-outcome {
+      margin-left: 10px;
+    }
+
+    .attack-outcome,
+    .defend-outcome,
+    .take-damage {
+      background-color: var(--highlight-background-color);
+      color: var(--highlight-foreground-color);
+      padding-left: 4px;
+      padding-right: 4px;
+    }
+  }
+}
+
+.dr-modifier {
+  margin-bottom: 5px;
+  text-align: center;
+}

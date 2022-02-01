@@ -1,0 +1,103 @@
+/* ====================== */
+/* Attack/Defend Custom Dialogs */
+/* ====================== */
+
+.custom-dialog .form-group {
+  margin-bottom: 10px;
+
+  label {
+    font-family: var(--h2-font);
+    font-size: 20px;
+    margin-right: 10px;
+    text-align: right;
+  }
+}
+
+.dialog-button {
+  &.attack,
+  &.create {
+    font-family: var(--h2-font);
+    font-size: 20px;
+  }
+}
+
+.dialog-buttons button.dialog-button {
+  &:active,
+  &:focus,
+  &:hover {
+    box-shadow: 0 0 5px var(--highlight-background-color);
+    text-shadow: 0 0 10px var(--highlight-background-color);
+  }
+}
+
+/* ====================== */
+/* Rest and Scvm Dialogs */
+/* ====================== */
+
+.custom-dialog {
+  border: 1px solid #7a7971;
+  font-size: 14px;
+  margin: 0;
+
+  .section {
+    margin: 10px 10px 20px 10px;
+  }
+
+  .subtitle {
+    font-family: var(--h2-font);
+    font-size: 22px;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  li {
+    margin: 0 0 10px 0;
+
+    input {
+      &[type="checkbox"],
+      &[type="radio"] {
+        float: left;
+      }
+
+      &[type="checkbox"] {
+        height: 14px;
+        width: 14px;
+      }
+    }
+
+    label div {
+      display: block;
+      margin-left: 30px;
+    }
+  }
+
+  .button-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+    button {
+      border: none;
+      border-bottom: 2px solid #777;
+      border-radius: 0;
+      font-family: var(--h2-font);
+      font-size: 20px;
+      width: 150px;
+
+      &:active,
+      &:focus,
+      &:hover {
+        box-shadow: 0 0 5px var(--highlight-background-color);
+        text-shadow: 0 0 10px var(--highlight-background-color);
+      }
+    }
+  }
+}
+
+.scvm-dialog .class-name {
+  text-transform: capitalize;
+}

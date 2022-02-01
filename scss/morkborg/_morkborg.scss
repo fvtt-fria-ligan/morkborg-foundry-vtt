@@ -1,0 +1,56 @@
+.morkborg {
+  .window-content {
+    font-size: 13px;
+    color: #191813;
+  }
+
+  form {
+    height: 100%;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: darkgray;
+    border: 1px solid lightgray;
+  }
+
+  ::selection {
+    background: var(--highlight-background-color);
+    color: var(--background-color);
+  }
+
+  select {
+    height: 27px;
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid #7a7971;
+    border-radius: 0px;
+    padding: 0 3px;
+    text-overflow: ellipsis;
+    color: var(--foreground-color);
+
+    &:focus {
+      box-shadow: 0 0 5px var(--highlight-background-color);
+      outline: none;
+    }
+
+    &[multiple] {
+      height: auto;
+      padding: 3px;
+    }
+
+    > option {
+      background-color: var(--background-color) !important;
+      color: var(--foreground-color) !important;
+    }
+  }
+
+  .editor,
+  .editor-content {
+    height: 100%;
+  }
+}
+
+.mce-content-body {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  color: var(--foreground-color);
+}

@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Lato&family=Oswald&family=Rakkas&family=Special+Elite&display=swap");
+
+:root {
+  --background-color: #000000;
+  --foreground-color: #ffffff;
+  --foreground-alt-color: #ffe900;
+  --highlight-background-color: #ffe900;
+  --highlight-foreground-color: #000000;
+  --sidebar-background-color: #000000;
+  --sidebar-foreground-color: #ffffff;
+  --sidebar-button-background-color: #000000;
+  --sidebar-button-foreground-color: #ffffff;
+  --window-background: #000000;
+  --chat-font: "Alegreya";
+  --chat-info-font: "Oswald";
+  --h1-font: "Blood Crow";
+  --h2-font: "FetteTrumpDeutsch";
+  --h3-font: "Old Cupboard";
+  --item-font: "Special Elite";
+}
+
+/* ====================== */
+/* Fonts */
+/* ====================== */
+@font-face {
+  font-family: "Blood Crow";
+  src: url("../fonts/bloodcrow.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Calling Code Regular";
+  src: url("../fonts/CallingCode-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "FetteTrumpDeutsch";
+  src: url("../fonts/FetteTrumpDeutsch.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Old Cupboard";
+  src: url("../fonts/OldCupboard.otf") format("opentype");
+}

@@ -1,0 +1,575 @@
+.form-group {
+  input[type="text"] {
+    color: var(--foreground-color);
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 10px var(--highlight-background-color);
+    }
+  }
+
+  textarea {
+    color: var(--foreground-color);
+
+    &:hover {
+      box-shadow: 0 0 10px var(--highlight-background-color);
+    }
+
+    &:focus {
+      box-shadow: 0 0 10px var(--highlight-background-color);
+      outline: none;
+    }
+  }
+}
+
+form button {
+  color: var(--foreground-color);
+
+  &:hover {
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+}
+
+a:hover {
+  text-shadow: 0 0 8px var(--highlight-background-color);
+}
+
+input[type="text"] {
+  color: var(--foreground-color);
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+}
+
+form.editable .results {
+  .result-image img {
+    background-color: var(--foreground-color);
+  }
+
+  .result-type select {
+    color: var(--foreground-color);
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 10px var(--highlight-background-color);
+    }
+  }
+
+  .result-details {
+    select {
+      color: var(--foreground-color);
+
+      &:hover,
+      &:focus {
+        box-shadow: 0 0 10px var(--highlight-background-color);
+      }
+    }
+
+    input[type="text"] {
+      color: var(--foreground-color);
+
+      &:hover,
+      &:focus {
+        box-shadow: 0 0 10px var(--highlight-background-color);
+      }
+    }
+  }
+}
+
+.table-results .table-result .result-text .entity-link {
+  background-color: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
+}
+
+/* Fixes Module Management dialog */
+
+#module-management .package-list {
+  .package-title,
+  .package-metadata,
+  .package-description {
+    color: var(--foreground-color);
+  }
+}
+
+/* Fixes hard-to-read dark text on various system Dialogs */
+
+.window-app .window-content {
+  .notes {
+    background-color: var(--highlight-background-color);
+    color: var(--highlight-foreground-color);
+  }
+
+  form {
+    .form-header {
+      color: var(--foreground-color);
+    }
+
+    .notes {
+      background-color: var(--background-color);
+      color: var(--foreground-alt-color);
+    }
+  }
+
+  .form-group {
+    span.units {
+      background-color: var(--highlight-background-color);
+      color: var(--highlight-foreground-color);
+    }
+
+    input {
+      color: var(--foreground-color);
+
+      &:hover,
+      &:focus {
+        box-shadow: 0 0 10px var(--highlight-background-color);
+      }
+
+      &.readonly {
+        color: gray;
+      }
+
+      &:hover.readonly,
+      &:focus.readonly {
+        box-shadow: none;
+        cursor: default;
+      }
+    }
+  }
+}
+
+/* TODO: determine if we need both .notes and form .notes styles specified */
+
+/* Fix readonly input on defend dialog */
+
+/* Fixes Journal image select dialog */
+
+.journal-sheet {
+  &.image-popout .window-content .form-group {
+    input {
+      color: var(--background-color);
+    }
+
+    &.picker button.file-picker {
+      background-color: var(--background-color);
+    }
+  }
+
+  form {
+    select {
+      &:hover,
+      &:focus {
+        box-shadow: 0 0 10px var(--highlight-background-color);
+      }
+    }
+
+    .form-group {
+      &.title input[type="text"],
+      &.picker input[type="text"].image {
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+    }
+  }
+}
+
+/* Fix Player Configuration dialog */
+
+#player-config form .form-group {
+  label {
+    color: var(--foreground-color);
+  }
+
+  .directory-list .actor.directory-item {
+    border-bottom-color: none;
+    border-top-color: none;
+
+    &.context {
+      border-bottom-color: var(--highlight-background-color);
+      border-top-color: var(--highlight-background-color);
+      box-shadow: 0 0 5px var(--highlight-background-color);
+    }
+  }
+}
+
+/* ====================== */
+/* UI / Chat */
+/* ====================== */
+
+.morkborg .button {
+  background: var(--foreground-color);
+  color: var(--background-color);
+  font-family: var(--h2-font);
+}
+
+#chat-controls {
+  color: var(--foreground-color);
+
+  i.fas:hover {
+    color: var(--highlight-background-color);
+    text-shadow: 0 0 5px var(--highlight-background-color);
+  }
+
+  .roll-type-select {
+    color: var(--foreground-color);
+    background: var(--background-color);
+  }
+
+  select:focus {
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+}
+
+#chat-log {
+  background: var(--sidebar-background-color);
+
+  .chat-message {
+    background: var(--window-background);
+    border: 3px solid #252525;
+    border-radius: 0;
+    color: var(--foreground-color);
+    margin-top: 6px;
+    font-family: var(--chat-font);
+    font-size: 16px;
+  }
+
+  .message {
+    h4,
+    h3,
+    h2 {
+      color: var(--foreground-color);
+    }
+  }
+
+  .message-metadata {
+    color: var(--foreground-color);
+  }
+
+  .message h2 {
+    background: var(--highlight-background-color);
+    color: var(--highlight-foreground-color);
+  }
+
+  .chat-message .message-header {
+    .message-sender {
+      font-family: var(--h1-font);
+      font-size: 20px;
+    }
+
+    .message-metadata {
+      font-family: var(--chat-info-font);
+      font-size: 12px;
+    }
+
+    span.flavor-text {
+      font-family: var(--chat-info-font);
+      font-size: 14px;
+      font-weight: bold;
+      color: var(--foreground-color);
+    }
+  }
+
+  .message {
+    .dice-formula,
+    .dice-total {
+      font-size: 16px;
+      border: 1px solid #252525;
+      border-radius: 0;
+    }
+  }
+}
+
+#chat-form textarea {
+  color: var(--foreground-color);
+  background: var(--background-color);
+  border: 2px solid #252525;
+  font-family: var(--chat-font);
+  font-size: 16px;
+
+  &:focus {
+    outline: 2px solid var(--highlight-background-color);
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+}
+
+#client-settings {
+  button {
+    color: var(--background-color);
+    background: var(--foreground-color);
+  }
+
+  h2 {
+    border-bottom: none;
+    background: var(--highlight-background-color);
+    color: var(--highlight-foreground-color);
+    font-family: var(--h2-font);
+  }
+
+  select {
+    color: var(--foreground-color);
+    background: var(--background-color);
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 5px var(--highlight-background-color);
+    }
+  }
+}
+
+/* XXX */
+/* XXX maybe only set controls li color and background ? */
+
+#controls {
+  color: var(--foreground-color);
+
+  /*  background: var(--background-color); */
+
+  .control-tool.toggle {
+    background: unset;
+    border: 1px solid #252525;
+
+    &.active {
+      background: var(--background-color);
+      text-shadow: 0 0 10px var(--highlight-background-color);
+      box-shadow: 0 0 10px var(--highlight-background-color);
+    }
+
+    &:hover {
+      background: unset;
+      text-shadow: 0 0 10px var(--highlight-background-color);
+      box-shadow: 0 0 10px var(--highlight-background-color);
+    }
+  }
+
+  .control-tools {
+    color: var(--foreground-color);
+
+    /*  background: var(--background-color); */
+  }
+
+  li {
+    background: var(--background-color);
+    background-color: var(--background-color);
+  }
+
+  .control-tool {
+    &.active,
+    &:hover {
+      background: var(--background-color);
+      color: var(--foreground-color);
+      border: 1px solid var(--highlight-background-color);
+      box-shadow: 0 0 10px var(--highlight-background-color);
+    }
+  }
+
+  .scene-control {
+    &.active,
+    &:hover {
+      background: var(--background-color);
+      color: var(--foreground-color);
+      border: 1px solid var(--highlight-background-color);
+      box-shadow: 0 0 10px var(--highlight-background-color);
+    }
+
+    &.active {
+      color: var(--foreground-color);
+      border: 1px solid var(--highlight-background-color);
+      box-shadow: 0 0 10px var(--highlight-background-color);
+    }
+  }
+}
+
+.dialog .dialog-buttons button {
+  background: var(--foreground-color);
+  color: var(--background-color);
+  font-family: var(--h2-font);
+
+  &.default {
+    background: var(--foreground-color);
+    color: var(--background-color);
+    font-family: var(--h2-font);
+  }
+}
+
+form .form-group select {
+  color: var(--foreground-color);
+  background: var(--background-color);
+
+  &:focus {
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+}
+
+#hotbar {
+  #hotbar-directory-controls,
+  #hotbar-page-controls {
+    background: var(--background-color);
+    color: var(--foreground-color);
+  }
+
+  #action-bar li.macro:hover {
+    background: var(--background-color);
+    color: var(--foreground-color);
+    border: 1px solid var(--highlight-background-color);
+    box-shadow: 0 0 10px var(--highlight-background-color);
+  }
+}
+
+#navigation {
+  #nav-toggle {
+    background: var(--background-color);
+    color: var(--foreground-color);
+  }
+
+  #scene-list li.scene.nav-item {
+    border: 1px solid #252525;
+
+    &.active,
+    &:hover {
+      background: var(--background-color);
+      color: var(--foreground-color);
+      border: 1px solid var(--highlight-background-color);
+      box-shadow: 0 0 10px var(--highlight-background-color);
+    }
+  }
+}
+
+select:focus {
+  color: var(--foreground-color);
+  background: var(--background-color);
+}
+
+#settings button {
+  color: var(--background-color);
+  background: var(--foreground-color);
+  font-family: var(--h2-font);
+}
+
+#sidebar {
+  background: var(--sidebar-background-color);
+  color: var(--sidebar-foreground-color);
+
+  &.collapsed #sidebar-tabs > .item.active {
+    border-bottom: 1px solid var(--highlight-background-color);
+    border-radius: 5px;
+  }
+}
+
+#sidebar-tabs {
+  background: var(--sidebar-background-color);
+  color: var(--sidebar-foreground-color);
+  border-bottom: 1px solid var(--highlight-background-color);
+  box-shadow: 0 0 10px var(--highlight-background-color);
+
+  > .item.active {
+    color: var(--highlight-foreground-color);
+    background: var(--highlight-background-color);
+    border: 1px solid var(--highlight-background-color);
+    border-bottom: none;
+    box-shadow: 0 0 6px inset var(--highlight-background-color);
+    text-shadow: 0 0 10px var(--highlight-background-color);
+  }
+}
+
+.sidebar-tab {
+  .action-buttons button {
+    background: var(--sidebar-button-background-color);
+    color: var(--sidebar-button-foreground-color);
+    border-radius: 0;
+    font-family: var(--h2-font);
+  }
+
+  .directory-header .header-search input {
+    background: var(--sidebar-button-background-color);
+    color: var(--sidebar-button-foreground-color);
+    border: 1px solid #252525;
+    border-radius: 0;
+    font-family: var(--h2-font);
+
+    &[type="text"]:focus {
+      box-shadow: 0 0 5px var(--highlight-background-color);
+    }
+  }
+
+  .directory-list .directory-item h4 {
+    font-family: var(--item-font);
+  }
+}
+
+.tabs .item {
+  &.active,
+  &:hover {
+    text-shadow: 0 0 10px var(--highlight-background-color);
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  outline: none;
+  border-radius: 3px;
+  background: var(--highlight-background-color) !important;
+  border: 1px solid var(--background-color) !important;
+  color: var(--highlight-foreground-color) !important;
+}
+
+.window-app {
+  .window-content {
+    background: var(--background-color);
+    color: var(--foreground-color);
+  }
+
+  &.app.journal-sheet .window-content {
+    background: var(--foreground-color);
+    color: var(--background-color);
+    background-position: -43px -120px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow-y: hidden;
+    padding: 0px;
+    margin: 0px;
+    font-family: var(--item-font);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.5;
+
+    h1 {
+      font-family: var(--h2-font);
+      border-bottom: 2px solid #222222;
+    }
+
+    h2 {
+      border-bottom: 1px solid #252525;
+    }
+  }
+}
+
+/* ================== 11. JOURNAL ENTRIES =================== */
+
+.journal-sheet form {
+  button[type="submit"] {
+    background: var(--background-color);
+  }
+
+  input[name="name"] {
+    color: var(--background-color);
+    font-family: var(--h2-font);
+    font-size: 32px;
+  }
+
+  select {
+    font-family: var(--item-font);
+  }
+}
+
+a {
+  &.entity-link,
+  &.inline-roll {
+    background: var(--background-color);
+    color: var(--foreground-color);
+    padding: 1px 4px;
+    border: 1px solid var(--background-color);
+    border-radius: 2px;
+    white-space: nowrap;
+    word-break: break-all;
+  }
+}
