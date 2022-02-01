@@ -5,14 +5,19 @@ import * as editor from "../../editor.js";
  * @extends {ItemSheet}
  */
 export class MBItemSheet extends ItemSheet {
-
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["morkborg", "sheet", "item"],
       width: 600,
       height: 500,
-      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}],
+      tabs: [
+        {
+          navSelector: ".sheet-tabs",
+          contentSelector: ".sheet-body",
+          initial: "description",
+        },
+      ],
     });
   }
 
@@ -33,14 +38,16 @@ export class MBItemSheet extends ItemSheet {
     const data = super.getData(options);
     data.config = CONFIG.MB;
     if (data.data.data.scrollType) {
-      data.data.data.localizedScrollType = game.i18n.localize(MB.scrollTypes[data.data.data.scrollType]);
+      data.data.data.localizedScrollType = game.i18n.localize(
+        MB.scrollTypes[data.data.data.scrollType]
+      );
     }
     return data;
   }
 
-  /** 
+  /**
    *  This is a small override to handle remembering the sheet's position.
-   *  @override 
+   *  @override
    */
   setPosition(options = {}) {
     const position = super.setPosition(options);
@@ -59,9 +66,9 @@ export class MBItemSheet extends ItemSheet {
 
     // Roll handlers, click handlers, etc. would go here.
   }
-  
+
   /** @override */
-  activateEditor(name, options={}, initialContent="") {
+  activateEditor(name, options = {}, initialContent = "") {
     editor.setCustomEditorOptions(options);
     super.activateEditor(name, options, initialContent);
   }

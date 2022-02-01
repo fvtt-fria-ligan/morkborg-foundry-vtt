@@ -3,8 +3,7 @@ import MBActorSheet from "./actor-sheet.js";
 /**
  * @extends {ActorSheet}
  */
- export class MBActorSheetContainer extends MBActorSheet {
-
+export class MBActorSheetContainer extends MBActorSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
@@ -12,7 +11,13 @@ import MBActorSheet from "./actor-sheet.js";
       template: "systems/morkborg/templates/actor/container-sheet.html",
       width: 720,
       height: 680,
-      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "contents"}],
+      tabs: [
+        {
+          navSelector: ".sheet-tabs",
+          contentSelector: ".sheet-body",
+          initial: "contents",
+        },
+      ],
       // is dragDrop needed?
       // dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
     });
@@ -23,7 +28,7 @@ import MBActorSheet from "./actor-sheet.js";
     const superData = super.getData();
     const data = superData.data;
     data.config = CONFIG.MB;
-    if (this.actor.data.type == 'container') {
+    if (this.actor.data.type == "container") {
       this._prepareContainerItems(data);
     }
     return superData;
@@ -37,14 +42,14 @@ import MBActorSheet from "./actor-sheet.js";
    * @return {undefined}
    */
   _prepareContainerItems(sheetData) {
-    let equipment = [];
+    const equipment = [];
     for (const i of sheetData.items) {
-      i.img = i.img || DEFAULT_TOKEN;
+      i.img = i.img || CONST.DEFAULT_TOKEN;
       if (CONFIG.MB.itemEquipmentTypes.includes(i.type)) {
         equipment.push(i);
       }
     }
-    equipment.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+    equipment.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0));
     sheetData.data.equipment = equipment;
     sheetData.data.containerSpace = this._containerSpace(sheetData);
   }
@@ -52,10 +57,14 @@ import MBActorSheet from "./actor-sheet.js";
   _containerSpace(sheetData) {
     let total = 0;
     for (const item of sheetData.items) {
-      if (CONFIG.MB.itemEquipmentTypes.includes(item.type) &&         
-          item.data.containerSpace) {  
-          const roundedSpace = Math.ceil(item.data.containerSpace * item.data.quantity);
-          total += roundedSpace;
+      if (
+        CONFIG.MB.itemEquipmentTypes.includes(item.type) &&
+        item.data.containerSpace
+      ) {
+        const roundedSpace = Math.ceil(
+          item.data.containerSpace * item.data.quantity
+        );
+        total += roundedSpace;
       }
     }
     return total;

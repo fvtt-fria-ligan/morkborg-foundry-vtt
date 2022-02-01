@@ -1,28 +1,33 @@
 import { diceSound, showDice } from "./dice.js";
 
-const INDIVIDUAL_INITIATIVE_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/chat/individual-initiative-roll-card.html";
-const PARTY_INITIATIVE_ROLL_CARD_TEMPLATE = "systems/morkborg/templates/chat/party-initiative-roll-card.html";
+const INDIVIDUAL_INITIATIVE_ROLL_CARD_TEMPLATE =
+  "systems/morkborg/templates/chat/individual-initiative-roll-card.html";
+const PARTY_INITIATIVE_ROLL_CARD_TEMPLATE =
+  "systems/morkborg/templates/chat/party-initiative-roll-card.html";
 
 export const rollPartyInitiative = async () => {
-  let initiativeRoll = new Roll("d6", {});
-  initiativeRoll.evaluate({async: false});
+  const initiativeRoll = new Roll("d6", {});
+  initiativeRoll.evaluate({ async: false });
   await showDice(initiativeRoll);
 
   let outcomeText = "";
   if (initiativeRoll.total <= 3) {
-    outcomeText = game.i18n.localize('MB.InitiativeEnemiesBegin');
+    outcomeText = game.i18n.localize("MB.InitiativeEnemiesBegin");
   } else {
-    outcomeText = game.i18n.localize('MB.InitiativePlayerCharactersBegin');
+    outcomeText = game.i18n.localize("MB.InitiativePlayerCharactersBegin");
   }
 
   const rollResult = {
     initiativeRoll,
     outcomeText,
   };
-  const html = await renderTemplate(PARTY_INITIATIVE_ROLL_CARD_TEMPLATE, rollResult)
+  const html = await renderTemplate(
+    PARTY_INITIATIVE_ROLL_CARD_TEMPLATE,
+    rollResult
+  );
   await ChatMessage.create({
-    content : html,
-    sound : diceSound(),
+    content: html,
+    sound: diceSound(),
   });
 
   // if a combat/encounter is happening, apply player/enemy ordering
@@ -34,35 +39,42 @@ export const rollPartyInitiative = async () => {
 export const rollIndividualInitiative = async (actor) => {
   if (game.combats && game.combat) {
     // there is an encounter started in the Combat Tracker
-    const combatant = game.combat.combatants.find (i => i.data.actorId === actor.id);
+    const combatant = game.combat.combatants.find(
+      (i) => i.data.actorId === actor.id
+    );
     if (combatant) {
       // the actor is part of the combat, so roll initiative
       game.combat.rollInitiative(combatant.id);
     } else {
       // the actor hasn't been added to the combat
-      ui.notifications.warn(`${game.i18n.localize('MB.ActorNotInEncounter')}!`);
+      ui.notifications.warn(`${game.i18n.localize("MB.ActorNotInEncounter")}!`);
     }
     return;
   }
 
   // no encounter going on, so just show chat cards
-  let initiativeRoll = new Roll("d6+@abilities.agility.value", actor.getRollData());
-  initiativeRoll.evaluate({async: false});
+  const initiativeRoll = new Roll(
+    "d6+@abilities.agility.value",
+    actor.getRollData()
+  );
+  initiativeRoll.evaluate({ async: false });
   await showDice(initiativeRoll);
 
   const rollResult = {
     initiativeRoll,
   };
-  const html = await renderTemplate(INDIVIDUAL_INITIATIVE_ROLL_CARD_TEMPLATE, rollResult)
+  const html = await renderTemplate(
+    INDIVIDUAL_INITIATIVE_ROLL_CARD_TEMPLATE,
+    rollResult
+  );
   ChatMessage.create({
-    content : html,
-    sound : diceSound(),
-    speaker : ChatMessage.getSpeaker({actor: actor}),
+    content: html,
+    sound: diceSound(),
+    speaker: ChatMessage.getSpeaker({ actor: actor }),
   });
 };
 
 export class MBCombat extends Combat {
-
   async setPartyInitiative(rollTotal) {
     game.combat.partyInitiative = rollTotal;
     await game.combat.resortCombatants();
@@ -72,9 +84,9 @@ export class MBCombat extends Combat {
     // TODO: this seems like a stupidly-hacky way to do this. Is there no better way?
     const updates = this.turns.map((t) => {
       return {
-          _id: t.id, 
-          initiative: t.data.initiative,
-      }
+        _id: t.id,
+        initiative: t.data.initiative,
+      };
     });
     await game.combat.resetAll();
     await this.updateEmbeddedDocuments("Combatant", updates);
@@ -116,11 +128,11 @@ export class MBCombat extends Combat {
     // combatants are both friendly or enemy, so sort by normal initiative
     const ia = Number.isNumeric(a.initiative) ? a.initiative : -9999;
     const ib = Number.isNumeric(b.initiative) ? b.initiative : -9999;
-    let ci = ib - ia;
-    if ( ci !== 0 ) return ci;
-    let [an, bn] = [a.token?.name || "", b.token?.name || ""];
-    let cn = an.localeCompare(bn);
-    if ( cn !== 0 ) return cn;
+    const ci = ib - ia;
+    if (ci !== 0) return ci;
+    const [an, bn] = [a.token?.name || "", b.token?.name || ""];
+    const cn = an.localeCompare(bn);
+    if (cn !== 0) return cn;
     return a.tokenId - b.tokenId;
   }
-};
+}

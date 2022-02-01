@@ -10,7 +10,6 @@ if (actor !== null) {
 
 There are equivalent functions for testAgility(), testPresence(), and testToughness().
 
-
 ## Defend
 
 ```
@@ -18,7 +17,6 @@ if (actor !== null) {
   actor.defend();
 }
 ```
-
 
 ## Herbmaster Decoctions
 
@@ -33,6 +31,7 @@ new Roll('1d4').toMessage({ flavor: 'Doses Brewed' });
 ```
 
 ## Esoteric Hermit - Initiate of the Invisible College
+
 ```
 (async () => {
 const numRoll = new Roll('1d2');

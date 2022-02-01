@@ -15,7 +15,6 @@ import { migrateWorld } from "./migration.js";
 import ScvmDialog from "./scvm/scvm-dialog.js";
 import { registerSystemSettings } from "./settings.js";
 
-
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
 /* -------------------------------------------- */
@@ -23,7 +22,7 @@ import { registerSystemSettings } from "./settings.js";
 /**
  * Init hook.
  */
-Hooks.once("init", async function() {
+Hooks.once("init", async function () {
   console.log(`Initializing Mork Borg System`);
 
   // Patch Core Functions
@@ -57,23 +56,23 @@ Hooks.once("init", async function() {
   Actors.registerSheet("morkborg", MBActorSheetCharacter, {
     types: ["character"],
     makeDefault: true,
-    label: "MB.SheetClassCharacter"
+    label: "MB.SheetClassCharacter",
   });
   Actors.registerSheet("morkborg", MBActorSheetContainer, {
     types: ["container"],
     makeDefault: true,
-    label: "MB.SheetClassContainer"
+    label: "MB.SheetClassContainer",
   });
   Actors.registerSheet("morkborg", MBActorSheetCreature, {
     types: ["creature"],
     makeDefault: true,
-    label: "MB.SheetClassCreature"
+    label: "MB.SheetClassCreature",
   });
   Actors.registerSheet("morkborg", MBActorSheetFollower, {
     types: ["follower"],
     makeDefault: true,
-    label: "MB.SheetClassFollower"
-  });  
+    label: "MB.SheetClassFollower",
+  });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("morkborg", MBItemSheet, { makeDefault: true });
 });
@@ -94,11 +93,16 @@ const maybeMigrateWorld = () => {
   if (!game.user.isGM) {
     return;
   }
-  const currentVersion = game.settings.get("morkborg", "systemMigrationVersion");
+  const currentVersion = game.settings.get(
+    "morkborg",
+    "systemMigrationVersion"
+  );
   console.log(`Current version: ${currentVersion}`);
   const NEEDS_MIGRATION_VERSION = "0.2.0";
   // const COMPATIBLE_MIGRATION_VERSION = 0.80;
-  const needsMigration = currentVersion === null || isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
+  const needsMigration =
+    currentVersion === null ||
+    isNewerVersion(NEEDS_MIGRATION_VERSION, currentVersion);
   if (!needsMigration) {
     console.log(`Version doesn't need migration.`);
     return;
@@ -110,7 +114,7 @@ const maybeMigrateWorld = () => {
   // }
   console.log(`Migrating!`);
   migrateWorld();
-}
+};
 
 const applyFontsAndColors = () => {
   const fontSchemeSetting = game.settings.get("morkborg", "fontScheme");
@@ -122,12 +126,30 @@ const applyFontsAndColors = () => {
   r.style.setProperty("--background-color", colorScheme.background);
   r.style.setProperty("--foreground-color", colorScheme.foreground);
   r.style.setProperty("--foreground-alt-color", colorScheme.foregroundAlt);
-  r.style.setProperty("--highlight-background-color", colorScheme.highlightBackground);
-  r.style.setProperty("--highlight-foreground-color", colorScheme.highlightForeground);
-  r.style.setProperty("--sidebar-background-color", colorScheme.sidebarBackground);
-  r.style.setProperty("--sidebar-foreground-color", colorScheme.sidebarForeground);
-  r.style.setProperty("--sidebar-button-background-color", colorScheme.sidebarButtonBackground);
-  r.style.setProperty("--sidebar-button-foreground-color", colorScheme.sidebarButtonForeground);
+  r.style.setProperty(
+    "--highlight-background-color",
+    colorScheme.highlightBackground
+  );
+  r.style.setProperty(
+    "--highlight-foreground-color",
+    colorScheme.highlightForeground
+  );
+  r.style.setProperty(
+    "--sidebar-background-color",
+    colorScheme.sidebarBackground
+  );
+  r.style.setProperty(
+    "--sidebar-foreground-color",
+    colorScheme.sidebarForeground
+  );
+  r.style.setProperty(
+    "--sidebar-button-background-color",
+    colorScheme.sidebarButtonBackground
+  );
+  r.style.setProperty(
+    "--sidebar-button-foreground-color",
+    colorScheme.sidebarButtonForeground
+  );
   r.style.setProperty("--chat-font", fontScheme.chat);
   r.style.setProperty("--chat-info-font", fontScheme.chatInfo);
   r.style.setProperty("--h1-font", fontScheme.h1);
@@ -136,12 +158,17 @@ const applyFontsAndColors = () => {
   r.style.setProperty("--item-font", fontScheme.item);
 };
 
-Hooks.on('dropActorSheetData', async (actor, actorSheet, dropped) => {
+Hooks.on("dropActorSheetData", async (actor, actorSheet, dropped) => {
   // Handle container actor destructive drag-drop
   if (dropped.type === "Item" && dropped.data && dropped.data._id) {
-    const sourceActor = dropped.tokenId ? game.actors.tokens[dropped.tokenId] : game.actors.get(dropped.actorId);
-    if (sourceActor && actor.id !== sourceActor.id && 
-      (sourceActor.data.type === "container" || actor.data.type === "container")) {
+    const sourceActor = dropped.tokenId
+      ? game.actors.tokens[dropped.tokenId]
+      : game.actors.get(dropped.actorId);
+    if (
+      sourceActor &&
+      actor.id !== sourceActor.id &&
+      (sourceActor.data.type === "container" || actor.data.type === "container")
+    ) {
       // either the source or target actor is a container,
       // so delete the item from the source
       await sourceActor.deleteEmbeddedDocuments("Item", [dropped.data._id]);
@@ -149,58 +176,67 @@ Hooks.on('dropActorSheetData', async (actor, actorSheet, dropped) => {
   }
 });
 
-Hooks.on('renderActorDirectory', (app,  html, data) => {
+Hooks.on("renderActorDirectory", (app, html) => {
   if (game.user.can("ACTOR_CREATE")) {
     // only show the Create Scvm button to users who can create actors
-    const section = document.createElement('header');
-    section.classList.add('scvmfactory');
-    section.classList.add('directory-header');
+    const section = document.createElement("header");
+    section.classList.add("scvmfactory");
+    section.classList.add("directory-header");
     // Add menu before directory header
-    const dirHeader = html[0].querySelector('.directory-header');
+    const dirHeader = html[0].querySelector(".directory-header");
     dirHeader.parentNode.insertBefore(section, dirHeader);
-    section.insertAdjacentHTML('afterbegin',`
+    section.insertAdjacentHTML(
+      "afterbegin",
+      `
       <div class="header-actions action-buttons flexrow">
         <button class="create-scvm-button"><i class="fas fa-skull"></i>Create Scvm</button>
       </div>
-      `);
-    section.querySelector('.create-scvm-button').addEventListener('click', (ev) => {
-      new ScvmDialog().render(true);
-    });  
+      `
+    );
+    section
+      .querySelector(".create-scvm-button")
+      .addEventListener("click", () => {
+        new ScvmDialog().render(true);
+      });
   }
 });
 
-Hooks.on('renderCombatTracker', (tracker, html) => {
-  const partyInitiativeButton = `<a class="combat-control" title="${game.i18n.localize('MB.RollPartyInitiative')}" dataControl="rollParty"><i class="fas fa-dice-six"></i></a>`;
+Hooks.on("renderCombatTracker", (tracker, html) => {
+  const partyInitiativeButton = `<a class="combat-control" title="${game.i18n.localize(
+    "MB.RollPartyInitiative"
+  )}" dataControl="rollParty"><i class="fas fa-dice-six"></i></a>`;
   html.find("header").find("nav").last().prepend(partyInitiativeButton);
-  html.find("a[dataControl=rollParty]").click(ev => { rollPartyInitiative() });
+  html.find("a[dataControl=rollParty]").click(() => {
+    rollPartyInitiative();
+  });
 });
 
 // Handlebars helpers
 // TODO: registering a helper named "eq" breaks filepicker
-Handlebars.registerHelper('ifEq', function(arg1, arg2, options) {
+Handlebars.registerHelper("ifEq", function (arg1, arg2, options) {
   // TODO: verify whether we want == or === for this equality check
-  return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+  return arg1 == arg2 ? options.fn(this) : options.inverse(this);
 });
-Handlebars.registerHelper('ifGe', function(arg1, arg2, options) {
-  return (arg1 >= arg2) ? options.fn(this) : options.inverse(this);
+Handlebars.registerHelper("ifGe", function (arg1, arg2, options) {
+  return arg1 >= arg2 ? options.fn(this) : options.inverse(this);
 });
-Handlebars.registerHelper('ifGt', function(arg1, arg2, options) {
-  return (arg1 > arg2) ? options.fn(this) : options.inverse(this);
+Handlebars.registerHelper("ifGt", function (arg1, arg2, options) {
+  return arg1 > arg2 ? options.fn(this) : options.inverse(this);
 });
-Handlebars.registerHelper('ifLe', function(arg1, arg2, options) {
-  return (arg1 <= arg2) ? options.fn(this) : options.inverse(this);
+Handlebars.registerHelper("ifLe", function (arg1, arg2, options) {
+  return arg1 <= arg2 ? options.fn(this) : options.inverse(this);
 });
-Handlebars.registerHelper('ifLt', function(arg1, arg2, options) {
-  return (arg1 < arg2) ? options.fn(this) : options.inverse(this);
+Handlebars.registerHelper("ifLt", function (arg1, arg2, options) {
+  return arg1 < arg2 ? options.fn(this) : options.inverse(this);
 });
-Handlebars.registerHelper('ifNe', function(arg1, arg2, options) {
+Handlebars.registerHelper("ifNe", function (arg1, arg2, options) {
   // TODO: verify whether we want == or === for this equality check
-  return (arg1 != arg2) ? options.fn(this) : options.inverse(this);
+  return arg1 != arg2 ? options.fn(this) : options.inverse(this);
 });
 /**
  * Formats a Roll as either the total or x + y + z = total if the roll has multiple terms.
  */
-Handlebars.registerHelper('xtotal', (roll) => {
+Handlebars.registerHelper("xtotal", (roll) => {
   // collapse addition of negatives into just subtractions
   // e.g., 15 +  - 1 => 15 - 1
   // Also: apparently roll.result uses 2 spaces as separators?

@@ -1,47 +1,44 @@
 <form class="roll-card defend-roll-card">
-    <div class="card-title">
-        {{localize 'MB.Defend'}}
+  <div class="card-title">{{localize 'MB.Defend'}}</div>
+  {{#each items as |item id|}}
+  <div class="item-row">
+    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+    <span class="item-name">{{item.name}}</span>
+  </div>
+  {{/each}}
+  <div class="defend-roll">
+    <div class="roll-title">
+      <span
+        >{{localize 'MB.Defend'}}: {{defendFormula}} {{localize 'MB.Vs'}}
+        {{localize 'MB.DR'}} {{defendDR}}</span
+      >
     </div>
-    {{#each items as |item id|}}
-        <div class="item-row">
-            <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
-            <span class="item-name">{{item.name}}</span>
-        </div>
-    {{/each}}
-    <div class="defend-roll">
-        <div class="roll-title">
-            <span>{{localize 'MB.Defend'}}: {{defendFormula}} {{localize 'MB.Vs'}} {{localize 'MB.DR'}} {{defendDR}}</span>
-        </div>
-        <div class="roll-result">
-            <span>{{xtotal defendRoll}}</span>
-        </div>
+    <div class="roll-result">
+      <span>{{xtotal defendRoll}}</span>
     </div>
-    <div class="outcome-text">
-        <span class="defend-outcome">{{defendOutcome}}</span>
-    </div>    
-    {{#if damageRoll}}        
-        <div class="damage-roll">
-            <div class="roll-title">
-                <span>{{localize 'MB.Damage'}}: {{damageRoll.formula}}</span>
-            </div>
-            <div class="roll-result">
-                <span>{{xtotal damageRoll}}</span>
-            </div>
-        </div>
-    {{/if}}
-    {{#if armorRoll}}
-        <div class="armor-roll">
-            <div class="roll-title">
-                {{localize 'MB.Armor'}}: {{armorRoll.formula}}
-            </div>
-            <div class="roll-result">
-                <span>{{xtotal armorRoll}}</span>
-            </div>
-        </div>
-    {{/if}}
-    {{#if takeDamage}}
-        <div class="outcome-text">
-            <span class="take-damage">{{takeDamage}}</span>
-        </div>
-    {{/if}}
+  </div>
+  <div class="outcome-text">
+    <span class="defend-outcome">{{defendOutcome}}</span>
+  </div>
+  {{#if damageRoll}}
+  <div class="damage-roll">
+    <div class="roll-title">
+      <span>{{localize 'MB.Damage'}}: {{damageRoll.formula}}</span>
+    </div>
+    <div class="roll-result">
+      <span>{{xtotal damageRoll}}</span>
+    </div>
+  </div>
+  {{/if}} {{#if armorRoll}}
+  <div class="armor-roll">
+    <div class="roll-title">{{localize 'MB.Armor'}}: {{armorRoll.formula}}</div>
+    <div class="roll-result">
+      <span>{{xtotal armorRoll}}</span>
+    </div>
+  </div>
+  {{/if}} {{#if takeDamage}}
+  <div class="outcome-text">
+    <span class="take-damage">{{takeDamage}}</span>
+  </div>
+  {{/if}}
 </form>

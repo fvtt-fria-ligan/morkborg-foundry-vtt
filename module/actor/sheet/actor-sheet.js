@@ -6,11 +6,10 @@ import { rollIndividualInitiative, rollPartyInitiative } from "../../combat.js";
  */
 export default class MBActorSheet extends ActorSheet {
   /** @override */
-  activateEditor(name, options={}, initialContent="") {
+  activateEditor(name, options = {}, initialContent = "") {
     editor.setCustomEditorOptions(options);
     super.activateEditor(name, options, initialContent);
   }
-
 
   /** @override */
   activateListeners(html) {
@@ -20,33 +19,37 @@ export default class MBActorSheet extends ActorSheet {
     if (!this.options.editable) return;
 
     // Add Inventory Item
-    html.find('.item-create').click(this._onItemCreate.bind(this));
+    html.find(".item-create").click(this._onItemCreate.bind(this));
 
     // Update Inventory Item
-    html.find('.item-edit').click(ev => {
+    html.find(".item-edit").click((ev) => {
       const li = $(ev.currentTarget).parents(".item");
       const item = this.actor.items.get(li.data("itemId"));
       item.sheet.render(true);
     });
 
     // Delete Inventory Item
-    html.find('.item-delete').click(ev => {
+    html.find(".item-delete").click((ev) => {
       const li = $(ev.currentTarget).parents(".item");
-      this.actor.deleteEmbeddedDocuments("Item", [li.data("itemId")]);      
+      this.actor.deleteEmbeddedDocuments("Item", [li.data("itemId")]);
       li.slideUp(200, () => this.render(false));
     });
 
     // Additional item/inventory buttons
-    html.find('.item-qty-plus').click(this._onItemAddQuantity.bind(this));
-    html.find('.item-qty-minus').click(this._onItemSubtractQuantity.bind(this));
-    html.find('.item-toggle').click(this._onToggleItem.bind(this));
+    html.find(".item-qty-plus").click(this._onItemAddQuantity.bind(this));
+    html.find(".item-qty-minus").click(this._onItemSubtractQuantity.bind(this));
+    html.find(".item-toggle").click(this._onToggleItem.bind(this));
 
     // Violence-related buttons
-    html.find(".party-initiative-button").on("click", this._onPartyInitiativeRoll.bind(this));
-    html.find(".individual-initiative-button").on("click", this._onIndividualInitiativeRoll.bind(this));
+    html
+      .find(".party-initiative-button")
+      .on("click", this._onPartyInitiativeRoll.bind(this));
+    html
+      .find(".individual-initiative-button")
+      .on("click", this._onIndividualInitiativeRoll.bind(this));
     html.find(".attack-button").on("click", this._onAttackRoll.bind(this));
     html.find(".defend-button").on("click", this._onDefendRoll.bind(this));
-    html.find('.tier-radio').click(this._onArmorTierRadio.bind(this));    
+    html.find(".tier-radio").click(this._onArmorTierRadio.bind(this));
   }
 
   /**
@@ -58,24 +61,25 @@ export default class MBActorSheet extends ActorSheet {
   async _onItemCreate(event) {
     event.preventDefault();
     const template = "systems/morkborg/templates/dialog/add-item-dialog.html";
-    let dialogData = {
-      config: CONFIG.MorkBorg
+    const dialogData = {
+      config: CONFIG.MorkBorg,
     };
     const html = await renderTemplate(template, dialogData);
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       new Dialog({
-         title: game.i18n.localize('MB.CreateNewItem'),
-         content: html,
-         buttons: {
-            create: {
-              icon: '<i class="fas fa-check"></i>',
-              label: game.i18n.localize('MB.CreateNewItem'),
-              callback: html => resolve(_createItem(this.actor, html[0].querySelector("form")))
-            },
-         },
-         default: "create",
-         close: () => resolve(null)
-        }).render(true);
+        title: game.i18n.localize("MB.CreateNewItem"),
+        content: html,
+        buttons: {
+          create: {
+            icon: '<i class="fas fa-check"></i>',
+            label: game.i18n.localize("MB.CreateNewItem"),
+            callback: (html) =>
+              resolve(_createItem(this.actor, html[0].querySelector("form"))),
+          },
+        },
+        default: "create",
+        close: () => resolve(null),
+      }).render(true);
     });
   }
 
@@ -84,13 +88,13 @@ export default class MBActorSheet extends ActorSheet {
    */
   async _onItemAddQuantity(event) {
     event.preventDefault();
-    let anchor = $(event.currentTarget);
+    const anchor = $(event.currentTarget);
     const li = anchor.parents(".item");
     const itemId = li.data("itemId");
     const item = this.actor.items.get(itemId);
     const attr = "data.quantity";
     const currQuantity = getProperty(item.data, attr);
-    return item.update({[attr]: currQuantity + 1});
+    return item.update({ [attr]: currQuantity + 1 });
   }
 
   /**
@@ -98,7 +102,7 @@ export default class MBActorSheet extends ActorSheet {
    */
   async _onItemSubtractQuantity(event) {
     event.preventDefault();
-    let anchor = $(event.currentTarget);
+    const anchor = $(event.currentTarget);
     const li = anchor.parents(".item");
     const itemId = li.data("itemId");
     const item = this.actor.items.get(itemId);
@@ -106,7 +110,7 @@ export default class MBActorSheet extends ActorSheet {
     const currQuantity = getProperty(item.data, attr);
     // can't reduce quantity below one
     if (currQuantity > 1) {
-      return item.update({[attr]: currQuantity - 1});  
+      return item.update({ [attr]: currQuantity - 1 });
     }
   }
 
@@ -118,7 +122,7 @@ export default class MBActorSheet extends ActorSheet {
    */
   async _onToggleItem(event) {
     event.preventDefault();
-    let anchor = $(event.currentTarget);
+    const anchor = $(event.currentTarget);
     const li = anchor.parents(".item");
     const itemId = li.data("itemId");
     const item = this.actor.items.get(itemId);
@@ -127,18 +131,18 @@ export default class MBActorSheet extends ActorSheet {
     if (!currEquipped) {
       // we're equipping something
       // if this is armor or shield, unequip any other equipped armor/shield
-      if (item.type === 'armor' || item.type === 'shield') {
+      if (item.type === "armor" || item.type === "shield") {
         for (const otherItem of this.actor.items) {
           if (otherItem.type === item.type && otherItem.id != item.id) {
             const otherEquipped = getProperty(otherItem.data, attr);
             if (otherEquipped) {
-              await otherItem.update({[attr]: false});
+              await otherItem.update({ [attr]: false });
             }
           }
         }
       }
     }
-    return item.update({[attr]: !getProperty(item.data, attr)});
+    return item.update({ [attr]: !getProperty(item.data, attr) });
   }
 
   /**
@@ -148,21 +152,21 @@ export default class MBActorSheet extends ActorSheet {
    */
   _onItemRoll(event) {
     event.preventDefault();
-    let button = $(event.currentTarget);
-    let r = new Roll(button.data('roll'), this.actor.getRollData());
+    const button = $(event.currentTarget);
+    const r = new Roll(button.data("roll"), this.actor.getRollData());
     const li = button.parents(".item");
     const item = this.actor.items.get(li.data("itemId"));
     r.roll().toMessage({
-        user: game.user.id,
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        flavor: `<h2>${item.name}</h2><h3>${button.text()}</h3>`
+      user: game.user.id,
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: `<h2>${item.name}</h2><h3>${button.text()}</h3>`,
     });
   }
 
   /**
    * Handle a click on the Party Initiative button.
    */
-   async _onPartyInitiativeRoll(event) {
+  async _onPartyInitiativeRoll(event) {
     event.preventDefault();
     rollPartyInitiative();
   }
@@ -189,13 +193,13 @@ export default class MBActorSheet extends ActorSheet {
   /**
    * Handle a click on the armor current tier radio buttons.
    */
-   _onArmorTierRadio(event) {
+  _onArmorTierRadio(event) {
     event.preventDefault();
-    let input = $(event.currentTarget);
-    let newTier = parseInt(input[0].value);
-    let li = input.parents(".item");
+    const input = $(event.currentTarget);
+    const newTier = parseInt(input[0].value);
+    const li = input.parents(".item");
     const item = this.actor.items.get(li.data("itemId"));
-    return item.update({["data.tier.value"]: newTier});
+    return item.update({ ["data.tier.value"]: newTier });
   }
 
   /**
@@ -204,8 +208,12 @@ export default class MBActorSheet extends ActorSheet {
   _onDefendRoll(event) {
     event.preventDefault();
     const sheetData = this.getData();
-    const armorItemId = sheetData.data.equippedArmor ? sheetData.data.equippedArmor.id : null;
-    const shieldItemId = sheetData.data.equippedShield ? sheetData.data.equippedShield.id : null;
+    const armorItemId = sheetData.data.equippedArmor
+      ? sheetData.data.equippedArmor.id
+      : null;
+    const shieldItemId = sheetData.data.equippedShield
+      ? sheetData.data.equippedShield.id
+      : null;
     this.actor.defend(armorItemId, shieldItemId);
   }
 
@@ -219,17 +227,17 @@ export default class MBActorSheet extends ActorSheet {
         return item.update({ [temp]: event.currentTarget.value }, {});
       }
     }
-  }  
- }
+  }
+}
 
 /**
  * Create a new Owned Item for the given actor, based on the name/type from the form.
  */
 const _createItem = async (actor, form) => {
-    const itemData = {
-      name: form.itemname.value,
-      type: form.itemtype.value,
-      data: {}
-    };
-    await actor.createEmbeddedDocuments("Item", [itemData]);
+  const itemData = {
+    name: form.itemname.value,
+    type: form.itemtype.value,
+    data: {},
+  };
+  await actor.createEmbeddedDocuments("Item", [itemData]);
 };

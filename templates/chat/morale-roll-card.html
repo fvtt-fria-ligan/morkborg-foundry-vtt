@@ -1,26 +1,22 @@
 <form class="roll-card morale-roll-card">
-    <div class="card-title">
-        {{localize 'MB.Morale'}}
+  <div class="card-title">{{localize 'MB.Morale'}}</div>
+  <div class="morale-roll">
+    <div class="roll-title">
+      <span>{{localize 'MB.Morale'}}: {{moraleRoll.formula}}</span>
     </div>
-    <div class="morale-roll">
-        <div class="roll-title">
-            <span>{{localize 'MB.Morale'}}: {{moraleRoll.formula}}</span>
-        </div>
-        <div class="roll-result">
-            <span>{{xtotal moraleRoll}}</span>
-        </div>
-        {{#if outcomeRoll}}
-            <div class="outcome-roll">
-                <div class="roll-title">
-                    <span>{{localize 'MB.Outcome'}}: {{outcomeRoll.formula}}</span>
-                </div>
-                <div class="roll-result">
-                    <span>{{xtotal outcomeRoll}}</span>
-                </div>
-            </div>
-        {{/if}}
-        <div class="outcome-text">
-            {{actor.name}} {{outcomeText}}
-        </div>
+    <div class="roll-result">
+      <span>{{xtotal moraleRoll}}</span>
     </div>
+    {{#if outcomeRoll}}
+    <div class="outcome-roll">
+      <div class="roll-title">
+        <span>{{localize 'MB.Outcome'}}: {{outcomeRoll.formula}}</span>
+      </div>
+      <div class="roll-result">
+        <span>{{xtotal outcomeRoll}}</span>
+      </div>
+    </div>
+    {{/if}}
+    <div class="outcome-text">{{actor.name}} {{outcomeText}}</div>
+  </div>
 </form>

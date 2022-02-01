@@ -1,54 +1,67 @@
 <form id="rest-form" class="custom-dialog rest-dialog">
+  <div class="section">
+    <div class="subtitle">{{localize 'MB.RestDialogLength'}}</div>
+    <div>
+      <ul>
+        <li>
+          <label
+            ><input name="rest-length" type="radio" value="short" checked />
+            <div>{{localize 'MB.RestDialogLengthShort'}}</div></label
+          >
+        </li>
+        <li>
+          <label
+            ><input name="rest-length" type="radio" value="long" />
+            <div>{{localize 'MB.RestDialogLengthLong'}}</div></label
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
 
-    <div class="section">
-        <div class="subtitle">{{localize 'MB.RestDialogLength'}}</div>
-        <div>
-            <ul>
-                <li>
-                    <label><input name="rest-length" type="radio" value="short" checked>
-                    <div>{{localize 'MB.RestDialogLengthShort'}}</div></label>
-                </li>
-                <li>
-                    <label><input name="rest-length" type="radio" value="long">
-                        <div>{{localize 'MB.RestDialogLengthLong'}}</div></label>        
-                </li>
-            </ul>
-        </div>
+  <div class="section">
+    <div class="subtitle">{{localize 'MB.RestDialogFoodAndDrink'}}</div>
+    <div>
+      <ul>
+        <li>
+          <label
+            ><input name="food-and-drink" type="radio" value="eat" checked />
+            <div>{{localize 'MB.RestDialogEat'}}</div></label
+          >
+        </li>
+        <li>
+          <label
+            ><input name="food-and-drink" type="radio" value="donteat" />
+            <div>{{localize 'MB.RestDialogDontEat'}}</div></label
+          >
+        </li>
+        <li>
+          <label
+            ><input name="food-and-drink" type="radio" value="starve" />
+            <div>{{localize 'MB.RestDialogStarve'}}</div></label
+          >
+        </li>
+      </ul>
     </div>
+  </div>
 
-    <div class="section">
-        <div class="subtitle">{{localize 'MB.RestDialogFoodAndDrink'}}</div>
-        <div>
-            <ul>
-                <li>
-                    <label><input name="food-and-drink" type="radio" value="eat" checked>
-                        <div>{{localize 'MB.RestDialogEat'}}</div></label>
-                </li>
-                <li>
-                    <label><input name="food-and-drink" type="radio" value="donteat" >
-                        <div>{{localize 'MB.RestDialogDontEat'}}</div></label>
-                </li>
-                <li>
-                    <label><input name="food-and-drink" type="radio" value="starve">
-                        <div>{{localize 'MB.RestDialogStarve'}}</div></label>
-                </li>
-            </ul>
+  <div class="section">
+    <div class="subtitle">{{localize 'MB.Infection'}}</div>
+    <div>
+      <ul>
+        <li>
+          <label
+            ><input name="infected" type="checkbox" />
+            <div>{{localize 'MB.RestDialogInfected'}}</div></label
+          >
+        </li>
+      </ul>
     </div>
-    </div>
+  </div>
 
-    <div class="section">
-        <div class="subtitle">{{localize 'MB.Infection'}}</div>
-        <div>
-            <ul>
-                <li>
-                    <label><input name="infected" type="checkbox">
-                        <div>{{localize 'MB.RestDialogInfected'}}</div></label>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="button-row">
-        <button type="submit" class="button rest-button" name="rest" value="1">{{localize 'MB.Rest'}}</button>
-    </div>
+  <div class="button-row">
+    <button type="submit" class="button rest-button" name="rest" value="1">
+      {{localize 'MB.Rest'}}
+    </button>
+  </div>
 </form>

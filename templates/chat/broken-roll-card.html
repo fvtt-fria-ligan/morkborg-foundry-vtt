@@ -1,19 +1,17 @@
 <form class="roll-card">
-    <div class="card-title">
-        {{localize 'MB.Broken'}}
+  <div class="card-title">{{localize 'MB.Broken'}}</div>
+  <div class="test-roll">
+    <div class="roll-title">
+      <span>{{brokenRoll.formula}}</span>
     </div>
-    <div class="test-roll">
-        <div class="roll-title">
-            <span>{{brokenRoll.formula}}</span>
-        </div>
-        <div class="roll-result">
-            <span>{{xtotal brokenRoll}}</span>
-        </div>
-        <div class="outcome-text">
-            {{#each outcomeLines}}
-                <span class="take-damage">{{this}}</span>
-                <br>
-            {{/each}}
-        </div>
+    <div class="roll-result">
+      <span>{{xtotal brokenRoll}}</span>
     </div>
+    <div class="outcome-text">
+      {{#each outcomeLines}}
+      <span class="take-damage">{{this}}</span>
+      <br />
+      {{/each}}
+    </div>
+  </div>
 </form>

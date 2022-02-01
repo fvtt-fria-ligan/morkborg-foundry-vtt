@@ -1,80 +1,113 @@
 <form class="flexcol {{cssClass}}" autocomplete="off">
+  {{!-- Sheet Header --}}
+  <header class="sheet-header flexrow">
+    <img
+      class="profile-img"
+      src="{{item.img}}"
+      title="{{item.name}}"
+      data-edit="img"
+    />
+    <div class="header-details">
+      <h1 class="item-name">
+        <input
+          name="name"
+          type="text"
+          value="{{item.name}}"
+          placeholder="{{ localize 'MB.ItemName' }}"
+        />
+      </h1>
+      <div class="item-subtitle">
+        <h4 class="item-type">{{item.type}}</h4>
+      </div>
+    </div>
+  </header>
 
-    {{!-- Sheet Header --}}
-    <header class="sheet-header flexrow">
-        <img class="profile-img" src="{{item.img}}" title="{{item.name}}" data-edit="img"/>
-        <div class="header-details">
-            <h1 class="item-name">
-                <input name="name" type="text" value="{{item.name}}" placeholder="{{ localize 'MB.ItemName' }}"/>
-            </h1>
-            <div class="item-subtitle">
-                <h4 class="item-type">{{item.type}}</h4>
-            </div>
-        </div>
-    </header>
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="description"
+      >{{ localize "MB.TabDescription" }}</a
+    >
+    <a class="item" data-tab="details">{{ localize "MB.TabDetails" }}</a>
+  </nav>
 
-    {{!-- Sheet Tab Navigation --}}
-    <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="description">{{ localize "MB.TabDescription" }}</a>
-        <a class="item" data-tab="details">{{ localize "MB.TabDetails" }}</a>
-    </nav>
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+    {{!-- Description Tab --}}
+    <div class="tab" data-group="primary" data-tab="description">
+      {{editor content=data.data.description target="data.description"
+      button=true owner=owner editable=true}}
+    </div>
 
-    {{!-- Sheet Body --}}
-    <section class="sheet-body">
-        {{!-- Description Tab --}}
-        <div class="tab" data-group="primary" data-tab="description">
-            {{editor content=data.data.description target="data.description" button=true owner=owner editable=true}}
-        </div>
+    {{!-- Details Tab --}}
+    <div class="tab" data-group="primary" data-tab="details">
+      {{!-- Price --}}
+      <div class="form-group">
+        <label>{{ localize "MB.ItemPrice" }}:</label>
+        <input
+          type="text"
+          name="data.price"
+          value="{{data.data.price}}"
+          placeholder="2"
+          data-dtype="Number"
+        />
+      </div>
 
-        {{!-- Details Tab --}}
-        <div class="tab" data-group="primary" data-tab="details">
-            {{!-- Price --}}
-            <div class="form-group">
-                <label>{{ localize "MB.ItemPrice" }}:</label>
-                <input type="text" name="data.price" value="{{data.data.price}}" placeholder="2" data-dtype="Number" />
-            </div> 
+      {{!-- Carry weight --}}
+      <div class="form-group">
+        <label>{{ localize "MB.CarryWeight" }}:</label>
+        <input
+          type="text"
+          name="data.carryWeight"
+          value="{{data.data.carryWeight}}"
+          placeholder="1"
+          data-dtype="Number"
+        />
+      </div>
 
-            {{!-- Carry weight --}}
-            <div class="form-group">
-                <label>{{ localize "MB.CarryWeight" }}:</label>
-                <input type="text" name="data.carryWeight" value="{{data.data.carryWeight}}" placeholder="1" data-dtype="Number" />
-            </div> 
+      {{!-- Container space --}}
+      <div class="form-group">
+        <label>{{ localize "MB.ContainerSpace" }}:</label>
+        <input
+          type="text"
+          name="data.containerSpace"
+          value="{{data.data.containerSpace}}"
+          placeholder="1"
+          data-dtype="Number"
+        />
+      </div>
 
-            {{!-- Container space --}}
-            <div class="form-group">
-                <label>{{ localize "MB.ContainerSpace" }}:</label>
-                <input type="text" name="data.containerSpace" value="{{data.data.containerSpace}}" placeholder="1" data-dtype="Number" />
-            </div> 
-            
-            {{!-- Weapon Type --}}
-            <div class="form-group">
-                <label>{{ localize "MB.ItemWeaponType" }}:</label>
-                <select name="data.weaponType">
-                    {{#select data.data.weaponType}}
-                    {{#each config.weaponTypes as |name type|}}
-                    <option value="{{type}}">{{localize name}}</option>
-                    {{/each}}
-                    {{/select}}
-                </select>
-            </div> 
+      {{!-- Weapon Type --}}
+      <div class="form-group">
+        <label>{{ localize "MB.ItemWeaponType" }}:</label>
+        <select name="data.weaponType">
+          {{#select data.data.weaponType}} {{#each config.weaponTypes as |name
+          type|}}
+          <option value="{{type}}">{{localize name}}</option>
+          {{/each}} {{/select}}
+        </select>
+      </div>
 
-            {{!-- Damage Die --}}
-            <div class="form-group">
-                <label>{{ localize "MB.ItemDamageDie" }}:</label>
-                <input type="text" name="data.damageDie" value="{{data.data.damageDie}}" placeholder="1d4" data-dtype="String" />
-            </div>
+      {{!-- Damage Die --}}
+      <div class="form-group">
+        <label>{{ localize "MB.ItemDamageDie" }}:</label>
+        <input
+          type="text"
+          name="data.damageDie"
+          value="{{data.data.damageDie}}"
+          placeholder="1d4"
+          data-dtype="String"
+        />
+      </div>
 
-            {{!-- Handed --}}
-            <div class="form-group">
-                <label>{{ localize "MB.ItemHanded" }}:</label>
-                <select name="data.handed">
-                    {{#select data.data.handed}}
-                    {{#each config.handed as |name value|}}
-                    <option value="{{value}}">{{localize name}}</option>
-                    {{/each}}
-                    {{/select}}
-                </select>
-            </div> 
-        </div>
-    </section>
+      {{!-- Handed --}}
+      <div class="form-group">
+        <label>{{ localize "MB.ItemHanded" }}:</label>
+        <select name="data.handed">
+          {{#select data.data.handed}} {{#each config.handed as |name value|}}
+          <option value="{{value}}">{{localize name}}</option>
+          {{/each}} {{/select}}
+        </select>
+      </div>
+    </div>
+  </section>
 </form>

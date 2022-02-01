@@ -7,7 +7,7 @@ export const registerSystemSettings = () => {
     scope: "world",
     config: false,
     type: String,
-    default: ""
+    default: "",
   });
 
   /** Whether to keep track of carrying capacity */
@@ -17,7 +17,7 @@ export const registerSystemSettings = () => {
     scope: "world",
     config: true,
     type: Boolean,
-    default: true
+    default: true,
   });
 
   /** UI Color scheme */
@@ -29,14 +29,14 @@ export const registerSystemSettings = () => {
     default: "whiteOnBlackYellow",
     type: String,
     choices: {
-      "blackOnYellowWhite": "MB.SettingsBlackOnYellowWhite",
-      "blackOnWhiteBlack": "MB.SettingsBlackOnWhiteBlack",
-      "foundryDefault": "MB.SettingsFoundryDefault",
-      "whiteOnBlackYellow": "MB.SettingsWhiteOnBlackYellow",
-      "whiteOnBlackPink": "MB.SettingsWhiteOnBlackPink",
-      "whiteOnPinkWhite": "MB.SettingsWhiteOnPinkWhite",    
-    }
-  });  
+      blackOnYellowWhite: "MB.SettingsBlackOnYellowWhite",
+      blackOnWhiteBlack: "MB.SettingsBlackOnWhiteBlack",
+      foundryDefault: "MB.SettingsFoundryDefault",
+      whiteOnBlackYellow: "MB.SettingsWhiteOnBlackYellow",
+      whiteOnBlackPink: "MB.SettingsWhiteOnBlackPink",
+      whiteOnPinkWhite: "MB.SettingsWhiteOnPinkWhite",
+    },
+  });
 
   /** UI Font scheme */
   game.settings.register("morkborg", "fontScheme", {
@@ -47,13 +47,12 @@ export const registerSystemSettings = () => {
     default: "blackletter",
     type: String,
     choices: {
-      "blackletter": "MB.SettingsBlackletter",
-      "legible": "MB.SettingsLegible",
-    }
-  });  
-
+      blackletter: "MB.SettingsBlackletter",
+      legible: "MB.SettingsLegible",
+    },
+  });
 };
 
 export const trackCarryingCapacity = () => {
   return game.settings.get("morkborg", "trackCarryingCapacity");
-}
+};

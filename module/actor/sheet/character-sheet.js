@@ -13,8 +13,14 @@ export class MBActorSheetCharacter extends MBActorSheet {
       template: "systems/morkborg/templates/actor/character-sheet.html",
       width: 750,
       height: 690,
-      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "violence"}],
-      dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
+      tabs: [
+        {
+          navSelector: ".sheet-tabs",
+          contentSelector: ".sheet-body",
+          initial: "violence",
+        },
+      ],
+      dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }],
     });
   }
 
@@ -31,7 +37,7 @@ export class MBActorSheetCharacter extends MBActorSheet {
     }
 
     // Prepare items.
-    if (this.actor.data.type == 'character') {
+    if (this.actor.data.type == "character") {
       this._prepareCharacterItems(data);
     }
 
@@ -47,35 +53,45 @@ export class MBActorSheetCharacter extends MBActorSheet {
    * @return {undefined}
    */
   _prepareCharacterItems(sheetData) {
-    const byName = (a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0);
-    sheetData.data.feats = sheetData.items.filter(item => item.type === CONFIG.MB.itemTypes.feat).sort(byName);
-    sheetData.data.class = sheetData.items.filter(item => item.type === CONFIG.MB.itemTypes.class).pop();
+    const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
+    sheetData.data.feats = sheetData.items
+      .filter((item) => item.type === CONFIG.MB.itemTypes.feat)
+      .sort(byName);
+    sheetData.data.class = sheetData.items
+      .filter((item) => item.type === CONFIG.MB.itemTypes.class)
+      .pop();
 
     // TODO: make better use of filters below
-    let equipment = [];
+    const equipment = [];
     let equippedArmor = null;
     let equippedShield = null;
-    let equippedWeapons = [];
+    const equippedWeapons = [];
     // TODO: should we just create a hash of itemType => items?
-    let scrolls = [];
-    let containers = [];
+    const scrolls = [];
+    const containers = [];
 
     for (const i of sheetData.items) {
-      let item = i.data;
-      i.img = i.img || DEFAULT_TOKEN;
+      const item = i.data;
+      i.img = i.img || CONST.DEFAULT_TOKEN;
 
-      item.equippable = (i.type === CONFIG.MB.itemTypes.armor || i.type === CONFIG.MB.itemTypes.shield || i.type === CONFIG.MB.itemTypes.weapon);
+      item.equippable =
+        i.type === CONFIG.MB.itemTypes.armor ||
+        i.type === CONFIG.MB.itemTypes.shield ||
+        i.type === CONFIG.MB.itemTypes.weapon;
       if (item.equippable) {
         const isEquipped = getProperty(item, "equipped");
         item.toggleClass = isEquipped ? "equipped" : "";
-        item.toggleTitle = game.i18n.localize(isEquipped ? "MB.ItemEquipped" : "MB.ItemUnequipped");
+        item.toggleTitle = game.i18n.localize(
+          isEquipped ? "MB.ItemEquipped" : "MB.ItemUnequipped"
+        );
       }
 
       if (CONFIG.MB.itemEquipmentTypes.includes(i.type)) {
         equipment.push(i);
       }
       if (i.type === CONFIG.MB.itemTypes.armor) {
-        item.damageReductionDie = CONFIG.MB.armorTiers[item.tier.value].damageReductionDie;
+        item.damageReductionDie =
+          CONFIG.MB.armorTiers[item.tier.value].damageReductionDie;
         if (item.equipped) {
           // only one armor may be equipped at a time
           equippedArmor = i;
@@ -96,8 +112,10 @@ export class MBActorSheetCharacter extends MBActorSheet {
       }
     }
     // sort alphabetically
-    equipment.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
-    equippedWeapons.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+    equipment.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0));
+    equippedWeapons.sort((a, b) =>
+      a.name > b.name ? 1 : b.name > a.name ? -1 : 0
+    );
 
     // Assign to new properties
     sheetData.data.equipment = equipment;
@@ -124,20 +142,34 @@ export class MBActorSheetCharacter extends MBActorSheet {
     if (!this.options.editable) return;
 
     // sheet header
-    html.find(".ability-label.rollable.strength").on("click", this._onStrengthRoll.bind(this));
-    html.find(".ability-label.rollable.agility").on("click", this._onAgilityRoll.bind(this));
-    html.find(".ability-label.rollable.presence").on("click", this._onPresenceRoll.bind(this));
-    html.find(".ability-label.rollable.toughness").on("click", this._onToughnessRoll.bind(this));
-    html.find('.item-scvmify').click(this._onScvmify.bind(this));
+    html
+      .find(".ability-label.rollable.strength")
+      .on("click", this._onStrengthRoll.bind(this));
+    html
+      .find(".ability-label.rollable.agility")
+      .on("click", this._onAgilityRoll.bind(this));
+    html
+      .find(".ability-label.rollable.presence")
+      .on("click", this._onPresenceRoll.bind(this));
+    html
+      .find(".ability-label.rollable.toughness")
+      .on("click", this._onToughnessRoll.bind(this));
+    html.find(".item-scvmify").click(this._onScvmify.bind(this));
     html.find(".broken-button").on("click", this._onBroken.bind(this));
     html.find(".rest-button").on("click", this._onRest.bind(this));
-    html.find(".omens-row span.rollable").on("click", this._onOmensRoll.bind(this));
+    html
+      .find(".omens-row span.rollable")
+      .on("click", this._onOmensRoll.bind(this));
     html.find(".get-better-button").on("click", this._onGetBetter.bind(this));
     // feats tab
     html.find(".feat-button").on("click", this._onFeatRoll.bind(this));
     // powers tab
-    html.find(".wield-power-button").on("click", this._onWieldPowerRoll.bind(this));
-    html.find(".powers-per-day-text").on("click", this._onPowersPerDayRoll.bind(this));
+    html
+      .find(".wield-power-button")
+      .on("click", this._onWieldPowerRoll.bind(this));
+    html
+      .find(".powers-per-day-text")
+      .on("click", this._onPowersPerDayRoll.bind(this));
   }
 
   _onStrengthRoll(event) {
@@ -192,22 +224,23 @@ export class MBActorSheetCharacter extends MBActorSheet {
   _onGetBetter(event) {
     event.preventDefault();
     // confirm before doing get better
-    let d = new Dialog({
-      title: game.i18n.localize('MB.GetBetter'),
-      content: "<p>&nbsp;<p>The game master decides when a character should be improved.<p>It can be after completing a scenario, killing mighty foes, or bringing home treasure.<p>&nbsp;",
+    const d = new Dialog({
+      title: game.i18n.localize("MB.GetBetter"),
+      content:
+        "<p>&nbsp;<p>The game master decides when a character should be improved.<p>It can be after completing a scenario, killing mighty foes, or bringing home treasure.<p>&nbsp;",
       buttons: {
         cancel: {
-          label: game.i18n.localize('MB.Cancel'),
+          label: game.i18n.localize("MB.Cancel"),
         },
         getbetter: {
           icon: '<i class="fas fa-check"></i>',
-          label: game.i18n.localize('MB.GetBetter'),
-          callback: () => this.actor.getBetter()
+          label: game.i18n.localize("MB.GetBetter"),
+          callback: () => this.actor.getBetter(),
         },
       },
       default: "cancel",
-     });
-     d.render(true);
+    });
+    d.render(true);
   }
 
   _onFeatRoll(event) {

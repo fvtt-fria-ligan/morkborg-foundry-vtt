@@ -1,31 +1,31 @@
 <form class="roll-card wield-power-roll-card">
-    <div class="card-title">
-        {{localize 'MB.WieldAPower'}}
+  <div class="card-title">{{localize 'MB.WieldAPower'}}</div>
+  <div class="wield-roll">
+    <div class="roll-title">
+      <span
+        >{{localize 'MB.Wield'}}: {{wieldFormula}} {{localize 'MB.Vs'}}
+        {{localize 'MB.DR'}} {{wieldDR}}</span
+      >
     </div>
-    <div class="wield-roll">
-        <div class="roll-title">
-            <span>{{localize 'MB.Wield'}}: {{wieldFormula}} {{localize 'MB.Vs'}} {{localize 'MB.DR'}} {{wieldDR}}</span>
-        </div>
-        <div class="roll-result">
-            <span>{{xtotal wieldRoll}}</span>
-        </div>
+    <div class="roll-result">
+      <span>{{xtotal wieldRoll}}</span>
     </div>
-    <div class="outcome-text">
-        <span class="attack-outcome">{{wieldOutcome}}</span>
+  </div>
+  <div class="outcome-text">
+    <span class="attack-outcome">{{wieldOutcome}}</span>
+  </div>
+  {{#if damageRoll}}
+  <div class="damage-roll">
+    <div class="roll-title">
+      <span>{{localize 'MB.Damage'}}: {{damageRoll.formula}}</span>
     </div>
-    {{#if damageRoll}}
-        <div class="damage-roll">
-            <div class="roll-title">
-                <span>{{localize 'MB.Damage'}}: {{damageRoll.formula}}</span>
-            </div>
-            <div class="roll-result">
-                <span>{{xtotal damageRoll}}</span>
-            </div>
-        </div>
-    {{/if}}
-    {{#if takeDamage}}
-        <div class="outcome-text">
-            <span class="take-damage">{{takeDamage}}</span>
-        </div>
-    {{/if}}
+    <div class="roll-result">
+      <span>{{xtotal damageRoll}}</span>
+    </div>
+  </div>
+  {{/if}} {{#if takeDamage}}
+  <div class="outcome-text">
+    <span class="take-damage">{{takeDamage}}</span>
+  </div>
+  {{/if}}
 </form>

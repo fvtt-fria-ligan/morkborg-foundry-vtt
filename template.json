@@ -17,7 +17,7 @@
             "value": 0
           }
         },
-        "description": "",        
+        "description": "",
         "hp": {
           "max": 1,
           "value": 1
@@ -71,7 +71,16 @@
     }
   },
   "Item": {
-    "types": ["armor", "class", "container", "feat", "misc", "scroll", "shield", "weapon"],
+    "types": [
+      "armor",
+      "class",
+      "container",
+      "feat",
+      "misc",
+      "scroll",
+      "shield",
+      "weapon"
+    ],
     "templates": {
       "baseEquipment": {
         "containerSpace": 1,

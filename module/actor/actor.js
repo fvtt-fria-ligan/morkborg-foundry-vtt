@@ -215,7 +215,7 @@ export class MBActor extends Actor {
   }
 
   async _testAbility(ability, abilityKey, abilityAbbrevKey, drModifiers) {
-    let abilityRoll = new Roll(
+    const abilityRoll = new Roll(
       `1d20+@abilities.${ability}.value`,
       this.getRollData()
     );
@@ -239,7 +239,7 @@ export class MBActor extends Actor {
   }
 
   async testStrength() {
-    let drModifiers = [];
+    const drModifiers = [];
     if (this.isEncumbered()) {
       drModifiers.push(
         `${game.i18n.localize("MB.Encumbered")}: ${game.i18n.localize(
@@ -247,11 +247,16 @@ export class MBActor extends Actor {
         )} +2`
       );
     }
-    await this._testAbility("strength", "MB.AbilityStrength", "MB.AbilityStrengthAbbrev", drModifiers);
+    await this._testAbility(
+      "strength",
+      "MB.AbilityStrength",
+      "MB.AbilityStrengthAbbrev",
+      drModifiers
+    );
   }
 
   async testAgility() {
-    let drModifiers = [];
+    const drModifiers = [];
     const armor = this.equippedArmor();
     if (armor) {
       const armorTier = CONFIG.MB.armorTiers[armor.data.data.tier.max];
@@ -270,15 +275,30 @@ export class MBActor extends Actor {
         )} +2`
       );
     }
-    await this._testAbility("agility", "MB.AbilityAgility", "MB.AbilityAgilityAbbrev", drModifiers);
+    await this._testAbility(
+      "agility",
+      "MB.AbilityAgility",
+      "MB.AbilityAgilityAbbrev",
+      drModifiers
+    );
   }
 
   async testPresence() {
-    await this._testAbility("presence", "MB.AbilityPresence", "MB.AbilityPresenceAbbrev", null);
+    await this._testAbility(
+      "presence",
+      "MB.AbilityPresence",
+      "MB.AbilityPresenceAbbrev",
+      null
+    );
   }
 
   async testToughness() {
-    await this._testAbility("toughness", "MB.AbilityToughness", "MB.AbilityToughnessAbbrev", null);
+    await this._testAbility(
+      "toughness",
+      "MB.AbilityToughness",
+      "MB.AbilityToughnessAbbrev",
+      null
+    );
   }
 
   /**
@@ -296,7 +316,7 @@ export class MBActor extends Actor {
       CONFIG.MB.flagScope,
       CONFIG.MB.flags.TARGET_ARMOR
     );
-    let dialogData = {
+    const dialogData = {
       attackDR,
       config: CONFIG.MorkBorg,
       itemId,
@@ -358,7 +378,10 @@ export class MBActor extends Actor {
     const isRanged = itemRollData.weaponType === "ranged";
     // ranged weapons use presence; melee weapons use strength
     const ability = isRanged ? "presence" : "strength";
-    let attackRoll = new Roll(`d20+@abilities.${ability}.value`, actorRollData);
+    const attackRoll = new Roll(
+      `d20+@abilities.${ability}.value`,
+      actorRollData
+    );
     attackRoll.evaluate({ async: false });
     await showDice(attackRoll);
 
@@ -379,7 +402,7 @@ export class MBActor extends Actor {
       const damageFormula = isCrit ? "@damageDie * 2" : "@damageDie";
       damageRoll = new Roll(damageFormula, itemRollData);
       damageRoll.evaluate({ async: false });
-      let dicePromises = [];
+      const dicePromises = [];
       addShowDicePromise(dicePromises, damageRoll);
       let damage = damageRoll.total;
       // roll 3: target damage reduction
@@ -403,7 +426,9 @@ export class MBActor extends Actor {
     }
 
     // TODO: decide keys in handlebars/template?
-    const abilityAbbrevKey = isRanged ? "MB.AbilityPresenceAbbrev" : "MB.AbilityStrengthAbbrev";
+    const abilityAbbrevKey = isRanged
+      ? "MB.AbilityPresenceAbbrev"
+      : "MB.AbilityStrengthAbbrev";
     const weaponTypeKey = isRanged
       ? "MB.WeaponTypeRanged"
       : "MB.WeaponTypeMelee";
@@ -455,7 +480,7 @@ export class MBActor extends Actor {
     }
 
     const armor = this.equippedArmor();
-    let drModifiers = [];
+    const drModifiers = [];
     if (armor) {
       // armor defense adjustment is based on its max tier, not current
       // TODO: maxTier is getting stored as a string
@@ -475,7 +500,7 @@ export class MBActor extends Actor {
       );
     }
 
-    let dialogData = {
+    const dialogData = {
       defendDR,
       drModifiers,
       incomingAttack,
@@ -560,7 +585,7 @@ export class MBActor extends Actor {
     const shield = this.equippedShield();
 
     // roll 1: defend
-    let defendRoll = new Roll("d20+@abilities.agility.value", rollData);
+    const defendRoll = new Roll("d20+@abilities.agility.value", rollData);
     defendRoll.evaluate({ async: false });
     await showDice(defendRoll);
 
@@ -568,7 +593,7 @@ export class MBActor extends Actor {
     const isFumble = d20Result === 1;
     const isCrit = d20Result === 20;
 
-    let items = [];
+    const items = [];
     let damageRoll = null;
     let armorRoll = null;
     let defendOutcome = null;
@@ -595,7 +620,7 @@ export class MBActor extends Actor {
       }
       damageRoll = new Roll(damageFormula, {});
       damageRoll.evaluate({ async: false });
-      let dicePromises = [];
+      const dicePromises = [];
       addShowDicePromise(dicePromises, damageRoll);
       let damage = damageRoll.total;
 
@@ -653,7 +678,7 @@ export class MBActor extends Actor {
   /**
    * Check morale!
    */
-  async checkMorale(sheetData) {
+  async checkMorale() {
     const actorRollData = this.getRollData();
     const moraleRoll = new Roll("2d6", actorRollData);
     moraleRoll.evaluate({ async: false });
@@ -698,7 +723,7 @@ export class MBActor extends Actor {
   /**
    * Check reaction!
    */
-  async checkReaction(sheetData) {
+  async checkReaction() {
     const actorRollData = this.getRollData();
     const reactionRoll = new Roll("2d6", actorRollData);
     reactionRoll.evaluate({ async: false });
@@ -722,7 +747,7 @@ export class MBActor extends Actor {
     } else {
       key = "MB.ReactionHelpful";
     }
-    let reactionText = game.i18n.localize(key);
+    const reactionText = game.i18n.localize(key);
     const rollResult = {
       actor: this,
       reactionRoll,
@@ -801,21 +826,20 @@ export class MBActor extends Actor {
       // Fumbles roll on the Arcane Catastrophes table
       const pack = game.packs.get("morkborg.random-scrolls");
       const content = await pack.getDocuments();
-      const table = content.find(i => i.name === "Arcane Catastrophes");
-      await table.draw();   
+      const table = content.find((i) => i.name === "Arcane Catastrophes");
+      await table.draw();
     } else if (isCrit) {
       // Criticals roll on Eldritch Elevations table, if available
-      // TODO: this could be moved into the 3p module and implemented as a hook 
+      // TODO: this could be moved into the 3p module and implemented as a hook
       const pack = game.packs.get("morkborg-3p.eldritch-elevations");
       if (pack) {
         const content = await pack.getDocuments();
-        const table = content.find(i => i.name === "Eldritch Elevations");
+        const table = content.find((i) => i.name === "Eldritch Elevations");
         if (table) {
           await table.draw();
         }
       }
     }
-
 
     const newPowerUses = Math.max(0, this.data.data.powerUses.value - 1);
     return this.update({ ["data.powerUses.value"]: newPowerUses });
@@ -863,13 +887,19 @@ export class MBActor extends Actor {
         item.data.data.rollFormula,
         this.getRollData(),
         item.data.data.rollLabel,
-        (roll) => ``
+        () => ``
       );
     }
   }
 
-  async _rollOutcome(dieRoll, rollData, cardTitle, outcomeTextFn, rollFormula=null) {
-    let roll = new Roll(dieRoll, rollData);
+  async _rollOutcome(
+    dieRoll,
+    rollData,
+    cardTitle,
+    outcomeTextFn,
+    rollFormula = null
+  ) {
+    const roll = new Roll(dieRoll, rollData);
     roll.evaluate({ async: false });
     await showDice(roll);
     const rollResult = {
@@ -912,7 +942,7 @@ export class MBActor extends Actor {
           0,
           roll.total
         )}`,
-     `1d4 + ${game.i18n.localize("MB.AbilityPresenceAbbrev")}` 
+      `1d4 + ${game.i18n.localize("MB.AbilityPresenceAbbrev")}`
     );
     const newUses = Math.max(0, roll.total);
     return this.update({
@@ -1026,27 +1056,27 @@ export class MBActor extends Actor {
     const newTou = this._betterAbility(oldTou);
     let newSilver = this.data.data.silver;
 
-    let hpOutcome = this._abilityOutcome(
+    const hpOutcome = this._abilityOutcome(
       game.i18n.localize("MB.HP"),
       oldHp,
       newHp
     );
-    let strOutcome = this._abilityOutcome(
+    const strOutcome = this._abilityOutcome(
       game.i18n.localize("MB.AbilityStrength"),
       oldStr,
       newStr
     );
-    let agiOutcome = this._abilityOutcome(
+    const agiOutcome = this._abilityOutcome(
       game.i18n.localize("MB.AbilityAgility"),
       oldAgi,
       newAgi
     );
-    let preOutcome = this._abilityOutcome(
+    const preOutcome = this._abilityOutcome(
       game.i18n.localize("MB.AbilityPresence"),
       oldPre,
       newPre
     );
-    let touOutcome = this._abilityOutcome(
+    const touOutcome = this._abilityOutcome(
       game.i18n.localize("MB.AbilityToughness"),
       oldTou,
       newTou
@@ -1158,32 +1188,59 @@ export class MBActor extends Actor {
     let additionalRolls = [];
     if (brokenRoll.total === 1) {
       const unconsciousRoll = new Roll("1d4").evaluate({ async: false });
-      const roundsWord = game.i18n.localize(unconsciousRoll.total > 1 ? "MB.Rounds": "MB.Round");
+      const roundsWord = game.i18n.localize(
+        unconsciousRoll.total > 1 ? "MB.Rounds" : "MB.Round"
+      );
       const hpRoll = new Roll("1d4").evaluate({ async: false });
       outcomeLines = [
-        game.i18n.format("MB.BrokenFallUnconscious", {rounds: unconsciousRoll.total, roundsWord, hp: hpRoll.total})
+        game.i18n.format("MB.BrokenFallUnconscious", {
+          rounds: unconsciousRoll.total,
+          roundsWord,
+          hp: hpRoll.total,
+        }),
       ];
       additionalRolls = [unconsciousRoll, hpRoll];
     } else if (brokenRoll.total === 2) {
       const limbRoll = new Roll("1d6").evaluate({ async: false });
       const actRoll = new Roll("1d4").evaluate({ async: false });
       const hpRoll = new Roll("1d4").evaluate({ async: false });
-      const roundsWord = game.i18n.localize(actRoll.total > 1 ? "MB.Rounds" : "MB.Round");
+      const roundsWord = game.i18n.localize(
+        actRoll.total > 1 ? "MB.Rounds" : "MB.Round"
+      );
       if (limbRoll.total <= 5) {
         outcomeLines = [
-          game.i18n.format("MB.BrokenSeveredLimb", {rounds: actRoll.total, roundsWord, hp: hpRoll.total})
+          game.i18n.format("MB.BrokenSeveredLimb", {
+            rounds: actRoll.total,
+            roundsWord,
+            hp: hpRoll.total,
+          }),
         ];
       } else {
         outcomeLines = [
-          game.i18n.format("MB.BrokenLostEye", {rounds: actRoll.total, roundsWord, hp: hpRoll.total})
+          game.i18n.format("MB.BrokenLostEye", {
+            rounds: actRoll.total,
+            roundsWord,
+            hp: hpRoll.total,
+          }),
         ];
       }
       additionalRolls = [limbRoll, actRoll, hpRoll];
     } else if (brokenRoll.total === 3) {
       const hemorrhageRoll = new Roll("1d2").evaluate({ async: false });
-      const hoursWord = game.i18n.localize(hemorrhageRoll.total > 1 ? "MB.Hours" : "MB.Hour");
-      const lastHour = hemorrhageRoll.total == 2 ? game.i18n.localize("MB.BrokenHemorrhageLastHour") : "";
-      outcomeLines = [game.i18n.format("MB.BrokenHemorrhage", {hours: hemorrhageRoll.total, hoursWord, lastHour})];
+      const hoursWord = game.i18n.localize(
+        hemorrhageRoll.total > 1 ? "MB.Hours" : "MB.Hour"
+      );
+      const lastHour =
+        hemorrhageRoll.total == 2
+          ? game.i18n.localize("MB.BrokenHemorrhageLastHour")
+          : "";
+      outcomeLines = [
+        game.i18n.format("MB.BrokenHemorrhage", {
+          hours: hemorrhageRoll.total,
+          hoursWord,
+          lastHour,
+        }),
+      ];
       additionalRolls = [hemorrhageRoll];
     } else {
       outcomeLines = [game.i18n.localize("MB.BrokenYouAreDead")];
