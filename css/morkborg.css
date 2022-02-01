@@ -149,30 +149,17 @@
   text-shadow: 0 0 10px var(--highlight-background-color);
   cursor: pointer;
 }
-.morkborg.sheet input[type="text"],
-.morkborg.sheet input[type="number"],
-.morkborg.sheet input[type="password"],
-.morkborg.sheet input[type="date"] {
+.morkborg.sheet input[type=text], .morkborg.sheet input[type=number], .morkborg.sheet input[type=password], .morkborg.sheet input[type=date] {
   color: var(--foreground-color);
   border-radius: 0;
 }
-.morkborg.sheet input[type="text"]:focus,
-.morkborg.sheet input[type="number"]:focus,
-.morkborg.sheet input[type="password"]:focus,
-.morkborg.sheet input[type="date"]:focus,
-.morkborg.sheet input[type="time"]:focus,
-.morkborg.sheet input[type="text"]:hover,
-.morkborg.sheet input[type="number"]:hover,
-.morkborg.sheet input[type="password"]:hover,
-.morkborg.sheet input[type="date"]:hover,
-.morkborg.sheet input[type="time"]:hover {
+.morkborg.sheet input[type=text]:focus, .morkborg.sheet input[type=number]:focus, .morkborg.sheet input[type=password]:focus, .morkborg.sheet input[type=date]:focus, .morkborg.sheet input[type=time]:focus, .morkborg.sheet input[type=text]:hover, .morkborg.sheet input[type=number]:hover, .morkborg.sheet input[type=password]:hover, .morkborg.sheet input[type=date]:hover, .morkborg.sheet input[type=time]:hover {
   box-shadow: 0 0 5px var(--highlight-background-color);
 }
 .morkborg.sheet select:focus {
   box-shadow: 0 0 5px var(--highlight-background-color);
 }
-.morkborg.sheet button:hover,
-.morkborg.sheet button:focus {
+.morkborg.sheet button:hover, .morkborg.sheet button:focus {
   box-shadow: 0 0 5px var(--highlight-background-color);
 }
 .morkborg.sheet a:hover {
@@ -337,18 +324,10 @@
 .morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item {
   align-items: center;
 }
-.morkborg.sheet.actor
-  .sheet-body
-  .violence-tab
-  .item-list.weapon-list
-  .item-buttons {
+.morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item-buttons {
   flex: 0.5;
 }
-.morkborg.sheet.actor
-  .sheet-body
-  .violence-tab
-  .item-list.weapon-list
-  .item-button {
+.morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item-button {
   font-size: 20px;
   width: 120px;
 }
@@ -362,18 +341,10 @@
   font-size: 16px;
   margin-top: 6px;
 }
-.morkborg.sheet.actor
-  .sheet-body
-  .violence-tab
-  .weapon-list
-  .item-field.damage-die {
+.morkborg.sheet.actor .sheet-body .violence-tab .weapon-list .item-field.damage-die {
   text-align: right;
 }
-.morkborg.sheet.actor
-  .sheet-body
-  .violence-tab
-  .weapon-list
-  .item-field.weapon-type {
+.morkborg.sheet.actor .sheet-body .violence-tab .weapon-list .item-field.weapon-type {
   text-align: right;
   width: 60px;
 }
@@ -405,34 +376,19 @@
   position: relative;
   padding-left: 32px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type="radio"] {
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type=radio] {
   display: none;
 }
-.morkborg.sheet.actor
-  .sheet-body
-  .violence-tab
-  ul.tiers
-  input[type="radio"]:checked
-  + span.tier-num {
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type=radio]:checked + span.tier-num {
   background: var(--highlight-background-color);
   color: var(--highlight-foreground-color);
   border: none;
 }
-.morkborg.sheet.actor
-  .sheet-body
-  .violence-tab
-  ul.tiers
-  input[type="radio"]:disabled
-  + span.tier-num {
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type=radio]:disabled + span.tier-num {
   color: #444444;
   border: 1px solid #444444;
 }
-.morkborg.sheet.actor
-  .sheet-body
-  .violence-tab
-  ul.tiers
-  input[type="radio"]:disabled
-  ~ span.tier-dmg {
+.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type=radio]:disabled ~ span.tier-dmg {
   color: #444444;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab ul.tiers span.tier-num {
@@ -499,7 +455,7 @@
   border-bottom: 2px solid #777;
   border-radius: 0;
 }
-.morkborg.sheet.actor input[type="text"].actor-name {
+.morkborg.sheet.actor input[type=text].actor-name {
   font-family: var(--h1-font);
   font-size: 38px;
   text-transform: uppercase;
@@ -568,7 +524,7 @@
   flex: 0 0 50px;
   margin-bottom: 7px;
 }
-.morkborg.sheet.actor.character .sheet-header .name-row input[type="text"] {
+.morkborg.sheet.actor.character .sheet-header .name-row input[type=text] {
   height: 45px;
   width: 100%;
 }
@@ -643,18 +599,10 @@
   position: relative;
   padding-left: 20px;
 }
-.morkborg.sheet.actor.character
-  .sheet-header
-  ul.miseries
-  label
-  input[type="radio"] {
+.morkborg.sheet.actor.character .sheet-header ul.miseries label input[type=radio] {
   display: none;
 }
-.morkborg.sheet.actor.character
-  .sheet-header
-  ul.miseries
-  input[type="radio"]:checked
-  + span {
+.morkborg.sheet.actor.character .sheet-header ul.miseries input[type=radio]:checked + span {
   background: var(--highlight-background-color);
   color: var(--highlight-foreground-color);
   border: none;
@@ -673,12 +621,7 @@
   left: 0;
   top: 50%;
 }
-.morkborg.sheet.actor.character
-  .sheet-header
-  ul.miseries
-  li:last-child
-  label
-  span {
+.morkborg.sheet.actor.character .sheet-header ul.miseries li:last-child label span {
   background: var(--foreground-color);
   color: var(--background-color);
 }
@@ -868,7 +811,7 @@
   padding-left: 12px;
   width: 100%;
 }
-.morkborg.sheet.actor.creature .sheet-header input[type="text"].creature-name {
+.morkborg.sheet.actor.creature .sheet-header input[type=text].creature-name {
   height: 45px;
 }
 .morkborg.sheet.actor.creature .sheet-header .hitpoints-row {
@@ -888,7 +831,7 @@
   height: 150px;
   width: 150px;
 }
-.morkborg.sheet.item .sheet-header .item-name input[type="text"] {
+.morkborg.sheet.item .sheet-header .item-name input[type=text] {
   font-family: var(--h1-font);
   font-size: 38px;
   flex: 1;
@@ -934,7 +877,7 @@
   padding-left: 12px;
   width: 100%;
 }
-.morkborg.sheet.actor.follower .sheet-header input[type="text"].follower-name {
+.morkborg.sheet.actor.follower .sheet-header input[type=text].follower-name {
   height: 45px;
 }
 .morkborg.sheet.actor.follower .sheet-header .hitpoints-row {
@@ -971,9 +914,7 @@
   padding-left: 12px;
   width: 100%;
 }
-.morkborg.sheet.actor.container
-  .sheet-header
-  input[type="text"].container-name {
+.morkborg.sheet.actor.container .sheet-header input[type=text].container-name {
   height: 45px;
 }
 .morkborg.sheet.actor.container .sheet-header .holding-row {
@@ -982,11 +923,10 @@
   margin-left: 14px;
 }
 
-.form-group input[type="text"] {
+.form-group input[type=text] {
   color: var(--foreground-color);
 }
-.form-group input[type="text"]:hover,
-.form-group input[type="text"]:focus {
+.form-group input[type=text]:hover, .form-group input[type=text]:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 .form-group textarea {
@@ -1011,11 +951,10 @@ a:hover {
   text-shadow: 0 0 8px var(--highlight-background-color);
 }
 
-input[type="text"] {
+input[type=text] {
   color: var(--foreground-color);
 }
-input[type="text"]:hover,
-input[type="text"]:focus {
+input[type=text]:hover, input[type=text]:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
@@ -1025,22 +964,19 @@ form.editable .results .result-image img {
 form.editable .results .result-type select {
   color: var(--foreground-color);
 }
-form.editable .results .result-type select:hover,
-form.editable .results .result-type select:focus {
+form.editable .results .result-type select:hover, form.editable .results .result-type select:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 form.editable .results .result-details select {
   color: var(--foreground-color);
 }
-form.editable .results .result-details select:hover,
-form.editable .results .result-details select:focus {
+form.editable .results .result-details select:hover, form.editable .results .result-details select:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
-form.editable .results .result-details input[type="text"] {
+form.editable .results .result-details input[type=text] {
   color: var(--foreground-color);
 }
-form.editable .results .result-details input[type="text"]:hover,
-form.editable .results .result-details input[type="text"]:focus {
+form.editable .results .result-details input[type=text]:hover, form.editable .results .result-details input[type=text]:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 
@@ -1075,15 +1011,13 @@ form.editable .results .result-details input[type="text"]:focus {
 .window-app .window-content .form-group input {
   color: var(--foreground-color);
 }
-.window-app .window-content .form-group input:hover,
-.window-app .window-content .form-group input:focus {
+.window-app .window-content .form-group input:hover, .window-app .window-content .form-group input:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
 .window-app .window-content .form-group input.readonly {
   color: gray;
 }
-.window-app .window-content .form-group input:hover.readonly,
-.window-app .window-content .form-group input:focus.readonly {
+.window-app .window-content .form-group input:hover.readonly, .window-app .window-content .form-group input:focus.readonly {
   box-shadow: none;
   cursor: default;
 }
@@ -1094,18 +1028,13 @@ form.editable .results .result-details input[type="text"]:focus {
 .journal-sheet.image-popout .window-content .form-group input {
   color: var(--background-color);
 }
-.journal-sheet.image-popout
-  .window-content
-  .form-group.picker
-  button.file-picker {
+.journal-sheet.image-popout .window-content .form-group.picker button.file-picker {
   background-color: var(--background-color);
 }
-.journal-sheet form select:hover,
-.journal-sheet form select:focus {
+.journal-sheet form select:hover, .journal-sheet form select:focus {
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
-.journal-sheet form .form-group.title input[type="text"],
-.journal-sheet form .form-group.picker input[type="text"].image {
+.journal-sheet form .form-group.title input[type=text], .journal-sheet form .form-group.picker input[type=text].image {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
@@ -1251,15 +1180,13 @@ form.editable .results .result-details input[type="text"]:focus {
   background: var(--background-color);
   background-color: var(--background-color);
 }
-#controls .control-tool.active,
-#controls .control-tool:hover {
+#controls .control-tool.active, #controls .control-tool:hover {
   background: var(--background-color);
   color: var(--foreground-color);
   border: 1px solid var(--highlight-background-color);
   box-shadow: 0 0 10px var(--highlight-background-color);
 }
-#controls .scene-control.active,
-#controls .scene-control:hover {
+#controls .scene-control.active, #controls .scene-control:hover {
   background: var(--background-color);
   color: var(--foreground-color);
   border: 1px solid var(--highlight-background-color);
@@ -1309,8 +1236,7 @@ form .form-group select:focus {
 #navigation #scene-list li.scene.nav-item {
   border: 1px solid #252525;
 }
-#navigation #scene-list li.scene.nav-item.active,
-#navigation #scene-list li.scene.nav-item:hover {
+#navigation #scene-list li.scene.nav-item.active, #navigation #scene-list li.scene.nav-item:hover {
   background: var(--background-color);
   color: var(--foreground-color);
   border: 1px solid var(--highlight-background-color);
@@ -1365,15 +1291,14 @@ select:focus {
   border-radius: 0;
   font-family: var(--h2-font);
 }
-.sidebar-tab .directory-header .header-search input[type="text"]:focus {
+.sidebar-tab .directory-header .header-search input[type=text]:focus {
   box-shadow: 0 0 5px var(--highlight-background-color);
 }
 .sidebar-tab .directory-list .directory-item h4 {
   font-family: var(--item-font);
 }
 
-.tabs .item.active,
-.tabs .item:hover {
+.tabs .item.active, .tabs .item:hover {
   text-shadow: 0 0 10px var(--highlight-background-color);
 }
 
@@ -1413,10 +1338,10 @@ select:focus {
 }
 
 /* ================== 11. JOURNAL ENTRIES =================== */
-.journal-sheet form button[type="submit"] {
+.journal-sheet form button[type=submit] {
   background: var(--background-color);
 }
-.journal-sheet form input[name="name"] {
+.journal-sheet form input[name=name] {
   color: var(--background-color);
   font-family: var(--h2-font);
   font-size: 32px;
@@ -1425,8 +1350,7 @@ select:focus {
   font-family: var(--item-font);
 }
 
-a.entity-link,
-a.inline-roll {
+a.entity-link, a.inline-roll {
   background: var(--background-color);
   color: var(--foreground-color);
   padding: 1px 4px;
@@ -1522,15 +1446,12 @@ a.inline-roll {
   text-align: right;
 }
 
-.dialog-button.attack,
-.dialog-button.create {
+.dialog-button.attack, .dialog-button.create {
   font-family: var(--h2-font);
   font-size: 20px;
 }
 
-.dialog-buttons button.dialog-button:active,
-.dialog-buttons button.dialog-button:focus,
-.dialog-buttons button.dialog-button:hover {
+.dialog-buttons button.dialog-button:active, .dialog-buttons button.dialog-button:focus, .dialog-buttons button.dialog-button:hover {
   box-shadow: 0 0 5px var(--highlight-background-color);
   text-shadow: 0 0 10px var(--highlight-background-color);
 }
@@ -1556,11 +1477,10 @@ a.inline-roll {
 .custom-dialog li {
   margin: 0 0 10px 0;
 }
-.custom-dialog li input[type="checkbox"],
-.custom-dialog li input[type="radio"] {
+.custom-dialog li input[type=checkbox], .custom-dialog li input[type=radio] {
   float: left;
 }
-.custom-dialog li input[type="checkbox"] {
+.custom-dialog li input[type=checkbox] {
   height: 14px;
   width: 14px;
 }
@@ -1583,9 +1503,7 @@ a.inline-roll {
   font-size: 20px;
   width: 150px;
 }
-.custom-dialog .button-row button:active,
-.custom-dialog .button-row button:focus,
-.custom-dialog .button-row button:hover {
+.custom-dialog .button-row button:active, .custom-dialog .button-row button:focus, .custom-dialog .button-row button:hover {
   box-shadow: 0 0 5px var(--highlight-background-color);
   text-shadow: 0 0 10px var(--highlight-background-color);
 }
