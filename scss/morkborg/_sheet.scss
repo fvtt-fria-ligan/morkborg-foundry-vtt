@@ -91,14 +91,11 @@
       color: var(--foreground-color);
       font-family: var(--item-font);
       font-size: 14px;
+      padding: 0 8px;
     }
 
     .tox.tox-tinymce .tox-edit-area__iframe {
       background: var(--background-color);
-    }
-
-    .editor {
-      padding: 0 8px;
     }
 
     .sheet-tabs {
