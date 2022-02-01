@@ -1,3 +1,9 @@
+# 1.9.0
+
+- Code cleanup: add linter (eslint), formatter (prettier), and presubmit (husky).
+- Format and de-lint entire codebase.
+- Refactor css/scss files.
+
 # 1.8.0
 
 - Treat empty/zero morale as "always stands firm".
