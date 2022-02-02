@@ -1,9 +1,10 @@
 # 1.9.0
 
 - Code cleanup: add linter (eslint), formatter (prettier), and presubmit (husky).
-- Format and de-lint entire codebase.
-- Refactor css/scss files.
-- Fix style for Dice Tray dialog textarea/buttons.
+- Formatted and de-linted entire codebase.
+- Refactored css/scss files.
+- Fixed style for Dice Tray module dialog textarea/buttons.
+- Fixed unreadable text for Edit World editor.
 
 # 1.8.0
 

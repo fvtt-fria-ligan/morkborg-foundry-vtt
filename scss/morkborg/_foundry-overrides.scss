@@ -567,3 +567,12 @@ a {
     word-break: break-all;
   }
 }
+
+#world-config {
+  .window-content {
+    .editor {
+      // crappy workaround so the tinymce editor black text is visible
+      background: #d8d8cc;
+    }
+  }
+}

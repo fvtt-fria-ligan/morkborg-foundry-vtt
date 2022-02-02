@@ -1357,6 +1357,10 @@ a.entity-link, a.inline-roll {
   word-break: break-all;
 }
 
+#world-config .window-content .editor {
+  background: #d8d8cc;
+}
+
 /* ====================== */
 /* Roll Cards */
 /* ====================== */
