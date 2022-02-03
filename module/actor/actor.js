@@ -398,10 +398,12 @@ export class MBActor extends Actor {
       attackOutcome = game.i18n.localize(
         isCrit ? "MB.AttackCritText" : "MB.Hit"
       );
-      // roll 2: damage
-      const damageFormula = isCrit ? "@damageDie * 2" : "@damageDie";
+      // roll 2: damage.
+      // Use parentheses for critical 2x in case damage die something like 1d6+1
+      const damageFormula = isCrit ? "(@damageDie) * 2" : "@damageDie";
       damageRoll = new Roll(damageFormula, itemRollData);
       damageRoll.evaluate({ async: false });
+      console.log(damageRoll);
       const dicePromises = [];
       addShowDicePromise(dicePromises, damageRoll);
       let damage = damageRoll.total;
