@@ -1,3 +1,8 @@
+# 1.9.1
+
+- Use parentheses to group crit damage roll before multiplying by 2, in case of damageDie with +/-.
+- Changed attack roll card to display pre-evaluation damage formula. E.g., "1d6+1" and not "5".
+
 # 1.9.0
 
 - Code cleanup: add linter (eslint), formatter (prettier), and presubmit (husky).
