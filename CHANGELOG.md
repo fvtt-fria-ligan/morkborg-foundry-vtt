@@ -1,3 +1,7 @@
+# 1.11.1
+
+- Fixed "Cannot initialize the effects EmbeddedCollection from source data which is not an Array" console warning when creating Scvm.
+
 # 1.10.0
 
 - Added weapon critOn and fumbleOn fields to allow per-item increased critical and fumble range. Nat 1 and 20 are still always miss/hit.

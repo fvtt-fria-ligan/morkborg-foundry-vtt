@@ -303,12 +303,20 @@ const rollScvmForClass = async (clazz) => {
     }
   }
 
+  // make simple data structure for embedded items
+  const itemData = items.map((i) => ({
+    data: i.data.data,
+    img: i.data.img,
+    name: i.data.name,
+    type: i.data.type,
+  }));
+
   return {
     actorImg: clazz.img,
     agility,
     description: descriptionLines.join(""),
     hitPoints,
-    items: items.map((i) => i.data),
+    items: itemData,
     omens: omensRoll.total,
     powerUses,
     presence,
