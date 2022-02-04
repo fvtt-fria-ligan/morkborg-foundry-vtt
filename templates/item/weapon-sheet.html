@@ -108,6 +108,28 @@
           {{/each}} {{/select}}
         </select>
       </div>
+
+      <div class="form-group">
+        <label>{{ localize "MB.ItemCritOn" }}:</label>
+        <input
+          type="text"
+          name="data.critOn"
+          value="{{data.data.critOn}}"
+          placeholder="20"
+          data-dtype="Number"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>{{ localize "MB.ItemFumbleOn" }}:</label>
+        <input
+          type="text"
+          name="data.fumbleOn"
+          value="{{data.data.fumbleOn}}"
+          placeholder="1"
+          data-dtype="Number"
+        />
+      </div>
     </div>
   </section>
 </form>

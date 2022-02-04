@@ -1,3 +1,7 @@
+# 1.10.0
+
+- Added weapon critOn and fumbleOn fields to allow increase critical/fumble natural roll range.
+
 # 1.9.1
 
 - Use parentheses to group crit damage roll before multiplying by 2, in case of damageDie with +/-.

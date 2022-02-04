@@ -386,8 +386,10 @@ export class MBActor extends Actor {
     await showDice(attackRoll);
 
     const d20Result = attackRoll.terms[0].results[0].result;
-    const isFumble = d20Result === 1;
-    const isCrit = d20Result === 20;
+    const fumbleTarget = itemRollData.fumbleOn ?? 1;
+    const critTarget = itemRollData.critOn ?? 20;
+    const isFumble = d20Result <= fumbleTarget;
+    const isCrit = d20Result >= critTarget;
 
     let attackOutcome = null;
     let damageRoll = null;

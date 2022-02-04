@@ -138,8 +138,10 @@
     },
     "weapon": {
       "templates": ["baseEquipment"],
+      "critOn": 20,
       "damageDie": "1d1",
       "handed": 1,
+      "fumbleOn": 1,
       "weaponType": "melee"
     }
   }
