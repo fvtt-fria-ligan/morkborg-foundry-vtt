@@ -390,12 +390,16 @@ export class MBActor extends Actor {
     const critTarget = itemRollData.critOn ?? 20;
     const isFumble = d20Result <= fumbleTarget;
     const isCrit = d20Result >= critTarget;
+    // nat 1 is always a miss, nat 20 is always a hit, otherwise check vs DR
+    const isHit =
+      attackRoll.total !== 1 &&
+      (attackRoll.total === 20 || attackRoll.total >= attackDR);
 
     let attackOutcome = null;
     let damageRoll = null;
     let targetArmorRoll = null;
     let takeDamage = null;
-    if (attackRoll.total >= attackDR) {
+    if (isHit) {
       // HIT!!!
       attackOutcome = game.i18n.localize(
         isCrit ? "MB.AttackCritText" : "MB.Hit"
@@ -405,7 +409,6 @@ export class MBActor extends Actor {
       const damageFormula = isCrit ? "(@damageDie) * 2" : "@damageDie";
       damageRoll = new Roll(damageFormula, itemRollData);
       damageRoll.evaluate({ async: false });
-      console.log(damageRoll);
       const dicePromises = [];
       addShowDicePromise(dicePromises, damageRoll);
       let damage = damageRoll.total;
