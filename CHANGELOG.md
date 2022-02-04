@@ -1,6 +1,6 @@
 # 1.10.0
 
-- Added weapon critOn and fumbleOn fields to allow increase critical/fumble natural roll range.
+- Added weapon critOn and fumbleOn fields to allow per-item increased critical and fumble range. Nat 1 and 20 are still always miss/hit.
 
 # 1.9.1
 
