@@ -10,7 +10,7 @@ export class MBItemSheet extends ItemSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["morkborg", "sheet", "item"],
       width: 600,
-      height: 500,
+      height: 560,
       tabs: [
         {
           navSelector: ".sheet-tabs",
