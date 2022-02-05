@@ -849,7 +849,7 @@ export class MBActor extends Actor {
     }
 
     const newPowerUses = Math.max(0, this.data.data.powerUses.value - 1);
-    return this.update({ ["data.powerUses.value"]: newPowerUses });
+    await this.update({ ["data.powerUses.value"]: newPowerUses });
   }
 
   async useFeat(itemId) {
@@ -936,7 +936,7 @@ export class MBActor extends Actor {
       (roll) => ` ${game.i18n.localize("MB.Omens")}: ${Math.max(0, roll.total)}`
     );
     const newOmens = Math.max(0, roll.total);
-    return this.update({ ["data.omens"]: { max: newOmens, value: newOmens } });
+    await this.update({ ["data.omens"]: { max: newOmens, value: newOmens } });
   }
 
   async rollPowersPerDay() {
@@ -952,7 +952,7 @@ export class MBActor extends Actor {
       `1d4 + ${game.i18n.localize("MB.AbilityPresenceAbbrev")}`
     );
     const newUses = Math.max(0, roll.total);
-    return this.update({
+    await this.update({
       ["data.powerUses"]: { max: newUses, value: newUses },
     });
   }
@@ -1019,7 +1019,7 @@ export class MBActor extends Actor {
       this.data.data.hp.max,
       this.data.data.hp.value + roll.total
     );
-    return this.update({ ["data.hp.value"]: newHP });
+    await this.update({ ["data.hp.value"]: newHP });
   }
 
   async rollStarvation() {
@@ -1033,7 +1033,7 @@ export class MBActor extends Actor {
         )}`
     );
     const newHP = this.data.data.hp.value - roll.total;
-    return this.update({ ["data.hp.value"]: newHP });
+    await this.update({ ["data.hp.value"]: newHP });
   }
 
   async rollInfection() {
@@ -1047,7 +1047,7 @@ export class MBActor extends Actor {
         )}`
     );
     const newHP = this.data.data.hp.value - roll.total;
-    return this.update({ ["data.hp.value"]: newHP });
+    await this.update({ ["data.hp.value"]: newHP });
   }
 
   async getBetter() {
