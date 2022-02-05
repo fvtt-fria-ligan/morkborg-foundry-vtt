@@ -40,8 +40,6 @@ export class MBActor extends Actor {
         actorLink: true,
         disposition: 1,
         vision: true,
-        dimSight: 30,
-        brightSight: 0,
       };
     } else if (data.type === "container") {
       defaults = {
@@ -60,8 +58,6 @@ export class MBActor extends Actor {
         actorLink: true,
         disposition: 1,
         vision: true,
-        dimSight: 30,
-        brightSight: 0,
       };
     }
     mergeObject(data.token, defaults, { overwrite: false });
