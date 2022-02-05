@@ -1,6 +1,7 @@
 # 1.11.1
 
 - Fixed "Cannot initialize the effects EmbeddedCollection from source data which is not an Array" console warning when creating Scvm.
+- Fixed Getting Better error when attempting to draw a random scroll.
 
 # 1.10.0
 

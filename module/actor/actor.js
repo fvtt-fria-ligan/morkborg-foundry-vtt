@@ -1130,13 +1130,14 @@ export class MBActor extends Actor {
     if (scrollTableName) {
       // roll a scroll
       const pack = game.packs.get("morkborg.random-scrolls");
-      const content = await pack.getContent();
+      const content = await pack.getDocuments();
       const table = content.find((i) => i.name === scrollTableName);
       await table.draw();
     }
 
     // set new stats on the actor
-    return this.update({
+
+    await this.update({
       ["data.abilities.strength.value"]: newStr,
       ["data.abilities.agility.value"]: newAgi,
       ["data.abilities.presence.value"]: newPre,
