@@ -2,6 +2,7 @@
 
 - Fixed "Cannot initialize the effects EmbeddedCollection from source data which is not an Array" console warning when creating Scvm.
 - Fixed Getting Better error when attempting to draw a random scroll.
+- Fixed arcane catastrophe 19 to properly reference To Leave Cube-Violet.
 
 # 1.10.0
 
