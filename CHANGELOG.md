@@ -1,3 +1,7 @@
+# 1.10.2
+
+- Don't set explicit dim/bright vision range for all characters, and instead use Settings Default Token Configuration.
+
 # 1.10.1
 
 - Fixed "Cannot initialize the effects EmbeddedCollection from source data which is not an Array" console warning when creating Scvm.
