@@ -219,7 +219,7 @@
   "MB.YouHaveNoScrolls": "Du hast keine Schriftrollen",
   "MB.editAllowedScvmClassesMenu": "Allowed classes",
   "MB.editAllowedScvmClassesMenuHint": "Edit the allowed classes in the character generator.",
-  "MB.editAllowedScvmClassesMenuButtonLabel": "Edit",  
+  "MB.editAllowedScvmClassesMenuButtonLabel": "Edit",
   "MB.AllowedScvmClassesEdit": "Edit allowed classes",
   "MB.AllowedScvmClassesSelect": "Select allowed classes"
 }

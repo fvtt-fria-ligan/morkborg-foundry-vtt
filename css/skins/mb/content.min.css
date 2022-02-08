@@ -5,9 +5,7 @@
 * For commercial licenses see https://www.tiny.cloud/
 */
 .mce-content-body .mce-item-anchor {
-  background: transparent
-    url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D'8'%20height%3D'12'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath%20d%3D'M0%200L8%200%208%2012%204.09117821%209%200%2012z'%2F%3E%3C%2Fsvg%3E%0A")
-    no-repeat center;
+  background: transparent url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D'8'%20height%3D'12'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath%20d%3D'M0%200L8%200%208%2012%204.09117821%209%200%2012z'%2F%3E%3C%2Fsvg%3E%0A") no-repeat center;
   cursor: default;
   display: inline-block;
   height: 12px !important;
@@ -52,13 +50,13 @@
   content: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cg%20id%3D%22checklist-checked%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20id%3D%22Rectangle%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%234099FF%22%20fill-rule%3D%22nonzero%22%20rx%3D%222%22%2F%3E%3Cpath%20id%3D%22Path%22%20fill%3D%22%23FFF%22%20fill-rule%3D%22nonzero%22%20d%3D%22M11.5703186%2C3.14417309%20C11.8516238%2C2.73724603%2012.4164781%2C2.62829933%2012.83558%2C2.89774797%20C13.260121%2C3.17069355%2013.3759736%2C3.72932262%2013.0909105%2C4.14168582%20L7.7580587%2C11.8560195%20C7.43776896%2C12.3193404%206.76483983%2C12.3852142%206.35607322%2C11.9948725%20L3.02491697%2C8.8138662%20C2.66090143%2C8.46625845%202.65798871%2C7.89594698%203.01850234%2C7.54483354%20C3.373942%2C7.19866177%203.94940006%2C7.19592841%204.30829608%2C7.5386474%20L6.85276923%2C9.9684299%20L11.5703186%2C3.14417309%20Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E%0A");
 }
 
-[dir="rtl"] .tox-checklist > li:not(.tox-checklist--hidden)::before {
+[dir=rtl] .tox-checklist > li:not(.tox-checklist--hidden)::before {
   margin-left: 0;
   margin-right: -1.5em;
 }
 
-code[class*="language-"],
-pre[class*="language-"] {
+code[class*=language-],
+pre[class*=language-] {
   color: #000;
   background: 0 0;
   text-shadow: 0 1px #fff;
@@ -77,40 +75,40 @@ pre[class*="language-"] {
   hyphens: none;
 }
 
-code[class*="language-"] ::-moz-selection,
-code[class*="language-"]::-moz-selection,
-pre[class*="language-"] ::-moz-selection,
-pre[class*="language-"]::-moz-selection {
+code[class*=language-] ::-moz-selection,
+code[class*=language-]::-moz-selection,
+pre[class*=language-] ::-moz-selection,
+pre[class*=language-]::-moz-selection {
   text-shadow: none;
   background: #b3d4fc;
 }
 
-code[class*="language-"] ::selection,
-code[class*="language-"]::selection,
-pre[class*="language-"] ::selection,
-pre[class*="language-"]::selection {
+code[class*=language-] ::selection,
+code[class*=language-]::selection,
+pre[class*=language-] ::selection,
+pre[class*=language-]::selection {
   text-shadow: none;
   background: #b3d4fc;
 }
 
 @media print {
-  code[class*="language-"],
-  pre[class*="language-"] {
+  code[class*=language-],
+pre[class*=language-] {
     text-shadow: none;
   }
 }
-pre[class*="language-"] {
+pre[class*=language-] {
   padding: 1em;
   margin: 0.5em 0;
   overflow: auto;
 }
 
-:not(pre) > code[class*="language-"],
-pre[class*="language-"] {
+:not(pre) > code[class*=language-],
+pre[class*=language-] {
   background: #f5f2f0;
 }
 
-:not(pre) > code[class*="language-"] {
+:not(pre) > code[class*=language-] {
   padding: 0.1em;
   border-radius: 0.3em;
   white-space: normal;
@@ -222,17 +220,16 @@ pre[class*="language-"] {
   position: absolute;
 }
 
-.mce-content-body [contentEditable="false"] {
+.mce-content-body [contentEditable=false] {
   cursor: default;
 }
 
-.mce-content-body [contentEditable="true"] {
+.mce-content-body [contentEditable=true] {
   cursor: text;
 }
 
 .tox-cursor-format-painter {
-  cursor: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%0A%20%20%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%0A%20%20%20%20%3Cpath%20fill%3D%22%23000%22%20fill-rule%3D%22nonzero%22%20d%3D%22M15%2C6%20C15%2C5.45%2014.55%2C5%2014%2C5%20L6%2C5%20C5.45%2C5%205%2C5.45%205%2C6%20L5%2C10%20C5%2C10.55%205.45%2C11%206%2C11%20L14%2C11%20C14.55%2C11%2015%2C10.55%2015%2C10%20L15%2C9%20L16%2C9%20L16%2C12%20L9%2C12%20L9%2C19%20C9%2C19.55%209.45%2C20%2010%2C20%20L11%2C20%20C11.55%2C20%2012%2C19.55%2012%2C19%20L12%2C14%20L18%2C14%20L18%2C7%20L15%2C7%20L15%2C6%20Z%22%2F%3E%0A%20%20%20%20%3Cpath%20fill%3D%22%23000%22%20fill-rule%3D%22nonzero%22%20d%3D%22M1%2C1%20L8.25%2C1%20C8.66421356%2C1%209%2C1.33578644%209%2C1.75%20L9%2C1.75%20C9%2C2.16421356%208.66421356%2C2.5%208.25%2C2.5%20L2.5%2C2.5%20L2.5%2C8.25%20C2.5%2C8.66421356%202.16421356%2C9%201.75%2C9%20L1.75%2C9%20C1.33578644%2C9%201%2C8.66421356%201%2C8.25%20L1%2C1%20Z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A"),
-    default;
+  cursor: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%0A%20%20%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%0A%20%20%20%20%3Cpath%20fill%3D%22%23000%22%20fill-rule%3D%22nonzero%22%20d%3D%22M15%2C6%20C15%2C5.45%2014.55%2C5%2014%2C5%20L6%2C5%20C5.45%2C5%205%2C5.45%205%2C6%20L5%2C10%20C5%2C10.55%205.45%2C11%206%2C11%20L14%2C11%20C14.55%2C11%2015%2C10.55%2015%2C10%20L15%2C9%20L16%2C9%20L16%2C12%20L9%2C12%20L9%2C19%20C9%2C19.55%209.45%2C20%2010%2C20%20L11%2C20%20C11.55%2C20%2012%2C19.55%2012%2C19%20L12%2C14%20L18%2C14%20L18%2C7%20L15%2C7%20L15%2C6%20Z%22%2F%3E%0A%20%20%20%20%3Cpath%20fill%3D%22%23000%22%20fill-rule%3D%22nonzero%22%20d%3D%22M1%2C1%20L8.25%2C1%20C8.66421356%2C1%209%2C1.33578644%209%2C1.75%20L9%2C1.75%20C9%2C2.16421356%208.66421356%2C2.5%208.25%2C2.5%20L2.5%2C2.5%20L2.5%2C8.25%20C2.5%2C8.66421356%202.16421356%2C9%201.75%2C9%20L1.75%2C9%20C1.33578644%2C9%201%2C8.66421356%201%2C8.25%20L1%2C1%20Z%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E%0A"), default;
 }
 
 .mce-content-body figure.align-left {
@@ -271,9 +268,7 @@ pre[class*="language-"] {
 }
 
 .mce-object {
-  background: transparent
-    url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M4%203h16a1%201%200%200%201%201%201v16a1%201%200%200%201-1%201H4a1%201%200%200%201-1-1V4a1%201%200%200%201%201-1zm1%202v14h14V5H5zm4.79%202.565l5.64%204.028a.5.5%200%200%201%200%20.814l-5.64%204.028a.5.5%200%200%201-.79-.407V7.972a.5.5%200%200%201%20.79-.407z%22%2F%3E%3C%2Fsvg%3E%0A")
-    no-repeat center;
+  background: transparent url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M4%203h16a1%201%200%200%201%201%201v16a1%201%200%200%201-1%201H4a1%201%200%200%201-1-1V4a1%201%200%200%201%201-1zm1%202v14h14V5H5zm4.79%202.565l5.64%204.028a.5.5%200%200%201%200%20.814l-5.64%204.028a.5.5%200%200%201-.79-.407V7.972a.5.5%200%200%201%20.79-.407z%22%2F%3E%3C%2Fsvg%3E%0A") no-repeat center;
   border: 1px dashed #aaa;
 }
 
@@ -359,11 +354,11 @@ pre[class*="language-"] {
   position: absolute;
 }
 
-.mce-content-body:not([dir="rtl"])[data-mce-placeholder]:not(.mce-visualblocks)::before {
+.mce-content-body:not([dir=rtl])[data-mce-placeholder]:not(.mce-visualblocks)::before {
   left: 1px;
 }
 
-.mce-content-body[dir="rtl"][data-mce-placeholder]:not(.mce-visualblocks)::before {
+.mce-content-body[dir=rtl][data-mce-placeholder]:not(.mce-visualblocks)::before {
   right: 1px;
 }
 
@@ -504,9 +499,7 @@ pre[class*="language-"] {
 }
 
 .tox-rtc-remote-image {
-  background: #eaeaea
-    url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2236%22%20height%3D%2212%22%20viewBox%3D%220%200%2036%2012%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Ccircle%20cx%3D%226%22%20cy%3D%226%22%20r%3D%223%22%20fill%3D%22rgba(0%2C%200%2C%200%2C%20.2)%22%3E%0A%20%20%20%20%3Canimate%20attributeName%3D%22r%22%20values%3D%223%3B5%3B3%22%20calcMode%3D%22linear%22%20dur%3D%221s%22%20repeatCount%3D%22indefinite%22%20%2F%3E%0A%20%20%3C%2Fcircle%3E%0A%20%20%3Ccircle%20cx%3D%2218%22%20cy%3D%226%22%20r%3D%223%22%20fill%3D%22rgba(0%2C%200%2C%200%2C%20.2)%22%3E%0A%20%20%20%20%3Canimate%20attributeName%3D%22r%22%20values%3D%223%3B5%3B3%22%20calcMode%3D%22linear%22%20begin%3D%22.33s%22%20dur%3D%221s%22%20repeatCount%3D%22indefinite%22%20%2F%3E%0A%20%20%3C%2Fcircle%3E%0A%20%20%3Ccircle%20cx%3D%2230%22%20cy%3D%226%22%20r%3D%223%22%20fill%3D%22rgba(0%2C%200%2C%200%2C%20.2)%22%3E%0A%20%20%20%20%3Canimate%20attributeName%3D%22r%22%20values%3D%223%3B5%3B3%22%20calcMode%3D%22linear%22%20begin%3D%22.66s%22%20dur%3D%221s%22%20repeatCount%3D%22indefinite%22%20%2F%3E%0A%20%20%3C%2Fcircle%3E%0A%3C%2Fsvg%3E%0A")
-    no-repeat center center;
+  background: #eaeaea url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2236%22%20height%3D%2212%22%20viewBox%3D%220%200%2036%2012%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Ccircle%20cx%3D%226%22%20cy%3D%226%22%20r%3D%223%22%20fill%3D%22rgba(0%2C%200%2C%200%2C%20.2)%22%3E%0A%20%20%20%20%3Canimate%20attributeName%3D%22r%22%20values%3D%223%3B5%3B3%22%20calcMode%3D%22linear%22%20dur%3D%221s%22%20repeatCount%3D%22indefinite%22%20%2F%3E%0A%20%20%3C%2Fcircle%3E%0A%20%20%3Ccircle%20cx%3D%2218%22%20cy%3D%226%22%20r%3D%223%22%20fill%3D%22rgba(0%2C%200%2C%200%2C%20.2)%22%3E%0A%20%20%20%20%3Canimate%20attributeName%3D%22r%22%20values%3D%223%3B5%3B3%22%20calcMode%3D%22linear%22%20begin%3D%22.33s%22%20dur%3D%221s%22%20repeatCount%3D%22indefinite%22%20%2F%3E%0A%20%20%3C%2Fcircle%3E%0A%20%20%3Ccircle%20cx%3D%2230%22%20cy%3D%226%22%20r%3D%223%22%20fill%3D%22rgba(0%2C%200%2C%200%2C%20.2)%22%3E%0A%20%20%20%20%3Canimate%20attributeName%3D%22r%22%20values%3D%223%3B5%3B3%22%20calcMode%3D%22linear%22%20begin%3D%22.66s%22%20dur%3D%221s%22%20repeatCount%3D%22indefinite%22%20%2F%3E%0A%20%20%3C%2Fcircle%3E%0A%3C%2Fsvg%3E%0A") no-repeat center center;
   border: 1px solid #ccc;
   min-height: 240px;
   min-width: 320px;
@@ -546,25 +539,25 @@ pre[class*="language-"] {
   outline-offset: 1px;
 }
 
-.mce-content-body [contentEditable="false"] [contentEditable="true"]:focus {
+.mce-content-body [contentEditable=false] [contentEditable=true]:focus {
   outline: 3px solid #b4d7ff;
 }
 
-.mce-content-body [contentEditable="false"] [contentEditable="true"]:hover {
+.mce-content-body [contentEditable=false] [contentEditable=true]:hover {
   outline: 3px solid #b4d7ff;
 }
 
-.mce-content-body [contentEditable="false"][data-mce-selected] {
+.mce-content-body [contentEditable=false][data-mce-selected] {
   cursor: not-allowed;
   outline: 3px solid #b4d7ff;
 }
 
-.mce-content-body.mce-content-readonly [contentEditable="true"]:focus,
-.mce-content-body.mce-content-readonly [contentEditable="true"]:hover {
+.mce-content-body.mce-content-readonly [contentEditable=true]:focus,
+.mce-content-body.mce-content-readonly [contentEditable=true]:hover {
   outline: 0;
 }
 
-.mce-content-body [data-mce-selected="inline-boundary"] {
+.mce-content-body [data-mce-selected=inline-boundary] {
   background-color: #b4d7ff;
 }
 
@@ -612,7 +605,7 @@ pre[class*="language-"] {
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .mce-content-body td[data-mce-selected]::after,
-  .mce-content-body th[data-mce-selected]::after {
+.mce-content-body th[data-mce-selected]::after {
     border-color: rgba(0, 84, 180, 0.7);
   }
 }
@@ -795,49 +788,49 @@ table[style*="border-width: 0px"] th {
   background-image: url(data:image/gif;base64,R0lGODlhDQAKAIABALu7u////yH5BAEAAAEALAAAAAANAAoAAAIXjI8GybEOnmOvUoWznTqeuEjNSCqeGRUAOw==);
 }
 
-.mce-visualblocks:not([dir="rtl"]) address,
-.mce-visualblocks:not([dir="rtl"]) article,
-.mce-visualblocks:not([dir="rtl"]) aside,
-.mce-visualblocks:not([dir="rtl"]) blockquote,
-.mce-visualblocks:not([dir="rtl"]) div:not([data-mce-bogus]),
-.mce-visualblocks:not([dir="rtl"]) dl,
-.mce-visualblocks:not([dir="rtl"]) figcaption,
-.mce-visualblocks:not([dir="rtl"]) figure,
-.mce-visualblocks:not([dir="rtl"]) h1,
-.mce-visualblocks:not([dir="rtl"]) h2,
-.mce-visualblocks:not([dir="rtl"]) h3,
-.mce-visualblocks:not([dir="rtl"]) h4,
-.mce-visualblocks:not([dir="rtl"]) h5,
-.mce-visualblocks:not([dir="rtl"]) h6,
-.mce-visualblocks:not([dir="rtl"]) hgroup,
-.mce-visualblocks:not([dir="rtl"]) ol,
-.mce-visualblocks:not([dir="rtl"]) p,
-.mce-visualblocks:not([dir="rtl"]) pre,
-.mce-visualblocks:not([dir="rtl"]) section,
-.mce-visualblocks:not([dir="rtl"]) ul {
+.mce-visualblocks:not([dir=rtl]) address,
+.mce-visualblocks:not([dir=rtl]) article,
+.mce-visualblocks:not([dir=rtl]) aside,
+.mce-visualblocks:not([dir=rtl]) blockquote,
+.mce-visualblocks:not([dir=rtl]) div:not([data-mce-bogus]),
+.mce-visualblocks:not([dir=rtl]) dl,
+.mce-visualblocks:not([dir=rtl]) figcaption,
+.mce-visualblocks:not([dir=rtl]) figure,
+.mce-visualblocks:not([dir=rtl]) h1,
+.mce-visualblocks:not([dir=rtl]) h2,
+.mce-visualblocks:not([dir=rtl]) h3,
+.mce-visualblocks:not([dir=rtl]) h4,
+.mce-visualblocks:not([dir=rtl]) h5,
+.mce-visualblocks:not([dir=rtl]) h6,
+.mce-visualblocks:not([dir=rtl]) hgroup,
+.mce-visualblocks:not([dir=rtl]) ol,
+.mce-visualblocks:not([dir=rtl]) p,
+.mce-visualblocks:not([dir=rtl]) pre,
+.mce-visualblocks:not([dir=rtl]) section,
+.mce-visualblocks:not([dir=rtl]) ul {
   margin-left: 3px;
 }
 
-.mce-visualblocks[dir="rtl"] address,
-.mce-visualblocks[dir="rtl"] article,
-.mce-visualblocks[dir="rtl"] aside,
-.mce-visualblocks[dir="rtl"] blockquote,
-.mce-visualblocks[dir="rtl"] div:not([data-mce-bogus]),
-.mce-visualblocks[dir="rtl"] dl,
-.mce-visualblocks[dir="rtl"] figcaption,
-.mce-visualblocks[dir="rtl"] figure,
-.mce-visualblocks[dir="rtl"] h1,
-.mce-visualblocks[dir="rtl"] h2,
-.mce-visualblocks[dir="rtl"] h3,
-.mce-visualblocks[dir="rtl"] h4,
-.mce-visualblocks[dir="rtl"] h5,
-.mce-visualblocks[dir="rtl"] h6,
-.mce-visualblocks[dir="rtl"] hgroup,
-.mce-visualblocks[dir="rtl"] ol,
-.mce-visualblocks[dir="rtl"] p,
-.mce-visualblocks[dir="rtl"] pre,
-.mce-visualblocks[dir="rtl"] section,
-.mce-visualblocks[dir="rtl"] ul {
+.mce-visualblocks[dir=rtl] address,
+.mce-visualblocks[dir=rtl] article,
+.mce-visualblocks[dir=rtl] aside,
+.mce-visualblocks[dir=rtl] blockquote,
+.mce-visualblocks[dir=rtl] div:not([data-mce-bogus]),
+.mce-visualblocks[dir=rtl] dl,
+.mce-visualblocks[dir=rtl] figcaption,
+.mce-visualblocks[dir=rtl] figure,
+.mce-visualblocks[dir=rtl] h1,
+.mce-visualblocks[dir=rtl] h2,
+.mce-visualblocks[dir=rtl] h3,
+.mce-visualblocks[dir=rtl] h4,
+.mce-visualblocks[dir=rtl] h5,
+.mce-visualblocks[dir=rtl] h6,
+.mce-visualblocks[dir=rtl] hgroup,
+.mce-visualblocks[dir=rtl] ol,
+.mce-visualblocks[dir=rtl] p,
+.mce-visualblocks[dir=rtl] pre,
+.mce-visualblocks[dir=rtl] section,
+.mce-visualblocks[dir=rtl] ul {
   background-position-x: right;
   margin-right: 3px;
 }
