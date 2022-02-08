@@ -214,6 +214,9 @@
   "MB.WieldAPowerText": "NÄR SG12 eller -t2 TP och inga Krafter i 1 tim.",
   "MB.YouHaveNoFeats": "Du har inga Förmågor",
   "MB.YouHaveNoScrolls": "Du har inga Rullar",
+  "MB.editAllowedScvmClassesMenu": "Allowed classes",
+  "MB.editAllowedScvmClassesMenuHint": "Edit the allowed classes in the character generator.",
+  "MB.editAllowedScvmClassesMenuButtonLabel": "Edit",  
   "MB.AllowedScvmClassesEdit": "Edit allowed classes",
   "MB.AllowedScvmClassesSelect": "Select allowed classes"
 }

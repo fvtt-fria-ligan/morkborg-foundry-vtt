@@ -219,6 +219,9 @@
   "MB.YouAreHit": "You are Hit",
   "MB.YouHaveNoFeats": "You have no Feats",
   "MB.YouHaveNoScrolls": "You have no Scrolls",
+  "MB.editAllowedScvmClassesMenu": "Allowed classes",
+  "MB.editAllowedScvmClassesMenuHint": "Edit the allowed classes in the character generator.",
+  "MB.editAllowedScvmClassesMenuButtonLabel": "Edit",
   "MB.AllowedScvmClassesEdit": "Edit allowed classes",
   "MB.AllowedScvmClassesSelect": "Select allowed classes"
 }

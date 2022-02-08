@@ -217,6 +217,9 @@
   "MB.YouAreHit": "Vous êtes touchés !",
   "MB.YouHaveNoFeats": "Vous n'avez pas de don",
   "MB.YouHaveNoScrolls": "Vous n'avez pas de parchemin",
+  "MB.editAllowedScvmClassesMenu": "Classes permises",
+  "MB.editAllowedScvmClassesMenuHint": "Permets d'éditer les classes permises dans le générateur de personnage.",
+  "MB.editAllowedScvmClassesMenuButtonLabel": "Editer",  
   "MB.AllowedScvmClassesEdit": "Editer les classes permises",
   "MB.AllowedScvmClassesSelect": "Choisir les classes permises"
 }
