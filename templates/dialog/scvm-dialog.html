@@ -5,12 +5,8 @@
       {{#each this.classes}}
       <li>
         <label
-          ><input
-            name="{{this.pack}}"
-            type="checkbox"
-            class="class-checkbox"
-            checked
-          />
+          ><input name="{{this.pack}}" type="checkbox" class="class-checkbox"
+          {{#if this.checked }}checked{{/if}} />
           <div class="class-name">{{this.name}}</div></label
         >
       </li>

@@ -36,6 +36,7 @@
   "MB.CarryingRule": "STR+8 carried items or DR+2 on AGI/STR tests.",
   "MB.CarryingRuleNoPenalty": "STR+8 max carried items.",
   "MB.Cancel": "Cancel",
+  "MB.Ok": "Ok",
   "MB.Class": "Class",
   "MB.ClassAbilities": "Abilities",
   "MB.ContainerAmountIn": "In Container",
@@ -217,5 +218,7 @@
   "MB.WieldAPowerDizzy": "become dizzy for an hour and cannot use Powers during that time",
   "MB.YouAreHit": "You are Hit",
   "MB.YouHaveNoFeats": "You have no Feats",
-  "MB.YouHaveNoScrolls": "You have no Scrolls"
+  "MB.YouHaveNoScrolls": "You have no Scrolls",
+  "MB.AllowedScvmClassesEdit": "Edit allowed classes",
+  "MB.AllowedScvmClassesSelect": "Select allowed classes"
 }

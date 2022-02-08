@@ -31,6 +31,7 @@
   "MB.BrokenSeveredLimb": "Broken or severed limb. Can't act for {rounds} {roundsWord} then become active with {hp} HP.",
   "MB.BrokenYouAreDead": "You are dead.",
   "MB.Cancel": "Avbryt",
+  "MB.Ok": "Ok",
   "MB.CarryWeight": "Vikt",
   "MB.Carrying": "Bärande",
   "MB.CarryingCapacity": "Bärförmåga",
@@ -212,5 +213,7 @@
   "MB.WieldAPowerFumble": "Fummel - Slå Arcane Catastrophe.",
   "MB.WieldAPowerText": "NÄR SG12 eller -t2 TP och inga Krafter i 1 tim.",
   "MB.YouHaveNoFeats": "Du har inga Förmågor",
-  "MB.YouHaveNoScrolls": "Du har inga Rullar"
+  "MB.YouHaveNoScrolls": "Du har inga Rullar",
+  "MB.AllowedScvmClassesEdit": "Edit allowed classes",
+  "MB.AllowedScvmClassesSelect": "Select allowed classes"
 }

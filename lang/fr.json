@@ -35,6 +35,7 @@
   "MB.CarryingCapacity": "Capacité de charge",
   "MB.CarryingRule": "STR+8 carried items or DR+2 on AGI/STR tests.",
   "MB.Cancel": "Annuler",
+  "MB.Ok": "Ok",
   "MB.Class": "Classe",
   "MB.ClassAbilities": "Caractéristiques",
   "MB.ContainerAmountIn": "Dans le container",
@@ -215,5 +216,7 @@
   "MB.WieldAPowerDizzy": "become dizzy for an hour and cannot use Powers during that time",
   "MB.YouAreHit": "Vous êtes touchés !",
   "MB.YouHaveNoFeats": "Vous n'avez pas de don",
-  "MB.YouHaveNoScrolls": "Vous n'avez pas de parchemin"
+  "MB.YouHaveNoScrolls": "Vous n'avez pas de parchemin",
+  "MB.AllowedScvmClassesEdit": "Editer les classes permises",
+  "MB.AllowedScvmClassesSelect": "Choisir les classes permises"
 }

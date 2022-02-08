@@ -35,6 +35,7 @@
   "MB.CarryingCapacity": "Tragkapazität",
   "MB.CarryingRule": "STR+8 tragbare Gegenstände oder DR+2 on AGI/STR Probe.",
   "MB.Cancel": "Abbrechen",
+  "MB.Ok": "Ok",
   "MB.Class": "Klasse",
   "MB.ClassAbilities": "Fähigkeiten",
   "MB.ContainerAmountIn": "Im Gepäck",
@@ -215,5 +216,7 @@
   "MB.WieldAPowerDizzy": "sei benommen und übe keine Macht für eine Stunde aus",
   "MB.YouAreHit": "Du bist getroffen",
   "MB.YouHaveNoFeats": "Du hast keine Taten übrig",
-  "MB.YouHaveNoScrolls": "Du hast keine Schriftrollen"
+  "MB.YouHaveNoScrolls": "Du hast keine Schriftrollen",
+  "MB.AllowedScvmClassesEdit": "Edit allowed classes",
+  "MB.AllowedScvmClassesSelect": "Select allowed classes"
 }
