@@ -1,6 +1,7 @@
-# 1.10.2
+# 1.11.0
 
 - Don't set explicit dim/bright vision range for all characters, and instead use Settings Default Token Configuration.
+- Reload the page after changing theme color or font.
 
 # 1.10.1
 

@@ -36,6 +36,9 @@ export const registerSystemSettings = () => {
       whiteOnBlackPink: "MB.SettingsWhiteOnBlackPink",
       whiteOnPinkWhite: "MB.SettingsWhiteOnPinkWhite",
     },
+    onChange: () => {
+      location.reload();
+    },
   });
 
   /** UI Font scheme */
@@ -49,6 +52,9 @@ export const registerSystemSettings = () => {
     choices: {
       blackletter: "MB.SettingsBlackletter",
       legible: "MB.SettingsLegible",
+    },
+    onChange: () => {
+      location.reload();
     },
   });
 };
