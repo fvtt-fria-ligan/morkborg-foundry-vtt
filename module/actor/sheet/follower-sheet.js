@@ -18,8 +18,7 @@ export class MBActorSheetFollower extends MBActorSheet {
           initial: "description",
         },
       ],
-      // is dragDrop needed?
-      // dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
+      dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }],
     });
   }
 
@@ -42,60 +41,25 @@ export class MBActorSheetFollower extends MBActorSheet {
    * @return {undefined}
    */
   _prepareFollowerItems(sheetData) {
-    // TODO: refactor / DRY with character-sheet.js. Maybe move into MBActor for better reuse?
-    const equipment = [];
-    let equippedArmor = null;
-    let equippedShield = null;
-    const equippedWeapons = [];
-    const containers = [];
+    const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
 
-    for (const i of sheetData.items) {
-      const item = i.data;
-      i.img = i.img || CONST.DEFAULT_TOKEN;
+    sheetData.data.equipment = sheetData.items
+      .filter((item) => CONFIG.MB.itemEquipmentTypes.includes(item.type))
+      .filter((item) => !item.data.hasContainer)
+      .sort(byName);
 
-      item.equippable =
-        i.type === "armor" || i.type === "shield" || i.type === "weapon";
-      if (item.equippable) {
-        const isEquipped = getProperty(item, "equipped");
-        item.toggleClass = isEquipped ? "equipped" : "";
-        item.toggleTitle = game.i18n.localize(
-          isEquipped ? "MB.ItemEquipped" : "MB.ItemUnequipped"
-        );
-      }
+    sheetData.data.equippedArmor = sheetData.items
+      .filter((item) => item.type === CONFIG.MB.itemTypes.armor)
+      .find((item) => item.data.equipped);
 
-      if (CONFIG.MB.itemEquipmentTypes.includes(i.type)) {
-        equipment.push(i);
-      }
-      if (i.type === CONFIG.MB.itemTypes.armor) {
-        item.damageReductionDie =
-          CONFIG.MB.armorTiers[item.tier.value].damageReductionDie;
-        if (item.equipped) {
-          // only one armor may be equipped at a time
-          equippedArmor = i;
-        }
-      } else if (i.type === CONFIG.MB.itemTypes.container) {
-        containers.push(i);
-      } else if (i.type === CONFIG.MB.itemTypes.shield) {
-        if (item.equipped) {
-          // only one shield may be equipped at a time
-          equippedShield = i;
-        }
-      } else if (i.type === CONFIG.MB.itemTypes.weapon) {
-        if (item.equipped) {
-          equippedWeapons.push(i);
-        }
-      }
-    }
-    equipment.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0));
-    equippedWeapons.sort((a, b) =>
-      a.name > b.name ? 1 : b.name > a.name ? -1 : 0
-    );
+    sheetData.data.equippedShield = sheetData.items
+      .filter((item) => item.type === CONFIG.MB.itemTypes.shield)
+      .find((item) => item.data.equipped);
 
-    // Assign to new properties
-    sheetData.data.equipment = equipment;
-    sheetData.data.equippedArmor = equippedArmor;
-    sheetData.data.equippedShield = equippedShield;
-    sheetData.data.equippedWeapons = equippedWeapons;
+    sheetData.data.equippedWeapons = sheetData.items
+      .filter((item) => item.type === CONFIG.MB.itemTypes.weapon)
+      .filter((item) => item.data.equipped)
+      .sort(byName);
   }
 
   /** @override */

@@ -167,8 +167,8 @@
             </div>
             <div class="item-controls">
               <a
-                class="item-control item-toggle {{item.data.toggleClass}}"
-                title="{{item.data.toggleTitle}}"
+                class="item-control item-toggle item-toggle-equipped {{ifPrint item.data.equipped 'equipped'}}"
+                title="{{ifPrintElse item.data.equipped (localize 'MB.ItemEquipped') (localize 'MB.ItemUnequipped')}}"
                 ><i class="fas fa-shield-alt"></i
               ></a>
               <a class="item-control item-edit" title="Edit Item"
@@ -193,7 +193,10 @@
         </li>
         <ol class="item-list armor-list">
           {{#if data.data.equippedArmor}}
-          <li class="item flexrow" data-item-id="{{data.equippedArmor._id}}">
+          <li
+            class="item flexrow"
+            data-item-id="{{data.data.equippedArmor._id}}"
+          >
             <img
               src="{{data.data.equippedArmor.img}}"
               title="{{data.data.equippedArmor.name}}"
@@ -256,8 +259,8 @@
             </div>
             <div class="item-controls">
               <a
-                class="item-control item-toggle {{data.data.equippedArmor.data.toggleClass}}"
-                title="{{data.data.equippedArmor.data.toggleTitle}}"
+                class="item-control item-toggle item-toggle-equipped {{ifPrint data.data.equippedArmor.data.equipped 'equipped'}}"
+                title="{{ifPrintElse data.data.equippedArmor.data.equipped (localize 'MB.ItemEquipped') (localize 'MB.ItemUnequipped')}}"
                 ><i class="fas fa-shield-alt"></i
               ></a>
               <a class="item-control item-edit" title="Edit Item"
@@ -268,7 +271,7 @@
               ></a>
             </div>
           </li>
-          {{/if}} {{#if data.equippedShield}}
+          {{/if}} {{#if data.data.equippedShield}}
           <li
             class="item flexrow"
             data-item-id="{{data.data.equippedShield._id}}"
@@ -287,8 +290,8 @@
             </div>
             <div class="item-controls">
               <a
-                class="item-control item-toggle {{data.data.equippedShield.data.toggleClass}}"
-                title="{{data.data.equippedShield.data.toggleTitle}}"
+                class="item-control item-toggle item-toggle-equipped {{ifPrint data.data.equippedShield.data.equipped 'equipped'}}"
+                title="{{ifPrintElse data.data.equippedShield.data.equipped (localize 'MB.ItemEquipped') (localize 'MB.ItemUnequipped')}}"
                 ><i class="fas fa-shield-alt"></i
               ></a>
               <a class="item-control item-edit" title="Edit Item"
@@ -338,58 +341,8 @@
         </div>
       </div>
       <ol class="items-list equipment-list">
-        <li class="items-header flexrow">
-          <h3 class="item-name flexrow">{{localize "MB.Equipment"}}</h3>
-          <div class="item-controls flexrow">
-            <a
-              class="item-control item-create"
-              title='{{localize "MB.ItemCreate"}}'
-            >
-              <i class="fas fa-plus"></i> {{localize "MB.Add"}}
-            </a>
-          </div>
-        </li>
-        <ol class="item-list">
-          {{#each data.data.equipment as |item id|}}
-          <li class="item flexrow" data-item-id="{{item._id}}">
-            <img
-              src="{{item.img}}"
-              title="{{item.name}}"
-              width="24"
-              height="24"
-            />
-            <h4 class="item-name item-edit rollable">
-              {{item.name}} {{#ifEq item.type 'container'}} ({{localize
-              'MB.ContainerHolds'}} {{item.data.capacity}}) {{/ifEq}} {{#ifGt
-              item.data.quantity 1}} ({{item.data.quantity}}) {{/ifGt}}
-            </h4>
-            <div class="item-buttons"></div>
-            <div class="item-controls">
-              {{#ifEq item.type 'misc'}}
-              <a class="item-control item-qty-plus" title="Add Quantity"
-                ><i class="fas fa-plus"></i
-              ></a>
-              &nbsp;
-              <a class="item-control item-qty-minus" title="Subtract Quantity"
-                ><i class="fas fa-minus"></i
-              ></a>
-              &nbsp; {{/ifEq}} {{#if item.data.equippable}}
-              <a
-                class="item-control item-toggle {{item.data.toggleClass}}"
-                title="{{item.data.toggleTitle}}"
-                ><i class="fas fa-shield-alt"></i
-              ></a>
-              {{/if}}
-              <a class="item-control item-edit" title="Edit Item"
-                ><i class="fas fa-edit"></i
-              ></a>
-              <a class="item-control item-delete" title="Delete Item"
-                ><i class="fas fa-trash"></i
-              ></a>
-            </div>
-          </li>
-          {{/each}}
-        </ol>
+        {{>
+        "systems/morkborg/templates/actor/common/actor-equipment-list.html"}}
       </ol>
     </div>
   </section>

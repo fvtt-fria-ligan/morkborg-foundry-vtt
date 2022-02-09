@@ -18,8 +18,7 @@ export class MBActorSheetContainer extends MBActorSheet {
           initial: "contents",
         },
       ],
-      // is dragDrop needed?
-      // dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
+      dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }],
     });
   }
 
@@ -42,31 +41,11 @@ export class MBActorSheetContainer extends MBActorSheet {
    * @return {undefined}
    */
   _prepareContainerItems(sheetData) {
-    const equipment = [];
-    for (const i of sheetData.items) {
-      i.img = i.img || CONST.DEFAULT_TOKEN;
-      if (CONFIG.MB.itemEquipmentTypes.includes(i.type)) {
-        equipment.push(i);
-      }
-    }
-    equipment.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0));
-    sheetData.data.equipment = equipment;
-    sheetData.data.containerSpace = this._containerSpace(sheetData);
-  }
+    const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
 
-  _containerSpace(sheetData) {
-    let total = 0;
-    for (const item of sheetData.items) {
-      if (
-        CONFIG.MB.itemEquipmentTypes.includes(item.type) &&
-        item.data.containerSpace
-      ) {
-        const roundedSpace = Math.ceil(
-          item.data.containerSpace * item.data.quantity
-        );
-        total += roundedSpace;
-      }
-    }
-    return total;
+    sheetData.data.equipment = sheetData.items
+      .filter((item) => CONFIG.MB.itemEquipmentTypes.includes(item.type))
+      .filter((item) => !item.data.hasContainer)
+      .sort(byName);
   }
 }

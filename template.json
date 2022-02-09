@@ -87,6 +87,7 @@
         "description": "",
         "carryWeight": 1,
         "equipped": false,
+        "carried": true,
         "price": 0,
         "quantity": 1
       }

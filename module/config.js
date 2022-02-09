@@ -175,6 +175,22 @@ MB.itemEquipmentTypes = [
   MB.itemTypes.weapon,
 ];
 
+MB.allowedContainerItemTypes = [
+  MB.itemTypes.armor,
+  MB.itemTypes.misc,
+  MB.itemTypes.scroll,
+  MB.itemTypes.shield,
+  MB.itemTypes.weapon,
+];
+
+MB.equippableItemTypes = [
+  MB.itemTypes.armor,
+  MB.itemTypes.shield,
+  MB.itemTypes.weapon,
+];
+
+MB.droppableItemTypes = [MB.itemTypes.container];
+
 MB.scrollTypes = {
   sacred: "MB.ScrollTypeSacred",
   tablet: "MB.ScrollTypeTablet",
