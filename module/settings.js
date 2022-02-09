@@ -61,10 +61,10 @@ export const registerSystemSettings = () => {
   });
 
   /** The allowed classes menu */
-  game.settings.registerMenu("morkborg", "editAllowedScvmClassesMenu", {
-    name: "MB.editAllowedScvmClassesMenu",
-    hint: "MB.editAllowedScvmClassesMenuHint",
-    label: "MB.editAllowedScvmClassesMenuButtonLabel",
+  game.settings.registerMenu("morkborg", "EditAllowedScvmClassesMenu", {
+    name: "MB.EditAllowedScvmClassesMenu",
+    hint: "MB.EditAllowedScvmClassesMenuHint",
+    label: "MB.EditAllowedScvmClassesMenuButtonLabel",
     icon: "fas fa-cog",
     type: AllowedScvmClassesDialog,
     restricted: true,
