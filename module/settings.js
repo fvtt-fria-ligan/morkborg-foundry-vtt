@@ -1,3 +1,5 @@
+import { AllowedScvmClassesDialog } from "./settings/allowed-scvm-classes-dialog.js";
+
 export const registerSystemSettings = () => {
   /**
    * Track the system version upon which point a migration was last applied.
@@ -57,8 +59,66 @@ export const registerSystemSettings = () => {
       location.reload();
     },
   });
+
+  /** The allowed classes menu */
+  game.settings.registerMenu("morkborg", "EditAllowedScvmClassesMenu", {
+    name: "MB.EditAllowedScvmClassesMenu",
+    hint: "MB.EditAllowedScvmClassesMenuHint",
+    label: "MB.EditAllowedScvmClassesMenuButtonLabel",
+    icon: "fas fa-cog",
+    type: AllowedScvmClassesDialog,
+    restricted: true,
+  });
+
+  /** The allowed classes menu for scvmfactory */
+  game.settings.register("morkborg", "allowedScvmClasses", {
+    name: "",
+    default: {},
+    type: Object,
+    scope: "world",
+    config: false,
+  });
+
+  /** The client scvmfactory selected classes  */
+  game.settings.register("morkborg", "lastScvmfactorySelection", {
+    name: "",
+    default: [],
+    type: Array,
+    scope: "client",
+    config: false,
+  });
 };
 
 export const trackCarryingCapacity = () => {
   return game.settings.get("morkborg", "trackCarryingCapacity");
+};
+
+export const isScvmClassAllowed = (classPack) => {
+  const allowedScvmClasses = game.settings.get(
+    "morkborg",
+    "allowedScvmClasses"
+  );
+  return typeof allowedScvmClasses[classPack] === "undefined"
+    ? true
+    : !!allowedScvmClasses[classPack];
+};
+
+export const setAllowedScvmClasses = (allowedScvmClasses) => {
+  return game.settings.set(
+    "morkborg",
+    "allowedScvmClasses",
+    allowedScvmClasses
+  );
+};
+
+export const getLastScvmfactorySelection = () => {
+  return game.settings.get("morkborg", "lastScvmfactorySelection");
+};
+
+export const setLastScvmfactorySelection = (lastScvmfactorySelection) => {
+  return game.settings.set(
+    "morkborg",
+    "lastScvmfactorySelection",
+    lastScvmfactorySelection
+  );
 };

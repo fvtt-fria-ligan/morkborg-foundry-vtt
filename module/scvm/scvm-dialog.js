@@ -1,4 +1,9 @@
 import {
+  isScvmClassAllowed,
+  setLastScvmfactorySelection,
+  getLastScvmfactorySelection,
+} from "../settings.js";
+import {
   classItemFromPack,
   createScvm,
   findClassPacks,
@@ -10,12 +15,21 @@ export default class ScvmDialog extends Application {
     super(options);
     this.actor = actor;
     const classPacks = findClassPacks();
-    this.classes = classPacks.map((p) => {
-      return {
-        name: p.split("class-")[1].replace(/-/g, " "),
-        pack: p,
-      };
-    });
+    const lastScvmfactorySelection = getLastScvmfactorySelection();
+    this.classes = classPacks
+      .map((p) => {
+        return {
+          name: p.split("class-")[1].replace(/-/g, " "),
+          pack: p,
+          checked:
+            lastScvmfactorySelection.length > 0
+              ? lastScvmfactorySelection.includes(p)
+              : true,
+        };
+      })
+      .filter((c) => {
+        return isScvmClassAllowed(c.pack);
+      });
     this.classes.sort((a, b) => (a.name > b.name ? 1 : -1));
   }
 
@@ -79,7 +93,7 @@ export default class ScvmDialog extends Application {
       // nothing selected, so bail
       return;
     }
-
+    setLastScvmfactorySelection(selected);
     const packName = selected[Math.floor(Math.random() * selected.length)];
     const clazz = await classItemFromPack(packName);
     if (!clazz) {
