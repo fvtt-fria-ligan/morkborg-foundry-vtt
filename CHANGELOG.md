@@ -1,3 +1,7 @@
+# 1.12.1
+
+- Include missing commit.
+
 # 1.12.0
 
 - Thanks to @maqloner for implementing several new features and general code cleanup.
