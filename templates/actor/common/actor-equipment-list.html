@@ -54,6 +54,10 @@
 
   {{#ifEq item.type 'container'}} {{#each item.data.itemsData as |item|}} {{>
   item-row item=item class="item-container-item"
-  disableCarryAndEquipButton=true}} {{/each}} {{/ifEq}} {{/inline}} {{#each
-  data.data.equipment as |item id|}} {{> item-row item=item}} {{/each}}
+  disableCarryAndEquipButton=true}}{{else}}
+  <li class="item empty-container" data-item-id="{{item._id}}">
+    <div class="rule-text">{{localize 'MB.ContainerEmptyHelpText'}}</div>
+  </li>
+  {{/each}} {{/ifEq}} {{/inline}} {{#each data.data.equipment as |item id|}} {{>
+  item-row item=item}}{{/each}}
 </ol>

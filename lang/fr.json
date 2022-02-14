@@ -40,6 +40,7 @@
   "MB.CarryingRuleNoPenalty": "STR+8 max carried items.",
   "MB.Class": "Classe",
   "MB.ClassAbilities": "Caractéristiques",
+  "MB.ContainerEmptyHelpText": "Faites glisser des objets dans ce conteneur.",
   "MB.ContainerHolding": "Holding",
   "MB.ContainerSpace": "Place dans le container",
   "MB.CreateNewItem": "Créer un nouvel objet",

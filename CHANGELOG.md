@@ -1,3 +1,10 @@
+# 1.12.0
+
+- Thanks to @maqloner for implementing several new features and general code cleanup.
+- Put stuff in backpacks! Added rag-and-drop container inventory.
+- Added system setting to limit what classes are visible in Scvmfactory generator dialog.
+- Scvmfactory dialog now remembers most recent checkbox selections.
+
 # 1.11.0
 
 - Don't set explicit dim/bright vision range for all characters, and instead use Settings Default Token Configuration.

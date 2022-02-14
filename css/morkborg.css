@@ -796,6 +796,9 @@
 .morkborg .item-list .unequipped {
   color: gray;
 }
+.morkborg .item-list .empty-container {
+  text-align: center;
+}
 
 .morkborg.sheet.actor.creature .sheet-header {
   display: flex;
