@@ -1,3 +1,4 @@
+css/
 node_modules
+*.min.css
 *.min.js
-css/morkborg.css
