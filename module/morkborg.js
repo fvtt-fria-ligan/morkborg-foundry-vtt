@@ -41,6 +41,8 @@ Hooks.once("init", async function () {
     rollItemMacro,
   };
 
+  configureHandlebar();
+
   // Define custom Entity classes
   CONFIG.Actor.documentClass = MBActor;
   CONFIG.Combat.documentClass = MBCombat;
@@ -158,24 +160,6 @@ const applyFontsAndColors = () => {
   r.style.setProperty("--item-font", fontScheme.item);
 };
 
-Hooks.on("dropActorSheetData", async (actor, actorSheet, dropped) => {
-  // Handle container actor destructive drag-drop
-  if (dropped.type === "Item" && dropped.data && dropped.data._id) {
-    const sourceActor = dropped.tokenId
-      ? game.actors.tokens[dropped.tokenId]
-      : game.actors.get(dropped.actorId);
-    if (
-      sourceActor &&
-      actor.id !== sourceActor.id &&
-      (sourceActor.data.type === "container" || actor.data.type === "container")
-    ) {
-      // either the source or target actor is a container,
-      // so delete the item from the source
-      await sourceActor.deleteEmbeddedDocuments("Item", [dropped.data._id]);
-    }
-  }
-});
-
 Hooks.on("renderActorDirectory", (app, html) => {
   if (game.user.can("ACTOR_CREATE")) {
     // only show the Create Scvm button to users who can create actors
@@ -211,42 +195,55 @@ Hooks.on("renderCombatTracker", (tracker, html) => {
   });
 });
 
-// Handlebars helpers
-// TODO: registering a helper named "eq" breaks filepicker
-Handlebars.registerHelper("ifEq", function (arg1, arg2, options) {
-  // TODO: verify whether we want == or === for this equality check
-  return arg1 == arg2 ? options.fn(this) : options.inverse(this);
-});
-Handlebars.registerHelper("ifGe", function (arg1, arg2, options) {
-  return arg1 >= arg2 ? options.fn(this) : options.inverse(this);
-});
-Handlebars.registerHelper("ifGt", function (arg1, arg2, options) {
-  return arg1 > arg2 ? options.fn(this) : options.inverse(this);
-});
-Handlebars.registerHelper("ifLe", function (arg1, arg2, options) {
-  return arg1 <= arg2 ? options.fn(this) : options.inverse(this);
-});
-Handlebars.registerHelper("ifLt", function (arg1, arg2, options) {
-  return arg1 < arg2 ? options.fn(this) : options.inverse(this);
-});
-Handlebars.registerHelper("ifNe", function (arg1, arg2, options) {
-  // TODO: verify whether we want == or === for this equality check
-  return arg1 != arg2 ? options.fn(this) : options.inverse(this);
-});
-/**
- * Formats a Roll as either the total or x + y + z = total if the roll has multiple terms.
- */
-Handlebars.registerHelper("xtotal", (roll) => {
-  // collapse addition of negatives into just subtractions
-  // e.g., 15 +  - 1 => 15 - 1
-  // Also: apparently roll.result uses 2 spaces as separators?
-  // We replace both 2- and 1-space varieties
-  const result = roll.result.replace("+  -", "-").replace("+ -", "-");
+const configureHandlebar = () => {
+  // Handlebars helpers
+  // TODO: registering a helper named "eq" breaks filepicker
+  Handlebars.registerHelper("ifEq", function (arg1, arg2, options) {
+    // TODO: verify whether we want == or === for this equality check
+    return arg1 == arg2 ? options.fn(this) : options.inverse(this);
+  });
+  Handlebars.registerHelper("ifGe", function (arg1, arg2, options) {
+    return arg1 >= arg2 ? options.fn(this) : options.inverse(this);
+  });
+  Handlebars.registerHelper("ifGt", function (arg1, arg2, options) {
+    return arg1 > arg2 ? options.fn(this) : options.inverse(this);
+  });
+  Handlebars.registerHelper("ifLe", function (arg1, arg2, options) {
+    return arg1 <= arg2 ? options.fn(this) : options.inverse(this);
+  });
+  Handlebars.registerHelper("ifLt", function (arg1, arg2, options) {
+    return arg1 < arg2 ? options.fn(this) : options.inverse(this);
+  });
+  Handlebars.registerHelper("ifNe", function (arg1, arg2, options) {
+    // TODO: verify whether we want == or === for this equality check
+    return arg1 != arg2 ? options.fn(this) : options.inverse(this);
+  });
+  Handlebars.registerHelper("ifPrint", function (cond, v1) {
+    return cond ? v1 : "";
+  });
+  Handlebars.registerHelper("ifPrintElse", function (cond, v1, v2) {
+    return cond ? v1 : v2;
+  });
 
-  // roll.result is a string of terms. E.g., "16" or "1 + 15".
-  if (result !== roll.total.toString()) {
-    return `${result} = ${roll.total}`;
-  } else {
-    return result;
-  }
-});
+  /**
+   * Formats a Roll as either the total or x + y + z = total if the roll has multiple terms.
+   */
+  Handlebars.registerHelper("xtotal", (roll) => {
+    // collapse addition of negatives into just subtractions
+    // e.g., 15 +  - 1 => 15 - 1
+    // Also: apparently roll.result uses 2 spaces as separators?
+    // We replace both 2- and 1-space varieties
+    const result = roll.result.replace("+  -", "-").replace("+ -", "-");
+
+    // roll.result is a string of terms. E.g., "16" or "1 + 15".
+    if (result !== roll.total.toString()) {
+      return `${result} = ${roll.total}`;
+    } else {
+      return result;
+    }
+  });
+
+  loadTemplates([
+    "systems/morkborg/templates/actor/common/actor-equipment-list.html",
+  ]);
+};

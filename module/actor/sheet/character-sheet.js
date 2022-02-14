@@ -54,84 +54,36 @@ export class MBActorSheetCharacter extends MBActorSheet {
    */
   _prepareCharacterItems(sheetData) {
     const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
+
     sheetData.data.feats = sheetData.items
       .filter((item) => item.type === CONFIG.MB.itemTypes.feat)
       .sort(byName);
-    sheetData.data.class = sheetData.items
-      .filter((item) => item.type === CONFIG.MB.itemTypes.class)
-      .pop();
 
-    // TODO: make better use of filters below
-    const equipment = [];
-    let equippedArmor = null;
-    let equippedShield = null;
-    const equippedWeapons = [];
-    // TODO: should we just create a hash of itemType => items?
-    const scrolls = [];
-    const containers = [];
-
-    for (const i of sheetData.items) {
-      const item = i.data;
-      i.img = i.img || CONST.DEFAULT_TOKEN;
-
-      item.equippable =
-        i.type === CONFIG.MB.itemTypes.armor ||
-        i.type === CONFIG.MB.itemTypes.shield ||
-        i.type === CONFIG.MB.itemTypes.weapon;
-      if (item.equippable) {
-        const isEquipped = getProperty(item, "equipped");
-        item.toggleClass = isEquipped ? "equipped" : "";
-        item.toggleTitle = game.i18n.localize(
-          isEquipped ? "MB.ItemEquipped" : "MB.ItemUnequipped"
-        );
-      }
-
-      if (CONFIG.MB.itemEquipmentTypes.includes(i.type)) {
-        equipment.push(i);
-      }
-      if (i.type === CONFIG.MB.itemTypes.armor) {
-        item.damageReductionDie =
-          CONFIG.MB.armorTiers[item.tier.value].damageReductionDie;
-        if (item.equipped) {
-          // only one armor may be equipped at a time
-          equippedArmor = i;
-        }
-      } else if (i.type === CONFIG.MB.itemTypes.container) {
-        containers.push(i);
-      } else if (i.type === CONFIG.MB.itemTypes.scroll) {
-        scrolls.push(i);
-      } else if (i.type === CONFIG.MB.itemTypes.shield) {
-        if (item.equipped) {
-          // only one shield may be equipped at a time
-          equippedShield = i;
-        }
-      } else if (i.type === CONFIG.MB.itemTypes.weapon) {
-        if (item.equipped) {
-          equippedWeapons.push(i);
-        }
-      }
-    }
-    // sort alphabetically
-    equipment.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0));
-    equippedWeapons.sort((a, b) =>
-      a.name > b.name ? 1 : b.name > a.name ? -1 : 0
+    sheetData.data.class = sheetData.items.find(
+      (item) => item.type === CONFIG.MB.itemTypes.class
     );
 
-    // Assign to new properties
-    sheetData.data.equipment = equipment;
-    sheetData.data.equippedArmor = equippedArmor;
-    sheetData.data.equippedShield = equippedShield;
-    sheetData.data.equippedWeapons = equippedWeapons;
-    sheetData.data.scrolls = scrolls;
+    sheetData.data.scrolls = sheetData.items
+      .filter((item) => item.type === CONFIG.MB.itemTypes.scroll)
+      .sort(byName);
 
-    sheetData.data.containerSpace = this.actor.containerSpace();
-    sheetData.data.containerCapacity = this.actor.containerCapacity();
-    // TODO: rename to carryingWeight?
-    sheetData.data.carryingCount = this.actor.carryingWeight();
-    sheetData.data.carryingCapacity = this.actor.normalCarryingCapacity();
-    const isEncumbered = this.actor.isEncumbered();
-    sheetData.data.encumbered = isEncumbered;
-    sheetData.data.encumberedClass = isEncumbered ? "encumbered" : "";
+    sheetData.data.equipment = sheetData.items
+      .filter((item) => CONFIG.MB.itemEquipmentTypes.includes(item.type))
+      .filter((item) => !item.data.hasContainer)
+      .sort(byName);
+
+    sheetData.data.equippedArmor = sheetData.items
+      .filter((item) => item.type === CONFIG.MB.itemTypes.armor)
+      .find((item) => item.data.equipped);
+
+    sheetData.data.equippedShield = sheetData.items
+      .filter((item) => item.type === CONFIG.MB.itemTypes.shield)
+      .find((item) => item.data.equipped);
+
+    sheetData.data.equippedWeapons = sheetData.items
+      .filter((item) => item.type === CONFIG.MB.itemTypes.weapon)
+      .filter((item) => item.data.equipped)
+      .sort(byName);
   }
 
   /** @override */

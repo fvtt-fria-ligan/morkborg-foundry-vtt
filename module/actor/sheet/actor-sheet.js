@@ -29,16 +29,17 @@ export default class MBActorSheet extends ActorSheet {
     });
 
     // Delete Inventory Item
-    html.find(".item-delete").click((ev) => {
-      const li = $(ev.currentTarget).parents(".item");
-      this.actor.deleteEmbeddedDocuments("Item", [li.data("itemId")]);
-      li.slideUp(200, () => this.render(false));
-    });
+    html.find(".item-delete").click(this._onItemDelete.bind(this));
 
     // Additional item/inventory buttons
     html.find(".item-qty-plus").click(this._onItemAddQuantity.bind(this));
     html.find(".item-qty-minus").click(this._onItemSubtractQuantity.bind(this));
-    html.find(".item-toggle").click(this._onToggleItem.bind(this));
+    html
+      .find(".item-toggle-equipped")
+      .click(this._onToggleEquippedItem.bind(this));
+    html
+      .find(".item-toggle-carried")
+      .click(this._onToggleCarriedItem.bind(this));
 
     // Violence-related buttons
     html
@@ -84,6 +85,30 @@ export default class MBActorSheet extends ActorSheet {
   }
 
   /**
+   * Handle the deletion of item
+   */
+  async _onItemDelete(event) {
+    event.preventDefault();
+    const anchor = $(event.currentTarget);
+    const li = anchor.parents(".item");
+    const itemId = li.data("itemId");
+    const item = this.actor.items.get(itemId);
+    if (item.isContainer && item.hasItems) {
+      Dialog.confirm({
+        title: game.i18n.localize("MB.ItemDelete"),
+        content: "<p>" + game.i18n.localize("MB.ItemDeleteMessage") + "</p>",
+        yes: async () => {
+          await this.actor.deleteEmbeddedDocuments("Item", [item.id]);
+        },
+        defaultYes: false,
+      });
+    } else {
+      await this.actor.deleteEmbeddedDocuments("Item", [item.id]);
+      li.slideUp(200, () => this.render(false));
+    }
+  }
+
+  /**
    * Handle adding quantity of an Owned Item within the Actor
    */
   async _onItemAddQuantity(event) {
@@ -115,34 +140,42 @@ export default class MBActorSheet extends ActorSheet {
   }
 
   /**
-   * Handle toggling the state of an Owned Item within the Actor
+   * Handle toggling the equipped state of an Owned Item within the Actor
    *
    * @param {Event} event   The triggering click event
    * @private
    */
-  async _onToggleItem(event) {
+  async _onToggleEquippedItem(event) {
     event.preventDefault();
     const anchor = $(event.currentTarget);
     const li = anchor.parents(".item");
     const itemId = li.data("itemId");
     const item = this.actor.items.get(itemId);
-    const attr = "data.equipped";
-    const currEquipped = getProperty(item.data, attr);
-    if (!currEquipped) {
-      // we're equipping something
-      // if this is armor or shield, unequip any other equipped armor/shield
-      if (item.type === "armor" || item.type === "shield") {
-        for (const otherItem of this.actor.items) {
-          if (otherItem.type === item.type && otherItem.id != item.id) {
-            const otherEquipped = getProperty(otherItem.data, attr);
-            if (otherEquipped) {
-              await otherItem.update({ [attr]: false });
-            }
-          }
-        }
-      }
+
+    if (item.equipped) {
+      await this.actor.unequipItem(item);
+    } else {
+      await this.actor.equipItem(item);
     }
-    return item.update({ [attr]: !getProperty(item.data, attr) });
+  }
+
+  /**
+   * Handle toggling the carried state of an Owned Item within the Actor
+   *
+   * @param {Event} event   The triggering click event
+   * @private
+   */
+  async _onToggleCarriedItem(event) {
+    event.preventDefault();
+    const anchor = $(event.currentTarget);
+    const li = anchor.parents(".item");
+    const itemId = li.data("itemId");
+    const item = this.actor.items.get(itemId);
+    if (item.carried) {
+      await item.drop();
+    } else {
+      await item.carry();
+    }
   }
 
   /**
@@ -226,6 +259,101 @@ export default class MBActorSheet extends ActorSheet {
         const temp = event.currentTarget.dataset.mod;
         return item.update({ [temp]: event.currentTarget.value }, {});
       }
+    }
+  }
+
+  /** @override */
+  async _onDropItem(event, itemData) {
+    const item = ((await super._onDropItem(event, itemData)) || []).pop();
+    if (!item) return;
+
+    const target = this._findDropTargetItem(event);
+    const originalActor = game.actors.get(itemData.actorId);
+    const originalItem = originalActor
+      ? originalActor.items.get(itemData.data._id)
+      : null;
+    const isContainer = originalItem && originalItem.isContainer;
+
+    await this._cleanDroppedItem(item);
+
+    if (isContainer) {
+      item.clearItems();
+      const newItems = await this.actor.createEmbeddedDocuments(
+        "Item",
+        originalItem.itemsData
+      );
+      await this._addItemsToItemContainer(newItems, item);
+    }
+
+    if (originalItem) {
+      await originalActor.deleteEmbeddedDocuments("Item", [originalItem.id]);
+    }
+
+    if (target) {
+      await this._handleDropOnItemContainer(item, target);
+    }
+  }
+
+  /** @override */
+  async _onSortItem(event, itemData) {
+    const item = this.actor.items.get(itemData._id);
+    const target = this._findDropTargetItem(event);
+    if (target) {
+      await this._handleDropOnItemContainer(item, target);
+    } else {
+      await this._removeItemFromItemContainer(item);
+    }
+    await super._onSortItem(event, itemData);
+  }
+
+  _findDropTargetItem(event) {
+    const dropIntoItem = $(event.srcElement).closest(".item");
+    return dropIntoItem.length > 0
+      ? this.actor.items.get(dropIntoItem.attr("data-item-id"))
+      : null;
+  }
+
+  async _cleanDroppedItem(item) {
+    if (item.equipped) {
+      await item.unequip();
+    }
+    if (!item.carried) {
+      await item.carry();
+    }
+  }
+
+  async _handleDropOnItemContainer(item, target) {
+    if (item.isContainerizable) {
+      if (target.isContainer) {
+        // dropping into a container
+        await this._addItemsToItemContainer([item], target);
+      } else if (target.hasContainer) {
+        // dropping into an item in a container
+        await this._addItemsToItemContainer([item], target.container);
+      } else {
+        // dropping into a normal item
+        await this._removeItemFromItemContainer(item);
+      }
+    }
+  }
+
+  async _addItemsToItemContainer(items, container) {
+    for (const item of items) {
+      if (item.container && container.id !== item.container.id) {
+        // transfert container
+        await item.container.removeItem(item.id);
+      }
+      if (item.equipped) {
+        // unequip the item
+        await item.unequip();
+      }
+      await container.addItem(item.id);
+    }
+  }
+
+  async _removeItemFromItemContainer(item) {
+    if (item.container) {
+      await item.container.removeItem(item.id);
     }
   }
 }

@@ -102,11 +102,47 @@ export class MBActor extends Actor {
   }
 
   /** @override */
+  prepareDerivedData() {
+    super.prepareDerivedData();
+
+    this.items.forEach((item) => item.prepareActorItemDerivedData(this));
+
+    if (this.type === "character") {
+      this.data.data.carryingWeight = this.carryingWeight();
+      this.data.data.carryingCapacity = this.normalCarryingCapacity();
+      this.data.data.encumbered = this.isEncumbered();
+    }
+
+    if (this.type === "container") {
+      this.data.data.containerSpace = this.containerSpace();
+    }
+  }
+
+  /** @override */
   _onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId) {
     if (documents[0].data.type === CONFIG.MB.itemTypes.class) {
       this._deleteEarlierItems(CONFIG.MB.itemTypes.class);
     }
     super._onCreateEmbeddedDocuments(
+      embeddedName,
+      documents,
+      result,
+      options,
+      userId
+    );
+  }
+
+  _onDeleteEmbeddedDocuments(embeddedName, documents, result, options, userId) {
+    for (const document of documents) {
+      if (document.isContainer) {
+        this.deleteEmbeddedDocuments("Item", document.items);
+      }
+      if (document.hasContainer) {
+        document.container.removeItem(document.id);
+      }
+    }
+
+    super._onDeleteEmbeddedDocuments(
       embeddedName,
       documents,
       result,
@@ -121,11 +157,6 @@ export class MBActor extends Actor {
     const deletions = itemsOfType.map((i) => i.id);
     // not awaiting this async call, just fire it off
     this.deleteEmbeddedDocuments("Item", deletions);
-  }
-
-  /** @override */
-  prepareData() {
-    super.prepareData();
   }
 
   /** @override */
@@ -151,6 +182,25 @@ export class MBActor extends Actor {
     return this._firstEquipped("shield");
   }
 
+  async equipItem(item) {
+    if (
+      [CONFIG.MB.itemTypes.armor, CONFIG.MB.itemTypes.shield].includes(
+        item.type
+      )
+    ) {
+      for (const otherItem of this.items) {
+        if (otherItem.type === item.type) {
+          await otherItem.unequip();
+        }
+      }
+    }
+    await item.equip();
+  }
+
+  async unequipItem(item) {
+    await item.unequip();
+  }
+
   normalCarryingCapacity() {
     return this.data.data.abilities.strength.value + 8;
   }
@@ -160,19 +210,9 @@ export class MBActor extends Actor {
   }
 
   carryingWeight() {
-    let total = 0;
-    for (const item of this.data.items) {
-      if (
-        CONFIG.MB.itemEquipmentTypes.includes(item.data.type) &&
-        item.data.data.carryWeight
-      ) {
-        const roundedWeight = Math.ceil(
-          item.data.data.carryWeight * item.data.data.quantity
-        );
-        total += roundedWeight;
-      }
-    }
-    return total;
+    return this.data.items
+      .filter((item) => item.isEquipment && item.carried && !item.hasContainer)
+      .reduce((weight, item) => weight + item.totalCarryWeight, 0);
   }
 
   isEncumbered() {
@@ -183,31 +223,9 @@ export class MBActor extends Actor {
   }
 
   containerSpace() {
-    let total = 0;
-    for (const item of this.data.items) {
-      if (
-        CONFIG.MB.itemEquipmentTypes.includes(item.type) &&
-        item.data.type !== "container" &&
-        !item.data.data.equipped &&
-        item.data.data.containerSpace
-      ) {
-        const roundedSpace = Math.ceil(
-          item.data.data.containerSpace * item.data.data.quantity
-        );
-        total += roundedSpace;
-      }
-    }
-    return total;
-  }
-
-  containerCapacity() {
-    let total = 0;
-    for (const item of this.data.items) {
-      if (item.data.type === "container" && item.data.data.capacity) {
-        total += item.data.data.capacity;
-      }
-    }
-    return total;
+    return this.data.items
+      .filter((item) => item.isEquipment && !item.hasContainer)
+      .reduce((containerSpace, item) => containerSpace + item.totalSpace, 0);
   }
 
   async _testAbility(ability, abilityKey, abilityAbbrevKey, drModifiers) {

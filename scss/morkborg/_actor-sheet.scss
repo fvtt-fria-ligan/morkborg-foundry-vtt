@@ -58,6 +58,7 @@
       .item-controls .item-toggle {
         color: darkgray;
 
+        &.carried,
         &.equipped {
           color: var(--highlight-background-color);
         }
