@@ -143,7 +143,14 @@ MB.handed = {
   2: "MB.HandedTwo",
 };
 
+MB.ammoTypes = {
+  arrow: "MB.AmmoTypeArrow",
+  bolt: "MB.AmmoTypeBolt",
+  slingstone: "MB.AmmoTypeSlingstone",
+};
+
 MB.itemTypes = {
+  ammo: "ammo",
   armor: "armor",
   class: "class",
   container: "container",
@@ -155,6 +162,7 @@ MB.itemTypes = {
 };
 
 MB.itemTypeKeys = {
+  ammo: "MB.ItemTypeAmmo",
   armor: "MB.ItemTypeArmor",
   class: "MB.ItemTypeClass",
   container: "MB.ItemTypeContainer",
@@ -167,6 +175,7 @@ MB.itemTypeKeys = {
 
 // these Item types are "equipment"
 MB.itemEquipmentTypes = [
+  MB.itemTypes.ammo,
   MB.itemTypes.armor,
   MB.itemTypes.container,
   MB.itemTypes.misc,
@@ -190,6 +199,8 @@ MB.equippableItemTypes = [
 ];
 
 MB.droppableItemTypes = [MB.itemTypes.container];
+
+MB.plusMinusItemTypes = [MB.itemTypes.ammo, MB.itemTypes.misc];
 
 MB.scrollTypes = {
   sacred: "MB.ScrollTypeSacred",

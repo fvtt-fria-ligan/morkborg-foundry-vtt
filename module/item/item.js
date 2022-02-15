@@ -22,6 +22,9 @@ export class MBItem extends Item {
       this.data.data.droppable =
         CONFIG.MB.droppableItemTypes.includes(this.type) &&
         this.data.data.carryWeight !== 0;
+      this.data.data.canPlusMinus = CONFIG.MB.plusMinusItemTypes.includes(
+        this.type
+      );
     } else {
       this.data.data.equippable = false;
       this.data.data.droppable = false;

@@ -466,6 +466,24 @@ export class MBActor extends Actor {
       weaponTypeKey,
     };
     await this._renderAttackRollCard(rollResult);
+    await this._decrementWeaponAmmo(item);
+  }
+
+  async _decrementWeaponAmmo(weapon) {
+    if (weapon.data.data.ammoId) {
+      const ammo = this.items.get(weapon.data.data.ammoId);
+      if (ammo) {
+        const attr = "data.quantity";
+        const currQuantity = getProperty(ammo.data, attr);
+        if (currQuantity > 1) {
+          // decrement quantity by 1
+          await ammo.update({ [attr]: currQuantity - 1 });
+        } else {
+          // quantity is now zero, so delete ammo item
+          await this.deleteEmbeddedDocuments("Item", [ammo.id]);
+        }
+      }
+    }
   }
 
   /**

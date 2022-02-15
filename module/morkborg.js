@@ -245,5 +245,6 @@ const configureHandlebar = () => {
 
   loadTemplates([
     "systems/morkborg/templates/actor/common/actor-equipment-list.html",
+    "systems/morkborg/templates/actor/common/item-row.html",
   ]);
 };

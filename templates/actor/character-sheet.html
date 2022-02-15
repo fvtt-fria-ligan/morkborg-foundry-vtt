@@ -238,6 +238,7 @@
 
     {{!-- Violence Tab --}}
     <div class="tab violence-tab" data-group="primary" data-tab="violence">
+      {{!-- Initiative buttons --}}
       <div class="initiative">
         <span class="roll-initiative"
           >{{localize "MB.Roll"}} {{localize "MB.Initiative"}}:</span
@@ -257,6 +258,8 @@
           {{localize "MB.Individual"}}
         </button>
       </div>
+
+      {{!-- Weapons --}}
       <ol class="items-list inventory-list">
         <li class="items-header flexrow">
           <h3 class="item-name flexrow">
@@ -272,7 +275,27 @@
               width="24"
               height="24"
             />
-            <h4 class="item-name item-edit rollable">{{item.name}}</h4>
+            <div class="weapon-name-col">
+              <h4 class="item-name item-edit rollable">{{item.name}}</h4>
+              {{#ifEq item.data.weaponType "ranged"}}
+              <div class="ammo-select-col">
+                <select
+                  class="ammo-select"
+                  name="selectedAmmo-{{item._id}}"
+                  data-dtype="Number"
+                  data-item-id="{{item._id}}"
+                >
+                  {{#select item.data.ammoId}}
+                  <option value="">{{localize 'MB.ItemTypeAmmo'}}</option>
+                  {{#each ../data.data.ammo as |ammo ammoId|}}
+                  <option value="{{ammo._id}}">
+                    {{ammo.name}} ({{ammo.data.quantity}})
+                  </option>
+                  {{/each}} {{/select}}
+                </select>
+              </div>
+              {{/ifEq}}
+            </div>
             <div class="item-fields">
               <span class="item-field damage-die">{{item.data.damageDie}}</span>
               <span class="item-field weapon-type"
@@ -316,6 +339,8 @@
         </div>
         {{/if}}
         <div class="violence-gutter"></div>
+
+        {{!-- Armor --}}
         <li class="items-header flexrow">
           <h3 class="item-name flexrow">
             {{localize "MB.ItemTypeArmorPlural"}}
@@ -466,14 +491,6 @@
     {{!-- Feats Tab --}}
     <div class="tab specials-tab" data-group="primary" data-tab="feats">
       <ol class="items-list inventory-list">
-        {{!--
-        <li class="items-header flexrow">
-          <h3 class="item-name flexrow">
-            {{localize "MB.ItemTypeFeatPlural"}}
-          </h3>
-          <div class="item-controls flexrow"></div>
-        </li>
-        --}}
         <ol class="item-list">
           {{#each data.data.feats as |item id|}}
           <li class="item flexrow" data-item-id="{{item._id}}">

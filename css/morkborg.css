@@ -327,6 +327,17 @@
 .morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item {
   align-items: center;
 }
+.morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .weapon-name-col {
+  display: flex;
+}
+.morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .weapon-name-col .ammo-select-col {
+  flex: 0 0 100px;
+}
+.morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .weapon-name-col .ammo-select-col select.ammo-select {
+  font-family: var(--item-font);
+  font-size: 10pt;
+  margin-top: 5px;
+}
 .morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item-buttons {
   flex: 0.5;
 }

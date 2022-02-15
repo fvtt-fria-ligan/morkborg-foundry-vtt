@@ -72,6 +72,7 @@
   },
   "Item": {
     "types": [
+      "ammo",
       "armor",
       "class",
       "container",
@@ -92,10 +93,13 @@
         "quantity": 1
       }
     },
+    "ammo": {
+      "templates": ["baseEquipment"]
+    },
     "armor": {
+      "templates": ["baseEquipment"],
       "currentTier": 1,
       "maxTier": 1,
-      "templates": ["baseEquipment"],
       "tier": {
         "min": 0,
         "max": 1,

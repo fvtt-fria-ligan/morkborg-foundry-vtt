@@ -97,6 +97,18 @@
               align-items: center;
             }
 
+            .weapon-name-col {
+              display: flex;
+              .ammo-select-col {
+                flex: 0 0 100px;
+                select.ammo-select {
+                  font-family: var(--item-font);
+                  font-size: 10pt;
+                  margin-top: 5px;
+                }
+              }
+            }
+
             .item-buttons {
               flex: 0.5;
             }

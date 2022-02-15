@@ -60,6 +60,10 @@ export class MBActorSheetFollower extends MBActorSheet {
       .filter((item) => item.type === CONFIG.MB.itemTypes.weapon)
       .filter((item) => item.data.equipped)
       .sort(byName);
+
+    sheetData.data.ammo = sheetData.items
+      .filter((item) => item.type === CONFIG.MB.itemTypes.ammo)
+      .sort(byName);
   }
 
   /** @override */

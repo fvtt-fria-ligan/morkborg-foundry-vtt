@@ -356,6 +356,16 @@ export default class MBActorSheet extends ActorSheet {
       await item.container.removeItem(item.id);
     }
   }
+
+  async _onAmmoSelect(event) {
+    event.preventDefault();
+    const select = $(event.currentTarget);
+    const weapon = this.actor.items.get(select.data("itemId"));
+    //const ammo = this.actor.items.get(select.val());
+    if (weapon) {
+      await weapon.update({ ["data.ammoId"]: select.val() });
+    }
+  }
 }
 
 /**

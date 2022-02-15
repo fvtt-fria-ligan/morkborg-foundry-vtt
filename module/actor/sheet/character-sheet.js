@@ -84,6 +84,10 @@ export class MBActorSheetCharacter extends MBActorSheet {
       .filter((item) => item.type === CONFIG.MB.itemTypes.weapon)
       .filter((item) => item.data.equipped)
       .sort(byName);
+
+    sheetData.data.ammo = sheetData.items
+      .filter((item) => item.type === CONFIG.MB.itemTypes.ammo)
+      .sort(byName);
   }
 
   /** @override */
@@ -119,9 +123,7 @@ export class MBActorSheetCharacter extends MBActorSheet {
     html
       .find(".wield-power-button")
       .on("click", this._onWieldPowerRoll.bind(this));
-    html
-      .find(".powers-per-day-text")
-      .on("click", this._onPowersPerDayRoll.bind(this));
+    html.find("select.ammo-select").on("change", this._onAmmoSelect.bind(this));
   }
 
   _onStrengthRoll(event) {
