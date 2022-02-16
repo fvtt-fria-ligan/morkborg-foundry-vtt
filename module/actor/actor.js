@@ -1,6 +1,6 @@
 import { addShowDicePromise, diceSound, showDice } from "../dice.js";
 import ScvmDialog from "../scvm/scvm-dialog.js";
-import { trackCarryingCapacity } from "../settings.js";
+import { trackAmmo, trackCarryingCapacity } from "../settings.js";
 
 const ATTACK_DIALOG_TEMPLATE =
   "systems/morkborg/templates/dialog/attack-dialog.html";
@@ -470,7 +470,7 @@ export class MBActor extends Actor {
   }
 
   async _decrementWeaponAmmo(weapon) {
-    if (weapon.data.data.usesAmmo && weapon.data.data.ammoId) {
+    if (weapon.data.data.usesAmmo && weapon.data.data.ammoId && trackAmmo()) {
       const ammo = this.items.get(weapon.data.data.ammoId);
       if (ammo) {
         const attr = "data.quantity";
