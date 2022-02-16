@@ -188,6 +188,8 @@
   "MB.SettingsWhiteOnBlackWhite": "White on black (white)",
   "MB.SettingsWhiteOnBlackYellow": "White on black (yellow)",
   "MB.SettingsWhiteOnPinkWhite": "White on pink (white)",
+  "MB.SettingsTrackAmmo": "Track Ammo",
+  "MB.SettingsTrackAmmoHint": "Select and autodecrement ammo for ranged weapons.",
   "MB.SheetClassCharacter": "Default Mork Borg Character Sheet",
   "MB.SheetClassContainer": "Default Mork Borg Container Sheet",
   "MB.SheetClassCreature": "Default Mork Borg Creature Sheet",

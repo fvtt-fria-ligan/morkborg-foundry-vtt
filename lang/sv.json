@@ -184,6 +184,8 @@
   "MB.SettingsFontSchemeHint": "Välja UI fontschema.",
   "MB.SettingsFoundryDefault": "Foundry Standard",
   "MB.SettingsLegible": "Läsbar",
+  "MB.SettingsTrackAmmo": "Track Ammo",
+  "MB.SettingsTrackAmmoHint": "Select and autodecrement ammo for ranged weapons.",
   "MB.SettingsWhiteOnBlackPink": "Vit på svart (rosa)",
   "MB.SettingsWhiteOnBlackWhite": "Vit på svart (vit)",
   "MB.SettingsWhiteOnBlackYellow": "Vit på svart (gul)",

@@ -1,6 +1,6 @@
 import MBActorSheet from "./actor-sheet.js";
 import RestDialog from "./rest-dialog.js";
-import { trackCarryingCapacity } from "../../settings.js";
+import { trackAmmo, trackCarryingCapacity } from "../../settings.js";
 
 /**
  * @extends {ActorSheet}
@@ -42,6 +42,9 @@ export class MBActorSheetCharacter extends MBActorSheet {
     }
 
     data.data.trackCarryingCapacity = trackCarryingCapacity();
+    data.data.trackAmmo = trackAmmo();
+    console.log(`***************`);
+    console.log(data.data);
 
     return superData;
   }

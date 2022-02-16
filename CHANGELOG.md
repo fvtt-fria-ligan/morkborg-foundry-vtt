@@ -1,3 +1,8 @@
+# 1.13.0
+
+- New "ammo" item type for arrows, bolts, and sling stones.
+- Implemented ranged weapon ammo selection and ammo autodecrement.
+
 # 1.12.1
 
 - Include missing commit.

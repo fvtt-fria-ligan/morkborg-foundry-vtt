@@ -184,6 +184,8 @@
   "MB.SettingsFontSchemeHint": "Choose a font scheme for the UI.",
   "MB.SettingsFoundryDefault": "Foundry Default",
   "MB.SettingsLegible": "Legible",
+  "MB.SettingsTrackAmmo": "Track Ammo",
+  "MB.SettingsTrackAmmoHint": "Select and autodecrement ammo for ranged weapons.",
   "MB.SettingsWhiteOnBlackPink": "White on black (pink)",
   "MB.SettingsWhiteOnBlackWhite": "White on black (white)",
   "MB.SettingsWhiteOnBlackYellow": "White on black (yellow)",

@@ -22,6 +22,16 @@ export const registerSystemSettings = () => {
     default: true,
   });
 
+  /** Whether to keep track of ranged weapon ammo */
+  game.settings.register("morkborg", "trackAmmo", {
+    name: "MB.SettingsTrackAmmo",
+    hint: "MB.SettingsTrackAmmoHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true,
+  });
+
   /** UI Color scheme */
   game.settings.register("morkborg", "colorScheme", {
     name: "MB.SettingsColorScheme",
@@ -91,6 +101,10 @@ export const registerSystemSettings = () => {
 
 export const trackCarryingCapacity = () => {
   return game.settings.get("morkborg", "trackCarryingCapacity");
+};
+
+export const trackAmmo = () => {
+  return game.settings.get("morkborg", "trackAmmo");
 };
 
 export const isScvmClassAllowed = (classPack) => {
