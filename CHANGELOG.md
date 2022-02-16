@@ -1,5 +1,6 @@
 # 1.13.0
 
+- Added "usesAmmo" field to weapon items.
 - New "ammo" item type for arrows, bolts, and sling stones.
 - Implemented ranged weapon ammo selection and ammo autodecrement.
 
