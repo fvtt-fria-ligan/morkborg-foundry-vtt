@@ -277,8 +277,7 @@
             />
             <div class="weapon-name-col">
               <h4 class="item-name item-edit rollable">{{item.name}}</h4>
-              {{#if ../data.data.trackAmmo}} {{#ifEq item.data.weaponType
-              "ranged"}}
+              {{#if ../data.data.trackAmmo}} {{#if item.data.usesAmmo}}
               <div class="ammo-select-col">
                 <select
                   class="ammo-select"
@@ -295,7 +294,7 @@
                   {{/each}} {{/select}}
                 </select>
               </div>
-              {{/ifEq}} {{/if}}
+              {{/if}} {{/if}}
             </div>
             <div class="item-fields">
               <span class="item-field damage-die">{{item.data.damageDie}}</span>

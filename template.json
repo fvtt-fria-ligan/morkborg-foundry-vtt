@@ -147,6 +147,7 @@
       "damageDie": "1d1",
       "handed": 1,
       "fumbleOn": 1,
+      "usesAmmo": false,
       "weaponType": "melee"
     }
   }

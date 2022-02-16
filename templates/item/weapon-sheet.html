@@ -109,6 +109,18 @@
         </select>
       </div>
 
+      {{!-- Uses ammo --}}
+      <div class="form-group">
+        <label>{{ localize "MB.ItemUsesAmmo" }}:</label>
+        <input
+          type="checkbox"
+          name="data.usesAmmo"
+          {{checked
+          data.data.usesAmmo}}
+          data-dtype="Boolean"
+        />
+      </div>
+
       <div class="form-group">
         <label>{{ localize "MB.ItemCritOn" }}:</label>
         <input
