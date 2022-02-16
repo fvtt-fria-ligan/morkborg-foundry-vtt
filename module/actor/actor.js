@@ -465,12 +465,12 @@ export class MBActor extends Actor {
       targetArmorRoll,
       weaponTypeKey,
     };
-    await this._renderAttackRollCard(rollResult);
     await this._decrementWeaponAmmo(item);
+    await this._renderAttackRollCard(rollResult);
   }
 
   async _decrementWeaponAmmo(weapon) {
-    if (weapon.data.data.ammoId) {
+    if (weapon.data.data.usesAmmo && weapon.data.data.ammoId) {
       const ammo = this.items.get(weapon.data.data.ammoId);
       if (ammo) {
         const attr = "data.quantity";
