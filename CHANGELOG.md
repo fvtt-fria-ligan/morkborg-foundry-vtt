@@ -1,3 +1,7 @@
+# 1.13.1
+
+- Allow ammo to go into drag-drop containers.
+
 # 1.13.0
 
 - Added "usesAmmo" field to weapon items.

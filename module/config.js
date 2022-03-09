@@ -185,6 +185,7 @@ MB.itemEquipmentTypes = [
 ];
 
 MB.allowedContainerItemTypes = [
+  MB.itemTypes.ammo,
   MB.itemTypes.armor,
   MB.itemTypes.misc,
   MB.itemTypes.scroll,
