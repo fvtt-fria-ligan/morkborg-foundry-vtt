@@ -98,10 +98,8 @@ const rollScvmForClass = async (clazz) => {
       const food = miscContent.find(
         (i) => i.data.name === MB.scvmFactory.foodItemName
       );
-      const foodRoll = new Roll("1d4", {}).evaluate({ async: false });
-      // TODO: need to mutate _data to get it to change for our owned item creation.
-      // Is there a better way to do this?
-      food.data._source.data.quantity = foodRoll.total;
+      const foodRoll = new Roll("1d4").evaluate({ async: false });
+      food.data.data.quantity = foodRoll.total;
       allDocs.push(food);
     }
     if (MB.scvmFactory.waterItemName) {
@@ -125,7 +123,7 @@ const rollScvmForClass = async (clazz) => {
     const eq1 = await docsFromResults(eqDraw1.results);
     allDocs.push(...eq1);
   }
-  if (MB.scvmFactory.startingEquipmentTable1) {
+  if (MB.scvmFactory.startingEquipmentTable2) {
     const equipTable2 = ccContent.find(
       (i) => i.name === MB.scvmFactory.startingEquipmentTable2
     );
@@ -133,7 +131,7 @@ const rollScvmForClass = async (clazz) => {
     const eq2 = await docsFromResults(eqDraw2.results);
     allDocs.push(...eq2);
   }
-  if (MB.scvmFactory.startingEquipmentTable1) {
+  if (MB.scvmFactory.startingEquipmentTable3) {
     const equipTable3 = ccContent.find(
       (i) => i.name === MB.scvmFactory.startingEquipmentTable3
     );
