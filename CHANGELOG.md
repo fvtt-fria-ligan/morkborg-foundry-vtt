@@ -1,3 +1,7 @@
+# 1.14.0
+
+- Wire up power Uses Remaining help text.
+
 # 1.13.1
 
 - Allow ammo to go into drag-drop containers.
