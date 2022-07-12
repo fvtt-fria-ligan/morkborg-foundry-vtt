@@ -698,14 +698,14 @@
 .morkborg.sheet.actor.character .sheet-body .wield-rule {
   text-align: center;
 }
-.morkborg.sheet.actor.character .sheet-body div.uses-remaining {
-  flex: 0 0 320px;
-  display: flex;
-  flex-direction: column;
+.morkborg.sheet.actor.character .sheet-body .uses-remaining {
   align-items: center;
+  display: flex;
+  flex: 0 0 320px;
+  flex-direction: column;
 }
 .morkborg.sheet.actor.character .sheet-body .uses-remaining div {
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 .morkborg.sheet.actor.character .sheet-body .carry-block {
   flex: 1;

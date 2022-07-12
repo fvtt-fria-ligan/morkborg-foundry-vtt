@@ -251,15 +251,14 @@
           text-align: center;
         }
 
-        div.uses-remaining {
-          flex: 0 0 320px;
-          display: flex;
-          flex-direction: column;
+        .uses-remaining {
           align-items: center;
-        }
-
-        .uses-remaining div {
-          margin-bottom: 20px;
+          display: flex;
+          flex: 0 0 320px;
+          flex-direction: column;
+          div {
+            margin-bottom: 14px;
+          }
         }
 
         .carry-block {

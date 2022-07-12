@@ -51,6 +51,7 @@ export default class MBActorSheet extends ActorSheet {
     html.find(".attack-button").on("click", this._onAttackRoll.bind(this));
     html.find(".defend-button").on("click", this._onDefendRoll.bind(this));
     html.find(".tier-radio").click(this._onArmorTierRadio.bind(this));
+    html.find("select.ammo-select").on("change", this._onAmmoSelect.bind(this));
   }
 
   /**

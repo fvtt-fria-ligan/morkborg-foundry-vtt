@@ -43,8 +43,6 @@ export class MBActorSheetCharacter extends MBActorSheet {
 
     data.data.trackCarryingCapacity = trackCarryingCapacity();
     data.data.trackAmmo = trackAmmo();
-    console.log(`***************`);
-    console.log(data.data);
 
     return superData;
   }
@@ -126,7 +124,9 @@ export class MBActorSheetCharacter extends MBActorSheet {
     html
       .find(".wield-power-button")
       .on("click", this._onWieldPowerRoll.bind(this));
-    html.find("select.ammo-select").on("change", this._onAmmoSelect.bind(this));
+    html
+      .find(".powers-per-day-text")
+      .on("click", this._onPowersPerDayRoll.bind(this));
   }
 
   _onStrengthRoll(event) {
