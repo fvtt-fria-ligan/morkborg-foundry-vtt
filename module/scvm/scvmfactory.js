@@ -2,6 +2,7 @@ import { MBActor } from "../actor/actor.js";
 import { MB } from "../config.js";
 import { MBItem } from "../item/item.js";
 import { randomName } from "./names.js";
+import { rollTotal, shuffle } from "../utils.js";
 
 export const createRandomScvm = async () => {
   const clazz = await pickRandomClass();
@@ -57,37 +58,29 @@ export const classItemFromPack = async (packName) => {
 const rollScvmForClass = async (clazz) => {
   console.log(`Creating new ${clazz.data.name}`);
 
-  const silverRoll = new Roll(clazz.data.data.startingSilver).evaluate({
-    async: false,
-  });
-  const omensRoll = new Roll(clazz.data.data.omenDie).evaluate({
-    async: false,
-  });
-  const hpRoll = new Roll(clazz.data.data.startingHitPoints).evaluate({
-    async: false,
-  });
-  const powerUsesRoll = new Roll("1d4").evaluate({ async: false });
+  const silver = rollTotal(clazz.data.data.startingSilver);
+  const omens = rollTotal(clazz.data.data.omenDie);
+  const baseHp = rollTotal(clazz.data.data.startingHitPoints);
+  const basePowerUses = rollTotal("1d4");
 
-  const strRoll = new Roll(clazz.data.data.startingStrength).evaluate({
-    async: false,
-  });
-  const strength = abilityBonus(strRoll.total);
-  const agiRoll = new Roll(clazz.data.data.startingAgility).evaluate({
-    async: false,
-  });
-  const agility = abilityBonus(agiRoll.total);
-  const preRoll = new Roll(clazz.data.data.startingPresence).evaluate({
-    async: false,
-  });
-  const presence = abilityBonus(preRoll.total);
-  const touRoll = new Roll(clazz.data.data.startingToughness).evaluate({
-    async: false,
-  });
-  const toughness = abilityBonus(touRoll.total);
-
-  const hitPoints = Math.max(1, hpRoll.total + toughness);
-  const powerUses = Math.max(0, powerUsesRoll.total + presence);
-
+  let abilityRollFormulas;
+  if (clazz.data.name === "Adventurer") {
+    // special handling for classless
+    abilityRollFormulas = shuffle(["3d6", "3d6", "4d6kh3", "4d6kh3"]);
+  } else {
+    abilityRollFormulas = [
+      clazz.data.data.startingStrength,
+      clazz.data.data.startingAgility,
+      clazz.data.data.startingPresence,
+      clazz.data.data.startingToughness,
+    ];
+  }
+  const strength = abilityBonus(rollTotal(abilityRollFormulas[0]));
+  const agility = abilityBonus(rollTotal(abilityRollFormulas[1]));
+  const presence = abilityBonus(rollTotal(abilityRollFormulas[2]));
+  const toughness = abilityBonus(rollTotal(abilityRollFormulas[3]));
+  const hitPoints = Math.max(1, baseHp + toughness);
+  const powerUses = Math.max(0, basePowerUses + presence);
   const allDocs = [clazz];
 
   if (MB.scvmFactory.foodAndWaterPack) {
@@ -315,10 +308,10 @@ const rollScvmForClass = async (clazz) => {
     description: descriptionLines.join(""),
     hitPoints,
     items: itemData,
-    omens: omensRoll.total,
+    omens,
     powerUses,
     presence,
-    silver: silverRoll.total,
+    silver,
     strength,
     tokenImg: clazz.img,
     toughness,

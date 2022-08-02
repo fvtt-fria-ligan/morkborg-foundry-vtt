@@ -1,3 +1,7 @@
+# 1.15.0
+
+- Support classless adventurer 4d6kh3 for 2 ability rolls.
+
 # 1.14.0
 
 - Wire up power Uses Remaining help text.
