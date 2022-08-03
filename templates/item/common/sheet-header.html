@@ -1,0 +1,21 @@
+<header class="sheet-header flexrow">
+  <img
+    class="profile-img"
+    src="{{item.img}}"
+    title="{{item.name}}"
+    data-edit="img"
+  />
+  <div class="header-details">
+    <h1 class="item-name">
+      <input
+        name="name"
+        type="text"
+        value="{{item.name}}"
+        placeholder="{{ localize 'MB.ItemName' }}"
+      />
+    </h1>
+    <div class="item-subtitle">
+      <h4 class="item-type">{{item.type}}</h4>
+    </div>
+  </div>
+</header>
