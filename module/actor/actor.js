@@ -75,8 +75,7 @@ export class MBActor extends Actor {
 
   async _addDefaultClass() {
     if (game.packs) {
-      const hasAClass =
-        this.items.filter((i) => i.data.type === "class").length > 0;
+      const hasAClass = this.items.filter((i) => i.type === "class").length > 0;
       if (!hasAClass) {
         const pack = game.packs.get("morkborg.class-classless-adventurer");
         if (!pack) {
@@ -120,7 +119,7 @@ export class MBActor extends Actor {
 
   /** @override */
   _onCreateEmbeddedDocuments(embeddedName, documents, result, options, userId) {
-    if (documents[0].data.type === CONFIG.MB.itemTypes.class) {
+    if (documents[0].type === CONFIG.MB.itemTypes.class) {
       this._deleteEarlierItems(CONFIG.MB.itemTypes.class);
     }
     super._onCreateEmbeddedDocuments(
@@ -152,7 +151,7 @@ export class MBActor extends Actor {
   }
 
   async _deleteEarlierItems(itemType) {
-    const itemsOfType = this.items.filter((i) => i.data.type === itemType);
+    const itemsOfType = this.items.filter((i) => i.type === itemType);
     itemsOfType.pop(); // don't delete the last one
     const deletions = itemsOfType.map((i) => i.id);
     // not awaiting this async call, just fire it off
@@ -473,7 +472,7 @@ export class MBActor extends Actor {
     if (weapon.system.usesAmmo && weapon.system.ammoId && trackAmmo()) {
       const ammo = this.items.get(weapon.system.ammoId);
       if (ammo) {
-        const attr = "data.quantity";
+        const attr = "system.quantity";
         const currQuantity = getProperty(ammo.data, attr);
         if (currQuantity > 1) {
           // decrement quantity by 1
@@ -881,7 +880,7 @@ export class MBActor extends Actor {
     }
 
     const newPowerUses = Math.max(0, this.system.powerUses.value - 1);
-    await this.update({ ["data.powerUses.value"]: newPowerUses });
+    await this.update({ ["system.powerUses.value"]: newPowerUses });
   }
 
   async useFeat(itemId) {
@@ -966,7 +965,7 @@ export class MBActor extends Actor {
       (roll) => ` ${game.i18n.localize("MB.Omens")}: ${Math.max(0, roll.total)}`
     );
     const newOmens = Math.max(0, roll.total);
-    await this.update({ ["data.omens"]: { max: newOmens, value: newOmens } });
+    await this.update({ ["system.omens"]: { max: newOmens, value: newOmens } });
   }
 
   async rollPowersPerDay() {
@@ -983,7 +982,7 @@ export class MBActor extends Actor {
     );
     const newUses = Math.max(0, roll.total);
     await this.update({
-      ["data.powerUses"]: { max: newUses, value: newUses },
+      ["system.powerUses"]: { max: newUses, value: newUses },
     });
   }
 
@@ -1049,7 +1048,7 @@ export class MBActor extends Actor {
       this.system.hp.max,
       this.system.hp.value + roll.total
     );
-    await this.update({ ["data.hp.value"]: newHP });
+    await this.update({ ["system.hp.value"]: newHP });
   }
 
   async rollStarvation() {
@@ -1063,7 +1062,7 @@ export class MBActor extends Actor {
         )}`
     );
     const newHP = this.system.hp.value - roll.total;
-    await this.update({ ["data.hp.value"]: newHP });
+    await this.update({ ["system.hp.value"]: newHP });
   }
 
   async rollInfection() {
@@ -1077,7 +1076,7 @@ export class MBActor extends Actor {
         )}`
     );
     const newHP = this.system.hp.value - roll.total;
-    await this.update({ ["data.hp.value"]: newHP });
+    await this.update({ ["system.hp.value"]: newHP });
   }
 
   async getBetter() {
@@ -1168,12 +1167,12 @@ export class MBActor extends Actor {
     // set new stats on the actor
 
     await this.update({
-      ["data.abilities.strength.value"]: newStr,
-      ["data.abilities.agility.value"]: newAgi,
-      ["data.abilities.presence.value"]: newPre,
-      ["data.abilities.toughness.value"]: newTou,
-      ["data.hp.max"]: newHp,
-      ["data.silver"]: newSilver,
+      ["system.abilities.strength.value"]: newStr,
+      ["system.abilities.agility.value"]: newAgi,
+      ["system.abilities.presence.value"]: newPre,
+      ["system.abilities.toughness.value"]: newTou,
+      ["system.hp.max"]: newHp,
+      ["system.silver"]: newSilver,
     });
   }
 

@@ -1,6 +1,7 @@
 import MBActorSheet from "./actor-sheet.js";
 import RestDialog from "./rest-dialog.js";
 import { trackAmmo, trackCarryingCapacity } from "../../settings.js";
+import { byName } from "../../utils.js";
 
 /**
  * @extends {ActorSheet}
@@ -54,39 +55,37 @@ export class MBActorSheetCharacter extends MBActorSheet {
    * @return {undefined}
    */
   _prepareCharacterItems(sheetData) {
-    const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
-
-    sheetData.feats = sheetData.items
+    sheetData.system.feats = sheetData.items
       .filter((item) => item.type === CONFIG.MB.itemTypes.feat)
       .sort(byName);
 
-    sheetData.class = sheetData.items.find(
+    sheetData.system.class = sheetData.items.find(
       (item) => item.type === CONFIG.MB.itemTypes.class
     );
 
-    sheetData.scrolls = sheetData.items
+    sheetData.system.scrolls = sheetData.items
       .filter((item) => item.type === CONFIG.MB.itemTypes.scroll)
       .sort(byName);
 
-    sheetData.equipment = sheetData.items
+    sheetData.system.equipment = sheetData.items
       .filter((item) => CONFIG.MB.itemEquipmentTypes.includes(item.type))
       .filter((item) => !item.hasContainer)
       .sort(byName);
 
-    sheetData.equippedArmor = sheetData.items
+    sheetData.system.equippedArmor = sheetData.items
       .filter((item) => item.type === CONFIG.MB.itemTypes.armor)
-      .find((item) => item.data.equipped);
+      .find((item) => item.equipped);
 
-    sheetData.equippedShield = sheetData.items
+    sheetData.system.equippedShield = sheetData.items
       .filter((item) => item.type === CONFIG.MB.itemTypes.shield)
-      .find((item) => item.data.equipped);
+      .find((item) => item.equipped);
 
-    sheetData.equippedWeapons = sheetData.items
+    sheetData.system.equippedWeapons = sheetData.items
       .filter((item) => item.type === CONFIG.MB.itemTypes.weapon)
-      .filter((item) => item.data.equipped)
+      .filter((item) => item.equipped)
       .sort(byName);
 
-    sheetData.ammo = sheetData.items
+    sheetData.system.ammo = sheetData.items
       .filter((item) => item.type === CONFIG.MB.itemTypes.ammo)
       .sort(byName);
   }

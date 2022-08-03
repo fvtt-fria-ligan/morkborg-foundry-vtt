@@ -118,7 +118,7 @@ export default class MBActorSheet extends ActorSheet {
     const li = anchor.parents(".item");
     const itemId = li.data("itemId");
     const item = this.actor.items.get(itemId);
-    const attr = "data.quantity";
+    const attr = "system.quantity";
     const currQuantity = getProperty(item.data, attr);
     return item.update({ [attr]: currQuantity + 1 });
   }
@@ -132,7 +132,7 @@ export default class MBActorSheet extends ActorSheet {
     const li = anchor.parents(".item");
     const itemId = li.data("itemId");
     const item = this.actor.items.get(itemId);
-    const attr = "data.quantity";
+    const attr = "system.quantity";
     const currQuantity = getProperty(item.data, attr);
     // can't reduce quantity below one
     if (currQuantity > 1) {
@@ -233,7 +233,7 @@ export default class MBActorSheet extends ActorSheet {
     const newTier = parseInt(input[0].value);
     const li = input.parents(".item");
     const item = this.actor.items.get(li.data("itemId"));
-    return item.update({ ["data.tier.value"]: newTier });
+    return item.update({ ["system.tier.value"]: newTier });
   }
 
   /**
@@ -364,7 +364,7 @@ export default class MBActorSheet extends ActorSheet {
     const weapon = this.actor.items.get(select.data("itemId"));
     //const ammo = this.actor.items.get(select.val());
     if (weapon) {
-      await weapon.update({ ["data.ammoId"]: select.val() });
+      await weapon.update({ ["system.ammoId"]: select.val() });
     }
   }
 }

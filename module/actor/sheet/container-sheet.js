@@ -42,7 +42,7 @@ export class MBActorSheetContainer extends MBActorSheet {
    * @return {undefined}
    */
   _prepareContainerItems(sheetData) {
-    sheetData.equipment = sheetData.items
+    sheetData.system.equipment = sheetData.items
       .filter((item) => CONFIG.MB.itemEquipmentTypes.includes(item.type))
       .filter((item) => !item.hasContainer)
       .sort(byName);
