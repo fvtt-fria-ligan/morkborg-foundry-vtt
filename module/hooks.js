@@ -1,14 +1,8 @@
 import ScvmDialog from "./scvm/scvm-dialog.js";
-import { createMorkBorgMacro } from "./macros.js";
-import { rollPartyInitiative } from "./combat.js";
 
 export const registerHooks = () => {
   Hooks.once("ready", () => {
     applyFontsAndColors();
-    // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
-    Hooks.on("hotbarDrop", (bar, data, slot) =>
-      createMorkBorgMacro(data, slot)
-    );
     Hooks.call("morkborgReady");
   });
 };
@@ -78,14 +72,4 @@ Hooks.on("renderActorDirectory", (app, html) => {
         new ScvmDialog().render(true);
       });
   }
-});
-
-Hooks.on("renderCombatTracker", (tracker, html) => {
-  const partyInitiativeButton = `<a class="combat-control" title="${game.i18n.localize(
-    "MB.RollPartyInitiative"
-  )}" dataControl="rollParty"><i class="fas fa-dice-six"></i></a>`;
-  html.find("header").find("nav").last().prepend(partyInitiativeButton);
-  html.find("a[dataControl=rollParty]").click(() => {
-    rollPartyInitiative();
-  });
 });

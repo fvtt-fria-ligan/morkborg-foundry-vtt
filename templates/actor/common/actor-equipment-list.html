@@ -16,30 +16,29 @@
     <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
     <h4 class="item-name item-edit rollable">
       {{item.name}} {{#ifEq item.type 'container'}}
-      ({{item.data.totalContainerSpace}} / {{item.data.capacity}}) {{/ifEq}}
-      {{#ifGt item.data.quantity 1}} ({{item.data.quantity}}) {{/ifGt}}
+      ({{item.totalContainerSpace}} / {{item.capacity}}) {{/ifEq}} {{#ifGt
+      item.quantity 1}} ({{item.quantity}}) {{/ifGt}}
     </h4>
     <div class="item-buttons"></div>
     <div class="item-controls">
-      {{#if item.data.canPlusMinus}}
+      {{#if item.canPlusMinus}}
       <a class="item-control item-qty-plus" title="Add Quantity"
         ><i class="fas fa-plus"></i
       ></a>
       <a class="item-control item-qty-minus" title="Subtract Quantity"
         ><i class="fas fa-minus"></i
       ></a>
-      {{/if}} {{#ifNe disableCarryAndEquipButton true}} {{#if
-      item.data.equippable}}
+      {{/if}} {{#ifNe disableCarryAndEquipButton true}} {{#if item.equippable}}
       <a
-        class="item-control item-toggle item-toggle-equipped {{ifPrint item.data.equipped 'equipped'}}"
-        title="{{ifPrintElse item.data.equipped (localize 'MB.ItemEquipped') (localize 'MB.ItemUnequipped')}}"
+        class="item-control item-toggle item-toggle-equipped {{ifPrint item.equipped 'equipped'}}"
+        title="{{ifPrintElse item.equipped (localize 'MB.ItemEquipped') (localize 'MB.ItemUnequipped')}}"
       >
         <i class="fas fa-shield-alt"></i
       ></a>
-      {{/if}} {{#if item.data.droppable}}
+      {{/if}} {{#if item.droppable}}
       <a
-        class="item-control item-toggle item-toggle-carried {{ifPrint item.data.carried 'carried'}}"
-        title="{{ifPrintElse item.data.carried (localize 'MB.ItemCarried') (localize 'MB.ItemDropped')}}"
+        class="item-control item-toggle item-toggle-carried {{ifPrint item.carried 'carried'}}"
+        title="{{ifPrintElse item.carried (localize 'MB.ItemCarried') (localize 'MB.ItemDropped')}}"
       >
         <i class="fas fa-user-check"></i
       ></a>
@@ -52,9 +51,9 @@
       ></a>
     </div>
   </li>
-  {{/inline}} {{#each data.data.equipment as |item id|}} {{> item-row
-  item=item}} {{#ifEq item.type 'container'}} {{#each item.data.itemsData as
-  |item|}} {{> item-row item=item class="item-container-item"
+  {{/inline}} {{#each data.system.equipment as |item id|}} {{> item-row
+  item=item}} {{#ifEq item.type 'container'}} {{#each item.itemsData as |item|}}
+  {{> item-row item=item class="item-container-item"
   disableCarryAndEquipButton=true}} {{else}}
   <li class="item empty-container" data-item-id="{{item._id}}">
     <div class="rule-text">{{localize 'MB.ContainerEmptyHelpText'}}</div>

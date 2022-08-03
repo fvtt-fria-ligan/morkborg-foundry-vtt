@@ -5,40 +5,40 @@ export class MBItem extends Item {
   /** @override */
   prepareDerivedData() {
     super.prepareDerivedData();
-    this.data.img = this.data.img || CONST.DEFAULT_TOKEN;
+    this.img = this.img || CONST.DEFAULT_TOKEN;
 
     if (this.type === CONFIG.MB.itemTypes.armor) {
-      this.data.data.damageReductionDie =
-        CONFIG.MB.armorTiers[this.data.data.tier.value].damageReductionDie;
+      this.system.damageReductionDie =
+        CONFIG.MB.armorTiers[this.system.tier.value].damageReductionDie;
     }
   }
 
   /** @override */
   prepareActorItemDerivedData(actor) {
     if (actor.type === "character" || actor.type === "follower") {
-      this.data.data.equippable = CONFIG.MB.equippableItemTypes.includes(
+      this.system.equippable = CONFIG.MB.equippableItemTypes.includes(
         this.type
       );
-      this.data.data.droppable =
+      this.system.droppable =
         CONFIG.MB.droppableItemTypes.includes(this.type) &&
-        this.data.data.carryWeight !== 0;
-      this.data.data.canPlusMinus = CONFIG.MB.plusMinusItemTypes.includes(
+        this.system.carryWeight !== 0;
+      this.system.canPlusMinus = CONFIG.MB.plusMinusItemTypes.includes(
         this.type
       );
     } else {
-      this.data.data.equippable = false;
-      this.data.data.droppable = false;
+      this.system.equippable = false;
+      this.system.droppable = false;
     }
 
     if (this.isContainer) {
-      this.data.data.itemsData = this._getItemsData(actor);
-      this.data.data.totalContainerSpace = this._getTotalContainerSpace(actor);
+      this.system.itemsData = this._getItemsData(actor);
+      this.system.totalContainerSpace = this._getTotalContainerSpace(actor);
     }
 
     if (this.isEquipment) {
       this.container = this._getItemContainer(actor) || null;
-      this.data.data.hasContainer = !!this.container;
-      this.data.data.totalCarryWeight = this._getTotalCarryWeight(actor);
+      this.system.hasContainer = !!this.container;
+      this.system.totalCarryWeight = this._getTotalCarryWeight(actor);
     }
   }
 
@@ -55,59 +55,59 @@ export class MBItem extends Item {
   }
 
   get hasContainer() {
-    return this.data.data.hasContainer;
+    return this.system.hasContainer;
   }
 
   get carried() {
     // this should be fixed in a migration
-    if (this.data.data.carried === undefined) {
+    if (this.system.carried === undefined) {
       return true; // all items are carried by default
     } else {
-      if (this.data.data.carryWeight === 0) {
+      if (this.system.carryWeight === 0) {
         // container with carryWeight are asumed to not be carried (donkey, etc)
         return false;
       }
-      return this.data.data.carried;
+      return this.system.carried;
     }
   }
 
   get equipped() {
-    return this.data.data.equipped || false;
+    return this.system.equipped || false;
   }
 
   get carryWeight() {
-    return this.data.data.carryWeight || 0;
+    return this.system.carryWeight || 0;
   }
 
   get totalCarryWeight() {
-    return this.data.data.totalCarryWeight || 0;
+    return this.system.totalCarryWeight || 0;
   }
 
   get containerSpace() {
-    return this.data.data.containerSpace || 0;
+    return this.system.containerSpace || 0;
   }
 
   get totalContainerSpace() {
-    return this.data.data.totalContainerSpace || 0;
+    return this.system.totalContainerSpace || 0;
   }
 
   get totalSpace() {
     return (
       this.totalContainerSpace +
-      Math.ceil(this.containerSpace * this.data.data.quantity)
+      Math.ceil(this.containerSpace * this.system.quantity)
     );
   }
 
   get quantity() {
-    return this.data.data.quantity || 1;
+    return this.system.quantity || 1;
   }
 
   get itemsData() {
-    return this.data.data.itemsData || [];
+    return this.system.itemsData || [];
   }
 
   get items() {
-    return this.data.data.items || [];
+    return this.system.items || [];
   }
 
   get hasItems() {
@@ -115,34 +115,34 @@ export class MBItem extends Item {
   }
 
   async equip() {
-    await this.update({ "data.equipped": true });
+    await this.update({ "system.equipped": true });
   }
 
   async unequip() {
-    await this.update({ "data.equipped": false });
+    await this.update({ "system.equipped": false });
   }
 
   async carry() {
-    await this.update({ "data.carried": true });
+    await this.update({ "system.carried": true });
   }
 
   async drop() {
-    await this.update({ "data.carried": false });
+    await this.update({ "system.carried": false });
   }
 
   async addItem(itemId) {
     if (!this.items.includes(itemId)) {
-      await this.update({ "data.items": [...this.items, itemId] });
+      await this.update({ "system.items": [...this.items, itemId] });
     }
   }
 
   async removeItem(itemId) {
     const items = this.items.filter((item) => item !== itemId);
-    await this.update({ "data.items": items });
+    await this.update({ "system.items": items });
   }
 
   async clearItems() {
-    await this.update({ "data.items": [] });
+    await this.update({ "system.items": [] });
   }
 
   _getTotalCarryWeight(actor) {

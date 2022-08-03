@@ -24,10 +24,10 @@
       {{!-- we are cheating a bit here, using the 'item' class usually used on
       LI elements, so we can get the item _id to be found by the common click
       handler --}}
-      <div class="classname-row item" data-item-id="{{data.data.class._id}}">
+      <div class="classname-row item" data-item-id="{{data.system.class._id}}">
         <span class="stat-label">{{ localize "MB.Class" }}:</span>
         <label class="classname item-edit rollable"
-          >{{data.data.class.name}}</label
+          >{{data.system.class.name}}</label
         >
         <div class="item-controls">
           <a class="item-control item-edit" title="Edit Item"
@@ -43,17 +43,17 @@
           <span class="stat-label">{{ localize "MB.HP" }}:</span>
           <input
             class="stat-input"
-            name="data.hp.value"
+            name="system.hp.value"
             type="number"
-            value="{{data.data.hp.value}}"
+            value="{{data.system.hp.value}}"
             data-dtype="Number"
           />
           /
           <input
             class="stat-input"
-            name="data.hp.max"
+            name="system.hp.max"
             type="number"
-            value="{{data.data.hp.max}}"
+            value="{{data.system.hp.max}}"
             data-dtype="Number"
           />
         </div>
@@ -82,13 +82,13 @@
         >
         <input
           class="stat-input"
-          name="data.omens.value"
+          name="system.omens.value"
           type="number"
-          value="{{data.data.omens.value}}"
+          value="{{data.system.omens.value}}"
           data-dtype="Number"
         />
         <span class="rule-text omen-rule rollable"
-          >{{data.data.class.data.omenDie}} {{ localize "MB.PerRest"}}</span
+          >{{data.system.class.data.omenDie}} {{ localize "MB.PerRest"}}</span
         >
         <button
           type="button"
@@ -105,57 +105,57 @@
         <ul class="miseries">
           <li>
             <label
-              ><input type="radio" name="data.miseries.value" value="0"
-              data-dtype="Number" {{#ifEq data.data.miseries.value
+              ><input type="radio" name="system.miseries.value" value="0"
+              data-dtype="Number" {{#ifEq data.system.miseries.value
               0}}checked{{/ifEq}}/><span>0</span></label
             >
           </li>
           <li>
             <label
-              ><input type="radio" name="data.miseries.value" value="1"
-              data-dtype="Number" {{#ifEq data.data.miseries.value
+              ><input type="radio" name="system.miseries.value" value="1"
+              data-dtype="Number" {{#ifEq data.system.miseries.value
               1}}checked{{/ifEq}}/><span>1</span></label
             >
           </li>
           <li>
             <label
-              ><input type="radio" name="data.miseries.value" value="2"
-              data-dtype="Number" {{#ifEq data.data.miseries.value
+              ><input type="radio" name="system.miseries.value" value="2"
+              data-dtype="Number" {{#ifEq data.system.miseries.value
               2}}checked{{/ifEq}}/><span>2</span></label
             >
           </li>
           <li>
             <label
-              ><input type="radio" name="data.miseries.value" value="3"
-              data-dtype="Number" {{#ifEq data.data.miseries.value
+              ><input type="radio" name="system.miseries.value" value="3"
+              data-dtype="Number" {{#ifEq data.system.miseries.value
               3}}checked{{/ifEq}}/><span>3</span></label
             >
           </li>
           <li>
             <label
-              ><input type="radio" name="data.miseries.value" value="4"
-              data-dtype="Number" {{#ifEq data.data.miseries.value
+              ><input type="radio" name="system.miseries.value" value="4"
+              data-dtype="Number" {{#ifEq data.system.miseries.value
               4}}checked{{/ifEq}}/><span>4</span></label
             >
           </li>
           <li>
             <label
-              ><input type="radio" name="data.miseries.value" value="5"
-              data-dtype="Number" {{#ifEq data.data.miseries.value
+              ><input type="radio" name="system.miseries.value" value="5"
+              data-dtype="Number" {{#ifEq data.system.miseries.value
               5}}checked{{/ifEq}}/><span>5</span></label
             >
           </li>
           <li>
             <label
-              ><input type="radio" name="data.miseries.value" value="6"
-              data-dtype="Number" {{#ifEq data.data.miseries.value
+              ><input type="radio" name="system.miseries.value" value="6"
+              data-dtype="Number" {{#ifEq data.system.miseries.value
               6}}checked{{/ifEq}}/><span>6</span></label
             >
           </li>
           <li>
             <label
-              ><input type="radio" name="data.miseries.value" value="7"
-              data-dtype="Number" {{#ifEq data.data.miseries.value
+              ><input type="radio" name="system.miseries.value" value="7"
+              data-dtype="Number" {{#ifEq data.system.miseries.value
               7}}checked{{/ifEq}}/><span>X</span></label
             >
           </li>
@@ -168,8 +168,8 @@
         <input
           class="ability-input"
           type="text"
-          name="data.abilities.strength.value"
-          value="{{numberFormat data.data.abilities.strength.value decimals=0 sign=true}}"
+          name="system.abilities.strength.value"
+          value="{{numberFormat data.system.abilities.strength.value decimals=0 sign=true}}"
           data-dtype="Number"
           size="3"
         />
@@ -181,8 +181,8 @@
         <input
           class="ability-input"
           type="text"
-          name="data.abilities.agility.value"
-          value="{{numberFormat data.data.abilities.agility.value decimals=0 sign=true}}"
+          name="system.abilities.agility.value"
+          value="{{numberFormat data.system.abilities.agility.value decimals=0 sign=true}}"
           data-dtype="Number"
           size="3"
         />
@@ -194,8 +194,8 @@
         <input
           class="ability-input"
           type="text"
-          name="data.abilities.presence.value"
-          value="{{numberFormat data.data.abilities.presence.value decimals=0 sign=true}}"
+          name="system.abilities.presence.value"
+          value="{{numberFormat data.system.abilities.presence.value decimals=0 sign=true}}"
           data-dtype="Number"
           size="3"
         />
@@ -207,8 +207,8 @@
         <input
           class="ability-input"
           type="text"
-          name="data.abilities.toughness.value"
-          value="{{numberFormat data.data.abilities.toughness.value decimals=0 sign=true}}"
+          name="system.abilities.toughness.value"
+          value="{{numberFormat data.system.abilities.toughness.value decimals=0 sign=true}}"
           data-dtype="Number"
           size="3"
         />
@@ -232,8 +232,8 @@
   <section class="sheet-body">
     {{!-- Obituary Tab --}}
     <div class="tab class-tab" data-group="primary" data-tab="obituary">
-      {{editor content=data.data.description target="data.description"
-      button=true owner=owner editable=true}}
+      {{editor data.system.description target="system.description" button=true
+      owner=owner editable=true}}
     </div>
 
     {{!-- Violence Tab --}}
@@ -267,7 +267,7 @@
           </h3>
         </li>
         <ol class="item-list weapon-list">
-          {{#each data.data.equippedWeapons as |item id|}}
+          {{#each data.system.equippedWeapons as |item id|}}
           <li class="item flexrow" data-item-id="{{item._id}}">
             <img
               src="{{item.img}}"
@@ -277,7 +277,7 @@
             />
             <div class="weapon-name-col">
               <h4 class="item-name item-edit rollable">{{item.name}}</h4>
-              {{#if ../data.data.trackAmmo}} {{#if item.data.usesAmmo}}
+              {{#if ../data.system.trackAmmo}} {{#if item.usesAmmo}}
               <div class="ammo-select-col">
                 <select
                   class="ammo-select"
@@ -285,11 +285,11 @@
                   data-dtype="Number"
                   data-item-id="{{item._id}}"
                 >
-                  {{#select item.data.ammoId}}
+                  {{#select item.ammoId}}
                   <option value="">{{localize 'MB.ItemTypeAmmo'}}</option>
-                  {{#each ../data.data.ammo as |ammo ammoId|}}
+                  {{#each ../data.system.ammo as |ammo ammoId|}}
                   <option value="{{ammo._id}}">
-                    {{ammo.name}} ({{ammo.data.quantity}})
+                    {{ammo.name}} ({{ammo.quantity}})
                   </option>
                   {{/each}} {{/select}}
                 </select>
@@ -297,10 +297,8 @@
               {{/if}} {{/if}}
             </div>
             <div class="item-fields">
-              <span class="item-field damage-die">{{item.data.damageDie}}</span>
-              <span class="item-field weapon-type"
-                >{{item.data.weaponType}}</span
-              >
+              <span class="item-field damage-die">{{item.damageDie}}</span>
+              <span class="item-field weapon-type">{{item.weaponType}}</span>
             </div>
             <div class="item-buttons">
               <button
@@ -315,8 +313,8 @@
             </div>
             <div class="item-controls">
               <a
-                class="item-control item-toggle item-toggle-equipped {{ifPrint item.data.equipped 'equipped'}}"
-                title="{{ifPrintElse item.data.equipped (localize 'MB.ItemEquipped') (localize 'MB.ItemUnequipped')}}"
+                class="item-control item-toggle item-toggle-equipped {{ifPrint item.equipped 'equipped'}}"
+                title="{{ifPrintElse item.equipped (localize 'MB.ItemEquipped') (localize 'MB.ItemUnequipped')}}"
                 ><i class="fas fa-shield-alt"></i
               ></a>
               <a class="item-control item-edit" title="Edit Item"
@@ -329,7 +327,7 @@
           </li>
           {{/each}}
         </ol>
-        {{#if data.data.equippedWeapons.length}}
+        {{#if data.system.equippedWeapons.length}}
         <div class="rule-text attack-rule">
           {{localize 'MB.AttackCritText'}} {{localize 'MB.AttackFumbleText'}}
         </div>
@@ -348,19 +346,19 @@
           <div class="item-controls flexrow"></div>
         </li>
         <ol class="item-list armor-list">
-          {{#if data.data.equippedArmor}}
+          {{#if data.system.equippedArmor}}
           <li
             class="item flexrow"
-            data-item-id="{{data.data.equippedArmor._id}}"
+            data-item-id="{{data.system.equippedArmor._id}}"
           >
             <img
-              src="{{data.data.equippedArmor.img}}"
-              title="{{data.equippedArmor.name}}"
+              src="{{data.system.equippedArmor.img}}"
+              title="{{data.system.equippedArmor.name}}"
               width="24"
               height="24"
             />
             <h4 class="item-name item-edit rollable">
-              {{data.data.equippedArmor.name}}
+              {{data.system.equippedArmor.name}}
             </h4>
             <div class="item-buttons">
               <div class="armor-tiers">
@@ -373,7 +371,7 @@
                       <label
                         ><input class="tier-radio" type="radio"
                         name="tier.value" value="0" {{#ifEq
-                        data.data.equippedArmor.data.tier.value
+                        data.system.equippedArmor.data.tier.value
                         0}}checked{{/ifEq}}/><span class="tier-num">0</span
                         ><span class="tier-dmg">-0</span></label
                       >
@@ -382,7 +380,7 @@
                       <label
                         ><input class="tier-radio" type="radio"
                         name="tier.value" value="1" {{#ifEq
-                        data.data.equippedArmor.data.tier.value
+                        data.system.equippedArmor.data.tier.value
                         1}}checked{{/ifEq}}/><span class="tier-num">1</span
                         ><span class="tier-dmg">-d2</span></label
                       >
@@ -391,9 +389,9 @@
                       <label
                         ><input class="tier-radio" type="radio"
                         name="tier.value" value="2" {{#ifEq
-                        data.data.equippedArmor.data.tier.value
+                        data.system.equippedArmor.data.tier.value
                         2}}checked{{/ifEq}} {{#ifLt
-                        data.data.equippedArmor.data.tier.max
+                        data.system.equippedArmor.data.tier.max
                         2}}disabled="true"{{/ifLt}}/><span class="tier-num"
                           >2</span
                         ><span class="tier-dmg">-d4</span></label
@@ -403,9 +401,9 @@
                       <label
                         ><input class="tier-radio" type="radio"
                         name="tier.value" value="3" {{#ifEq
-                        data.data.equippedArmor.data.tier.value
+                        data.system.equippedArmor.data.tier.value
                         3}}checked{{/ifEq}} {{#ifLt
-                        data.data.equippedArmor.data.tier.max
+                        data.system.equippedArmor.data.tier.max
                         3}}disabled="true"{{/ifLt}}/><span class="tier-num"
                           >3</span
                         ><span class="tier-dmg">-d6</span></label
@@ -417,8 +415,8 @@
             </div>
             <div class="item-controls">
               <a
-                class="item-control item-toggle item-toggle-equipped {{ifPrint data.data.equippedArmor.data.equipped 'equipped'}}"
-                title="{{ifPrintElse data.data.equippedArmor.data.equipped (localize 'MB.ItemEquipped') (localize 'MB.ItemUnequipped')}}"
+                class="item-control item-toggle item-toggle-equipped {{ifPrint data.system.equippedArmor.equipped 'equipped'}}"
+                title="{{ifPrintElse data.system.equippedArmor.equipped (localize 'MB.ItemEquipped') (localize 'MB.ItemUnequipped')}}"
                 ><i class="fas fa-shield-alt"></i
               ></a>
               <a class="item-control item-edit" title="Edit Item"
@@ -429,19 +427,19 @@
               ></a>
             </div>
           </li>
-          {{/if}} {{#if data.data.equippedShield}}
+          {{/if}} {{#if data.system.equippedShield}}
           <li
             class="item flexrow"
-            data-item-id="{{data.data.equippedShield._id}}"
+            data-item-id="{{data.system.equippedShield._id}}"
           >
             <img
-              src="{{data.data.equippedShield.img}}"
-              title="{{data.data.equippedShield.name}}"
+              src="{{data.system.equippedShield.img}}"
+              title="{{data.system.equippedShield.name}}"
               width="24"
               height="24"
             />
             <h4 class="item-name item-edit rollable">
-              {{data.data.equippedShield.name}}
+              {{data.system.equippedShield.name}}
             </h4>
             <div class="item-buttons">
               <span class="rule-text shield-rule"
@@ -450,8 +448,8 @@
             </div>
             <div class="item-controls">
               <a
-                class="item-control item-toggle item-toggle-equipped {{ifPrint data.data.equippedShield.data.equipped 'equipped'}}"
-                title="{{ifPrintElse data.data.equippedShield.data.equipped (localize 'MB.ItemEquipped') (localize 'MB.ItemUnequipped')}}"
+                class="item-control item-toggle item-toggle-equipped {{ifPrint data.system.equippedShield.equipped 'equipped'}}"
+                title="{{ifPrintElse data.system.equippedShield.equipped (localize 'MB.ItemEquipped') (localize 'MB.ItemUnequipped')}}"
                 ><i class="fas fa-shield-alt"></i
               ></a>
               <a class="item-control item-edit" title="Edit Item"
@@ -462,8 +460,8 @@
               ></a>
             </div>
           </li>
-          {{/if}} {{#unless data.data.equippedArmor}} {{#unless
-          data.data.equippedShield}}
+          {{/if}} {{#unless data.system.equippedArmor}} {{#unless
+          data.system.equippedShield}}
           <div class="rule-text you-have-no">
             {{localize 'MB.EquipArmorToAbsorb'}}
           </div>
@@ -492,7 +490,7 @@
     <div class="tab specials-tab" data-group="primary" data-tab="feats">
       <ol class="items-list inventory-list">
         <ol class="item-list">
-          {{#each data.data.feats as |item id|}}
+          {{#each data.system.feats as |item id|}}
           <li class="item flexrow" data-item-id="{{item._id}}">
             <img
               src="{{item.img}}"
@@ -502,15 +500,15 @@
             />
             <h4 class="item-name item-edit rollable">{{item.name}}</h4>
             <div class="item-buttons">
-              {{#if item.data.rollLabel}}
+              {{#if item.rollLabel}}
               <button
                 type="button"
                 class="item-button rollable feat-button"
-                data-roll="{{item.data.rollFormula}}"
-                data-label="{{item.data.rollLabel}}"
-                title="{{item.data.rollLabel}}"
+                data-roll="{{item.rollFormula}}"
+                data-label="{{item.rollLabel}}"
+                title="{{item.rollLabel}}"
               >
-                {{item.data.rollLabel}}
+                {{item.rollLabel}}
               </button>
               {{/if}}
             </div>
@@ -525,7 +523,7 @@
           </li>
           {{/each}}
         </ol>
-        {{#unless data.data.feats.length}}
+        {{#unless data.system.feats.length}}
         <div class="rule-text you-have-no">
           {{localize 'MB.YouHaveNoFeats'}}
         </div>
@@ -553,9 +551,9 @@
             >
             <input
               class="stat-input"
-              name="data.powerUses.value"
+              name="sysem.powerUses.value"
               type="number"
-              value="{{data.data.powerUses.value}}"
+              value="{{data.system.powerUses.value}}"
               data-dtype="Number"
             />
           </div>
@@ -572,7 +570,7 @@
           <div class="item-controls flexrow"></div>
         </li>
         <ol class="item-list">
-          {{#each data.data.scrolls as |item id|}}
+          {{#each data.system.scrolls as |item id|}}
           <li class="item flexrow" data-item-id="{{item._id}}">
             <img
               src="{{item.img}}"
@@ -593,7 +591,7 @@
           </li>
           {{/each}}
         </ol>
-        {{#unless data.data.scrolls.length}}
+        {{#unless data.system.scrolls.length}}
         <div class="rule-text you-have-no">
           {{localize 'MB.YouHaveNoScrolls'}}
         </div>
@@ -610,9 +608,9 @@
           >
           <input
             class="stat-input silver-input"
-            name="data.silver"
+            name="system.silver"
             type="number"
-            value="{{data.data.silver}}"
+            value="{{data.system.silver}}"
             data-dtype="Number"
           />
         </div>
@@ -621,15 +619,15 @@
             <span class="stat-label carrying-label"
               >{{ localize "MB.Carrying" }}:</span
             >
-            <span class="stat-value">{{data.data.carryingWeight}}</span>
+            <span class="stat-value">{{data.system.carryingWeight}}</span>
             /
-            <span class="stat-value">{{data.data.carryingCapacity}}</span>
+            <span class="stat-value">{{data.system.carryingCapacity}}</span>
           </div>
           <div>
             <span
-              class="rule-text {{ifPrint data.data.encumbered 'encumbered'}}"
+              class="rule-text {{ifPrint data.system.encumbered 'encumbered'}}"
             >
-              {{#if data.data.trackCarryingCapacity}} {{localize
+              {{#if data.system.trackCarryingCapacity}} {{localize
               'MB.CarryingRule'}} {{else}} {{localize
               'MB.CarryingRuleNoPenalty'}} {{/if}}
             </span>

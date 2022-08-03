@@ -108,13 +108,13 @@ export class MBActor extends Actor {
     this.items.forEach((item) => item.prepareActorItemDerivedData(this));
 
     if (this.type === "character") {
-      this.data.data.carryingWeight = this.carryingWeight();
-      this.data.data.carryingCapacity = this.normalCarryingCapacity();
-      this.data.data.encumbered = this.isEncumbered();
+      this.system.carryingWeight = this.carryingWeight();
+      this.system.carryingCapacity = this.normalCarryingCapacity();
+      this.system.encumbered = this.isEncumbered();
     }
 
     if (this.type === "container") {
-      this.data.data.containerSpace = this.containerSpace();
+      this.system.containerSpace = this.containerSpace();
     }
   }
 
@@ -166,8 +166,8 @@ export class MBActor extends Actor {
   }
 
   _firstEquipped(itemType) {
-    for (const item of this.data.items) {
-      if (item.type === itemType && item.data.data.equipped) {
+    for (const item of this.items) {
+      if (item.type === itemType && item.system.equipped) {
         return item;
       }
     }
@@ -202,7 +202,7 @@ export class MBActor extends Actor {
   }
 
   normalCarryingCapacity() {
-    return this.data.data.abilities.strength.value + 8;
+    return this.system.abilities.strength.value + 8;
   }
 
   maxCarryingCapacity() {
@@ -210,7 +210,7 @@ export class MBActor extends Actor {
   }
 
   carryingWeight() {
-    return this.data.items
+    return this.items
       .filter((item) => item.isEquipment && item.carried && !item.hasContainer)
       .reduce((weight, item) => weight + item.totalCarryWeight, 0);
   }
@@ -223,7 +223,7 @@ export class MBActor extends Actor {
   }
 
   containerSpace() {
-    return this.data.items
+    return this.items
       .filter((item) => item.isEquipment && !item.hasContainer)
       .reduce((containerSpace, item) => containerSpace + item.totalSpace, 0);
   }
@@ -273,7 +273,7 @@ export class MBActor extends Actor {
     const drModifiers = [];
     const armor = this.equippedArmor();
     if (armor) {
-      const armorTier = CONFIG.MB.armorTiers[armor.data.data.tier.max];
+      const armorTier = CONFIG.MB.armorTiers[armor.system.tier.max];
       if (armorTier.agilityModifier) {
         drModifiers.push(
           `${armor.name}: ${game.i18n.localize("MB.DR")} +${
@@ -470,8 +470,8 @@ export class MBActor extends Actor {
   }
 
   async _decrementWeaponAmmo(weapon) {
-    if (weapon.data.data.usesAmmo && weapon.data.data.ammoId && trackAmmo()) {
-      const ammo = this.items.get(weapon.data.data.ammoId);
+    if (weapon.system.usesAmmo && weapon.system.ammoId && trackAmmo()) {
+      const ammo = this.items.get(weapon.system.ammoId);
       if (ammo) {
         const attr = "data.quantity";
         const currQuantity = getProperty(ammo.data, attr);
@@ -523,7 +523,7 @@ export class MBActor extends Actor {
     if (armor) {
       // armor defense adjustment is based on its max tier, not current
       // TODO: maxTier is getting stored as a string
-      const maxTier = parseInt(armor.data.data.tier.max);
+      const maxTier = parseInt(armor.system.tier.max);
       const defenseModifier = CONFIG.MB.armorTiers[maxTier].defenseModifier;
       if (defenseModifier) {
         drModifiers.push(
@@ -576,7 +576,7 @@ export class MBActor extends Actor {
     const armor = this.equippedArmor();
     if (armor) {
       // TODO: maxTier is getting stored as a string
-      const maxTier = parseInt(armor.data.data.tier.max);
+      const maxTier = parseInt(armor.system.tier.max);
       const defenseModifier = CONFIG.MB.armorTiers[maxTier].defenseModifier;
       if (defenseModifier) {
         drModifier += defenseModifier;
@@ -667,7 +667,7 @@ export class MBActor extends Actor {
       let damageReductionDie = "";
       if (armor) {
         damageReductionDie =
-          CONFIG.MB.armorTiers[armor.data.data.tier.value].damageReductionDie;
+          CONFIG.MB.armorTiers[armor.system.tier.value].damageReductionDie;
         items.push(armor);
       }
       if (shield) {
@@ -725,7 +725,7 @@ export class MBActor extends Actor {
 
     let outcomeRoll = null;
     // must have a non-zero morale to possibly fail a morale check
-    if (this.data.data.morale && moraleRoll.total > this.data.data.morale) {
+    if (this.system.morale && moraleRoll.total > this.system.morale) {
       outcomeRoll = new Roll("1d6", actorRollData);
       outcomeRoll.evaluate({ async: false });
       await showDice(outcomeRoll);
@@ -801,7 +801,7 @@ export class MBActor extends Actor {
   }
 
   async wieldPower() {
-    if (this.data.data.powerUses.value < 1) {
+    if (this.system.powerUses.value < 1) {
       ui.notifications.warn(
         `${game.i18n.localize("MB.NoPowerUsesRemaining")}!`
       );
@@ -880,21 +880,21 @@ export class MBActor extends Actor {
       }
     }
 
-    const newPowerUses = Math.max(0, this.data.data.powerUses.value - 1);
+    const newPowerUses = Math.max(0, this.system.powerUses.value - 1);
     await this.update({ ["data.powerUses.value"]: newPowerUses });
   }
 
   async useFeat(itemId) {
     const item = this.items.get(itemId);
-    if (!item || !item.data.data.rollLabel) {
+    if (!item || !item.system.rollLabel) {
       return;
     }
 
-    if (item.data.data.rollMacro) {
+    if (item.system.rollMacro) {
       // roll macro
-      if (item.data.data.rollMacro.includes(",")) {
+      if (item.system.rollMacro.includes(",")) {
         // assume it's a CSV string for {pack},{macro name}
-        const [packName, macroName] = item.data.data.rollMacro.split(",");
+        const [packName, macroName] = item.system.rollMacro.split(",");
         const pack = game.packs.get(packName);
         if (pack) {
           const content = await pack.getDocuments();
@@ -911,21 +911,19 @@ export class MBActor extends Actor {
         }
       } else {
         // assume it's the name of a macro in the current world/game
-        const macro = game.macros.find(
-          (m) => m.name === item.data.data.rollMacro
-        );
+        const macro = game.macros.find((m) => m.name === item.system.rollMacro);
         if (macro) {
           macro.execute();
         } else {
-          console.log(`Could not find macro ${item.data.data.rollMacro}.`);
+          console.log(`Could not find macro ${item.system.rollMacro}.`);
         }
       }
-    } else if (item.data.data.rollFormula) {
+    } else if (item.system.rollFormula) {
       // roll formula
       await this._rollOutcome(
-        item.data.data.rollFormula,
+        item.system.rollFormula,
         this.getRollData(),
-        item.data.data.rollLabel,
+        item.system.rollLabel,
         () => ``
       );
     }
@@ -1015,7 +1013,7 @@ export class MBActor extends Actor {
       if (canRestore && foodAndDrink === "eat") {
         await this.rollHealHitPoints("d6");
         await this.rollPowersPerDay();
-        if (this.data.data.omens.value === 0) {
+        if (this.system.omens.value === 0) {
           await this.rollOmens();
         }
       } else if (canRestore && foodAndDrink === "donteat") {
@@ -1048,8 +1046,8 @@ export class MBActor extends Actor {
         )}`
     );
     const newHP = Math.min(
-      this.data.data.hp.max,
-      this.data.data.hp.value + roll.total
+      this.system.hp.max,
+      this.system.hp.value + roll.total
     );
     await this.update({ ["data.hp.value"]: newHP });
   }
@@ -1064,7 +1062,7 @@ export class MBActor extends Actor {
           "MB.Damage"
         )}`
     );
-    const newHP = this.data.data.hp.value - roll.total;
+    const newHP = this.system.hp.value - roll.total;
     await this.update({ ["data.hp.value"]: newHP });
   }
 
@@ -1078,22 +1076,22 @@ export class MBActor extends Actor {
           "MB.Damage"
         )}`
     );
-    const newHP = this.data.data.hp.value - roll.total;
+    const newHP = this.system.hp.value - roll.total;
     await this.update({ ["data.hp.value"]: newHP });
   }
 
   async getBetter() {
-    const oldHp = this.data.data.hp.max;
+    const oldHp = this.system.hp.max;
     const newHp = this._betterHp(oldHp);
-    const oldStr = this.data.data.abilities.strength.value;
+    const oldStr = this.system.abilities.strength.value;
     const newStr = this._betterAbility(oldStr);
-    const oldAgi = this.data.data.abilities.agility.value;
+    const oldAgi = this.system.abilities.agility.value;
     const newAgi = this._betterAbility(oldAgi);
-    const oldPre = this.data.data.abilities.presence.value;
+    const oldPre = this.system.abilities.presence.value;
     const newPre = this._betterAbility(oldPre);
-    const oldTou = this.data.data.abilities.toughness.value;
+    const oldTou = this.system.abilities.toughness.value;
     const newTou = this._betterAbility(oldTou);
-    let newSilver = this.data.data.silver;
+    let newSilver = this.system.silver;
 
     const hpOutcome = this._abilityOutcome(
       game.i18n.localize("MB.HP"),

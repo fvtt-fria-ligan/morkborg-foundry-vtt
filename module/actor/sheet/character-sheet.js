@@ -31,18 +31,18 @@ export class MBActorSheetCharacter extends MBActorSheet {
     data.config = CONFIG.MB;
 
     // Ability Scores
-    for (const [a, abl] of Object.entries(data.data.abilities)) {
+    for (const [a, abl] of Object.entries(data.system.abilities)) {
       const translationKey = CONFIG.MB.abilities[a];
       abl.label = game.i18n.localize(translationKey);
     }
 
     // Prepare items.
-    if (this.actor.data.type == "character") {
+    if (this.actor.type == "character") {
       this._prepareCharacterItems(data);
     }
 
-    data.data.trackCarryingCapacity = trackCarryingCapacity();
-    data.data.trackAmmo = trackAmmo();
+    data.system.trackCarryingCapacity = trackCarryingCapacity();
+    data.system.trackAmmo = trackAmmo();
 
     return superData;
   }
@@ -56,37 +56,37 @@ export class MBActorSheetCharacter extends MBActorSheet {
   _prepareCharacterItems(sheetData) {
     const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
 
-    sheetData.data.feats = sheetData.items
+    sheetData.feats = sheetData.items
       .filter((item) => item.type === CONFIG.MB.itemTypes.feat)
       .sort(byName);
 
-    sheetData.data.class = sheetData.items.find(
+    sheetData.class = sheetData.items.find(
       (item) => item.type === CONFIG.MB.itemTypes.class
     );
 
-    sheetData.data.scrolls = sheetData.items
+    sheetData.scrolls = sheetData.items
       .filter((item) => item.type === CONFIG.MB.itemTypes.scroll)
       .sort(byName);
 
-    sheetData.data.equipment = sheetData.items
+    sheetData.equipment = sheetData.items
       .filter((item) => CONFIG.MB.itemEquipmentTypes.includes(item.type))
-      .filter((item) => !item.data.hasContainer)
+      .filter((item) => !item.hasContainer)
       .sort(byName);
 
-    sheetData.data.equippedArmor = sheetData.items
+    sheetData.equippedArmor = sheetData.items
       .filter((item) => item.type === CONFIG.MB.itemTypes.armor)
       .find((item) => item.data.equipped);
 
-    sheetData.data.equippedShield = sheetData.items
+    sheetData.equippedShield = sheetData.items
       .filter((item) => item.type === CONFIG.MB.itemTypes.shield)
       .find((item) => item.data.equipped);
 
-    sheetData.data.equippedWeapons = sheetData.items
+    sheetData.equippedWeapons = sheetData.items
       .filter((item) => item.type === CONFIG.MB.itemTypes.weapon)
       .filter((item) => item.data.equipped)
       .sort(byName);
 
-    sheetData.data.ammo = sheetData.items
+    sheetData.ammo = sheetData.items
       .filter((item) => item.type === CONFIG.MB.itemTypes.ammo)
       .sort(byName);
   }
