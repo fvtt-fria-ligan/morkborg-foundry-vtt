@@ -1,0 +1,35 @@
+{{!-- Treasures Tab --}}
+<div class="tab equipment-tab" data-group="primary" data-tab="equipment">
+  <div class="equipment-top-row">
+    <div class="silver">
+      <span class="stat-label silver-label">{{ localize "MB.Silver" }}:</span>
+      <input
+        class="stat-input silver-input"
+        name="system.silver"
+        type="number"
+        value="{{data.system.silver}}"
+        data-dtype="Number"
+      />
+    </div>
+    <div class="carry-block">
+      <div>
+        <span class="stat-label carrying-label"
+          >{{ localize "MB.Carrying" }}:</span
+        >
+        <span class="stat-value">{{data.system.carryingWeight}}</span>
+        /
+        <span class="stat-value">{{data.system.carryingCapacity}}</span>
+      </div>
+      <div>
+        <span class="rule-text {{ifPrint data.system.encumbered 'encumbered'}}">
+          {{#if data.system.trackCarryingCapacity}} {{localize
+          'MB.CarryingRule'}} {{else}} {{localize 'MB.CarryingRuleNoPenalty'}}
+          {{/if}}
+        </span>
+      </div>
+    </div>
+  </div>
+  <ol class="items-list equipment-list">
+    {{> "systems/morkborg/templates/actor/common/equipment-list.html"}}
+  </ol>
+</div>

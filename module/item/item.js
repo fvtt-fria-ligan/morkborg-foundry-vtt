@@ -175,7 +175,7 @@ export class MBItem extends Item {
     return this.items.reduce((initial, itemId) => {
       const item = actor.items.get(itemId);
       if (item) {
-        initial.push(item.data);
+        initial.push(item.system);
       }
       return initial;
     }, []);
