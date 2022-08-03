@@ -48,5 +48,10 @@ export const configureHandlebars = () => {
 
   loadTemplates([
     "systems/morkborg/templates/actor/common/actor-equipment-list.html",
+    "systems/morkborg/templates/item/common/base-fields.html",
+    "systems/morkborg/templates/item/common/description-tab.html",
+    "systems/morkborg/templates/item/common/quantity-field.html",
+    "systems/morkborg/templates/item/common/sheet-header.html",
+    "systems/morkborg/templates/item/common/sheet-tabs.html",
   ]);
 };

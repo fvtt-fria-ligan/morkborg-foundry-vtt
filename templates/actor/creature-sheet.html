@@ -24,17 +24,17 @@
         <span class="stat-label">{{ localize "MB.HitPoints" }}:</span>
         <input
           class="stat-input"
-          name="data.hp.value"
+          name="system.hp.value"
           type="number"
-          value="{{data.data.hp.value}}"
+          value="{{data.system.hp.value}}"
           data-dtype="Number"
         />
         /
         <input
           class="stat-input"
-          name="data.hp.max"
+          name="system.hp.max"
           type="number"
-          value="{{data.data.hp.max}}"
+          value="{{data.system.hp.max}}"
           data-dtype="Number"
         />
       </div>
@@ -61,8 +61,8 @@
   <section class="sheet-body">
     {{!-- Description Tab --}}
     <div class="tab" data-group="primary" data-tab="description">
-      {{editor content=data.data.description target="data.description"
-      button=true owner=owner editable=true}}
+      {{editor data.system.description target="system.description" button=true
+      owner=owner editable=true}}
     </div>
 
     {{!-- Details Tab --}}
@@ -71,9 +71,9 @@
       <div class="form-group">
         <label>{{ localize "MB.Morale" }}:</label>
         <input
-          name="data.morale"
+          name="system.morale"
           type="text"
-          value="{{data.data.morale}}"
+          value="{{data.system.morale}}"
           placeholder=""
           data-dtype="Number"
         />
@@ -84,8 +84,8 @@
         <label>{{ localize "MB.CreatureArmor" }}:</label>
         <input
           type="text"
-          name="data.armor.name"
-          value="{{data.data.armor.name}}"
+          name="system.armor.name"
+          value="{{data.system.armor.name}}"
           placeholder="None"
           data-dtype="String"
         />
@@ -96,8 +96,8 @@
         <label>{{ localize "MB.CreatureAttack" }}:</label>
         <input
           type="text"
-          name="data.attack.name"
-          value="{{data.data.attack.name}}"
+          name="system.attack.name"
+          value="{{data.system.attack.name}}"
           placeholder="None"
           data-dtype="String"
         />
@@ -106,7 +106,9 @@
       {{!-- Special --}}
       <div class="form-group">
         <label>{{ localize "MB.CreatureSpecial" }}:</label>
-        <textarea name="data.special" rows="10">{{data.data.special}}</textarea>
+        <textarea name="system.special" rows="10">
+{{data.system.special}}</textarea
+        >
       </div>
     </div>
   </section>

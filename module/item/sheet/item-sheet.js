@@ -24,9 +24,9 @@ export class MBItemSheet extends ItemSheet {
   /** @override */
   get template() {
     const path = "systems/morkborg/templates/item";
-    if (Object.keys(MB.itemTypeKeys).includes(this.item.data.type)) {
+    if (Object.keys(MB.itemTypeKeys).includes(this.item.type)) {
       // specific item-type sheet
-      return `${path}/${this.item.data.type}-sheet.html`;
+      return `${path}/${this.item.type}-sheet.html`;
     } else {
       // generic item sheet
       return `${path}/item-sheet.html`;
@@ -35,14 +35,14 @@ export class MBItemSheet extends ItemSheet {
 
   /** @override */
   async getData(options) {
-    const data = super.getData(options);
-    data.config = CONFIG.MB;
-    if (data.data.data.scrollType) {
-      data.data.data.localizedScrollType = game.i18n.localize(
-        MB.scrollTypes[data.data.data.scrollType]
+    const superData = super.getData(options);
+    superData.config = CONFIG.MB;
+    if (superData.data.scrollType) {
+      superData.data.localizedScrollType = game.i18n.localize(
+        MB.scrollTypes[superData.data.scrollType]
       );
     }
-    return data;
+    return superData;
   }
 
   /**

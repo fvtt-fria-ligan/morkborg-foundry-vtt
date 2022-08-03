@@ -1,52 +1,18 @@
 <form class="flexcol {{cssClass}}" autocomplete="off">
-  {{!-- Sheet Header --}}
-  <header class="sheet-header flexrow">
-    <img
-      class="profile-img"
-      src="{{item.img}}"
-      title="{{item.name}}"
-      data-edit="img"
-    />
-    <div class="header-details">
-      <h1 class="item-name">
-        <input
-          name="name"
-          type="text"
-          value="{{item.name}}"
-          placeholder="{{ localize 'MB.ItemName' }}"
-        />
-      </h1>
-      <div class="item-subtitle">
-        <h4 class="item-type">{{item.type}}</h4>
-      </div>
-    </div>
-  </header>
+  {{> systems/morkborg/templates/item/common/sheet-header.html }} {{>
+  systems/morkborg/templates/item/common/sheet-tabs.html }}
 
-  {{!-- Sheet Tab Navigation --}}
-  <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="description"
-      >{{ localize "MB.TabDescription" }}</a
-    >
-    <a class="item" data-tab="details">{{ localize "MB.TabDetails" }}</a>
-  </nav>
-
-  {{!-- Sheet Body --}}
   <section class="sheet-body">
-    {{!-- Description Tab --}}
-    <div class="tab" data-group="primary" data-tab="description">
-      {{editor content=data.data.description target="data.description"
-      button=true owner=owner editable=true}}
-    </div>
-
-    {{!-- Details Tab --}}
+    {{> systems/morkborg/templates/item/common/description-tab.html }} {{!--
+    Details Tab --}}
     <div class="tab" data-group="primary" data-tab="details">
       {{!-- Roll Label --}}
       <div class="form-group">
         <label>{{ localize "MB.RollLabel" }}:</label>
         <input
           type="text"
-          name="data.rollLabel"
-          value="{{data.data.rollLabel}}"
+          name="system.rollLabel"
+          value="{{data.system.rollLabel}}"
           placeholder=""
           data-dtype="String"
         />
@@ -57,8 +23,8 @@
         <label>{{ localize "MB.RollFormula" }}:</label>
         <input
           type="text"
-          name="data.rollFormula"
-          value="{{data.data.rollFormula}}"
+          name="system.rollFormula"
+          value="{{data.system.rollFormula}}"
           placeholder=""
           data-dtype="String"
         />
@@ -69,8 +35,8 @@
         <label>{{ localize "MB.RollMacro" }}:</label>
         <input
           type="text"
-          name="data.rollMacro"
-          value="{{data.data.rollMacro}}"
+          name="system.rollMacro"
+          value="{{data.system.rollMacro}}"
           placeholder=""
           data-dtype="String"
         />

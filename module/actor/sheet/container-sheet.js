@@ -1,4 +1,5 @@
 import MBActorSheet from "./actor-sheet.js";
+import { byName } from "../../utils.js";
 
 /**
  * @extends {ActorSheet}
@@ -27,7 +28,7 @@ export class MBActorSheetContainer extends MBActorSheet {
     const superData = super.getData();
     const data = superData.data;
     data.config = CONFIG.MB;
-    if (this.actor.data.type == "container") {
+    if (this.actor.type == "container") {
       this._prepareContainerItems(data);
     }
     return superData;
@@ -41,11 +42,9 @@ export class MBActorSheetContainer extends MBActorSheet {
    * @return {undefined}
    */
   _prepareContainerItems(sheetData) {
-    const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
-
-    sheetData.data.equipment = sheetData.items
+    sheetData.equipment = sheetData.items
       .filter((item) => CONFIG.MB.itemEquipmentTypes.includes(item.type))
-      .filter((item) => !item.data.hasContainer)
+      .filter((item) => !item.hasContainer)
       .sort(byName);
   }
 }
