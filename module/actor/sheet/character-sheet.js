@@ -40,7 +40,6 @@ export class MBActorSheetCharacter extends MBActorSheet {
     this._prepareCharacterItems(data);
     data.system.trackCarryingCapacity = trackCarryingCapacity();
     data.system.trackAmmo = trackAmmo();
-
     return superData;
   }
 

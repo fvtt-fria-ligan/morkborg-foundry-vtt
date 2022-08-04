@@ -102,55 +102,15 @@
         >{{ localize "MB.Miseries" }}:</label
       >
       <ul class="miseries">
+        {{#times 7}}
         <li>
           <label
-            ><input type="radio" name="system.miseries.value" value="0"
-            data-dtype="Number" {{#ifEq data.system.miseries.value
-            0}}checked{{/ifEq}}/><span>0</span></label
+            ><input type="radio" name="system.miseries.value" value="{{this}}"
+            data-dtype="Number" {{#ifEq ../data.system.miseries.value
+            this}}checked{{/ifEq}}/><span>{{this}}</span></label
           >
         </li>
-        <li>
-          <label
-            ><input type="radio" name="system.miseries.value" value="1"
-            data-dtype="Number" {{#ifEq data.system.miseries.value
-            1}}checked{{/ifEq}}/><span>1</span></label
-          >
-        </li>
-        <li>
-          <label
-            ><input type="radio" name="system.miseries.value" value="2"
-            data-dtype="Number" {{#ifEq data.system.miseries.value
-            2}}checked{{/ifEq}}/><span>2</span></label
-          >
-        </li>
-        <li>
-          <label
-            ><input type="radio" name="system.miseries.value" value="3"
-            data-dtype="Number" {{#ifEq data.system.miseries.value
-            3}}checked{{/ifEq}}/><span>3</span></label
-          >
-        </li>
-        <li>
-          <label
-            ><input type="radio" name="system.miseries.value" value="4"
-            data-dtype="Number" {{#ifEq data.system.miseries.value
-            4}}checked{{/ifEq}}/><span>4</span></label
-          >
-        </li>
-        <li>
-          <label
-            ><input type="radio" name="system.miseries.value" value="5"
-            data-dtype="Number" {{#ifEq data.system.miseries.value
-            5}}checked{{/ifEq}}/><span>5</span></label
-          >
-        </li>
-        <li>
-          <label
-            ><input type="radio" name="system.miseries.value" value="6"
-            data-dtype="Number" {{#ifEq data.system.miseries.value
-            6}}checked{{/ifEq}}/><span>6</span></label
-          >
-        </li>
+        {{/times}}
         <li>
           <label
             ><input type="radio" name="system.miseries.value" value="7"

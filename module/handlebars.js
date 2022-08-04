@@ -2,7 +2,6 @@ export const configureHandlebars = () => {
   // Handlebars helpers
   // TODO: registering a helper named "eq" breaks filepicker
   Handlebars.registerHelper("ifEq", function (arg1, arg2, options) {
-    // TODO: verify whether we want == or === for this equality check
     return arg1 == arg2 ? options.fn(this) : options.inverse(this);
   });
   Handlebars.registerHelper("ifGe", function (arg1, arg2, options) {
@@ -26,6 +25,15 @@ export const configureHandlebars = () => {
   });
   Handlebars.registerHelper("ifPrintElse", function (cond, v1, v2) {
     return cond ? v1 : v2;
+  });
+
+  // https://stackoverflow.com/questions/11924452/iterating-over-basic-for-loop-using-handlebars-js
+  Handlebars.registerHelper("times", function (n, block) {
+    let accum = "";
+    for (let i = 0; i < n; i++) {
+      accum += block.fn(i);
+    }
+    return accum;
   });
 
   /**
