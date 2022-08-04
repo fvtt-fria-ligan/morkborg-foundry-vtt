@@ -12,7 +12,6 @@
       "name": "mcglintlock"
     }
   ],
-  "scripts": [],
   "esmodules": ["module/morkborg.js"],
   "styles": ["css/morkborg.css"],
   "packs": [
