@@ -118,6 +118,7 @@
 .morkborg .editor,
 .morkborg .editor-content {
   height: 100%;
+  padding-top: 10px;
 }
 .morkborg .button {
   background: var(--foreground-color);
