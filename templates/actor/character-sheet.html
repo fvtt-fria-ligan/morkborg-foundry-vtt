@@ -1,6 +1,6 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
-  {{> systems/morkborg/templates/actor/char-sheet-header.html }} {{!-- Sheet Tab
-  Navigation --}}
+  {{> systems/morkborg/templates/actor/character/sheet-header.html }} {{!--
+  Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
     <a class="item" data-tab="obituary">{{ localize 'MB.TabObituary' }}</a>
     <a class="item" data-tab="violence">{{ localize 'MB.TabViolence' }}</a>
@@ -11,10 +11,10 @@
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
-    {{> systems/morkborg/templates/actor/obituary-tab.html }} {{>
-    systems/morkborg/templates/actor/violence-tab.html }} {{>
-    systems/morkborg/templates/actor/feats-tab.html }} {{>
-    systems/morkborg/templates/actor/powers-tab.html }} {{>
-    systems/morkborg/templates/actor/treasures-tab.html }}
+    {{> systems/morkborg/templates/actor/character/obituary-tab.html }} {{>
+    systems/morkborg/templates/actor/common/violence-tab.html }} {{>
+    systems/morkborg/templates/actor/character/feats-tab.html }} {{>
+    systems/morkborg/templates/actor/character/powers-tab.html }} {{>
+    systems/morkborg/templates/actor/character/treasures-tab.html }}
   </section>
 </form>

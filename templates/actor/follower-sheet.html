@@ -24,9 +24,9 @@
         <span class="stat-label">{{ localize "MB.HitPoints" }}:</span>
         <input
           class="stat-input"
-          name="data.hp.value"
+          name="system.hp.value"
           type="number"
-          value="{{data.data.hp.value}}"
+          value="{{data.system.hp.value}}"
           data-dtype="Number"
         />
         /
@@ -34,7 +34,7 @@
           class="stat-input"
           name="data.hp.max"
           type="number"
-          value="{{data.data.hp.max}}"
+          value="{{data.system.hp.max}}"
           data-dtype="Number"
         />
       </div>
@@ -115,8 +115,8 @@
       </div>
     </div>
 
-    {{> systems/morkborg/templates/actor/violence-tab.html }} {{!-- Treasures
-    Tab --}}
+    {{> systems/morkborg/templates/actor/common/violence-tab.html }} {{!--
+    Treasures Tab --}}
     <div class="tab equipment-tab" data-group="primary" data-tab="treasures">
       <div class="equipment-top-row">
         <div class="silver">

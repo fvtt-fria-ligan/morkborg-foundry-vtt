@@ -37,11 +37,7 @@ export class MBActorSheetCharacter extends MBActorSheet {
       abl.label = game.i18n.localize(translationKey);
     }
 
-    // Prepare items.
-    if (this.actor.type == "character") {
-      this._prepareCharacterItems(data);
-    }
-
+    this._prepareCharacterItems(data);
     data.system.trackCarryingCapacity = trackCarryingCapacity();
     data.system.trackAmmo = trackAmmo();
 
