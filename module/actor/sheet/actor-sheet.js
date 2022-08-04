@@ -118,9 +118,7 @@ export default class MBActorSheet extends ActorSheet {
     const li = anchor.parents(".item");
     const itemId = li.data("itemId");
     const item = this.actor.items.get(itemId);
-    const attr = "system.quantity";
-    const currQuantity = getProperty(item.data, attr);
-    return item.update({ [attr]: currQuantity + 1 });
+    await item.incrementQuantity();
   }
 
   /**
@@ -132,12 +130,7 @@ export default class MBActorSheet extends ActorSheet {
     const li = anchor.parents(".item");
     const itemId = li.data("itemId");
     const item = this.actor.items.get(itemId);
-    const attr = "system.quantity";
-    const currQuantity = getProperty(item.data, attr);
-    // can't reduce quantity below one
-    if (currQuantity > 1) {
-      return item.update({ [attr]: currQuantity - 1 });
-    }
+    await item.decrementQuantity();
   }
 
   /**
@@ -153,7 +146,7 @@ export default class MBActorSheet extends ActorSheet {
     const itemId = li.data("itemId");
     const item = this.actor.items.get(itemId);
 
-    if (item.equipped) {
+    if (item.system.equipped) {
       await this.actor.unequipItem(item);
     } else {
       await this.actor.equipItem(item);
@@ -172,7 +165,7 @@ export default class MBActorSheet extends ActorSheet {
     const li = anchor.parents(".item");
     const itemId = li.data("itemId");
     const item = this.actor.items.get(itemId);
-    if (item.carried) {
+    if (item.system.carried) {
       await item.drop();
     } else {
       await item.carry();
@@ -281,7 +274,7 @@ export default class MBActorSheet extends ActorSheet {
       item.clearItems();
       const newItems = await this.actor.createEmbeddedDocuments(
         "Item",
-        originalItem.itemsData
+        originalItem.system.itemsData
       );
       await this._addItemsToItemContainer(newItems, item);
     }
@@ -315,10 +308,10 @@ export default class MBActorSheet extends ActorSheet {
   }
 
   async _cleanDroppedItem(item) {
-    if (item.equipped) {
+    if (item.system.equipped) {
       await item.unequip();
     }
-    if (!item.carried) {
+    if (!item.system.carried) {
       await item.carry();
     }
   }

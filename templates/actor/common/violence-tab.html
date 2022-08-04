@@ -32,7 +32,7 @@
         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
         <div class="weapon-name-col">
           <h4 class="item-name item-edit rollable">{{item.name}}</h4>
-          {{#if ../data.system.trackAmmo}} {{#if item.usesAmmo}}
+          {{#if ../data.system.trackAmmo}} {{#if item.system.usesAmmo}}
           <div class="ammo-select-col">
             <select
               class="ammo-select"
@@ -40,11 +40,11 @@
               data-dtype="Number"
               data-item-id="{{item._id}}"
             >
-              {{#select item.ammoId}}
+              {{#select item.system.ammoId}}
               <option value="">{{localize 'MB.ItemTypeAmmo'}}</option>
               {{#each ../data.system.ammo as |ammo ammoId|}}
               <option value="{{ammo._id}}">
-                {{ammo.name}} ({{ammo.quantity}})
+                {{ammo.name}} ({{ammo.system.quantity}})
               </option>
               {{/each}} {{/select}}
             </select>
@@ -52,8 +52,8 @@
           {{/if}} {{/if}}
         </div>
         <div class="item-fields">
-          <span class="item-field damage-die">{{item.damageDie}}</span>
-          <span class="item-field weapon-type">{{item.weaponType}}</span>
+          <span class="item-field damage-die">{{item.system.damageDie}}</span>
+          <span class="item-field weapon-type">{{item.system.weaponType}}</span>
         </div>
         <div class="item-buttons">
           <button
@@ -68,8 +68,8 @@
         </div>
         <div class="item-controls">
           <a
-            class="item-control item-toggle item-toggle-equipped {{ifPrint item.equipped 'equipped'}}"
-            title="{{ifPrintElse item.equipped (localize 'MB.ItemEquipped') (localize 'MB.ItemUnequipped')}}"
+            class="item-control item-toggle item-toggle-equipped {{ifPrint item.system.equipped 'equipped'}}"
+            title="{{ifPrintElse item.system.equipped (localize 'MB.ItemEquipped') (localize 'MB.ItemUnequipped')}}"
             ><i class="fas fa-shield-alt"></i
           ></a>
           <a class="item-control item-edit" title="Edit Item"
@@ -120,7 +120,8 @@
                 <li>
                   <label
                     ><input class="tier-radio" type="radio" name="tier.value"
-                    value="0" {{#ifEq data.system.equippedArmor.data.tier.value
+                    value="0" {{#ifEq
+                    data.system.equippedArmor.system.tier.value
                     0}}checked{{/ifEq}}/><span class="tier-num">0</span
                     ><span class="tier-dmg">-0</span></label
                   >
@@ -128,7 +129,8 @@
                 <li>
                   <label
                     ><input class="tier-radio" type="radio" name="tier.value"
-                    value="1" {{#ifEq data.system.equippedArmor.data.tier.value
+                    value="1" {{#ifEq
+                    data.system.equippedArmor.system.tier.value
                     1}}checked{{/ifEq}}/><span class="tier-num">1</span
                     ><span class="tier-dmg">-d2</span></label
                   >
@@ -136,9 +138,10 @@
                 <li>
                   <label
                     ><input class="tier-radio" type="radio" name="tier.value"
-                    value="2" {{#ifEq data.system.equippedArmor.data.tier.value
+                    value="2" {{#ifEq
+                    data.system.equippedArmor.system.tier.value
                     2}}checked{{/ifEq}} {{#ifLt
-                    data.system.equippedArmor.data.tier.max
+                    data.system.equippedArmor.system.tier.max
                     2}}disabled="true"{{/ifLt}}/><span class="tier-num">2</span
                     ><span class="tier-dmg">-d4</span></label
                   >
@@ -146,9 +149,10 @@
                 <li>
                   <label
                     ><input class="tier-radio" type="radio" name="tier.value"
-                    value="3" {{#ifEq data.system.equippedArmor.data.tier.value
+                    value="3" {{#ifEq
+                    data.system.equippedArmor.system.tier.value
                     3}}checked{{/ifEq}} {{#ifLt
-                    data.system.equippedArmor.data.tier.max
+                    data.system.equippedArmor.system.tier.max
                     3}}disabled="true"{{/ifLt}}/><span class="tier-num">3</span
                     ><span class="tier-dmg">-d6</span></label
                   >
@@ -159,8 +163,8 @@
         </div>
         <div class="item-controls">
           <a
-            class="item-control item-toggle item-toggle-equipped {{ifPrint data.system.equippedArmor.equipped 'equipped'}}"
-            title="{{ifPrintElse data.system.equippedArmor.equipped (localize 'MB.ItemEquipped') (localize 'MB.ItemUnequipped')}}"
+            class="item-control item-toggle item-toggle-equipped {{ifPrint data.system.equippedArmor.system.equipped 'equipped'}}"
+            title="{{ifPrintElse data.system.equippedArmor.system.equipped (localize 'MB.ItemEquipped') (localize 'MB.ItemUnequipped')}}"
             ><i class="fas fa-shield-alt"></i
           ></a>
           <a class="item-control item-edit" title="Edit Item"
@@ -192,8 +196,8 @@
         </div>
         <div class="item-controls">
           <a
-            class="item-control item-toggle item-toggle-equipped {{ifPrint data.system.equippedShield.equipped 'equipped'}}"
-            title="{{ifPrintElse data.system.equippedShield.equipped (localize 'MB.ItemEquipped') (localize 'MB.ItemUnequipped')}}"
+            class="item-control item-toggle item-toggle-equipped {{ifPrint data.system.equippedShield.system.equipped 'equipped'}}"
+            title="{{ifPrintElse data.system.equippedShield.system.equipped (localize 'MB.ItemEquipped') (localize 'MB.ItemUnequipped')}}"
             ><i class="fas fa-shield-alt"></i
           ></a>
           <a class="item-control item-edit" title="Edit Item"

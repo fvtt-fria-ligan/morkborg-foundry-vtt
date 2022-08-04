@@ -7,15 +7,15 @@
         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
         <h4 class="item-name item-edit rollable">{{item.name}}</h4>
         <div class="item-buttons">
-          {{#if item.rollLabel}}
+          {{#if item.system.rollLabel}}
           <button
             type="button"
             class="item-button rollable feat-button"
-            data-roll="{{item.rollFormula}}"
-            data-label="{{item.rollLabel}}"
-            title="{{item.rollLabel}}"
+            data-roll="{{item.system.rollFormula}}"
+            data-label="{{item.system.rollLabel}}"
+            title="{{item.system.rollLabel}}"
           >
-            {{item.rollLabel}}
+            {{item.system.rollLabel}}
           </button>
           {{/if}}
         </div>

@@ -69,15 +69,15 @@ export class MBActorSheetCharacter extends MBActorSheet {
 
     sheetData.system.equippedArmor = sheetData.items
       .filter((item) => item.type === CONFIG.MB.itemTypes.armor)
-      .find((item) => item.equipped);
+      .find((item) => item.system.equipped);
 
     sheetData.system.equippedShield = sheetData.items
       .filter((item) => item.type === CONFIG.MB.itemTypes.shield)
-      .find((item) => item.equipped);
+      .find((item) => item.system.equipped);
 
     sheetData.system.equippedWeapons = sheetData.items
       .filter((item) => item.type === CONFIG.MB.itemTypes.weapon)
-      .filter((item) => item.equipped)
+      .filter((item) => item.system.equipped)
       .sort(byName);
 
     sheetData.system.ammo = sheetData.items
