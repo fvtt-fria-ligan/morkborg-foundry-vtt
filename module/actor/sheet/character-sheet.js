@@ -28,8 +28,8 @@ export class MBActorSheetCharacter extends MBActorSheet {
   /** @override */
   getData() {
     const superData = super.getData();
+    superData.config = CONFIG.MB;
     const data = superData.data;
-    data.config = CONFIG.MB;
 
     // Ability Scores
     for (const [a, abl] of Object.entries(data.system.abilities)) {

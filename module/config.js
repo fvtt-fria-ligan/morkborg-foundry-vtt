@@ -11,25 +11,25 @@ MB.abilities = {
 MB.armorTiers = {
   0: {
     key: "MB.ArmorTierNone",
-    damageReductionDie: "1d0",
+    damageReductionDie: "0",
     agilityModifier: 0,
     defenseModifier: 0,
   },
   1: {
     key: "MB.ArmorTierLight",
-    damageReductionDie: "1d2",
+    damageReductionDie: "d2",
     agilityModifier: 0,
     defenseModifier: 0,
   },
   2: {
     key: "MB.ArmorTierMedium",
-    damageReductionDie: "1d4",
+    damageReductionDie: "d4",
     agilityModifier: 2,
     defenseModifier: 2,
   },
   3: {
     key: "MB.ArmorTierHeavy",
-    damageReductionDie: "1d6",
+    damageReductionDie: "d6",
     agilityModifier: 4,
     defenseModifier: 2,
   },
