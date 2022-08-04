@@ -281,7 +281,7 @@ const rollScvmForClass = async (clazz) => {
   // for other non-item documents, just add some description text (ITEMTYPE: Item Name)
   const nonItems = allDocs.filter((e) => !(e instanceof MBItem));
   for (const nonItem of nonItems) {
-    if (nonItem && nonItem.data && nonItem.type) {
+    if (nonItem && nonItem.type) {
       const upperType = nonItem.type.toUpperCase();
       descriptionLines.push(
         `<p>&nbsp;</p><p>${upperType}: ${nonItem.name}</p>`
