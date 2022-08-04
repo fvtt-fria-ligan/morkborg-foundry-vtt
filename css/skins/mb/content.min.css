@@ -191,6 +191,7 @@ pre[class*=language-] {
   color: white;
   background-color: black;
   font-family: "Special Elite";
+  font-size: 14px;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
