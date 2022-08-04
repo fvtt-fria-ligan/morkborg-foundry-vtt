@@ -1,10 +1,11 @@
 <form class="flexcol {{cssClass}}" autocomplete="off">
-  {{> systems/morkborg/templates/item/common/sheet-header.html }} {{>
-  systems/morkborg/templates/item/common/sheet-tabs.html }}
+  {{> systems/morkborg/templates/item/common/sheet-header.html }} 
+  {{> systems/morkborg/templates/item/common/sheet-tabs.html }}
 
   <section class="sheet-body">
-    {{> systems/morkborg/templates/item/common/description-tab.html }} {{!--
-    Details Tab --}}
+    {{> systems/morkborg/templates/item/common/description-tab.html }} 
+    
+    {{!-- Details Tab --}}
     <div class="tab" data-group="primary" data-tab="details">
       {{> systems/morkborg/templates/item/common/base-fields.html }}
     </div>

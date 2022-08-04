@@ -1,20 +1,23 @@
 <form class="flexcol {{cssClass}}" autocomplete="off">
-  {{> systems/morkborg/templates/item/common/sheet-header.html }} {{>
-  systems/morkborg/templates/item/common/sheet-tabs.html }}
+  {{> systems/morkborg/templates/item/common/sheet-header.html }} 
+  {{> systems/morkborg/templates/item/common/sheet-tabs.html }}
 
   <section class="sheet-body">
-    {{> systems/morkborg/templates/item/common/description-tab.html }} {{!--
-    Details Tab --}}
+    {{> systems/morkborg/templates/item/common/description-tab.html }} 
+    
+    {{!-- Details Tab --}}
     <div class="tab" data-group="primary" data-tab="details">
-      {{> systems/morkborg/templates/item/common/base-fields.html }} {{!--
-      Weapon Type --}}
+      {{> systems/morkborg/templates/item/common/base-fields.html }} 
+      
+      {{!-- Weapon Type --}}
       <div class="form-group">
         <label>{{ localize "MB.ItemWeaponType" }}:</label>
         <select name="system.weaponType">
-          {{#select data.system.weaponType}} {{#each config.weaponTypes as |name
-          type|}}
-          <option value="{{type}}">{{localize name}}</option>
-          {{/each}} {{/select}}
+          {{#select data.system.weaponType}} 
+            {{#each config.weaponTypes as |name type|}}
+              <option value="{{type}}">{{localize name}}</option>
+            {{/each}} 
+          {{/select}}
         </select>
       </div>
 
@@ -34,9 +37,11 @@
       <div class="form-group">
         <label>{{ localize "MB.ItemHanded" }}:</label>
         <select name="system.handed">
-          {{#select data.system.handed}} {{#each config.handed as |name value|}}
-          <option value="{{value}}">{{localize name}}</option>
-          {{/each}} {{/select}}
+          {{#select data.system.handed}} 
+            {{#each config.handed as |name value|}}
+               <option value="{{value}}">{{localize name}}</option>
+             {{/each}}
+          {{/select}}
         </select>
       </div>
 
@@ -46,12 +51,12 @@
         <input
           type="checkbox"
           name="system.usesAmmo"
-          {{checked
-          data.system.usesAmmo}}
+          {{checked data.system.usesAmmo}}
           data-dtype="Boolean"
         />
       </div>
 
+      {{!-- Crit on --}}
       <div class="form-group">
         <label>{{ localize "MB.ItemCritOn" }}:</label>
         <input
@@ -63,6 +68,7 @@
         />
       </div>
 
+      {{!-- Fumble on on --}}
       <div class="form-group">
         <label>{{ localize "MB.ItemFumbleOn" }}:</label>
         <input

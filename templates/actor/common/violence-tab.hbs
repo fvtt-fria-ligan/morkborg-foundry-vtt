@@ -2,9 +2,7 @@
 <div class="tab violence-tab" data-group="primary" data-tab="violence">
   {{!-- Initiative buttons --}}
   <div class="initiative">
-    <span class="roll-initiative"
-      >{{localize "MB.Roll"}} {{localize "MB.Initiative"}}:</span
-    >
+    <span class="roll-initiative">{{localize "MB.Roll"}} {{localize "MB.Initiative"}}:</span>
     <button
       type="button"
       class="button item-button rollable initiative-button party-initiative-button"
@@ -28,58 +26,56 @@
     </li>
     <ol class="item-list weapon-list">
       {{#each data.system.equippedWeapons as |item id|}}
-      <li class="item flexrow" data-item-id="{{item._id}}">
-        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
-        <div class="weapon-name-col">
-          <h4 class="item-name item-edit rollable">{{item.name}}</h4>
-          {{#if ../data.system.trackAmmo}} {{#if item.system.usesAmmo}}
-          <div class="ammo-select-col">
-            <select
-              class="ammo-select"
-              name="selectedAmmo-{{item._id}}"
-              data-dtype="Number"
-              data-item-id="{{item._id}}"
-            >
-              {{#select item.system.ammoId}}
-              <option value="">{{localize 'MB.ItemTypeAmmo'}}</option>
-              {{#each ../data.system.ammo as |ammo ammoId|}}
-              <option value="{{ammo._id}}">
-                {{ammo.name}} ({{ammo.system.quantity}})
-              </option>
-              {{/each}} {{/select}}
-            </select>
+        <li class="item flexrow" data-item-id="{{item._id}}">
+          <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+          <div class="weapon-name-col">
+            <h4 class="item-name item-edit rollable">{{item.name}}</h4>
+            {{#if ../data.system.trackAmmo}} 
+              {{#if item.system.usesAmmo}}
+                <div class="ammo-select-col">
+                  <select
+                    class="ammo-select"
+                    name="selectedAmmo-{{item._id}}"
+                    data-dtype="Number"
+                    data-item-id="{{item._id}}"
+                  >
+                    {{#select item.system.ammoId}}
+                      <option value="">{{localize 'MB.ItemTypeAmmo'}}</option>
+                      {{#each ../data.system.ammo as |ammo ammoId|}}
+                        <option value="{{ammo._id}}">
+                          {{ammo.name}} ({{ammo.system.quantity}})
+                        </option>
+                      {{/each}} 
+                    {{/select}}
+                  </select>
+                </div>
+              {{/if}} 
+            {{/if}}
           </div>
-          {{/if}} {{/if}}
-        </div>
-        <div class="item-fields">
-          <span class="item-field damage-die">{{item.system.damageDie}}</span>
-          <span class="item-field weapon-type">{{item.system.weaponType}}</span>
-        </div>
-        <div class="item-buttons">
-          <button
-            type="button"
-            class="item-button rollable attack-button"
-            data-roll="d20+@abilities.strength.value"
-            data-label="attack_{{item._id}}"
-            title="{{localize 'MB.Attack'}}"
-          >
-            {{localize 'MB.Attack'}}
-          </button>
-        </div>
-        <div class="item-controls">
-          <a
-            class="item-control item-toggle item-toggle-equipped {{ifPrint item.system.equipped 'equipped'}}"
-            title="{{ifPrintElse item.system.equipped (localize 'MB.ItemEquipped') (localize 'MB.ItemUnequipped')}}"
-            ><i class="fas fa-shield-alt"></i
-          ></a>
-          <a class="item-control item-edit" title="Edit Item"
-            ><i class="fas fa-edit"></i
-          ></a>
-          <a class="item-control item-delete" title="Delete Item"
-            ><i class="fas fa-trash"></i
-          ></a>
-        </div>
-      </li>
+          <div class="item-fields">
+            <span class="item-field damage-die">{{item.system.damageDie}}</span>
+            <span class="item-field weapon-type">{{item.system.weaponType}}</span>
+          </div>
+          <div class="item-buttons">
+            <button
+              type="button"
+              class="item-button rollable attack-button"
+              data-roll="d20+@abilities.strength.value"
+              data-label="attack_{{item._id}}"
+              title="{{localize 'MB.Attack'}}"
+            >
+              {{localize 'MB.Attack'}}
+            </button>
+          </div>
+          <div class="item-controls">
+            <a
+              class="item-control item-toggle item-toggle-equipped {{ifPrint item.system.equipped 'equipped'}}"
+              title="{{ifPrintElse item.system.equipped (localize 'MB.ItemEquipped') (localize 'MB.ItemUnequipped')}}"
+              ><i class="fas fa-shield-alt"></i></a>
+            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+          </div>
+        </li>
       {{/each}}
     </ol>
     {{#if data.system.equippedWeapons.length}}
@@ -118,20 +114,16 @@
               >
               <ul class="tiers">
                 {{#each config.armorTiers as |tierObj tierNum|}}
-                <li>
-                  <label
-                    ><input class="tier-radio" type="radio" name="tier.value"
-                    value="{{tierNum}}" {{#ifEq
-                    ../data.system.equippedArmor.system.tier.value
-                    tierNum}}checked{{/ifEq}} {{#ifLt
-                    ../data.system.equippedArmor.system.tier.max
-                    tierNum}}disabled="true"{{/ifLt}}/><span class="tier-num"
-                      >{{tierNum}}</span
-                    ><span class="tier-dmg"
-                      >-{{tierObj.damageReductionDie}}</span
-                    ></label
-                  >
-                </li>
+                  <li>
+                    <label>
+                      <input class="tier-radio" type="radio" name="tier.value" value="{{tierNum}}" 
+                        {{#ifEq ../data.system.equippedArmor.system.tier.value tierNum}}checked{{/ifEq}}
+                        {{#ifLt ../data.system.equippedArmor.system.tier.max tierNum}}disabled="true"{{/ifLt}}
+                      />
+                      <span class="tier-num">{{tierNum}}</span>
+                      <span class="tier-dmg">-{{tierObj.damageReductionDie}}</span>
+                    </label>
+                  </li>
                 {{/each}}
               </ul>
             </div>
@@ -184,12 +176,12 @@
           ></a>
         </div>
       </li>
-      {{/if}} {{#unless data.system.equippedArmor}} {{#unless
-      data.system.equippedShield}}
-      <div class="rule-text you-have-no">
-        {{localize 'MB.EquipArmorToAbsorb'}}
-      </div>
-      {{/unless}} {{/unless}}
+      {{/if}} 
+      {{#unless data.system.equippedArmor}} 
+        {{#unless data.system.equippedShield}}
+          <div class="rule-text you-have-no">{{localize 'MB.EquipArmorToAbsorb'}}</div>
+        {{/unless}} 
+      {{/unless}}
     </ol>
   </ol>
   <div class="underarmor-row">

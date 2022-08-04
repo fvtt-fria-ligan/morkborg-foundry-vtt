@@ -9,7 +9,7 @@ export class MBActorSheetFollower extends MBActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["morkborg", "sheet", "actor", "follower"],
-      template: "systems/morkborg/templates/actor/follower-sheet.html",
+      template: "systems/morkborg/templates/actor/follower-sheet.hbs",
       width: 720,
       height: 690,
       tabs: [

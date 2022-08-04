@@ -24,9 +24,7 @@
         <h4 class="actor-type">{{actor.type}}</h4>
       </div>
       <div class="holding-row">
-        <span class="stat-label container-label"
-          >{{ localize "MB.ContainerHolding" }}:</span
-        >
+        <span class="stat-label container-label">{{ localize "MB.ContainerHolding" }}:</span>
         <span class="stat-value">{{data.system.containerSpace}}</span>
         /
         <span class="stat-value">{{data.system.capacity.max}}</span>
@@ -36,9 +34,7 @@
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="description"
-      >{{ localize "MB.TabDescription" }}</a
-    >
+    <a class="item" data-tab="description">{{ localize "MB.TabDescription" }}</a>
     <a class="item" data-tab="details">{{ localize "MB.TabDetails" }}</a>
     <a class="item" data-tab="contents">{{ localize "MB.TabContents" }}</a>
   </nav>
@@ -78,8 +74,7 @@
     {{!-- Contents Tab --}}
     <div class="tab equipment-tab" data-group="primary" data-tab="contents">
       <ol class="items-list equipment-list">
-        {{>
-        "systems/morkborg/templates/actor/common/actor-equipment-list.html"}}
+        {{> "systems/morkborg/templates/actor/common/actor-equipment-list.html" }}
       </ol>
     </div>
   </section>

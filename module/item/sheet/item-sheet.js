@@ -26,10 +26,10 @@ export class MBItemSheet extends ItemSheet {
     const path = "systems/morkborg/templates/item";
     if (Object.keys(MB.itemTypeKeys).includes(this.item.type)) {
       // specific item-type sheet
-      return `${path}/${this.item.type}-sheet.html`;
+      return `${path}/${this.item.type}-sheet.hbs`;
     } else {
       // generic item sheet
-      return `${path}/item-sheet.html`;
+      return `${path}/item-sheet.hbs`;
     }
   }
 

@@ -1,0 +1,41 @@
+<form class="flexcol {{cssClass}}" autocomplete="off">
+  {{> systems/morkborg/templates/item/common/sheet-header.html }} 
+  {{> systems/morkborg/templates/item/common/sheet-tabs.html }}
+
+  <section class="sheet-body">
+    {{> systems/morkborg/templates/item/common/description-tab.html }} 
+    
+    {{!-- Details Tab --}}
+    <div class="tab" data-group="primary" data-tab="details">
+      {{> systems/morkborg/templates/item/common/base-fields.html }} 
+      
+      {{!-- Armor Current Tier --}}
+      <div class="form-group">
+        <label>{{ localize "MB.ArmorCurrentTier" }}:</label>
+        <select name="system.tier.value" data-dtype="Number">
+          {{#select data.system.tier.value}}
+            {{#each config.armorTiers as |tierObj tierNum|}}
+              <option value="{{tierNum}}">
+                {{tierNum}} ({{localize tierObj.key}})
+              </option>
+            {{/each}}
+          {{/select}}
+        </select>
+      </div>
+
+      {{!-- Armor Max Tier --}}
+      <div class="form-group">
+        <label>{{ localize "MB.ArmorMaxTier" }}:</label>
+        <select name="system.tier.max" data-dtype="Number">
+          {{#select data.system.tier.max}} 
+            {{#each config.armorTiers as |tierObj tierNum|}}
+              <option value="{{tierNum}}">
+                {{tierNum}} ({{localize tierObj.key}})
+              </option>
+            {{/each}}
+          {{/select}}
+        </select>
+      </div>
+    </div>
+  </section>
+</form>

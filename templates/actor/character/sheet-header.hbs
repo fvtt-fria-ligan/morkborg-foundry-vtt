@@ -104,19 +104,21 @@
       <ul class="miseries">
         {{#times 7}}
         <li>
-          <label
-            ><input type="radio" name="system.miseries.value" value="{{this}}"
+          <label>
+            <input type="radio" name="system.miseries.value" value="{{this}}"
             data-dtype="Number" {{#ifEq ../data.system.miseries.value
-            this}}checked{{/ifEq}}/><span>{{this}}</span></label
-          >
+            this}}checked{{/ifEq}}/>
+            <span>{{this}}</span>
+          </label>
         </li>
         {{/times}}
         <li>
-          <label
-            ><input type="radio" name="system.miseries.value" value="7"
+          <label>
+            <input type="radio" name="system.miseries.value" value="7"
             data-dtype="Number" {{#ifEq data.system.miseries.value
-            7}}checked{{/ifEq}}/><span>X</span></label
-          >
+            7}}checked{{/ifEq}}/>
+            <span>X</span>
+          </label>
         </li>
       </ul>
     </div>
@@ -132,9 +134,7 @@
         data-dtype="Number"
         size="3"
       />
-      <span class="ability-label rollable strength"
-        >{{ localize 'MB.AbilityStrengthAbbrev' }}</span
-      >
+      <span class="ability-label rollable strength">{{ localize 'MB.AbilityStrengthAbbrev' }}</span>
     </div>
     <div class="ability-row">
       <input
@@ -145,9 +145,7 @@
         data-dtype="Number"
         size="3"
       />
-      <span class="ability-label rollable agility"
-        >{{ localize 'MB.AbilityAgilityAbbrev' }}</span
-      >
+      <span class="ability-label rollable agility">{{ localize 'MB.AbilityAgilityAbbrev' }}</span>
     </div>
     <div class="ability-row">
       <input
@@ -158,9 +156,7 @@
         data-dtype="Number"
         size="3"
       />
-      <span class="ability-label rollable presence"
-        >{{ localize 'MB.AbilityPresenceAbbrev' }}</span
-      >
+      <span class="ability-label rollable presence">{{ localize 'MB.AbilityPresenceAbbrev' }}</span>
     </div>
     <div class="ability-row">
       <input
@@ -171,9 +167,7 @@
         data-dtype="Number"
         size="3"
       />
-      <span class="ability-label rollable toughness"
-        >{{ localize 'MB.AbilityToughnessAbbrev' }}</span
-      >
+      <span class="ability-label rollable toughness">{{ localize 'MB.AbilityToughnessAbbrev' }}</span>
     </div>
   </div>
 </header>
