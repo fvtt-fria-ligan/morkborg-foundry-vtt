@@ -64,7 +64,7 @@ export class MBItem extends Item {
       return true; // all items are carried by default
     } else {
       if (this.system.carryWeight === 0) {
-        // container with carryWeight are asumed to not be carried (donkey, etc)
+        // container with carryWeight are assumed to not be carried (donkey, etc)
         return false;
       }
       return this.system.carried;
@@ -122,6 +122,14 @@ export class MBItem extends Item {
     await this.update({ "data.equipped": false });
   }
 
+  async toggleCarried() {
+    if (this.carried) {
+      await this.drop();
+    } else {
+      await this.carry();
+    }
+  }
+
   async carry() {
     await this.update({ "data.carried": true });
   }
@@ -175,7 +183,7 @@ export class MBItem extends Item {
     return this.items.reduce((initial, itemId) => {
       const item = actor.items.get(itemId);
       if (item) {
-        initial.push(item.system);
+        initial.push(item);
       }
       return initial;
     }, []);
@@ -184,7 +192,7 @@ export class MBItem extends Item {
   _getItemContainer(actor) {
     return actor.items
       .filter((item) => item.isContainer)
-      .find((item) => item.items.includes(this.id));
+      .find((item) => item.system.items.includes(this.id));
   }
 
   async incrementQuantity() {

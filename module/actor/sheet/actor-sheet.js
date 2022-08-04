@@ -165,11 +165,7 @@ export default class MBActorSheet extends ActorSheet {
     const li = anchor.parents(".item");
     const itemId = li.data("itemId");
     const item = this.actor.items.get(itemId);
-    if (item.system.carried) {
-      await item.drop();
-    } else {
-      await item.carry();
-    }
+    await item.toggleCarried();
   }
 
   /**
@@ -274,7 +270,7 @@ export default class MBActorSheet extends ActorSheet {
       item.clearItems();
       const newItems = await this.actor.createEmbeddedDocuments(
         "Item",
-        originalItem.system.itemsData
+        originalItem.itemsData
       );
       await this._addItemsToItemContainer(newItems, item);
     }

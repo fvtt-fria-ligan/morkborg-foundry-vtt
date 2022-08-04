@@ -64,7 +64,7 @@ export class MBActorSheetCharacter extends MBActorSheet {
 
     sheetData.system.equipment = sheetData.items
       .filter((item) => CONFIG.MB.itemEquipmentTypes.includes(item.type))
-      .filter((item) => !item.hasContainer)
+      .filter((item) => !item.system.hasContainer)
       .sort(byName);
 
     sheetData.system.equippedArmor = sheetData.items
