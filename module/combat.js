@@ -1,9 +1,9 @@
 import { diceSound, showDice } from "./dice.js";
 
 const INDIVIDUAL_INITIATIVE_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/individual-initiative-roll-card.html";
+  "systems/morkborg/templates/chat/individual-initiative-roll-card.hbs";
 const PARTY_INITIATIVE_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/party-initiative-roll-card.html";
+  "systems/morkborg/templates/chat/party-initiative-roll-card.hbs";
 
 export const registerCombat = () => {
   CONFIG.Combat.documentClass = MBCombat;

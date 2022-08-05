@@ -1,13 +1,13 @@
 <form class="flexcol {{cssClass}}" autocomplete="off">
-  {{> systems/morkborg/templates/item/common/sheet-header.html }} 
-  {{> systems/morkborg/templates/item/common/sheet-tabs.html }}
+  {{> systems/morkborg/templates/item/common/sheet-header.hbs }} 
+  {{> systems/morkborg/templates/item/common/sheet-tabs.hbs }}
 
   <section class="sheet-body">
-    {{> systems/morkborg/templates/item/common/description-tab.html }} 
+    {{> systems/morkborg/templates/item/common/description-tab.hbs }} 
     
     {{!-- Details Tab --}}
     <div class="tab" data-group="primary" data-tab="details">
-      {{> systems/morkborg/templates/item/common/base-fields.html }} 
+      {{> systems/morkborg/templates/item/common/base-fields.hbs }} 
       
       {{!-- Armor Current Tier --}}
       <div class="form-group">

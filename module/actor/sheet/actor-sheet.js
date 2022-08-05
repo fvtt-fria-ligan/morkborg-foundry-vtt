@@ -62,7 +62,7 @@ export default class MBActorSheet extends ActorSheet {
    */
   async _onItemCreate(event) {
     event.preventDefault();
-    const template = "systems/morkborg/templates/dialog/add-item-dialog.html";
+    const template = "systems/morkborg/templates/dialog/add-item-dialog.hbs";
     const dialogData = {
       config: CONFIG.MorkBorg,
     };

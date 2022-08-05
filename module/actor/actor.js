@@ -3,29 +3,29 @@ import ScvmDialog from "../scvm/scvm-dialog.js";
 import { trackAmmo, trackCarryingCapacity } from "../settings.js";
 
 const ATTACK_DIALOG_TEMPLATE =
-  "systems/morkborg/templates/dialog/attack-dialog.html";
+  "systems/morkborg/templates/dialog/attack-dialog.hbs";
 const ATTACK_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/attack-roll-card.html";
+  "systems/morkborg/templates/chat/attack-roll-card.hbs";
 const BROKEN_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/broken-roll-card.html";
+  "systems/morkborg/templates/chat/broken-roll-card.hbs";
 const DEFEND_DIALOG_TEMPLATE =
-  "systems/morkborg/templates/dialog/defend-dialog.html";
+  "systems/morkborg/templates/dialog/defend-dialog.hbs";
 const DEFEND_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/defend-roll-card.html";
+  "systems/morkborg/templates/chat/defend-roll-card.hbs";
 const GET_BETTER_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/get-better-roll-card.html";
+  "systems/morkborg/templates/chat/get-better-roll-card.hbs";
 const MORALE_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/morale-roll-card.html";
+  "systems/morkborg/templates/chat/morale-roll-card.hbs";
 const OUTCOME_ONLY_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/outcome-only-roll-card.html";
+  "systems/morkborg/templates/chat/outcome-only-roll-card.hbs";
 const OUTCOME_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/outcome-roll-card.html";
+  "systems/morkborg/templates/chat/outcome-roll-card.hbs";
 const REACTION_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/reaction-roll-card.html";
+  "systems/morkborg/templates/chat/reaction-roll-card.hbs";
 const TEST_ABILITY_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/test-ability-roll-card.html";
+  "systems/morkborg/templates/chat/test-ability-roll-card.hbs";
 const WIELD_POWER_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/wield-power-roll-card.html";
+  "systems/morkborg/templates/chat/wield-power-roll-card.hbs";
 
 /**
  * @extends {Actor}

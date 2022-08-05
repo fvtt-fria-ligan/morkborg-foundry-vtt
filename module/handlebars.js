@@ -55,17 +55,17 @@ export const configureHandlebars = () => {
   });
 
   loadTemplates([
-    "systems/morkborg/templates/actor/character/feats-tab.html",
-    "systems/morkborg/templates/actor/character/obituary-tab.html",
-    "systems/morkborg/templates/actor/character/powers-tab.html",
-    "systems/morkborg/templates/actor/character/sheet-header.html",
-    "systems/morkborg/templates/actor/character/treasures-tab.html",
-    "systems/morkborg/templates/actor/common/equipment-list.html",
-    "systems/morkborg/templates/actor/common/violence-tab.html",
-    "systems/morkborg/templates/item/common/base-fields.html",
-    "systems/morkborg/templates/item/common/description-tab.html",
-    "systems/morkborg/templates/item/common/quantity-field.html",
-    "systems/morkborg/templates/item/common/sheet-header.html",
-    "systems/morkborg/templates/item/common/sheet-tabs.html",
+    "systems/morkborg/templates/actor/character/feats-tab.hbs",
+    "systems/morkborg/templates/actor/character/obituary-tab.hbs",
+    "systems/morkborg/templates/actor/character/powers-tab.hbs",
+    "systems/morkborg/templates/actor/character/sheet-header.hbs",
+    "systems/morkborg/templates/actor/character/treasures-tab.hbs",
+    "systems/morkborg/templates/actor/common/equipment-list.hbs",
+    "systems/morkborg/templates/actor/common/violence-tab.hbs",
+    "systems/morkborg/templates/item/common/base-fields.hbs",
+    "systems/morkborg/templates/item/common/description-tab.hbs",
+    "systems/morkborg/templates/item/common/quantity-field.hbs",
+    "systems/morkborg/templates/item/common/sheet-header.hbs",
+    "systems/morkborg/templates/item/common/sheet-tabs.hbs",
   ]);
 };
