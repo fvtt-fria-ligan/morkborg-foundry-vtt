@@ -391,28 +391,9 @@ const entityFromResult = async (result) => {
   // draw result type: text (0), entity (1), or compendium (2)
   // TODO: figure out how we want to handle an entity result
 
-  // TODO: handle scroll lookup / rolls
-  // TODO: can we make a recursive random scroll thingy
+  console.log(result);
 
-  if (result.type === 0) {
-    // hack for not having recursive roll tables set up
-    // TODO: set up recursive roll tables :P
-    if (result.text === "Roll on Random Unclean Scrolls") {
-      const collection = game.packs.get("morkborg.random-scrolls");
-      const content = await collection.getDocuments();
-      const table = content.find((i) => i.name === "Unclean Scrolls");
-      const draw = await table.draw({ displayChat: false });
-      const items = await docsFromResults(draw.results);
-      return items[0];
-    } else if (result.text === "Roll on Random Sacred Scrolls") {
-      const collection = game.packs.get("morkborg.random-scrolls");
-      const content = await collection.getDocuments();
-      const table = content.find((i) => i.name === "Sacred Scrolls");
-      const draw = await table.draw({ displayChat: false });
-      const items = await docsFromResults(draw.results);
-      return items[0];
-    }
-  } else if (result.type === 2) {
+  if (result.type === 2) {
     // grab the item from the compendium
     const collection = game.packs.get(result.documentCollection);
     if (collection) {

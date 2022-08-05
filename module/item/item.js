@@ -192,7 +192,7 @@ export class MBItem extends Item {
   _getItemContainer(actor) {
     return actor.items
       .filter((item) => item.isContainer)
-      .find((item) => item.system.items.includes(this.id));
+      .find((item) => item.items.includes(this.id));
   }
 
   async incrementQuantity() {
