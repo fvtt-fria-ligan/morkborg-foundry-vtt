@@ -1,0 +1,47 @@
+<form class="flexcol {{cssClass}}" autocomplete="off">
+  {{> systems/morkborg/templates/item/common/sheet-header.hbs }}
+  {{> systems/morkborg/templates/item/common/sheet-tabs.hbs }}
+
+  <section class="sheet-body">
+    {{> systems/morkborg/templates/item/common/description-tab.hbs }} 
+    
+    {{!-- Details Tab --}}
+    <div class="tab" data-group="primary" data-tab="details">
+      {{!-- Price --}}
+      <div class="form-group">
+        <label>{{ localize "MB.ItemPrice" }}:</label>
+        <input
+          type="text"
+          name="system.price"
+          value="{{data.system.price}}"
+          placeholder="2"
+          data-dtype="Number"
+        />
+      </div>
+
+      {{!-- Carry weight --}}
+      <div class="form-group">
+        <label>{{ localize "MB.CarryWeight" }}:</label>
+        <input
+          type="text"
+          name="system.carryWeight"
+          value="{{data.system.carryWeight}}"
+          placeholder="1"
+          data-dtype="Number"
+        />
+      </div>
+
+      {{!-- Capacity --}}
+      <div class="form-group">
+        <label>{{ localize "MB.ItemCapacity" }}:</label>
+        <input
+          type="text"
+          name="system.capacity"
+          value="{{data.system.capacity}}"
+          placeholder="1d4"
+          data-dtype="Number"
+        />
+      </div>
+    </div>
+  </section>
+</form>

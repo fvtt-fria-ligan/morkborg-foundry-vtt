@@ -1,0 +1,84 @@
+<form class="flexcol {{cssClass}}" autocomplete="off">
+  {{> systems/morkborg/templates/item/common/sheet-header.hbs }} 
+  {{> systems/morkborg/templates/item/common/sheet-tabs.hbs }}
+
+  <section class="sheet-body">
+    {{> systems/morkborg/templates/item/common/description-tab.hbs }} 
+    
+    {{!-- Details Tab --}}
+    <div class="tab" data-group="primary" data-tab="details">
+      {{> systems/morkborg/templates/item/common/base-fields.hbs }} 
+      
+      {{!-- Weapon Type --}}
+      <div class="form-group">
+        <label>{{ localize "MB.ItemWeaponType" }}:</label>
+        <select name="system.weaponType">
+          {{#select data.system.weaponType}} 
+            {{#each config.weaponTypes as |name type|}}
+              <option value="{{type}}">{{localize name}}</option>
+            {{/each}} 
+          {{/select}}
+        </select>
+      </div>
+
+      {{!-- Damage Die --}}
+      <div class="form-group">
+        <label>{{ localize "MB.ItemDamageDie" }}:</label>
+        <input
+          type="text"
+          name="system.damageDie"
+          value="{{data.system.damageDie}}"
+          placeholder="1d4"
+          data-dtype="String"
+        />
+      </div>
+
+      {{!-- Handed --}}
+      <div class="form-group">
+        <label>{{ localize "MB.ItemHanded" }}:</label>
+        <select name="system.handed">
+          {{#select data.system.handed}} 
+            {{#each config.handed as |name value|}}
+               <option value="{{value}}">{{localize name}}</option>
+             {{/each}}
+          {{/select}}
+        </select>
+      </div>
+
+      {{!-- Uses ammo --}}
+      <div class="form-group">
+        <label>{{ localize "MB.ItemUsesAmmo" }}:</label>
+        <input
+          type="checkbox"
+          name="system.usesAmmo"
+          {{checked data.system.usesAmmo}}
+          data-dtype="Boolean"
+        />
+      </div>
+
+      {{!-- Crit on --}}
+      <div class="form-group">
+        <label>{{ localize "MB.ItemCritOn" }}:</label>
+        <input
+          type="text"
+          name="system.critOn"
+          value="{{data.system.critOn}}"
+          placeholder="20"
+          data-dtype="Number"
+        />
+      </div>
+
+      {{!-- Fumble on on --}}
+      <div class="form-group">
+        <label>{{ localize "MB.ItemFumbleOn" }}:</label>
+        <input
+          type="text"
+          name="system.fumbleOn"
+          value="{{data.system.fumbleOn}}"
+          placeholder="1"
+          data-dtype="Number"
+        />
+      </div>
+    </div>
+  </section>
+</form>

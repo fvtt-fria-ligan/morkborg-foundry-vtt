@@ -3,6 +3,14 @@ import { MB } from "../config.js";
 import { MBItem } from "../item/item.js";
 import { randomName } from "./names.js";
 import { rollTotal, shuffle } from "../utils.js";
+import {
+  documentFromPack,
+  documentFromResult,
+  documentsFromDraw,
+  drawDocuments,
+  drawFromTable,
+  drawText,
+} from "../packutils.js";
 
 export const createRandomScvm = async () => {
   const clazz = await pickRandomClass();
@@ -29,7 +37,7 @@ const pickRandomClass = async () => {
   // TODO: debugging hardcodes
   const pack = game.packs.get(packName);
   const content = await pack.getDocuments();
-  return content.find((i) => i.data.type === "class");
+  return content.find((i) => i.type === "class");
 };
 
 export const findClassPacks = () => {
@@ -52,93 +60,71 @@ export const findClassPacks = () => {
 export const classItemFromPack = async (packName) => {
   const pack = game.packs.get(packName);
   const content = await pack.getDocuments();
-  return content.find((i) => i.data.type === "class");
+  return content.find((i) => i.type === "class");
 };
 
-const rollScvmForClass = async (clazz) => {
-  console.log(`Creating new ${clazz.data.name}`);
-
-  const silver = rollTotal(clazz.data.data.startingSilver);
-  const omens = rollTotal(clazz.data.data.omenDie);
-  const baseHp = rollTotal(clazz.data.data.startingHitPoints);
-  const basePowerUses = rollTotal("1d4");
-
-  let abilityRollFormulas;
-  if (clazz.data.name === "Adventurer") {
-    // special handling for classless
-    abilityRollFormulas = shuffle(["3d6", "3d6", "4d6kh3", "4d6kh3"]);
-  } else {
-    abilityRollFormulas = [
-      clazz.data.data.startingStrength,
-      clazz.data.data.startingAgility,
-      clazz.data.data.startingPresence,
-      clazz.data.data.startingToughness,
-    ];
-  }
-  const strength = abilityBonus(rollTotal(abilityRollFormulas[0]));
-  const agility = abilityBonus(rollTotal(abilityRollFormulas[1]));
-  const presence = abilityBonus(rollTotal(abilityRollFormulas[2]));
-  const toughness = abilityBonus(rollTotal(abilityRollFormulas[3]));
-  const hitPoints = Math.max(1, baseHp + toughness);
-  const powerUses = Math.max(0, basePowerUses + presence);
-  const allDocs = [clazz];
-
+const startingFoodAndWater = async () => {
+  const docs = [];
   if (MB.scvmFactory.foodAndWaterPack) {
     // everybody gets food and water
-    const miscPack = game.packs.get(MB.scvmFactory.foodAndWaterPack);
-    const miscContent = await miscPack.getDocuments();
     if (MB.scvmFactory.foodItemName) {
-      const food = miscContent.find(
-        (i) => i.data.name === MB.scvmFactory.foodItemName
+      const food = await documentFromPack(
+        MB.scvmFactory.foodAndWaterPack,
+        MB.scvmFactory.foodItemName
       );
-      const foodRoll = new Roll("1d4").evaluate({ async: false });
-      food.data.data.quantity = foodRoll.total;
-      allDocs.push(food);
+      if (food) {
+        const foodTotal = rollTotal("1d4");
+        food.system.quantity = foodTotal;
+        docs.push(food);
+      }
     }
     if (MB.scvmFactory.waterItemName) {
-      const waterskin = miscContent.find(
-        (i) => i.data.name === MB.scvmFactory.waterItemName
+      const waterskin = await documentFromPack(
+        MB.scvmFactory.foodAndWaterPack,
+        MB.scvmFactory.waterItemName
       );
-      allDocs.push(waterskin);
+      docs.push(waterskin);
     }
   }
+  return docs;
+};
 
-  // starting equipment, weapons, armor, and traits etc all come from the same pack
-  const ccPack = game.packs.get(MB.scvmFactory.characterCreationPack);
-  const ccContent = await ccPack.getDocuments();
-
+const startingEquipment = async () => {
+  const docs = [];
   // 3 starting equipment tables
   if (MB.scvmFactory.startingEquipmentTable1) {
-    const equipTable1 = ccContent.find(
-      (i) => i.name === MB.scvmFactory.startingEquipmentTable1
+    const eq1 = await drawDocuments(
+      MB.scvmFactory.characterCreationPack,
+      MB.scvmFactory.startingEquipmentTable1
     );
-    const eqDraw1 = await equipTable1.draw({ displayChat: false });
-    const eq1 = await docsFromResults(eqDraw1.results);
-    allDocs.push(...eq1);
+    docs.push(...eq1);
   }
   if (MB.scvmFactory.startingEquipmentTable2) {
-    const equipTable2 = ccContent.find(
-      (i) => i.name === MB.scvmFactory.startingEquipmentTable2
+    const eq2 = await drawDocuments(
+      MB.scvmFactory.characterCreationPack,
+      MB.scvmFactory.startingEquipmentTable2
     );
-    const eqDraw2 = await equipTable2.draw({ displayChat: false });
-    const eq2 = await docsFromResults(eqDraw2.results);
-    allDocs.push(...eq2);
+    docs.push(...eq2);
   }
   if (MB.scvmFactory.startingEquipmentTable3) {
-    const equipTable3 = ccContent.find(
-      (i) => i.name === MB.scvmFactory.startingEquipmentTable3
+    const eq3 = await drawDocuments(
+      MB.scvmFactory.characterCreationPack,
+      MB.scvmFactory.startingEquipmentTable3
     );
-    const eqDraw3 = await equipTable3.draw({ displayChat: false });
-    const eq3 = await docsFromResults(eqDraw3.results);
-    allDocs.push(...eq3);
+    // const equipTable3 = ccContent.find(
+    //   (i) => i.name === MB.scvmFactory.startingEquipmentTable3
+    // );
+    // const eqDraw3 = await equipTable3.draw({ displayChat: false });
+    // const eq3 = await docsFromResults(eqDraw3.results);
+    docs.push(...eq3);
   }
+  return docs;
+};
 
-  const rolledScroll =
-    allDocs.filter((i) => i.data.type === "scroll").length > 0;
-
-  // starting weapon
-  if (MB.scvmFactory.startingWeaponTable && clazz.data.data.weaponTableDie) {
-    let weaponDie = clazz.data.data.weaponTableDie;
+const startingWeapons = async (clazz, rolledScroll) => {
+  const docs = [];
+  if (MB.scvmFactory.startingWeaponTable && clazz.system.weaponTableDie) {
+    let weaponDie = clazz.system.weaponTableDie;
     if (rolledScroll) {
       // TODO: this check for "is it a higher die roll" assumes a d10 weapon table,
       // and doesn't handle not having a leading 1 in the string
@@ -146,21 +132,21 @@ const rollScvmForClass = async (clazz) => {
         weaponDie = MB.scvmFactory.weaponDieIfRolledScroll;
       }
     }
-    const weaponRoll = new Roll(weaponDie);
-    const weaponTable = ccContent.find(
-      (i) => i.name === MB.scvmFactory.startingWeaponTable
+    const draw = await drawFromTable(
+      MB.scvmFactory.characterCreationPack,
+      MB.scvmFactory.startingWeaponTable,
+      weaponDie
     );
-    const weaponDraw = await weaponTable.draw({
-      roll: weaponRoll,
-      displayChat: false,
-    });
-    const weapons = await docsFromResults(weaponDraw.results);
-    allDocs.push(...weapons);
+    const weapons = await documentsFromDraw(draw);
+    docs.push(...weapons);
   }
+  return docs;
+};
 
-  // starting armor
-  if (MB.scvmFactory.startingArmorTable && clazz.data.data.armorTableDie) {
-    let armorDie = clazz.data.data.armorTableDie;
+const startingArmor = async (clazz, rolledScroll) => {
+  const docs = [];
+  if (MB.scvmFactory.startingArmorTable && clazz.system.armorTableDie) {
+    let armorDie = clazz.system.armorTableDie;
     if (rolledScroll) {
       // TODO: this check for "is it a higher die roll" assumes a d4 armor table
       // and doesn't handle not having a leading 1 in the string
@@ -168,79 +154,78 @@ const rollScvmForClass = async (clazz) => {
         armorDie = MB.scvmFactory.armorDieIfRolledScroll;
       }
     }
-    const armorRoll = new Roll(armorDie);
-    const armorTable = ccContent.find(
-      (i) => i.name === MB.scvmFactory.startingArmorTable
+    const draw = await drawFromTable(
+      MB.scvmFactory.characterCreationPack,
+      MB.scvmFactory.startingArmorTable,
+      armorDie
     );
-    const armorDraw = await armorTable.draw({
-      roll: armorRoll,
-      displayChat: false,
-    });
-    const armor = await docsFromResults(armorDraw.results);
-    allDocs.push(...armor);
+    const armor = await documentsFromDraw(draw);
+    docs.push(...armor);
   }
+  return docs;
+};
 
-  // class-specific starting items
-  if (clazz.data.data.startingItems) {
-    const startingItems = [];
-    const lines = clazz.data.data.startingItems.split("\n");
+const startingClassItems = async (clazz) => {
+  const docs = [];
+  if (clazz.system.startingItems) {
+    const lines = clazz.system.startingItems.split("\n");
     for (const line of lines) {
       const [packName, itemName] = line.split(",");
-      const pack = game.packs.get(packName);
-      if (pack) {
-        const content = await pack.getDocuments();
-        const item = content.find((i) => i.data.name === itemName);
-        if (item) {
-          startingItems.push(item);
-        }
-      }
+      const item = await documentFromPack(packName, itemName);
+      docs.push(item);
     }
-    allDocs.push(...startingItems);
   }
+  return docs;
+};
 
+const startingDescriptionLines = async (clazz) => {
   // start accumulating character description, starting with the class description
   const descriptionLines = [];
-  descriptionLines.push(clazz.data.data.description);
+  descriptionLines.push(clazz.system.description);
   descriptionLines.push("<p>&nbsp;</p>");
 
   let descriptionLine = "";
   if (MB.scvmFactory.terribleTraitsTable) {
-    const ttTable = ccContent.find(
-      (i) => i.name === MB.scvmFactory.terribleTraitsTable
+    const terribleTrait1 = await drawText(
+      MB.scvmFactory.characterCreationPack,
+      MB.scvmFactory.terribleTraitsTable
     );
-    const ttResults = await compendiumTableDrawMany(ttTable, 2);
-    const terribleTrait1 = ttResults[0].data.text;
-    const terribleTrait2 = ttResults[1].data.text;
+    const terribleTrait2 = await drawText(
+      MB.scvmFactory.characterCreationPack,
+      MB.scvmFactory.terribleTraitsTable
+    );
     // BrokenBodies and BadHabits end with a period, but TerribleTraits don't.
     descriptionLine += `${terribleTrait1} and ${terribleTrait2
       .charAt(0)
       .toLowerCase()}${terribleTrait2.slice(1)}.`;
   }
   if (MB.scvmFactory.brokenBodiesTable) {
-    const bbTable = ccContent.find(
-      (i) => i.name === MB.scvmFactory.brokenBodiesTable
+    const brokenBody = await drawText(
+      MB.scvmFactory.characterCreationPack,
+      MB.scvmFactory.brokenBodiesTable
     );
-    const bbDraw = await bbTable.draw({ displayChat: false });
-    const brokenBody = bbDraw.results[0].data.text;
     descriptionLine += ` ${brokenBody}`;
   }
   if (MB.scvmFactory.badHabitsTable) {
-    const bhTable = ccContent.find(
-      (i) => i.name === MB.scvmFactory.badHabitsTable
+    const badHabit = await drawText(
+      MB.scvmFactory.characterCreationPack,
+      MB.scvmFactory.badHabitsTable
     );
-    const bhDraw = await bhTable.draw({ displayChat: false });
-    const badHabit = bhDraw.results[0].data.text;
     descriptionLine += ` ${badHabit}`;
   }
   if (descriptionLine) {
     descriptionLines.push(descriptionLine);
     descriptionLines.push("<p>&nbsp;</p>");
   }
+  return descriptionLines;
+};
 
+const startingRollItemsAndDescriptionLines = async (clazz) => {
   // class-specific starting rolls
-  const startingRollItems = [];
-  if (clazz.data.data.startingRolls) {
-    const lines = clazz.data.data.startingRolls.split("\n");
+  const rollItems = [];
+  const rollDescriptionLines = [];
+  if (clazz.system.startingRolls) {
+    const lines = clazz.system.startingRolls.split("\n");
     for (const line of lines) {
       const [packName, tableName, rolls] = line.split(",");
       // assume 1 roll unless otherwise specified in the csv
@@ -255,18 +240,17 @@ const rollScvmForClass = async (clazz) => {
           const results = await compendiumTableDrawMany(table, numRolls);
           for (const result of results) {
             // draw result type: text (0), entity (1), or compendium (2)
-            if (result.data.type === 0) {
+            if (result.type === 0) {
               // text
-              descriptionLines.push(
-                `<p>${table.data.name}: ${result.data.text}</p>`
-              );
-            } else if (result.data.type === 1) {
+              rollDescriptionLines.push(`<p>${table.name}: ${result.text}</p>`);
+            } else if (result.type === 1) {
               // entity
               // TODO: what do we want to do here?
-            } else if (result.data.type === 2) {
+            } else if (result.type === 2) {
               // compendium
-              const entity = await entityFromResult(result);
-              startingRollItems.push(entity);
+              //const entity = await entityFromResult(result);
+              const doc = await documentFromResult(result);
+              rollItems.push(doc);
             }
           }
         } else {
@@ -277,33 +261,72 @@ const rollScvmForClass = async (clazz) => {
       }
     }
   }
-  allDocs.push(...startingRollItems);
+  return {
+    rollDescriptionLines,
+    rollItems,
+  };
+};
 
-  // add items as owned items
-  const items = allDocs.filter((e) => e instanceof MBItem);
-  // for other non-item documents, just add some description text (ITEMTYPE: Item Name)
-  const nonItems = allDocs.filter((e) => !(e instanceof MBItem));
-  for (const nonItem of nonItems) {
-    if (nonItem && nonItem.data && nonItem.data.type) {
-      const upperType = nonItem.data.type.toUpperCase();
-      descriptionLines.push(
-        `<p>&nbsp;</p><p>${upperType}: ${nonItem.data.name}</p>`
-      );
-    } else {
-      console.log(`Skipping non-item ${nonItem}`);
-    }
+const rollScvmForClass = async (clazz) => {
+  console.log(`Creating new ${clazz.name}`);
+
+  const silver = rollTotal(clazz.system.startingSilver);
+  const omens = rollTotal(clazz.system.omenDie);
+  const baseHp = rollTotal(clazz.system.startingHitPoints);
+  const basePowerUses = rollTotal("1d4");
+
+  let abilityRollFormulas;
+  if (clazz.name === "Adventurer") {
+    // special handling for classless
+    abilityRollFormulas = shuffle(["3d6", "3d6", "4d6kh3", "4d6kh3"]);
+  } else {
+    abilityRollFormulas = [
+      clazz.system.startingStrength,
+      clazz.system.startingAgility,
+      clazz.system.startingPresence,
+      clazz.system.startingToughness,
+    ];
   }
+  const strength = abilityBonus(rollTotal(abilityRollFormulas[0]));
+  const agility = abilityBonus(rollTotal(abilityRollFormulas[1]));
+  const presence = abilityBonus(rollTotal(abilityRollFormulas[2]));
+  const toughness = abilityBonus(rollTotal(abilityRollFormulas[3]));
+  const hitPoints = Math.max(1, baseHp + toughness);
+  const powerUses = Math.max(0, basePowerUses + presence);
+  const allDocs = [clazz];
 
-  // make simple data structure for embedded items
-  const itemData = items.map((i) => ({
-    data: i.data.data,
-    img: i.data.img,
-    name: i.data.name,
-    type: i.data.type,
-  }));
+  const foodAndWater = await startingFoodAndWater();
+  allDocs.push(...foodAndWater);
+
+  const equipment = await startingEquipment();
+  allDocs.push(...equipment);
+  const rolledScroll = allDocs.filter((i) => i.type === "scroll").length > 0;
+
+  const weapons = await startingWeapons(clazz, rolledScroll);
+  allDocs.push(...weapons);
+
+  const armor = await startingArmor(clazz, rolledScroll);
+  allDocs.push(...armor);
+
+  const classItems = await startingClassItems(clazz);
+  allDocs.push(...classItems);
+
+  // start accumulating character description
+  const descriptionLines = await startingDescriptionLines(clazz);
+
+  const { rollDescriptionLines, rollItems } =
+    await startingRollItemsAndDescriptionLines(clazz);
+  descriptionLines.push(...rollDescriptionLines);
+  allDocs.push(...rollItems);
+
+  const items = allDocs.filter((e) => e instanceof MBItem);
+  const itemData = items.map((i) => simpleData(i));
+  const actors = allDocs.filter((e) => e instanceof MBActor);
+  const actorData = actors.map((e) => simpleData(e));
 
   return {
     actorImg: clazz.img,
+    actors: actorData,
     agility,
     description: descriptionLines.join(""),
     hitPoints,
@@ -318,13 +341,19 @@ const rollScvmForClass = async (clazz) => {
   };
 };
 
+const simpleData = (item) => {
+  return {
+    img: item.img,
+    name: item.name,
+    system: item.system,
+    type: item.type,
+  };
+};
+
 const scvmToActorData = (s) => {
   const newName = randomName();
   return {
     name: newName,
-    // TODO: do we need to set folder or sort?
-    // folder: folder.data._id,
-    // sort: 12000,
     data: {
       abilities: {
         strength: { value: s.strength },
@@ -363,6 +392,12 @@ const createActorWithScvm = async (s) => {
   // use MBActor.create() so we get default disposition, actor link, vision, etc
   const actor = await MBActor.create(data);
   actor.sheet.render(true);
+
+  // create any npcs (followers, creatures, etc)
+  for (const actorData of s.actors) {
+    const actor = await MBActor.create(actorData);
+    actor.sheet.render(true);
+  }
 };
 
 const updateActorWithScvm = async (actor, s) => {
@@ -376,60 +411,15 @@ const updateActorWithScvm = async (actor, s) => {
   // update any actor tokens in the scene, too
   for (const token of actor.getActiveTokens()) {
     await token.document.update({
-      img: actor.data.img,
+      img: actor.img,
       name: actor.name,
     });
   }
-};
 
-const docsFromResults = async (results) => {
-  const ents = [];
-  for (const result of results) {
-    const entity = await entityFromResult(result);
-    if (entity) {
-      ents.push(entity);
-    }
-  }
-  return ents;
-};
-
-const entityFromResult = async (result) => {
-  // draw result type: text (0), entity (1), or compendium (2)
-  // TODO: figure out how we want to handle an entity result
-
-  // TODO: handle scroll lookup / rolls
-  // TODO: can we make a recursive random scroll thingy
-
-  if (result.data.type === 0) {
-    // hack for not having recursive roll tables set up
-    // TODO: set up recursive roll tables :P
-    if (result.data.text === "Roll on Random Unclean Scrolls") {
-      const collection = game.packs.get("morkborg.random-scrolls");
-      const content = await collection.getDocuments();
-      const table = content.find((i) => i.name === "Unclean Scrolls");
-      const draw = await table.draw({ displayChat: false });
-      const items = await docsFromResults(draw.results);
-      return items[0];
-    } else if (result.data.text === "Roll on Random Sacred Scrolls") {
-      const collection = game.packs.get("morkborg.random-scrolls");
-      const content = await collection.getDocuments();
-      const table = content.find((i) => i.name === "Sacred Scrolls");
-      const draw = await table.draw({ displayChat: false });
-      const items = await docsFromResults(draw.results);
-      return items[0];
-    }
-  } else if (result.data.type === 2) {
-    // grab the item from the compendium
-    const collection = game.packs.get(result.data.collection);
-    if (collection) {
-      // TODO: should we use pack.getEntity(entryId) ?
-      // const item = await collection.getEntity(result._id);
-      const content = await collection.getDocuments();
-      const entity = content.find((i) => i.name === result.data.text);
-      return entity;
-    } else {
-      console.log(`Could not find pack ${result.data.collection}`);
-    }
+  // create any npcs (followers, creatures, etc)
+  for (const actorData of s.actors) {
+    const actor = await MBActor.create(actorData);
+    actor.sheet.render(true);
   }
 };
 

@@ -1,3 +1,10 @@
+export const registerMacros = () => {
+  game.morkborg = {
+    rollItemMacro,
+  };
+  Hooks.on("hotbarDrop", (bar, data, slot) => createMorkBorgMacro(data, slot));
+};
+
 /**
  * Create a Macro from an Item drop.
  * Get an existing item macro if one exists, otherwise create a new one.

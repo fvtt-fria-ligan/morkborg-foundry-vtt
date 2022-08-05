@@ -62,7 +62,7 @@ export default class MBActorSheet extends ActorSheet {
    */
   async _onItemCreate(event) {
     event.preventDefault();
-    const template = "systems/morkborg/templates/dialog/add-item-dialog.html";
+    const template = "systems/morkborg/templates/dialog/add-item-dialog.hbs";
     const dialogData = {
       config: CONFIG.MorkBorg,
     };
@@ -118,9 +118,7 @@ export default class MBActorSheet extends ActorSheet {
     const li = anchor.parents(".item");
     const itemId = li.data("itemId");
     const item = this.actor.items.get(itemId);
-    const attr = "data.quantity";
-    const currQuantity = getProperty(item.data, attr);
-    return item.update({ [attr]: currQuantity + 1 });
+    await item.incrementQuantity();
   }
 
   /**
@@ -132,12 +130,7 @@ export default class MBActorSheet extends ActorSheet {
     const li = anchor.parents(".item");
     const itemId = li.data("itemId");
     const item = this.actor.items.get(itemId);
-    const attr = "data.quantity";
-    const currQuantity = getProperty(item.data, attr);
-    // can't reduce quantity below one
-    if (currQuantity > 1) {
-      return item.update({ [attr]: currQuantity - 1 });
-    }
+    await item.decrementQuantity();
   }
 
   /**
@@ -153,7 +146,7 @@ export default class MBActorSheet extends ActorSheet {
     const itemId = li.data("itemId");
     const item = this.actor.items.get(itemId);
 
-    if (item.equipped) {
+    if (item.system.equipped) {
       await this.actor.unequipItem(item);
     } else {
       await this.actor.equipItem(item);
@@ -172,11 +165,7 @@ export default class MBActorSheet extends ActorSheet {
     const li = anchor.parents(".item");
     const itemId = li.data("itemId");
     const item = this.actor.items.get(itemId);
-    if (item.carried) {
-      await item.drop();
-    } else {
-      await item.carry();
-    }
+    await item.toggleCarried();
   }
 
   /**
@@ -233,7 +222,7 @@ export default class MBActorSheet extends ActorSheet {
     const newTier = parseInt(input[0].value);
     const li = input.parents(".item");
     const item = this.actor.items.get(li.data("itemId"));
-    return item.update({ ["data.tier.value"]: newTier });
+    return item.update({ ["system.tier.value"]: newTier });
   }
 
   /**
@@ -315,10 +304,10 @@ export default class MBActorSheet extends ActorSheet {
   }
 
   async _cleanDroppedItem(item) {
-    if (item.equipped) {
+    if (item.system.equipped) {
       await item.unequip();
     }
-    if (!item.carried) {
+    if (!item.system.carried) {
       await item.carry();
     }
   }
@@ -364,7 +353,7 @@ export default class MBActorSheet extends ActorSheet {
     const weapon = this.actor.items.get(select.data("itemId"));
     //const ammo = this.actor.items.get(select.val());
     if (weapon) {
-      await weapon.update({ ["data.ammoId"]: select.val() });
+      await weapon.update({ ["system.ammoId"]: select.val() });
     }
   }
 }

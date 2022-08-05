@@ -114,8 +114,7 @@
         font-family: var(--h2-font);
         font-size: 22px;
         height: 30px;
-        line-height: 32px;
-        margin: 0 5px;
+        padding: 0;
         width: 120px;
 
         &:hover {
@@ -124,9 +123,9 @@
         }
 
         &.active {
-          text-shadow: none;
           background-color: var(--highlight-background-color);
           color: var(--highlight-foreground-color);
+          text-shadow: none;
         }
       }
     }

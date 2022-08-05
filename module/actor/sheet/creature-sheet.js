@@ -8,7 +8,7 @@ export class MBActorSheetCreature extends MBActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["morkborg", "sheet", "actor", "creature"],
-      template: "systems/morkborg/templates/actor/creature-sheet.html",
+      template: "systems/morkborg/templates/actor/creature-sheet.hbs",
       width: 720,
       height: 680,
       tabs: [

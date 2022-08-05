@@ -1,0 +1,35 @@
+{{!-- Price --}}
+<div class="form-group">
+  <label>{{ localize "MB.ItemPrice" }}:</label>
+  <input
+    type="text"
+    name="system.price"
+    value="{{data.system.price}}"
+    placeholder="2"
+    data-dtype="Number"
+  />
+</div>
+
+{{!-- Carry weight --}}
+<div class="form-group">
+  <label>{{ localize "MB.CarryWeight" }}:</label>
+  <input
+    type="text"
+    name="system.carryWeight"
+    value="{{data.system.carryWeight}}"
+    placeholder="1"
+    data-dtype="Number"
+  />
+</div>
+
+{{!-- Container space --}}
+<div class="form-group">
+  <label>{{ localize "MB.ContainerSpace" }}:</label>
+  <input
+    type="text"
+    name="system.containerSpace"
+    value="{{data.system.containerSpace}}"
+    placeholder="1"
+    data-dtype="Number"
+  />
+</div>

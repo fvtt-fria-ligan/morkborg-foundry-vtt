@@ -118,6 +118,7 @@
 .morkborg .editor,
 .morkborg .editor-content {
   height: 100%;
+  padding-top: 10px;
 }
 .morkborg .button {
   background: var(--foreground-color);
@@ -212,8 +213,7 @@
   font-family: var(--h2-font);
   font-size: 22px;
   height: 30px;
-  line-height: 32px;
-  margin: 0 5px;
+  padding: 0;
   width: 120px;
 }
 .morkborg.sheet .sheet-tabs .item:hover {
@@ -221,9 +221,9 @@
   text-shadow: 0 0 10px var(--highlight-background-color);
 }
 .morkborg.sheet .sheet-tabs .item.active {
-  text-shadow: none;
   background-color: var(--highlight-background-color);
   color: var(--highlight-foreground-color);
+  text-shadow: none;
 }
 .morkborg .sheet-body {
   overflow: hidden;
@@ -1384,6 +1384,10 @@ a.entity-link, a.inline-roll {
 
 #world-config .window-content .editor {
   background: #d8d8cc;
+}
+
+h3 {
+  border-bottom: none;
 }
 
 /* ====================== */

@@ -1,0 +1,111 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+  {{!-- Sheet Header --}}
+  <header class="sheet-header flexrow">
+    <div class="header-col1">
+      <img
+        class="profile-img"
+        src="{{actor.img}}"
+        data-edit="img"
+        title="{{actor.name}}"
+      />
+    </div>
+    <div class="header-gutter-col"></div>
+    <div class="header-col2">
+      <div class="name-row">
+        <input
+          class="actor-name creature-name"
+          name="name"
+          type="text"
+          value="{{actor.name}}"
+          placeholder="{{ localize 'MB.Name' }}"
+        />
+      </div>
+      <div class="hitpoints-row">
+        <span class="stat-label">{{ localize "MB.HitPoints" }}:</span>
+        <input
+          class="stat-input"
+          name="system.hp.value"
+          type="number"
+          value="{{data.system.hp.value}}"
+          data-dtype="Number"
+        />
+        /
+        <input
+          class="stat-input"
+          name="system.hp.max"
+          type="number"
+          value="{{data.system.hp.max}}"
+          data-dtype="Number"
+        />
+      </div>
+      <div class="buttons-row">
+        <button type="button" class="roll-button reaction rollable">
+          {{localize "MB.Reaction"}}
+        </button>
+        <button type="button" class="roll-button morale rollable">
+          {{localize "MB.Morale"}}
+        </button>
+      </div>
+    </div>
+  </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="description">{{ localize "MB.TabDescription" }}</a>
+    <a class="item" data-tab="details">{{ localize "MB.TabDetails" }}</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+    {{!-- Description Tab --}}
+    <div class="tab" data-group="primary" data-tab="description">
+      {{editor data.system.description target="system.description" button=true
+      owner=owner editable=true}}
+    </div>
+
+    {{!-- Details Tab --}}
+    <div class="tab" data-group="primary" data-tab="details">
+      {{!-- Morale --}}
+      <div class="form-group">
+        <label>{{ localize "MB.Morale" }}:</label>
+        <input
+          name="system.morale"
+          type="text"
+          value="{{data.system.morale}}"
+          placeholder=""
+          data-dtype="Number"
+        />
+      </div>
+
+      {{!-- Armor --}}
+      <div class="form-group">
+        <label>{{ localize "MB.CreatureArmor" }}:</label>
+        <input
+          type="text"
+          name="system.armor.name"
+          value="{{data.system.armor.name}}"
+          placeholder="None"
+          data-dtype="String"
+        />
+      </div>
+
+      {{!-- Attack --}}
+      <div class="form-group">
+        <label>{{ localize "MB.CreatureAttack" }}:</label>
+        <input
+          type="text"
+          name="system.attack.name"
+          value="{{data.system.attack.name}}"
+          placeholder="None"
+          data-dtype="String"
+        />
+      </div>
+
+      {{!-- Special --}}
+      <div class="form-group">
+        <label>{{ localize "MB.CreatureSpecial" }}:</label>
+        <textarea name="system.special" rows="10">{{data.system.special}}</textarea>
+      </div>
+    </div>
+  </section>
+</form>

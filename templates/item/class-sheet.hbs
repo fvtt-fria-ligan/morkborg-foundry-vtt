@@ -1,27 +1,6 @@
 <form class="flexcol {{cssClass}}" autocomplete="off">
-  {{!-- Item Sheet Header --}}
-  <header class="sheet-header flexrow">
-    <img
-      class="profile-img"
-      src="{{item.img}}"
-      title="{{item.name}}"
-      data-edit="img"
-    />
-    <div class="header-details">
-      <h1 class="item-name">
-        <input
-          name="name"
-          type="text"
-          value="{{item.name}}"
-          placeholder="{{ localize 'MB.ItemName' }}"
-        />
-      </h1>
-      <div class="item-subtitle">
-        <h4 class="item-type">{{item.type}}</h4>
-      </div>
-    </div>
-  </header>
-
+  {{> systems/morkborg/templates/item/common/sheet-header.hbs }} 
+  
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
     <a class="item" data-tab="abilities">{{ localize "MB.Abilities" }}</a>
@@ -32,7 +11,7 @@
   <section class="sheet-body">
     {{!-- Abilities Tab --}}
     <div class="tab" data-group="primary" data-tab="abilities">
-      {{editor content=data.data.abilities target="data.abilities" button=true
+      {{editor data.system.abilities target="system.abilities" button=true
       owner=owner editable=true}}
     </div>
 
@@ -41,8 +20,8 @@
       {{!-- Description --}}
       <div class="form-group">
         <label>{{ localize "MB.Description" }}:</label>
-        <textarea name="data.description" rows="8">
-{{data.data.description}}</textarea
+        <textarea name="system.description" rows="8">
+{{data.system.description}}</textarea
         >
       </div>
 
@@ -53,8 +32,8 @@
         <label>{{ localize "MB.Silver" }}:</label>
         <input
           type="text"
-          name="data.startingSilver"
-          value="{{data.data.startingSilver}}"
+          name="system.startingSilver"
+          value="{{data.system.startingSilver}}"
           placeholder="2d6*10"
           data-dtype="String"
         />
@@ -65,8 +44,8 @@
         <label>{{ localize "MB.Omens" }}:</label>
         <input
           type="text"
-          name="data.omenDie"
-          value="{{data.data.omenDie}}"
+          name="system.omenDie"
+          value="{{data.system.omenDie}}"
           placeholder="1d2"
           data-dtype="String"
         />
@@ -77,8 +56,8 @@
         <label>{{ localize "MB.HitPoints" }}:</label>
         <input
           type="text"
-          name="data.startingHitPoints"
-          value="{{data.data.startingHitPoints}}"
+          name="system.startingHitPoints"
+          value="{{data.system.startingHitPoints}}"
           placeholder="1d8"
           data-dtype="String"
         />
@@ -91,8 +70,8 @@
         <label>{{ localize "MB.AbilityStrength" }}:</label>
         <input
           type="text"
-          name="data.startingStrength"
-          value="{{data.data.startingStrength}}"
+          name="system.startingStrength"
+          value="{{data.system.startingStrength}}"
           placeholder="3d6"
           data-dtype="String"
         />
@@ -101,8 +80,8 @@
         <label>{{ localize "MB.AbilityAgility" }}:</label>
         <input
           type="text"
-          name="data.startingAgility"
-          value="{{data.data.startingAgility}}"
+          name="system.startingAgility"
+          value="{{data.system.startingAgility}}"
           placeholder="3d6"
           data-dtype="String"
         />
@@ -111,8 +90,8 @@
         <label>{{ localize "MB.AbilityPresence" }}:</label>
         <input
           type="text"
-          name="data.startingPresence"
-          value="{{data.data.startingPresence}}"
+          name="system.startingPresence"
+          value="{{data.system.startingPresence}}"
           placeholder="3d6"
           data-dtype="String"
         />
@@ -121,8 +100,8 @@
         <label>{{ localize "MB.AbilityToughness" }}:</label>
         <input
           type="text"
-          name="data.startingToughness"
-          value="{{data.data.startingToughness}}"
+          name="system.startingToughness"
+          value="{{data.system.startingToughness}}"
           placeholder="3d6"
           data-dtype="String"
         />
@@ -135,8 +114,8 @@
         <label>{{ localize "MB.WeaponTable" }}:</label>
         <input
           type="text"
-          name="data.weaponTableDie"
-          value="{{data.data.weaponTableDie}}"
+          name="system.weaponTableDie"
+          value="{{data.system.weaponTableDie}}"
           placeholder="1d10"
           data-dtype="String"
         />
@@ -145,23 +124,19 @@
         <label>{{ localize "MB.ArmorTable" }}:</label>
         <input
           type="text"
-          name="data.armorTableDie"
-          value="{{data.data.armorTableDie}}"
+          name="system.armorTableDie"
+          value="{{data.system.armorTableDie}}"
           placeholder="1d4"
           data-dtype="String"
         />
       </div>
       <div class="form-group">
         <label>{{ localize "MB.Items" }}:</label>
-        <textarea name="data.startingItems" rows="4">
-{{data.data.startingItems}}</textarea
-        >
+        <textarea name="system.startingItems" rows="4">{{data.system.startingItems}}</textarea>
       </div>
       <div class="form-group">
         <label>{{ localize "MB.Rolls" }}:</label>
-        <textarea name="data.startingRolls" rows="4">
-{{data.data.startingRolls}}</textarea
-        >
+        <textarea name="system.startingRolls" rows="4">{{data.system.startingRolls}}</textarea>
       </div>
     </div>
   </section>

@@ -5,7 +5,7 @@ export default class RestDialog extends Application {
     options.id = "rest-dialog";
     options.classes = ["morkborg"];
     options.title = game.i18n.localize("MB.Rest");
-    options.template = "systems/morkborg/templates/dialog/rest-dialog.html";
+    options.template = "systems/morkborg/templates/dialog/rest-dialog.hbs";
     options.width = 420;
     options.height = "auto";
     return options;

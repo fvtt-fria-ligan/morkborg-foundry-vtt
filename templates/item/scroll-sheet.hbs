@@ -1,0 +1,24 @@
+<form class="flexcol {{cssClass}}" autocomplete="off">
+  {{> systems/morkborg/templates/item/common/sheet-header.hbs }} 
+  {{> systems/morkborg/templates/item/common/sheet-tabs.hbs }}
+
+  <section class="sheet-body">
+    {{> systems/morkborg/templates/item/common/description-tab.hbs }} 
+    
+    {{!-- Details Tab --}}
+    <div class="tab" data-group="primary" data-tab="details">
+      {{> systems/morkborg/templates/item/common/base-fields.hbs }} 
+
+      {{!-- Scroll type --}}
+      <div class="form-group">
+        <label>{{ localize "MB.ItemScrollType" }}:</label>
+        <select name="system.scrollType">
+          {{#select data.system.scrollType}} {{#each config.scrollTypes as |name
+          value|}}
+          <option value="{{value}}">{{localize name}}</option>
+          {{/each}} {{/select}}
+        </select>
+      </div>
+    </div>
+  </section>
+</form>

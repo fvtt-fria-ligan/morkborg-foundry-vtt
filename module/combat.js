@@ -1,9 +1,25 @@
 import { diceSound, showDice } from "./dice.js";
 
 const INDIVIDUAL_INITIATIVE_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/individual-initiative-roll-card.html";
+  "systems/morkborg/templates/chat/individual-initiative-roll-card.hbs";
 const PARTY_INITIATIVE_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/party-initiative-roll-card.html";
+  "systems/morkborg/templates/chat/party-initiative-roll-card.hbs";
+
+export const registerCombat = () => {
+  CONFIG.Combat.documentClass = MBCombat;
+  CONFIG.Combat.initiative = {
+    formula: "1d6 + @abilities.agility.value",
+  };
+  Hooks.on("renderCombatTracker", (tracker, html) => {
+    const partyInitiativeButton = `<a class="combat-control" title="${game.i18n.localize(
+      "MB.RollPartyInitiative"
+    )}" dataControl="rollParty"><i class="fas fa-dice-six"></i></a>`;
+    html.find("header").find("nav").last().prepend(partyInitiativeButton);
+    html.find("a[dataControl=rollParty]").click(() => {
+      rollPartyInitiative();
+    });
+  });
+};
 
 export const rollPartyInitiative = async () => {
   const initiativeRoll = new Roll("d6", {});

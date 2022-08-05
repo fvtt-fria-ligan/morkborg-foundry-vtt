@@ -1,3 +1,9 @@
+# 2.0.0
+
+- Support Foundry v10. Note: Mork Borg system 2.0.0+ is no longer compatible with Foundry v9.
+- Scvmfactory chargen now creates new follower/container actors when rolled.
+- Whole lotta code cleanup and refactoring.
+
 # 1.15.0
 
 - Support classless adventurer 4d6kh3 for 2 ability rolls.

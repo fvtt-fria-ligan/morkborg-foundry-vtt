@@ -1,0 +1,47 @@
+<form class="flexcol {{cssClass}}" autocomplete="off">
+  {{> systems/morkborg/templates/item/common/sheet-header.hbs }} 
+  {{> systems/morkborg/templates/item/common/sheet-tabs.hbs }}
+
+  <section class="sheet-body">
+    {{> systems/morkborg/templates/item/common/description-tab.hbs }} 
+    
+    {{!-- Details Tab --}}
+    <div class="tab" data-group="primary" data-tab="details">
+      {{!-- Roll Label --}}
+      <div class="form-group">
+        <label>{{ localize "MB.RollLabel" }}:</label>
+        <input
+          type="text"
+          name="system.rollLabel"
+          value="{{data.system.rollLabel}}"
+          placeholder=""
+          data-dtype="String"
+        />
+      </div>
+
+      {{!-- Roll Formula --}}
+      <div class="form-group">
+        <label>{{ localize "MB.RollFormula" }}:</label>
+        <input
+          type="text"
+          name="system.rollFormula"
+          value="{{data.system.rollFormula}}"
+          placeholder=""
+          data-dtype="String"
+        />
+      </div>
+
+      {{!-- Roll Macro --}}
+      <div class="form-group">
+        <label>{{ localize "MB.RollMacro" }}:</label>
+        <input
+          type="text"
+          name="system.rollMacro"
+          value="{{data.system.rollMacro}}"
+          placeholder=""
+          data-dtype="String"
+        />
+      </div>
+    </div>
+  </section>
+</form>

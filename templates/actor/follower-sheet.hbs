@@ -1,6 +1,6 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
   {{!-- Sheet Header --}}
-  <header class="sheet-header flexrow">
+  <header class="sheet-header">
     <div class="header-col1">
       <img
         class="profile-img"
@@ -13,7 +13,7 @@
     <div class="header-col2">
       <div class="name-row">
         <input
-          class="actor-name creature-name"
+          class="actor-name follower-name"
           name="name"
           type="text"
           value="{{actor.name}}"
@@ -24,9 +24,9 @@
         <span class="stat-label">{{ localize "MB.HitPoints" }}:</span>
         <input
           class="stat-input"
-          name="data.hp.value"
+          name="system.hp.value"
           type="number"
-          value="{{data.data.hp.value}}"
+          value="{{data.system.hp.value}}"
           data-dtype="Number"
         />
         /
@@ -34,14 +34,11 @@
           class="stat-input"
           name="data.hp.max"
           type="number"
-          value="{{data.data.hp.max}}"
+          value="{{data.system.hp.max}}"
           data-dtype="Number"
         />
       </div>
       <div class="buttons-row">
-        <button type="button" class="roll-button reaction rollable">
-          {{localize "MB.Reaction"}}
-        </button>
         <button type="button" class="roll-button morale rollable">
           {{localize "MB.Morale"}}
         </button>
@@ -51,18 +48,18 @@
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="description"
-      >{{ localize "MB.TabDescription" }}</a
-    >
+    <a class="item" data-tab="description">{{ localize "MB.TabDescription" }}</a>
     <a class="item" data-tab="details">{{ localize "MB.TabDetails" }}</a>
+    <a class="item" data-tab="violence">{{ localize "MB.TabViolence" }}</a>
+    <a class="item" data-tab="treasures">{{ localize "MB.TabTreasures" }}</a>
   </nav>
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
     {{!-- Description Tab --}}
     <div class="tab" data-group="primary" data-tab="description">
-      {{editor content=data.data.description target="data.description"
-      button=true owner=owner editable=true}}
+      {{editor data.system.description target="system.description" button=true
+      owner=owner editable=true}}
     </div>
 
     {{!-- Details Tab --}}
@@ -71,43 +68,71 @@
       <div class="form-group">
         <label>{{ localize "MB.Morale" }}:</label>
         <input
-          name="data.morale"
+          name="system.morale"
           type="text"
-          value="{{data.data.morale}}"
-          placeholder=""
+          value="{{data.system.morale}}"
+          placeholder="10"
           data-dtype="Number"
         />
       </div>
 
-      {{!-- Armor --}}
+      {{!-- Trait --}}
       <div class="form-group">
-        <label>{{ localize "MB.CreatureArmor" }}:</label>
+        <label>{{ localize "MB.FollowerTrait" }}:</label>
         <input
           type="text"
-          name="data.armor.name"
-          value="{{data.data.armor.name}}"
+          name="system.trait"
+          value="{{data.system.trait}}"
           placeholder="None"
           data-dtype="String"
         />
       </div>
 
-      {{!-- Attack --}}
+      {{!-- Speciality --}}
       <div class="form-group">
-        <label>{{ localize "MB.CreatureAttack" }}:</label>
+        <label>{{ localize "MB.FollowerSpeciality" }}:</label>
         <input
           type="text"
-          name="data.attack.name"
-          value="{{data.data.attack.name}}"
+          name="system.speciality"
+          value="{{data.system.speciality}}"
           placeholder="None"
           data-dtype="String"
         />
       </div>
 
-      {{!-- Special --}}
+      {{!-- Value --}}
       <div class="form-group">
-        <label>{{ localize "MB.CreatureSpecial" }}:</label>
-        <textarea name="data.special" rows="10">{{data.data.special}}</textarea>
+        <label>{{ localize "MB.FollowerValue" }}:</label>
+        <input
+          type="text"
+          name="system.value"
+          value="{{data.system.value}}"
+          placeholder="None"
+          data-dtype="String"
+        />
       </div>
+    </div>
+
+    {{> systems/morkborg/templates/actor/common/violence-tab.hbs }} {{!--
+    Treasures Tab --}}
+    <div class="tab equipment-tab" data-group="primary" data-tab="treasures">
+      <div class="equipment-top-row">
+        <div class="silver">
+          <span class="stat-label silver-label"
+            >{{ localize "MB.Silver" }}:</span
+          >
+          <input
+            class="stat-input silver-input"
+            name="system.silver"
+            type="number"
+            value="{{data.system.silver}}"
+            data-dtype="Number"
+          />
+        </div>
+      </div>
+      <ol class="items-list equipment-list">
+        {{> "systems/morkborg/templates/actor/common/equipment-list.hbs" }}
+      </ol>
     </div>
   </section>
 </form>

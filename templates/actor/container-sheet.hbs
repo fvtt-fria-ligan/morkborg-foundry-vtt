@@ -24,21 +24,17 @@
         <h4 class="actor-type">{{actor.type}}</h4>
       </div>
       <div class="holding-row">
-        <span class="stat-label container-label"
-          >{{ localize "MB.ContainerHolding" }}:</span
-        >
-        <span class="stat-value">{{data.data.containerSpace}}</span>
+        <span class="stat-label container-label">{{ localize "MB.ContainerHolding" }}:</span>
+        <span class="stat-value">{{data.system.containerSpace}}</span>
         /
-        <span class="stat-value">{{data.data.capacity.max}}</span>
+        <span class="stat-value">{{data.system.capacity.max}}</span>
       </div>
     </div>
   </header>
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="description"
-      >{{ localize "MB.TabDescription" }}</a
-    >
+    <a class="item" data-tab="description">{{ localize "MB.TabDescription" }}</a>
     <a class="item" data-tab="details">{{ localize "MB.TabDetails" }}</a>
     <a class="item" data-tab="contents">{{ localize "MB.TabContents" }}</a>
   </nav>
@@ -47,8 +43,8 @@
   <section class="sheet-body">
     {{!-- Description Tab --}}
     <div class="tab" data-group="primary" data-tab="description">
-      {{editor content=data.data.description target="data.description"
-      button=true owner=owner editable=true}}
+      {{editor data.system.description target="system.description" button=true
+      owner=owner editable=true}}
     </div>
 
     {{!-- Details Tab --}}
@@ -57,8 +53,8 @@
         <label>{{ localize "MB.ItemPrice" }}:</label>
         <input
           type="text"
-          name="data.price"
-          value="{{data.data.price}}"
+          name="system.price"
+          value="{{data.system.price}}"
           placeholder="2"
           data-dtype="Number"
         />
@@ -66,9 +62,9 @@
       <div class="form-group">
         <label>{{ localize "MB.ItemCapacity" }}:</label>
         <input
-          name="data.capacity.max"
+          name="system.capacity.max"
           type="text"
-          value="{{data.data.capacity.max}}"
+          value="{{data.system.capacity.max}}"
           placeholder="10"
           data-dtype="Number"
         />
@@ -78,8 +74,7 @@
     {{!-- Contents Tab --}}
     <div class="tab equipment-tab" data-group="primary" data-tab="contents">
       <ol class="items-list equipment-list">
-        {{>
-        "systems/morkborg/templates/actor/common/actor-equipment-list.html"}}
+        {{> "systems/morkborg/templates/actor/common/equipment-list.hbs" }}
       </ol>
     </div>
   </section>

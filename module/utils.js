@@ -1,3 +1,6 @@
+export const byName = (a, b) =>
+  a.name > b.name ? 1 : b.name > a.name ? -1 : 0;
+
 // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 export const shuffle = (array) => {
   let currentIndex = array.length,

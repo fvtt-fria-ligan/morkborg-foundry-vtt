@@ -1,0 +1,52 @@
+{{!-- Powers Tab --}}
+<div class="tab powers-tab" data-group="primary" data-tab="powers">
+  <div class="powers-top-row">
+    <div class="powers-gutter"></div>
+    <div class="wield-power">
+      <button type="button" class="rollable wield-power-button">
+        {{localize "MB.WieldAPower"}}
+      </button>
+      <span class="rule-text wield-rule">{{localize 'MB.WieldAPowerText'}}</span>
+    </div>
+    <div class="powers-gutter"></div>
+    <div class="uses-remaining">
+      <div>
+        <label class="stat-label uses-remaining-label">{{localize "MB.PowerUsesRemaining"}}:</label>
+        <input
+          class="stat-input"
+          name="sysem.powerUses.value"
+          type="number"
+          value="{{data.system.powerUses.value}}"
+          data-dtype="Number"
+        />
+      </div>
+      <span class="rule-text rollable powers-per-day-text">{{localize "MB.PowersPerDayText"}}</span>
+    </div>
+  </div>
+  <ol class="items-list inventory-list">
+    <li class="items-header flexrow">
+      <h3 class="item-name flexrow">{{localize "MB.ItemTypeScrollPlural"}}</h3>
+      <div class="item-controls flexrow"></div>
+    </li>
+    <ol class="item-list">
+      {{#each data.system.scrolls as |item id|}}
+      <li class="item flexrow" data-item-id="{{item._id}}">
+        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+        <h4 class="item-name item-edit rollable">{{item.name}}</h4>
+        <div class="item-buttons"></div>
+        <div class="item-controls">
+          <a class="item-control item-edit" title="Edit Item"
+            ><i class="fas fa-edit"></i
+          ></a>
+          <a class="item-control item-delete" title="Delete Item"
+            ><i class="fas fa-trash"></i
+          ></a>
+        </div>
+      </li>
+      {{/each}}
+    </ol>
+    {{#unless data.system.scrolls.length}}
+    <div class="rule-text you-have-no">{{localize 'MB.YouHaveNoScrolls'}}</div>
+    {{/unless}}
+  </ol>
+</div>

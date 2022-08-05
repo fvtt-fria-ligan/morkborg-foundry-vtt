@@ -1,6 +1,7 @@
 import MBActorSheet from "./actor-sheet.js";
 import RestDialog from "./rest-dialog.js";
 import { trackAmmo, trackCarryingCapacity } from "../../settings.js";
+import { byName } from "../../utils.js";
 
 /**
  * @extends {ActorSheet}
@@ -10,7 +11,7 @@ export class MBActorSheetCharacter extends MBActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["morkborg", "sheet", "actor", "character"],
-      template: "systems/morkborg/templates/actor/character-sheet.html",
+      template: "systems/morkborg/templates/actor/character-sheet.hbs",
       width: 750,
       height: 690,
       tabs: [
@@ -27,23 +28,18 @@ export class MBActorSheetCharacter extends MBActorSheet {
   /** @override */
   getData() {
     const superData = super.getData();
+    superData.config = CONFIG.MB;
     const data = superData.data;
-    data.config = CONFIG.MB;
 
     // Ability Scores
-    for (const [a, abl] of Object.entries(data.data.abilities)) {
+    for (const [a, abl] of Object.entries(data.system.abilities)) {
       const translationKey = CONFIG.MB.abilities[a];
       abl.label = game.i18n.localize(translationKey);
     }
 
-    // Prepare items.
-    if (this.actor.data.type == "character") {
-      this._prepareCharacterItems(data);
-    }
-
-    data.data.trackCarryingCapacity = trackCarryingCapacity();
-    data.data.trackAmmo = trackAmmo();
-
+    this._prepareCharacterItems(data);
+    data.system.trackCarryingCapacity = trackCarryingCapacity();
+    data.system.trackAmmo = trackAmmo();
     return superData;
   }
 
@@ -54,39 +50,37 @@ export class MBActorSheetCharacter extends MBActorSheet {
    * @return {undefined}
    */
   _prepareCharacterItems(sheetData) {
-    const byName = (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
-
-    sheetData.data.feats = sheetData.items
+    sheetData.system.feats = sheetData.items
       .filter((item) => item.type === CONFIG.MB.itemTypes.feat)
       .sort(byName);
 
-    sheetData.data.class = sheetData.items.find(
+    sheetData.system.class = sheetData.items.find(
       (item) => item.type === CONFIG.MB.itemTypes.class
     );
 
-    sheetData.data.scrolls = sheetData.items
+    sheetData.system.scrolls = sheetData.items
       .filter((item) => item.type === CONFIG.MB.itemTypes.scroll)
       .sort(byName);
 
-    sheetData.data.equipment = sheetData.items
+    sheetData.system.equipment = sheetData.items
       .filter((item) => CONFIG.MB.itemEquipmentTypes.includes(item.type))
-      .filter((item) => !item.data.hasContainer)
+      .filter((item) => !item.system.hasContainer)
       .sort(byName);
 
-    sheetData.data.equippedArmor = sheetData.items
+    sheetData.system.equippedArmor = sheetData.items
       .filter((item) => item.type === CONFIG.MB.itemTypes.armor)
-      .find((item) => item.data.equipped);
+      .find((item) => item.system.equipped);
 
-    sheetData.data.equippedShield = sheetData.items
+    sheetData.system.equippedShield = sheetData.items
       .filter((item) => item.type === CONFIG.MB.itemTypes.shield)
-      .find((item) => item.data.equipped);
+      .find((item) => item.system.equipped);
 
-    sheetData.data.equippedWeapons = sheetData.items
+    sheetData.system.equippedWeapons = sheetData.items
       .filter((item) => item.type === CONFIG.MB.itemTypes.weapon)
-      .filter((item) => item.data.equipped)
+      .filter((item) => item.system.equipped)
       .sort(byName);
 
-    sheetData.data.ammo = sheetData.items
+    sheetData.system.ammo = sheetData.items
       .filter((item) => item.type === CONFIG.MB.itemTypes.ammo)
       .sort(byName);
   }

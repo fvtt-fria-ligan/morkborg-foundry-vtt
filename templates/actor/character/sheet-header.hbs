@@ -1,0 +1,173 @@
+{{!-- Sheet Header --}}
+<header class="sheet-header">
+  <div class="header-col1">
+    <img
+      class="profile-img"
+      src="{{actor.img}}"
+      data-edit="img"
+      title="{{actor.name}}"
+    />
+  </div>
+  <div class="header-gutter-col"></div>
+  <div class="header-col2">
+    <div class="name-row">
+      <input
+        class="actor-name"
+        name="name"
+        type="text"
+        value="{{actor.name}}"
+        placeholder="{{ localize 'MB.Name' }}"
+        spellcheck="false"
+      />
+    </div>
+    {{!-- we are cheating a bit here, using the 'item' class usually used on LI
+    elements, so we can get the item _id to be found by the common click handler
+    --}}
+    <div class="classname-row item" data-item-id="{{data.system.class._id}}">
+      <span class="stat-label">{{ localize "MB.Class" }}:</span>
+      <label class="classname item-edit rollable"
+        >{{data.system.class.name}}</label
+      >
+      <div class="item-controls">
+        <a class="item-control item-edit" title="Edit Item"
+          ><i class="fas fa-edit"></i
+        ></a>
+        <a class="item-control item-scvmify" title="Scvmify"
+          ><i class="fas fa-skull"></i
+        ></a>
+      </div>
+    </div>
+    <div class="hitpoints-row">
+      <div class="hp-entries">
+        <span class="stat-label">{{ localize "MB.HP" }}:</span>
+        <input
+          class="stat-input"
+          name="system.hp.value"
+          type="number"
+          value="{{data.system.hp.value}}"
+          data-dtype="Number"
+        />
+        /
+        <input
+          class="stat-input"
+          name="system.hp.max"
+          type="number"
+          value="{{data.system.hp.max}}"
+          data-dtype="Number"
+        />
+      </div>
+      <div class="rest-buttons">
+        <button
+          type="button"
+          class="button item-button broken-button rollable"
+          title="{{localize 'MB.Broken'}}"
+        >
+          {{localize 'MB.Broken'}}
+        </button>
+        <button
+          type="button"
+          class="button item-button rest-button rollable"
+          title="{{localize 'MB.Rest'}}"
+        >
+          {{localize 'MB.Rest'}}
+        </button>
+      </div>
+    </div>
+    <div class="omens-row">
+      <span
+        class="stat-label omens-label"
+        title="{{ localize 'MB.OmensHelpText' }}"
+        >{{ localize "MB.Omens" }}:</span
+      >
+      <input
+        class="stat-input"
+        name="system.omens.value"
+        type="number"
+        value="{{data.system.omens.value}}"
+        data-dtype="Number"
+      />
+      <span class="rule-text omen-rule rollable"
+        >{{data.system.class.system.omenDie}} {{ localize "MB.PerRest"}}</span
+      >
+      <button
+        type="button"
+        class="button item-button get-better-button rollable"
+        title="{{localize 'MB.GetBetter'}}"
+      >
+        {{localize 'MB.GetBetter'}}
+      </button>
+    </div>
+    <div class="miseries-row">
+      <label class="stat-label miseries-label"
+        >{{ localize "MB.Miseries" }}:</label
+      >
+      <ul class="miseries">
+        {{#times 7}}
+        <li>
+          <label>
+            <input type="radio" name="system.miseries.value" value="{{this}}"
+            data-dtype="Number" {{#ifEq ../data.system.miseries.value
+            this}}checked{{/ifEq}}/>
+            <span>{{this}}</span>
+          </label>
+        </li>
+        {{/times}}
+        <li>
+          <label>
+            <input type="radio" name="system.miseries.value" value="7"
+            data-dtype="Number" {{#ifEq data.system.miseries.value
+            7}}checked{{/ifEq}}/>
+            <span>X</span>
+          </label>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="header-gutter-col"></div>
+  <div class="header-col3">
+    <div class="ability-row">
+      <input
+        class="ability-input"
+        type="text"
+        name="system.abilities.strength.value"
+        value="{{numberFormat data.system.abilities.strength.value decimals=0 sign=true}}"
+        data-dtype="Number"
+        size="3"
+      />
+      <span class="ability-label rollable strength">{{ localize 'MB.AbilityStrengthAbbrev' }}</span>
+    </div>
+    <div class="ability-row">
+      <input
+        class="ability-input"
+        type="text"
+        name="system.abilities.agility.value"
+        value="{{numberFormat data.system.abilities.agility.value decimals=0 sign=true}}"
+        data-dtype="Number"
+        size="3"
+      />
+      <span class="ability-label rollable agility">{{ localize 'MB.AbilityAgilityAbbrev' }}</span>
+    </div>
+    <div class="ability-row">
+      <input
+        class="ability-input"
+        type="text"
+        name="system.abilities.presence.value"
+        value="{{numberFormat data.system.abilities.presence.value decimals=0 sign=true}}"
+        data-dtype="Number"
+        size="3"
+      />
+      <span class="ability-label rollable presence">{{ localize 'MB.AbilityPresenceAbbrev' }}</span>
+    </div>
+    <div class="ability-row">
+      <input
+        class="ability-input"
+        type="text"
+        name="system.abilities.toughness.value"
+        value="{{numberFormat data.system.abilities.toughness.value decimals=0 sign=true}}"
+        data-dtype="Number"
+        size="3"
+      />
+      <span class="ability-label rollable toughness">{{ localize 'MB.AbilityToughnessAbbrev' }}</span>
+    </div>
+  </div>
+</header>

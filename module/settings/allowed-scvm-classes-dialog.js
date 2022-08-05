@@ -11,7 +11,7 @@ export class AllowedScvmClassesDialog extends FormApplication {
       id: "allowed-scvm-classes-dialog",
       title: game.i18n.localize("MB.AllowedScvmClassesEdit"),
       template:
-        "systems/morkborg/templates/dialog/allowed-scvm-classes-dialog.html",
+        "systems/morkborg/templates/dialog/allowed-scvm-classes-dialog.hbs",
       classes: ["form", "morkborg"],
       popOut: true,
       width: 420,
