@@ -393,10 +393,12 @@ const createActorWithScvm = async (s) => {
   const actor = await MBActor.create(data);
   actor.sheet.render(true);
 
-  // create any npcs (followers, creatures, etc)
-  for (const actorData of s.actors) {
-    const actor = await MBActor.create(actorData);
-    actor.sheet.render(true);
+  // create any npcs (containers, followers, creatures, etc)
+  const firstName = actor.name.split(" ")[0];
+  for (const npcData of s.actors) {
+    npcData.name = `${firstName}'s ${npcData.name}`;
+    const npc = await MBActor.create(npcData);
+    npc.sheet.render(true);
   }
 };
 
