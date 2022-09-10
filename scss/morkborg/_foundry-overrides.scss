@@ -539,6 +539,10 @@ select:focus {
 
 /* ================== 11. JOURNAL ENTRIES =================== */
 
+.journal-sheet-container {
+  background-color: black;
+}
+
 .journal-sheet form {
   button[type="submit"] {
     background: var(--background-color);
