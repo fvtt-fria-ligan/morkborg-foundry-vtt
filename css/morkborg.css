@@ -16,6 +16,7 @@
   --h2-font: "FetteTrumpDeutsch";
   --h3-font: "Old Cupboard";
   --item-font: "Special Elite";
+  --window-border-color: #222222;
 }
 
 /* ====================== */
@@ -142,9 +143,9 @@
   background: var(--window-background);
   font-size: 13px;
   color: var(--foreground-color);
-  border-bottom: 1px solid #222222;
-  border-left: 1px solid #222222;
-  border-right: 1px solid #222222;
+  border-bottom: 1px solid var(--window-border-color);
+  border-left: 1px solid var(--window-border-color);
+  border-right: 1px solid var(--window-border-color);
 }
 .morkborg.sheet .window-content form {
   height: 100%;
@@ -1099,7 +1100,7 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
 }
 
 #chat-log {
-  background: var(--sidebar-background-color);
+  background: var(--sidebar-background);
 }
 #chat-log .chat-message {
   background: var(--window-background);
@@ -1277,7 +1278,7 @@ select:focus {
 }
 
 #sidebar {
-  background: var(--sidebar-background-color);
+  background: var(--sidebar-background);
   color: var(--sidebar-foreground-color);
 }
 #sidebar.collapsed #sidebar-tabs > .item.active {
@@ -1286,7 +1287,7 @@ select:focus {
 }
 
 #sidebar-tabs {
-  background: var(--sidebar-background-color);
+  background: var(--sidebar-background);
   color: var(--sidebar-foreground-color);
   border-bottom: 1px solid var(--highlight-background-color);
   box-shadow: 0 0 10px var(--highlight-background-color);
@@ -1337,8 +1338,8 @@ select:focus {
   color: var(--foreground-color);
 }
 .window-app.app.journal-sheet .window-content {
-  background: var(--foreground-color);
-  color: var(--background-color);
+  background: var(--background-color);
+  color: var(--foreground-color);
   background-position: -43px -120px;
   display: flex;
   flex-direction: column;
@@ -1360,15 +1361,45 @@ select:focus {
 }
 
 /* ================== 11. JOURNAL ENTRIES =================== */
-.journal-sheet-container {
-  background-color: black;
+.journal-sheet.journal-entry .window-content {
+  border-bottom: 1px solid var(--window-border-color);
+  border-left: 1px solid var(--window-border-color);
+  border-right: 1px solid var(--window-border-color);
+}
+.journal-sheet.journal-entry .window-content .journal-sheet-container .journal-sidebar {
+  background: var(--sidebar-background);
+  color: var(--sidebar-foreground-color);
+}
+.journal-sheet.journal-entry .window-content .journal-sheet-container .journal-entry-content {
+  background: var(--window-background);
+  border-radius: 0;
+  color: var(--foreground-color);
+}
+
+.journal-sheet.journal-entry-page .window-content {
+  border-bottom: 1px solid var(--window-border-color);
+  border-left: 1px solid var(--window-border-color);
+  border-right: 1px solid var(--window-border-color);
+}
+.journal-sheet.journal-entry-page .window-content .editor.prosemirror .editor-menu {
+  border-bottom: 1px solid var(--foreground-color);
+  border-top: 1px solid var(--foreground-color);
+  background-color: var(--background-color);
+  color: var(--foreground-color);
+}
+.journal-sheet.journal-entry-page .window-content .editor.prosemirror .editor-menu button {
+  color: var(--foreground-color);
+}
+.journal-sheet.journal-entry-page .window-content .editor.prosemirror .editor-menu button:hover {
+  background-color: var(--foreground-color);
+  color: var(--background-color);
 }
 
 .journal-sheet form button[type=submit] {
   background: var(--background-color);
 }
 .journal-sheet form input[name=name] {
-  color: var(--background-color);
+  color: var(--foreground-color);
   font-family: var(--h2-font);
   font-size: 32px;
 }

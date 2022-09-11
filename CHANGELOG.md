@@ -1,3 +1,7 @@
+# 2.0.1
+
+- Fix css styling for Journal entries/pages.
+
 # 2.0.0
 
 - Support Foundry v10. Note: Mork Borg system 2.0.0+ is no longer compatible with Foundry v9.

@@ -25,10 +25,7 @@ const applyFontsAndColors = () => {
     "--highlight-foreground-color",
     colorScheme.highlightForeground
   );
-  r.style.setProperty(
-    "--sidebar-background-color",
-    colorScheme.sidebarBackground
-  );
+  r.style.setProperty("--sidebar-background", colorScheme.sidebarBackground);
   r.style.setProperty(
     "--sidebar-foreground-color",
     colorScheme.sidebarForeground
@@ -47,6 +44,12 @@ const applyFontsAndColors = () => {
   r.style.setProperty("--h2-font", fontScheme.h2);
   r.style.setProperty("--h3-font", fontScheme.h3);
   r.style.setProperty("--item-font", fontScheme.item);
+
+  // Foundry vars
+  r.style.setProperty(
+    "--color-border-highlight",
+    colorScheme.highlightBackground
+  );
 };
 
 Hooks.on("renderActorDirectory", (app, html) => {

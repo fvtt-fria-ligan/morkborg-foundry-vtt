@@ -215,7 +215,7 @@ form.editable .results {
 }
 
 #chat-log {
-  background: var(--sidebar-background-color);
+  background: var(--sidebar-background);
 
   .chat-message {
     background: var(--window-background);
@@ -440,7 +440,7 @@ select:focus {
 }
 
 #sidebar {
-  background: var(--sidebar-background-color);
+  background: var(--sidebar-background);
   color: var(--sidebar-foreground-color);
 
   &.collapsed #sidebar-tabs > .item.active {
@@ -450,7 +450,7 @@ select:focus {
 }
 
 #sidebar-tabs {
-  background: var(--sidebar-background-color);
+  background: var(--sidebar-background);
   color: var(--sidebar-foreground-color);
   border-bottom: 1px solid var(--highlight-background-color);
   box-shadow: 0 0 10px var(--highlight-background-color);
@@ -512,8 +512,8 @@ select:focus {
   }
 
   &.app.journal-sheet .window-content {
-    background: var(--foreground-color);
-    color: var(--background-color);
+    background: var(--background-color);
+    color: var(--foreground-color);
     background-position: -43px -120px;
     display: flex;
     flex-direction: column;
@@ -538,9 +538,46 @@ select:focus {
 }
 
 /* ================== 11. JOURNAL ENTRIES =================== */
+.journal-sheet.journal-entry {
+  .window-content {
+    border-bottom: 1px solid var(--window-border-color);
+    border-left: 1px solid var(--window-border-color);
+    border-right: 1px solid var(--window-border-color);
+    .journal-sheet-container {
+      .journal-sidebar {
+        background: var(--sidebar-background);
+        color: var(--sidebar-foreground-color);
+      }
+      .journal-entry-content {
+        background: var(--window-background);
+        border-radius: 0;
+        color: var(--foreground-color);
+      }
+    }
+  }
+}
 
-.journal-sheet-container {
-  background-color: black;
+.journal-sheet.journal-entry-page {
+  .window-content {
+    border-bottom: 1px solid var(--window-border-color);
+    border-left: 1px solid var(--window-border-color);
+    border-right: 1px solid var(--window-border-color);
+    .editor.prosemirror {
+      .editor-menu {
+        border-bottom: 1px solid var(--foreground-color);
+        border-top: 1px solid var(--foreground-color);
+        background-color: var(--background-color);
+        color: var(--foreground-color);
+        button {
+          color: var(--foreground-color);
+        }
+        button:hover {
+          background-color: var(--foreground-color);
+          color: var(--background-color);
+        }
+      }
+    }
+  }
 }
 
 .journal-sheet form {
@@ -549,7 +586,7 @@ select:focus {
   }
 
   input[name="name"] {
-    color: var(--background-color);
+    color: var(--foreground-color);
     font-family: var(--h2-font);
     font-size: 32px;
   }
