@@ -1,3 +1,7 @@
+# 2.0.2
+
+- Fix follower max hp field not saving.
+
 # 2.0.1
 
 - Fix css styling for Journal entries/pages.
