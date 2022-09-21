@@ -34,7 +34,7 @@ If you want some third-party content, be sure to check out the [MÖRK BORG Third
 - Images
   - Tokens by [Chris Betancourt](https://github.com/iPwned) with original art by [Johan Nohr](https://twitter.com/JohanNohr), and used with permission from the creators.
   - Weapon icons by [@vil](https://zordvil.itch.io/), and used with permission from the creator.
-  - Other icons by https://game-icons.net/ under [Creative Commons 3.0](https://creativecommons.org/licenses/by/3.0/).
+  - Other icons by [Game-icons.net](https://game-icons.net/) under [Creative Commons 3.0](https://creativecommons.org/licenses/by/3.0/).
 - Fonts
   - [Blood Crow](https://www.dafont.com/blood-crow.font) by [Iconian Fonts](http://www.iconian.com/), and free for personal use.
   - [Calling Code Regular](https://www.dafont.com/calling-code.font) by Ryoichi Tsunekawa / [DharmaType](https://dharmatype.com/), under Public domain / GPL / OFL.
