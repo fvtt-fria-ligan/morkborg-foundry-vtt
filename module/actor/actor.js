@@ -33,7 +33,7 @@ const WIELD_POWER_ROLL_CARD_TEMPLATE =
 export class MBActor extends Actor {
   /** @override */
   static async create(data, options = {}) {
-    data.token = data.token || {};
+    data.prototypeToken = data.prototypeToken || {};
     let defaults = {};
     if (data.type === "character") {
       defaults = {
@@ -60,7 +60,7 @@ export class MBActor extends Actor {
         vision: true,
       };
     }
-    mergeObject(data.token, defaults, { overwrite: false });
+    mergeObject(data.prototypeToken, defaults, { overwrite: false });
     return super.create(data, options);
   }
 

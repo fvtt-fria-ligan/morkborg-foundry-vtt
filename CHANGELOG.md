@@ -1,3 +1,9 @@
+# 2.0.3
+
+- Fix actor.create() for v10.
+- Fix scvmfactory token image setting.
+- Show notification when scvmfactory user can't create NPC.
+
 # 2.0.2
 
 - Fix follower max hp field not saving.

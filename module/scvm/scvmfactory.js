@@ -379,9 +379,11 @@ const scvmToActorData = (s) => {
     img: s.actorImg,
     items: s.items,
     flags: {},
-    token: {
-      img: s.actorImg,
-      name: newName,
+    prototypeToken: {
+      name: s.name,
+      texture: {
+        src: s.actorImg,
+      },
     },
     type: "character",
   };
@@ -413,15 +415,24 @@ const updateActorWithScvm = async (actor, s) => {
   // update any actor tokens in the scene, too
   for (const token of actor.getActiveTokens()) {
     await token.document.update({
-      img: actor.img,
       name: actor.name,
+      texture: {
+        src: actor.prototypeToken.texture.src,
+      },
     });
   }
 
   // create any npcs (followers, creatures, etc)
   for (const actorData of s.actors) {
-    const actor = await MBActor.create(actorData);
-    actor.sheet.render(true);
+    if (game.user.can("ACTOR_CREATE")) {
+      const actor = await MBActor.create(actorData);
+      actor.sheet.render(true);
+    } else {
+      ui.notifications.info(
+        `Ask the GM to create an actor for you: ${actorData.name}`,
+        { permanent: true }
+      );
+    }
   }
 };
 
