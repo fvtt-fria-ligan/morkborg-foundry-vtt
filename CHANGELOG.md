@@ -1,3 +1,7 @@
+# 2.0.4
+
+- Fix v10 manifest warnings.
+
 # 2.0.3
 
 - Fix actor.create() for v10.

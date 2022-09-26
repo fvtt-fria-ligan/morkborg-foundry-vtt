@@ -20,168 +20,168 @@
       "label": "Character Creation",
       "system": "morkborg",
       "path": "./packs/character-creation.db",
-      "entity": "RollTable"
+      "type": "RollTable"
     },
     {
       "name": "class-classless-adventurer",
       "label": "Class - Classless Adventurer",
       "system": "morkborg",
       "path": "./packs/class-classless-adventurer.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "class-esoteric-hermit",
       "label": "Class - Esoteric Hermit",
       "system": "morkborg",
       "path": "./packs/class-esoteric-hermit.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "class-fanged-deserter",
       "label": "Class - Fanged Deserter",
       "system": "morkborg",
       "path": "./packs/class-fanged-deserter.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "class-gutterborn-scum",
       "label": "Class - Gutterborn Scum",
       "system": "morkborg",
       "path": "./packs/class-gutterborn-scum.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "class-heretical-priest",
       "label": "Class - Heretical Priest",
       "system": "morkborg",
       "path": "./packs/class-heretical-priest.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "class-occult-herbmaster",
       "label": "Class - Occult Herbmaster",
       "system": "morkborg",
       "path": "./packs/class-occult-herbmaster.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "class-wretched-royalty",
       "label": "Class - Wretched Royalty",
       "system": "morkborg",
       "path": "./packs/class-wretched-royalty.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "containers",
       "label": "Containers",
       "system": "morkborg",
       "path": "./packs/containers.db",
-      "entity": "Actor"
+      "type": "Actor"
     },
     {
       "name": "creatures",
       "label": "Creatures",
       "system": "morkborg",
       "path": "./packs/creatures.db",
-      "entity": "Actor"
+      "type": "Actor"
     },
     {
       "name": "equipment-armor",
       "label": "Equipment - Armor",
       "system": "morkborg",
       "path": "./packs/equipment-armor.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "equipment-misc",
       "label": "Equipment - Misc",
       "system": "morkborg",
       "path": "./packs/equipment-misc.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "equipment-scrolls",
       "label": "Equipment - Scrolls",
       "system": "morkborg",
       "path": "./packs/equipment-scrolls.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "equipment-weapons",
       "label": "Equipment - Weapons",
       "system": "morkborg",
       "path": "./packs/equipment-weapons.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "follower-items",
       "label": "Follower Items",
       "system": "morkborg",
       "path": "./packs/follower-items.db",
-      "entity": "Item"
+      "type": "Item"
     },
     {
       "name": "followers",
       "label": "Followers",
       "system": "morkborg",
       "path": "./packs/followers.db",
-      "entity": "Actor"
+      "type": "Actor"
     },
     {
       "name": "macros-occult-herbmaster",
       "label": "Macros - Occult Herbmaster",
       "system": "morkborg",
       "path": "./packs/macros-occult-herbmaster.db",
-      "entity": "Macro"
+      "type": "Macro"
     },
     {
       "name": "random-scrolls",
       "label": "Random Scrolls",
       "system": "morkborg",
       "path": "./packs/random-scrolls.db",
-      "entity": "RollTable"
+      "type": "RollTable"
     },
     {
       "name": "rolls-esoteric-hermit",
       "label": "Rolls - Esoteric Hermit",
       "system": "morkborg",
       "path": "./packs/rolls-esoteric-hermit.db",
-      "entity": "RollTable"
+      "type": "RollTable"
     },
     {
       "name": "rolls-fanged-deserter",
       "label": "Rolls - Fanged Deserter",
       "system": "morkborg",
       "path": "./packs/rolls-fanged-deserter.db",
-      "entity": "RollTable"
+      "type": "RollTable"
     },
     {
       "name": "rolls-gutterborn-scum",
       "label": "Rolls - Gutterborn Scum",
       "system": "morkborg",
       "path": "./packs/rolls-gutterborn-scum.db",
-      "entity": "RollTable"
+      "type": "RollTable"
     },
     {
       "name": "rolls-heretical-priest",
       "label": "Rolls - Heretical Priest",
       "system": "morkborg",
       "path": "./packs/rolls-heretical-priest.db",
-      "entity": "RollTable"
+      "type": "RollTable"
     },
     {
       "name": "rolls-occult-herbmaster",
       "label": "Rolls - Occult Herbmaster",
       "system": "morkborg",
       "path": "./packs/rolls-occult-herbmaster.db",
-      "entity": "RollTable"
+      "type": "RollTable"
     },
     {
       "name": "rolls-wretched-royalty",
       "label": "Rolls - Wretched Royalty",
       "system": "morkborg",
       "path": "./packs/rolls-wretched-royalty.db",
-      "entity": "RollTable"
+      "type": "RollTable"
     }
   ],
   "languages": [
