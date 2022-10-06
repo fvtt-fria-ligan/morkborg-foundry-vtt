@@ -1,3 +1,7 @@
+# 2.0.5
+
+- Fix powers field not saving.
+
 # 2.0.4
 
 - Fix v10 manifest warnings.
