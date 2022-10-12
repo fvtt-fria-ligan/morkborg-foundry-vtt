@@ -32,7 +32,7 @@ const testAbility = async (
 
 export const testStrength = async (actor) => {
   const drModifiers = [];
-  if (this.isEncumbered()) {
+  if (actor.isEncumbered()) {
     drModifiers.push(
       `${game.i18n.localize("MB.Encumbered")}: ${game.i18n.localize(
         "MB.DR"
