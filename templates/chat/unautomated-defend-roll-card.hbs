@@ -1,0 +1,17 @@
+<form class="roll-card defend-roll-card">
+  <div class="card-title">{{localize 'MB.Defend'}}</div>
+  {{#each items as |item id|}}
+  <div class="item-row">
+    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+    <span class="item-name">{{item.name}}</span>
+  </div>
+  {{/each}}
+  <div class="defend-roll">
+    <div class="roll-title">
+      <span>{{defendFormula}}</span>
+    </div>
+    <div class="roll-result">
+      <span>{{xtotal defendRoll}}</span>
+    </div>
+  </div>
+</form>

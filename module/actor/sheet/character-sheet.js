@@ -2,6 +2,12 @@ import MBActorSheet from "./actor-sheet.js";
 import RestDialog from "./rest-dialog.js";
 import { trackAmmo, trackCarryingCapacity } from "../../settings.js";
 import { byName } from "../../utils.js";
+import {
+  testAgility,
+  testPresence,
+  testStrength,
+  testToughness,
+} from "../test-abilities.js";
 
 /**
  * @extends {ActorSheet}
@@ -125,22 +131,22 @@ export class MBActorSheetCharacter extends MBActorSheet {
 
   _onStrengthRoll(event) {
     event.preventDefault();
-    this.actor.testStrength();
+    testStrength(this.actor);
   }
 
   _onAgilityRoll(event) {
     event.preventDefault();
-    this.actor.testAgility();
+    testAgility(this.actor);
   }
 
   _onPresenceRoll(event) {
     event.preventDefault();
-    this.actor.testPresence();
+    testPresence(this.actor);
   }
 
   _onToughnessRoll(event) {
     event.preventDefault();
-    this.actor.testToughness();
+    testToughness(this.actor);
   }
 
   _onOmensRoll(event) {

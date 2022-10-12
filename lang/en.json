@@ -184,6 +184,8 @@
   "MB.SettingsFontScheme": "Font Scheme",
   "MB.SettingsFontSchemeHint": "Choose a font scheme for the UI.",
   "MB.SettingsFoundryDefault": "Foundry Default",
+  "MB.SettingsHitAutomation": "Hit Automation",
+  "MB.SettingsHitAutomationHint": "Enable auto-resolution of hits, misses, and damage rolls.",
   "MB.SettingsLegible": "Legible",
   "MB.SettingsWhiteOnBlackPink": "White on black (pink)",
   "MB.SettingsWhiteOnBlackWhite": "White on black (white)",

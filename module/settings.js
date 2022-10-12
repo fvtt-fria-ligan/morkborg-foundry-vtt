@@ -1,19 +1,34 @@
 import { AllowedScvmClassesDialog } from "./settings/allowed-scvm-classes-dialog.js";
 
+const Settings = {
+  allowedScvmClasses: "allowedScvmClasses",
+  colorScheme: "colorScheme",
+  hitAutomation: "hitAutomation",
+  fontScheme: "fontScheme",
+  lastScvmfactorySelection: "lastScvmfactorySelection",
+  systemMigrationVersion: "systemMigrationVersion",
+  trackAmmo: "trackAmmo",
+  trackCarryingCapacity: "trackCarryingCapacity",
+};
+
 export const registerSystemSettings = () => {
   /**
    * Track the system version upon which point a migration was last applied.
    */
-  game.settings.register("morkborg", "systemMigrationVersion", {
-    name: "System Migration Version",
-    scope: "world",
-    config: false,
-    type: String,
-    default: "",
-  });
+  game.settings.register(
+    CONFIG.MB.systemName,
+    Settings.systemMigrationVersion,
+    {
+      name: "System Migration Version",
+      scope: "world",
+      config: false,
+      type: String,
+      default: "",
+    }
+  );
 
   /** Whether to keep track of carrying capacity */
-  game.settings.register("morkborg", "trackCarryingCapacity", {
+  game.settings.register(CONFIG.MB.systemName, Settings.trackCarryingCapacity, {
     name: "MB.SettingsApplyOvercapacityPenalty",
     hint: "MB.SettingsApplyOvercapacityPenaltyHint",
     scope: "world",
@@ -22,8 +37,18 @@ export const registerSystemSettings = () => {
     default: true,
   });
 
+  /** Whether to enable combat automation. E.g., automatically determining hit/miss and damage. */
+  game.settings.register(CONFIG.MB.systemName, Settings.hitAutomation, {
+    name: "MB.SettingsHitAutomation",
+    hint: "MB.SettingsHitAutomationHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true,
+  });
+
   /** Whether to keep track of ranged weapon ammo */
-  game.settings.register("morkborg", "trackAmmo", {
+  game.settings.register(CONFIG.MB.systemName, Settings.trackAmmo, {
     name: "MB.SettingsTrackAmmo",
     hint: "MB.SettingsTrackAmmoHint",
     scope: "world",
@@ -33,7 +58,7 @@ export const registerSystemSettings = () => {
   });
 
   /** UI Color scheme */
-  game.settings.register("morkborg", "colorScheme", {
+  game.settings.register(CONFIG.MB.systemName, Settings.colorScheme, {
     name: "MB.SettingsColorScheme",
     hint: "MB.SettingsColorSchemeHint",
     scope: "client",
@@ -54,7 +79,7 @@ export const registerSystemSettings = () => {
   });
 
   /** UI Font scheme */
-  game.settings.register("morkborg", "fontScheme", {
+  game.settings.register(CONFIG.MB.systemName, Settings.fontScheme, {
     name: "MB.SettingsFontScheme",
     hint: "MB.SettingsFontSchemeHint",
     scope: "client",
@@ -71,17 +96,21 @@ export const registerSystemSettings = () => {
   });
 
   /** The allowed classes menu */
-  game.settings.registerMenu("morkborg", "EditAllowedScvmClassesMenu", {
-    name: "MB.EditAllowedScvmClassesMenu",
-    hint: "MB.EditAllowedScvmClassesMenuHint",
-    label: "MB.EditAllowedScvmClassesMenuButtonLabel",
-    icon: "fas fa-cog",
-    type: AllowedScvmClassesDialog,
-    restricted: true,
-  });
+  game.settings.registerMenu(
+    CONFIG.MB.systemName,
+    "EditAllowedScvmClassesMenu",
+    {
+      name: "MB.EditAllowedScvmClassesMenu",
+      hint: "MB.EditAllowedScvmClassesMenuHint",
+      label: "MB.EditAllowedScvmClassesMenuButtonLabel",
+      icon: "fas fa-cog",
+      type: AllowedScvmClassesDialog,
+      restricted: true,
+    }
+  );
 
   /** The allowed classes menu for scvmfactory */
-  game.settings.register("morkborg", "allowedScvmClasses", {
+  game.settings.register(CONFIG.MB.systemName, Settings.allowedScvmClasses, {
     name: "",
     default: {},
     type: Object,
@@ -90,49 +119,57 @@ export const registerSystemSettings = () => {
   });
 
   /** The client scvmfactory selected classes  */
-  game.settings.register("morkborg", "lastScvmfactorySelection", {
-    name: "",
-    default: [],
-    type: Array,
-    scope: "client",
-    config: false,
-  });
+  game.settings.register(
+    CONFIG.MB.systemName,
+    Settings.lastScvmfactorySelection,
+    {
+      name: "",
+      default: [],
+      type: Array,
+      scope: "client",
+      config: false,
+    }
+  );
+};
+
+const getSetting = (setting) => {
+  return game.settings.get(CONFIG.MB.systemName, setting);
+};
+
+const setSetting = (setting, value) => {
+  return game.settings.set(CONFIG.MB.systemName, setting, value);
+};
+
+export const hitAutomation = () => {
+  return getSetting(Settings.hitAutomation);
 };
 
 export const trackCarryingCapacity = () => {
-  return game.settings.get("morkborg", "trackCarryingCapacity");
+  return getSetting(Settings.trackCarryingCapacity);
 };
 
 export const trackAmmo = () => {
-  return game.settings.get("morkborg", "trackAmmo");
+  return getSetting(Settings.trackAmmo);
 };
 
 export const isScvmClassAllowed = (classPack) => {
-  const allowedScvmClasses = game.settings.get(
-    "morkborg",
-    "allowedScvmClasses"
-  );
+  const allowedScvmClasses = getSetting(Settings.allowedScvmClasses);
   return typeof allowedScvmClasses[classPack] === "undefined"
     ? true
     : !!allowedScvmClasses[classPack];
 };
 
 export const setAllowedScvmClasses = (allowedScvmClasses) => {
-  return game.settings.set(
-    "morkborg",
-    "allowedScvmClasses",
-    allowedScvmClasses
-  );
+  return setSetting(Settings.allowedScvmClasses, allowedScvmClasses);
 };
 
 export const getLastScvmfactorySelection = () => {
-  return game.settings.get("morkborg", "lastScvmfactorySelection");
+  return getSetting(Settings.lastScvmfactorySelection);
 };
 
 export const setLastScvmfactorySelection = (lastScvmfactorySelection) => {
-  return game.settings.set(
-    "morkborg",
-    "lastScvmfactorySelection",
+  return setSetting(
+    Settings.lastScvmfactorySelection,
     lastScvmfactorySelection
   );
 };

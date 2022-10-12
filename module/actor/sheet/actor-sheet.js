@@ -52,6 +52,7 @@ export default class MBActorSheet extends ActorSheet {
     html.find(".defend-button").on("click", this._onDefendRoll.bind(this));
     html.find(".tier-radio").click(this._onArmorTierRadio.bind(this));
     html.find("select.ammo-select").on("change", this._onAmmoSelect.bind(this));
+    html.find(".damage-die").on("click", this._onDamageRoll.bind(this));
   }
 
   /**
@@ -211,6 +212,17 @@ export default class MBActorSheet extends ActorSheet {
     const li = button.parents(".item");
     const itemId = li.data("itemId");
     this.actor.attack(itemId);
+  }
+
+  /**
+   * Handle a click on a weapon's damage text.
+   */
+  _onDamageRoll(event) {
+    event.preventDefault();
+    const span = $(event.currentTarget);
+    const li = span.parents(".item");
+    const itemId = li.data("itemId");
+    this.actor.rollDamageDie(itemId);
   }
 
   /**

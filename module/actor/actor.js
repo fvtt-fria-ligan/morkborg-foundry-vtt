@@ -1,29 +1,17 @@
 import { addShowDicePromise, diceSound, showDice } from "../dice.js";
 import ScvmDialog from "../scvm/scvm-dialog.js";
-import { trackAmmo, trackCarryingCapacity } from "../settings.js";
+import {
+  hitAutomation,
+  trackAmmo,
+  trackCarryingCapacity,
+} from "../settings.js";
 
-const ATTACK_DIALOG_TEMPLATE =
-  "systems/morkborg/templates/dialog/attack-dialog.hbs";
-const ATTACK_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/attack-roll-card.hbs";
-const BROKEN_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/broken-roll-card.hbs";
-const DEFEND_DIALOG_TEMPLATE =
-  "systems/morkborg/templates/dialog/defend-dialog.hbs";
-const DEFEND_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/defend-roll-card.hbs";
-const GET_BETTER_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/get-better-roll-card.hbs";
-const MORALE_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/morale-roll-card.hbs";
 const OUTCOME_ONLY_ROLL_CARD_TEMPLATE =
   "systems/morkborg/templates/chat/outcome-only-roll-card.hbs";
 const OUTCOME_ROLL_CARD_TEMPLATE =
   "systems/morkborg/templates/chat/outcome-roll-card.hbs";
 const REACTION_ROLL_CARD_TEMPLATE =
   "systems/morkborg/templates/chat/reaction-roll-card.hbs";
-const TEST_ABILITY_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/test-ability-roll-card.hbs";
 const WIELD_POWER_ROLL_CARD_TEMPLATE =
   "systems/morkborg/templates/chat/wield-power-roll-card.hbs";
 
@@ -227,106 +215,26 @@ export class MBActor extends Actor {
       .reduce((containerSpace, item) => containerSpace + item.totalSpace, 0);
   }
 
-  async _testAbility(ability, abilityKey, abilityAbbrevKey, drModifiers) {
-    const abilityRoll = new Roll(
-      `1d20+@abilities.${ability}.value`,
-      this.getRollData()
-    );
-    abilityRoll.evaluate({ async: false });
-    await showDice(abilityRoll);
-    const rollResult = {
-      abilityKey,
-      abilityRoll,
-      displayFormula: `1d20 + ${game.i18n.localize(abilityAbbrevKey)}`,
-      drModifiers,
-    };
-    const html = await renderTemplate(
-      TEST_ABILITY_ROLL_CARD_TEMPLATE,
-      rollResult
-    );
-    ChatMessage.create({
-      content: html,
-      sound: diceSound(),
-      speaker: ChatMessage.getSpeaker({ actor: this }),
-    });
-  }
-
-  async testStrength() {
-    const drModifiers = [];
-    if (this.isEncumbered()) {
-      drModifiers.push(
-        `${game.i18n.localize("MB.Encumbered")}: ${game.i18n.localize(
-          "MB.DR"
-        )} +2`
-      );
-    }
-    await this._testAbility(
-      "strength",
-      "MB.AbilityStrength",
-      "MB.AbilityStrengthAbbrev",
-      drModifiers
-    );
-  }
-
-  async testAgility() {
-    const drModifiers = [];
-    const armor = this.equippedArmor();
-    if (armor) {
-      const armorTier = CONFIG.MB.armorTiers[armor.system.tier.max];
-      if (armorTier.agilityModifier) {
-        drModifiers.push(
-          `${armor.name}: ${game.i18n.localize("MB.DR")} +${
-            armorTier.agilityModifier
-          }`
-        );
-      }
-    }
-    if (this.isEncumbered()) {
-      drModifiers.push(
-        `${game.i18n.localize("MB.Encumbered")}: ${game.i18n.localize(
-          "MB.DR"
-        )} +2`
-      );
-    }
-    await this._testAbility(
-      "agility",
-      "MB.AbilityAgility",
-      "MB.AbilityAgilityAbbrev",
-      drModifiers
-    );
-  }
-
-  async testPresence() {
-    await this._testAbility(
-      "presence",
-      "MB.AbilityPresence",
-      "MB.AbilityPresenceAbbrev",
-      null
-    );
-  }
-
-  async testToughness() {
-    await this._testAbility(
-      "toughness",
-      "MB.AbilityToughness",
-      "MB.AbilityToughnessAbbrev",
-      null
-    );
-  }
-
   /**
    * Attack!
    */
   async attack(itemId) {
+    if (hitAutomation()) {
+      return this.automatedAttack(itemId);
+    }
+    return this.unautomatedAttack(itemId);
+  }
+
+  async automatedAttack(itemId) {
     let attackDR = await this.getFlag(
-      CONFIG.MB.flagScope,
+      CONFIG.MB.systemName,
       CONFIG.MB.flags.ATTACK_DR
     );
     if (!attackDR) {
       attackDR = 12; // default
     }
     const targetArmor = await this.getFlag(
-      CONFIG.MB.flagScope,
+      CONFIG.MB.systemName,
       CONFIG.MB.flags.TARGET_ARMOR
     );
     const dialogData = {
@@ -335,7 +243,10 @@ export class MBActor extends Actor {
       itemId,
       targetArmor,
     };
-    const html = await renderTemplate(ATTACK_DIALOG_TEMPLATE, dialogData);
+    const html = await renderTemplate(
+      "systems/morkborg/templates/dialog/attack-dialog.hbs",
+      dialogData
+    );
     return new Promise((resolve) => {
       new Dialog({
         title: game.i18n.localize("MB.Attack"),
@@ -354,6 +265,63 @@ export class MBActor extends Actor {
     });
   }
 
+  async rollDamageDie(itemId) {
+    const item = this.items.get(itemId);
+    const roll = new Roll("@damageDie", item.getRollData());
+    roll.evaluate({ async: false });
+    const rollResult = {
+      item,
+      roll,
+    };
+    const html = await renderTemplate(
+      "systems/morkborg/templates/chat/weapon-damage-roll-card.hbs",
+      rollResult
+    );
+    ChatMessage.create({
+      content: html,
+      sound: diceSound(),
+      speaker: ChatMessage.getSpeaker({ actor: this }),
+    });
+  }
+
+  async unautomatedAttack(itemId) {
+    const item = this.items.get(itemId);
+    const itemRollData = item.getRollData();
+    const actorRollData = this.getRollData();
+    const isRanged = itemRollData.weaponType === "ranged";
+    const ability = isRanged ? "presence" : "strength";
+    const attackRoll = new Roll(
+      `d20+@abilities.${ability}.value`,
+      actorRollData
+    );
+    attackRoll.evaluate({ async: false });
+    await showDice(attackRoll);
+
+    const abilityAbbrevKey = isRanged
+      ? "MB.AbilityPresenceAbbrev"
+      : "MB.AbilityStrengthAbbrev";
+    const weaponTypeKey = isRanged
+      ? "MB.WeaponTypeRanged"
+      : "MB.WeaponTypeMelee";
+    const rollResult = {
+      actor: this,
+      attackFormula: `1d20 + ${game.i18n.localize(abilityAbbrevKey)}`,
+      attackRoll,
+      items: [item],
+      weaponTypeKey,
+    };
+    await this._decrementWeaponAmmo(item);
+    const html = await renderTemplate(
+      "systems/morkborg/templates/chat/unautomated-attack-roll-card.hbs",
+      rollResult
+    );
+    ChatMessage.create({
+      content: html,
+      sound: diceSound(),
+      speaker: ChatMessage.getSpeaker({ actor: this }),
+    });
+  }
+
   /**
    * Callback from attack dialog.
    */
@@ -367,12 +335,12 @@ export class MBActor extends Actor {
       return;
     }
     await this.setFlag(
-      CONFIG.MB.flagScope,
+      CONFIG.MB.systemName,
       CONFIG.MB.flags.ATTACK_DR,
       attackDR
     );
     await this.setFlag(
-      CONFIG.MB.flagScope,
+      CONFIG.MB.systemName,
       CONFIG.MB.flags.TARGET_ARMOR,
       targetArmor
     );
@@ -489,7 +457,10 @@ export class MBActor extends Actor {
    * Show attack rolls/result in a chat roll card.
    */
   async _renderAttackRollCard(rollResult) {
-    const html = await renderTemplate(ATTACK_ROLL_CARD_TEMPLATE, rollResult);
+    const html = await renderTemplate(
+      "systems/morkborg/templates/chat/attack-roll-card.hbs",
+      rollResult
+    );
     ChatMessage.create({
       content: html,
       sound: diceSound(),
@@ -501,16 +472,23 @@ export class MBActor extends Actor {
    * Defend!
    */
   async defend() {
+    if (hitAutomation()) {
+      return this.automatedDefend();
+    }
+    return this.unautomatedDefend();
+  }
+
+  async automatedDefend() {
     // look up any previous DR or incoming attack value
     let defendDR = await this.getFlag(
-      CONFIG.MB.flagScope,
+      CONFIG.MB.systemName,
       CONFIG.MB.flags.DEFEND_DR
     );
     if (!defendDR) {
       defendDR = 12; // default
     }
     let incomingAttack = await this.getFlag(
-      CONFIG.MB.flagScope,
+      CONFIG.MB.systemName,
       CONFIG.MB.flags.INCOMING_ATTACK
     );
     if (!incomingAttack) {
@@ -543,7 +521,10 @@ export class MBActor extends Actor {
       drModifiers,
       incomingAttack,
     };
-    const html = await renderTemplate(DEFEND_DIALOG_TEMPLATE, dialogData);
+    const html = await renderTemplate(
+      "systems/morkborg/templates/dialog/defend-dialog.hbs",
+      dialogData
+    );
 
     return new Promise((resolve) => {
       new Dialog({
@@ -565,6 +546,29 @@ export class MBActor extends Actor {
         },
         close: () => resolve(null),
       }).render(true);
+    });
+  }
+
+  async unautomatedDefend() {
+    const defendRoll = new Roll(
+      "d20+@abilities.agility.value",
+      this.getRollData()
+    );
+    defendRoll.evaluate({ async: false });
+    await showDice(defendRoll);
+    const rollResult = {
+      actor: this,
+      defendFormula: `1d20 + ${game.i18n.localize("MB.AbilityAgilityAbbrev")}`,
+      defendRoll,
+    };
+    const html = await renderTemplate(
+      "systems/morkborg/templates/chat/unautomated-defend-roll-card.hbs",
+      rollResult
+    );
+    ChatMessage.create({
+      content: html,
+      sound: diceSound(),
+      speaker: ChatMessage.getSpeaker({ actor: this }),
     });
   }
 
@@ -605,9 +609,9 @@ export class MBActor extends Actor {
       // TODO: prevent dialog/form submission w/ required field(s)
       return;
     }
-    await this.setFlag(CONFIG.MB.flagScope, CONFIG.MB.flags.DEFEND_DR, baseDR);
+    await this.setFlag(CONFIG.MB.systemName, CONFIG.MB.flags.DEFEND_DR, baseDR);
     await this.setFlag(
-      CONFIG.MB.flagScope,
+      CONFIG.MB.systemName,
       CONFIG.MB.flags.INCOMING_ATTACK,
       incomingAttack
     );
@@ -705,7 +709,10 @@ export class MBActor extends Actor {
    * Show attack rolls/result in a chat roll card.
    */
   async _renderDefendRollCard(rollResult) {
-    const html = await renderTemplate(DEFEND_ROLL_CARD_TEMPLATE, rollResult);
+    const html = await renderTemplate(
+      "systems/morkborg/templates/chat/defend-roll-card.hbs",
+      rollResult
+    );
     ChatMessage.create({
       content: html,
       sound: diceSound(),
@@ -750,7 +757,10 @@ export class MBActor extends Actor {
       outcomeText,
       moraleRoll,
     };
-    const html = await renderTemplate(MORALE_ROLL_CARD_TEMPLATE, rollResult);
+    const html = await renderTemplate(
+      "systems/morkborg/templates/chat/morale-roll-card.hbs",
+      rollResult
+    );
     ChatMessage.create({
       content: html,
       sound: diceSound(),
@@ -1149,7 +1159,10 @@ export class MBActor extends Actor {
       strOutcome,
       touOutcome,
     };
-    const html = await renderTemplate(GET_BETTER_ROLL_CARD_TEMPLATE, data);
+    const html = await renderTemplate(
+      "systems/morkborg/templates/chat/get-better-roll-card.hbs",
+      data
+    );
     ChatMessage.create({
       content: html,
       sound: CONFIG.sounds.dice, // make a single dice sound
@@ -1288,7 +1301,10 @@ export class MBActor extends Actor {
       brokenRoll,
       outcomeLines,
     };
-    const html = await renderTemplate(BROKEN_ROLL_CARD_TEMPLATE, data);
+    const html = await renderTemplate(
+      "systems/morkborg/templates/chat/broken-roll-card.hbs",
+      data
+    );
     ChatMessage.create({
       content: html,
       sound: diceSound(),

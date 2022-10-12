@@ -184,6 +184,8 @@
   "MB.SettingsFontScheme": "Fontschema",
   "MB.SettingsFontSchemeHint": "Välja UI fontschema.",
   "MB.SettingsFoundryDefault": "Foundry Standard",
+  "MB.SettingsHitAutomation": "Hit Automation",
+  "MB.SettingsHitAutomationHint": "Enable auto-resolution of hits, misses, and damage rolls.",
   "MB.SettingsLegible": "Läsbar",
   "MB.SettingsTrackAmmo": "Track Ammo",
   "MB.SettingsTrackAmmoHint": "Select and autodecrement ammo for ranged weapons.",

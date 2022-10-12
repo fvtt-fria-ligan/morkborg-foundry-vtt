@@ -1,3 +1,7 @@
+# 2.1.0
+
+- Add hit automation setting.
+
 # 2.0.5
 
 - Fix powers field not saving.

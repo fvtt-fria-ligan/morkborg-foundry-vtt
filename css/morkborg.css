@@ -1438,6 +1438,7 @@ h3 {
   font-size: 20px;
   margin-bottom: 10px;
   text-align: center;
+  text-transform: capitalize;
 }
 .roll-card .item-row {
   text-align: center;

@@ -1,6 +1,8 @@
 // Namespace Configuration Values
 export const MB = {};
 
+MB.systemName = "morkborg";
+
 MB.abilities = {
   agility: "MB.AbilityAgility",
   presence: "MB.AbilityPresence",
@@ -109,8 +111,6 @@ MB.colorSchemes = {
     windowBackground: "#ff3eb5",
   },
 };
-
-MB.flagScope = "morkborg"; // must match system name
 
 MB.flags = {
   ATTACK_DR: "attackDR",

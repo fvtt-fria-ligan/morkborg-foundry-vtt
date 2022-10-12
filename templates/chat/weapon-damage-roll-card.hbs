@@ -1,0 +1,17 @@
+<form class="roll-card attack-roll-card">
+  <div class="card-title">
+    {{localize 'MB.Damage'}}
+  </div>
+  <div class="item-row">
+    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+    <span class="item-name">{{item.name}}</span>
+  </div>
+  <div class="damage-roll">
+    <div class="roll-title">
+      <span>{{roll._formula}}</span>
+    </div>
+    <div class="roll-result">
+      <span>{{xtotal roll}}</span>
+    </div>
+  </div>
+</form>
