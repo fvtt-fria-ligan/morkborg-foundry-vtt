@@ -1,4 +1,5 @@
 import ScvmDialog from "./scvm/scvm-dialog.js";
+import { handleRollCardButton } from "./chat/roll-card.js";
 
 export const registerHooks = () => {
   Hooks.once("ready", () => {
@@ -76,3 +77,5 @@ Hooks.on("renderActorDirectory", (app, html) => {
       });
   }
 });
+
+Hooks.on("renderChatMessage", handleRollCardButton);

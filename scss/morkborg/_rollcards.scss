@@ -78,6 +78,25 @@
       padding-right: 4px;
     }
   }
+
+  .roll-button-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    .roll-card-button {
+      background-color: var(--foreground-color);
+      color: var(--background-color);
+      border: none;
+      border-bottom: 2px solid #777;
+      border-radius: 0;
+      font-size: 20px;
+      font-family: var(--h2-font);
+      text-transform: capitalize;
+    }
+  }
 }
 
 .dr-modifier {

@@ -267,6 +267,10 @@ export class MBActor extends Actor {
 
   async rollDamageDie(itemId) {
     const item = this.items.get(itemId);
+    if (!item) {
+      ui.notifications.error(game.i18n.localize("MB.ItemNotFound"));
+      return;
+    }
     const roll = new Roll("@damageDie", item.getRollData());
     roll.evaluate({ async: false });
     const rollResult = {
@@ -307,7 +311,7 @@ export class MBActor extends Actor {
       actor: this,
       attackFormula: `1d20 + ${game.i18n.localize(abilityAbbrevKey)}`,
       attackRoll,
-      items: [item],
+      item,
       weaponTypeKey,
     };
     await this._decrementWeaponAmmo(item);
@@ -550,6 +554,26 @@ export class MBActor extends Actor {
   }
 
   async unautomatedDefend() {
+    const armor = this.equippedArmor();
+    const drModifiers = [];
+    if (armor) {
+      // armor defense adjustment is based on its max tier, not current
+      // TODO: maxTier is getting stored as a string
+      const maxTier = parseInt(armor.system.tier.max);
+      const defenseModifier = CONFIG.MB.armorTiers[maxTier].defenseModifier;
+      if (defenseModifier) {
+        drModifiers.push(
+          `${armor.name}: ${game.i18n.localize("MB.DR")} +${defenseModifier}`
+        );
+      }
+    }
+    if (this.isEncumbered()) {
+      drModifiers.push(
+        `${game.i18n.localize("MB.Encumbered")}: ${game.i18n.localize(
+          "MB.DR"
+        )} +2`
+      );
+    }
     const defendRoll = new Roll(
       "d20+@abilities.agility.value",
       this.getRollData()
@@ -560,6 +584,7 @@ export class MBActor extends Actor {
       actor: this,
       defendFormula: `1d20 + ${game.i18n.localize("MB.AbilityAgilityAbbrev")}`,
       defendRoll,
+      drModifiers,
     };
     const html = await renderTemplate(
       "systems/morkborg/templates/chat/unautomated-defend-roll-card.hbs",
