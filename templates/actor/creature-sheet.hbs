@@ -1,53 +1,6 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
   {{!-- Sheet Header --}}
-  <header class="sheet-header flexrow">
-    <div class="header-col1">
-      <img
-        class="profile-img"
-        src="{{actor.img}}"
-        data-edit="img"
-        title="{{actor.name}}"
-      />
-    </div>
-    <div class="header-gutter-col"></div>
-    <div class="header-col2">
-      <div class="name-row">
-        <input
-          class="actor-name creature-name"
-          name="name"
-          type="text"
-          value="{{actor.name}}"
-          placeholder="{{ localize 'MB.Name' }}"
-        />
-      </div>
-      <div class="hitpoints-row">
-        <span class="stat-label">{{ localize "MB.HitPoints" }}:</span>
-        <input
-          class="stat-input"
-          name="system.hp.value"
-          type="number"
-          value="{{data.system.hp.value}}"
-          data-dtype="Number"
-        />
-        /
-        <input
-          class="stat-input"
-          name="system.hp.max"
-          type="number"
-          value="{{data.system.hp.max}}"
-          data-dtype="Number"
-        />
-      </div>
-      <div class="buttons-row">
-        <button type="button" class="roll-button reaction rollable">
-          {{localize "MB.Reaction"}}
-        </button>
-        <button type="button" class="roll-button morale rollable">
-          {{localize "MB.Morale"}}
-        </button>
-      </div>
-    </div>
-  </header>
+  {{> systems/morkborg/templates/actor/common/npc-header.hbs }} 
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
@@ -58,10 +11,7 @@
   {{!-- Sheet Body --}}
   <section class="sheet-body">
     {{!-- Description Tab --}}
-    <div class="tab" data-group="primary" data-tab="description">
-      {{editor data.system.description target="system.description" button=true
-      owner=owner editable=true}}
-    </div>
+    {{> systems/morkborg/templates/common/description-tab.hbs }} 
 
     {{!-- Details Tab --}}
     <div class="tab" data-group="primary" data-tab="details">

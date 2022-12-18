@@ -1,0 +1,48 @@
+  <header class="sheet-header flexrow npc">
+    <div class="header-col1">
+      <img
+        class="profile-img"
+        src="{{actor.img}}"
+        data-edit="img"
+        title="{{actor.name}}"
+      />
+    </div>
+    <div class="header-gutter-col"></div>
+    <div class="header-col2">
+      <div class="name-row">
+        <input
+          class="actor-name"
+          name="name"
+          type="text"
+          value="{{actor.name}}"
+          placeholder="{{ localize 'MB.Name' }}"
+        />
+      </div>
+      <div class="hitpoints-row">
+        <span class="stat-label">{{ localize "MB.HitPoints" }}:</span>
+        <input
+          class="stat-input"
+          name="system.hp.value"
+          type="number"
+          value="{{data.system.hp.value}}"
+          data-dtype="Number"
+        />
+        /
+        <input
+          class="stat-input"
+          name="system.hp.max"
+          type="number"
+          value="{{data.system.hp.max}}"
+          data-dtype="Number"
+        />
+      </div>
+      <div class="buttons-row">
+        <button type="button" class="roll-button reaction rollable">
+          {{localize "MB.Reaction"}}
+        </button>
+        <button type="button" class="roll-button morale rollable">
+          {{localize "MB.Morale"}}
+        </button>
+      </div>
+    </div>
+  </header>

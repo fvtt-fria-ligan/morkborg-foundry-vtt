@@ -52,6 +52,8 @@ export default class MBActorSheet extends ActorSheet {
     html.find(".defend-button").on("click", this._onDefendRoll.bind(this));
     html.find(".tier-radio").click(this._onArmorTierRadio.bind(this));
     html.find("select.ammo-select").on("change", this._onAmmoSelect.bind(this));
+    html.find("button.morale").on("click", this._onMoraleRoll.bind(this));
+    html.find("button.reaction").on("click", this._onReactionRoll.bind(this));
   }
 
   /**
@@ -355,6 +357,22 @@ export default class MBActorSheet extends ActorSheet {
     if (weapon) {
       await weapon.update({ ["system.ammoId"]: select.val() });
     }
+  }
+
+  /**
+   * Handle morale roll.
+   */
+  _onMoraleRoll(event) {
+    event.preventDefault();
+    this.actor.checkMorale();
+  }
+
+  /**
+   * Handle reaction roll.
+   */
+  _onReactionRoll(event) {
+    event.preventDefault();
+    this.actor.checkReaction();
   }
 }
 

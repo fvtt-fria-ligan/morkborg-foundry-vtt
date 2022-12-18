@@ -62,23 +62,4 @@ export class MBActorSheetFollower extends MBActorSheet {
       .filter((item) => item.type === CONFIG.MB.itemTypes.ammo)
       .sort(byName);
   }
-
-  /** @override */
-  activateListeners(html) {
-    super.activateListeners(html);
-
-    // Everything below here is only needed if the sheet is editable
-    if (!this.options.editable) return;
-
-    // Handle rollable items.
-    html.find(".morale").on("click", this._onMoraleRoll.bind(this));
-  }
-
-  /**
-   * Handle morale roll.
-   */
-  _onMoraleRoll(event) {
-    event.preventDefault();
-    this.actor.checkMorale();
-  }
 }
