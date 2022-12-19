@@ -1,0 +1,18 @@
+<form class="roll-card">
+  <div class="card-title">{{cardTitle}}</div>
+  {{#each rollResults}}
+    <div class="test-roll">
+      <div class="roll-title">
+        <span>{{rollTitle}}</span>
+      </div>
+      <div class="roll-result">
+        <span>{{xtotal roll}}</span>
+      </div>
+      {{#each outcomeLines}}
+        <div class="outcome-text">
+          <span class="take-damage">{{this}}</span>
+        </div>
+      {{/each}}
+    </div>
+  {{/each}}
+</form>

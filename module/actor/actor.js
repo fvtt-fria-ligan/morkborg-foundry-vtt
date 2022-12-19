@@ -12,8 +12,8 @@ const OUTCOME_ROLL_CARD_TEMPLATE =
   "systems/morkborg/templates/chat/outcome-roll-card.hbs";
 const REACTION_ROLL_CARD_TEMPLATE =
   "systems/morkborg/templates/chat/reaction-roll-card.hbs";
-const WIELD_POWER_ROLL_CARD_TEMPLATE =
-  "systems/morkborg/templates/chat/wield-power-roll-card.hbs";
+const ROLL_RESULT_CARD_TEMPLATE =
+  "systems/morkborg/templates/chat/roll-result-card.hbs";
 
 /**
  * @extends {Actor}
@@ -877,18 +877,37 @@ export class MBActor extends Actor {
       )}`;
     }
 
-    const rollResult = {
-      damageRoll,
-      wieldDR,
-      wieldFormula: `1d20 + ${game.i18n.localize("MB.AbilityPresenceAbbrev")}`,
-      wieldOutcome,
-      wieldRoll,
-      takeDamage,
+    const wieldFormula = `1d20 + ${game.i18n.localize(
+      "MB.AbilityPresenceAbbrev"
+    )}`;
+    const rollTitle = `${game.i18n.localize(
+      "MB.Wield"
+    )}: ${wieldFormula} ${game.i18n.localize("MB.Vs")} ${game.i18n.localize(
+      "MB.DR"
+    )} ${wieldDR}`;
+    const outcomeLines = [wieldOutcome];
+    if (takeDamage) {
+      outcomeLines.push(takeDamage);
+    }
+    const rollResults = [
+      {
+        rollTitle,
+        roll: wieldRoll,
+        outcomeLines: [wieldOutcome],
+      },
+    ];
+    if (damageRoll) {
+      rollResults.push({
+        rollTitle: `${game.i18n.localize("MB.Damage")}: ${damageRoll.formula}`,
+        roll: damageRoll,
+        outcomeLines: [takeDamage],
+      });
+    }
+    const data = {
+      cardTitle: game.i18n.localize("MB.WieldAPower"),
+      rollResults,
     };
-    const html = await renderTemplate(
-      WIELD_POWER_ROLL_CARD_TEMPLATE,
-      rollResult
-    );
+    const html = await renderTemplate(ROLL_RESULT_CARD_TEMPLATE, data);
     ChatMessage.create({
       content: html,
       sound: diceSound(),
