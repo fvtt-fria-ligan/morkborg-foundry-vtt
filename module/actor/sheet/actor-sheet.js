@@ -1,6 +1,9 @@
 import * as editor from "../../editor.js";
 import { rollIndividualInitiative, rollPartyInitiative } from "../../combat.js";
+import { attack } from "../attack.js";
 import { defend } from "../defend.js";
+import { checkMorale } from "../morale.js";
+import { checkReaction } from "../reaction.js";
 
 /**
  * @extends {ActorSheet}
@@ -213,7 +216,7 @@ export default class MBActorSheet extends ActorSheet {
     const button = $(event.currentTarget);
     const li = button.parents(".item");
     const itemId = li.data("itemId");
-    this.actor.attack(itemId);
+    attack(this.actor, itemId);
   }
 
   /**
@@ -365,7 +368,7 @@ export default class MBActorSheet extends ActorSheet {
    */
   _onMoraleRoll(event) {
     event.preventDefault();
-    this.actor.checkMorale();
+    checkMorale(this.actor);
   }
 
   /**
@@ -373,7 +376,7 @@ export default class MBActorSheet extends ActorSheet {
    */
   _onReactionRoll(event) {
     event.preventDefault();
-    this.actor.checkReaction();
+    checkReaction(this.actor);
   }
 }
 

@@ -1,4 +1,4 @@
-import { showRollResult } from "../utils";
+import { showRollResult } from "../utils.js";
 
 export const useFeat = async (actor, itemId) => {
   const item = actor.items.get(itemId);
