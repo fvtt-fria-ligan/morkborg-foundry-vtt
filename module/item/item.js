@@ -114,6 +114,14 @@ export class MBItem extends Item {
     return this.items.length > 0;
   }
 
+  get isMelee() {
+    return this.system.weaponType === "melee";
+  }
+
+  get isRanged() {
+    return this.system.weaponType === "ranged";
+  }
+
   async equip() {
     await this.update({ "data.equipped": true });
   }

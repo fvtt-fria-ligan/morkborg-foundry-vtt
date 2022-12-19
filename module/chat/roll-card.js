@@ -1,4 +1,5 @@
-import { diceSound } from "../dice.js";
+import { showDice } from "../dice.js";
+import { rollFormula, showRollResultCard } from "../utils.js";
 
 /**
  * @param {ChatMessage} message
@@ -24,19 +25,34 @@ const rollDamageDie = async (actor, itemId) => {
     ui.notifications.error(game.i18n.localize("MB.ItemNotFound"));
     return;
   }
-  const roll = new Roll("@damageDie", item.getRollData());
+  let formula;
+  let displayFormula;
+  if (item.isMelee) {
+    formula = rollFormula(
+      item.system.damageDie,
+      actor.system.abilities.strength.value
+    );
+    displayFormula = `${item.system.damageDie} + ${game.i18n.localize(
+      "MB.AbilityStrengthAbbrev"
+    )}`;
+  } else {
+    formula = item.system.damageDie;
+    displayFormula = item.system.damageDie;
+  }
+  const roll = new Roll(formula);
   roll.evaluate({ async: false });
-  const rollResult = {
-    item,
-    roll,
+  await showDice(roll);
+  const cardTitle = game.i18n.localize("MB.Damage");
+  const data = {
+    cardTitle,
+    items: [item],
+    rollResults: [
+      {
+        rollTitle: displayFormula,
+        roll,
+        outcomeLines: [],
+      },
+    ],
   };
-  const html = await renderTemplate(
-    "systems/morkborg/templates/chat/weapon-damage-roll-card.hbs",
-    rollResult
-  );
-  ChatMessage.create({
-    content: html,
-    sound: diceSound(),
-    speaker: ChatMessage.getSpeaker({ actor }),
-  });
+  await showRollResultCard(actor, data);
 };

@@ -1,5 +1,11 @@
 <form class="roll-card">
   <div class="card-title">{{cardTitle}}</div>
+  {{#each items as |item id|}}
+    <div class="item-row">
+      <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+      <span class="item-name">{{item.name}}</span>
+    </div>
+  {{/each}}  
   {{#if drModifiers}}
     <div class="dr-modifiers">
       {{#each drModifiers}}
