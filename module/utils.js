@@ -1,3 +1,5 @@
+import { diceSound, showDice } from "./dice.js";
+
 export const byName = (a, b) =>
   a.name > b.name ? 1 : b.name > a.name ? -1 : 0;
 
@@ -25,4 +27,37 @@ export const evalRoll = (formula) => {
 
 export const rollTotal = (formula) => {
   return new Roll(formula).evaluate({ async: false }).total;
+};
+
+export const showRollResult = async (
+  actor,
+  dieRoll,
+  rollData,
+  cardTitle,
+  outcomeTextFn,
+  rollFormula = null
+) => {
+  const roll = new Roll(dieRoll, rollData);
+  roll.evaluate({ async: false });
+  await showDice(roll);
+  const data = {
+    cardTitle,
+    rollResults: [
+      {
+        rollTitle: rollFormula ?? roll.formula,
+        roll,
+        outcomeLines: [outcomeTextFn(roll)],
+      },
+    ],
+  };
+  const html = await renderTemplate(
+    "systems/morkborg/templates/chat/roll-result-card.hbs",
+    data
+  );
+  ChatMessage.create({
+    content: html,
+    sound: diceSound(),
+    speaker: ChatMessage.getSpeaker({ actor }),
+  });
+  return roll;
 };

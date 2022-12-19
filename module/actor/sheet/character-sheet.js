@@ -1,13 +1,19 @@
 import MBActorSheet from "./actor-sheet.js";
 import RestDialog from "./rest-dialog.js";
 import { trackAmmo, trackCarryingCapacity } from "../../settings.js";
+import ScvmDialog from "../../scvm/scvm-dialog.js";
 import { byName } from "../../utils.js";
+import { rollBroken } from "../broken.js";
+import { getBetter } from "../get-better.js";
+import { useFeat } from "../feats.js";
 import {
   testAgility,
   testPresence,
   testStrength,
   testToughness,
 } from "../test-abilities.js";
+import { rollOmens } from "../omens.js";
+import { rollPowersPerDay, wieldPower } from "../powers.js";
 
 /**
  * @extends {ActorSheet}
@@ -151,22 +157,22 @@ export class MBActorSheetCharacter extends MBActorSheet {
 
   _onOmensRoll(event) {
     event.preventDefault();
-    this.actor.rollOmens();
+    rollOmens(this.actor);
   }
 
   _onPowersPerDayRoll(event) {
     event.preventDefault();
-    this.actor.rollPowersPerDay();
+    rollPowersPerDay(this.actor);
   }
 
   _onScvmify(event) {
     event.preventDefault();
-    this.actor.scvmify();
+    new ScvmDialog(this.actor).render(true);
   }
 
   _onBroken(event) {
     event.preventDefault();
-    this.actor.rollBroken();
+    rollBroken(this.actor);
   }
 
   _onRest(event) {
@@ -192,7 +198,7 @@ export class MBActorSheetCharacter extends MBActorSheet {
         getbetter: {
           icon: '<i class="fas fa-check"></i>',
           label: game.i18n.localize("MB.GetBetter"),
-          callback: () => this.actor.getBetter(),
+          callback: () => getBetter(this.actor),
         },
       },
       default: "cancel",
@@ -205,11 +211,11 @@ export class MBActorSheetCharacter extends MBActorSheet {
     const button = $(event.currentTarget);
     const li = button.parents(".item");
     const itemId = li.data("itemId");
-    this.actor.useFeat(itemId);
+    useFeat(this.actor, itemId);
   }
 
   _onWieldPowerRoll(event) {
     event.preventDefault();
-    this.actor.wieldPower();
+    wieldPower(this.actor);
   }
 }

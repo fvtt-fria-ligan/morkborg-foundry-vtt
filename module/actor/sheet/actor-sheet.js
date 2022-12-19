@@ -1,5 +1,6 @@
 import * as editor from "../../editor.js";
 import { rollIndividualInitiative, rollPartyInitiative } from "../../combat.js";
+import { defend } from "../defend.js";
 
 /**
  * @extends {ActorSheet}
@@ -239,7 +240,7 @@ export default class MBActorSheet extends ActorSheet {
     const shieldItemId = sheetData.data.equippedShield
       ? sheetData.data.equippedShield.id
       : null;
-    this.actor.defend(armorItemId, shieldItemId);
+    defend(this.actor, armorItemId, shieldItemId);
   }
 
   _onInlineEdit(event) {

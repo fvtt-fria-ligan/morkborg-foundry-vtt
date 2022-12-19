@@ -1,3 +1,5 @@
+import { wieldPower } from "./actor/powers.js";
+
 export const registerMacros = () => {
   game.morkborg = {
     rollItemMacro,
@@ -90,7 +92,7 @@ export function rollItemMacro(itemName) {
   } else if (item.data.type === "armor" || item.data.type === "shield") {
     actor.defend();
   } else if (item.data.type === "scroll") {
-    actor.wieldPower();
+    wieldPower(actor);
   } else if (item.data.type === "feat") {
     actor.useFeat(item.id);
   }
