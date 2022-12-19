@@ -1,4 +1,5 @@
-import { diceSound, showDice } from "../dice.js";
+import { showDice } from "../dice.js";
+import { showRollResultCard } from "../utils.js";
 
 /**
  * Check morale!
@@ -7,42 +8,36 @@ export const checkMorale = async (actor) => {
   const moraleRoll = new Roll("2d6");
   moraleRoll.evaluate({ async: false });
   await showDice(moraleRoll);
-
-  let outcomeRoll = null;
+  const rollResults = [
+    {
+      rollTitle: moraleRoll.formula,
+      roll: moraleRoll,
+      outcomeLines: [],
+    },
+  ];
   // must have a non-zero morale to possibly fail a morale check
   if (actor.system.morale && moraleRoll.total > actor.system.morale) {
-    outcomeRoll = new Roll("1d6");
+    // failed morale check
+    rollResults[0].outcomeLines.push(game.i18n.localize("MB.Failure"));
+    const outcomeRoll = new Roll("1d6");
     outcomeRoll.evaluate({ async: false });
     await showDice(outcomeRoll);
-  }
-  await renderMoraleRollCard(actor, moraleRoll, outcomeRoll);
-};
-
-/**
- * Show morale roll/result in a chat roll card.
- */
-const renderMoraleRollCard = async (actor, moraleRoll, outcomeRoll) => {
-  let outcomeKey = null;
-  if (outcomeRoll) {
-    outcomeKey =
+    const outcomeKey =
       outcomeRoll.total <= 3 ? "MB.MoraleFlees" : "MB.MoraleSurrenders";
+    const outcomeLine = `${actor.name} ${game.i18n.localize(outcomeKey)}`;
+    rollResults.push({
+      rollTitle: outcomeRoll.formula,
+      roll: outcomeRoll,
+      outcomeLines: [outcomeLine],
+    });
   } else {
-    outcomeKey = "MB.StandsFirm";
+    // succeeded morale check
+    const outcomeLine = `${actor.name} ${game.i18n.localize("MB.StandsFirm")}`;
+    rollResults[0].outcomeLines.push(outcomeLine);
   }
-  const outcomeText = game.i18n.localize(outcomeKey);
-  const rollResult = {
-    actor,
-    outcomeRoll,
-    outcomeText,
-    moraleRoll,
+  const data = {
+    cardTitle: game.i18n.localize("MB.Morale"),
+    rollResults,
   };
-  const html = await renderTemplate(
-    "systems/morkborg/templates/chat/morale-roll-card.hbs",
-    rollResult
-  );
-  ChatMessage.create({
-    content: html,
-    sound: diceSound(),
-    speaker: ChatMessage.getSpeaker({ actor }),
-  });
+  await showRollResultCard(actor, data);
 };

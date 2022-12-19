@@ -1,5 +1,12 @@
 <form class="roll-card">
   <div class="card-title">{{cardTitle}}</div>
+  {{#if drModifiers}}
+    <div class="dr-modifiers">
+      {{#each drModifiers}}
+        <div class="dr-modifier">{{this}}</div>
+      {{/each}}
+    </div>  
+  {{/if}}
   {{#each rollResults}}
     <div class="test-roll">
       <div class="roll-title">

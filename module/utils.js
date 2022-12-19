@@ -50,6 +50,10 @@ export const showRollResult = async (
       },
     ],
   };
+  await showRollResultCard(actor, data);
+};
+
+export const showRollResultCard = async (actor, data) => {
   const html = await renderTemplate(
     "systems/morkborg/templates/chat/roll-result-card.hbs",
     data
@@ -59,5 +63,4 @@ export const showRollResult = async (
     sound: diceSound(),
     speaker: ChatMessage.getSpeaker({ actor }),
   });
-  return roll;
 };

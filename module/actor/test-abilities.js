@@ -1,4 +1,5 @@
-import { diceSound, showDice } from "../dice.js";
+import { showDice } from "../dice.js";
+import { showRollResultCard } from "../utils.js";
 
 const testAbility = async (
   actor,
@@ -13,21 +14,22 @@ const testAbility = async (
   );
   abilityRoll.evaluate({ async: false });
   await showDice(abilityRoll);
-  const rollResult = {
-    abilityKey,
-    abilityRoll,
-    displayFormula: `1d20 + ${game.i18n.localize(abilityAbbrevKey)}`,
+  const cardTitle = `${game.i18n.localize("MB.Test")} ${game.i18n.localize(
+    abilityKey
+  )}`;
+  const displayFormula = `1d20 + ${game.i18n.localize(abilityAbbrevKey)}`;
+  const data = {
+    cardTitle,
     drModifiers,
+    rollResults: [
+      {
+        rollTitle: displayFormula,
+        roll: abilityRoll,
+        outcomeLines: [],
+      },
+    ],
   };
-  const html = await renderTemplate(
-    "systems/morkborg/templates/chat/test-ability-roll-card.hbs",
-    rollResult
-  );
-  ChatMessage.create({
-    content: html,
-    sound: diceSound(),
-    speaker: ChatMessage.getSpeaker({ actor }),
-  });
+  await showRollResultCard(actor, data);
 };
 
 export const testStrength = async (actor) => {
