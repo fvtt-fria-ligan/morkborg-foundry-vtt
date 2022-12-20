@@ -1403,6 +1403,10 @@ h3 {
   text-align: center;
   text-transform: capitalize;
 }
+.roll-card .dr-modifier {
+  margin-bottom: 5px;
+  text-align: center;
+}
 .roll-card .item-row {
   text-align: center;
   margin-top: 10px;
@@ -1473,11 +1477,6 @@ h3 {
   font-size: 20px;
   font-family: var(--h2-font);
   text-transform: capitalize;
-}
-
-.dr-modifier {
-  margin-bottom: 5px;
-  text-align: center;
 }
 
 /* ====================== */

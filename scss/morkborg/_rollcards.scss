@@ -15,11 +15,15 @@
     text-transform: capitalize;
   }
 
+  .dr-modifier {
+    margin-bottom: 5px;
+    text-align: center;
+  }
+
   .item-row {
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
-
     span.item-name {
       color: var(--foreground-color);
       font-family: var(--item-font);
@@ -43,7 +47,6 @@
     margin-left: 10px;
     margin-right: 10px;
     text-align: center;
-
     span {
       color: var(--foreground-color);
       font-size: 20px;
@@ -54,12 +57,6 @@
     font-family: var(--h3-font);
     font-size: 28px;
     margin-bottom: 10px;
-    text-align: center;
-  }
-
-  .reaction-text {
-    font-family: var(--h3-font);
-    font-size: 28px;
     text-align: center;
   }
 
@@ -97,9 +94,4 @@
       text-transform: capitalize;
     }
   }
-}
-
-.dr-modifier {
-  margin-bottom: 5px;
-  text-align: center;
 }
