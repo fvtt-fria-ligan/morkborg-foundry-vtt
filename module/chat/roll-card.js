@@ -1,5 +1,5 @@
 import { showDice } from "../dice.js";
-import { rollFormula, showRollResultCard } from "../utils.js";
+import { showRollResultCard } from "../utils.js";
 
 /**
  * @param {ChatMessage} message
@@ -25,21 +25,7 @@ const rollDamageDie = async (actor, itemId) => {
     ui.notifications.error(game.i18n.localize("MB.ItemNotFound"));
     return;
   }
-  let formula;
-  let displayFormula;
-  if (item.isMelee) {
-    formula = rollFormula(
-      item.system.damageDie,
-      actor.system.abilities.strength.value
-    );
-    displayFormula = `${item.system.damageDie} + ${game.i18n.localize(
-      "MB.AbilityStrengthAbbrev"
-    )}`;
-  } else {
-    formula = item.system.damageDie;
-    displayFormula = item.system.damageDie;
-  }
-  const roll = new Roll(formula);
+  const roll = new Roll(item.system.damageDie);
   roll.evaluate({ async: false });
   await showDice(roll);
   const cardTitle = game.i18n.localize("MB.Damage");
@@ -48,7 +34,7 @@ const rollDamageDie = async (actor, itemId) => {
     items: [item],
     rollResults: [
       {
-        rollTitle: displayFormula,
+        rollTitle: roll.formula,
         roll,
         outcomeLines: [],
       },
