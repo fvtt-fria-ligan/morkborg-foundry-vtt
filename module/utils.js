@@ -65,6 +65,7 @@ export const showRollResult = async (
     ],
   };
   await showRollResultCard(actor, data);
+  return roll;
 };
 
 export const showRollResultCard = async (actor, data) => {

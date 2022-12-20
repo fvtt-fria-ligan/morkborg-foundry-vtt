@@ -8,41 +8,41 @@
     <span class="item-name">{{item.name}}</span>
   </div>
   {{/each}}
-  <div class="attack-roll">
+  <div class="roll-result">
     <div class="roll-title">
       <span
         >{{localize 'MB.Attack'}}: {{attackFormula}} {{localize 'MB.Vs'}}
         {{localize 'MB.DR'}} {{attackDR}}</span
       >
     </div>
-    <div class="roll-result">
+    <div class="roll-row">
       <span>{{xtotal attackRoll}}</span>
     </div>
   </div>
-  <div class="outcome-text">
-    <span class="attack-outcome">{{attackOutcome}}</span>
+  <div class="outcome-row">
+    <span>{{attackOutcome}}</span>
   </div>
   {{#if damageRoll}}
-  <div class="damage-roll">
+  <div class="roll-result">
     <div class="roll-title">
       <span>{{localize 'MB.Damage'}}: {{damageRoll._formula}}</span>
     </div>
-    <div class="roll-result">
+    <div class="roll-row">
       <span>{{xtotal damageRoll}}</span>
     </div>
   </div>
   {{/if}} {{#if targetArmorRoll}}
-  <div class="target-armor-roll">
+  <div class="roll-result">
     <div class="roll-title">
       <span>{{localize 'MB.TargetArmor'}}: {{targetArmorRoll.formula}}</span>
     </div>
-    <div class="roll-result">
+    <div class="roll-row">
       <span>{{xtotal targetArmorRoll}}</span>
     </div>
   </div>
   {{/if}} {{#if takeDamage}}
-  <div class="outcome-text">
-    <span class="take-damage">{{takeDamage}}</span>
+  <div class="outcome-row">
+    <span>{{takeDamage}}</span>
   </div>
   {{/if}}
 </form>

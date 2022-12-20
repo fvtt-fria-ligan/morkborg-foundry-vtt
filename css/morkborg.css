@@ -1424,7 +1424,7 @@ h3 {
   text-align: center;
   text-transform: capitalize;
 }
-.roll-card .roll-result {
+.roll-card .roll-row {
   border: 1px solid gray;
   font-family: var(--chat-font);
   font-size: 18px;
@@ -1433,28 +1433,17 @@ h3 {
   margin-right: 10px;
   text-align: center;
 }
-.roll-card .roll-result span {
+.roll-card .roll-row span {
   color: var(--foreground-color);
   font-size: 20px;
 }
-.roll-card .outcome-text {
+.roll-card .outcome-row {
   font-family: var(--h3-font);
   font-size: 28px;
   margin-bottom: 10px;
   text-align: center;
 }
-.roll-card .reaction-text {
-  font-family: var(--h3-font);
-  font-size: 28px;
-  text-align: center;
-}
-.roll-card .outcome-text .attack-outcome,
-.roll-card .outcome-text .defend-outcome {
-  margin-left: 10px;
-}
-.roll-card .outcome-text .attack-outcome,
-.roll-card .outcome-text .defend-outcome,
-.roll-card .outcome-text .take-damage {
+.roll-card .outcome-row span {
   background-color: var(--highlight-background-color);
   color: var(--highlight-foreground-color);
   padding-left: 4px;

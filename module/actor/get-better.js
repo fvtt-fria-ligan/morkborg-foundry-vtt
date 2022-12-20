@@ -12,22 +12,22 @@ export const getBetter = async (actor) => {
   let newSilver = actor.system.silver;
 
   const hpOutcome = abilityOutcome(game.i18n.localize("MB.HP"), oldHp, newHp);
-  const strOutcome = actor._abilityOutcome(
+  const strOutcome = abilityOutcome(
     game.i18n.localize("MB.AbilityStrength"),
     oldStr,
     newStr
   );
-  const agiOutcome = actor._abilityOutcome(
+  const agiOutcome = abilityOutcome(
     game.i18n.localize("MB.AbilityAgility"),
     oldAgi,
     newAgi
   );
-  const preOutcome = actor._abilityOutcome(
+  const preOutcome = abilityOutcome(
     game.i18n.localize("MB.AbilityPresence"),
     oldPre,
     newPre
   );
-  const touOutcome = actor._abilityOutcome(
+  const touOutcome = abilityOutcome(
     game.i18n.localize("MB.AbilityToughness"),
     oldTou,
     newTou

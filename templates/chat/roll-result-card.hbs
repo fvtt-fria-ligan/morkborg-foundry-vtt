@@ -14,16 +14,20 @@
     </div>  
   {{/if}}
   {{#each rollResults}}
-    <div class="test-roll">
-      <div class="roll-title">
-        <span>{{rollTitle}}</span>
-      </div>
-      <div class="roll-result">
-        <span>{{xtotal roll}}</span>
-      </div>
+    <div class="roll-result">
+      {{#if rollTitle}}
+        <div class="roll-title">
+          <span>{{rollTitle}}</span>
+        </div>
+      {{/if}}
+      {{#if roll}}
+        <div class="roll-row">
+          <span>{{xtotal roll}}</span>
+        </div>
+      {{/if}}
       {{#each outcomeLines}}
-        <div class="outcome-text">
-          <span class="take-damage">{{this}}</span>
+        <div class="outcome-row">
+          <span>{{this}}</span>
         </div>
       {{/each}}
     </div>

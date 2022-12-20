@@ -39,7 +39,7 @@
     text-transform: capitalize;
   }
 
-  .roll-result {
+  .roll-row {
     border: 1px solid gray;
     font-family: var(--chat-font);
     font-size: 18px;
@@ -53,22 +53,12 @@
     }
   }
 
-  .outcome-text {
+  .outcome-row {
     font-family: var(--h3-font);
     font-size: 28px;
     margin-bottom: 10px;
     text-align: center;
-  }
-
-  .outcome-text {
-    .attack-outcome,
-    .defend-outcome {
-      margin-left: 10px;
-    }
-
-    .attack-outcome,
-    .defend-outcome,
-    .take-damage {
+    span {
       background-color: var(--highlight-background-color);
       color: var(--highlight-foreground-color);
       padding-left: 4px;

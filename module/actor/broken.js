@@ -1,11 +1,11 @@
-import { diceSound, showDice } from "../dice.js";
+import { showDice } from "../dice.js";
+import { showRollResultCard } from "../utils.js";
 
 export const rollBroken = async (actor) => {
   const brokenRoll = new Roll("1d4").evaluate({ async: false });
   await showDice(brokenRoll);
 
   let outcomeLines = [];
-  let additionalRolls = [];
   if (brokenRoll.total === 1) {
     const unconsciousRoll = new Roll("1d4").evaluate({ async: false });
     const roundsWord = game.i18n.localize(
@@ -19,7 +19,6 @@ export const rollBroken = async (actor) => {
         hp: hpRoll.total,
       }),
     ];
-    additionalRolls = [unconsciousRoll, hpRoll];
   } else if (brokenRoll.total === 2) {
     const limbRoll = new Roll("1d6").evaluate({ async: false });
     const actRoll = new Roll("1d4").evaluate({ async: false });
@@ -44,7 +43,6 @@ export const rollBroken = async (actor) => {
         }),
       ];
     }
-    additionalRolls = [limbRoll, actRoll, hpRoll];
   } else if (brokenRoll.total === 3) {
     const hemorrhageRoll = new Roll("1d2").evaluate({ async: false });
     const hoursWord = game.i18n.localize(
@@ -61,23 +59,19 @@ export const rollBroken = async (actor) => {
         lastHour,
       }),
     ];
-    additionalRolls = [hemorrhageRoll];
   } else {
     outcomeLines = [game.i18n.localize("MB.BrokenYouAreDead")];
   }
 
   const data = {
-    additionalRolls,
-    brokenRoll,
-    outcomeLines,
+    cardTitle: game.i18n.localize("MB.Broken"),
+    rollResults: [
+      {
+        rollTitle: brokenRoll.formula,
+        roll: brokenRoll,
+        outcomeLines,
+      },
+    ],
   };
-  const html = await renderTemplate(
-    "systems/morkborg/templates/chat/broken-roll-card.hbs",
-    data
-  );
-  ChatMessage.create({
-    content: html,
-    sound: diceSound(),
-    speaker: ChatMessage.getSpeaker({ actor }),
-  });
+  await showRollResultCard(actor, data);
 };
