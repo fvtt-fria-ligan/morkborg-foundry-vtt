@@ -1,7 +1,10 @@
 import * as editor from "../../editor.js";
-import { rollIndividualInitiative, rollPartyInitiative } from "../../combat.js";
 import { attack } from "../attack.js";
 import { defend } from "../defend.js";
+import {
+  rollIndividualInitiative,
+  rollPartyInitiative,
+} from "../initiative.js";
 import { checkMorale } from "../morale.js";
 import { checkReaction } from "../reaction.js";
 
@@ -197,7 +200,7 @@ export default class MBActorSheet extends ActorSheet {
    */
   async _onPartyInitiativeRoll(event) {
     event.preventDefault();
-    rollPartyInitiative();
+    rollPartyInitiative(this.actor);
   }
 
   /**
