@@ -1,5 +1,6 @@
 import { addShowDicePromise, diceSound, showDice } from "../dice.js";
 import { hitAutomation } from "../settings.js";
+import { showRollResultCard } from "../utils.js";
 
 /**
  * Defend!
@@ -109,21 +110,18 @@ const unautomatedDefend = async (actor) => {
   );
   defendRoll.evaluate({ async: false });
   await showDice(defendRoll);
-  const rollResult = {
-    actor: actor,
-    defendFormula: `1d20 + ${game.i18n.localize("MB.AbilityAgilityAbbrev")}`,
-    defendRoll,
+  const data = {
+    cardTitle: game.i18n.localize("MB.Defend"),
     drModifiers,
+    rollResults: [
+      {
+        rollTitle: `1d20 + ${game.i18n.localize("MB.AbilityAgilityAbbrev")}`,
+        roll: defendRoll,
+        outcomeLines: [],
+      },
+    ],
   };
-  const html = await renderTemplate(
-    "systems/morkborg/templates/chat/unautomated-defend-roll-card.hbs",
-    rollResult
-  );
-  ChatMessage.create({
-    content: html,
-    sound: diceSound(),
-    speaker: ChatMessage.getSpeaker({ actor }),
-  });
+  await showRollResultCard(actor, data);
 };
 
 // use a regular function, since we're binding the actor to this

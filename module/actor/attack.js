@@ -65,14 +65,19 @@ const unautomatedAttack = async (actor, itemId) => {
     ? "MB.AbilityPresenceAbbrev"
     : "MB.AbilityStrengthAbbrev";
   const weaponTypeKey = isRanged ? "MB.WeaponTypeRanged" : "MB.WeaponTypeMelee";
-  const rollResult = {
-    actor: actor,
-    attackFormula: `1d20 + ${game.i18n.localize(abilityAbbrevKey)}`,
-    attackRoll,
-    item,
-    weaponTypeKey,
-  };
   await decrementWeaponAmmo(actor, item);
+
+  const cardTitle = `${game.i18n.localize(weaponTypeKey)} ${game.i18n.localize(
+    "MB.Attack"
+  )}`;
+  const attackFormula = `1d20 + ${game.i18n.localize(abilityAbbrevKey)}`;
+  const rollResult = {
+    actor,
+    attackFormula,
+    attackRoll,
+    cardTitle,
+    item,
+  };
   const html = await renderTemplate(
     "systems/morkborg/templates/chat/unautomated-attack-roll-card.hbs",
     rollResult
