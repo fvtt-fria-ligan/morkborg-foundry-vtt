@@ -1,3 +1,7 @@
+# 2.2.0
+
+- Internal code cleanup.
+
 # 2.1.0
 
 - Add hit automation setting.
