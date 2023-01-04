@@ -220,7 +220,7 @@ MB.scvmFactory = {
   foodItemName: "Dried food",
   waterItemName: "Waterskin",
 
-  characterCreationPack: "morkborg.character-creation",
+  characterCreationPack: "morkborg.random-tables",
   startingEquipmentTable1: "Starting Equipment (1)",
   startingEquipmentTable2: "Starting Equipment (2)",
   startingEquipmentTable3: "Starting Equipment (3)",
@@ -232,3 +232,14 @@ MB.scvmFactory = {
   brokenBodiesTable: "Brokener Bodies",
   badHabitsTable: "Badder Habits",
 };
+
+MB.brokenPack = "morkborg.random-tables";
+MB.brokenTable = "Broken";
+
+MB.wieldPowerFumbleOn = 1;
+MB.wieldPowerFumblePack = "morkborg.random-tables";
+MB.wieldPowerFumbleTable = "Arcane Catastrophes";
+
+MB.wieldPowerCritOn = 10;
+MB.wieldPowerCritPack = "morkborg-3p.eldritch-elevations";
+MB.wieldPowerCritTable = "Eldritch Elevations";

@@ -16,13 +16,6 @@
   "styles": ["css/morkborg.css"],
   "packs": [
     {
-      "name": "character-creation",
-      "label": "Character Creation",
-      "system": "morkborg",
-      "path": "./packs/character-creation.db",
-      "type": "RollTable"
-    },
-    {
       "name": "class-classless-adventurer",
       "label": "Class - Classless Adventurer",
       "system": "morkborg",
@@ -135,10 +128,10 @@
       "type": "Macro"
     },
     {
-      "name": "random-scrolls",
-      "label": "Random Scrolls",
+      "name": "random-tables",
+      "label": "Random Tables",
       "system": "morkborg",
-      "path": "./packs/random-scrolls.db",
+      "path": "./packs/random-tables.db",
       "type": "RollTable"
     },
     {

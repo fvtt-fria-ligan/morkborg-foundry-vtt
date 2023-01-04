@@ -1,4 +1,6 @@
+import { MB } from "../config.js";
 import { diceSound, showDice } from "../dice.js";
+import { drawFromTable } from "../packutils.js";
 import { showRollResult } from "../utils.js";
 
 export const rollPowersPerDay = async (actor) => {
@@ -34,14 +36,14 @@ export const wieldPower = async (actor) => {
   await showDice(wieldRoll);
 
   const d20Result = wieldRoll.terms[0].results[0].result;
-  const isFumble = d20Result === 1;
-  const isCrit = d20Result === 20;
+  const isFumble = d20Result <= MB.wieldPowerFumbleOn;
+  const isCrit = d20Result >= MB.wieldPowerCritOn;
   const wieldDR = 12;
 
   let wieldOutcome = null;
   let damageRoll = null;
   let takeDamage = null;
-  if (wieldRoll.total >= wieldDR) {
+  if (isCrit || wieldRoll.total >= wieldDR) {
     // SUCCESS!!!
     wieldOutcome = game.i18n.localize(
       isCrit ? "MB.CriticalSuccess" : "MB.Success"
@@ -99,23 +101,22 @@ export const wieldPower = async (actor) => {
     speaker: ChatMessage.getSpeaker({ actor: actor }),
   });
 
-  if (isFumble) {
+  if (isFumble && MB.wieldPowerFumblePack && MB.wieldPowerFumbleTable) {
     // Fumbles roll on the Arcane Catastrophes table
-    const pack = game.packs.get("morkborg.random-scrolls");
-    const content = await pack.getDocuments();
-    const table = content.find((i) => i.name === "Arcane Catastrophes");
-    await table.draw();
-  } else if (isCrit) {
+    await drawFromTable(
+      MB.wieldPowerFumblePack,
+      MB.wieldPowerFumbleTable,
+      null,
+      true
+    );
+  } else if (isCrit && MB.wieldPowerCritPack && MB.wieldPowerCritTable) {
     // Criticals roll on Eldritch Elevations table, if available
-    // TODO: actor could be moved into the 3p module and implemented as a hook
-    const pack = game.packs.get("morkborg-3p.eldritch-elevations");
-    if (pack) {
-      const content = await pack.getDocuments();
-      const table = content.find((i) => i.name === "Eldritch Elevations");
-      if (table) {
-        await table.draw();
-      }
-    }
+    await drawFromTable(
+      MB.wieldPowerCritPack,
+      MB.wieldPowerCritTable,
+      null,
+      true
+    );
   }
 
   const newPowerUses = Math.max(0, actor.system.powerUses.value - 1);

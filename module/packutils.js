@@ -12,14 +12,19 @@ export const documentFromPack = async (packName, docName) => {
   return doc;
 };
 
-export const drawFromTable = async (packName, tableName, formula) => {
+export const drawFromTable = async (
+  packName,
+  tableName,
+  formula = null,
+  displayChat = false
+) => {
   const table = await documentFromPack(packName, tableName);
   if (!table) {
     console.log(`Could not load ${tableName} from pack ${packName}`);
     return;
   }
   const roll = formula ? new Roll(formula) : undefined;
-  const tableDraw = await table.draw({ displayChat: false, roll });
+  const tableDraw = await table.draw({ displayChat, roll });
   // TODO: decide if/how we want to handle multiple results
   return tableDraw;
 };

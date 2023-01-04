@@ -44,7 +44,7 @@ await typeRoll.toMessage({
   speaker: ChatMessage.getSpeaker(),
   flavor: "Scroll Type (1-2: Sacred, 3-4: Unclean)"
 });
-let pack = await game.packs.get('morkborg.random-scrolls');
+let pack = await game.packs.get('morkborg.random-tables');
 let content = await pack.getContent();
 let tableName = "";
 if (typeRoll.total <= 2) {
