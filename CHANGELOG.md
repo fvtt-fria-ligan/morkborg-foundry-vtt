@@ -1,9 +1,9 @@
 # 2.3.0
 
 - Move various roll tables into a single "Random Tables" compendium pack.
-- Replace broken code implementation with a broken roll table.
-- Make broken table a config variable.
-- Make wield power crit/fumble tables and crit/fumble-on into config variables.
+- Replace combat Broken code implementation with a new Broken roll table.
+- Make Broken pack/table config variables.
+- Make wield power crit/fumble tables and thresholds into config variables.
 
 # 2.2.0
 
