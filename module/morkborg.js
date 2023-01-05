@@ -15,7 +15,7 @@ import { MBItemSheet } from "./item/sheet/item-sheet.js";
 import { registerSystemSettings } from "./settings.js";
 
 Hooks.once("init", async function () {
-  console.log(`Initializing Mork Borg System`);
+  console.log("Initializing MÖRK BORG system");
   game.morkborg = {};
   CONFIG.MB = MB;
   registerSystemSettings();

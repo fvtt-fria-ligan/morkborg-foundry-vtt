@@ -240,6 +240,6 @@ MB.wieldPowerFumbleOn = 1;
 MB.wieldPowerFumblePack = "morkborg.random-tables";
 MB.wieldPowerFumbleTable = "Arcane Catastrophes";
 
-MB.wieldPowerCritOn = 10;
-MB.wieldPowerCritPack = "morkborg-3p.eldritch-elevations";
-MB.wieldPowerCritTable = "Eldritch Elevations";
+MB.wieldPowerCritOn = 20;
+MB.wieldPowerCritPack = null;
+MB.wieldPowerCritTable = null;

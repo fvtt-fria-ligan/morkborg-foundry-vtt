@@ -1,13 +1,13 @@
 export const documentFromPack = async (packName, docName) => {
   const pack = game.packs.get(packName);
   if (!pack) {
-    console.error("Could not find pack ${packName}.");
+    console.error(`Could not find pack ${packName}.`);
     return;
   }
   const docs = await pack.getDocuments();
   const doc = docs.find((i) => i.name === docName);
   if (!doc) {
-    console.error("Could not find doc ${docName} in pack ${packName}.");
+    console.error(`Could not find doc ${docName} in pack ${packName}.`);
   }
   return doc;
 };
