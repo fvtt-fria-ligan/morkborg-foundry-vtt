@@ -839,12 +839,6 @@
   font-size: 20px;
   width: auto;
 }
-.morkborg .item-list .equipped {
-  color: var(--foreground-color);
-}
-.morkborg .item-list .unequipped {
-  color: gray;
-}
 .morkborg .item-list .empty-container {
   text-align: center;
 }

@@ -1,3 +1,7 @@
+# 2.3.1
+
+- Fix bug in container item carried control css.
+
 # 2.3.0
 
 - Move various roll tables into a single "Random Tables" compendium pack.

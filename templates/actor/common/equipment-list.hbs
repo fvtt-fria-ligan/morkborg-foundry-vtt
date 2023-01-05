@@ -39,8 +39,8 @@
           {{/if}} 
           {{#if item.system.droppable}}
             <a
-              class="item-control item-toggle item-toggle-carried {{ifPrint item.carried 'carried'}}"
-              title="{{ifPrintElse item.carried (localize 'MB.ItemCarried') (localize 'MB.ItemDropped')}}"
+              class="item-control item-toggle item-toggle-carried {{ifPrint item.system.carried 'carried'}}"
+              title="{{ifPrintElse item.system.carried (localize 'MB.ItemCarried') (localize 'MB.ItemDropped')}}"
             >
               <i class="fas fa-user-check"></i></a>
           {{/if}}
