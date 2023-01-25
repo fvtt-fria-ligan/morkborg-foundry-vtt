@@ -1,3 +1,7 @@
+# 2.4.0
+
+- Make TinyMCE editors have default toolbar buttons.
+
 # 2.3.1
 
 - Fix bug in container item carried control css.
