@@ -26,9 +26,11 @@
         </div>
       {{/if}}
       {{#each outcomeLines}}
-        <div class="outcome-row">
-          <span>{{this}}</span>
-        </div>
+        {{#if this}}        
+          <div class="outcome-row">
+            <span>{{this}}</span>
+          </div>
+        {{/if}}
       {{/each}}
     </div>
   {{/each}}
