@@ -1,10 +1,27 @@
+import { attack } from "./actor/attack.js";
+import { defend } from "./actor/defend.js";
+import { useFeat } from "./actor/feats.js";
 import { wieldPower } from "./actor/powers.js";
+import { MB } from "./config.js";
+
+const supportedItemTypes = [
+  MB.itemTypes.armor,
+  MB.itemTypes.feat,
+  MB.itemTypes.scroll,
+  MB.itemTypes.shield,
+  MB.itemTypes.weapon,
+];
 
 export const registerMacros = () => {
   game.morkborg = {
     rollItemMacro,
   };
-  Hooks.on("hotbarDrop", (bar, data, slot) => createMorkBorgMacro(data, slot));
+  Hooks.on("hotbarDrop", (bar, data, slot) => {
+    if (data.type == "Item") {
+      createMorkBorgMacro(data, slot);
+      return false;
+    }
+  });
 };
 
 /**
@@ -15,16 +32,7 @@ export const registerMacros = () => {
  * @returns {Promise}
  */
 export async function createMorkBorgMacro(data, slot) {
-  if (data.type !== "Item") {
-    return;
-  }
-  if (!("data" in data)) {
-    return ui.notifications.warn(
-      "You can only create macro buttons for owned Items"
-    );
-  }
-  const item = data.data;
-  const supportedItemTypes = ["armor", "feat", "scroll", "shield", "weapon"];
+  const item = await fromUuid(data.uuid);
   if (!supportedItemTypes.includes(item.type)) {
     return ui.notifications.warn(
       `Macros only supported for item types: ${supportedItemTypes.join(", ")}`
@@ -32,7 +40,8 @@ export async function createMorkBorgMacro(data, slot) {
   }
   if (
     item.type === "feat" &&
-    (!item.data.rollLabel || (!item.data.rollFormula && !item.data.rollMacro))
+    (!item.system.rollLabel ||
+      (!item.system.rollFormula && !item.system.rollMacro))
   ) {
     // we only allow rollable feats
     return ui.notifications.warn(
@@ -41,7 +50,7 @@ export async function createMorkBorgMacro(data, slot) {
   }
 
   // Create the macro command
-  const command = `game.morkborg.rollItemMacro("${item.name}");`;
+  const command = `game.morkborg.rollItemMacro("${item.uuid}");`;
   let macro = game.macros.find(
     (m) => m.name === item.name && m.command === command
   );
@@ -64,36 +73,22 @@ export async function createMorkBorgMacro(data, slot) {
  * @param {string} itemName
  * @return {Promise}
  */
-export function rollItemMacro(itemName) {
-  const speaker = ChatMessage.getSpeaker();
-  let actor;
-  if (speaker.token) {
-    actor = game.actors.tokens[speaker.token];
+export async function rollItemMacro(uuid) {
+  const item = await fromUuid(uuid);
+  const actor = item.parent;
+  if (!item || !actor) {
+    return;
   }
-  if (!actor) {
-    actor = game.actors.get(speaker.actor);
-  }
-
-  // Get matching items
-  const items = actor ? actor.items.filter((i) => i.name === itemName) : [];
-  if (items.length > 1) {
-    ui.notifications.warn(
-      `Your controlled Actor ${actor.name} has more than one Item with name ${itemName}. The first matched item will be chosen.`
-    );
-  } else if (items.length === 0) {
-    return ui.notifications.warn(
-      `Your controlled Actor does not have an item named ${itemName}`
-    );
-  }
-  const item = items[0];
-
-  if (item.data.type === "weapon") {
-    actor.attack(item.id);
-  } else if (item.data.type === "armor" || item.data.type === "shield") {
-    actor.defend();
-  } else if (item.data.type === "scroll") {
+  if (item.type === MB.itemTypes.weapon) {
+    attack(actor, item.id);
+  } else if (
+    item.type === MB.itemTypes.armor ||
+    item.type === MB.itemTypes.shield
+  ) {
+    defend(actor, item.id);
+  } else if (item.type === MB.itemTypes.scroll) {
     wieldPower(actor);
-  } else if (item.data.type === "feat") {
-    actor.useFeat(item.id);
+  } else if (item.type === MB.itemTypes.feat) {
+    useFeat(actor, item.id);
   }
 }

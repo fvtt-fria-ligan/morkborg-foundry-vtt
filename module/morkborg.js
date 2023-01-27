@@ -12,6 +12,7 @@ import { configureHandlebars } from "./handlebars.js";
 import { registerHooks } from "./hooks.js";
 import { MBItem } from "./item/item.js";
 import { MBItemSheet } from "./item/sheet/item-sheet.js";
+import { registerMacros } from "./macros.js";
 import { registerSystemSettings } from "./settings.js";
 
 Hooks.once("init", async function () {
@@ -23,6 +24,7 @@ Hooks.once("init", async function () {
   registerSheets();
   configureHandlebars();
   registerCombat();
+  registerMacros();
   registerHooks();
 });
 

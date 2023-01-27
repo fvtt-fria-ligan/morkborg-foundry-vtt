@@ -1,6 +1,8 @@
 # 2.4.0
 
 - Make TinyMCE editors have default toolbar buttons.
+- Fix macro drag-drop for supported items (weapons, armor, etc).
+- Fix chat roll card for rolls without outcome text (e.g., feat rollFormula).
 
 # 2.3.1
 
