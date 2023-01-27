@@ -37,6 +37,7 @@ If you want some third-party content, be sure to check out the [MÖRK BORG Third
   - Other icons by [Game-icons.net](https://game-icons.net/) under [Creative Commons 3.0](https://creativecommons.org/licenses/by/3.0/).
 - Fonts
   - [Blood Crow](https://www.dafont.com/blood-crow.font) by [Iconian Fonts](http://www.iconian.com/), and free for personal use.
+  - [Inconsolatazi4varl_qu](https://www.fontspace.com/inconsolatazi4varl-qu-font-f26265) by MirBSD, released under OFL.
   - [Calling Code Regular](https://www.dafont.com/calling-code.font) by Ryoichi Tsunekawa / [DharmaType](https://dharmatype.com/), under Public domain / GPL / OFL.
   - [Fette Trump Deutsch](https://www.dafont.com/fette-trump-deutsch.font) by [Dieter Steffmann](http://www.steffmann.de/wordpress/), and free for personal use.
   - [Old Cupboard](https://coneofnegativeenergy.com/2019/11/08/a-new-thing-old-cupboard-otf/) by [Cone Of Negative Energy](https://coneofnegativeenergy.com/) (Cecil Howe), released under OFL.

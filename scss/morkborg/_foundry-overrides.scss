@@ -33,6 +33,10 @@ form button {
 a:hover {
   text-shadow: 0 0 8px var(--highlight-background-color);
 }
+a.content-link {
+  background: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
+}
 
 input[type="text"] {
   color: var(--foreground-color);
@@ -521,9 +525,7 @@ select:focus {
     overflow-y: hidden;
     padding: 0px;
     margin: 0px;
-    font-family: var(--item-font);
     font-weight: 500;
-    font-size: 14px;
     line-height: 1.5;
 
     h1 {
@@ -533,6 +535,15 @@ select:focus {
 
     h2 {
       border-bottom: 1px solid #252525;
+    }
+
+    .journal-sidebar {
+      font-family: var(--item-font);
+      font-size: var(--journal-font-size);
+    }
+    .journal-page-content {
+      font-family: var(--journal-font);
+      font-size: var(--journal-font-size);
     }
   }
 }
@@ -592,7 +603,7 @@ select:focus {
   }
 
   select {
-    font-family: var(--item-font);
+    font-family: var(--journal-font);
   }
 }
 

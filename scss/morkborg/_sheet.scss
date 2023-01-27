@@ -68,7 +68,7 @@
       border: 1px solid #7a7971;
       border-radius: 0;
       color: var(--foreground-color);
-      font-family: var(--item-font);
+      font-family: var(--journal-font);
       font-size: 14px;
       resize: none;
 
@@ -89,8 +89,8 @@
     .editor {
       border: 1px solid #7a7971;
       color: var(--foreground-color);
-      font-family: var(--item-font);
-      font-size: 14px;
+      font-family: var(--journal-font);
+      font-size: var(--journal-font-size);
       padding: 0 8px;
     }
 
@@ -153,8 +153,8 @@
 
       input,
       select {
-        font-family: var(--item-font);
-        font-size: 14pt;
+        font-family: var(--journal-font);
+        font-size: var(--journal-font-size);
       }
 
       &.special {

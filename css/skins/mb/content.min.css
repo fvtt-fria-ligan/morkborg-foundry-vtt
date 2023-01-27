@@ -190,8 +190,8 @@ pre[class*=language-] {
 .mce-content-body {
   background-color: #222;
   color: white;
-  font-family: "Special Elite";
-  font-size: 14px;
+  font-family: "Inconsolatazi4varl_qu";
+  font-size: 15px;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
@@ -846,7 +846,8 @@ table[style*="border-width: 0px"] th {
 }
 
 body {
-  font-family: "Special Elite";
+  font-family: "Inconsolatazi4varl_qu";
+  font-size: 15px;
 }
 
 table {

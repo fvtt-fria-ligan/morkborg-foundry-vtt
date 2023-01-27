@@ -132,7 +132,7 @@ MB.fontSchemes = {
     chat: "Alegreya",
     chatInfo: "Oswald",
     h1: "Blood Crow",
-    h2: "Calling Code Regular",
+    h2: "Inconsolatazi4varl_qu",
     h3: "Old Cupboard",
     item: "Lato",
   },

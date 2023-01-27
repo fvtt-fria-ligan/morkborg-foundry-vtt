@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Lato&family=Oswald&family=Rakkas&family=Special+Elite&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Lato&family=Oswald&family=Special+Elite&display=swap");
 :root {
   --background-color: #000000;
   --foreground-color: #ffffff;
@@ -16,27 +16,32 @@
   --h2-font: "FetteTrumpDeutsch";
   --h3-font: "Old Cupboard";
   --item-font: "Special Elite";
+  --journal-font: "Inconsolatazi4varl_qu";
+  --journal-font-size: 15px;
   --window-border-color: #222222;
 }
 
-/* ====================== */
-/* Fonts */
-/* ====================== */
 @font-face {
   font-family: "Blood Crow";
-  src: url("../fonts/bloodcrow.ttf") format("truetype");
+  src: url("../assets/fonts/bloodcrow.ttf") format("truetype");
 }
 @font-face {
-  font-family: "Calling Code Regular";
-  src: url("../fonts/CallingCode-Regular.ttf") format("truetype");
+  font-family: "Inconsolatazi4varl_qu";
+  src: url("../assets/fonts/Inconsolatazi4varl_qu-Bold.otf") format("opentype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Inconsolatazi4varl_qu";
+  src: url("../assets/fonts/Inconsolatazi4varl_qu.otf") format("opentype");
+  font-weight: normal;
 }
 @font-face {
   font-family: "FetteTrumpDeutsch";
-  src: url("../fonts/FetteTrumpDeutsch.ttf") format("truetype");
+  src: url("../assets/fonts/FetteTrumpDeutsch.ttf") format("truetype");
 }
 @font-face {
   font-family: "Old Cupboard";
-  src: url("../fonts/OldCupboard.otf") format("opentype");
+  src: url("../assets/fonts/OldCupboard.otf") format("opentype");
 }
 /* ====================== */
 /* Flex */
@@ -176,7 +181,7 @@
   border: 1px solid #7a7971;
   border-radius: 0;
   color: var(--foreground-color);
-  font-family: var(--item-font);
+  font-family: var(--journal-font);
   font-size: 14px;
   resize: none;
 }
@@ -193,8 +198,8 @@
 .morkborg.sheet .editor {
   border: 1px solid #7a7971;
   color: var(--foreground-color);
-  font-family: var(--item-font);
-  font-size: 14px;
+  font-family: var(--journal-font);
+  font-size: var(--journal-font-size);
   padding: 0 8px;
 }
 .morkborg.sheet .tox.tox-tinymce .tox-edit-area__iframe {
@@ -244,8 +249,8 @@
 }
 .morkborg.sheet .sheet-body .form-group input,
 .morkborg.sheet .sheet-body .form-group select {
-  font-family: var(--item-font);
-  font-size: 14pt;
+  font-family: var(--journal-font);
+  font-size: var(--journal-font-size);
 }
 .morkborg.sheet .sheet-body .form-group.special {
   flex: 1;
@@ -937,6 +942,11 @@ a:hover {
   text-shadow: 0 0 8px var(--highlight-background-color);
 }
 
+a.content-link {
+  background: var(--highlight-background-color);
+  color: var(--highlight-foreground-color);
+}
+
 input[type=text] {
   color: var(--foreground-color);
 }
@@ -1304,9 +1314,7 @@ select:focus {
   overflow-y: hidden;
   padding: 0px;
   margin: 0px;
-  font-family: var(--item-font);
   font-weight: 500;
-  font-size: 14px;
   line-height: 1.5;
 }
 .window-app.app.journal-sheet .window-content h1 {
@@ -1315,6 +1323,14 @@ select:focus {
 }
 .window-app.app.journal-sheet .window-content h2 {
   border-bottom: 1px solid #252525;
+}
+.window-app.app.journal-sheet .window-content .journal-sidebar {
+  font-family: var(--item-font);
+  font-size: var(--journal-font-size);
+}
+.window-app.app.journal-sheet .window-content .journal-page-content {
+  font-family: var(--journal-font);
+  font-size: var(--journal-font-size);
 }
 
 /* ================== 11. JOURNAL ENTRIES =================== */
@@ -1361,7 +1377,7 @@ select:focus {
   font-size: 32px;
 }
 .journal-sheet form select {
-  font-family: var(--item-font);
+  font-family: var(--journal-font);
 }
 
 a.entity-link, a.inline-roll {

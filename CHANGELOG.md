@@ -1,3 +1,8 @@
+# 2.5.0
+
+- Switch editor and journal font to Inconsolatazi4varl_qu, which can show bold.
+- Fix colors for content-links.
+
 # 2.4.0
 
 - Make TinyMCE editors have default toolbar buttons.
