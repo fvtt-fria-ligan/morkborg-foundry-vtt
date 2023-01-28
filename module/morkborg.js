@@ -8,6 +8,7 @@ import { MBActorSheetCreature } from "./actor/sheet/creature-sheet.js";
 import { MBActorSheetFollower } from "./actor/sheet/follower-sheet.js";
 import { registerCombat } from "./combat.js";
 import { MB } from "./config.js";
+import { registerFonts } from "./fonts.js";
 import { configureHandlebars } from "./handlebars.js";
 import { registerHooks } from "./hooks.js";
 import { MBItem } from "./item/item.js";
@@ -26,6 +27,7 @@ Hooks.once("init", async function () {
   registerCombat();
   registerMacros();
   registerHooks();
+  registerFonts();
 });
 
 const registerDocumentClasses = () => {

@@ -1,6 +1,8 @@
 # 2.5.0
 
-- Switch editor and journal font to Inconsolatazi4varl_qu, which can show bold.
+- Switch editors to ProseMirror engine.
+- Add custom fonts to ProseMirror font dropdown.
+- Tweak editor/journal styling.
 - Fix colors for content-links.
 
 # 2.4.0

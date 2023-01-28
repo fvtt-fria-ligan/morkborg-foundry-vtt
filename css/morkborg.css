@@ -16,8 +16,9 @@
   --h2-font: "FetteTrumpDeutsch";
   --h3-font: "Old Cupboard";
   --item-font: "Special Elite";
-  --journal-font: "Inconsolatazi4varl_qu";
-  --journal-font-size: 15px;
+  /*  --journal-font: "Inconsolatazi4varl_qu"; */
+  --journal-font: "Alegreya";
+  --journal-font-size: 18px;
   --window-border-color: #222222;
 }
 
@@ -32,7 +33,12 @@
 }
 @font-face {
   font-family: "Inconsolatazi4varl_qu";
-  src: url("../assets/fonts/Inconsolatazi4varl_qu.otf") format("opentype");
+  src: url("../assets/fonts/Inconsolatazi4varl_qu-Regular.otf") format("opentype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Benjamin Franklin";
+  src: url("../assets/fonts/BenjaminFranklin.ttf") format("truetype");
   font-weight: normal;
 }
 @font-face {
@@ -1318,11 +1324,21 @@ select:focus {
   line-height: 1.5;
 }
 .window-app.app.journal-sheet .window-content h1 {
+  border-bottom: none;
+  background: var(--highlight-background-color) !important;
+  color: var(--highlight-foreground-color) !important;
   font-family: var(--h2-font);
-  border-bottom: 2px solid #222222;
+  font-size: 28px;
 }
 .window-app.app.journal-sheet .window-content h2 {
-  border-bottom: 1px solid #252525;
+  border-bottom: none;
+  font-family: "Benjamin Franklin";
+  font-size: 20px;
+  text-transform: uppercase;
+}
+.window-app.app.journal-sheet .window-content h3 {
+  font-weight: bold;
+  font-size: 20px;
 }
 .window-app.app.journal-sheet .window-content .journal-sidebar {
   font-family: var(--item-font);
@@ -1331,6 +1347,7 @@ select:focus {
 .window-app.app.journal-sheet .window-content .journal-page-content {
   font-family: var(--journal-font);
   font-size: var(--journal-font-size);
+  font-size: 18px;
 }
 
 /* ================== 11. JOURNAL ENTRIES =================== */
@@ -1361,6 +1378,7 @@ select:focus {
   color: var(--foreground-color);
 }
 .journal-sheet.journal-entry-page .window-content .editor.prosemirror .editor-menu button {
+  background-color: var(--background-color);
   color: var(--foreground-color);
 }
 .journal-sheet.journal-entry-page .window-content .editor.prosemirror .editor-menu button:hover {

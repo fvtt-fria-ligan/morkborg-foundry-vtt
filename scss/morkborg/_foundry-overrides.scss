@@ -529,12 +529,25 @@ select:focus {
     line-height: 1.5;
 
     h1 {
+      // border-bottom: 2px solid #222222;
+      border-bottom: none;
+      background: var(--highlight-background-color) !important;
+      color: var(--highlight-foreground-color) !important;
       font-family: var(--h2-font);
-      border-bottom: 2px solid #222222;
+      font-size: 28px;
     }
 
     h2 {
-      border-bottom: 1px solid #252525;
+      // border-bottom: 1px solid #252525;
+      border-bottom: none;
+      font-family: "Benjamin Franklin";
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      font-weight: bold;
+      font-size: 20px;
     }
 
     .journal-sidebar {
@@ -544,6 +557,7 @@ select:focus {
     .journal-page-content {
       font-family: var(--journal-font);
       font-size: var(--journal-font-size);
+      font-size: 18px;
     }
   }
 }
@@ -580,6 +594,7 @@ select:focus {
         background-color: var(--background-color);
         color: var(--foreground-color);
         button {
+          background-color: var(--background-color);
           color: var(--foreground-color);
         }
         button:hover {

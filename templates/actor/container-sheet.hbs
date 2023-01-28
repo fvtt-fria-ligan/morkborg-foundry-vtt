@@ -42,10 +42,7 @@
   {{!-- Sheet Body --}}
   <section class="sheet-body">
     {{!-- Description Tab --}}
-    <div class="tab" data-group="primary" data-tab="description">
-      {{editor data.system.description target="system.description" button=true
-      owner=owner editable=true}}
-    </div>
+    {{> systems/morkborg/templates/common/description-tab.hbs }} 
 
     {{!-- Details Tab --}}
     <div class="tab" data-group="primary" data-tab="details">

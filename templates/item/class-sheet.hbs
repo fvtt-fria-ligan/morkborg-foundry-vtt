@@ -12,7 +12,7 @@
     {{!-- Abilities Tab --}}
     <div class="tab" data-group="primary" data-tab="abilities">
       {{editor data.system.abilities target="system.abilities" button=true
-      owner=owner editable=true}}
+      owner=owner editable=true engine="prosemirror"}}
     </div>
 
     {{!-- Details Tab --}}
@@ -20,9 +20,7 @@
       {{!-- Description --}}
       <div class="form-group">
         <label>{{ localize "MB.Description" }}:</label>
-        <textarea name="system.description" rows="8">
-{{data.system.description}}</textarea
-        >
+        <textarea name="system.description" rows="8">{{data.system.description}}</textarea>
       </div>
 
       <br />
