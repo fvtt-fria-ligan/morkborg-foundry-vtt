@@ -582,6 +582,17 @@ select:focus {
       background-color: var(--background-color);
       border: 1px solid var(--foreground-color);
       color: var(--foreground-color);
+      ul {
+        background-color: var(--background-color);
+        border: 1px solid var(--foreground-color);
+        color: var(--foreground-color);
+        li {
+        }
+        li:hover {
+          background-color: var(--foreground-color);
+          color: var(--background-color);
+        }
+      }
     }
     button:hover {
       background-color: var(--foreground-color);

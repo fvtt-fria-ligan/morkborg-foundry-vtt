@@ -1373,6 +1373,15 @@ select:focus {
   border: 1px solid var(--foreground-color);
   color: var(--foreground-color);
 }
+.editor .editor-menu button ul {
+  background-color: var(--background-color);
+  border: 1px solid var(--foreground-color);
+  color: var(--foreground-color);
+}
+.editor .editor-menu button ul li:hover {
+  background-color: var(--foreground-color);
+  color: var(--background-color);
+}
 .editor .editor-menu button:hover {
   background-color: var(--foreground-color);
   color: var(--background-color);
