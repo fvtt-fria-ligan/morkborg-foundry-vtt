@@ -1,4 +1,3 @@
-import * as editor from "../../editor.js";
 import { attack } from "../attack.js";
 import { defend } from "../defend.js";
 import {
@@ -12,12 +11,6 @@ import { checkReaction } from "../reaction.js";
  * @extends {ActorSheet}
  */
 export default class MBActorSheet extends ActorSheet {
-  /** @override */
-  activateEditor(name, options = {}, initialContent = "") {
-    editor.setCustomEditorOptions(options);
-    super.activateEditor(name, options, initialContent);
-  }
-
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);

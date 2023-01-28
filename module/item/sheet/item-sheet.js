@@ -1,5 +1,4 @@
 import { MB } from "../../config.js";
-import * as editor from "../../editor.js";
 
 /*
  * @extends {ItemSheet}
@@ -65,11 +64,5 @@ export class MBItemSheet extends ItemSheet {
     if (!this.options.editable) return;
 
     // Roll handlers, click handlers, etc. would go here.
-  }
-
-  /** @override */
-  activateEditor(name, options = {}, initialContent = "") {
-    editor.setCustomEditorOptions(options);
-    super.activateEditor(name, options, initialContent);
   }
 }
