@@ -1148,11 +1148,8 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
   box-shadow: 0 0 5px var(--highlight-background-color);
 }
 
-/* XXX */
-/* XXX maybe only set controls li color and background ? */
 #controls {
   color: var(--foreground-color);
-  /*  background: var(--background-color); */
 }
 #controls .control-tool.toggle {
   background: unset;
@@ -1170,7 +1167,6 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
 }
 #controls .control-tools {
   color: var(--foreground-color);
-  /*  background: var(--background-color); */
 }
 #controls li {
   background: var(--background-color);
@@ -1366,24 +1362,43 @@ select:focus {
   color: var(--foreground-color);
 }
 
-.journal-sheet.journal-entry-page .window-content {
-  border-bottom: 1px solid var(--window-border-color);
-  border-left: 1px solid var(--window-border-color);
-  border-right: 1px solid var(--window-border-color);
-}
-.journal-sheet.journal-entry-page .window-content .editor.prosemirror .editor-menu {
+.editor .editor-menu {
   border-bottom: 1px solid var(--foreground-color);
   border-top: 1px solid var(--foreground-color);
   background-color: var(--background-color);
   color: var(--foreground-color);
 }
-.journal-sheet.journal-entry-page .window-content .editor.prosemirror .editor-menu button {
+.editor .editor-menu button {
   background-color: var(--background-color);
+  border: 1px solid var(--foreground-color);
   color: var(--foreground-color);
 }
-.journal-sheet.journal-entry-page .window-content .editor.prosemirror .editor-menu button:hover {
+.editor .editor-menu button:hover {
   background-color: var(--foreground-color);
   color: var(--background-color);
+}
+.editor h1 {
+  border-bottom: none;
+  background: var(--highlight-background-color) !important;
+  color: var(--highlight-foreground-color) !important;
+  font-family: var(--h2-font);
+  font-size: 28px;
+}
+.editor h2 {
+  border-bottom: none;
+  font-family: "Benjamin Franklin";
+  font-size: 20px;
+  text-transform: uppercase;
+}
+.editor h3 {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.journal-sheet.journal-entry-page .window-content {
+  border-bottom: 1px solid var(--window-border-color);
+  border-left: 1px solid var(--window-border-color);
+  border-right: 1px solid var(--window-border-color);
 }
 
 .journal-sheet form button[type=submit] {

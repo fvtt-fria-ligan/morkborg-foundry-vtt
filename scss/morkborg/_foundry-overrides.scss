@@ -314,14 +314,8 @@ form.editable .results {
   }
 }
 
-/* XXX */
-/* XXX maybe only set controls li color and background ? */
-
 #controls {
   color: var(--foreground-color);
-
-  /*  background: var(--background-color); */
-
   .control-tool.toggle {
     background: unset;
     border: 1px solid #252525;
@@ -341,8 +335,6 @@ form.editable .results {
 
   .control-tools {
     color: var(--foreground-color);
-
-    /*  background: var(--background-color); */
   }
 
   li {
@@ -528,23 +520,21 @@ select:focus {
     font-weight: 500;
     line-height: 1.5;
 
+    // TODO: DRY up with .editor above, between our sheet editors and journal entry page
+    // Also need to decide if journal-page-header and journal-page-content should have same h1 styling
     h1 {
-      // border-bottom: 2px solid #222222;
       border-bottom: none;
       background: var(--highlight-background-color) !important;
       color: var(--highlight-foreground-color) !important;
       font-family: var(--h2-font);
       font-size: 28px;
     }
-
     h2 {
-      // border-bottom: 1px solid #252525;
       border-bottom: none;
       font-family: "Benjamin Franklin";
       font-size: 20px;
       text-transform: uppercase;
     }
-
     h3 {
       font-weight: bold;
       font-size: 20px;
@@ -582,27 +572,46 @@ select:focus {
   }
 }
 
+.editor {
+  .editor-menu {
+    border-bottom: 1px solid var(--foreground-color);
+    border-top: 1px solid var(--foreground-color);
+    background-color: var(--background-color);
+    color: var(--foreground-color);
+    button {
+      background-color: var(--background-color);
+      border: 1px solid var(--foreground-color);
+      color: var(--foreground-color);
+    }
+    button:hover {
+      background-color: var(--foreground-color);
+      color: var(--background-color);
+    }
+  }
+  h1 {
+    border-bottom: none;
+    background: var(--highlight-background-color) !important;
+    color: var(--highlight-foreground-color) !important;
+    font-family: var(--h2-font);
+    font-size: 28px;
+  }
+  h2 {
+    border-bottom: none;
+    font-family: "Benjamin Franklin";
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+  h3 {
+    font-weight: bold;
+    font-size: 20px;
+  }
+}
+
 .journal-sheet.journal-entry-page {
   .window-content {
     border-bottom: 1px solid var(--window-border-color);
     border-left: 1px solid var(--window-border-color);
     border-right: 1px solid var(--window-border-color);
-    .editor.prosemirror {
-      .editor-menu {
-        border-bottom: 1px solid var(--foreground-color);
-        border-top: 1px solid var(--foreground-color);
-        background-color: var(--background-color);
-        color: var(--foreground-color);
-        button {
-          background-color: var(--background-color);
-          color: var(--foreground-color);
-        }
-        button:hover {
-          background-color: var(--foreground-color);
-          color: var(--background-color);
-        }
-      }
-    }
   }
 }
 
