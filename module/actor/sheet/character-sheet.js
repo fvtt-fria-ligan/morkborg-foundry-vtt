@@ -18,7 +18,7 @@ import { rollPowersPerDay, wieldPower } from "../powers.js";
 /**
  * @extends {ActorSheet}
  */
-export class MBActorSheetCharacter extends MBActorSheet {
+export class MBCharacterSheet extends MBActorSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {

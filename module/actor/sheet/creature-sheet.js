@@ -3,7 +3,7 @@ import MBActorSheet from "./actor-sheet.js";
 /**
  * @extends {ActorSheet}
  */
-export class MBActorSheetCreature extends MBActorSheet {
+export class MBCreatureSheet extends MBActorSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
@@ -18,8 +18,6 @@ export class MBActorSheetCreature extends MBActorSheet {
           initial: "details",
         },
       ],
-      // is dragDrop needed?
-      // dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
     });
   }
 }

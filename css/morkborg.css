@@ -16,7 +16,6 @@
   --h2-font: "FetteTrumpDeutsch";
   --h3-font: "Old Cupboard";
   --item-font: "Special Elite";
-  /*  --journal-font: "Inconsolatazi4varl_qu"; */
   --journal-font: "Alegreya";
   --journal-font-size: 18px;
   --window-border-color: #222222;
@@ -1333,8 +1332,10 @@ select:focus {
   text-transform: uppercase;
 }
 .window-app.app.journal-sheet .window-content h3 {
+  font-family: "Inconsolata";
   font-weight: bold;
   font-size: 20px;
+  text-transform: uppercase;
 }
 .window-app.app.journal-sheet .window-content .journal-sidebar {
   font-family: var(--item-font);
@@ -1400,8 +1401,10 @@ select:focus {
   text-transform: uppercase;
 }
 .editor h3 {
+  font-family: "Inconsolata";
   font-weight: bold;
   font-size: 20px;
+  text-transform: uppercase;
 }
 
 .journal-sheet.journal-entry-page .window-content {

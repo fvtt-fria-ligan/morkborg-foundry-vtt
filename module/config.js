@@ -143,6 +143,13 @@ MB.handed = {
   2: "MB.HandedTwo",
 };
 
+MB.actorTypes = {
+  character: "character",
+  creature: "creature",
+  container: "container",
+  follower: "follower",
+};
+
 MB.ammoTypes = {
   arrow: "MB.AmmoTypeArrow",
   bolt: "MB.AmmoTypeBolt",

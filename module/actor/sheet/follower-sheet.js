@@ -4,7 +4,7 @@ import { byName } from "../../utils.js";
 /**
  * @extends {ActorSheet}
  */
-export class MBActorSheetFollower extends MBActorSheet {
+export class MBFollowerSheet extends MBActorSheet {
   /** @override */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
