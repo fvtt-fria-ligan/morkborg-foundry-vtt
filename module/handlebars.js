@@ -26,6 +26,16 @@ export const configureHandlebars = () => {
   Handlebars.registerHelper("ifPrintElse", function (cond, v1, v2) {
     return cond ? v1 : v2;
   });
+  Handlebars.registerHelper("abbreviate", function (string) {
+    const localString = "MB.Ability" + string + "Abbrev";
+    console.log("Input String: " + string);
+    console.log("Local Attempt: " + game.i18n.localize(localString));
+    console.log("Input = Local: " + game.i18n.localize(localString) === localString);
+    const result = game.i18n.localize(localString) === localString
+    ? (string.slice(0,3)).toUpperCase()
+    : game.i18n.localize(localString)
+    return result;
+  });
 
   // https://stackoverflow.com/questions/11924452/iterating-over-basic-for-loop-using-handlebars-js
   Handlebars.registerHelper("times", function (n, block) {

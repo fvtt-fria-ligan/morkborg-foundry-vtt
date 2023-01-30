@@ -49,7 +49,7 @@ export class MBActorSheetCharacter extends MBActorSheet {
       abl.label = game.i18n.localize(translationKey);
     }
 
-    const customAbilities = game.settings.get("markborg", "additionalAbilities")
+    const customAbilities = game.settings.get("morkborg", "additionalAbilities")
       .split(",")
       .reduce(function(obj, key) {
         obj[key] = {
