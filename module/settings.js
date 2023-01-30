@@ -2,6 +2,7 @@ import { AllowedScvmClassesDialog } from "./settings/allowed-scvm-classes-dialog
 
 const Settings = {
   allowedScvmClasses: "allowedScvmClasses",
+  additionalAbilities: "additionalAbilities",
   colorScheme: "colorScheme",
   hitAutomation: "hitAutomation",
   fontScheme: "fontScheme",
@@ -95,6 +96,20 @@ export const registerSystemSettings = () => {
     },
   });
 
+  /** Additional Abilities */
+  game.settings.register(CONFIG.MB.systemName, Settings.additionalAbilities, {
+    name: "MB.AdditionalAbilities",
+    hint: "MB.AdditionalAbilitiesHint",
+    label: "MB.AdditionalAbilitiesLabel",
+    default: "",
+    config: true,
+    type: String,
+    requiresReload: true,
+    restricted: true
+  });
+
+  
+
   /** The allowed classes menu */
   game.settings.registerMenu(
     CONFIG.MB.systemName,
@@ -172,4 +187,8 @@ export const setLastScvmfactorySelection = (lastScvmfactorySelection) => {
     Settings.lastScvmfactorySelection,
     lastScvmfactorySelection
   );
+};
+
+export const getAdditionalAbilities = () => {
+  return getSetting(Settings.additionalAbilities);
 };

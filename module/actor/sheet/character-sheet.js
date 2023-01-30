@@ -49,6 +49,18 @@ export class MBActorSheetCharacter extends MBActorSheet {
       abl.label = game.i18n.localize(translationKey);
     }
 
+    const customAbilities = game.settings.get("markborg", "additionalAbilities")
+      .split(",")
+      .reduce(function(obj, key) {
+        obj[key] = {
+            value: 0,
+            label: key            
+          };
+        return obj; 
+      }, {});
+
+    data.system.abilities = { ...data.system.abilities, ...customAbilities};
+
     this._prepareCharacterItems(data);
     data.system.trackCarryingCapacity = trackCarryingCapacity();
     data.system.trackAmmo = trackAmmo();

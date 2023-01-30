@@ -125,7 +125,19 @@
   </div>
   <div class="header-gutter-col"></div>
   <div class="header-col3">
+    {{#each data.system.abilities}}
     <div class="ability-row">
+      <input
+        class="ability-input"
+        type="text"
+        name="this.value"
+        value="{{numberFormat this.value decimals=0 sign=true}}"
+        data-dtype="Number"
+        size="3"
+      />
+      <span class="ability-label rollable strength">TeeHee</span>
+    {{/each}}
+    {{!-- <div class="ability-row">
       <input
         class="ability-input"
         type="text"
@@ -168,6 +180,6 @@
         size="3"
       />
       <span class="ability-label rollable toughness">{{ localize 'MB.AbilityToughnessAbbrev' }}</span>
-    </div>
+    </div> --}}
   </div>
 </header>
