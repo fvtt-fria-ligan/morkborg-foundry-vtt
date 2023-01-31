@@ -56,6 +56,15 @@ export default class MBActorSheet extends ActorSheet {
     html.find("button.reaction").on("click", this._onReactionRoll.bind(this));
   }
 
+  /** @override */
+  getData() {
+    const superData = super.getData();
+    superData.data.system.description = TextEditor.enrichHTML(
+      superData.data.system.description
+    );
+    return superData;
+  }
+
   /**
    * Handle creating a new Owned Item for the actor.
    *

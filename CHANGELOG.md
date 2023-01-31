@@ -1,3 +1,7 @@
+# 2.5.1
+
+- Fix content links in custom actor/item sheets, by calling enrichHTML in getData().
+
 # 2.5.0
 
 - Switch editors to ProseMirror engine.
