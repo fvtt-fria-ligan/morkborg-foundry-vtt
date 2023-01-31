@@ -1324,6 +1324,7 @@ select:focus {
   color: var(--highlight-foreground-color) !important;
   font-family: var(--h2-font);
   font-size: 28px;
+  text-align: center;
 }
 .window-app.app.journal-sheet .window-content h2 {
   border-bottom: none;
@@ -1393,6 +1394,7 @@ select:focus {
   color: var(--highlight-foreground-color) !important;
   font-family: var(--h2-font);
   font-size: 28px;
+  text-align: center;
 }
 .editor h2 {
   border-bottom: none;
