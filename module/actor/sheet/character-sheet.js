@@ -176,9 +176,7 @@ export class MBActorSheetCharacter extends MBActorSheet {
 
   _onCustomAbilityRoll(event) {
     event.preventDefault();
-    console.log(event);
     const customAbility = (event.currentTarget.className).split(" ")[3]
-    console.log(customAbility);
     testCustomAbility(this.actor, customAbility);
   }
 

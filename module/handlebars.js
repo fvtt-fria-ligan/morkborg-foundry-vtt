@@ -40,7 +40,7 @@ export const configureHandlebars = () => {
     };
     return string.toLowerCase();
   });
-  Handlebars.registerHelper("createName", function (string) {
+  Handlebars.registerHelper("inputName", function (string) {
     return "system.abilities." + string.toLowerCase() + ".value";
   });
 
