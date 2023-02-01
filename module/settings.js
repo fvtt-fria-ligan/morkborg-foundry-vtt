@@ -100,7 +100,6 @@ export const registerSystemSettings = () => {
   game.settings.register(CONFIG.MB.systemName, Settings.additionalAbilities, {
     name: "MB.AdditionalAbilities",
     hint: "MB.AdditionalAbilitiesHint",
-    label: "MB.AdditionalAbilitiesLabel",
     default: "",
     config: true,
     type: String,

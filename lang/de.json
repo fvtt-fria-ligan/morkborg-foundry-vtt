@@ -11,6 +11,8 @@
   "MB.ActorNotFound": "Akteur nicht gefunden",
   "MB.ActorNotInEncounter": "Dieser Akteur ist nicht Teil des Kampfgeschehens",
   "MB.Add": "Hinzufügen",
+  "MB.AdditionalAbilities": "Additional Abilities",
+  "MB.AdditionalAbilitiesHint": "Comma separated list of abilities, e.g 'Knowledge,Magic,Sword'",
   "MB.AllowedScvmClassesEdit": "Edit allowed classes",
   "MB.AllowedScvmClassesSelect": "Select allowed classes",
   "MB.AlternateName": "Alternativer Name",

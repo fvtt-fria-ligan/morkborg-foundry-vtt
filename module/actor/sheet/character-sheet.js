@@ -8,6 +8,7 @@ import { getBetter } from "../get-better.js";
 import { useFeat } from "../feats.js";
 import {
   testAgility,
+  testCustomAbility,
   testPresence,
   testStrength,
   testToughness,
@@ -48,12 +49,14 @@ export class MBActorSheetCharacter extends MBActorSheet {
       const translationKey = CONFIG.MB.abilities[a];
       abl.label = game.i18n.localize(translationKey);
     }
-
     const customAbilities = game.settings.get("morkborg", "additionalAbilities")
       .split(",")
       .reduce(function(obj, key) {
-        obj[key] = {
-            value: 0,
+        obj[(key.toLowerCase())] = {
+            value: (data.system.abilities[key.toLowerCase()] 
+              ? (data.system.abilities[key.toLowerCase()]).value
+              : 0
+            ),
             label: key            
           };
         return obj; 
@@ -129,6 +132,10 @@ export class MBActorSheetCharacter extends MBActorSheet {
     html
       .find(".ability-label.rollable.toughness")
       .on("click", this._onToughnessRoll.bind(this));
+    html
+      .find(".ability-label.rollable.custom")
+      .on("click", this._onCustomAbilityRoll.bind(this))
+
     html.find(".item-scvmify").click(this._onScvmify.bind(this));
     html.find(".broken-button").on("click", this._onBroken.bind(this));
     html.find(".rest-button").on("click", this._onRest.bind(this));
@@ -165,6 +172,14 @@ export class MBActorSheetCharacter extends MBActorSheet {
   _onToughnessRoll(event) {
     event.preventDefault();
     testToughness(this.actor);
+  }
+
+  _onCustomAbilityRoll(event) {
+    event.preventDefault();
+    console.log(event);
+    const customAbility = (event.currentTarget.className).split(" ")[3]
+    console.log(customAbility);
+    testCustomAbility(this.actor, customAbility);
   }
 
   _onOmensRoll(event) {

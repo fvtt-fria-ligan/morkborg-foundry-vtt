@@ -98,3 +98,13 @@ export const testToughness = async (actor) => {
     null
   );
 };
+
+export const testCustomAbility = async (actor, ability) => {
+  await testAbility(
+    actor,
+    ability,
+    (ability.charAt(0).toUpperCase() + ability.slice(1)),
+    (ability.slice(0,3)).toUpperCase(),
+    null
+  )
+}

@@ -11,6 +11,8 @@
   "MB.ActorNotFound": "Skådespelaren hittades inte",
   "MB.ActorNotInEncounter": "Skådespelaren inte i aktuell strid",
   "MB.Add": "Lägg till",
+  "MB.AdditionalAbilities": "Additional Abilities",
+  "MB.AdditionalAbilitiesHint": "Comma separated list of abilities, e.g 'Knowledge,Magic,Sword'",
   "MB.AllowedScvmClassesEdit": "Edit allowed classes",
   "MB.AllowedScvmClassesSelect": "Select allowed classes",
   "MB.AlternateName": "Alternativt Namn",
