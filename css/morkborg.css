@@ -94,9 +94,6 @@
   font-size: 13px;
   color: #191813;
 }
-.morkborg form {
-  height: 100%;
-}
 .morkborg ::-webkit-scrollbar-thumb {
   background: darkgray;
   border: 1px solid lightgray;
@@ -143,10 +140,12 @@
   color: var(--foreground-color);
 }
 
-.morkborg.sheet {
+.morkborg.sheet.actor,
+.morkborg.sheet.item {
   margin-top: 0;
 }
-.morkborg.sheet .window-content {
+.morkborg.sheet.actor .window-content,
+.morkborg.sheet.item .window-content {
   overflow-y: hidden;
   padding: 5px;
   /* inherited background is parchment img bg */
@@ -157,32 +156,53 @@
   border-left: 1px solid var(--window-border-color);
   border-right: 1px solid var(--window-border-color);
 }
-.morkborg.sheet .window-content form {
+.morkborg.sheet.actor .window-content form,
+.morkborg.sheet.item .window-content form {
   height: 100%;
   overflow: hidden;
 }
-.morkborg.sheet .editable .rollable:hover {
+.morkborg.sheet.actor .editable .rollable:hover,
+.morkborg.sheet.item .editable .rollable:hover {
   color: var(--highlight-foreground-color);
   text-shadow: 0 0 10px var(--highlight-background-color);
   cursor: pointer;
 }
-.morkborg.sheet input[type=text], .morkborg.sheet input[type=number], .morkborg.sheet input[type=password], .morkborg.sheet input[type=date] {
+.morkborg.sheet.actor input[type=text], .morkborg.sheet.actor input[type=number], .morkborg.sheet.actor input[type=password], .morkborg.sheet.actor input[type=date],
+.morkborg.sheet.item input[type=text],
+.morkborg.sheet.item input[type=number],
+.morkborg.sheet.item input[type=password],
+.morkborg.sheet.item input[type=date] {
   color: var(--foreground-color);
   border-radius: 0;
 }
-.morkborg.sheet input[type=text]:focus, .morkborg.sheet input[type=number]:focus, .morkborg.sheet input[type=password]:focus, .morkborg.sheet input[type=date]:focus, .morkborg.sheet input[type=time]:focus, .morkborg.sheet input[type=text]:hover, .morkborg.sheet input[type=number]:hover, .morkborg.sheet input[type=password]:hover, .morkborg.sheet input[type=date]:hover, .morkborg.sheet input[type=time]:hover {
+.morkborg.sheet.actor input[type=text]:focus, .morkborg.sheet.actor input[type=number]:focus, .morkborg.sheet.actor input[type=password]:focus, .morkborg.sheet.actor input[type=date]:focus, .morkborg.sheet.actor input[type=time]:focus, .morkborg.sheet.actor input[type=text]:hover, .morkborg.sheet.actor input[type=number]:hover, .morkborg.sheet.actor input[type=password]:hover, .morkborg.sheet.actor input[type=date]:hover, .morkborg.sheet.actor input[type=time]:hover,
+.morkborg.sheet.item input[type=text]:focus,
+.morkborg.sheet.item input[type=number]:focus,
+.morkborg.sheet.item input[type=password]:focus,
+.morkborg.sheet.item input[type=date]:focus,
+.morkborg.sheet.item input[type=time]:focus,
+.morkborg.sheet.item input[type=text]:hover,
+.morkborg.sheet.item input[type=number]:hover,
+.morkborg.sheet.item input[type=password]:hover,
+.morkborg.sheet.item input[type=date]:hover,
+.morkborg.sheet.item input[type=time]:hover {
   box-shadow: 0 0 5px var(--highlight-background-color);
 }
-.morkborg.sheet select:focus {
+.morkborg.sheet.actor select:focus,
+.morkborg.sheet.item select:focus {
   box-shadow: 0 0 5px var(--highlight-background-color);
 }
-.morkborg.sheet button:hover, .morkborg.sheet button:focus {
+.morkborg.sheet.actor button:hover, .morkborg.sheet.actor button:focus,
+.morkborg.sheet.item button:hover,
+.morkborg.sheet.item button:focus {
   box-shadow: 0 0 5px var(--highlight-background-color);
 }
-.morkborg.sheet a:hover {
+.morkborg.sheet.actor a:hover,
+.morkborg.sheet.item a:hover {
   text-shadow: 0 0 8px var(--highlight-background-color);
 }
-.morkborg.sheet textarea {
+.morkborg.sheet.actor textarea,
+.morkborg.sheet.item textarea {
   border: 1px solid #7a7971;
   border-radius: 0;
   color: var(--foreground-color);
@@ -190,27 +210,33 @@
   font-size: 14px;
   resize: none;
 }
-.morkborg.sheet textarea:hover {
+.morkborg.sheet.actor textarea:hover,
+.morkborg.sheet.item textarea:hover {
   box-shadow: 0 0 5px var(--highlight-background-color);
 }
-.morkborg.sheet textarea:focus {
+.morkborg.sheet.actor textarea:focus,
+.morkborg.sheet.item textarea:focus {
   box-shadow: 0 0 5px var(--highlight-background-color);
   outline: none;
 }
-.morkborg.sheet .profile-img {
+.morkborg.sheet.actor .profile-img,
+.morkborg.sheet.item .profile-img {
   border: none;
 }
-.morkborg.sheet .editor {
+.morkborg.sheet.actor .editor,
+.morkborg.sheet.item .editor {
   border: 1px solid #7a7971;
   color: var(--foreground-color);
   font-family: var(--journal-font);
   font-size: var(--journal-font-size);
   padding: 0 8px;
 }
-.morkborg.sheet .tox.tox-tinymce .tox-edit-area__iframe {
+.morkborg.sheet.actor .tox.tox-tinymce .tox-edit-area__iframe,
+.morkborg.sheet.item .tox.tox-tinymce .tox-edit-area__iframe {
   background: var(--background-color);
 }
-.morkborg.sheet .sheet-tabs {
+.morkborg.sheet.actor .sheet-tabs,
+.morkborg.sheet.item .sheet-tabs {
   flex: 0 0 30px;
   margin-bottom: 5px;
   /* font-family: "Modesto Condensed", "Palatino Linotype", serif; */
@@ -220,44 +246,54 @@
   border-top: none;
   border-bottom: none;
 }
-.morkborg.sheet .sheet-tabs .item {
+.morkborg.sheet.actor .sheet-tabs .item,
+.morkborg.sheet.item .sheet-tabs .item {
   font-family: var(--h2-font);
   font-size: 22px;
   height: 30px;
   padding: 0;
   width: 120px;
 }
-.morkborg.sheet .sheet-tabs .item:hover {
+.morkborg.sheet.actor .sheet-tabs .item:hover,
+.morkborg.sheet.item .sheet-tabs .item:hover {
   color: var(--highlight-foreground-color);
   text-shadow: 0 0 10px var(--highlight-background-color);
 }
-.morkborg.sheet .sheet-tabs .item.active {
+.morkborg.sheet.actor .sheet-tabs .item.active,
+.morkborg.sheet.item .sheet-tabs .item.active {
   background-color: var(--highlight-background-color);
   color: var(--highlight-foreground-color);
   text-shadow: none;
 }
-.morkborg .sheet-body {
+.morkborg.sheet.actor .sheet-body,
+.morkborg.sheet.item .sheet-body {
   overflow: hidden;
 }
-.morkborg .sheet-body .tab {
+.morkborg.sheet.actor .sheet-body .tab,
+.morkborg.sheet.item .sheet-body .tab {
   height: 100%;
   overflow-y: auto;
 }
-.morkborg.sheet .sheet-body .form-group {
+.morkborg.sheet.actor .sheet-body .form-group,
+.morkborg.sheet.item .sheet-body .form-group {
   margin-bottom: 8px;
 }
-.morkborg.sheet .sheet-body .form-group label {
+.morkborg.sheet.actor .sheet-body .form-group label,
+.morkborg.sheet.item .sheet-body .form-group label {
   font-family: var(--h2-font);
   font-size: 20px;
   text-align: right;
   margin-right: 10px;
 }
-.morkborg.sheet .sheet-body .form-group input,
-.morkborg.sheet .sheet-body .form-group select {
+.morkborg.sheet.actor .sheet-body .form-group input,
+.morkborg.sheet.actor .sheet-body .form-group select,
+.morkborg.sheet.item .sheet-body .form-group input,
+.morkborg.sheet.item .sheet-body .form-group select {
   font-family: var(--journal-font);
   font-size: var(--journal-font-size);
 }
-.morkborg.sheet .sheet-body .form-group.special {
+.morkborg.sheet.actor .sheet-body .form-group.special,
+.morkborg.sheet.item .sheet-body .form-group.special {
   flex: 1;
 }
 
