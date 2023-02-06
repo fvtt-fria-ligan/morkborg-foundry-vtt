@@ -1,3 +1,7 @@
+# 2.5.2
+
+- Add missing fonts to stylesheet.
+
 # 2.5.1
 
 - Fix content links in custom actor/item sheets, by calling enrichHTML in getData().

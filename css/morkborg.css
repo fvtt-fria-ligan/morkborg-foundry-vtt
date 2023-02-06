@@ -22,18 +22,14 @@
 }
 
 @font-face {
-  font-family: "Blood Crow";
-  src: url("../assets/fonts/bloodcrow.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Inconsolatazi4varl_qu";
-  src: url("../assets/fonts/Inconsolatazi4varl_qu-Bold.otf") format("opentype");
-  font-weight: bold;
-}
-@font-face {
-  font-family: "Inconsolatazi4varl_qu";
-  src: url("../assets/fonts/Inconsolatazi4varl_qu-Regular.otf") format("opentype");
+  font-family: "Alegreya";
+  src: url("../assets/fonts/Alegreya-Regular.ttf") format("truetype");
   font-weight: normal;
+}
+@font-face {
+  font-family: "Alegreya";
+  src: url("../assets/fonts/Alegreya-Bold.ttf") format("truetype");
+  font-weight: bold;
 }
 @font-face {
   font-family: "Benjamin Franklin";
@@ -41,8 +37,22 @@
   font-weight: normal;
 }
 @font-face {
+  font-family: "Blood Crow";
+  src: url("../assets/fonts/bloodcrow.ttf") format("truetype");
+}
+@font-face {
   font-family: "FetteTrumpDeutsch";
   src: url("../assets/fonts/FetteTrumpDeutsch.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Inconsolata";
+  src: url("../assets/fonts/Inconsolata-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Inconsolata";
+  src: url("../assets/fonts/Inconsolata-Regular.ttf") format("truetype");
+  font-weight: normal;
 }
 @font-face {
   font-family: "Old Cupboard";
@@ -1366,13 +1376,11 @@ select:focus {
   border-bottom: none;
   font-family: "Benjamin Franklin";
   font-size: 20px;
-  text-transform: uppercase;
 }
 .window-app.app.journal-sheet .window-content h3 {
   font-family: "Inconsolata";
   font-weight: bold;
   font-size: 20px;
-  text-transform: uppercase;
 }
 .window-app.app.journal-sheet .window-content .journal-sidebar {
   font-family: var(--item-font);
