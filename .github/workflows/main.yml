@@ -25,7 +25,7 @@ jobs:
           download: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/system.zip
 
       # Create a zip file with all files required by the system to add to the release
-      - run: zip -r ./system.zip CHANGELOG.md  LICENSE.MB3PL LICENSE.MIT how-to-use-this-system.md README.md system.json template.json css/ fonts/ icons/ lang/ module/ packs/ templates/ tokens/ ui/
+      - run: zip -r ./system.zip CHANGELOG.md  LICENSE.MB3PL LICENSE.MIT how-to-use-this-system.md README.md system.json template.json assets/ css/ icons/ lang/ module/ packs/ templates/ tokens/ ui/
 
       # Create a release for this specific version
       - name: Update Release with Files

@@ -1,3 +1,7 @@
+# 2.5.3
+
+- Fix build to include assets/fonts dir.
+
 # 2.5.2
 
 - Add missing fonts to stylesheet.
