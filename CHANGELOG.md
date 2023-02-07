@@ -1,3 +1,7 @@
+# 2.5.4
+
+- Fix font styling for sheet input and textarea.
+
 # 2.5.3
 
 - Fix build to include assets/fonts dir.
