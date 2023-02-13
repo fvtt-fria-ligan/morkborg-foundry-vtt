@@ -60,7 +60,8 @@ export default class MBActorSheet extends ActorSheet {
   getData() {
     const superData = super.getData();
     superData.data.system.description = TextEditor.enrichHTML(
-      superData.data.system.description
+      superData.data.system.description,
+      { async: false }
     );
     return superData;
   }

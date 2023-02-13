@@ -37,7 +37,8 @@ export class MBItemSheet extends ItemSheet {
     const superData = super.getData(options);
     superData.config = CONFIG.MB;
     superData.data.system.description = TextEditor.enrichHTML(
-      superData.data.system.description
+      superData.data.system.description,
+      { async: false }
     );
     if (superData.data.scrollType) {
       superData.data.localizedScrollType = game.i18n.localize(

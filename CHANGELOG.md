@@ -2,6 +2,7 @@
 
 - Add support for additional abilities via a settings value (by undonealex99).
 - Delete an item when reducing the quantity from 1 to 0.
+- Fix TextEditor.enrichHTML() warnings.
 
 # 2.5.4
 
