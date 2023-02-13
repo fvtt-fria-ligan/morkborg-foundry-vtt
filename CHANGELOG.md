@@ -1,3 +1,7 @@
+# 2.6.0
+
+- Add support for additional abilities via a settings value (by undonealex99).
+
 # 2.5.4
 
 - Fix font styling for sheet input and textarea.

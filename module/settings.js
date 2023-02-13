@@ -104,10 +104,8 @@ export const registerSystemSettings = () => {
     config: true,
     type: String,
     requiresReload: true,
-    restricted: true
+    restricted: true,
   });
-
-  
 
   /** The allowed classes menu */
   game.settings.registerMenu(

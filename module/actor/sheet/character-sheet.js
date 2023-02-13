@@ -1,4 +1,5 @@
 import MBActorSheet from "./actor-sheet.js";
+import { MB } from "../../config.js";
 import RestDialog from "./rest-dialog.js";
 import { trackAmmo, trackCarryingCapacity } from "../../settings.js";
 import ScvmDialog from "../../scvm/scvm-dialog.js";
@@ -15,6 +16,7 @@ import {
 } from "../test-abilities.js";
 import { rollOmens } from "../omens.js";
 import { rollPowersPerDay, wieldPower } from "../powers.js";
+import { upperCaseFirst } from "../../utils.js";
 
 /**
  * @extends {ActorSheet}
@@ -45,28 +47,35 @@ export class MBCharacterSheet extends MBActorSheet {
     const data = superData.data;
 
     // Ability Scores
-    for (const [a, abl] of Object.entries(data.system.abilities)) {
-      const translationKey = CONFIG.MB.abilities[a];
-      abl.label = game.i18n.localize(translationKey);
+    data.system.orderedAbilities = [];
+    for (const abilityName of MB.abilitySheetOrder) {
+      const ability = data.system.abilities[abilityName];
+      const translationKey = `MB.Ability${upperCaseFirst(abilityName)}`;
+      ability.label = game.i18n.localize(translationKey);
+      data.system.orderedAbilities.push(ability);
     }
-    const customAbilities = game.settings.get("morkborg", "additionalAbilities")
-      .split(",")
-      .reduce(function(obj, key) {
-        obj[(key.toLowerCase())] = {
-            value: (data.system.abilities[key.toLowerCase()] 
-              ? (data.system.abilities[key.toLowerCase()]).value
-              : 0
-            ),
-            label: key            
-          };
-        return obj; 
-      }, {});
-
-    data.system.abilities = { ...data.system.abilities, ...customAbilities};
+    // custom abilities are in an ordered csv string
+    const additionalAbilitiesCsv = game.settings.get(
+      "morkborg",
+      "additionalAbilities"
+    );
+    if (additionalAbilitiesCsv) {
+      const customAbilities = additionalAbilitiesCsv.split(",").map((key) => {
+        return {
+          value: data.system.abilities[key.toLowerCase()] ?? 0,
+          label: key,
+        };
+      });
+      if (customAbilities.length) {
+        data.system.orderedAbilities =
+          data.system.orderedAbilities.concat(customAbilities);
+      }
+    }
 
     this._prepareCharacterItems(data);
     data.system.trackCarryingCapacity = trackCarryingCapacity();
     data.system.trackAmmo = trackAmmo();
+    console.log(data.system);
     return superData;
   }
 
@@ -134,7 +143,7 @@ export class MBCharacterSheet extends MBActorSheet {
       .on("click", this._onToughnessRoll.bind(this));
     html
       .find(".ability-label.rollable.custom")
-      .on("click", this._onCustomAbilityRoll.bind(this))
+      .on("click", this._onCustomAbilityRoll.bind(this));
 
     html.find(".item-scvmify").click(this._onScvmify.bind(this));
     html.find(".broken-button").on("click", this._onBroken.bind(this));
@@ -176,7 +185,7 @@ export class MBCharacterSheet extends MBActorSheet {
 
   _onCustomAbilityRoll(event) {
     event.preventDefault();
-    const customAbility = (event.currentTarget.className).split(" ")[3]
+    const customAbility = event.currentTarget.className.split(" ")[3];
     testCustomAbility(this.actor, customAbility);
   }
 
