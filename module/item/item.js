@@ -209,8 +209,10 @@ export class MBItem extends Item {
 
   async decrementQuantity() {
     // can't reduce quantity below one
-    if (this.system.quantity > 1) {
-      return this.update({ ["data.quantity"]: this.system.quantity - 1 });
+    if (this.system.quantity == 1) {
+      await this.delete();
+    } else if (this.system.quantity > 1) {
+      await this.update({ ["data.quantity"]: this.system.quantity - 1 });
     }
   }
 }
