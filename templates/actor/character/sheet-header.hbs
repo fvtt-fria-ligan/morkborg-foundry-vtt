@@ -125,49 +125,18 @@
   </div>
   <div class="header-gutter-col"></div>
   <div class="header-col3">
+    {{#each data.system.abilities}}
     <div class="ability-row">
       <input
         class="ability-input"
         type="text"
-        name="system.abilities.strength.value"
-        value="{{numberFormat data.system.abilities.strength.value decimals=0 sign=true}}"
+        name="{{inputName this.label}}"
+        value="{{numberFormat this.value decimals=0 sign=true}}"
         data-dtype="Number"
         size="3"
       />
-      <span class="ability-label rollable strength">{{ localize 'MB.AbilityStrengthAbbrev' }}</span>
+      <span class="ability-label rollable {{abilityLabelClass this}}">{{ abbreviate this.label}}</span>
     </div>
-    <div class="ability-row">
-      <input
-        class="ability-input"
-        type="text"
-        name="system.abilities.agility.value"
-        value="{{numberFormat data.system.abilities.agility.value decimals=0 sign=true}}"
-        data-dtype="Number"
-        size="3"
-      />
-      <span class="ability-label rollable agility">{{ localize 'MB.AbilityAgilityAbbrev' }}</span>
-    </div>
-    <div class="ability-row">
-      <input
-        class="ability-input"
-        type="text"
-        name="system.abilities.presence.value"
-        value="{{numberFormat data.system.abilities.presence.value decimals=0 sign=true}}"
-        data-dtype="Number"
-        size="3"
-      />
-      <span class="ability-label rollable presence">{{ localize 'MB.AbilityPresenceAbbrev' }}</span>
-    </div>
-    <div class="ability-row">
-      <input
-        class="ability-input"
-        type="text"
-        name="system.abilities.toughness.value"
-        value="{{numberFormat data.system.abilities.toughness.value decimals=0 sign=true}}"
-        data-dtype="Number"
-        size="3"
-      />
-      <span class="ability-label rollable toughness">{{ localize 'MB.AbilityToughnessAbbrev' }}</span>
-    </div>
+    {{/each}}
   </div>
 </header>
