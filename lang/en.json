@@ -176,6 +176,8 @@
   "MB.ScvmfactoryWarning": "Destroy this character, and replace it with a new Scvm? WARNING: This cannot be undone!",
   "MB.SettingsApplyOvercapacityPenalty": "Apply Overcapacity Penalty",
   "MB.SettingsApplyOvercapacityPenaltyHint": "+2 STR/AGI DR when carrying more than STR+8 items",
+  "MB.SettingsDeleteZeroQuantity": "Delete Zero Quantity",
+  "MB.SettingsDeleteZeroQuantityHint": "Automatically delete items when quantity decremented to zero",
   "MB.SettingsBlackletter": "Blackletter",
   "MB.SettingsBlackOnWhiteBlack": "Black on white (black)",
   "MB.SettingsBlackOnYellowWhite": "Black on yellow (white)",
