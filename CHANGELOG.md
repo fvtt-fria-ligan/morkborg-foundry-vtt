@@ -1,3 +1,8 @@
+# 2.6.1
+
+- Add client setting to control delete-on-zero-quantity item behavior.
+- Order settings by (english) alphabetical.
+
 # 2.6.0
 
 - Add support for additional abilities via a settings value (by undonealex99).

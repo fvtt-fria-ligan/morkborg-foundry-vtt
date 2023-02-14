@@ -4,6 +4,7 @@ const Settings = {
   allowedScvmClasses: "allowedScvmClasses",
   additionalAbilities: "additionalAbilities",
   colorScheme: "colorScheme",
+  deleteZeroQuantity: "deleteZeroQuantity",
   hitAutomation: "hitAutomation",
   fontScheme: "fontScheme",
   lastScvmfactorySelection: "lastScvmfactorySelection",
@@ -13,6 +14,19 @@ const Settings = {
 };
 
 export const registerSystemSettings = () => {
+  // register non-menu settings in (english) alphabetical order
+
+  /** Additional Abilities */
+  game.settings.register(CONFIG.MB.systemName, Settings.additionalAbilities, {
+    name: "MB.AdditionalAbilities",
+    hint: "MB.AdditionalAbilitiesHint",
+    default: "",
+    config: true,
+    type: String,
+    requiresReload: true,
+    restricted: true,
+  });
+
   /**
    * Track the system version upon which point a migration was last applied.
    */
@@ -32,26 +46,6 @@ export const registerSystemSettings = () => {
   game.settings.register(CONFIG.MB.systemName, Settings.trackCarryingCapacity, {
     name: "MB.SettingsApplyOvercapacityPenalty",
     hint: "MB.SettingsApplyOvercapacityPenaltyHint",
-    scope: "world",
-    config: true,
-    type: Boolean,
-    default: true,
-  });
-
-  /** Whether to enable combat automation. E.g., automatically determining hit/miss and damage. */
-  game.settings.register(CONFIG.MB.systemName, Settings.hitAutomation, {
-    name: "MB.SettingsHitAutomation",
-    hint: "MB.SettingsHitAutomationHint",
-    scope: "world",
-    config: true,
-    type: Boolean,
-    default: true,
-  });
-
-  /** Whether to keep track of ranged weapon ammo */
-  game.settings.register(CONFIG.MB.systemName, Settings.trackAmmo, {
-    name: "MB.SettingsTrackAmmo",
-    hint: "MB.SettingsTrackAmmoHint",
     scope: "world",
     config: true,
     type: Boolean,
@@ -79,6 +73,16 @@ export const registerSystemSettings = () => {
     },
   });
 
+  /** Whether to keep track of ranged weapon ammo */
+  game.settings.register(CONFIG.MB.systemName, Settings.deleteZeroQuantity, {
+    name: "MB.SettingsDeleteZeroQuantity",
+    hint: "MB.SettingsDeleteZeroQuantityHint",
+    scope: "client",
+    config: true,
+    type: Boolean,
+    default: true,
+  });
+
   /** UI Font scheme */
   game.settings.register(CONFIG.MB.systemName, Settings.fontScheme, {
     name: "MB.SettingsFontScheme",
@@ -96,15 +100,24 @@ export const registerSystemSettings = () => {
     },
   });
 
-  /** Additional Abilities */
-  game.settings.register(CONFIG.MB.systemName, Settings.additionalAbilities, {
-    name: "MB.AdditionalAbilities",
-    hint: "MB.AdditionalAbilitiesHint",
-    default: "",
+  /** Whether to enable combat automation. E.g., automatically determining hit/miss and damage. */
+  game.settings.register(CONFIG.MB.systemName, Settings.hitAutomation, {
+    name: "MB.SettingsHitAutomation",
+    hint: "MB.SettingsHitAutomationHint",
+    scope: "world",
     config: true,
-    type: String,
-    requiresReload: true,
-    restricted: true,
+    type: Boolean,
+    default: true,
+  });
+
+  /** Whether to keep track of ranged weapon ammo */
+  game.settings.register(CONFIG.MB.systemName, Settings.trackAmmo, {
+    name: "MB.SettingsTrackAmmo",
+    hint: "MB.SettingsTrackAmmoHint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true,
   });
 
   /** The allowed classes menu */
@@ -188,4 +201,8 @@ export const setLastScvmfactorySelection = (lastScvmfactorySelection) => {
 
 export const getAdditionalAbilities = () => {
   return getSetting(Settings.additionalAbilities);
+};
+
+export const deleteZeroQuantity = () => {
+  return getSetting(Settings.deleteZeroQuantity);
 };

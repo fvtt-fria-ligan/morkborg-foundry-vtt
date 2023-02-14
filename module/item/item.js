@@ -1,3 +1,5 @@
+import { deleteZeroQuantity } from "../settings.js";
+
 /**
  * @extends {Item}
  */
@@ -208,10 +210,9 @@ export class MBItem extends Item {
   }
 
   async decrementQuantity() {
-    // can't reduce quantity below one
-    if (this.system.quantity == 1) {
+    if (this.system.quantity == 1 && deleteZeroQuantity()) {
       await this.delete();
-    } else if (this.system.quantity > 1) {
+    } else if (this.system.quantity >= 1) {
       await this.update({ ["data.quantity"]: this.system.quantity - 1 });
     }
   }
