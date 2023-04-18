@@ -62,7 +62,7 @@ export class MBCharacterSheet extends MBActorSheet {
     if (additionalAbilitiesCsv) {
       const customAbilities = additionalAbilitiesCsv.split(",").map((key) => {
         return {
-          value: data.system.abilities[key.toLowerCase()] ?? 0,
+          value: data.system.abilities[key.toLowerCase()]?.value ?? 0,
           label: key,
         };
       });
@@ -75,7 +75,6 @@ export class MBCharacterSheet extends MBActorSheet {
     this._prepareCharacterItems(data);
     data.system.trackCarryingCapacity = trackCarryingCapacity();
     data.system.trackAmmo = trackAmmo();
-    console.log(data.system);
     return superData;
   }
 

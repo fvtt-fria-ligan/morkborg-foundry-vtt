@@ -1,3 +1,7 @@
+# 2.6.2
+
+- Fix bug where custom abilities should only show NaN and not save.
+
 # 2.6.1
 
 - Add client setting to control delete-on-zero-quantity item behavior.
