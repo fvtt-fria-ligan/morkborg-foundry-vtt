@@ -11,15 +11,23 @@ import {
   drawFromTable,
   drawText,
 } from "../packutils.js";
-
-export const createRandomScvm = async () => {
-  const clazz = await pickRandomClass();
-  await createScvm(clazz);
-};
+import { getAllowedScvmClasses } from "../settings.js";
 
 export const createScvm = async (clazz) => {
   const scvm = await rollScvmForClass(clazz);
   await createActorWithScvm(scvm);
+};
+
+export const createScvmFromClassUuid = async (classUuid) => {
+  const clazz = await fromUuid(classUuid);
+  if (!clazz) {
+    // couldn't find class item, so bail
+    const err = `No class item found with UUID ${classUuid}`;
+    console.error(err);
+    ui.notifications.error(err);
+    return;
+  }
+  await createScvm(clazz);
 };
 
 export const scvmifyActor = async (actor, clazz) => {
@@ -27,40 +35,26 @@ export const scvmifyActor = async (actor, clazz) => {
   await updateActorWithScvm(actor, scvm);
 };
 
-const pickRandomClass = async () => {
-  const classPacks = findClassPacks();
-  if (classPacks.length === 0) {
-    // TODO: error on 0-length classPaths
-    return;
-  }
-  const packName = classPacks[Math.floor(Math.random() * classPacks.length)];
-  // TODO: debugging hardcodes
-  const pack = game.packs.get(packName);
-  const content = await pack.getDocuments();
-  return content.find((i) => i.type === "class");
-};
-
-export const findClassPacks = () => {
-  const classPacks = [];
-  const packKeys = game.packs.keys();
-  for (const packKey of packKeys) {
-    // moduleOrSystemName.packName
-    const keyParts = packKey.split(".");
-    if (keyParts.length === 2) {
-      const packName = keyParts[1];
-      if (packName.startsWith("class-") && packName.length > 6) {
-        // class pack
-        classPacks.push(packKey);
-      }
+export const findClasses = async () => {
+  // TODO: figure out if/where we filter
+  const classes = [];
+  for (const uuid of MB.scvmFactory.classUuids) {
+    const clazz = await fromUuid(uuid);
+    if (clazz && clazz.type == MB.itemTypes.class) {
+      classes.push(clazz);
     }
   }
-  return classPacks;
+  return classes;
 };
 
-export const classItemFromPack = async (packName) => {
-  const pack = game.packs.get(packName);
-  const content = await pack.getDocuments();
-  return content.find((i) => i.type === "class");
+export const findAllowedClasses = async () => {
+  const classes = await findClasses();
+  const allowedScvmClasses = getAllowedScvmClasses();
+  const filtered = classes.filter((c) => {
+    return !(c.uuid in allowedScvmClasses) || allowedScvmClasses[c.uuid];
+  });
+  console.log(filtered);
+  return filtered;
 };
 
 const startingFoodAndWater = async () => {
@@ -111,11 +105,6 @@ const startingEquipment = async () => {
       MB.scvmFactory.characterCreationPack,
       MB.scvmFactory.startingEquipmentTable3
     );
-    // const equipTable3 = ccContent.find(
-    //   (i) => i.name === MB.scvmFactory.startingEquipmentTable3
-    // );
-    // const eqDraw3 = await equipTable3.draw({ displayChat: false });
-    // const eq3 = await docsFromResults(eqDraw3.results);
     docs.push(...eq3);
   }
   return docs;
@@ -235,8 +224,6 @@ const startingRollItemsAndDescriptionLines = async (clazz) => {
         const content = await pack.getDocuments();
         const table = content.find((i) => i.name === tableName);
         if (table) {
-          // const tableDraw = await table.drawMany(numRolls, {displayChat: false});
-          // const results = tableDraw.results;
           const results = await compendiumTableDrawMany(table, numRolls);
           for (const result of results) {
             // draw result type: text (0), entity (1), or compendium (2)
@@ -248,7 +235,6 @@ const startingRollItemsAndDescriptionLines = async (clazz) => {
               // TODO: what do we want to do here?
             } else if (result.type === 2) {
               // compendium
-              //const entity = await entityFromResult(result);
               const doc = await documentFromResult(result);
               rollItems.push(doc);
             }

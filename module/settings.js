@@ -177,11 +177,15 @@ export const trackAmmo = () => {
   return getSetting(Settings.trackAmmo);
 };
 
-export const isScvmClassAllowed = (classPack) => {
+export const isScvmClassAllowed = (uuid) => {
   const allowedScvmClasses = getSetting(Settings.allowedScvmClasses);
-  return typeof allowedScvmClasses[classPack] === "undefined"
+  return typeof allowedScvmClasses[uuid] === "undefined"
     ? true
-    : !!allowedScvmClasses[classPack];
+    : !!allowedScvmClasses[uuid];
+};
+
+export const getAllowedScvmClasses = () => {
+  return getSetting(Settings.allowedScvmClasses);
 };
 
 export const setAllowedScvmClasses = (allowedScvmClasses) => {

@@ -234,6 +234,24 @@ MB.scvmFactory = {
   terribleTraitsTable: "Terribler Traits",
   brokenBodiesTable: "Brokener Bodies",
   badHabitsTable: "Badder Habits",
+
+  // modules wanting to add more character classes to the generator should append uuids to this list
+  classUuids: [
+    // { pack: "morkborg.class-classless-adventurer", name: "Adventurer", uuid: "Compendium.morkborg.class-classless-adventurer.p693pMIVYXMSRl8S" },
+    // { pack: "morkborg.class-esoteric-hermit", name: "Esoteric Hermit", uuid: "Compendium.morkborg.class-esoteric-hermit.ifSBk6ORiHgq3Xhr" },
+    // { pack: "morkborg.class-fanged-deserter", name: "Fanged Deserter", uuid: "Compendium.morkborg.class-fanged-deserter.2hjl45o4vXOgRgfq" },
+    // { pack: "morkborg.class-gutterborn-scum", name: "Gutterborn Scum", uuid: "Compendium.morkborg.class-gutterborn-scum.gAx8MWLiZcjiWQvc" },
+    // { pack: "morkborg.class-heretical-priest", name: "Heretical Priest", uuid: "Compendium.morkborg.class-heretical-priest.8CTmhMvQ5BJlGD2o" },
+    // { pack: "morkborg.class-occult-herbmaster", name: "Occult Herbmaster", uuid: "Compendium.morkborg.class-occult-herbmaster.59HKbdpBIXfiJt91" },
+    // { pack: "morkborg.class-wretched-royalty", name: "Wretched Royalty", uuid: "Compendium.morkborg.class-wretched-royalty.0h5xOAtzV4mm7X7D" },
+    "Compendium.morkborg.class-classless-adventurer.p693pMIVYXMSRl8S",
+    "Compendium.morkborg.class-esoteric-hermit.ifSBk6ORiHgq3Xhr",
+    "Compendium.morkborg.class-fanged-deserter.2hjl45o4vXOgRgfq",
+    "Compendium.morkborg.class-gutterborn-scum.gAx8MWLiZcjiWQvc",
+    "Compendium.morkborg.class-heretical-priest.8CTmhMvQ5BJlGD2o",
+    "Compendium.morkborg.class-occult-herbmaster.59HKbdpBIXfiJt91",
+    "Compendium.morkborg.class-wretched-royalty.0h5xOAtzV4mm7X7D",
+  ],
 };
 
 MB.brokenPack = "morkborg.random-tables";

@@ -8,9 +8,9 @@
       {{#each classes as |class|}}
       <li>
         <label>
-          <input name="{{class.name}}" type="checkbox" class="class-checkbox"
+          <input name="{{class.uuid}}" type="checkbox" class="class-checkbox"
           {{#if class.checked }}checked{{/if}} />
-          <div class="class-name">{{class.label}}</div>
+          <div class="class-name">{{class.name}}</div>
         </label>
       </li>
       {{/each}}

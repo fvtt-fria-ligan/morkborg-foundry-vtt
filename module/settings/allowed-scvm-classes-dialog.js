@@ -1,4 +1,4 @@
-import { findClassPacks } from "../scvm/scvmfactory.js";
+import { findClasses } from "../scvm/scvmfactory.js";
 import { isScvmClassAllowed, setAllowedScvmClasses } from "../settings.js";
 
 export class AllowedScvmClassesDialog extends FormApplication {
@@ -27,23 +27,25 @@ export class AllowedScvmClassesDialog extends FormApplication {
     html.find(".ok-button").click((event) => this._onOk(event));
   }
 
-  getData(options = {}) {
+  async getData(options = {}) {
+    const classes = await this._getClassData();
+    console.log(classes);
     return mergeObject(super.getData(options), {
-      classes: this._getAllowedClasses(),
+      classes,
     });
   }
 
-  _getAllowedClasses() {
-    const classPacks = findClassPacks();
-    return classPacks
-      .map((classPack) => {
-        return {
-          name: classPack,
-          label: classPack.split("class-")[1].replace(/-/g, " "),
-          checked: isScvmClassAllowed(classPack),
-        };
-      })
-      .sort((a, b) => (a.label > b.label ? 1 : -1));
+  async _getClassData() {
+    const classes = await findClasses();
+    const classData = classes.map((clazz) => {
+      return {
+        name: clazz.name,
+        uuid: clazz.uuid,
+        checked: isScvmClassAllowed(clazz.uuid),
+      };
+    });
+    classData.sort((a, b) => (a.name > b.name ? 1 : -1));
+    return classData;
   }
 
   _onToggleAll(event) {

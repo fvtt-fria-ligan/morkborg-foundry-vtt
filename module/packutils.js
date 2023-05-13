@@ -71,6 +71,7 @@ export const documentFromResult = async (result) => {
   const doc = await fromUuid(uuid);
   if (!doc) {
     console.log(`Could not find ${uuid}`);
+    console.log(result);
   }
   return doc;
 };

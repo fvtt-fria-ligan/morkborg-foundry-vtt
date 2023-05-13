@@ -21,6 +21,13 @@ export const shuffle = (array) => {
   return array;
 };
 
+export const sample = (array) => {
+  if (!array) {
+    return;
+  }
+  return array[Math.floor(Math.random() * array.length)];
+};
+
 export const d20Formula = (modifier) => {
   return rollFormula("d20", modifier);
 };

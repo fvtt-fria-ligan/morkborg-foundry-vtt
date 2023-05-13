@@ -1,36 +1,34 @@
 import {
-  isScvmClassAllowed,
   setLastScvmfactorySelection,
   getLastScvmfactorySelection,
 } from "../settings.js";
-import {
-  classItemFromPack,
-  createScvm,
-  findClassPacks,
-  scvmifyActor,
-} from "./scvmfactory.js";
+import { createScvm, findAllowedClasses, scvmifyActor } from "./scvmfactory.js";
+import { sample } from "../utils.js";
+
+export const showScvmDialog = async () => {
+  const lastScvmfactorySelection = getLastScvmfactorySelection();
+  const allowedClasses = await findAllowedClasses();
+  const classData = allowedClasses
+    .map((c) => {
+      return {
+        name: c.name,
+        uuid: c.uuid,
+        checked:
+          lastScvmfactorySelection.length > 0
+            ? lastScvmfactorySelection.includes(c.uuid)
+            : true,
+      };
+    })
+    .sort((a, b) => (a.name > b.name ? 1 : -1));
+  const dialog = new ScvmDialog();
+  dialog.classes = classData;
+  dialog.render(true);
+};
 
 export default class ScvmDialog extends Application {
   constructor(actor = null, options = {}) {
     super(options);
     this.actor = actor;
-    const classPacks = findClassPacks();
-    const lastScvmfactorySelection = getLastScvmfactorySelection();
-    this.classes = classPacks
-      .map((p) => {
-        return {
-          name: p.split("class-")[1].replace(/-/g, " "),
-          pack: p,
-          checked:
-            lastScvmfactorySelection.length > 0
-              ? lastScvmfactorySelection.includes(p)
-              : true,
-        };
-      })
-      .filter((c) => {
-        return isScvmClassAllowed(c.pack);
-      });
-    this.classes.sort((a, b) => (a.name > b.name ? 1 : -1));
   }
 
   /** @override */
@@ -82,23 +80,23 @@ export default class ScvmDialog extends Application {
   async _onScvm(event) {
     event.preventDefault();
     const form = $(event.currentTarget).parents(".scvm-dialog")[0];
-    const selected = [];
+    const selectedUuids = [];
     $(form)
       .find("input:checked")
       .each(function () {
-        selected.push($(this).attr("name"));
+        selectedUuids.push($(this).attr("name"));
       });
 
-    if (selected.length === 0) {
+    if (selectedUuids.length === 0) {
       // nothing selected, so bail
       return;
     }
-    setLastScvmfactorySelection(selected);
-    const packName = selected[Math.floor(Math.random() * selected.length)];
-    const clazz = await classItemFromPack(packName);
+    setLastScvmfactorySelection(selectedUuids);
+    const uuid = sample(selectedUuids);
+    const clazz = await fromUuid(uuid);
     if (!clazz) {
       // couldn't find class item, so bail
-      const err = `No class item found in compendium ${packName}`;
+      const err = `No class item ${uuid} found`;
       console.error(err);
       ui.notifications.error(err);
       return;
