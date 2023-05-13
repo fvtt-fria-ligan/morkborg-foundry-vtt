@@ -1,10 +1,25 @@
-import ScvmDialog from "./scvm/scvm-dialog.js";
+import { showScvmDialog } from "./scvm/scvm-dialog.js";
+import { createScvmFromClassUuid } from "./scvm/scvmfactory.js";
 import { handleRollCardButton } from "./chat/roll-card.js";
 
 export const registerHooks = () => {
   Hooks.once("ready", () => {
     applyFontsAndColors();
     Hooks.call("morkborgReady");
+  });
+  Hooks.on("renderActorDirectory", addCreateScvmButton);
+  Hooks.on("renderChatMessage", handleRollCardButton);
+
+  Hooks.on("renderJournalTextPageSheet", (journalTextPageSheet, html) => {
+    html.find(".draw-from-table").on("click", drawFromRollableTable.bind(this));
+    html.find(".rollable").click(roll.bind(this));
+    html.find(".create-scvm").click(createScvm.bind(this));
+  });
+
+  Hooks.on("closeJournalTextPageSheet", (journalTextPageSheet, html) => {
+    html.find(".draw-from-table").off("click");
+    html.find(".rollable").off("click");
+    html.find(".create-scvm").off("click");
   });
 };
 
@@ -53,7 +68,7 @@ const applyFontsAndColors = () => {
   );
 };
 
-Hooks.on("renderActorDirectory", (app, html) => {
+const addCreateScvmButton = (app, html) => {
   if (game.user.can("ACTOR_CREATE")) {
     // only show the Create Scvm button to users who can create actors
     const section = document.createElement("header");
@@ -73,9 +88,35 @@ Hooks.on("renderActorDirectory", (app, html) => {
     section
       .querySelector(".create-scvm-button")
       .addEventListener("click", () => {
-        new ScvmDialog().render(true);
+        showScvmDialog();
       });
   }
-});
+};
 
-Hooks.on("renderChatMessage", handleRollCardButton);
+async function drawFromRollableTable(event) {
+  event.preventDefault();
+  const uuid = event.currentTarget.getAttribute("data-uuid");
+  if (uuid) {
+    const table = await fromUuid(uuid);
+    if (table instanceof RollTable) {
+      const formula = event.currentTarget.getAttribute("data-roll");
+      const roll = formula ? new Roll(formula) : null;
+      await table.draw({ roll });
+    }
+  }
+}
+
+function roll(event) {
+  event.preventDefault();
+  const formula = event.currentTarget.dataset.roll;
+  if (formula) {
+    const roll = new Roll(formula);
+    roll.toMessage();
+  }
+}
+
+async function createScvm(event) {
+  event.preventDefault();
+  const uuid = event.currentTarget.dataset.uuid;
+  await createScvmFromClassUuid(uuid);
+}

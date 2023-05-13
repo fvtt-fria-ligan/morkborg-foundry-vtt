@@ -8,6 +8,7 @@ import { MBCreatureSheet } from "./actor/sheet/creature-sheet.js";
 import { MBFollowerSheet } from "./actor/sheet/follower-sheet.js";
 import { registerCombat } from "./combat.js";
 import { MB } from "./config.js";
+import { enrichTextEditors } from "./enricher.js";
 import { registerFonts } from "./fonts.js";
 import { configureHandlebars } from "./handlebars.js";
 import { registerHooks } from "./hooks.js";
@@ -16,6 +17,7 @@ import { MBItemSheet } from "./item/sheet/item-sheet.js";
 import { MBJournalSheet } from "./journal/journal-sheet.js";
 import { registerMacros } from "./macros.js";
 import { registerSystemSettings } from "./settings.js";
+import { dumpUuids } from "./exporter.js";
 
 Hooks.once("init", async function () {
   console.log("Initializing MÖRK BORG system");
@@ -24,11 +26,18 @@ Hooks.once("init", async function () {
   registerSystemSettings();
   registerDocumentClasses();
   registerSheets();
+  enrichTextEditors();
   configureHandlebars();
   registerCombat();
   registerMacros();
   registerHooks();
   registerFonts();
+
+  game.exporter = {
+    // exportSubfoldersToCompendium,
+    // locationPadRollTableIndexHtml
+    dumpUuids,
+  };
 });
 
 const registerDocumentClasses = () => {

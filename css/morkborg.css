@@ -21,6 +21,23 @@
   --window-border-color: #222222;
 }
 
+.draw-from-table {
+  cursor: pointer;
+  font-size: 18px;
+  margin-left: 5px;
+}
+.draw-from-table:hover {
+  text-shadow: 0 0 10px var(--highlight-background-color);
+}
+
+.create-scvm {
+  text-decoration: underline;
+}
+.create-scvm:hover {
+  cursor: pointer;
+  text-shadow: 0 0 10px var(--highlight-background-color);
+}
+
 @font-face {
   font-family: "Alegreya";
   src: url("../assets/fonts/Alegreya-Regular.ttf") format("truetype");
@@ -773,6 +790,14 @@
 }
 .morkborg.sheet.actor.character .sheet-body .encumbered {
   color: var(--highlight-background-color);
+}
+
+.journal-sheet .rollable {
+  text-decoration: underline;
+}
+.journal-sheet .rollable:hover {
+  cursor: pointer;
+  text-shadow: 0 0 10px var(--highlight-background-color);
 }
 
 .morkborg.sheet.actor .sheet-header.npc {
