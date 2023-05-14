@@ -1,0 +1,16 @@
+.draw-from-table {
+  cursor: pointer;
+  font-size: 18px;
+  margin-left: 5px;
+  &:hover {
+    text-shadow: 0 0 10px var(--highlight-background-color);
+  }
+}
+
+.create-scvm {
+  text-decoration: underline;
+  &:hover {
+    cursor: pointer;
+    text-shadow: 0 0 10px var(--highlight-background-color);
+  }
+}

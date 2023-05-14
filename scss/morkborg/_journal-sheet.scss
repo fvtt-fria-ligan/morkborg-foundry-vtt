@@ -1,0 +1,9 @@
+.journal-sheet {
+  .rollable {
+    text-decoration: underline;
+    &:hover {
+      cursor: pointer;
+      text-shadow: 0 0 10px var(--highlight-background-color);
+    }
+  }
+}
