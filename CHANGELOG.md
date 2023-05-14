@@ -1,3 +1,9 @@
+# 2.7.0
+
+- Add support for @DRAW tags and create-scvm links in journal pages.
+- Switch scvmfactory character generator to use an explicit list of class item UUIDs rather than scanning for "Class - Foo" compendiums.
+  (modules adding classes should append their uuids to the CONFIG.MB.scvmfactory.classUuids array)
+
 # 2.6.2
 
 - Fix bug where custom abilities should only show NaN and not save.
