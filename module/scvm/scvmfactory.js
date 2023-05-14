@@ -36,7 +36,6 @@ export const scvmifyActor = async (actor, clazz) => {
 };
 
 export const findClasses = async () => {
-  // TODO: figure out if/where we filter
   const classes = [];
   for (const uuid of MB.scvmFactory.classUuids) {
     const clazz = await fromUuid(uuid);
@@ -53,7 +52,6 @@ export const findAllowedClasses = async () => {
   const filtered = classes.filter((c) => {
     return !(c.uuid in allowedScvmClasses) || allowedScvmClasses[c.uuid];
   });
-  console.log(filtered);
   return filtered;
 };
 
