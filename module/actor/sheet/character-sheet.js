@@ -2,7 +2,7 @@ import MBActorSheet from "./actor-sheet.js";
 import { MB } from "../../config.js";
 import RestDialog from "./rest-dialog.js";
 import { trackAmmo, trackCarryingCapacity } from "../../settings.js";
-import ScvmDialog from "../../scvm/scvm-dialog.js";
+import { showScvmDialog } from "../../scvm/scvm-dialog.js";
 import { byName } from "../../utils.js";
 import { rollBroken } from "../broken.js";
 import { getBetter } from "../get-better.js";
@@ -200,7 +200,7 @@ export class MBCharacterSheet extends MBActorSheet {
 
   _onScvmify(event) {
     event.preventDefault();
-    new ScvmDialog(this.actor).render(true);
+    showScvmDialog(this.actor);
   }
 
   _onBroken(event) {

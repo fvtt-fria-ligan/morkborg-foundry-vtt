@@ -1,3 +1,11 @@
+# 2.7.2
+
+- Fix Scvmify button on character sheet.
+
+# 2.7.1
+
+- Rebuild as an attempt to work around github network issues.
+
 # 2.7.0
 
 - Add support for @DRAW tags and create-scvm links in journal pages.

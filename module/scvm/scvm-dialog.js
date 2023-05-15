@@ -5,7 +5,7 @@ import {
 import { createScvm, findAllowedClasses, scvmifyActor } from "./scvmfactory.js";
 import { sample } from "../utils.js";
 
-export const showScvmDialog = async () => {
+export const showScvmDialog = async (actor) => {
   const lastScvmfactorySelection = getLastScvmfactorySelection();
   const allowedClasses = await findAllowedClasses();
   const classData = allowedClasses
@@ -21,16 +21,12 @@ export const showScvmDialog = async () => {
     })
     .sort((a, b) => (a.name > b.name ? 1 : -1));
   const dialog = new ScvmDialog();
+  dialog.actor = actor;
   dialog.classes = classData;
   dialog.render(true);
 };
 
 export default class ScvmDialog extends Application {
-  constructor(actor = null, options = {}) {
-    super(options);
-    this.actor = actor;
-  }
-
   /** @override */
   static get defaultOptions() {
     const options = super.defaultOptions;
