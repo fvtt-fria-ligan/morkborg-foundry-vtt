@@ -1,3 +1,7 @@
+# 2.7.3
+
+- Remove directory containing illegal character.
+
 # 2.7.2
 
 - Fix Scvmify button on character sheet.
