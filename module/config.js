@@ -239,16 +239,26 @@ MB.scvmFactory = {
   classUuids: [
     // classless adventurer
     "Compendium.morkborg.class-classless-adventurer.p693pMIVYXMSRl8S",
+    // cursed skinwalker
+    "Compendium.morkborg.class-cursed-skinwalker.ZuSWpDI76OliQUrE",
+    // dead god's prophet
+    "Compendium.morkborg.class-dead-gods-prophet.BNOhaA4ebt6Bzx4E",
     // esoteric hermit
     "Compendium.morkborg.class-esoteric-hermit.ifSBk6ORiHgq3Xhr",
     // fanged deserter
     "Compendium.morkborg.class-fanged-deserter.2hjl45o4vXOgRgfq",
+    // forlorn philosopher
+    "Compendium.morkborg.class-forlorn-philosopher.L9Vwzbx5o0OMdJm0",
     // gutterborn scum
     "Compendium.morkborg.class-gutterborn-scum.gAx8MWLiZcjiWQvc",
     // heretical priest
     "Compendium.morkborg.class-heretical-priest.8CTmhMvQ5BJlGD2o",
     // occult herbmaster
     "Compendium.morkborg.class-occult-herbmaster.59HKbdpBIXfiJt91",
+    // pale one
+    "Compendium.morkborg.class-pale-one.wLJV0VJT5I234obT",
+    // sacrilegious songbird
+    "Compendium.morkborg.class-sacrilegious-songbird.Y0KSTCrUAQNoBKEX",
     // wretched royalty
     "Compendium.morkborg.class-wretched-royalty.0h5xOAtzV4mm7X7D",
   ],

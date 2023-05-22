@@ -29,6 +29,12 @@ If you want some third-party content, be sure to check out the [MÖRK BORG Third
 - MÖRK BORG is copyright Ockult Örtmästare Games and Stockholm Kartell.
 - Explicit permission has been given by the MÖRK BORG authors for inclusion of the following game content:
   - Names, stats, and descriptions of Weapons, Armor, Equipment, Scrolls, Optional Classes, Optional Tables, Arcane Catastrophes, Creatures, and Outcasts/Followers.
+- MÖRK BORG CULT (MBC) content:
+  - [Cursed Skinwalker](https://makedatanotlore.itch.io/cursed-skinwalker) by [Karl Druid](https://makedatanotlore.itch.io/).
+  - [Dead God's Prophet](https://drive.google.com/file/d/1NlxdeWP5p--1jw_4pueDO0rAy721mMJ_/view) by [Greg Saunders](https://firerubydesigns.co.uk/home?i=1).
+  - [Forlorn Philosopher](https://freeleaguepublishing.com/en/store/?product_id=5985103151253) by [Pelle Nilsson](http://occultherbmaster.blogspot.com/).
+  - [Pale One](https://drive.google.com/file/d/1QKI25D3spENoQb0CnB4I3uMPgCBrusDx/view) by Tim Rudloff.
+  - [Sacrilegious Songbird](https://makedatanotlore.itch.io/sacrilegious-songbird) by [Karl Druid](https://makedatanotlore.itch.io/).
 - Programming
   - System implementation by mcglintlock and eeyun.
 - Images

@@ -29,7 +29,6 @@ export class AllowedScvmClassesDialog extends FormApplication {
 
   async getData(options = {}) {
     const classes = await this._getClassData();
-    console.log(classes);
     return mergeObject(super.getData(options), {
       classes,
     });

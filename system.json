@@ -23,6 +23,13 @@
       "type": "Item"
     },
     {
+      "name": "class-cursed-skinwalker",
+      "label": "Class - Cursed Skinwalker",
+      "system": "morkborg",
+      "path": "./packs/class-cursed-skinwalker.db",
+      "type": "Item"
+    },
+    {
       "name": "class-esoteric-hermit",
       "label": "Class - Esoteric Hermit",
       "system": "morkborg",
@@ -34,6 +41,13 @@
       "label": "Class - Fanged Deserter",
       "system": "morkborg",
       "path": "./packs/class-fanged-deserter.db",
+      "type": "Item"
+    },
+    {
+      "name": "class-forlorn-philosopher",
+      "label": "Class - Forlorn Philosopher",
+      "system": "morkborg",
+      "path": "./packs/class-forlorn-philosopher.db",
       "type": "Item"
     },
     {
@@ -55,6 +69,20 @@
       "label": "Class - Occult Herbmaster",
       "system": "morkborg",
       "path": "./packs/class-occult-herbmaster.db",
+      "type": "Item"
+    },
+    {
+      "name": "class-pale-one",
+      "label": "Class - Pale One",
+      "system": "morkborg",
+      "path": "./packs/class-pale-one.db",
+      "type": "Item"
+    },
+    {
+      "name": "class-sacrilegious-songbird",
+      "label": "Class - Sacrilegious Songbird",
+      "system": "morkborg",
+      "path": "./packs/class-sacrilegious-songbird.db",
       "type": "Item"
     },
     {
@@ -135,6 +163,20 @@
       "type": "RollTable"
     },
     {
+      "name": "rolls-cursed-skinwalker",
+      "label": "Rolls - Cursed Skinwalker",
+      "system": "morkborg",
+      "path": "./packs/rolls-cursed-skinwalker.db",
+      "type": "RollTable"
+    },
+    {
+      "name": "rolls-dead-gods-prophet",
+      "label": "Rolls - Dead God's Prophet",
+      "system": "morkborg",
+      "path": "./packs/rolls-dead-gods-prophet.db",
+      "type": "RollTable"
+    },
+    {
       "name": "rolls-esoteric-hermit",
       "label": "Rolls - Esoteric Hermit",
       "system": "morkborg",
@@ -146,6 +188,13 @@
       "label": "Rolls - Fanged Deserter",
       "system": "morkborg",
       "path": "./packs/rolls-fanged-deserter.db",
+      "type": "RollTable"
+    },
+    {
+      "name": "rolls-forlorn-philosopher",
+      "label": "Rolls - Forlorn Philosopher",
+      "system": "morkborg",
+      "path": "./packs/rolls-forlorn-philosopher.db",
       "type": "RollTable"
     },
     {
@@ -167,6 +216,20 @@
       "label": "Rolls - Occult Herbmaster",
       "system": "morkborg",
       "path": "./packs/rolls-occult-herbmaster.db",
+      "type": "RollTable"
+    },
+    {
+      "name": "rolls-pale-one",
+      "label": "Rolls - Pale One",
+      "system": "morkborg",
+      "path": "./packs/rolls-pale-one.db",
+      "type": "RollTable"
+    },
+    {
+      "name": "rolls-sacrilegious-songbird",
+      "label": "Rolls - Sacrilegious Songbird",
+      "system": "morkborg",
+      "path": "./packs/rolls-sacrilegious-songbird.db",
       "type": "RollTable"
     },
     {
