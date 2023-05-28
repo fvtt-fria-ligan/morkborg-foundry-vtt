@@ -4,8 +4,8 @@
   "description": "Foundry VTT system for MÖRK BORG.",
   "version": "2.0.0",
   "compatibility": {
-    "minimum": 10,
-    "verified": 10
+    "minimum": 11,
+    "verified": 11
   },
   "authors": [
     {
@@ -16,227 +16,31 @@
   "styles": ["css/morkborg.css"],
   "packs": [
     {
-      "name": "class-classless-adventurer",
-      "label": "Class - Classless Adventurer",
+      "name": "morkborg-actors",
+      "label": "MÖRK BORG (Actors)",
       "system": "morkborg",
-      "path": "./packs/class-classless-adventurer.db",
-      "type": "Item"
-    },
-    {
-      "name": "class-cursed-skinwalker",
-      "label": "Class - Cursed Skinwalker",
-      "system": "morkborg",
-      "path": "./packs/class-cursed-skinwalker.db",
-      "type": "Item"
-    },
-    {
-      "name": "class-esoteric-hermit",
-      "label": "Class - Esoteric Hermit",
-      "system": "morkborg",
-      "path": "./packs/class-esoteric-hermit.db",
-      "type": "Item"
-    },
-    {
-      "name": "class-fanged-deserter",
-      "label": "Class - Fanged Deserter",
-      "system": "morkborg",
-      "path": "./packs/class-fanged-deserter.db",
-      "type": "Item"
-    },
-    {
-      "name": "class-forlorn-philosopher",
-      "label": "Class - Forlorn Philosopher",
-      "system": "morkborg",
-      "path": "./packs/class-forlorn-philosopher.db",
-      "type": "Item"
-    },
-    {
-      "name": "class-gutterborn-scum",
-      "label": "Class - Gutterborn Scum",
-      "system": "morkborg",
-      "path": "./packs/class-gutterborn-scum.db",
-      "type": "Item"
-    },
-    {
-      "name": "class-heretical-priest",
-      "label": "Class - Heretical Priest",
-      "system": "morkborg",
-      "path": "./packs/class-heretical-priest.db",
-      "type": "Item"
-    },
-    {
-      "name": "class-occult-herbmaster",
-      "label": "Class - Occult Herbmaster",
-      "system": "morkborg",
-      "path": "./packs/class-occult-herbmaster.db",
-      "type": "Item"
-    },
-    {
-      "name": "class-pale-one",
-      "label": "Class - Pale One",
-      "system": "morkborg",
-      "path": "./packs/class-pale-one.db",
-      "type": "Item"
-    },
-    {
-      "name": "class-sacrilegious-songbird",
-      "label": "Class - Sacrilegious Songbird",
-      "system": "morkborg",
-      "path": "./packs/class-sacrilegious-songbird.db",
-      "type": "Item"
-    },
-    {
-      "name": "class-wretched-royalty",
-      "label": "Class - Wretched Royalty",
-      "system": "morkborg",
-      "path": "./packs/class-wretched-royalty.db",
-      "type": "Item"
-    },
-    {
-      "name": "containers",
-      "label": "Containers",
-      "system": "morkborg",
-      "path": "./packs/containers.db",
+      "path": "./packs/morkborg-actors",
       "type": "Actor"
     },
     {
-      "name": "creatures",
-      "label": "Creatures",
+      "name": "morkborg-items",
+      "label": "MÖRK BORG (Items)",
       "system": "morkborg",
-      "path": "./packs/creatures.db",
-      "type": "Actor"
-    },
-    {
-      "name": "equipment-armor",
-      "label": "Equipment - Armor",
-      "system": "morkborg",
-      "path": "./packs/equipment-armor.db",
+      "path": "./packs/morkborg-items",
       "type": "Item"
     },
     {
-      "name": "equipment-misc",
-      "label": "Equipment - Misc",
+      "name": "morkborg-macros",
+      "label": "MÖRK BORG (Macros)",
       "system": "morkborg",
-      "path": "./packs/equipment-misc.db",
-      "type": "Item"
-    },
-    {
-      "name": "equipment-scrolls",
-      "label": "Equipment - Scrolls",
-      "system": "morkborg",
-      "path": "./packs/equipment-scrolls.db",
-      "type": "Item"
-    },
-    {
-      "name": "equipment-weapons",
-      "label": "Equipment - Weapons",
-      "system": "morkborg",
-      "path": "./packs/equipment-weapons.db",
-      "type": "Item"
-    },
-    {
-      "name": "follower-items",
-      "label": "Follower Items",
-      "system": "morkborg",
-      "path": "./packs/follower-items.db",
-      "type": "Item"
-    },
-    {
-      "name": "followers",
-      "label": "Followers",
-      "system": "morkborg",
-      "path": "./packs/followers.db",
-      "type": "Actor"
-    },
-    {
-      "name": "macros-occult-herbmaster",
-      "label": "Macros - Occult Herbmaster",
-      "system": "morkborg",
-      "path": "./packs/macros-occult-herbmaster.db",
+      "path": "./packs/morkborg-macros",
       "type": "Macro"
     },
     {
-      "name": "random-tables",
-      "label": "Random Tables",
+      "name": "morkborg-tables",
+      "label": "MÖRK BORG (Tables)",
       "system": "morkborg",
-      "path": "./packs/random-tables.db",
-      "type": "RollTable"
-    },
-    {
-      "name": "rolls-cursed-skinwalker",
-      "label": "Rolls - Cursed Skinwalker",
-      "system": "morkborg",
-      "path": "./packs/rolls-cursed-skinwalker.db",
-      "type": "RollTable"
-    },
-    {
-      "name": "rolls-dead-gods-prophet",
-      "label": "Rolls - Dead God's Prophet",
-      "system": "morkborg",
-      "path": "./packs/rolls-dead-gods-prophet.db",
-      "type": "RollTable"
-    },
-    {
-      "name": "rolls-esoteric-hermit",
-      "label": "Rolls - Esoteric Hermit",
-      "system": "morkborg",
-      "path": "./packs/rolls-esoteric-hermit.db",
-      "type": "RollTable"
-    },
-    {
-      "name": "rolls-fanged-deserter",
-      "label": "Rolls - Fanged Deserter",
-      "system": "morkborg",
-      "path": "./packs/rolls-fanged-deserter.db",
-      "type": "RollTable"
-    },
-    {
-      "name": "rolls-forlorn-philosopher",
-      "label": "Rolls - Forlorn Philosopher",
-      "system": "morkborg",
-      "path": "./packs/rolls-forlorn-philosopher.db",
-      "type": "RollTable"
-    },
-    {
-      "name": "rolls-gutterborn-scum",
-      "label": "Rolls - Gutterborn Scum",
-      "system": "morkborg",
-      "path": "./packs/rolls-gutterborn-scum.db",
-      "type": "RollTable"
-    },
-    {
-      "name": "rolls-heretical-priest",
-      "label": "Rolls - Heretical Priest",
-      "system": "morkborg",
-      "path": "./packs/rolls-heretical-priest.db",
-      "type": "RollTable"
-    },
-    {
-      "name": "rolls-occult-herbmaster",
-      "label": "Rolls - Occult Herbmaster",
-      "system": "morkborg",
-      "path": "./packs/rolls-occult-herbmaster.db",
-      "type": "RollTable"
-    },
-    {
-      "name": "rolls-pale-one",
-      "label": "Rolls - Pale One",
-      "system": "morkborg",
-      "path": "./packs/rolls-pale-one.db",
-      "type": "RollTable"
-    },
-    {
-      "name": "rolls-sacrilegious-songbird",
-      "label": "Rolls - Sacrilegious Songbird",
-      "system": "morkborg",
-      "path": "./packs/rolls-sacrilegious-songbird.db",
-      "type": "RollTable"
-    },
-    {
-      "name": "rolls-wretched-royalty",
-      "label": "Rolls - Wretched Royalty",
-      "system": "morkborg",
-      "path": "./packs/rolls-wretched-royalty.db",
+      "path": "./packs/morkborg-tables",
       "type": "RollTable"
     }
   ],
