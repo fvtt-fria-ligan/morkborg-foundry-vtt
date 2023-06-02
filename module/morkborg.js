@@ -18,6 +18,7 @@ import { MBJournalSheet } from "./journal/journal-sheet.js";
 import { registerMacros } from "./macros.js";
 import { registerSystemSettings } from "./settings.js";
 import { dumpUuids } from "./exporter.js";
+import { drawFromTable } from "./packutils.js";
 
 Hooks.once("init", async function () {
   console.log("Initializing MÖRK BORG system");
@@ -37,6 +38,7 @@ Hooks.once("init", async function () {
     // exportSubfoldersToCompendium,
     // locationPadRollTableIndexHtml
     dumpUuids,
+    drawFromTable,
   };
 });
 

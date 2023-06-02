@@ -29,12 +29,6 @@ If you want some third-party content, be sure to check out the [MÖRK BORG Third
 - MÖRK BORG is copyright Ockult Örtmästare Games and Stockholm Kartell.
 - Explicit permission has been given by the MÖRK BORG authors for inclusion of the following game content:
   - Names, stats, and descriptions of Weapons, Armor, Equipment, Scrolls, Optional Classes, Optional Tables, Arcane Catastrophes, Creatures, and Outcasts/Followers.
-- MÖRK BORG CULT (MBC) content:
-  - [Cursed Skinwalker](https://makedatanotlore.itch.io/cursed-skinwalker) by [Karl Druid](https://makedatanotlore.itch.io/).
-  - [Dead God's Prophet](https://drive.google.com/file/d/1NlxdeWP5p--1jw_4pueDO0rAy721mMJ_/view) by [Greg Saunders](https://firerubydesigns.co.uk/home?i=1).
-  - [Forlorn Philosopher](https://freeleaguepublishing.com/en/store/?product_id=5985103151253) by [Pelle Nilsson](http://occultherbmaster.blogspot.com/).
-  - [Pale One](https://drive.google.com/file/d/1QKI25D3spENoQb0CnB4I3uMPgCBrusDx/view) by Tim Rudloff.
-  - [Sacrilegious Songbird](https://makedatanotlore.itch.io/sacrilegious-songbird) by [Karl Druid](https://makedatanotlore.itch.io/).
 - Programming
   - System implementation by mcglintlock and eeyun.
 - Images
@@ -48,6 +42,27 @@ If you want some third-party content, be sure to check out the [MÖRK BORG Third
   - [Fette Trump Deutsch](https://www.dafont.com/fette-trump-deutsch.font) by [Dieter Steffmann](http://www.steffmann.de/wordpress/), and free for personal use.
   - [Old Cupboard](https://coneofnegativeenergy.com/2019/11/08/a-new-thing-old-cupboard-otf/) by [Cone Of Negative Energy](https://coneofnegativeenergy.com/) (Cecil Howe), released under OFL.
   - [Special Elite](https://fonts.google.com/specimen/Special+Elite) by Astigmatic, under Apache license.
+
+## MÖRK BORG CULT (MBC) content:
+
+- [Cursed Skinwalker](https://makedatanotlore.itch.io/cursed-skinwalker) by [Karl Druid](https://makedatanotlore.itch.io/).
+
+* [d100 Items and Trinkets](https://morkborg.com/content/) by Pelle Svensson (with approval from Johan Nohr).
+
+- [Dead God's Prophet](https://drive.google.com/file/d/1NlxdeWP5p--1jw_4pueDO0rAy721mMJ_/view) by [Greg Saunders](https://firerubydesigns.co.uk/home?i=1).
+
+* [Eat Prey Kill](https://makedatanotlore.itch.io/eat-prey-kill) by [Karl Druid](https://makedatanotlore.itch.io/)
+
+- [Forlorn Philosopher](https://freeleaguepublishing.com/en/store/?product_id=5985103151253) by [Pelle Nilsson](http://occultherbmaster.blogspot.com/).
+
+* [Overland Travel](https://morkborg.com/content/) by [Svante Landgraf](http://dimfrost.itch.io/).
+
+- [Pale One](https://drive.google.com/file/d/1QKI25D3spENoQb0CnB4I3uMPgCBrusDx/view) by Tim Rudloff.
+- [Sacrilegious Songbird](https://makedatanotlore.itch.io/sacrilegious-songbird) by [Karl Druid](https://makedatanotlore.itch.io/).
+
+* [The Merchant](https://morkborg.com/content/) by [Johnny Carhat](https://metalskull-games.itch.io/)
+* [The Tenebrous Reliquary](https://morkborg.com/content/) by Anders Arpi, Ben H, Dom Cohen, Ripley C, Johan Nohr, Karl Druid, Leander E, Paul Wilde and Flora v/d B.
+* [Unheroic Feats](https://drive.google.com/file/d/1A4dl3yRXt19Am0ZV5tPyqjfnkJR0R5f8/view) by [Johnny Carhat](https://metalskull-games.itch.io/).
 
 ## License
 
