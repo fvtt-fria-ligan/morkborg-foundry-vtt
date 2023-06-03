@@ -16,31 +16,31 @@
   "styles": ["css/morkborg.css"],
   "packs": [
     {
-      "name": "morkborg-actors",
+      "name": "mork-borg-actors",
       "label": "MÖRK BORG (Actors)",
       "system": "morkborg",
-      "path": "./packs/morkborg-actors",
+      "path": "./packs/mork-borg-actors",
       "type": "Actor"
     },
     {
-      "name": "morkborg-items",
+      "name": "mork-borg-items",
       "label": "MÖRK BORG (Items)",
       "system": "morkborg",
-      "path": "./packs/morkborg-items",
+      "path": "./packs/mork-borg-items",
       "type": "Item"
     },
     {
-      "name": "morkborg-macros",
+      "name": "mork-borg-macros",
       "label": "MÖRK BORG (Macros)",
       "system": "morkborg",
-      "path": "./packs/morkborg-macros",
+      "path": "./packs/mork-borg-macros",
       "type": "Macro"
     },
     {
-      "name": "morkborg-tables",
+      "name": "mork-borg-tables",
       "label": "MÖRK BORG (Tables)",
       "system": "morkborg",
-      "path": "./packs/morkborg-tables",
+      "path": "./packs/mork-borg-tables",
       "type": "RollTable"
     }
   ],

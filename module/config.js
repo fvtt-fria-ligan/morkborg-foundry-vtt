@@ -219,11 +219,11 @@ MB.weaponTypes = {
 
 // Config variables for the Scvmfactory character generator
 MB.scvmFactory = {
-  foodAndWaterPack: "morkborg.morkborg-items",
+  foodAndWaterPack: "morkborg.mork-borg-items",
   foodItemName: "Dried food",
   waterItemName: "Waterskin",
 
-  characterCreationPack: "morkborg.morkborg-tables",
+  characterCreationPack: "morkborg.mork-borg-tables",
   startingEquipmentTable1: "Starting Equipment (1)",
   startingEquipmentTable2: "Starting Equipment (2)",
   startingEquipmentTable3: "Starting Equipment (3)",
@@ -238,29 +238,29 @@ MB.scvmFactory = {
   // modules wanting to add more character classes to the generator should append uuids to this list
   classUuids: [
     // classless adventurer
-    "Compendium.morkborg.morkborg-items.p693pMIVYXMSRl8S",
+    "Compendium.morkborg.mork-borg-items.p693pMIVYXMSRl8S",
     // cursed skinwalker
-    "Compendium.morkborg.morkborg-items.ZuSWpDI76OliQUrE",
+    "Compendium.morkborg.mork-borg-items.ZuSWpDI76OliQUrE",
     // dead god's prophet
-    "Compendium.morkborg.morkborg-items.BNOhaA4ebt6Bzx4E",
+    "Compendium.morkborg.mork-borg-items.BNOhaA4ebt6Bzx4E",
     // esoteric hermit
-    "Compendium.morkborg.morkborg-items.ifSBk6ORiHgq3Xhr",
+    "Compendium.morkborg.mork-borg-items.ifSBk6ORiHgq3Xhr",
     // fanged deserter
-    "Compendium.morkborg.morkborg-items.2hjl45o4vXOgRgfq",
+    "Compendium.morkborg.mork-borg-items.2hjl45o4vXOgRgfq",
     // forlorn philosopher
-    "Compendium.morkborg.morkborg-items.L9Vwzbx5o0OMdJm0",
+    "Compendium.morkborg.mork-borg-items.L9Vwzbx5o0OMdJm0",
     // gutterborn scum
-    "Compendium.morkborg.morkborg-items.gAx8MWLiZcjiWQvc",
+    "Compendium.morkborg.mork-borg-items.gAx8MWLiZcjiWQvc",
     // heretical priest
-    "Compendium.morkborg.morkborg-items.8CTmhMvQ5BJlGD2o",
+    "Compendium.morkborg.mork-borg-items.8CTmhMvQ5BJlGD2o",
     // occult herbmaster
-    "Compendium.morkborg.morkborg-items.59HKbdpBIXfiJt91",
+    "Compendium.morkborg.mork-borg-items.59HKbdpBIXfiJt91",
     // pale one
-    "Compendium.morkborg.morkborg-items.wLJV0VJT5I234obT",
+    "Compendium.morkborg.mork-borg-items.wLJV0VJT5I234obT",
     // sacrilegious songbird
-    "Compendium.morkborg.morkborg-items.Y0KSTCrUAQNoBKEX",
+    "Compendium.morkborg.mork-borg-items.Y0KSTCrUAQNoBKEX",
     // wretched royalty
-    "Compendium.morkborg.morkborg-items.0h5xOAtzV4mm7X7D",
+    "Compendium.morkborg.mork-borg-items.0h5xOAtzV4mm7X7D",
   ],
 };
 
