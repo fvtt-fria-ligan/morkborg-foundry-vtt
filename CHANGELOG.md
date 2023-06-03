@@ -1,3 +1,8 @@
+# 3.0.0
+
+- v11 compatibility.
+- Use v11 compendium folders to clean up compendiums.
+
 # 2.7.3
 
 - Remove directory containing illegal character.

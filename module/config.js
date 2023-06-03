@@ -219,11 +219,11 @@ MB.weaponTypes = {
 
 // Config variables for the Scvmfactory character generator
 MB.scvmFactory = {
-  foodAndWaterPack: "morkborg.equipment-misc",
+  foodAndWaterPack: "morkborg.mork-borg-items",
   foodItemName: "Dried food",
   waterItemName: "Waterskin",
 
-  characterCreationPack: "morkborg.random-tables",
+  characterCreationPack: "morkborg.mork-borg-tables",
   startingEquipmentTable1: "Starting Equipment (1)",
   startingEquipmentTable2: "Starting Equipment (2)",
   startingEquipmentTable3: "Starting Equipment (3)",
@@ -238,37 +238,37 @@ MB.scvmFactory = {
   // modules wanting to add more character classes to the generator should append uuids to this list
   classUuids: [
     // classless adventurer
-    "Compendium.morkborg.class-classless-adventurer.p693pMIVYXMSRl8S",
+    "Compendium.morkborg.mork-borg-items.p693pMIVYXMSRl8S",
     // cursed skinwalker
-    "Compendium.morkborg.class-cursed-skinwalker.ZuSWpDI76OliQUrE",
+    "Compendium.morkborg.mork-borg-items.ZuSWpDI76OliQUrE",
     // dead god's prophet
-    "Compendium.morkborg.class-dead-gods-prophet.BNOhaA4ebt6Bzx4E",
+    "Compendium.morkborg.mork-borg-items.BNOhaA4ebt6Bzx4E",
     // esoteric hermit
-    "Compendium.morkborg.class-esoteric-hermit.ifSBk6ORiHgq3Xhr",
+    "Compendium.morkborg.mork-borg-items.ifSBk6ORiHgq3Xhr",
     // fanged deserter
-    "Compendium.morkborg.class-fanged-deserter.2hjl45o4vXOgRgfq",
+    "Compendium.morkborg.mork-borg-items.2hjl45o4vXOgRgfq",
     // forlorn philosopher
-    "Compendium.morkborg.class-forlorn-philosopher.L9Vwzbx5o0OMdJm0",
+    "Compendium.morkborg.mork-borg-items.L9Vwzbx5o0OMdJm0",
     // gutterborn scum
-    "Compendium.morkborg.class-gutterborn-scum.gAx8MWLiZcjiWQvc",
+    "Compendium.morkborg.mork-borg-items.gAx8MWLiZcjiWQvc",
     // heretical priest
-    "Compendium.morkborg.class-heretical-priest.8CTmhMvQ5BJlGD2o",
+    "Compendium.morkborg.mork-borg-items.8CTmhMvQ5BJlGD2o",
     // occult herbmaster
-    "Compendium.morkborg.class-occult-herbmaster.59HKbdpBIXfiJt91",
+    "Compendium.morkborg.mork-borg-items.59HKbdpBIXfiJt91",
     // pale one
-    "Compendium.morkborg.class-pale-one.wLJV0VJT5I234obT",
+    "Compendium.morkborg.mork-borg-items.wLJV0VJT5I234obT",
     // sacrilegious songbird
-    "Compendium.morkborg.class-sacrilegious-songbird.Y0KSTCrUAQNoBKEX",
+    "Compendium.morkborg.mork-borg-items.Y0KSTCrUAQNoBKEX",
     // wretched royalty
-    "Compendium.morkborg.class-wretched-royalty.0h5xOAtzV4mm7X7D",
+    "Compendium.morkborg.mork-borg-items.0h5xOAtzV4mm7X7D",
   ],
 };
 
-MB.brokenPack = "morkborg.random-tables";
+MB.brokenPack = "morkborg.morkborg-tables";
 MB.brokenTable = "Broken";
 
 MB.wieldPowerFumbleOn = 1;
-MB.wieldPowerFumblePack = "morkborg.random-tables";
+MB.wieldPowerFumblePack = "morkborg.morkborg-tables";
 MB.wieldPowerFumbleTable = "Arcane Catastrophes";
 
 MB.wieldPowerCritOn = 20;
