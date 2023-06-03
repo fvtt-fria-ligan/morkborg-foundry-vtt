@@ -284,7 +284,7 @@ const rollScvmForClass = async (clazz) => {
 
   const equipment = await startingEquipment();
   allDocs.push(...equipment);
-  const rolledScroll = allDocs.filter((i) => i.type === "scroll").length > 0;
+  const rolledScroll = allDocs.filter((i) => i?.type === "scroll").length > 0;
 
   const weapons = await startingWeapons(clazz, rolledScroll);
   allDocs.push(...weapons);

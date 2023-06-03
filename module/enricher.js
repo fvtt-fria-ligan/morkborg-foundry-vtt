@@ -1,6 +1,6 @@
-// e.g., @DRAW[Compendium.cy-borg-core.random-tables.vX47Buopuq9t0x9r]{Names}
+// e.g., @DRAW[Compendium.morkborg.mork-borg-tables.vX47Buopuq9t0x9r]{Names}
 // optionally add a roll for the draw at the end
-// e.g., @DRAW[Compendium.cy-borg-core.random-tables.vX47Buopuq9t0x9r]{Names}{1d4}
+// e.g., @DRAW[Compendium.morkborg.mork-borg-tables.vX47Buopuq9t0x9r]{Names}{1d4}
 const DRAW_FROM_TABLE_PATTERN = /@DRAW\[([^\]]+)\]{([^}]*)}(?:{([^}]*)})?/gm;
 const drawFromTableEnricher = (match) => {
   const uuid = match[1];

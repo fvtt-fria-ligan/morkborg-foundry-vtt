@@ -1,3 +1,7 @@
+# 3.0.1
+
+- Fix some leftover references to old compendium names.
+
 # 3.0.0
 
 - v11 compatibility.

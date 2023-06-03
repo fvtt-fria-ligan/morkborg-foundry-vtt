@@ -22,7 +22,7 @@ if (actor !== null) {
 
 ```
 (async () => {
-let pack = game.packs.get('morkborg.rolls-occult-herbmaster');
+let pack = game.packs.get('morkborg.mork-borg-tables');
 let content = await pack.getContent();
 let table = content.find(i => i.name === 'Occult Herbmaster Decoctions');
 await table.drawMany(2);
@@ -44,7 +44,7 @@ await typeRoll.toMessage({
   speaker: ChatMessage.getSpeaker(),
   flavor: "Scroll Type (1-2: Sacred, 3-4: Unclean)"
 });
-let pack = await game.packs.get('morkborg.random-tables');
+let pack = await game.packs.get('morkborg.mork-borg-tables');
 let content = await pack.getContent();
 let tableName = "";
 if (typeRoll.total <= 2) {

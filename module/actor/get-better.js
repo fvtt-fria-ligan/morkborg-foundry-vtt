@@ -76,7 +76,7 @@ export const getBetter = async (actor) => {
 
   if (scrollTableName) {
     // roll a scroll
-    const pack = game.packs.get("morkborg.random-tables");
+    const pack = game.packs.get("morkborg.mork-borg-tables");
     const content = await pack.getDocuments();
     const table = content.find((i) => i.name === scrollTableName);
     await table.draw();

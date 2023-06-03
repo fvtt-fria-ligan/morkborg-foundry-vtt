@@ -264,11 +264,11 @@ MB.scvmFactory = {
   ],
 };
 
-MB.brokenPack = "morkborg.morkborg-tables";
+MB.brokenPack = "morkborg.mork-borg-tables";
 MB.brokenTable = "Broken";
 
 MB.wieldPowerFumbleOn = 1;
-MB.wieldPowerFumblePack = "morkborg.morkborg-tables";
+MB.wieldPowerFumblePack = "morkborg.mork-borg-tables";
 MB.wieldPowerFumbleTable = "Arcane Catastrophes";
 
 MB.wieldPowerCritOn = 20;
