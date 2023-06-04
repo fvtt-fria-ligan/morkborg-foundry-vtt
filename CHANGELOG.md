@@ -1,6 +1,6 @@
 # 3.0.3
 
-- Make prettier ignore system.json, and fix min version unwantedly changed by prettier.
+- Set compatibility version as a string, to preserve 11.300.
 
 # 3.0.2
 
