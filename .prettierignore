@@ -1,5 +1,6 @@
 css/
 node_modules
+system.json
 *.hbs
 *.min.css
 *.min.js

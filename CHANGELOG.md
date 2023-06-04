@@ -1,3 +1,7 @@
+# 3.0.3
+
+- Make prettier ignore system.json, and fix min version unwantedly changed by prettier.
+
 # 3.0.2
 
 - Mark compatibility for v11.300 and higher.
