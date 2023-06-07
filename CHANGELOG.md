@@ -1,3 +1,7 @@
+# 3.1.0
+
+- Set packFolders to put all compendiums in a MÖRK BORG folder.
+
 # 3.0.3
 
 - Set compatibility version as a string, to preserve 11.300.
