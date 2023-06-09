@@ -219,21 +219,36 @@ MB.weaponTypes = {
 
 // Config variables for the Scvmfactory character generator
 MB.scvmFactory = {
-  foodAndWaterPack: "morkborg.mork-borg-items",
-  foodItemName: "Dried food",
-  waterItemName: "Waterskin",
-
-  characterCreationPack: "morkborg.mork-borg-tables",
-  startingEquipmentTable1: "Starting Equipment (1)",
-  startingEquipmentTable2: "Starting Equipment (2)",
-  startingEquipmentTable3: "Starting Equipment (3)",
-  startingWeaponTable: "Starting Weapon",
+  // Dried food
+  foodItem: "Compendium.morkborg.mork-borg-items.Item.4kuVcY67MIDA6Imc",
+  // Waterskin
+  waterItem: "Compendium.morkborg.mork-borg-items.Item.Zrs4ubq4fDBNPmnN",
+  // Starting Equipment (1)
+  startingEquipmentTable1:
+    "Compendium.morkborg.mork-borg-tables.RollTable.ByN7RI3Vc88ScBCj",
+  // Starting Equipment (2)
+  startingEquipmentTable2:
+    "Compendium.morkborg.mork-borg-tables.RollTable.o6wjXShp2CLQEr7X",
+  // Starting Equipment (3)
+  startingEquipmentTable3:
+    "Compendium.morkborg.mork-borg-tables.RollTable.rq8zq4VHY3px5hpF",
+  // Starting Weapon
+  startingWeaponTable:
+    "Compendium.morkborg.mork-borg-tables.RollTable.qYznag89iDMdPH6A",
   weaponDieIfRolledScroll: "1d6",
-  startingArmorTable: "Starting Armor",
+  // Starting Armor
+  startingArmorTable:
+    "Compendium.morkborg.mork-borg-tables.RollTable.Cyg5IvubZiDmCCUk",
   armorDieIfRolledScroll: "1d2",
-  terribleTraitsTable: "Terribler Traits",
-  brokenBodiesTable: "Brokener Bodies",
-  badHabitsTable: "Badder Habits",
+  // Terribler Traits
+  terribleTraitsTable:
+    "Compendium.morkborg.mork-borg-tables.RollTable.NVvpbvPl6tgxUWRF",
+  // Brokener Bodies
+  brokenBodiesTable:
+    "Compendium.morkborg.mork-borg-tables.RollTable.X0NEcY9HqocgpLlF",
+  // Badder Habits
+  badHabitsTable:
+    "Compendium.morkborg.mork-borg-tables.RollTable.PA5ttbXKQwPmO52P",
 
   // modules wanting to add more character classes to the generator should append uuids to this list
   classUuids: [

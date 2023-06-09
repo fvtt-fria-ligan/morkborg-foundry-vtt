@@ -7,9 +7,9 @@ import {
   documentFromPack,
   documentFromResult,
   documentsFromDraw,
-  drawDocuments,
-  drawFromTable,
-  drawText,
+  drawDocumentsFromTableUuid,
+  drawFromTableUuid,
+  drawTextFromTableUuid,
 } from "../packutils.js";
 import { getAllowedScvmClasses } from "../settings.js";
 
@@ -57,25 +57,19 @@ export const findAllowedClasses = async () => {
 
 const startingFoodAndWater = async () => {
   const docs = [];
-  if (MB.scvmFactory.foodAndWaterPack) {
-    // everybody gets food and water
-    if (MB.scvmFactory.foodItemName) {
-      const food = await documentFromPack(
-        MB.scvmFactory.foodAndWaterPack,
-        MB.scvmFactory.foodItemName
-      );
-      if (food) {
-        const foodTotal = rollTotal("1d4");
-        food.system.quantity = foodTotal;
-        docs.push(food);
-      }
+  // everybody gets food and water
+  if (MB.scvmFactory.foodItem) {
+    const food = await fromUuid(MB.scvmFactory.foodItem);
+    if (food) {
+      const foodTotal = rollTotal("1d4");
+      food.system.quantity = foodTotal;
+      docs.push(food);
     }
-    if (MB.scvmFactory.waterItemName) {
-      const waterskin = await documentFromPack(
-        MB.scvmFactory.foodAndWaterPack,
-        MB.scvmFactory.waterItemName
-      );
-      docs.push(waterskin);
+  }
+  if (MB.scvmFactory.waterItem) {
+    const water = await fromUuid(MB.scvmFactory.waterItem);
+    if (water) {
+      docs.push(water);
     }
   }
   return docs;
@@ -85,22 +79,19 @@ const startingEquipment = async () => {
   const docs = [];
   // 3 starting equipment tables
   if (MB.scvmFactory.startingEquipmentTable1) {
-    const eq1 = await drawDocuments(
-      MB.scvmFactory.characterCreationPack,
+    const eq1 = await drawDocumentsFromTableUuid(
       MB.scvmFactory.startingEquipmentTable1
     );
     docs.push(...eq1);
   }
   if (MB.scvmFactory.startingEquipmentTable2) {
-    const eq2 = await drawDocuments(
-      MB.scvmFactory.characterCreationPack,
+    const eq2 = await drawDocumentsFromTableUuid(
       MB.scvmFactory.startingEquipmentTable2
     );
     docs.push(...eq2);
   }
   if (MB.scvmFactory.startingEquipmentTable3) {
-    const eq3 = await drawDocuments(
-      MB.scvmFactory.characterCreationPack,
+    const eq3 = await drawDocumentsFromTableUuid(
       MB.scvmFactory.startingEquipmentTable3
     );
     docs.push(...eq3);
@@ -119,8 +110,7 @@ const startingWeapons = async (clazz, rolledScroll) => {
         weaponDie = MB.scvmFactory.weaponDieIfRolledScroll;
       }
     }
-    const draw = await drawFromTable(
-      MB.scvmFactory.characterCreationPack,
+    const draw = await drawFromTableUuid(
       MB.scvmFactory.startingWeaponTable,
       weaponDie
     );
@@ -141,8 +131,7 @@ const startingArmor = async (clazz, rolledScroll) => {
         armorDie = MB.scvmFactory.armorDieIfRolledScroll;
       }
     }
-    const draw = await drawFromTable(
-      MB.scvmFactory.characterCreationPack,
+    const draw = await drawFromTableUuid(
       MB.scvmFactory.startingArmorTable,
       armorDie
     );
@@ -173,12 +162,10 @@ const startingDescriptionLines = async (clazz) => {
 
   let descriptionLine = "";
   if (MB.scvmFactory.terribleTraitsTable) {
-    const terribleTrait1 = await drawText(
-      MB.scvmFactory.characterCreationPack,
+    const terribleTrait1 = await drawTextFromTableUuid(
       MB.scvmFactory.terribleTraitsTable
     );
-    const terribleTrait2 = await drawText(
-      MB.scvmFactory.characterCreationPack,
+    const terribleTrait2 = await drawTextFromTableUuid(
       MB.scvmFactory.terribleTraitsTable
     );
     // BrokenBodies and BadHabits end with a period, but TerribleTraits don't.
@@ -187,17 +174,13 @@ const startingDescriptionLines = async (clazz) => {
       .toLowerCase()}${terribleTrait2.slice(1)}.`;
   }
   if (MB.scvmFactory.brokenBodiesTable) {
-    const brokenBody = await drawText(
-      MB.scvmFactory.characterCreationPack,
+    const brokenBody = await drawTextFromTableUuid(
       MB.scvmFactory.brokenBodiesTable
     );
     descriptionLine += ` ${brokenBody}`;
   }
   if (MB.scvmFactory.badHabitsTable) {
-    const badHabit = await drawText(
-      MB.scvmFactory.characterCreationPack,
-      MB.scvmFactory.badHabitsTable
-    );
+    const badHabit = await drawTextFromTableUuid(MB.scvmFactory.badHabitsTable);
     descriptionLine += ` ${badHabit}`;
   }
   if (descriptionLine) {

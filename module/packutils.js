@@ -29,8 +29,31 @@ export const drawFromTable = async (
   return tableDraw;
 };
 
+export const drawFromTableUuid = async (
+  uuid,
+  formula = null,
+  displayChat = false
+) => {
+  const table = await fromUuid(uuid);
+  if (!table) {
+    console.log(`Could not find table ${uuid}`);
+    return;
+  }
+  const roll = formula ? new Roll(formula) : undefined;
+  const tableDraw = await table.draw({ displayChat, roll });
+  // TODO: decide if/how we want to handle multiple results
+  return tableDraw;
+};
+
 export const drawText = async (packName, tableName) => {
   const draw = await drawFromTable(packName, tableName);
+  if (draw) {
+    return draw.results[0].text;
+  }
+};
+
+export const drawTextFromTableUuid = async (uuid) => {
+  const draw = await drawFromTableUuid(uuid);
   if (draw) {
     return draw.results[0].text;
   }
@@ -42,8 +65,14 @@ export const drawDocument = async (packName, tableName) => {
   return doc;
 };
 
-export const drawDocuments = async (packName, tableName) => {
-  const draw = await drawFromTable(packName, tableName);
+export const drawDocumentFromTableUuid = async (uuid) => {
+  const draw = await drawFromTableUuid(uuid);
+  const doc = await documentFromDraw(draw);
+  return doc;
+};
+
+export const drawDocumentsFromTableUuid = async (uuid) => {
+  const draw = await drawFromTableUuid(uuid);
   const docs = await documentsFromDraw(draw);
   return docs;
 };

@@ -1,3 +1,8 @@
+# 3.2.0
+
+- Switch scvmfactory config to uuids instead of pack/table names.
+- Fix Occult Herbmaster brew macro.
+
 # 3.1.0
 
 - Set packFolders to put all compendiums in a MÖRK BORG folder.
