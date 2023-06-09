@@ -1,3 +1,7 @@
+# 3.1.1
+
+- Fix Wrong Crucifix broken link in Heretical Priest items table.
+
 # 3.1.0
 
 - Set packFolders to put all compendiums in a MÖRK BORG folder.
