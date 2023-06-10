@@ -1,6 +1,7 @@
 # 3.2.0
 
 - Switch scvmfactory config to uuids instead of pack/table names.
+- Move character names from JS code into a roll table.
 - Fix Occult Herbmaster brew macro.
 
 # 3.1.0

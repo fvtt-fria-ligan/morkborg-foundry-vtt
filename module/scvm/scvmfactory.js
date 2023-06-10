@@ -1,7 +1,6 @@
 import { MBActor } from "../actor/actor.js";
 import { MB } from "../config.js";
 import { MBItem } from "../item/item.js";
-import { randomName } from "./names.js";
 import { rollTotal, shuffle } from "../utils.js";
 import {
   documentFromPack,
@@ -237,6 +236,7 @@ const startingRollItemsAndDescriptionLines = async (clazz) => {
 const rollScvmForClass = async (clazz) => {
   console.log(`Creating new ${clazz.name}`);
 
+  const name = await drawTextFromTableUuid(MB.scvmFactory.namesTable);
   const silver = rollTotal(clazz.system.startingSilver);
   const omens = rollTotal(clazz.system.omenDie);
   const baseHp = rollTotal(clazz.system.startingHitPoints);
@@ -298,6 +298,7 @@ const rollScvmForClass = async (clazz) => {
     description: descriptionLines.join(""),
     hitPoints,
     items: itemData,
+    name,
     omens,
     powerUses,
     presence,
@@ -318,9 +319,8 @@ const simpleData = (item) => {
 };
 
 const scvmToActorData = (s) => {
-  const newName = randomName();
   return {
-    name: newName,
+    name: s.name,
     data: {
       abilities: {
         strength: { value: s.strength },

@@ -219,6 +219,8 @@ MB.weaponTypes = {
 
 // Config variables for the Scvmfactory character generator
 MB.scvmFactory = {
+  // Character Names
+  namesTable: "Compendium.morkborg.mork-borg-tables.RollTable.tBHfdSGFvfmrLreR",
   // Dried food
   foodItem: "Compendium.morkborg.mork-borg-items.Item.4kuVcY67MIDA6Imc",
   // Waterskin
