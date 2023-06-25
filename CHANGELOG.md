@@ -1,3 +1,7 @@
+# 3.2.1
+
+- Fix token path for Dead God's Prophet items.
+
 # 3.2.0
 
 - Switch scvmfactory config to uuids instead of pack/table names.
