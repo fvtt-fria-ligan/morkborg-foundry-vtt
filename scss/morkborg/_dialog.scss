@@ -96,6 +96,25 @@
       }
     }
   }
+
+  &.scvm-dialog {
+    .subtitle {
+      text-align: center;
+    }
+    .class-list {
+      columns: 2;
+      -webkit-columns: 2;
+      -moz-columns: 2;
+    }
+    .toggle-row {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .warning {
+      text-align: center;
+    }
+  }
 }
 
 .allowed-scvm-classes-dialog .class-name,

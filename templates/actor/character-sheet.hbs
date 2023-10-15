@@ -4,17 +4,15 @@
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
     <a class="item" data-tab="obituary">{{ localize 'MB.TabObituary' }}</a>
-    <a class="item" data-tab="violence">{{ localize 'MB.TabViolence' }}</a>
-    <a class="item" data-tab="feats">{{ localize 'MB.TabFeats' }}</a>
-    <a class="item" data-tab="powers">{{ localize 'MB.Powers' }}</a>
     <a class="item" data-tab="equipment">{{ localize 'MB.TabTreasures' }}</a>
+    <a class="item" data-tab="violence">{{ localize 'MB.TabViolence' }}</a>
+    <a class="item" data-tab="powers">{{ localize 'MB.TabPowers' }}</a>
   </nav>
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
     {{> systems/morkborg/templates/actor/character/obituary-tab.hbs }} 
     {{> systems/morkborg/templates/actor/common/violence-tab.hbs }} 
-    {{> systems/morkborg/templates/actor/character/feats-tab.hbs }} 
     {{> systems/morkborg/templates/actor/character/powers-tab.hbs }}
     {{> systems/morkborg/templates/actor/character/treasures-tab.hbs }}
   </section>

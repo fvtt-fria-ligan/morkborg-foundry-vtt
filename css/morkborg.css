@@ -15,7 +15,8 @@
   --h1-font: "Blood Crow";
   --h2-font: "FetteTrumpDeutsch";
   --h3-font: "Old Cupboard";
-  --item-font: "Special Elite";
+  --item-font: "Calling Code";
+  --button-font: "FetteTrumpDeutsch";
   --journal-font: "Alegreya";
   --journal-font-size: 18px;
   --window-border-color: #222222;
@@ -49,6 +50,14 @@
   font-weight: bold;
 }
 @font-face {
+  font-family: "Deutsch Gothic";
+  src: url("../assets/fonts/Deutsch.ttf") format("truetype");
+}
+@font-face {
+  font-family: "OldNewspaperTypes";
+  src: url("../assets/fonts/OldNewspaperTypes.ttf") format("truetype");
+}
+@font-face {
   font-family: "Benjamin Franklin";
   src: url("../assets/fonts/BenjaminFranklin.ttf") format("truetype");
   font-weight: normal;
@@ -56,6 +65,11 @@
 @font-face {
   font-family: "Blood Crow";
   src: url("../assets/fonts/bloodcrow.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Calling Code";
+  src: url("../assets/fonts/CallingCode-Regular.ttf") format("truetype");
+  font-weight: normal;
 }
 @font-face {
   font-family: "FetteTrumpDeutsch";
@@ -70,6 +84,10 @@
   font-family: "Inconsolata";
   src: url("../assets/fonts/Inconsolata-Regular.ttf") format("truetype");
   font-weight: normal;
+}
+@font-face {
+  font-family: "JSL Ancient";
+  src: url("../assets/fonts/jancient.ttf") format("truetype");
 }
 @font-face {
   font-family: "Old Cupboard";
@@ -158,7 +176,7 @@
 .morkborg .button {
   background: var(--foreground-color);
   color: var(--background-color);
-  font-family: var(--h2-font);
+  font-family: var(--button-font);
 }
 
 .mce-content-body {
@@ -252,7 +270,6 @@
 }
 .morkborg.sheet.actor .editor,
 .morkborg.sheet.item .editor {
-  border: 1px solid #7a7971;
   color: var(--foreground-color);
   font-family: var(--journal-font);
   font-size: var(--journal-font-size);
@@ -265,8 +282,7 @@
 .morkborg.sheet.actor .sheet-tabs,
 .morkborg.sheet.item .sheet-tabs {
   flex: 0 0 30px;
-  margin-bottom: 5px;
-  /* font-family: "Modesto Condensed", "Palatino Linotype", serif; */
+  margin-bottom: 0px;
   font-size: 20px;
   font-weight: 700;
   /* TODO: track down the border-top and border-bottom getting inherited on these */
@@ -277,19 +293,24 @@
 .morkborg.sheet.item .sheet-tabs .item {
   font-family: var(--h2-font);
   font-size: 22px;
-  height: 30px;
+  height: 32px;
   padding: 0;
-  width: 120px;
+  padding-bottom: 4px;
+  flex: 1;
+  border-radius: 2px 2px 0px 0px;
+  border-bottom: 1px solid var(--foreground-color);
 }
-.morkborg.sheet.actor .sheet-tabs .item:hover,
-.morkborg.sheet.item .sheet-tabs .item:hover {
+.morkborg.sheet.actor .sheet-tabs .item:not(.active):hover,
+.morkborg.sheet.item .sheet-tabs .item:not(.active):hover {
   color: var(--highlight-foreground-color);
   text-shadow: 0 0 10px var(--highlight-background-color);
 }
 .morkborg.sheet.actor .sheet-tabs .item.active,
 .morkborg.sheet.item .sheet-tabs .item.active {
-  background-color: var(--highlight-background-color);
-  color: var(--highlight-foreground-color);
+  border-left: 1px solid var(--foreground-color);
+  border-right: 1px solid var(--foreground-color);
+  border-top: 1px solid var(--foreground-color);
+  border-bottom: none;
   text-shadow: none;
 }
 .morkborg.sheet.actor .sheet-body,
@@ -300,6 +321,10 @@
 .morkborg.sheet.item .sheet-body .tab {
   height: 100%;
   overflow-y: auto;
+  border-left: 1px solid var(--foreground-color);
+  border-right: 1px solid var(--foreground-color);
+  border-bottom: 1px solid var(--foreground-color);
+  padding: 10px;
 }
 .morkborg.sheet.actor .sheet-body .form-group,
 .morkborg.sheet.item .sheet-body .form-group {
@@ -324,6 +349,30 @@
   flex: 1;
 }
 
+.morkborg.sheet.actor .sheet-button {
+  background-color: var(--foreground-color);
+  border: none;
+  border-bottom: 2px solid #777;
+  border-radius: 0;
+  color: var(--background-color);
+  font-family: var(--button-font);
+  font-size: 14px;
+  height: 28px;
+  width: 90px;
+}
+.morkborg.sheet.actor .item-button {
+  background-color: var(--foreground-color);
+  border: none;
+  border-bottom: 2px solid #777;
+  border-radius: 0;
+  color: var(--background-color);
+  flex: none;
+  font-family: var(--button-font);
+  font-size: 14px;
+  height: 28px;
+  min-width: 70px;
+  width: auto;
+}
 .morkborg.sheet.actor .rule-text {
   font-family: var(--item-font);
   font-size: 10pt;
@@ -338,7 +387,6 @@
   font-family: var(--item-font);
   font-size: 14pt;
   text-align: center;
-  padding-top: 8px;
   width: 50px;
   color: var(--foreground-color);
 }
@@ -385,20 +433,10 @@
   font-size: 16px;
   margin-right: 10px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .initiative-button {
-  background-color: var(--foreground-color);
-  border: none;
-  border-bottom: 2px solid #777;
-  border-radius: 0;
-  color: var(--background-color);
-  font-family: var(--h2-font);
-  font-size: 20px;
-  width: 150px;
-}
 .morkborg.sheet.actor .sheet-body .violence-tab .items-list {
   margin-top: 0px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item {
+.morkborg.sheet.actor .sheet-body .violence-tab .items-list .item {
   align-items: center;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .weapon-name-col {
@@ -414,10 +452,6 @@
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item-buttons {
   flex: 0.5;
-}
-.morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item-button {
-  font-size: 20px;
-  width: 120px;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .item-list .item-name {
   flex: 1;
@@ -510,26 +544,12 @@
   margin-top: 0px;
   text-align: center;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .underarmor-row button {
-  margin-left: 10px;
-  width: 120px;
-  margin-bottom: 10px;
-  font-family: var(--h2-font);
-  font-size: 20px;
-  background-color: var(--foreground-color);
-  color: var(--background-color);
-  border: none;
-  border-bottom: 2px solid #777;
-  border-radius: 0;
-}
 .morkborg.sheet.actor .sheet-body .violence-tab .shield-rule {
   margin-top: 5px;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .defend-rule {
+  margin-top: 5px;
   text-align: center;
-}
-.morkborg.sheet.actor .feat-button {
-  min-width: 120px;
 }
 .morkborg.sheet.actor .roll-button {
   margin-left: 10px;
@@ -546,7 +566,7 @@
 .morkborg.sheet.actor input[type=text].actor-name {
   font-family: var(--h1-font);
   font-size: 38px;
-  text-transform: uppercase;
+  text-align: center;
 }
 .morkborg.sheet.actor .sheet-body .equipment-top-row {
   margin-top: 10px;
@@ -579,24 +599,31 @@
   display: flex;
   flex-direction: column;
 }
-.morkborg.sheet.actor.character .sheet-header .header-col2 .rest-buttons {
-  margin-left: 14px;
-  width: 170px;
+.morkborg.sheet.actor.character .sheet-header .header-col2 .hitpoints-row {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
 }
-.morkborg.sheet.actor.character .sheet-header .header-col2 button {
+.morkborg.sheet.actor.character .sheet-header .header-col2 .classname-row {
+  display: flex;
+  align-items: baseline;
+}
+.morkborg.sheet.actor.character .sheet-header .header-col2 .classname-row .classname {
+  letter-spacing: 2px;
+}
+.morkborg.sheet.actor.character .sheet-header .header-col2 .buttons-row {
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+}
+.morkborg.sheet.actor.character .sheet-header .header-col2 .buttons-row button {
   border: none;
   border-bottom: 2px solid #777;
   border-radius: 0;
   font-family: var(--h2-font);
   font-size: 14px;
   height: 28px;
-}
-.morkborg.sheet.actor.character .sheet-header .header-col2 .broken-button,
-.morkborg.sheet.actor.character .sheet-header .header-col2 .rest-button {
-  width: 80px;
-}
-.morkborg.sheet.actor.character .sheet-header .header-col2 .get-better-button {
-  width: 90px;
+  flex: 1;
 }
 .morkborg.sheet.actor.character .sheet-header .header-col3 {
   flex: 0 0 120px;
@@ -743,32 +770,6 @@
 .morkborg.sheet.actor.character .sheet-body .feat-button {
   min-width: 120px;
 }
-.morkborg.sheet.actor.character .sheet-body .powers-top-row {
-  margin-top: 15px;
-  margin-bottom: 10px;
-  display: flex;
-  flex-direction: row;
-}
-.morkborg.sheet.actor.character .sheet-body .wield-power {
-  flex: 0 0 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.morkborg.sheet.actor.character .sheet-body .powers-gutter {
-  flex: 0 0 20px;
-}
-.morkborg.sheet.actor.character .sheet-body .wield-power-button {
-  width: 200px;
-  margin-bottom: 10px;
-  font-family: var(--h2-font);
-  font-size: 24px;
-  background-color: var(--foreground-color);
-  color: var(--background-color);
-  border: none;
-  border-bottom: 2px solid #777;
-  border-radius: 0;
-}
 .morkborg.sheet.actor.character .sheet-body .wield-rule {
   text-align: center;
 }
@@ -860,15 +861,18 @@
   overflow-y: auto;
 }
 .morkborg .item-list .item {
+  display: flex;
   min-height: 30px;
-  line-height: 24px;
+  /* line-height: 24px; */
   padding: 3px 3px 3px 0;
   border-bottom: 1px solid #7a7971;
-  align-items: stretch;
+  align-items: center;
 }
 .morkborg .item-list .item img {
-  flex: 0 0 24px;
-  margin-right: 5px;
+  flex: 0 0 30px;
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
 }
 .morkborg .item-list .item.item-container-item {
   padding-left: 29px;
@@ -908,17 +912,6 @@
   width: 17px;
   margin-left: 3px;
   text-align: center;
-}
-.morkborg .item-list .item-button {
-  background-color: var(--foreground-color);
-  border: none;
-  border-bottom: 2px solid #777;
-  border-radius: 0;
-  color: var(--background-color);
-  flex: none;
-  font-family: var(--h2-font);
-  font-size: 20px;
-  width: auto;
 }
 .morkborg .item-list .empty-container {
   text-align: center;
@@ -1667,6 +1660,22 @@ h3 {
 .custom-dialog .button-row button:active, .custom-dialog .button-row button:focus, .custom-dialog .button-row button:hover {
   box-shadow: 0 0 5px var(--highlight-background-color);
   text-shadow: 0 0 10px var(--highlight-background-color);
+}
+.custom-dialog.scvm-dialog .subtitle {
+  text-align: center;
+}
+.custom-dialog.scvm-dialog .class-list {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
+.custom-dialog.scvm-dialog .toggle-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.custom-dialog.scvm-dialog .warning {
+  text-align: center;
 }
 
 .allowed-scvm-classes-dialog .class-name,

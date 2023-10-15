@@ -1,39 +1,32 @@
 {{!-- Powers Tab --}}
 <div class="tab powers-tab" data-group="primary" data-tab="powers">
-  <div class="powers-top-row">
-    <div class="powers-gutter"></div>
-    <div class="wield-power">
-      <button type="button" class="rollable wield-power-button">
-        {{localize "MB.WieldAPower"}}
-      </button>
-      <span class="rule-text wield-rule">{{localize 'MB.WieldAPowerText'}}</span>
-    </div>
-    <div class="powers-gutter"></div>
-    <div class="uses-remaining">
-      <div>
-        <label class="stat-label uses-remaining-label">{{localize "MB.PowerUsesRemaining"}}:</label>
-        <input
-          class="stat-input"
-          name="system.powerUses.value"
-          type="number"
-          value="{{data.system.powerUses.value}}"
-          data-dtype="Number"
-        />
-      </div>
-      <span class="rule-text rollable powers-per-day-text">{{localize "MB.PowersPerDayText"}}</span>
-    </div>
-  </div>
   <ol class="items-list inventory-list">
     <li class="items-header flexrow">
-      <h3 class="item-name flexrow">{{localize "MB.ItemTypeScrollPlural"}}</h3>
-      <div class="item-controls flexrow"></div>
+      <h3 class="item-name flexrow">{{localize "MB.Feats"}}</h3>
+      <div class="item-controls flexrow">
+        <a class="item-control feat-create" title='{{localize "MB.CreateNewFeat"}}'>
+          {{localize "MB.Add"}} <i class="fas fa-plus"></i>
+        </a>
+      </div>
     </li>
     <ol class="item-list">
-      {{#each data.system.scrolls as |item id|}}
+      {{#each data.system.feats as |item id|}}
       <li class="item flexrow" data-item-id="{{item._id}}">
         <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
         <h4 class="item-name item-edit rollable">{{item.name}}</h4>
-        <div class="item-buttons"></div>
+        <div class="item-buttons">
+          {{#if item.system.rollLabel}}
+          <button
+            type="button"
+            class="item-button rollable feat-button"
+            data-roll="{{item.system.rollFormula}}"
+            data-label="{{item.system.rollLabel}}"
+            title="{{item.system.rollLabel}}"
+          >
+            {{item.system.rollLabel}}
+          </button>
+          {{/if}}
+        </div>
         <div class="item-controls">
           <a class="item-control item-edit" title="Edit Item"
             ><i class="fas fa-edit"></i
@@ -45,8 +38,45 @@
       </li>
       {{/each}}
     </ol>
-    {{#unless data.system.scrolls.length}}
-    <div class="rule-text you-have-no">{{localize 'MB.YouHaveNoScrolls'}}</div>
+    {{#unless data.system.feats.length}}
+    <div class="rule-text you-have-no">{{localize 'MB.YouHaveNoFeats'}}</div>
     {{/unless}}
   </ol>
+
+  <br/>
+  
+  <ol class="items-list inventory-list">
+    <li class="items-header flexrow">
+      <h3 class="item-name flexrow">{{localize "MB.Powers"}}</h3>
+      <div class="item-controls flexrow"></div>
+    </li>
+    <ol class="item-list">
+      {{#each data.system.scrolls as |item id|}}
+      <li class="item flexrow" data-item-id="{{item._id}}">
+        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
+        <h4 class="item-name item-edit rollable">{{item.name}}</h4>
+        <div class="item-buttons">
+          <button type="button" class="rollable item-button wield-power-button">
+            {{localize "MB.Wield"}}
+          </button>
+        </div>
+        <div class="item-controls">
+          <a class="item-control item-edit" title="Edit Item"
+            ><i class="fas fa-edit"></i
+          ></a>
+          <a class="item-control item-delete" title="Delete Item"
+            ><i class="fas fa-trash"></i
+          ></a>
+        </div>
+      </li>
+      {{/each}}
+    </ol>
+
+    {{#if data.system.scrolls.length}}
+    <div class="rule-text wield-rule">{{localize 'MB.WieldAPowerText'}}</div>
+    {{else}}
+    <div class="rule-text you-have-no">{{localize 'MB.YouHaveNoScrolls'}}</div>
+    {{/if}}
+  </ol>
+
 </div>

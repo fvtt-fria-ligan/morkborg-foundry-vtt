@@ -25,15 +25,18 @@
     overflow-y: auto;
 
     .item {
+      display: flex;
       min-height: 30px;
-      line-height: 24px;
+      /* line-height: 24px; */
       padding: 3px 3px 3px 0;
       border-bottom: 1px solid #7a7971;
-      align-items: stretch;
+      align-items: center;
 
       img {
-        flex: 0 0 24px;
-        margin-right: 5px;
+        flex: 0 0 30px;
+        height: 30px;
+        width: 30px;
+        margin-right: 10px;
       }
 
       &.item-container-item {
@@ -80,18 +83,6 @@
         margin-left: 3px;
         text-align: center;
       }
-    }
-
-    .item-button {
-      background-color: var(--foreground-color);
-      border: none;
-      border-bottom: 2px solid #777;
-      border-radius: 0;
-      color: var(--background-color);
-      flex: none;
-      font-family: var(--h2-font);
-      font-size: 20px;
-      width: auto;
     }
 
     .empty-container {

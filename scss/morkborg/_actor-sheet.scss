@@ -1,5 +1,32 @@
 .morkborg {
   &.sheet.actor {
+    .sheet-button {
+      background-color: var(--foreground-color);
+      border: none;
+      border-bottom: 2px solid #777;
+      border-radius: 0;
+      color: var(--background-color);
+      font-family: var(--button-font);
+      font-size: 14px;
+      height: 28px;
+      width: 90px;
+    }
+
+    .item-button {
+      background-color: var(--foreground-color);
+      border: none;
+      border-bottom: 2px solid #777;
+      border-radius: 0;
+      color: var(--background-color);
+      flex: none;
+      font-family: var(--button-font);
+      font-size: 14px;
+      height: 28px;
+      // width: 90px;
+      min-width: 70px;
+      width: auto;
+    }
+
     .rule-text {
       font-family: var(--item-font);
       font-size: 10pt;
@@ -16,7 +43,6 @@
       font-family: var(--item-font);
       font-size: 14pt;
       text-align: center;
-      padding-top: 8px;
       width: 50px;
       color: var(--foreground-color);
     }
@@ -76,27 +102,15 @@
           margin-right: 10px;
         }
 
-        .initiative-button {
-          background-color: var(--foreground-color);
-          border: none;
-          border-bottom: 2px solid #777;
-          border-radius: 0;
-          color: var(--background-color);
-          font-family: var(--h2-font);
-          font-size: 20px;
-          width: 150px;
-        }
-
         .items-list {
           margin-top: 0px;
+          .item {
+            align-items: center;
+          }
         }
 
         .item-list {
           &.weapon-list {
-            .item {
-              align-items: center;
-            }
-
             .weapon-name-col {
               display: flex;
               .ammo-select-col {
@@ -111,11 +125,6 @@
 
             .item-buttons {
               flex: 0.5;
-            }
-
-            .item-button {
-              font-size: 20px;
-              width: 120px;
             }
           }
 
@@ -233,19 +242,6 @@
         .underarmor-row {
           margin-top: 0px;
           text-align: center;
-
-          button {
-            margin-left: 10px;
-            width: 120px;
-            margin-bottom: 10px;
-            font-family: var(--h2-font);
-            font-size: 20px;
-            background-color: var(--foreground-color);
-            color: var(--background-color);
-            border: none;
-            border-bottom: 2px solid #777;
-            border-radius: 0;
-          }
         }
 
         .shield-rule {
@@ -253,13 +249,10 @@
         }
 
         .defend-rule {
+          margin-top: 5px;
           text-align: center;
         }
       }
-    }
-
-    .feat-button {
-      min-width: 120px;
     }
 
     .roll-button {
@@ -278,7 +271,7 @@
     input[type="text"].actor-name {
       font-family: var(--h1-font);
       font-size: 38px;
-      text-transform: uppercase;
+      text-align: center;
     }
 
     .sheet-body {
