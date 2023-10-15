@@ -26,7 +26,9 @@
           }
           .classname-row {
             display: flex;
-            align-items: baseline;
+            // use baseline for fonts including lowercase
+            // align-items: baseline;
+            align-items: center;
             .classname {
               letter-spacing: 2px;
             }
@@ -36,12 +38,6 @@
             gap: 5px;
             margin-top: 5px;
             button {
-              border: none;
-              border-bottom: 2px solid #777;
-              border-radius: 0;
-              font-family: var(--h2-font);
-              font-size: 14px;
-              height: 28px;
               flex: 1;
             }
           }
@@ -237,7 +233,7 @@
 
         .carry-block {
           flex: 1;
-          text-align: center;
+          margin-left: 20px;
         }
 
         .container-label {

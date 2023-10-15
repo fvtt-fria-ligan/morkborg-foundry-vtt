@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Lato&family=Oswald&family=Special+Elite&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Lato&family=Oswald&family=Rakkas&family=Special+Elite&display=swap");
 
 @font-face {
   font-family: "Alegreya";
@@ -10,6 +10,16 @@
   font-family: "Alegreya";
   src: url("../assets/fonts/Alegreya-Bold.ttf") format("truetype");
   font-weight: bold;
+}
+
+@font-face {
+  font-family: "Burvetica NC";
+  src: url("../assets/fonts/Burvetica NC.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Burvetica Thick NC";
+  src: url("../assets/fonts/Burvetica Thick NC.ttf") format("truetype");
 }
 
 @font-face {

@@ -3,19 +3,20 @@
     .sheet-button {
       background-color: var(--foreground-color);
       border: none;
-      border-bottom: 2px solid #777;
+      // border-bottom: 2px solid #777;
       border-radius: 0;
       color: var(--background-color);
       font-family: var(--button-font);
       font-size: 14px;
       height: 28px;
       width: 90px;
+      text-transform: uppercase;
     }
 
     .item-button {
       background-color: var(--foreground-color);
       border: none;
-      border-bottom: 2px solid #777;
+      // border-bottom: 2px solid #777;
       border-radius: 0;
       color: var(--background-color);
       flex: none;
@@ -25,6 +26,7 @@
       // width: 90px;
       min-width: 70px;
       width: auto;
+      text-transform: uppercase;
     }
 
     .rule-text {
@@ -276,18 +278,8 @@
 
     .sheet-body {
       .equipment-top-row {
-        margin-top: 10px;
-        margin-left: 20px;
         display: flex;
-        flex-direction: row;
-      }
-
-      .silver {
-        flex: 0 0 200px;
-      }
-
-      .silver-input {
-        width: 70px;
+        align-items: center;
       }
     }
   }

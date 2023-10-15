@@ -121,9 +121,7 @@ MB.fontSchemes = {
     chatInfo: "Oswald",
     h1: "Deutsch Gothic",
     h2: "FetteTrumpDeutsch",
-    // h3: "JSL Ancient",
     h3: "Old Cupboard",
-    //h3: "OldNewspaperTypes",
     item: "Calling Code",
   },
   legible: {

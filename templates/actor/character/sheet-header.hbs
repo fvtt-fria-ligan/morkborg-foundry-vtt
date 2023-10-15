@@ -73,7 +73,17 @@
           value="{{data.system.powerUses.value}}"
           data-dtype="Number"
         />
-      </div>    
+      </div> 
+      <div class="silver">
+        <span class="stat-label silver-label">{{ localize "MB.Silver" }}:</span>
+        <input
+          class="stat-input silver-input"
+          name="system.silver"
+          type="number"
+          value="{{data.system.silver}}"
+          data-dtype="Number"
+        />
+      </div>         
     </div>
     <div class="buttons-row">
       <button
