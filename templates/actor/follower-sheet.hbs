@@ -6,8 +6,8 @@
   <nav class="sheet-tabs tabs" data-group="primary">
     <a class="item" data-tab="description">{{ localize "MB.TabDescription" }}</a>
     <a class="item" data-tab="details">{{ localize "MB.TabDetails" }}</a>
-    <a class="item" data-tab="violence">{{ localize "MB.TabViolence" }}</a>
     <a class="item" data-tab="treasures">{{ localize "MB.TabTreasures" }}</a>
+    <a class="item" data-tab="violence">{{ localize "MB.TabViolence" }}</a>
   </nav>
 
   {{!-- Sheet Body --}}
@@ -66,8 +66,7 @@
       </div>
     </div>
 
-    {{> systems/morkborg/templates/actor/common/violence-tab.hbs }} {{!--
-    Treasures Tab --}}
+    {{!-- Treasures Tab --}}
     <div class="tab equipment-tab" data-group="primary" data-tab="treasures">
       <div class="equipment-top-row">
         <div class="silver">
@@ -87,5 +86,7 @@
         {{> "systems/morkborg/templates/actor/common/equipment-list.hbs" }}
       </ol>
     </div>
+
+    {{> systems/morkborg/templates/actor/common/violence-tab.hbs }}     
   </section>
 </form>
