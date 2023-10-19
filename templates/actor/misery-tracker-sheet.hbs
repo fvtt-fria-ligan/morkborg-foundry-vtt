@@ -1,0 +1,150 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <div class="title">
+      <input
+        class="actor-name"
+        name="name"
+        type="text"
+        value="{{actor.name}}"
+        placeholder=""
+        spellcheck="false"
+      />
+  </div>      
+  <div class="miseries">
+    <div class="misery-block {{data.system.misery1.cssClass}}">
+      <input
+        type="text"
+        name="system.misery1.psalm"
+        value="{{data.system.misery1.psalm}}"
+        class="psalm"
+        placeholder="#"
+        data-dtype="Number"
+      />     
+      <span class="colon">:</span> 
+      <input
+        type="text"
+        name="system.misery1.verse"
+        value="{{data.system.misery1.verse}}"
+        class="verse"
+        placeholder="#"
+        data-dtype="Number"
+      />      
+    </div>
+    <div class="misery-block {{data.system.misery2.cssClass}}">
+      <input
+        type="text"
+        name="system.misery2.psalm"
+        value="{{data.system.misery2.psalm}}"
+        class="psalm"
+        placeholder="#"
+        data-dtype="Number"
+      />     
+      <span class="colon">:</span> 
+      <input
+        type="text"
+        name="system.misery2.verse"
+        value="{{data.system.misery2.verse}}"
+        class="verse"
+        placeholder="#"
+        data-dtype="Number"
+      />      
+    </div>
+    <div class="misery-block {{data.system.misery3.cssClass}}">
+      <input
+        type="text"
+        name="system.misery3.psalm"
+        value="{{data.system.misery3.psalm}}"
+        class="psalm"
+        placeholder="#"
+        data-dtype="Number"
+      />     
+      <span class="colon">:</span> 
+      <input
+        type="text"
+        name="system.misery3.verse"
+        value="{{data.system.misery3.verse}}"
+        class="verse"
+        placeholder="#"
+        data-dtype="Number"
+      />      
+    </div>
+    <div class="misery-block {{data.system.misery4.cssClass}}">
+      <input
+        type="text"
+        name="system.misery4.psalm"
+        value="{{data.system.misery4.psalm}}"
+        class="psalm"
+        placeholder="#"
+        data-dtype="Number"
+      />     
+      <span class="colon">:</span> 
+      <input
+        type="text"
+        name="system.misery4.verse"
+        value="{{data.system.misery4.verse}}"
+        class="verse"
+        placeholder="#"
+        data-dtype="Number"
+      />      
+    </div>
+    <div class="misery-block {{data.system.misery5.cssClass}}">
+      <input
+        type="text"
+        name="system.misery5.psalm"
+        value="{{data.system.misery5.psalm}}"
+        class="psalm"
+        placeholder="#"
+        data-dtype="Number"
+      />     
+      <span class="colon">:</span> 
+      <input
+        type="text"
+        name="system.misery5.verse"
+        value="{{data.system.misery5.verse}}"
+        class="verse"
+        placeholder="#"
+        data-dtype="Number"
+      />      
+    </div>
+    <div class="misery-block {{data.system.misery6.cssClass}}">
+      <input
+        type="text"
+        name="misery6.psalm"
+        value="{{system.misery6.psalm}}"
+        class="psalm"
+        placeholder="#"
+        data-dtype="Number"
+      />     
+      <span class="colon">:</span> 
+      <input
+        type="text"
+        name="misery6.verse"
+        value="{{system.misery6.verse}}"
+        class="verse"
+        placeholder="#"
+        data-dtype="Number"
+      />      
+    </div>                
+    <div class="seven-seven">
+      <div class="numbers">7:7</div>
+    </div>
+
+  </div>
+
+  <div class="agony-block">
+    <div class="agony-title">When will all this agony end?</div>
+    <select name="system.miseryDie">
+      {{#select data.system.miseryDie}}
+        <option value="1d100">Years of pain (d100)</option>
+        <option value="1d20">A bleak half-year (d20)</option>
+        <option value="1d10">A fall in anguish (d10)</option>
+        <option value="1d6">A cruel month (d6)</option>
+        <option value="1d2">The end is nigh! (d2)</option>
+      {{/select}}
+      </select>
+  </div>
+
+  <div class="button-block">
+    <button class="sheet-button misery-button">Roll for Misery</button>
+  </div>
+
+</form>

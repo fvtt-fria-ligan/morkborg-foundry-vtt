@@ -1,0 +1,247 @@
+.morkborg.sheet.actor.misery-tracker {
+  .window-content {
+    form {
+      align-items: center;
+      border: 1px solid var(--foreground-color);
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      font-family: "Calling Code", sans-serif;
+      font-size: 16px;
+      justify-content: flex-start;
+      padding: 20px;
+      width: 100%;
+
+      // .title {
+      //   font-family: "FetteTrumpDeutsch", cursive;
+      //   font-size: 30px;
+      //   margin-bottom: 80px;
+      //   text-align: center;
+      // }
+      .title {
+        // display: flex;
+        // flex-direction: column;
+        // flex: 0 0 50px;
+        // justify-content: flex-end;
+        margin-bottom: 90px;
+        width: 100%;
+        input {
+          height: 50px;
+        }
+      }
+      .agony-block {
+        margin-bottom: 20px;
+        text-align: center;
+        .agony-title {
+          font-family: "FetteTrumpDeutsch", cursive;
+          font-size: 20px;
+          margin-bottom: 5px;
+        }
+      }
+      .button-block {
+        margin-bottom: 20px;
+        text-align: center;
+        .misery-button {
+          font-size: 16px;
+          width: 200px;
+        }
+      }
+      .misery-title {
+        font-family: "FetteTrumpDeutsch", cursive;
+        font-size: 20px;
+      }
+      .miseries {
+        background-image: url("/systems/morkborg/assets/ui/unicursal-hexagram.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        flex: 0 0 300px;
+        margin-bottom: 90px;
+        width: 300px;
+        // display: grid;
+        // column-gap: 10px;
+        // row-gap: 10px;
+        // grid-template-columns: 1fr 1fr 1fr;
+        // grid-template-rows: 1fr 1fr 1fr;
+        .misery-block {
+          align-items: center;
+          background-color: var(--background-color);
+          border: 13px solid var(--foreground-color);
+          border-radius: 45px;
+          display: flex;
+          height: 90px;
+          float: left;
+          justify-content: center;
+          position: absolute;
+          width: 90px;
+          &.activated {
+            border: 13px solid var(--foreground-color);
+            background-color: var(--foreground-color);
+            color: var(--background-color);
+            input {
+              color: var(--background-color);
+              border-bottom: none;
+            }
+            animation: shake 0.5s;
+            animation-iteration-count: infinite;
+          }
+          input {
+            flex: 0 0 20px;
+            font-family: "Cantebriggia", cursive;
+            font-size: 24px;
+            text-align: center;
+          }
+          .colon {
+            // flex: 0 0 5px;
+            // font-family: "FetteTrumpDeutsch", cursive;
+            font-size: 20px;
+            text-align: center;
+          }
+        }
+        .misery-block:nth-child(1) {
+          top: 130px;
+          left: 205px;
+        }
+        .misery-block:nth-child(2) {
+          top: 370px;
+          left: 340px;
+        }
+        .misery-block:nth-child(3) {
+          top: 225px;
+          left: 75px;
+        }
+        .misery-block:nth-child(4) {
+          top: 472px;
+          left: 205px;
+        }
+        .misery-block:nth-child(5) {
+          top: 225px;
+          left: 335px;
+        }
+        .misery-block:nth-child(6) {
+          top: 373px;
+          left: 73px;
+        }
+        .seven-seven {
+          align-items: center;
+          // animation: breathing 5s ease-in-out infinite normal;
+          animation: shake 0.5s;
+          animation-iteration-count: infinite;
+          background-color: var(--foreground-color);
+          // border: 6px solid var(--background-color);
+          border-radius: 45px;
+          display: flex;
+          flex-direction: column;
+          height: 90px;
+          justify-content: center;
+          left: 205px;
+          position: absolute;
+          text-align: center;
+          top: 300px;
+          width: 90px;
+          .numbers {
+            color: var(--background-color);
+            font-family: "Cantebriggia", cursive;
+            font-size: 40px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* https://stackoverflow.com/questions/73537320/how-do-i-make-the-html-window-appear-to-shake */
+@keyframes shake {
+  0% {
+    transform: translate(0.5px, 0.5px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-0.5px, -1px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-1.5px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(1.5px, 1px) rotate(0deg);
+  }
+  40% {
+    transform: translate(0.5px, -0.5px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-0.5px, 1px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-1.5px, 0.5px) rotate(0deg);
+  }
+  70% {
+    transform: translate(1.5px, 0.5px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-0.5px, -0.5px) rotate(1deg);
+  }
+  90% {
+    transform: translate(0.5px, 1px) rotate(0deg);
+  }
+  100% {
+    transform: translate(0.5px, -1px) rotate(-1deg);
+  }
+}
+
+@keyframes bigshake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+@keyframes breathing {
+  0% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  25% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+  60% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  100% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
