@@ -145,6 +145,7 @@ MB.actorTypes = {
   creature: "creature",
   container: "container",
   follower: "follower",
+  miseryTracker: "misery-tracker",
 };
 
 MB.ammoTypes = {

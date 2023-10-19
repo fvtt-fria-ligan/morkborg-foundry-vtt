@@ -33,6 +33,8 @@
     &[type="date"] {
       color: var(--foreground-color);
       border-radius: 0;
+      border: none;
+      border-bottom: 1px solid var(--highlight-background-color);
     }
 
     &[type="text"]:focus,
@@ -161,6 +163,7 @@
       select {
         font-family: var(--item-font);
         font-size: 14px;
+        text-align: center;
       }
 
       &.special {
