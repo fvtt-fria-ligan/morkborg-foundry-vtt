@@ -1006,6 +1006,441 @@
   padding: 20px;
   width: 100%;
 }
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle {
+  animation: rise 1s ease-in infinite;
+  background-image: radial-gradient(#ff5000 20%, rgba(255, 80, 0, 0) 70%);
+  border-radius: 50%;
+  bottom: 0;
+  height: 5em;
+  mix-blend-mode: screen;
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+  width: 5em;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(1) {
+  animation-delay: 0.0380788712s;
+  left: calc((100% - 5em) * 0);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(2) {
+  animation-delay: 0.9847874614s;
+  left: calc((100% - 5em) * 0.02);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(3) {
+  animation-delay: 0.6490878916s;
+  left: calc((100% - 5em) * 0.04);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(4) {
+  animation-delay: 0.8297584989s;
+  left: calc((100% - 5em) * 0.06);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(5) {
+  animation-delay: 0.3092213675s;
+  left: calc((100% - 5em) * 0.08);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(6) {
+  animation-delay: 0.0084231808s;
+  left: calc((100% - 5em) * 0.1);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(7) {
+  animation-delay: 0.974643696s;
+  left: calc((100% - 5em) * 0.12);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(8) {
+  animation-delay: 0.546693233s;
+  left: calc((100% - 5em) * 0.14);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(9) {
+  animation-delay: 0.8866329003s;
+  left: calc((100% - 5em) * 0.16);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(10) {
+  animation-delay: 0.9241049473s;
+  left: calc((100% - 5em) * 0.18);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(11) {
+  animation-delay: 0.8779583416s;
+  left: calc((100% - 5em) * 0.2);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(12) {
+  animation-delay: 0.2390961309s;
+  left: calc((100% - 5em) * 0.22);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(13) {
+  animation-delay: 0.2025721889s;
+  left: calc((100% - 5em) * 0.24);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(14) {
+  animation-delay: 0.7246033453s;
+  left: calc((100% - 5em) * 0.26);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(15) {
+  animation-delay: 0.7279156491s;
+  left: calc((100% - 5em) * 0.28);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(16) {
+  animation-delay: 0.0480012372s;
+  left: calc((100% - 5em) * 0.3);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(17) {
+  animation-delay: 0.5725786813s;
+  left: calc((100% - 5em) * 0.32);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(18) {
+  animation-delay: 0.8763681399s;
+  left: calc((100% - 5em) * 0.34);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(19) {
+  animation-delay: 0.8825125074s;
+  left: calc((100% - 5em) * 0.36);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(20) {
+  animation-delay: 0.6866982174s;
+  left: calc((100% - 5em) * 0.38);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(21) {
+  animation-delay: 0.4819327771s;
+  left: calc((100% - 5em) * 0.4);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(22) {
+  animation-delay: 0.6931061332s;
+  left: calc((100% - 5em) * 0.42);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(23) {
+  animation-delay: 0.6910307327s;
+  left: calc((100% - 5em) * 0.44);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(24) {
+  animation-delay: 0.6054935033s;
+  left: calc((100% - 5em) * 0.46);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(25) {
+  animation-delay: 0.4954411033s;
+  left: calc((100% - 5em) * 0.48);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(26) {
+  animation-delay: 0.5091594547s;
+  left: calc((100% - 5em) * 0.5);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(27) {
+  animation-delay: 0.8005531959s;
+  left: calc((100% - 5em) * 0.52);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(28) {
+  animation-delay: 0.537057147s;
+  left: calc((100% - 5em) * 0.54);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(29) {
+  animation-delay: 0.6831672969s;
+  left: calc((100% - 5em) * 0.56);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(30) {
+  animation-delay: 0.1566744904s;
+  left: calc((100% - 5em) * 0.58);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(31) {
+  animation-delay: 0.6335433349s;
+  left: calc((100% - 5em) * 0.6);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(32) {
+  animation-delay: 0.3589026161s;
+  left: calc((100% - 5em) * 0.62);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(33) {
+  animation-delay: 0.0977097657s;
+  left: calc((100% - 5em) * 0.64);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(34) {
+  animation-delay: 0.3524946502s;
+  left: calc((100% - 5em) * 0.66);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(35) {
+  animation-delay: 0.3088870379s;
+  left: calc((100% - 5em) * 0.68);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(36) {
+  animation-delay: 0.7397923608s;
+  left: calc((100% - 5em) * 0.7);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(37) {
+  animation-delay: 0.7006186834s;
+  left: calc((100% - 5em) * 0.72);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(38) {
+  animation-delay: 0.8140872971s;
+  left: calc((100% - 5em) * 0.74);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(39) {
+  animation-delay: 0.0933762348s;
+  left: calc((100% - 5em) * 0.76);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(40) {
+  animation-delay: 0.954171067s;
+  left: calc((100% - 5em) * 0.78);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(41) {
+  animation-delay: 0.3996268445s;
+  left: calc((100% - 5em) * 0.8);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(42) {
+  animation-delay: 0.3115704542s;
+  left: calc((100% - 5em) * 0.82);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(43) {
+  animation-delay: 0.3075956198s;
+  left: calc((100% - 5em) * 0.84);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(44) {
+  animation-delay: 0.27334493s;
+  left: calc((100% - 5em) * 0.86);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(45) {
+  animation-delay: 0.2830868199s;
+  left: calc((100% - 5em) * 0.88);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(46) {
+  animation-delay: 0.1079774041s;
+  left: calc((100% - 5em) * 0.9);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(47) {
+  animation-delay: 0.0259257859s;
+  left: calc((100% - 5em) * 0.92);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(48) {
+  animation-delay: 0.8296118973s;
+  left: calc((100% - 5em) * 0.94);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(49) {
+  animation-delay: 0.9622569393s;
+  left: calc((100% - 5em) * 0.96);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(50) {
+  animation-delay: 0.5025115421s;
+  left: calc((100% - 5em) * 0.98);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .seven-seven {
+  animation: heartbeat 0.75s infinite alternate;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle {
+  animation: rise 1s ease-in infinite;
+  background-image: radial-gradient(#ff5000 20%, rgba(255, 80, 0, 0) 70%);
+  border-radius: 50%;
+  bottom: 0;
+  height: 5em;
+  mix-blend-mode: screen;
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+  width: 5em;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(1) {
+  animation-delay: 0.2899947833s;
+  left: calc((100% - 5em) * 0);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(2) {
+  animation-delay: 0.9783585064s;
+  left: calc((100% - 5em) * 0.02);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(3) {
+  animation-delay: 0.7345252089s;
+  left: calc((100% - 5em) * 0.04);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(4) {
+  animation-delay: 0.5034217286s;
+  left: calc((100% - 5em) * 0.06);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(5) {
+  animation-delay: 0.7131752382s;
+  left: calc((100% - 5em) * 0.08);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(6) {
+  animation-delay: 0.1666267688s;
+  left: calc((100% - 5em) * 0.1);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(7) {
+  animation-delay: 0.8305245002s;
+  left: calc((100% - 5em) * 0.12);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(8) {
+  animation-delay: 0.9527983194s;
+  left: calc((100% - 5em) * 0.14);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(9) {
+  animation-delay: 0.2036933866s;
+  left: calc((100% - 5em) * 0.16);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(10) {
+  animation-delay: 0.4363603351s;
+  left: calc((100% - 5em) * 0.18);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(11) {
+  animation-delay: 0.0028912652s;
+  left: calc((100% - 5em) * 0.2);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(12) {
+  animation-delay: 0.6214451897s;
+  left: calc((100% - 5em) * 0.22);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(13) {
+  animation-delay: 0.3394166378s;
+  left: calc((100% - 5em) * 0.24);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(14) {
+  animation-delay: 0.927107368s;
+  left: calc((100% - 5em) * 0.26);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(15) {
+  animation-delay: 0.2717528516s;
+  left: calc((100% - 5em) * 0.28);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(16) {
+  animation-delay: 0.4442951414s;
+  left: calc((100% - 5em) * 0.3);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(17) {
+  animation-delay: 0.7403259306s;
+  left: calc((100% - 5em) * 0.32);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(18) {
+  animation-delay: 0.8803832318s;
+  left: calc((100% - 5em) * 0.34);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(19) {
+  animation-delay: 0.8969217068s;
+  left: calc((100% - 5em) * 0.36);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(20) {
+  animation-delay: 0.3999621007s;
+  left: calc((100% - 5em) * 0.38);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(21) {
+  animation-delay: 0.3731477764s;
+  left: calc((100% - 5em) * 0.4);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(22) {
+  animation-delay: 0.8407576942s;
+  left: calc((100% - 5em) * 0.42);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(23) {
+  animation-delay: 0.9580790905s;
+  left: calc((100% - 5em) * 0.44);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(24) {
+  animation-delay: 0.1078433501s;
+  left: calc((100% - 5em) * 0.46);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(25) {
+  animation-delay: 0.0668286377s;
+  left: calc((100% - 5em) * 0.48);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(26) {
+  animation-delay: 0.2297673798s;
+  left: calc((100% - 5em) * 0.5);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(27) {
+  animation-delay: 0.4471205027s;
+  left: calc((100% - 5em) * 0.52);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(28) {
+  animation-delay: 0.1164936356s;
+  left: calc((100% - 5em) * 0.54);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(29) {
+  animation-delay: 0.7101989171s;
+  left: calc((100% - 5em) * 0.56);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(30) {
+  animation-delay: 0.227298967s;
+  left: calc((100% - 5em) * 0.58);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(31) {
+  animation-delay: 0.0169510361s;
+  left: calc((100% - 5em) * 0.6);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(32) {
+  animation-delay: 0.5310337018s;
+  left: calc((100% - 5em) * 0.62);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(33) {
+  animation-delay: 0.3261255898s;
+  left: calc((100% - 5em) * 0.64);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(34) {
+  animation-delay: 0.8111987317s;
+  left: calc((100% - 5em) * 0.66);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(35) {
+  animation-delay: 0.8063310727s;
+  left: calc((100% - 5em) * 0.68);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(36) {
+  animation-delay: 0.3750866005s;
+  left: calc((100% - 5em) * 0.7);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(37) {
+  animation-delay: 0.7769508464s;
+  left: calc((100% - 5em) * 0.72);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(38) {
+  animation-delay: 0.8578458337s;
+  left: calc((100% - 5em) * 0.74);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(39) {
+  animation-delay: 0.6142838558s;
+  left: calc((100% - 5em) * 0.76);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(40) {
+  animation-delay: 0.6648954679s;
+  left: calc((100% - 5em) * 0.78);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(41) {
+  animation-delay: 0.5676131547s;
+  left: calc((100% - 5em) * 0.8);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(42) {
+  animation-delay: 0.5038178722s;
+  left: calc((100% - 5em) * 0.82);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(43) {
+  animation-delay: 0.905655278s;
+  left: calc((100% - 5em) * 0.84);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(44) {
+  animation-delay: 0.4167533927s;
+  left: calc((100% - 5em) * 0.86);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(45) {
+  animation-delay: 0.9134565932s;
+  left: calc((100% - 5em) * 0.88);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(46) {
+  animation-delay: 0.9208014415s;
+  left: calc((100% - 5em) * 0.9);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(47) {
+  animation-delay: 0.2174104807s;
+  left: calc((100% - 5em) * 0.92);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(48) {
+  animation-delay: 0.6796835955s;
+  left: calc((100% - 5em) * 0.94);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(49) {
+  animation-delay: 0.2466416139s;
+  left: calc((100% - 5em) * 0.96);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(50) {
+  animation-delay: 0.177244706s;
+  left: calc((100% - 5em) * 0.98);
+}
 .morkborg.sheet.actor.misery-tracker .window-content form .title {
   margin-bottom: 90px;
   width: 100%;
@@ -1059,224 +1494,10 @@
   border: 13px solid var(--foreground-color);
   background-color: var(--foreground-color);
   color: var(--background-color);
-  animation: shake 0.5s;
-  animation-iteration-count: infinite;
 }
 .morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated input {
   color: var(--background-color);
   border-bottom: none;
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle {
-  animation: rise 1s ease-in infinite;
-  background-image: radial-gradient(#ff5000 20%, rgba(255, 80, 0, 0) 70%);
-  border-radius: 50%;
-  bottom: 0;
-  height: 5em;
-  mix-blend-mode: screen;
-  opacity: 0;
-  position: absolute;
-  pointer-events: none;
-  width: 5em;
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(1) {
-  animation-delay: 0.0898923516s;
-  left: calc((100% - 5em) * 0);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(2) {
-  animation-delay: 0.9221645756s;
-  left: calc((100% - 5em) * 0.02);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(3) {
-  animation-delay: 0.1809872515s;
-  left: calc((100% - 5em) * 0.04);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(4) {
-  animation-delay: 0.7341589305s;
-  left: calc((100% - 5em) * 0.06);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(5) {
-  animation-delay: 0.1535023335s;
-  left: calc((100% - 5em) * 0.08);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(6) {
-  animation-delay: 0.5951231791s;
-  left: calc((100% - 5em) * 0.1);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(7) {
-  animation-delay: 0.5491411863s;
-  left: calc((100% - 5em) * 0.12);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(8) {
-  animation-delay: 0.6792523551s;
-  left: calc((100% - 5em) * 0.14);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(9) {
-  animation-delay: 0.7400481147s;
-  left: calc((100% - 5em) * 0.16);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(10) {
-  animation-delay: 0.5212430026s;
-  left: calc((100% - 5em) * 0.18);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(11) {
-  animation-delay: 0.9665488868s;
-  left: calc((100% - 5em) * 0.2);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(12) {
-  animation-delay: 0.1071561599s;
-  left: calc((100% - 5em) * 0.22);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(13) {
-  animation-delay: 0.9657740861s;
-  left: calc((100% - 5em) * 0.24);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(14) {
-  animation-delay: 0.5672210385s;
-  left: calc((100% - 5em) * 0.26);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(15) {
-  animation-delay: 0.1531982387s;
-  left: calc((100% - 5em) * 0.28);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(16) {
-  animation-delay: 0.3468579619s;
-  left: calc((100% - 5em) * 0.3);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(17) {
-  animation-delay: 0.5034106752s;
-  left: calc((100% - 5em) * 0.32);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(18) {
-  animation-delay: 0.8300556113s;
-  left: calc((100% - 5em) * 0.34);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(19) {
-  animation-delay: 0.13643994s;
-  left: calc((100% - 5em) * 0.36);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(20) {
-  animation-delay: 0.9859421281s;
-  left: calc((100% - 5em) * 0.38);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(21) {
-  animation-delay: 0.5812129759s;
-  left: calc((100% - 5em) * 0.4);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(22) {
-  animation-delay: 0.144177161s;
-  left: calc((100% - 5em) * 0.42);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(23) {
-  animation-delay: 0.4812822967s;
-  left: calc((100% - 5em) * 0.44);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(24) {
-  animation-delay: 0.2392756359s;
-  left: calc((100% - 5em) * 0.46);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(25) {
-  animation-delay: 0.3238396523s;
-  left: calc((100% - 5em) * 0.48);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(26) {
-  animation-delay: 0.0308766996s;
-  left: calc((100% - 5em) * 0.5);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(27) {
-  animation-delay: 0.8326709189s;
-  left: calc((100% - 5em) * 0.52);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(28) {
-  animation-delay: 0.7861553038s;
-  left: calc((100% - 5em) * 0.54);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(29) {
-  animation-delay: 0.8469038086s;
-  left: calc((100% - 5em) * 0.56);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(30) {
-  animation-delay: 0.4303725835s;
-  left: calc((100% - 5em) * 0.58);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(31) {
-  animation-delay: 0.2647594383s;
-  left: calc((100% - 5em) * 0.6);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(32) {
-  animation-delay: 0.3422226415s;
-  left: calc((100% - 5em) * 0.62);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(33) {
-  animation-delay: 0.6748856347s;
-  left: calc((100% - 5em) * 0.64);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(34) {
-  animation-delay: 0.1977833854s;
-  left: calc((100% - 5em) * 0.66);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(35) {
-  animation-delay: 0.8038452029s;
-  left: calc((100% - 5em) * 0.68);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(36) {
-  animation-delay: 0.2675381264s;
-  left: calc((100% - 5em) * 0.7);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(37) {
-  animation-delay: 0.4537908748s;
-  left: calc((100% - 5em) * 0.72);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(38) {
-  animation-delay: 0.9397301411s;
-  left: calc((100% - 5em) * 0.74);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(39) {
-  animation-delay: 0.4789233995s;
-  left: calc((100% - 5em) * 0.76);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(40) {
-  animation-delay: 0.1607562876s;
-  left: calc((100% - 5em) * 0.78);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(41) {
-  animation-delay: 0.9288371717s;
-  left: calc((100% - 5em) * 0.8);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(42) {
-  animation-delay: 0.4304935743s;
-  left: calc((100% - 5em) * 0.82);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(43) {
-  animation-delay: 0.1549507973s;
-  left: calc((100% - 5em) * 0.84);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(44) {
-  animation-delay: 0.8612281727s;
-  left: calc((100% - 5em) * 0.86);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(45) {
-  animation-delay: 0.0504884477s;
-  left: calc((100% - 5em) * 0.88);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(46) {
-  animation-delay: 0.4341460463s;
-  left: calc((100% - 5em) * 0.9);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(47) {
-  animation-delay: 0.1233170693s;
-  left: calc((100% - 5em) * 0.92);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(48) {
-  animation-delay: 0.8534548142s;
-  left: calc((100% - 5em) * 0.94);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(49) {
-  animation-delay: 0.6713107287s;
-  left: calc((100% - 5em) * 0.96);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated .particle:nth-of-type(50) {
-  animation-delay: 0.135881057s;
-  left: calc((100% - 5em) * 0.98);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block input {
   flex: 0 0 20px;
@@ -1314,7 +1535,6 @@
 }
 .morkborg.sheet.actor.misery-tracker .window-content form .miseries .seven-seven {
   align-items: center;
-  animation: heartbeat 0.75s infinite alternate;
   transform-origin: center;
   background-color: var(--foreground-color);
   border-radius: 45px;
@@ -1332,222 +1552,6 @@
   color: var(--background-color);
   font-family: "Cantebriggia", cursive;
   font-size: 40px;
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven {
-  animation: shake 0.5s;
-  animation-iteration-count: infinite;
-  /* TODO: DRY up with misery-block .particle class */
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle {
-  animation: rise 1s ease-in infinite;
-  background-image: radial-gradient(#ff5000 20%, rgba(255, 80, 0, 0) 70%);
-  border-radius: 50%;
-  mix-blend-mode: screen;
-  opacity: 0;
-  position: absolute;
-  bottom: 0;
-  width: 5em;
-  height: 5em;
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(1) {
-  animation-delay: 0.5669462702s;
-  left: calc((100% - 5em) * 0);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(2) {
-  animation-delay: 0.0616290193s;
-  left: calc((100% - 5em) * 0.02);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(3) {
-  animation-delay: 0.8522565407s;
-  left: calc((100% - 5em) * 0.04);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(4) {
-  animation-delay: 0.4703364186s;
-  left: calc((100% - 5em) * 0.06);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(5) {
-  animation-delay: 0.1340406528s;
-  left: calc((100% - 5em) * 0.08);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(6) {
-  animation-delay: 0.3792945439s;
-  left: calc((100% - 5em) * 0.1);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(7) {
-  animation-delay: 0.5834530269s;
-  left: calc((100% - 5em) * 0.12);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(8) {
-  animation-delay: 0.563478582s;
-  left: calc((100% - 5em) * 0.14);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(9) {
-  animation-delay: 0.9376394324s;
-  left: calc((100% - 5em) * 0.16);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(10) {
-  animation-delay: 0.6774875758s;
-  left: calc((100% - 5em) * 0.18);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(11) {
-  animation-delay: 0.8112804455s;
-  left: calc((100% - 5em) * 0.2);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(12) {
-  animation-delay: 0.3943261333s;
-  left: calc((100% - 5em) * 0.22);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(13) {
-  animation-delay: 0.3743871554s;
-  left: calc((100% - 5em) * 0.24);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(14) {
-  animation-delay: 0.4575446172s;
-  left: calc((100% - 5em) * 0.26);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(15) {
-  animation-delay: 0.9340065521s;
-  left: calc((100% - 5em) * 0.28);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(16) {
-  animation-delay: 0.2254805333s;
-  left: calc((100% - 5em) * 0.3);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(17) {
-  animation-delay: 0.2186296713s;
-  left: calc((100% - 5em) * 0.32);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(18) {
-  animation-delay: 0.5571090174s;
-  left: calc((100% - 5em) * 0.34);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(19) {
-  animation-delay: 0.6871957639s;
-  left: calc((100% - 5em) * 0.36);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(20) {
-  animation-delay: 0.1176226231s;
-  left: calc((100% - 5em) * 0.38);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(21) {
-  animation-delay: 0.787293736s;
-  left: calc((100% - 5em) * 0.4);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(22) {
-  animation-delay: 0.5169020896s;
-  left: calc((100% - 5em) * 0.42);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(23) {
-  animation-delay: 0.1063905254s;
-  left: calc((100% - 5em) * 0.44);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(24) {
-  animation-delay: 0.2365453088s;
-  left: calc((100% - 5em) * 0.46);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(25) {
-  animation-delay: 0.6169815123s;
-  left: calc((100% - 5em) * 0.48);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(26) {
-  animation-delay: 0.6162422231s;
-  left: calc((100% - 5em) * 0.5);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(27) {
-  animation-delay: 0.1897450338s;
-  left: calc((100% - 5em) * 0.52);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(28) {
-  animation-delay: 0.0304555822s;
-  left: calc((100% - 5em) * 0.54);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(29) {
-  animation-delay: 0.6771537531s;
-  left: calc((100% - 5em) * 0.56);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(30) {
-  animation-delay: 0.5531637191s;
-  left: calc((100% - 5em) * 0.58);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(31) {
-  animation-delay: 0.6459797136s;
-  left: calc((100% - 5em) * 0.6);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(32) {
-  animation-delay: 0.9709014537s;
-  left: calc((100% - 5em) * 0.62);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(33) {
-  animation-delay: 0.5958278217s;
-  left: calc((100% - 5em) * 0.64);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(34) {
-  animation-delay: 0.046522973s;
-  left: calc((100% - 5em) * 0.66);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(35) {
-  animation-delay: 0.1275330811s;
-  left: calc((100% - 5em) * 0.68);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(36) {
-  animation-delay: 0.7132129662s;
-  left: calc((100% - 5em) * 0.7);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(37) {
-  animation-delay: 0.266245167s;
-  left: calc((100% - 5em) * 0.72);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(38) {
-  animation-delay: 0.4000524509s;
-  left: calc((100% - 5em) * 0.74);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(39) {
-  animation-delay: 0.6782499518s;
-  left: calc((100% - 5em) * 0.76);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(40) {
-  animation-delay: 0.5422595842s;
-  left: calc((100% - 5em) * 0.78);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(41) {
-  animation-delay: 0.8689444918s;
-  left: calc((100% - 5em) * 0.8);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(42) {
-  animation-delay: 0.4187009683s;
-  left: calc((100% - 5em) * 0.82);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(43) {
-  animation-delay: 0.7815102387s;
-  left: calc((100% - 5em) * 0.84);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(44) {
-  animation-delay: 0.3533875843s;
-  left: calc((100% - 5em) * 0.86);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(45) {
-  animation-delay: 0.1890904787s;
-  left: calc((100% - 5em) * 0.88);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(46) {
-  animation-delay: 0.3198285954s;
-  left: calc((100% - 5em) * 0.9);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(47) {
-  animation-delay: 0.8943953116s;
-  left: calc((100% - 5em) * 0.92);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(48) {
-  animation-delay: 0.6141084395s;
-  left: calc((100% - 5em) * 0.94);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(49) {
-  animation-delay: 0.3617806633s;
-  left: calc((100% - 5em) * 0.96);
-}
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .miseries .seven-seven .particle:nth-of-type(50) {
-  animation-delay: 0.4846626529s;
-  left: calc((100% - 5em) * 0.98);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .endtimes {
   font-family: "FetteTrumpDeutsch", cursive;

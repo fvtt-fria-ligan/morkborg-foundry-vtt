@@ -1,4 +1,5 @@
 import { rollMisery } from "../../miseries.js";
+import { miseryTrackerAnimations } from "../../settings.js";
 
 export class MBMiseryTrackerSheet extends ActorSheet {
   /** @override */
@@ -24,10 +25,15 @@ export class MBMiseryTrackerSheet extends ActorSheet {
       data.data.system[field].cssClass =
         misery.psalm && misery.verse ? "activated" : "";
     }
+    data.data.system.miseryAnimationClass = miseryTrackerAnimations()
+      ? "misery-animations"
+      : "";
     data.data.system.seventhMiseryClass = data.data.system
       .seventhMiseryActivated
       ? "seventh-misery"
       : "";
+
+    console.log(data);
     return data;
   }
 

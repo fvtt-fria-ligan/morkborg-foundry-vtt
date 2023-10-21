@@ -198,6 +198,8 @@
   "MB.SettingsHitAutomation": "Hit Automation",
   "MB.SettingsHitAutomationHint": "Enable auto-resolution of hits, misses, and damage rolls.",
   "MB.SettingsLegible": "Legible",
+  "MB.SettingsMiseryTrackerAnimations": "Misery Tracker Animations",
+  "MB.SettingsMiseryTrackerAnimationsHint": "Show animations on the Misery Tracker sheet?",
   "MB.SettingsWhiteOnBlackPink": "White on black (pink)",
   "MB.SettingsWhiteOnBlackWhite": "White on black (white)",
   "MB.SettingsWhiteOnBlackYellow": "White on black (yellow)",
