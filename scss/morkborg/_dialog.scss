@@ -16,8 +16,9 @@
 .dialog-button {
   &.attack,
   &.create {
-    font-family: var(--h2-font);
-    font-size: 20px;
+    font-family: var(--button-font);
+    font-size: 14px;
+    text-transform: uppercase;
   }
 }
 
@@ -84,8 +85,9 @@
       border: none;
       border-bottom: 2px solid #777;
       border-radius: 0;
-      font-family: var(--h2-font);
-      font-size: 20px;
+      font-family: var(--button-font);
+      font-size: 14px;
+      text-transform: uppercase;
       width: 150px;
 
       &:active,

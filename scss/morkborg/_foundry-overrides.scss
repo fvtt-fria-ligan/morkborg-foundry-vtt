@@ -373,11 +373,13 @@ form.editable .results {
   background: var(--foreground-color);
   color: var(--background-color);
   font-family: var(--button-font);
+  text-transform: uppercase;
 
   &.default {
     background: var(--foreground-color);
     color: var(--background-color);
     font-family: var(--button-font);
+    text-transform: uppercase;
   }
 }
 
