@@ -1,5 +1,22 @@
 import { showDice } from "./dice.js";
+import { playSound } from "./sounds.js";
 import { showRollResultCard } from "./utils.js";
+
+export const numMiseries = (tracker) => {
+  let count = 0;
+  for (let i = 1; i <= 6; i++) {
+    const field = `misery${i}`;
+    const misery = tracker.system[field];
+    if (!(misery.psalm && misery.verse)) {
+      count++;
+    }
+  }
+  return count;
+};
+
+const playHornOfDoom = () => {
+  playSound("systems/morkborg/assets/audio/horn-of-doom.ogg", true);
+};
 
 export const rollMisery = async (tracker) => {
   const miseryRoll = new Roll(tracker.system.miseryDie || "1d6");
@@ -49,8 +66,10 @@ export const rollMisery = async (tracker) => {
       updateObj[`data.${emptyMiseryField}`] = misery;
       await tracker.update(updateObj);
     } else {
-      // no miseries left... it is the end times
+      // seventh misery... it is the end times.
+      await tracker.update({ "data.seventhMiseryActivated": true });
     }
+    playHornOfDoom();
   }
 
   await showRollResultCard(null, data);

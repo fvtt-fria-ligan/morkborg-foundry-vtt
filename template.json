@@ -101,7 +101,8 @@
         "psalm": null,
         "verse": null
       }
-    }
+    },
+    "seventhMiseryActivated": false
   },
   "Item": {
     "types": [

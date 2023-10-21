@@ -24,6 +24,10 @@ export class MBMiseryTrackerSheet extends ActorSheet {
       data.data.system[field].cssClass =
         misery.psalm && misery.verse ? "activated" : "";
     }
+    data.data.system.seventhMiseryClass = data.data.system
+      .seventhMiseryActivated
+      ? "seventh-misery"
+      : "";
     return data;
   }
 

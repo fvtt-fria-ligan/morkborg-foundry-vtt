@@ -7,6 +7,7 @@ export class MBActor extends Actor {
   /** @override */
   static async create(data, options = {}) {
     data.prototypeToken = data.prototypeToken || {};
+    console.log(data.prototypeToken);
     let defaults = {};
     if (data.type === "character") {
       defaults = {
@@ -31,6 +32,18 @@ export class MBActor extends Actor {
         actorLink: true,
         disposition: 1,
         vision: true,
+      };
+    } else if (data.type === "misery-tracker") {
+      data.img = "systems/morkborg/tokens/misc/misery-tracker.webp";
+      defaults = {
+        actorLink: false,
+        disposition: 0,
+        vision: false,
+        texture: {
+          src: data.img,
+          scaleX: 3,
+          scaleY: 3,
+        },
       };
     }
     mergeObject(data.prototypeToken, defaults, { overwrite: false });

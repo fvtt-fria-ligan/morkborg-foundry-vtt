@@ -1,3 +1,25 @@
+$fireColor: rgb(255, 80, 0);
+$fireColorT: rgba(255, 80, 0, 0);
+$dur: 1s;
+$blur: 0.02em;
+$fireRad: 3em;
+$parts: 50;
+$partSize: 5em;
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(0) scale(1);
+  }
+  25% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10em) scale(0);
+  }
+}
+
 .morkborg.sheet.actor.misery-tracker {
   .window-content {
     form {
@@ -12,17 +34,7 @@
       padding: 20px;
       width: 100%;
 
-      // .title {
-      //   font-family: "FetteTrumpDeutsch", cursive;
-      //   font-size: 30px;
-      //   margin-bottom: 80px;
-      //   text-align: center;
-      // }
       .title {
-        // display: flex;
-        // flex-direction: column;
-        // flex: 0 0 50px;
-        // justify-content: flex-end;
         margin-bottom: 90px;
         width: 100%;
         input {
@@ -58,11 +70,6 @@
         flex: 0 0 300px;
         margin-bottom: 90px;
         width: 300px;
-        // display: grid;
-        // column-gap: 10px;
-        // row-gap: 10px;
-        // grid-template-columns: 1fr 1fr 1fr;
-        // grid-template-rows: 1fr 1fr 1fr;
         .misery-block {
           align-items: center;
           background-color: var(--background-color);
@@ -84,6 +91,28 @@
             }
             animation: shake 0.5s;
             animation-iteration-count: infinite;
+            .particle {
+              animation: rise $dur ease-in infinite;
+              background-image: radial-gradient(
+                $fireColor 20%,
+                $fireColorT 70%
+              );
+              border-radius: 50%;
+              bottom: 0;
+              height: $partSize;
+              mix-blend-mode: screen;
+              opacity: 0;
+              position: absolute;
+              pointer-events: none;
+              width: $partSize;
+              // spread particles out in time and x-position to get desired effect
+              @for $p from 1 through $parts {
+                &:nth-of-type(#{$p}) {
+                  animation-delay: $dur * random();
+                  left: calc((100% - #{$partSize}) * calc(($p - 1) / $parts));
+                }
+              }
+            }
           }
           input {
             flex: 0 0 20px;
@@ -124,9 +153,8 @@
         }
         .seven-seven {
           align-items: center;
-          // animation: breathing 5s ease-in-out infinite normal;
-          animation: shake 0.5s;
-          animation-iteration-count: infinite;
+          animation: heartbeat 0.75s infinite alternate;
+          transform-origin: center;
           background-color: var(--foreground-color);
           // border: 6px solid var(--background-color);
           border-radius: 45px;
@@ -146,102 +174,93 @@
           }
         }
       }
+
+      &.seventh-misery {
+        .miseries {
+          .misery-block {
+          }
+          .seven-seven {
+            animation: shake 0.5s;
+            animation-iteration-count: infinite;
+            /* TODO: DRY up with misery-block .particle class */
+            .particle {
+              animation: rise $dur ease-in infinite;
+              background-image: radial-gradient(
+                $fireColor 20%,
+                $fireColorT 70%
+              );
+              border-radius: 50%;
+              mix-blend-mode: screen;
+              opacity: 0;
+              position: absolute;
+              bottom: 0;
+              width: $partSize;
+              height: $partSize;
+              // spread particles out in time and x-position to get desired effect
+              @for $p from 1 through $parts {
+                &:nth-of-type(#{$p}) {
+                  animation-delay: $dur * random();
+                  left: calc((100% - #{$partSize}) * calc(($p - 1) / $parts));
+                }
+              }
+            }
+          }
+        }
+        .endtimes {
+          font-family: "FetteTrumpDeutsch", cursive;
+          font-size: 20px;
+          margin-top: 15px;
+          padding-left: 29px;
+          padding-right: 29px;
+          text-align: center;
+          .burn-the-book {
+            font-style: italic;
+          }
+        }
+      }
     }
+  }
+}
+
+@keyframes heartbeat {
+  to {
+    transform: scale(1.08);
   }
 }
 
 /* https://stackoverflow.com/questions/73537320/how-do-i-make-the-html-window-appear-to-shake */
 @keyframes shake {
   0% {
-    transform: translate(0.5px, 0.5px) rotate(0deg);
+    transform: translate(0.25px, 0.25px) rotate(0deg);
   }
   10% {
-    transform: translate(-0.5px, -1px) rotate(-1deg);
+    transform: translate(-0.25px, -0.5px) rotate(-1deg);
   }
   20% {
-    transform: translate(-1.5px, 0px) rotate(1deg);
+    transform: translate(-0.75px, 0px) rotate(1deg);
   }
   30% {
-    transform: translate(1.5px, 1px) rotate(0deg);
+    transform: translate(0.75px, 0.5px) rotate(0deg);
   }
   40% {
-    transform: translate(0.5px, -0.5px) rotate(1deg);
+    transform: translate(0.25px, -0.25px) rotate(1deg);
   }
   50% {
-    transform: translate(-0.5px, 1px) rotate(-1deg);
+    transform: translate(-0.25px, 0.5px) rotate(-1deg);
   }
   60% {
-    transform: translate(-1.5px, 0.5px) rotate(0deg);
+    transform: translate(-0.75px, 0.25px) rotate(0deg);
   }
   70% {
-    transform: translate(1.5px, 0.5px) rotate(-1deg);
+    transform: translate(0.75px, 0.25px) rotate(-1deg);
   }
   80% {
-    transform: translate(-0.5px, -0.5px) rotate(1deg);
+    transform: translate(-0.25px, -0.25px) rotate(1deg);
   }
   90% {
-    transform: translate(0.5px, 1px) rotate(0deg);
+    transform: translate(0.25px, 0.5px) rotate(0deg);
   }
   100% {
-    transform: translate(0.5px, -1px) rotate(-1deg);
-  }
-}
-
-@keyframes bigshake {
-  0% {
-    transform: translate(1px, 1px) rotate(0deg);
-  }
-  10% {
-    transform: translate(-1px, -2px) rotate(-1deg);
-  }
-  20% {
-    transform: translate(-3px, 0px) rotate(1deg);
-  }
-  30% {
-    transform: translate(3px, 2px) rotate(0deg);
-  }
-  40% {
-    transform: translate(1px, -1px) rotate(1deg);
-  }
-  50% {
-    transform: translate(-1px, 2px) rotate(-1deg);
-  }
-  60% {
-    transform: translate(-3px, 1px) rotate(0deg);
-  }
-  70% {
-    transform: translate(3px, 1px) rotate(-1deg);
-  }
-  80% {
-    transform: translate(-1px, -1px) rotate(1deg);
-  }
-  90% {
-    transform: translate(1px, 2px) rotate(0deg);
-  }
-  100% {
-    transform: translate(1px, -2px) rotate(-1deg);
-  }
-}
-
-@keyframes breathing {
-  0% {
-    -webkit-transform: scale(0.9);
-    -ms-transform: scale(0.9);
-    transform: scale(0.9);
-  }
-  25% {
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
-  }
-  60% {
-    -webkit-transform: scale(0.9);
-    -ms-transform: scale(0.9);
-    transform: scale(0.9);
-  }
-  100% {
-    -webkit-transform: scale(0.9);
-    -ms-transform: scale(0.9);
-    transform: scale(0.9);
+    transform: translate(0.25px, -0.5px) rotate(-1deg);
   }
 }
