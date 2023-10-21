@@ -20,6 +20,7 @@ export default class MBActorSheet extends ActorSheet {
 
     // Add Inventory Item
     html.find(".item-create").click(this._onItemCreate.bind(this));
+    html.find(".feat-create").on("click", this._onFeatCreate.bind(this));
 
     // Update Inventory Item
     html.find(".item-edit").click((ev) => {
@@ -95,6 +96,16 @@ export default class MBActorSheet extends ActorSheet {
         close: () => resolve(null),
       }).render(true);
     });
+  }
+
+  _onFeatCreate(event) {
+    event.preventDefault();
+    const itemData = {
+      name: "New feat",
+      type: "feat",
+      data: {},
+    };
+    this.actor.createEmbeddedDocuments("Item", [itemData]);
   }
 
   /**

@@ -42,6 +42,8 @@ If you want some third-party content, be sure to check out the [MÖRK BORG Third
   - [Fette Trump Deutsch](https://www.dafont.com/fette-trump-deutsch.font) by [Dieter Steffmann](http://www.steffmann.de/wordpress/), and free for personal use.
   - [Old Cupboard](https://coneofnegativeenergy.com/2019/11/08/a-new-thing-old-cupboard-otf/) by [Cone Of Negative Energy](https://coneofnegativeenergy.com/) (Cecil Howe), released under OFL.
   - [Special Elite](https://fonts.google.com/specimen/Special+Elite) by Astigmatic, under Apache license.
+- Sounds
+  [Horn of Doom](https://freesound.org/people/michalwa2003/sounds/391133/) by [michalwa2003](https://freesound.org/people/michalwa2003/).
 
 ## MÖRK BORG CULT (MBC) content:
 

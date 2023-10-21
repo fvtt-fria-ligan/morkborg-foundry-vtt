@@ -15,7 +15,7 @@ import {
   testToughness,
 } from "../test-abilities.js";
 import { rollOmens } from "../omens.js";
-import { rollPowersPerDay, wieldPower } from "../powers.js";
+import { wieldPower } from "../powers.js";
 import { upperCaseFirst } from "../../utils.js";
 
 /**
@@ -144,22 +144,18 @@ export class MBCharacterSheet extends MBActorSheet {
       .find(".ability-label.rollable.custom")
       .on("click", this._onCustomAbilityRoll.bind(this));
 
-    html.find(".item-scvmify").click(this._onScvmify.bind(this));
+    html.find(".reroll-button").click(this._onReroll.bind(this));
     html.find(".broken-button").on("click", this._onBroken.bind(this));
     html.find(".rest-button").on("click", this._onRest.bind(this));
     html
       .find(".omens-row span.rollable")
       .on("click", this._onOmensRoll.bind(this));
     html.find(".get-better-button").on("click", this._onGetBetter.bind(this));
-    // feats tab
-    html.find(".feat-button").on("click", this._onFeatRoll.bind(this));
     // powers tab
+    html.find(".feat-button").on("click", this._onFeatRoll.bind(this));
     html
       .find(".wield-power-button")
       .on("click", this._onWieldPowerRoll.bind(this));
-    html
-      .find(".powers-per-day-text")
-      .on("click", this._onPowersPerDayRoll.bind(this));
   }
 
   _onStrengthRoll(event) {
@@ -191,16 +187,6 @@ export class MBCharacterSheet extends MBActorSheet {
   _onOmensRoll(event) {
     event.preventDefault();
     rollOmens(this.actor);
-  }
-
-  _onPowersPerDayRoll(event) {
-    event.preventDefault();
-    rollPowersPerDay(this.actor);
-  }
-
-  _onScvmify(event) {
-    event.preventDefault();
-    showScvmDialog(this.actor);
   }
 
   _onBroken(event) {
@@ -237,6 +223,11 @@ export class MBCharacterSheet extends MBActorSheet {
       default: "cancel",
     });
     d.render(true);
+  }
+
+  _onReroll(event) {
+    event.preventDefault();
+    showScvmDialog(this.actor);
   }
 
   _onFeatRoll(event) {

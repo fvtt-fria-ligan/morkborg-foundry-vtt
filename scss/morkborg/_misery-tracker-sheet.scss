@@ -1,0 +1,271 @@
+$fireColor: rgb(255, 80, 0);
+$fireColorT: rgba(255, 80, 0, 0);
+$dur: 1s;
+$blur: 0.02em;
+$fireRad: 3em;
+$parts: 50;
+$partSize: 5em;
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(0) scale(1);
+  }
+  25% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10em) scale(0);
+  }
+}
+
+.morkborg.sheet.actor.misery-tracker .window-content {
+  form {
+    align-items: center;
+    border: 1px solid var(--foreground-color);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    font-family: "Calling Code", sans-serif;
+    font-size: 16px;
+    justify-content: flex-start;
+    padding: 20px;
+    width: 100%;
+
+    &.misery-animations {
+      .miseries {
+        .misery-block.activated {
+          animation: shake 0.5s;
+          animation-iteration-count: infinite;
+          .particle {
+            animation: rise $dur ease-in infinite;
+
+            background-image: radial-gradient($fireColor 20%, $fireColorT 70%);
+            border-radius: 50%;
+            bottom: 0;
+            height: $partSize;
+            mix-blend-mode: screen;
+            opacity: 0;
+            position: absolute;
+            pointer-events: none;
+            width: $partSize;
+            @for $p from 1 through $parts {
+              &:nth-of-type(#{$p}) {
+                animation-delay: $dur * random();
+                left: calc((100% - #{$partSize}) * calc(($p - 1) / $parts));
+              }
+            }
+          }
+        }
+        .seven-seven {
+          animation: heartbeat 0.75s infinite alternate;
+        }
+      }
+
+      &.seventh-misery {
+        .miseries {
+          .seven-seven {
+            animation: shake 0.5s;
+            animation-iteration-count: infinite;
+            .particle {
+              animation: rise $dur ease-in infinite;
+
+              background-image: radial-gradient(
+                $fireColor 20%,
+                $fireColorT 70%
+              );
+              border-radius: 50%;
+              bottom: 0;
+              height: $partSize;
+              mix-blend-mode: screen;
+              opacity: 0;
+              position: absolute;
+              pointer-events: none;
+              width: $partSize;
+              @for $p from 1 through $parts {
+                &:nth-of-type(#{$p}) {
+                  animation-delay: $dur * random();
+                  left: calc((100% - #{$partSize}) * calc(($p - 1) / $parts));
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .title {
+      margin-bottom: 90px;
+      width: 100%;
+      input {
+        height: 50px;
+      }
+    }
+    .agony-block {
+      margin-bottom: 20px;
+      text-align: center;
+      .agony-title {
+        font-family: "FetteTrumpDeutsch", cursive;
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+    }
+    .button-block {
+      margin-bottom: 20px;
+      text-align: center;
+      .misery-button {
+        font-size: 16px;
+        width: 200px;
+      }
+    }
+    .misery-title {
+      font-family: "FetteTrumpDeutsch", cursive;
+      font-size: 20px;
+    }
+    .miseries {
+      background-image: url("/systems/morkborg/assets/ui/unicursal-hexagram.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      flex: 0 0 300px;
+      margin-bottom: 90px;
+      width: 300px;
+      .misery-block {
+        align-items: center;
+        background-color: var(--background-color);
+        border: 13px solid var(--foreground-color);
+        border-radius: 45px;
+        display: flex;
+        height: 90px;
+        float: left;
+        justify-content: center;
+        position: absolute;
+        width: 90px;
+        &.activated {
+          border: 13px solid var(--foreground-color);
+          background-color: var(--foreground-color);
+          color: var(--background-color);
+          input {
+            color: var(--background-color);
+            border-bottom: none;
+          }
+        }
+        input {
+          flex: 0 0 20px;
+          font-family: "Cantebriggia", cursive;
+          font-size: 24px;
+          text-align: center;
+        }
+        .colon {
+          // flex: 0 0 5px;
+          // font-family: "FetteTrumpDeutsch", cursive;
+          font-size: 20px;
+          text-align: center;
+        }
+      }
+      .misery-block:nth-child(1) {
+        top: 130px;
+        left: 205px;
+      }
+      .misery-block:nth-child(2) {
+        top: 370px;
+        left: 340px;
+      }
+      .misery-block:nth-child(3) {
+        top: 225px;
+        left: 75px;
+      }
+      .misery-block:nth-child(4) {
+        top: 472px;
+        left: 205px;
+      }
+      .misery-block:nth-child(5) {
+        top: 225px;
+        left: 335px;
+      }
+      .misery-block:nth-child(6) {
+        top: 373px;
+        left: 73px;
+      }
+      .seven-seven {
+        align-items: center;
+        transform-origin: center;
+        background-color: var(--foreground-color);
+        // border: 6px solid var(--background-color);
+        border-radius: 45px;
+        display: flex;
+        flex-direction: column;
+        height: 90px;
+        justify-content: center;
+        left: 205px;
+        position: absolute;
+        text-align: center;
+        top: 300px;
+        width: 90px;
+        .numbers {
+          color: var(--background-color);
+          font-family: "Cantebriggia", cursive;
+          font-size: 40px;
+        }
+      }
+    }
+
+    &.seventh-misery {
+      .endtimes {
+        font-family: "FetteTrumpDeutsch", cursive;
+        font-size: 20px;
+        margin-top: 15px;
+        padding-left: 29px;
+        padding-right: 29px;
+        text-align: center;
+        .burn-the-book {
+          font-style: italic;
+        }
+      }
+    }
+  }
+}
+
+@keyframes heartbeat {
+  to {
+    transform: scale(1.08);
+  }
+}
+
+/* https://stackoverflow.com/questions/73537320/how-do-i-make-the-html-window-appear-to-shake */
+@keyframes shake {
+  0% {
+    transform: translate(0.25px, 0.25px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-0.25px, -0.5px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-0.75px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(0.75px, 0.5px) rotate(0deg);
+  }
+  40% {
+    transform: translate(0.25px, -0.25px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-0.25px, 0.5px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-0.75px, 0.25px) rotate(0deg);
+  }
+  70% {
+    transform: translate(0.75px, 0.25px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-0.25px, -0.25px) rotate(1deg);
+  }
+  90% {
+    transform: translate(0.25px, 0.5px) rotate(0deg);
+  }
+  100% {
+    transform: translate(0.25px, -0.5px) rotate(-1deg);
+  }
+}

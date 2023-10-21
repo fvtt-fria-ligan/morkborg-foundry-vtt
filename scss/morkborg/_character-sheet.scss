@@ -19,27 +19,27 @@
           display: flex;
           flex-direction: column;
 
-          .rest-buttons {
-            margin-left: 14px;
-            width: 170px;
+          .hitpoints-row {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
           }
-
-          button {
-            border: none;
-            border-bottom: 2px solid #777;
-            border-radius: 0;
-            font-family: var(--h2-font);
-            font-size: 14px;
-            height: 28px;
+          .classname-row {
+            display: flex;
+            // use baseline for fonts including lowercase
+            // align-items: baseline;
+            align-items: center;
+            .classname {
+              letter-spacing: 2px;
+            }
           }
-
-          .broken-button,
-          .rest-button {
-            width: 80px;
-          }
-
-          .get-better-button {
-            width: 90px;
+          .buttons-row {
+            display: flex;
+            gap: 5px;
+            margin-top: 5px;
+            button {
+              flex: 1;
+            }
           }
         }
 
@@ -197,7 +197,6 @@
         }
 
         .ability-input {
-          border: 1px solid #7a7971;
           font-family: var(--item-font);
           font-size: 14pt;
           text-align: center;
@@ -217,36 +216,6 @@
           min-width: 120px;
         }
 
-        .powers-top-row {
-          margin-top: 15px;
-          margin-bottom: 10px;
-          display: flex;
-          flex-direction: row;
-        }
-
-        .wield-power {
-          flex: 0 0 300px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .powers-gutter {
-          flex: 0 0 20px;
-        }
-
-        .wield-power-button {
-          width: 200px;
-          margin-bottom: 10px;
-          font-family: var(--h2-font);
-          font-size: 24px;
-          background-color: var(--foreground-color);
-          color: var(--background-color);
-          border: none;
-          border-bottom: 2px solid #777;
-          border-radius: 0;
-        }
-
         .wield-rule {
           text-align: center;
         }
@@ -263,7 +232,6 @@
 
         .carry-block {
           flex: 1;
-          text-align: center;
         }
 
         .container-label {

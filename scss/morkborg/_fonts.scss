@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Lato&family=Oswald&family=Special+Elite&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Lato&family=Oswald&family=Rakkas&family=Special+Elite&display=swap");
 
 @font-face {
   font-family: "Alegreya";
@@ -13,6 +13,26 @@
 }
 
 @font-face {
+  font-family: "Burvetica NC";
+  src: url("../assets/fonts/Burvetica NC.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Burvetica Thick NC";
+  src: url("../assets/fonts/Burvetica Thick NC.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Deutsch Gothic";
+  src: url("../assets/fonts/Deutsch.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "OldNewspaperTypes";
+  src: url("../assets/fonts/OldNewspaperTypes.ttf") format("truetype");
+}
+
+@font-face {
   font-family: "Benjamin Franklin";
   src: url("../assets/fonts/BenjaminFranklin.ttf") format("truetype");
   font-weight: normal;
@@ -21,6 +41,17 @@
 @font-face {
   font-family: "Blood Crow";
   src: url("../assets/fonts/bloodcrow.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Calling Code";
+  src: url("../assets/fonts/CallingCode-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Cantebriggia";
+  src: url("../assets/fonts/cantebriggia.ttf") format("truetype");
 }
 
 @font-face {
@@ -38,6 +69,11 @@
   font-family: "Inconsolata";
   src: url("../assets/fonts/Inconsolata-Regular.ttf") format("truetype");
   font-weight: normal;
+}
+
+@font-face {
+  font-family: "JSL Ancient";
+  src: url("../assets/fonts/jancient.ttf") format("truetype");
 }
 
 @font-face {

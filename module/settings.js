@@ -8,6 +8,7 @@ const Settings = {
   hitAutomation: "hitAutomation",
   fontScheme: "fontScheme",
   lastScvmfactorySelection: "lastScvmfactorySelection",
+  miseryTrackerAnimations: "miseryTrackerAnimations",
   systemMigrationVersion: "systemMigrationVersion",
   trackAmmo: "trackAmmo",
   trackCarryingCapacity: "trackCarryingCapacity",
@@ -110,6 +111,20 @@ export const registerSystemSettings = () => {
     default: true,
   });
 
+  /** Whether to show animations on the Misery Tracker */
+  game.settings.register(
+    CONFIG.MB.systemName,
+    Settings.miseryTrackerAnimations,
+    {
+      name: "MB.SettingsMiseryTrackerAnimations",
+      hint: "MB.SettingsMiseryTrackerAnimationsHint",
+      scope: "world",
+      config: true,
+      type: Boolean,
+      default: true,
+    }
+  );
+
   /** Whether to keep track of ranged weapon ammo */
   game.settings.register(CONFIG.MB.systemName, Settings.trackAmmo, {
     name: "MB.SettingsTrackAmmo",
@@ -209,4 +224,8 @@ export const getAdditionalAbilities = () => {
 
 export const deleteZeroQuantity = () => {
   return getSetting(Settings.deleteZeroQuantity);
+};
+
+export const miseryTrackerAnimations = () => {
+  return getSetting(Settings.miseryTrackerAnimations);
 };

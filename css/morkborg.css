@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Lato&family=Oswald&family=Special+Elite&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Lato&family=Oswald&family=Rakkas&family=Special+Elite&display=swap");
 :root {
   --background-color: #000000;
   --foreground-color: #ffffff;
@@ -12,10 +12,11 @@
   --window-background: #000000;
   --chat-font: "Alegreya";
   --chat-info-font: "Oswald";
-  --h1-font: "Blood Crow";
+  --h1-font: "Deutsch Gothic";
   --h2-font: "FetteTrumpDeutsch";
   --h3-font: "Old Cupboard";
-  --item-font: "Special Elite";
+  --item-font: "Calling Code";
+  --button-font: "Rakkas";
   --journal-font: "Alegreya";
   --journal-font-size: 18px;
   --window-border-color: #222222;
@@ -49,6 +50,22 @@
   font-weight: bold;
 }
 @font-face {
+  font-family: "Burvetica NC";
+  src: url("../assets/fonts/Burvetica NC.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Burvetica Thick NC";
+  src: url("../assets/fonts/Burvetica Thick NC.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Deutsch Gothic";
+  src: url("../assets/fonts/Deutsch.ttf") format("truetype");
+}
+@font-face {
+  font-family: "OldNewspaperTypes";
+  src: url("../assets/fonts/OldNewspaperTypes.ttf") format("truetype");
+}
+@font-face {
   font-family: "Benjamin Franklin";
   src: url("../assets/fonts/BenjaminFranklin.ttf") format("truetype");
   font-weight: normal;
@@ -56,6 +73,15 @@
 @font-face {
   font-family: "Blood Crow";
   src: url("../assets/fonts/bloodcrow.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Calling Code";
+  src: url("../assets/fonts/CallingCode-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Cantebriggia";
+  src: url("../assets/fonts/cantebriggia.ttf") format("truetype");
 }
 @font-face {
   font-family: "FetteTrumpDeutsch";
@@ -70,6 +96,10 @@
   font-family: "Inconsolata";
   src: url("../assets/fonts/Inconsolata-Regular.ttf") format("truetype");
   font-weight: normal;
+}
+@font-face {
+  font-family: "JSL Ancient";
+  src: url("../assets/fonts/jancient.ttf") format("truetype");
 }
 @font-face {
   font-family: "Old Cupboard";
@@ -158,7 +188,7 @@
 .morkborg .button {
   background: var(--foreground-color);
   color: var(--background-color);
-  font-family: var(--h2-font);
+  font-family: var(--button-font);
 }
 
 .mce-content-body {
@@ -201,6 +231,8 @@
 .morkborg.sheet.item input[type=date] {
   color: var(--foreground-color);
   border-radius: 0;
+  border: none;
+  border-bottom: 1px solid var(--highlight-background-color);
 }
 .morkborg.sheet.actor input[type=text]:focus, .morkborg.sheet.actor input[type=number]:focus, .morkborg.sheet.actor input[type=password]:focus, .morkborg.sheet.actor input[type=date]:focus, .morkborg.sheet.actor input[type=time]:focus, .morkborg.sheet.actor input[type=text]:hover, .morkborg.sheet.actor input[type=number]:hover, .morkborg.sheet.actor input[type=password]:hover, .morkborg.sheet.actor input[type=date]:hover, .morkborg.sheet.actor input[type=time]:hover,
 .morkborg.sheet.item input[type=text]:focus,
@@ -252,7 +284,6 @@
 }
 .morkborg.sheet.actor .editor,
 .morkborg.sheet.item .editor {
-  border: 1px solid #7a7971;
   color: var(--foreground-color);
   font-family: var(--journal-font);
   font-size: var(--journal-font-size);
@@ -265,8 +296,7 @@
 .morkborg.sheet.actor .sheet-tabs,
 .morkborg.sheet.item .sheet-tabs {
   flex: 0 0 30px;
-  margin-bottom: 5px;
-  /* font-family: "Modesto Condensed", "Palatino Linotype", serif; */
+  margin-bottom: 0px;
   font-size: 20px;
   font-weight: 700;
   /* TODO: track down the border-top and border-bottom getting inherited on these */
@@ -277,19 +307,24 @@
 .morkborg.sheet.item .sheet-tabs .item {
   font-family: var(--h2-font);
   font-size: 22px;
-  height: 30px;
+  height: 32px;
   padding: 0;
-  width: 120px;
+  padding-bottom: 4px;
+  flex: 1;
+  border-radius: 2px 2px 0px 0px;
+  border-bottom: 1px solid var(--foreground-color);
 }
-.morkborg.sheet.actor .sheet-tabs .item:hover,
-.morkborg.sheet.item .sheet-tabs .item:hover {
+.morkborg.sheet.actor .sheet-tabs .item:not(.active):hover,
+.morkborg.sheet.item .sheet-tabs .item:not(.active):hover {
   color: var(--highlight-foreground-color);
   text-shadow: 0 0 10px var(--highlight-background-color);
 }
 .morkborg.sheet.actor .sheet-tabs .item.active,
 .morkborg.sheet.item .sheet-tabs .item.active {
-  background-color: var(--highlight-background-color);
-  color: var(--highlight-foreground-color);
+  border-left: 1px solid var(--foreground-color);
+  border-right: 1px solid var(--foreground-color);
+  border-top: 1px solid var(--foreground-color);
+  border-bottom: none;
   text-shadow: none;
 }
 .morkborg.sheet.actor .sheet-body,
@@ -300,6 +335,10 @@
 .morkborg.sheet.item .sheet-body .tab {
   height: 100%;
   overflow-y: auto;
+  border-left: 1px solid var(--foreground-color);
+  border-right: 1px solid var(--foreground-color);
+  border-bottom: 1px solid var(--foreground-color);
+  padding: 10px;
 }
 .morkborg.sheet.actor .sheet-body .form-group,
 .morkborg.sheet.item .sheet-body .form-group {
@@ -318,12 +357,37 @@
 .morkborg.sheet.item .sheet-body .form-group select {
   font-family: var(--item-font);
   font-size: 14px;
+  text-align: center;
 }
 .morkborg.sheet.actor .sheet-body .form-group.special,
 .morkborg.sheet.item .sheet-body .form-group.special {
   flex: 1;
 }
 
+.morkborg.sheet.actor .sheet-button {
+  background-color: var(--foreground-color);
+  border: none;
+  border-radius: 0;
+  color: var(--background-color);
+  font-family: var(--button-font);
+  font-size: 12px;
+  height: 28px;
+  width: 90px;
+  text-transform: uppercase;
+}
+.morkborg.sheet.actor .item-button {
+  background-color: var(--foreground-color);
+  border: none;
+  border-radius: 0;
+  color: var(--background-color);
+  flex: none;
+  font-family: var(--button-font);
+  font-size: 12px;
+  height: 28px;
+  min-width: 70px;
+  width: auto;
+  text-transform: uppercase;
+}
 .morkborg.sheet.actor .rule-text {
   font-family: var(--item-font);
   font-size: 10pt;
@@ -338,7 +402,6 @@
   font-family: var(--item-font);
   font-size: 14pt;
   text-align: center;
-  padding-top: 8px;
   width: 50px;
   color: var(--foreground-color);
 }
@@ -385,20 +448,10 @@
   font-size: 16px;
   margin-right: 10px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .initiative-button {
-  background-color: var(--foreground-color);
-  border: none;
-  border-bottom: 2px solid #777;
-  border-radius: 0;
-  color: var(--background-color);
-  font-family: var(--h2-font);
-  font-size: 20px;
-  width: 150px;
-}
 .morkborg.sheet.actor .sheet-body .violence-tab .items-list {
   margin-top: 0px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item {
+.morkborg.sheet.actor .sheet-body .violence-tab .items-list .item {
   align-items: center;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .weapon-name-col {
@@ -414,10 +467,6 @@
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item-buttons {
   flex: 0.5;
-}
-.morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item-button {
-  font-size: 20px;
-  width: 120px;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .item-list .item-name {
   flex: 1;
@@ -510,26 +559,12 @@
   margin-top: 0px;
   text-align: center;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .underarmor-row button {
-  margin-left: 10px;
-  width: 120px;
-  margin-bottom: 10px;
-  font-family: var(--h2-font);
-  font-size: 20px;
-  background-color: var(--foreground-color);
-  color: var(--background-color);
-  border: none;
-  border-bottom: 2px solid #777;
-  border-radius: 0;
-}
 .morkborg.sheet.actor .sheet-body .violence-tab .shield-rule {
   margin-top: 5px;
 }
 .morkborg.sheet.actor .sheet-body .violence-tab .defend-rule {
+  margin-top: 5px;
   text-align: center;
-}
-.morkborg.sheet.actor .feat-button {
-  min-width: 120px;
 }
 .morkborg.sheet.actor .roll-button {
   margin-left: 10px;
@@ -546,19 +581,12 @@
 .morkborg.sheet.actor input[type=text].actor-name {
   font-family: var(--h1-font);
   font-size: 38px;
-  text-transform: uppercase;
+  text-align: center;
 }
 .morkborg.sheet.actor .sheet-body .equipment-top-row {
-  margin-top: 10px;
-  margin-left: 20px;
+  align-items: center;
   display: flex;
-  flex-direction: row;
-}
-.morkborg.sheet.actor .sheet-body .silver {
-  flex: 0 0 200px;
-}
-.morkborg.sheet.actor .sheet-body .silver-input {
-  width: 70px;
+  margin-left: 20px;
 }
 
 .morkborg.sheet.actor.character {
@@ -579,24 +607,25 @@
   display: flex;
   flex-direction: column;
 }
-.morkborg.sheet.actor.character .sheet-header .header-col2 .rest-buttons {
-  margin-left: 14px;
-  width: 170px;
+.morkborg.sheet.actor.character .sheet-header .header-col2 .hitpoints-row {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
 }
-.morkborg.sheet.actor.character .sheet-header .header-col2 button {
-  border: none;
-  border-bottom: 2px solid #777;
-  border-radius: 0;
-  font-family: var(--h2-font);
-  font-size: 14px;
-  height: 28px;
+.morkborg.sheet.actor.character .sheet-header .header-col2 .classname-row {
+  display: flex;
+  align-items: center;
 }
-.morkborg.sheet.actor.character .sheet-header .header-col2 .broken-button,
-.morkborg.sheet.actor.character .sheet-header .header-col2 .rest-button {
-  width: 80px;
+.morkborg.sheet.actor.character .sheet-header .header-col2 .classname-row .classname {
+  letter-spacing: 2px;
 }
-.morkborg.sheet.actor.character .sheet-header .header-col2 .get-better-button {
-  width: 90px;
+.morkborg.sheet.actor.character .sheet-header .header-col2 .buttons-row {
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+}
+.morkborg.sheet.actor.character .sheet-header .header-col2 .buttons-row button {
+  flex: 1;
 }
 .morkborg.sheet.actor.character .sheet-header .header-col3 {
   flex: 0 0 120px;
@@ -727,7 +756,6 @@
   float: left;
 }
 .morkborg.sheet.actor.character .sheet-header .ability-input {
-  border: 1px solid #7a7971;
   font-family: var(--item-font);
   font-size: 14pt;
   text-align: center;
@@ -743,32 +771,6 @@
 .morkborg.sheet.actor.character .sheet-body .feat-button {
   min-width: 120px;
 }
-.morkborg.sheet.actor.character .sheet-body .powers-top-row {
-  margin-top: 15px;
-  margin-bottom: 10px;
-  display: flex;
-  flex-direction: row;
-}
-.morkborg.sheet.actor.character .sheet-body .wield-power {
-  flex: 0 0 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.morkborg.sheet.actor.character .sheet-body .powers-gutter {
-  flex: 0 0 20px;
-}
-.morkborg.sheet.actor.character .sheet-body .wield-power-button {
-  width: 200px;
-  margin-bottom: 10px;
-  font-family: var(--h2-font);
-  font-size: 24px;
-  background-color: var(--foreground-color);
-  color: var(--background-color);
-  border: none;
-  border-bottom: 2px solid #777;
-  border-radius: 0;
-}
 .morkborg.sheet.actor.character .sheet-body .wield-rule {
   text-align: center;
 }
@@ -783,7 +785,6 @@
 }
 .morkborg.sheet.actor.character .sheet-body .carry-block {
   flex: 1;
-  text-align: center;
 }
 .morkborg.sheet.actor.character .sheet-body .container-label {
   margin-left: 40px;
@@ -836,6 +837,9 @@
   margin-bottom: 10px;
   margin-left: 14px;
 }
+.morkborg.sheet.actor .sheet-header.npc .buttons-row {
+  margin-left: 14px;
+}
 
 .morkborg .items-list .items-header {
   height: 28px;
@@ -860,15 +864,18 @@
   overflow-y: auto;
 }
 .morkborg .item-list .item {
+  display: flex;
   min-height: 30px;
-  line-height: 24px;
+  /* line-height: 24px; */
   padding: 3px 3px 3px 0;
   border-bottom: 1px solid #7a7971;
-  align-items: stretch;
+  align-items: center;
 }
 .morkborg .item-list .item img {
-  flex: 0 0 24px;
-  margin-right: 5px;
+  flex: 0 0 30px;
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
 }
 .morkborg .item-list .item.item-container-item {
   padding-left: 29px;
@@ -909,17 +916,6 @@
   margin-left: 3px;
   text-align: center;
 }
-.morkborg .item-list .item-button {
-  background-color: var(--foreground-color);
-  border: none;
-  border-bottom: 2px solid #777;
-  border-radius: 0;
-  color: var(--background-color);
-  flex: none;
-  font-family: var(--h2-font);
-  font-size: 20px;
-  width: auto;
-}
 .morkborg .item-list .empty-container {
   text-align: center;
 }
@@ -948,11 +944,6 @@
   text-transform: uppercase;
   margin-left: 13px;
 }
-.morkborg.sheet.item .sheet-body {
-  margin-top: 8px;
-  padding: 5px;
-}
-
 .morkborg.sheet.actor.container .sheet-header {
   margin-top: 0;
   flex: 0 0 90px;
@@ -990,6 +981,631 @@
   margin-left: 14px;
 }
 
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(0) scale(1);
+  }
+  25% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10em) scale(0);
+  }
+}
+.morkborg.sheet.actor.misery-tracker .window-content form {
+  align-items: center;
+  border: 1px solid var(--foreground-color);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  font-family: "Calling Code", sans-serif;
+  font-size: 16px;
+  justify-content: flex-start;
+  padding: 20px;
+  width: 100%;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle {
+  animation: rise 1s ease-in infinite;
+  background-image: radial-gradient(#ff5000 20%, rgba(255, 80, 0, 0) 70%);
+  border-radius: 50%;
+  bottom: 0;
+  height: 5em;
+  mix-blend-mode: screen;
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+  width: 5em;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(1) {
+  animation-delay: 0.0380788712s;
+  left: calc((100% - 5em) * 0);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(2) {
+  animation-delay: 0.9847874614s;
+  left: calc((100% - 5em) * 0.02);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(3) {
+  animation-delay: 0.6490878916s;
+  left: calc((100% - 5em) * 0.04);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(4) {
+  animation-delay: 0.8297584989s;
+  left: calc((100% - 5em) * 0.06);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(5) {
+  animation-delay: 0.3092213675s;
+  left: calc((100% - 5em) * 0.08);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(6) {
+  animation-delay: 0.0084231808s;
+  left: calc((100% - 5em) * 0.1);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(7) {
+  animation-delay: 0.974643696s;
+  left: calc((100% - 5em) * 0.12);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(8) {
+  animation-delay: 0.546693233s;
+  left: calc((100% - 5em) * 0.14);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(9) {
+  animation-delay: 0.8866329003s;
+  left: calc((100% - 5em) * 0.16);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(10) {
+  animation-delay: 0.9241049473s;
+  left: calc((100% - 5em) * 0.18);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(11) {
+  animation-delay: 0.8779583416s;
+  left: calc((100% - 5em) * 0.2);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(12) {
+  animation-delay: 0.2390961309s;
+  left: calc((100% - 5em) * 0.22);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(13) {
+  animation-delay: 0.2025721889s;
+  left: calc((100% - 5em) * 0.24);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(14) {
+  animation-delay: 0.7246033453s;
+  left: calc((100% - 5em) * 0.26);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(15) {
+  animation-delay: 0.7279156491s;
+  left: calc((100% - 5em) * 0.28);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(16) {
+  animation-delay: 0.0480012372s;
+  left: calc((100% - 5em) * 0.3);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(17) {
+  animation-delay: 0.5725786813s;
+  left: calc((100% - 5em) * 0.32);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(18) {
+  animation-delay: 0.8763681399s;
+  left: calc((100% - 5em) * 0.34);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(19) {
+  animation-delay: 0.8825125074s;
+  left: calc((100% - 5em) * 0.36);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(20) {
+  animation-delay: 0.6866982174s;
+  left: calc((100% - 5em) * 0.38);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(21) {
+  animation-delay: 0.4819327771s;
+  left: calc((100% - 5em) * 0.4);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(22) {
+  animation-delay: 0.6931061332s;
+  left: calc((100% - 5em) * 0.42);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(23) {
+  animation-delay: 0.6910307327s;
+  left: calc((100% - 5em) * 0.44);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(24) {
+  animation-delay: 0.6054935033s;
+  left: calc((100% - 5em) * 0.46);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(25) {
+  animation-delay: 0.4954411033s;
+  left: calc((100% - 5em) * 0.48);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(26) {
+  animation-delay: 0.5091594547s;
+  left: calc((100% - 5em) * 0.5);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(27) {
+  animation-delay: 0.8005531959s;
+  left: calc((100% - 5em) * 0.52);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(28) {
+  animation-delay: 0.537057147s;
+  left: calc((100% - 5em) * 0.54);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(29) {
+  animation-delay: 0.6831672969s;
+  left: calc((100% - 5em) * 0.56);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(30) {
+  animation-delay: 0.1566744904s;
+  left: calc((100% - 5em) * 0.58);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(31) {
+  animation-delay: 0.6335433349s;
+  left: calc((100% - 5em) * 0.6);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(32) {
+  animation-delay: 0.3589026161s;
+  left: calc((100% - 5em) * 0.62);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(33) {
+  animation-delay: 0.0977097657s;
+  left: calc((100% - 5em) * 0.64);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(34) {
+  animation-delay: 0.3524946502s;
+  left: calc((100% - 5em) * 0.66);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(35) {
+  animation-delay: 0.3088870379s;
+  left: calc((100% - 5em) * 0.68);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(36) {
+  animation-delay: 0.7397923608s;
+  left: calc((100% - 5em) * 0.7);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(37) {
+  animation-delay: 0.7006186834s;
+  left: calc((100% - 5em) * 0.72);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(38) {
+  animation-delay: 0.8140872971s;
+  left: calc((100% - 5em) * 0.74);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(39) {
+  animation-delay: 0.0933762348s;
+  left: calc((100% - 5em) * 0.76);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(40) {
+  animation-delay: 0.954171067s;
+  left: calc((100% - 5em) * 0.78);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(41) {
+  animation-delay: 0.3996268445s;
+  left: calc((100% - 5em) * 0.8);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(42) {
+  animation-delay: 0.3115704542s;
+  left: calc((100% - 5em) * 0.82);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(43) {
+  animation-delay: 0.3075956198s;
+  left: calc((100% - 5em) * 0.84);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(44) {
+  animation-delay: 0.27334493s;
+  left: calc((100% - 5em) * 0.86);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(45) {
+  animation-delay: 0.2830868199s;
+  left: calc((100% - 5em) * 0.88);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(46) {
+  animation-delay: 0.1079774041s;
+  left: calc((100% - 5em) * 0.9);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(47) {
+  animation-delay: 0.0259257859s;
+  left: calc((100% - 5em) * 0.92);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(48) {
+  animation-delay: 0.8296118973s;
+  left: calc((100% - 5em) * 0.94);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(49) {
+  animation-delay: 0.9622569393s;
+  left: calc((100% - 5em) * 0.96);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(50) {
+  animation-delay: 0.5025115421s;
+  left: calc((100% - 5em) * 0.98);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .seven-seven {
+  animation: heartbeat 0.75s infinite alternate;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle {
+  animation: rise 1s ease-in infinite;
+  background-image: radial-gradient(#ff5000 20%, rgba(255, 80, 0, 0) 70%);
+  border-radius: 50%;
+  bottom: 0;
+  height: 5em;
+  mix-blend-mode: screen;
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+  width: 5em;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(1) {
+  animation-delay: 0.2899947833s;
+  left: calc((100% - 5em) * 0);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(2) {
+  animation-delay: 0.9783585064s;
+  left: calc((100% - 5em) * 0.02);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(3) {
+  animation-delay: 0.7345252089s;
+  left: calc((100% - 5em) * 0.04);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(4) {
+  animation-delay: 0.5034217286s;
+  left: calc((100% - 5em) * 0.06);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(5) {
+  animation-delay: 0.7131752382s;
+  left: calc((100% - 5em) * 0.08);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(6) {
+  animation-delay: 0.1666267688s;
+  left: calc((100% - 5em) * 0.1);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(7) {
+  animation-delay: 0.8305245002s;
+  left: calc((100% - 5em) * 0.12);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(8) {
+  animation-delay: 0.9527983194s;
+  left: calc((100% - 5em) * 0.14);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(9) {
+  animation-delay: 0.2036933866s;
+  left: calc((100% - 5em) * 0.16);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(10) {
+  animation-delay: 0.4363603351s;
+  left: calc((100% - 5em) * 0.18);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(11) {
+  animation-delay: 0.0028912652s;
+  left: calc((100% - 5em) * 0.2);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(12) {
+  animation-delay: 0.6214451897s;
+  left: calc((100% - 5em) * 0.22);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(13) {
+  animation-delay: 0.3394166378s;
+  left: calc((100% - 5em) * 0.24);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(14) {
+  animation-delay: 0.927107368s;
+  left: calc((100% - 5em) * 0.26);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(15) {
+  animation-delay: 0.2717528516s;
+  left: calc((100% - 5em) * 0.28);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(16) {
+  animation-delay: 0.4442951414s;
+  left: calc((100% - 5em) * 0.3);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(17) {
+  animation-delay: 0.7403259306s;
+  left: calc((100% - 5em) * 0.32);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(18) {
+  animation-delay: 0.8803832318s;
+  left: calc((100% - 5em) * 0.34);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(19) {
+  animation-delay: 0.8969217068s;
+  left: calc((100% - 5em) * 0.36);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(20) {
+  animation-delay: 0.3999621007s;
+  left: calc((100% - 5em) * 0.38);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(21) {
+  animation-delay: 0.3731477764s;
+  left: calc((100% - 5em) * 0.4);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(22) {
+  animation-delay: 0.8407576942s;
+  left: calc((100% - 5em) * 0.42);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(23) {
+  animation-delay: 0.9580790905s;
+  left: calc((100% - 5em) * 0.44);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(24) {
+  animation-delay: 0.1078433501s;
+  left: calc((100% - 5em) * 0.46);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(25) {
+  animation-delay: 0.0668286377s;
+  left: calc((100% - 5em) * 0.48);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(26) {
+  animation-delay: 0.2297673798s;
+  left: calc((100% - 5em) * 0.5);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(27) {
+  animation-delay: 0.4471205027s;
+  left: calc((100% - 5em) * 0.52);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(28) {
+  animation-delay: 0.1164936356s;
+  left: calc((100% - 5em) * 0.54);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(29) {
+  animation-delay: 0.7101989171s;
+  left: calc((100% - 5em) * 0.56);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(30) {
+  animation-delay: 0.227298967s;
+  left: calc((100% - 5em) * 0.58);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(31) {
+  animation-delay: 0.0169510361s;
+  left: calc((100% - 5em) * 0.6);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(32) {
+  animation-delay: 0.5310337018s;
+  left: calc((100% - 5em) * 0.62);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(33) {
+  animation-delay: 0.3261255898s;
+  left: calc((100% - 5em) * 0.64);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(34) {
+  animation-delay: 0.8111987317s;
+  left: calc((100% - 5em) * 0.66);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(35) {
+  animation-delay: 0.8063310727s;
+  left: calc((100% - 5em) * 0.68);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(36) {
+  animation-delay: 0.3750866005s;
+  left: calc((100% - 5em) * 0.7);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(37) {
+  animation-delay: 0.7769508464s;
+  left: calc((100% - 5em) * 0.72);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(38) {
+  animation-delay: 0.8578458337s;
+  left: calc((100% - 5em) * 0.74);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(39) {
+  animation-delay: 0.6142838558s;
+  left: calc((100% - 5em) * 0.76);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(40) {
+  animation-delay: 0.6648954679s;
+  left: calc((100% - 5em) * 0.78);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(41) {
+  animation-delay: 0.5676131547s;
+  left: calc((100% - 5em) * 0.8);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(42) {
+  animation-delay: 0.5038178722s;
+  left: calc((100% - 5em) * 0.82);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(43) {
+  animation-delay: 0.905655278s;
+  left: calc((100% - 5em) * 0.84);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(44) {
+  animation-delay: 0.4167533927s;
+  left: calc((100% - 5em) * 0.86);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(45) {
+  animation-delay: 0.9134565932s;
+  left: calc((100% - 5em) * 0.88);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(46) {
+  animation-delay: 0.9208014415s;
+  left: calc((100% - 5em) * 0.9);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(47) {
+  animation-delay: 0.2174104807s;
+  left: calc((100% - 5em) * 0.92);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(48) {
+  animation-delay: 0.6796835955s;
+  left: calc((100% - 5em) * 0.94);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(49) {
+  animation-delay: 0.2466416139s;
+  left: calc((100% - 5em) * 0.96);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(50) {
+  animation-delay: 0.177244706s;
+  left: calc((100% - 5em) * 0.98);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form .title {
+  margin-bottom: 90px;
+  width: 100%;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form .title input {
+  height: 50px;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form .agony-block {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form .agony-block .agony-title {
+  font-family: "FetteTrumpDeutsch", cursive;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form .button-block {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form .button-block .misery-button {
+  font-size: 16px;
+  width: 200px;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form .misery-title {
+  font-family: "FetteTrumpDeutsch", cursive;
+  font-size: 20px;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form .miseries {
+  background-image: url("/systems/morkborg/assets/ui/unicursal-hexagram.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  flex: 0 0 300px;
+  margin-bottom: 90px;
+  width: 300px;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block {
+  align-items: center;
+  background-color: var(--background-color);
+  border: 13px solid var(--foreground-color);
+  border-radius: 45px;
+  display: flex;
+  height: 90px;
+  float: left;
+  justify-content: center;
+  position: absolute;
+  width: 90px;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated {
+  border: 13px solid var(--foreground-color);
+  background-color: var(--foreground-color);
+  color: var(--background-color);
+}
+.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated input {
+  color: var(--background-color);
+  border-bottom: none;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block input {
+  flex: 0 0 20px;
+  font-family: "Cantebriggia", cursive;
+  font-size: 24px;
+  text-align: center;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block .colon {
+  font-size: 20px;
+  text-align: center;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block:nth-child(1) {
+  top: 130px;
+  left: 205px;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block:nth-child(2) {
+  top: 370px;
+  left: 340px;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block:nth-child(3) {
+  top: 225px;
+  left: 75px;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block:nth-child(4) {
+  top: 472px;
+  left: 205px;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block:nth-child(5) {
+  top: 225px;
+  left: 335px;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block:nth-child(6) {
+  top: 373px;
+  left: 73px;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form .miseries .seven-seven {
+  align-items: center;
+  transform-origin: center;
+  background-color: var(--foreground-color);
+  border-radius: 45px;
+  display: flex;
+  flex-direction: column;
+  height: 90px;
+  justify-content: center;
+  left: 205px;
+  position: absolute;
+  text-align: center;
+  top: 300px;
+  width: 90px;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form .miseries .seven-seven .numbers {
+  color: var(--background-color);
+  font-family: "Cantebriggia", cursive;
+  font-size: 40px;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .endtimes {
+  font-family: "FetteTrumpDeutsch", cursive;
+  font-size: 20px;
+  margin-top: 15px;
+  padding-left: 29px;
+  padding-right: 29px;
+  text-align: center;
+}
+.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .endtimes .burn-the-book {
+  font-style: italic;
+}
+
+@keyframes heartbeat {
+  to {
+    transform: scale(1.08);
+  }
+}
+/* https://stackoverflow.com/questions/73537320/how-do-i-make-the-html-window-appear-to-shake */
+@keyframes shake {
+  0% {
+    transform: translate(0.25px, 0.25px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-0.25px, -0.5px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-0.75px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(0.75px, 0.5px) rotate(0deg);
+  }
+  40% {
+    transform: translate(0.25px, -0.25px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-0.25px, 0.5px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-0.75px, 0.25px) rotate(0deg);
+  }
+  70% {
+    transform: translate(0.75px, 0.25px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-0.25px, -0.25px) rotate(1deg);
+  }
+  90% {
+    transform: translate(0.25px, 0.5px) rotate(0deg);
+  }
+  100% {
+    transform: translate(0.25px, -0.5px) rotate(-1deg);
+  }
+}
 .form-group input[type=text] {
   color: var(--foreground-color);
 }
@@ -1263,12 +1879,14 @@ form.editable .results .result-details input[type=text]:hover, form.editable .re
 .dialog .dialog-buttons button {
   background: var(--foreground-color);
   color: var(--background-color);
-  font-family: var(--h2-font);
+  font-family: var(--button-font);
+  text-transform: uppercase;
 }
 .dialog .dialog-buttons button.default {
   background: var(--foreground-color);
   color: var(--background-color);
-  font-family: var(--h2-font);
+  font-family: var(--button-font);
+  text-transform: uppercase;
 }
 
 form .form-group select {
@@ -1313,7 +1931,7 @@ select:focus {
 #settings button {
   color: var(--background-color);
   background: var(--foreground-color);
-  font-family: var(--h2-font);
+  font-family: var(--button-font);
 }
 
 #sidebar {
@@ -1342,16 +1960,16 @@ select:focus {
 
 .sidebar-tab .action-buttons button {
   background: var(--sidebar-button-background-color);
-  color: var(--sidebar-button-foreground-color);
   border-radius: 0;
-  font-family: var(--h2-font);
+  color: var(--sidebar-button-foreground-color);
+  font-family: var(--button-font);
 }
 .sidebar-tab .directory-header .header-search input {
   background: var(--sidebar-button-background-color);
-  color: var(--sidebar-button-foreground-color);
   border: 1px solid #252525;
   border-radius: 0;
   font-family: var(--h2-font);
+  color: var(--sidebar-button-foreground-color);
 }
 .sidebar-tab .directory-header .header-search input[type=text]:focus {
   box-shadow: 0 0 5px var(--highlight-background-color);
@@ -1608,8 +2226,9 @@ h3 {
 }
 
 .dialog-button.attack, .dialog-button.create {
-  font-family: var(--h2-font);
-  font-size: 20px;
+  font-family: var(--button-font);
+  font-size: 14px;
+  text-transform: uppercase;
 }
 
 .dialog-buttons button.dialog-button:active, .dialog-buttons button.dialog-button:focus, .dialog-buttons button.dialog-button:hover {
@@ -1660,13 +2279,30 @@ h3 {
   border: none;
   border-bottom: 2px solid #777;
   border-radius: 0;
-  font-family: var(--h2-font);
-  font-size: 20px;
+  font-family: var(--button-font);
+  font-size: 14px;
+  text-transform: uppercase;
   width: 150px;
 }
 .custom-dialog .button-row button:active, .custom-dialog .button-row button:focus, .custom-dialog .button-row button:hover {
   box-shadow: 0 0 5px var(--highlight-background-color);
   text-shadow: 0 0 10px var(--highlight-background-color);
+}
+.custom-dialog.scvm-dialog .subtitle {
+  text-align: center;
+}
+.custom-dialog.scvm-dialog .class-list {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
+.custom-dialog.scvm-dialog .toggle-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.custom-dialog.scvm-dialog .warning {
+  text-align: center;
 }
 
 .allowed-scvm-classes-dialog .class-name,

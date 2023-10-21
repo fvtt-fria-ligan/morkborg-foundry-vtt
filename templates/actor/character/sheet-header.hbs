@@ -28,14 +28,6 @@
       <label class="classname item-edit rollable"
         >{{data.system.class.name}}</label
       >
-      <div class="item-controls">
-        <a class="item-control item-edit" title="Edit Item"
-          ><i class="fas fa-edit"></i
-        ></a>
-        <a class="item-control item-scvmify" title="Scvmify"
-          ><i class="fas fa-skull"></i
-        ></a>
-      </div>
     </div>
     <div class="hitpoints-row">
       <div class="hp-entries">
@@ -56,72 +48,75 @@
           data-dtype="Number"
         />
       </div>
-      <div class="rest-buttons">
-        <button
-          type="button"
-          class="button item-button broken-button rollable"
-          title="{{localize 'MB.Broken'}}"
+      <div class="omens-block">
+        <span
+          class="stat-label omens-label"
+          title="{{ localize 'MB.OmensHelpText' }}"
+          >{{ localize "MB.Omens" }}:</span
         >
-          {{localize 'MB.Broken'}}
-        </button>
-        <button
-          type="button"
-          class="button item-button rest-button rollable"
-          title="{{localize 'MB.Rest'}}"
-        >
-          {{localize 'MB.Rest'}}
-        </button>
-      </div>
+        <input
+          class="stat-input"
+          name="system.omens.value"
+          type="number"
+          value="{{data.system.omens.value}}"
+          data-dtype="Number"
+        />
+      </div>    
     </div>
-    <div class="omens-row">
-      <span
-        class="stat-label omens-label"
-        title="{{ localize 'MB.OmensHelpText' }}"
-        >{{ localize "MB.Omens" }}:</span
+    <div class="hitpoints-row">
+      <div class="powers-block">
+        <label class="stat-label uses-remaining-label">{{localize "MB.PowerUsesRemaining"}}:</label>
+        <input
+          class="stat-input"
+          name="system.powerUses.value"
+          type="number"
+          value="{{data.system.powerUses.value}}"
+          data-dtype="Number"
+        />
+      </div> 
+      <div class="silver">
+        <span class="stat-label silver-label">{{ localize "MB.Silver" }}:</span>
+        <input
+          class="stat-input silver-input"
+          name="system.silver"
+          type="number"
+          value="{{data.system.silver}}"
+          data-dtype="Number"
+        />
+      </div>         
+    </div>
+    <div class="buttons-row">
+      <button
+        type="button"
+        class="button item-button broken-button rollable"
+        title="{{localize 'MB.Broken'}}"
       >
-      <input
-        class="stat-input"
-        name="system.omens.value"
-        type="number"
-        value="{{data.system.omens.value}}"
-        data-dtype="Number"
-      />
-      <span class="rule-text omen-rule rollable"
-        >{{data.system.class.system.omenDie}} {{ localize "MB.PerRest"}}</span
+        {{localize 'MB.Broken'}}
+      </button>
+      <button
+        type="button"
+        class="button item-button rest-button rollable"
+        title="{{localize 'MB.Rest'}}"
       >
+        {{localize 'MB.Rest'}}
+      </button>
+
       <button
         type="button"
         class="button item-button get-better-button rollable"
         title="{{localize 'MB.GetBetter'}}"
       >
         {{localize 'MB.GetBetter'}}
-      </button>
-    </div>
-    <div class="miseries-row">
-      <label class="stat-label miseries-label"
-        >{{ localize "MB.Miseries" }}:</label
+      </button>  
+      <button
+        type="button"
+        class="button item-button reroll-button rollable"
+        title="{{localize 'MB.Reroll'}}"
       >
-      <ul class="miseries">
-        {{#times 7}}
-        <li>
-          <label>
-            <input type="radio" name="system.miseries.value" value="{{this}}"
-            data-dtype="Number" {{#ifEq ../data.system.miseries.value
-            this}}checked{{/ifEq}}/>
-            <span>{{this}}</span>
-          </label>
-        </li>
-        {{/times}}
-        <li>
-          <label>
-            <input type="radio" name="system.miseries.value" value="7"
-            data-dtype="Number" {{#ifEq data.system.miseries.value
-            7}}checked{{/ifEq}}/>
-            <span>X</span>
-          </label>
-        </li>
-      </ul>
+        {{localize 'MB.Reroll'}}
+      </button> 
     </div>
+    <br/>
   </div>
   <div class="header-gutter-col"></div>
   <div class="header-col3">

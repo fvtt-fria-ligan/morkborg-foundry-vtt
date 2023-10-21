@@ -64,11 +64,11 @@ MB.colorSchemes = {
     foregroundAlt: "red",
     highlightBackground: "#191813",
     highlightForeground: "#f0f0e0",
-    sidebarBackground: "url(../ui/denim.jpg) repeat",
+    sidebarBackground: "url(../assets/ui/denim.jpg) repeat",
     sidebarForeground: "#f0f0e0",
     sidebarButtonBackground: "#f0f0e0",
     sidebarButtonForeground: "#000000",
-    windowBackground: "url(../ui/parchment.jpg) repeat",
+    windowBackground: "url(../assets/ui/parchment.jpg) repeat",
   },
   whiteOnBlackYellow: {
     background: "#000000",
@@ -80,7 +80,7 @@ MB.colorSchemes = {
     sidebarForeground: "#ffffff",
     sidebarButtonBackground: "#ffffff",
     sidebarButtonForeground: "#000000",
-    windowBackground: "#000000",
+    windowBackground: "#000000AA",
   },
   whiteOnBlackPink: {
     background: "#000000",
@@ -119,17 +119,18 @@ MB.fontSchemes = {
   blackletter: {
     chat: "Alegreya",
     chatInfo: "Oswald",
-    h1: "Blood Crow",
+    h1: "Deutsch Gothic",
     h2: "FetteTrumpDeutsch",
     h3: "Old Cupboard",
-    item: "Special Elite",
+    item: "Calling Code",
   },
   legible: {
     chat: "Alegreya",
     chatInfo: "Oswald",
-    h1: "Blood Crow",
+    h1: "JSL Ancient",
     h2: "Inconsolatazi4varl_qu",
-    h3: "Old Cupboard",
+    h3: "JSL Ancient",
+    //h3: "Old Cupboard",
     item: "Lato",
   },
 };
@@ -144,6 +145,7 @@ MB.actorTypes = {
   creature: "creature",
   container: "container",
   follower: "follower",
+  miseryTracker: "misery-tracker",
 };
 
 MB.ammoTypes = {

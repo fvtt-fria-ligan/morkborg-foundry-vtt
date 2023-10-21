@@ -33,6 +33,8 @@
     &[type="date"] {
       color: var(--foreground-color);
       border-radius: 0;
+      border: none;
+      border-bottom: 1px solid var(--highlight-background-color);
     }
 
     &[type="text"]:focus,
@@ -87,7 +89,6 @@
   }
 
   .editor {
-    border: 1px solid #7a7971;
     color: var(--foreground-color);
     font-family: var(--journal-font);
     font-size: var(--journal-font-size);
@@ -100,9 +101,8 @@
 
   .sheet-tabs {
     flex: 0 0 30px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
 
-    /* font-family: "Modesto Condensed", "Palatino Linotype", serif; */
     font-size: 20px;
     font-weight: 700;
 
@@ -113,18 +113,25 @@
     .item {
       font-family: var(--h2-font);
       font-size: 22px;
-      height: 30px;
+      height: 32px;
       padding: 0;
-      width: 120px;
+      padding-bottom: 4px;
+      flex: 1;
+      border-radius: 2px 2px 0px 0px;
+      border-bottom: 1px solid var(--foreground-color);
 
-      &:hover {
-        color: var(--highlight-foreground-color);
-        text-shadow: 0 0 10px var(--highlight-background-color);
+      &:not(.active) {
+        &:hover {
+          color: var(--highlight-foreground-color);
+          text-shadow: 0 0 10px var(--highlight-background-color);
+        }
       }
 
       &.active {
-        background-color: var(--highlight-background-color);
-        color: var(--highlight-foreground-color);
+        border-left: 1px solid var(--foreground-color);
+        border-right: 1px solid var(--foreground-color);
+        border-top: 1px solid var(--foreground-color);
+        border-bottom: none;
         text-shadow: none;
       }
     }
@@ -136,6 +143,10 @@
     .tab {
       height: 100%;
       overflow-y: auto;
+      border-left: 1px solid var(--foreground-color);
+      border-right: 1px solid var(--foreground-color);
+      border-bottom: 1px solid var(--foreground-color);
+      padding: 10px;
     }
 
     .form-group {
@@ -152,6 +163,7 @@
       select {
         font-family: var(--item-font);
         font-size: 14px;
+        text-align: center;
       }
 
       &.special {

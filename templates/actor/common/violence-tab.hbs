@@ -5,14 +5,14 @@
     <span class="roll-initiative">{{localize "MB.Roll"}} {{localize "MB.Initiative"}}:</span>
     <button
       type="button"
-      class="button item-button rollable initiative-button party-initiative-button"
+      class="button sheet-button rollable party-initiative-button"
       title="{{localize 'MB.Party'}}"
     >
       {{localize "MB.Party"}}
     </button>
     <button
       type="button"
-      class="button item-button rollable initiative-button individual-initiative-button"
+      class="button sheet-button rollable individual-initiative-button"
       title="{{localize 'MB.Individual'}}"
     >
       {{localize "MB.Individual"}}
@@ -62,7 +62,7 @@
               class="item-button rollable attack-button"
               data-roll="d20+@abilities.strength.value"
               data-label="attack_{{item._id}}"
-              title="{{localize 'MB.Attack'}}"
+              title="{{localize 'MB.AttackButtonTitle'}}"
             >
               {{localize 'MB.Attack'}}
             </button>
@@ -189,8 +189,8 @@
       <div>
         <button
           type="button"
-          class="item-button rollable defend-button"
-          title="{{localize 'MB.Defend'}}"
+          class="rollable sheet-button defend-button"
+          title="{{localize 'MB.DefendButtonTitle'}}"
         >
           {{localize "MB.Defend"}}
         </button>

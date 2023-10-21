@@ -6,6 +6,7 @@ import { MBCharacterSheet } from "./actor/sheet/character-sheet.js";
 import { MBContainerSheet } from "./actor/sheet/container-sheet.js";
 import { MBCreatureSheet } from "./actor/sheet/creature-sheet.js";
 import { MBFollowerSheet } from "./actor/sheet/follower-sheet.js";
+import { MBMiseryTrackerSheet } from "./actor/sheet/misery-tracker-sheet.js";
 import { registerCombat } from "./combat.js";
 import { MB } from "./config.js";
 import { enrichTextEditors } from "./enricher.js";
@@ -68,6 +69,11 @@ const registerSheets = () => {
     types: [MB.actorTypes.follower],
     makeDefault: true,
     label: "MB.SheetClassFollower",
+  });
+  Actors.registerSheet(MB.systemName, MBMiseryTrackerSheet, {
+    types: [MB.actorTypes.miseryTracker],
+    makeDefault: true,
+    label: "MB.SheetClassMiseryTracker",
   });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet(MB.systemName, MBItemSheet, { makeDefault: true });

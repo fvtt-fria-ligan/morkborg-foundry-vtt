@@ -16,8 +16,9 @@
 .dialog-button {
   &.attack,
   &.create {
-    font-family: var(--h2-font);
-    font-size: 20px;
+    font-family: var(--button-font);
+    font-size: 14px;
+    text-transform: uppercase;
   }
 }
 
@@ -84,8 +85,9 @@
       border: none;
       border-bottom: 2px solid #777;
       border-radius: 0;
-      font-family: var(--h2-font);
-      font-size: 20px;
+      font-family: var(--button-font);
+      font-size: 14px;
+      text-transform: uppercase;
       width: 150px;
 
       &:active,
@@ -94,6 +96,25 @@
         box-shadow: 0 0 5px var(--highlight-background-color);
         text-shadow: 0 0 10px var(--highlight-background-color);
       }
+    }
+  }
+
+  &.scvm-dialog {
+    .subtitle {
+      text-align: center;
+    }
+    .class-list {
+      columns: 2;
+      -webkit-columns: 2;
+      -moz-columns: 2;
+    }
+    .toggle-row {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .warning {
+      text-align: center;
     }
   }
 }

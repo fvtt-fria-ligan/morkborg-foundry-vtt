@@ -1,6 +1,12 @@
 {
   "Actor": {
-    "types": ["character", "container", "creature", "follower"],
+    "types": [
+      "character",
+      "container",
+      "creature",
+      "follower",
+      "misery-tracker"
+    ],
     "templates": {
       "common": {
         "abilities": {
@@ -68,7 +74,35 @@
       "speciality": "",
       "trait": "",
       "value": ""
-    }
+    },
+    "misery-tracker": {
+      "miseryDie": "1d20",
+      "misery1": {
+        "psalm": null,
+        "verse": null
+      },
+      "misery2": {
+        "psalm": null,
+        "verse": null
+      },
+      "misery3": {
+        "psalm": null,
+        "verse": null
+      },
+      "misery4": {
+        "psalm": null,
+        "verse": null
+      },
+      "misery5": {
+        "psalm": null,
+        "verse": null
+      },
+      "misery6": {
+        "psalm": null,
+        "verse": null
+      }
+    },
+    "seventhMiseryActivated": false
   },
   "Item": {
     "types": [
