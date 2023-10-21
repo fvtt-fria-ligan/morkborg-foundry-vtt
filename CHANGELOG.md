@@ -1,3 +1,8 @@
+# 3.3.0
+
+- Sheet styling improvements! Reorganized header fields, reorganized and more-visible tabs, some font changes, clearer buttons.
+- New "Misery Tracker" actor type, for rolling and tracking miseries. With apocalyptic animations!
+
 # 3.2.1
 
 - Fix token path for Dead God's Prophet items.
