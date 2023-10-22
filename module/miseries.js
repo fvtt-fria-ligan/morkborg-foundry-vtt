@@ -18,6 +18,27 @@ const playHornOfDoom = () => {
   playSound("systems/morkborg/assets/audio/horn-of-doom.ogg", true);
 };
 
+const uniquePsalmRoll = (tracker) => {
+  let psalmRoll;
+  keepRolling: for (;;) {
+    psalmRoll = new Roll("d6*10+d6");
+    psalmRoll.evaluate({ async: false });
+    const psalm = Math.floor(psalmRoll.total / 10);
+    const verse = psalmRoll.total - psalm * 10;
+    // check if we've already rolled this misery
+    for (let i = 1; i <= 6; i++) {
+      const field = `misery${i}`;
+      const misery = tracker.system[field];
+      if (misery.psalm == psalm && misery.verse == verse) {
+        // already rolled it, so roll again
+        continue keepRolling;
+      }
+    }
+    break keepRolling;
+  }
+  return psalmRoll;
+};
+
 export const rollMisery = async (tracker) => {
   const miseryRoll = new Roll(tracker.system.miseryDie || "1d6");
   miseryRoll.evaluate({ async: false });
@@ -36,18 +57,6 @@ export const rollMisery = async (tracker) => {
     ],
   };
   if (isMisery) {
-    const psalmRoll = new Roll("2d6");
-    psalmRoll.evaluate({ async: false });
-    await showDice(psalmRoll);
-    const psalm = psalmRoll.terms[0].results[0].result;
-    const verse = psalmRoll.terms[0].results[1].result;
-    const youRolled = `Psalm ${psalm}, Verse ${verse}`;
-    data.rollResults.push({
-      rollTitle: " d66 ",
-      roll: psalmRoll,
-      outcomeLines: [youRolled],
-    });
-
     // find the next unfilled misery
     let emptyMiseryField;
     for (let i = 1; i <= 6; i++) {
@@ -59,6 +68,18 @@ export const rollMisery = async (tracker) => {
       }
     }
     if (emptyMiseryField) {
+      const psalmRoll = uniquePsalmRoll(tracker);
+      await showDice(psalmRoll);
+      const psalm = Math.floor(psalmRoll.total / 10);
+      const verse = psalmRoll.total - psalm * 10;
+      const youRolled = `${game.i18n.localize(
+        "MB.Psalm"
+      )} ${psalm}, ${game.i18n.localize("MB.Verse")} ${verse}`;
+      data.rollResults.push({
+        rollTitle: " d66 ",
+        roll: psalmRoll,
+        outcomeLines: [youRolled],
+      });
       const misery = tracker.system[emptyMiseryField];
       misery.psalm = psalm;
       misery.verse = verse;
@@ -67,6 +88,9 @@ export const rollMisery = async (tracker) => {
       await tracker.update(updateObj);
     } else {
       // seventh misery... it is the end times.
+      data.rollResults.push({
+        outcomeLines: [game.i18n.localize("MB.SeventhMiseryWillAlwaysBe")],
+      });
       await tracker.update({ "data.seventhMiseryActivated": true });
     }
     playHornOfDoom();

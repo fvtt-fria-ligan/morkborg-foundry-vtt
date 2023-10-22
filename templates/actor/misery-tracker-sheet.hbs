@@ -152,25 +152,25 @@
 
   {{#if data.system.seventhMiseryClass}}
     <div class="endtimes">
-      The seventh seal is broken for the seventh and final time.
-      The game and your lives end here. <span class="burn-the-book">Burn the book.</span>
+      {{ localize "MB.SeventhSealIsBroken" }} 
+      <span class="burn-the-book">{{ localize "MB.BurnTheBook" }}</span>
     </div>
   {{else}}
     <div class="agony-block">
-      <div class="agony-title">When will all this agony end?</div>
+      <div class="agony-title">{{ localize "MB.WhenWillAllThisAgonyEnd" }}</div>
       <select name="system.miseryDie">
         {{#select data.system.miseryDie}}
-          <option value="1d100">Years of pain (d100)</option>
-          <option value="1d20">A bleak half-year (d20)</option>
-          <option value="1d10">A fall in anguish (d10)</option>
-          <option value="1d6">A cruel month (d6)</option>
-          <option value="1d2">The end is nigh! (d2)</option>
+          <option value="1d100">{{ localize "MB.MiseryDie100" }}</option>
+          <option value="1d20">{{ localize "MB.MiseryDie20" }}</option>
+          <option value="1d10">{{ localize "MB.MiseryDie10" }}</option>
+          <option value="1d6">{{ localize "MB.MiseryDie6" }}</option>
+          <option value="1d2">{{ localize "MB.MiseryDie2" }}</option>
         {{/select}}
         </select>
     </div>
 
     <div class="button-block">
-      <button class="sheet-button misery-button">Roll for Misery</button>
+      <button class="sheet-button misery-button">{{ localize "MB.RollForMisery" }}</button>
     </div>
   {{/if}}
   

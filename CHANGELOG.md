@@ -1,3 +1,9 @@
+# 3.3.1
+
+- Reroll any duplicate miseries.
+- Show different roll card text for 7th misery.
+- Localize all Misery Tracker strings.
+
 # 3.3.0
 
 - Sheet styling improvements! Reorganized header fields, reorganized and more-visible tabs, some font changes, clearer buttons.
