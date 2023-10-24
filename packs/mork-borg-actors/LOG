@@ -1,7 +1,1 @@
-2023/10/21-07:01:25.632485 170fdf000 Recovering log #370
-2023/10/21-07:01:25.632893 170fdf000 Delete type=0 #370
-2023/10/21-07:01:25.632936 170fdf000 Delete type=3 #369
-2023/10/21-09:20:43.411705 171873000 Level-0 table #374: started
-2023/10/21-09:20:43.411721 171873000 Level-0 table #374: 0 bytes OK
-2023/10/21-09:20:43.412232 171873000 Delete type=0 #372
-2023/10/21-09:20:43.412516 171873000 Manual compaction at level-0 from '!actors!0bddHriOAq9fEstq' @ 72057594037927935 : 1 .. '!folders!ZilrXHS0pZdNIj9O' @ 0 : 0; will stop at (end)
+2023/10/22-16:33:36.637721 16efa7000 Delete type=3 #1
