@@ -1,3 +1,7 @@
+# 3.3.2
+
+- Latest packs files.
+
 # 3.3.1
 
 - Reroll any duplicate miseries.
