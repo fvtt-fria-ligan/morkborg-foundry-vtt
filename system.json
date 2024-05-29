@@ -85,8 +85,10 @@
   ],
   "socket": true,
   "initiative": "1d6",
-  "grid.distance": 10,
-  "grid.units": "ft",
+  "grid":{
+    "distance": 10,
+    "units": "ft"
+  },
   "primaryTokenAttribute": "hp",
   "secondaryTokenAttribute": null,
   "url": "https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt",
