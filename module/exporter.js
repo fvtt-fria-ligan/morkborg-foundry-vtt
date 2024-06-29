@@ -1,4 +1,4 @@
-export const dumpUuids = async (compendiumName) => {
+export async function dumpUuids(compendiumName) {
   const compendium = game.packs.get(compendiumName);
   const docs = await compendium.getDocuments();
   // e.g., @UUID[Compendium.world.location-pad-tables.ODiAETsokDxKvNHN]{Some containers hide}

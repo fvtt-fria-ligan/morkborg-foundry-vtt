@@ -1,4 +1,4 @@
-export const configureHandlebars = () => {
+export function configureHandlebars() {
   // Handlebars helpers
   // TODO: registering a helper named "eq" breaks filepicker
   Handlebars.registerHelper("ifEq", function (arg1, arg2, options) {

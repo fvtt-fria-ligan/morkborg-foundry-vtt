@@ -4,7 +4,7 @@ export const byName = (a, b) =>
   a.name > b.name ? 1 : b.name > a.name ? -1 : 0;
 
 // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-export const shuffle = (array) => {
+export function shuffle(array) {
   let currentIndex = array.length,
     randomIndex;
   // While there remain elements to shuffle.
@@ -21,18 +21,18 @@ export const shuffle = (array) => {
   return array;
 };
 
-export const sample = (array) => {
+export function sample(array) {
   if (!array) {
     return;
   }
   return array[Math.floor(Math.random() * array.length)];
 };
 
-export const d20Formula = (modifier) => {
+export function d20Formula(modifier) {
   return rollFormula("d20", modifier);
 };
 
-export const rollFormula = (roll, modifier) => {
+export function rollFormula(roll, modifier) {
   if (modifier < 0) {
     return `${roll}-${-modifier}`;
   } else if (modifier > 0) {
@@ -42,22 +42,22 @@ export const rollFormula = (roll, modifier) => {
   }
 };
 
-export const evalRoll = (formula) => {
-  return new Roll(formula).evaluate({ async: false });
+export async function evalRoll(formula) {
+  return await new Roll(formula).evaluate();
 };
 
-export const rollTotal = (formula) => {
-  return new Roll(formula).evaluate({ async: false }).total;
+export async function rollTotal(formula) {
+  return await new Roll(formula).evaluate().total;
 };
 
-export const showRollResult = async (
+export async function showRollResult(
   actor,
   dieRoll,
   rollData,
   cardTitle,
   outcomeTextFn,
   rollFormula = null
-) => {
+) {
   const roll = new Roll(dieRoll, rollData);
   roll.evaluate({ async: false });
   await showDice(roll);
@@ -75,7 +75,7 @@ export const showRollResult = async (
   return roll;
 };
 
-export const showRollResultCard = async (actor, data) => {
+export async function showRollResultCard(actor, data) {
   const html = await renderTemplate(
     "systems/morkborg/templates/chat/roll-result-card.hbs",
     data
@@ -87,10 +87,10 @@ export const showRollResultCard = async (actor, data) => {
   });
 };
 
-export const upperCaseFirst = (str) => {
+export function upperCaseFirst(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
-export const lowerCaseFirst = (str) => {
+export function lowerCaseFirst(str) {
   return str.charAt(0).toLowerCase() + str.slice(1);
 };

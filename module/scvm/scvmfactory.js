@@ -12,12 +12,12 @@ import {
 } from "../packutils.js";
 import { getAllowedScvmClasses } from "../settings.js";
 
-export const createScvm = async (clazz) => {
+export async function createScvm(clazz) {
   const scvm = await rollScvmForClass(clazz);
   await createActorWithScvm(scvm);
 };
 
-export const createScvmFromClassUuid = async (classUuid) => {
+export async function createScvmFromClassUuid(classUuid) {
   const clazz = await fromUuid(classUuid);
   if (!clazz) {
     // couldn't find class item, so bail
@@ -29,12 +29,12 @@ export const createScvmFromClassUuid = async (classUuid) => {
   await createScvm(clazz);
 };
 
-export const scvmifyActor = async (actor, clazz) => {
+export async function scvmifyActor(actor, clazz) {
   const scvm = await rollScvmForClass(clazz);
   await updateActorWithScvm(actor, scvm);
 };
 
-export const findClasses = async () => {
+export async function findClasses() {
   const classes = [];
   for (const uuid of MB.scvmFactory.classUuids) {
     const clazz = await fromUuid(uuid);
@@ -45,7 +45,7 @@ export const findClasses = async () => {
   return classes;
 };
 
-export const findAllowedClasses = async () => {
+export async function findAllowedClasses() {
   const classes = await findClasses();
   const allowedScvmClasses = getAllowedScvmClasses();
   const filtered = classes.filter((c) => {
@@ -54,7 +54,7 @@ export const findAllowedClasses = async () => {
   return filtered;
 };
 
-const startingFoodAndWater = async () => {
+async function startingFoodAndWater() {
   const docs = [];
   // everybody gets food and water
   if (MB.scvmFactory.foodItem) {
@@ -74,7 +74,7 @@ const startingFoodAndWater = async () => {
   return docs;
 };
 
-const startingEquipment = async () => {
+async function startingEquipment() {
   const docs = [];
   // 3 starting equipment tables
   if (MB.scvmFactory.startingEquipmentTable1) {
@@ -98,7 +98,7 @@ const startingEquipment = async () => {
   return docs;
 };
 
-const startingWeapons = async (clazz, rolledScroll) => {
+async function startingWeapons(clazz, rolledScroll) {
   const docs = [];
   if (MB.scvmFactory.startingWeaponTable && clazz.system.weaponTableDie) {
     let weaponDie = clazz.system.weaponTableDie;
@@ -119,7 +119,7 @@ const startingWeapons = async (clazz, rolledScroll) => {
   return docs;
 };
 
-const startingArmor = async (clazz, rolledScroll) => {
+async function startingArmor(clazz, rolledScroll) {
   const docs = [];
   if (MB.scvmFactory.startingArmorTable && clazz.system.armorTableDie) {
     let armorDie = clazz.system.armorTableDie;
@@ -140,7 +140,7 @@ const startingArmor = async (clazz, rolledScroll) => {
   return docs;
 };
 
-const startingClassItems = async (clazz) => {
+async function startingClassItems(clazz) {
   const docs = [];
   if (clazz.system.startingItems) {
     const lines = clazz.system.startingItems.split("\n");
@@ -153,7 +153,7 @@ const startingClassItems = async (clazz) => {
   return docs;
 };
 
-const startingDescriptionLines = async (clazz) => {
+async function startingDescriptionLines(clazz) {
   // start accumulating character description, starting with the class description
   const descriptionLines = [];
   descriptionLines.push(clazz.system.description);
@@ -189,7 +189,7 @@ const startingDescriptionLines = async (clazz) => {
   return descriptionLines;
 };
 
-const startingRollItemsAndDescriptionLines = async (clazz) => {
+async function startingRollItemsAndDescriptionLines(clazz) {
   // class-specific starting rolls
   const rollItems = [];
   const rollDescriptionLines = [];
@@ -233,7 +233,7 @@ const startingRollItemsAndDescriptionLines = async (clazz) => {
   };
 };
 
-const rollScvmForClass = async (clazz) => {
+async function rollScvmForClass(clazz) {
   console.log(`Creating new ${clazz.name}`);
 
   const name = await drawTextFromTableUuid(MB.scvmFactory.namesTable);
@@ -309,7 +309,7 @@ const rollScvmForClass = async (clazz) => {
   };
 };
 
-const simpleData = (item) => {
+function simpleData(item) {
   return {
     img: item.img,
     name: item.name,
@@ -318,7 +318,7 @@ const simpleData = (item) => {
   };
 };
 
-const scvmToActorData = (s) => {
+function scvmToActorData(s) {
   return {
     name: s.name,
     data: {
@@ -356,7 +356,7 @@ const scvmToActorData = (s) => {
   };
 };
 
-const createActorWithScvm = async (s) => {
+async function createActorWithScvm(s) {
   const data = scvmToActorData(s);
   // use MBActor.create() so we get default disposition, actor link, vision, etc
   const actor = await MBActor.create(data);
@@ -371,7 +371,7 @@ const createActorWithScvm = async (s) => {
   }
 };
 
-const updateActorWithScvm = async (actor, s) => {
+async function updateActorWithScvm(actor, s) {
   const data = scvmToActorData(s);
   // Explicitly nuke all items before updating.
   // Before Foundry 0.8.x, actor.update() used to overwrite items,
@@ -403,7 +403,7 @@ const updateActorWithScvm = async (actor, s) => {
   }
 };
 
-const abilityBonus = (rollTotal) => {
+function abilityBonus(rollTotal) {
   if (rollTotal <= 4) {
     return -3;
   } else if (rollTotal <= 6) {
@@ -423,7 +423,7 @@ const abilityBonus = (rollTotal) => {
 };
 
 /** Workaround for compendium RollTables not honoring replacement=false */
-const compendiumTableDrawMany = async (rollTable, numDesired) => {
+async function  compendiumTableDrawMany(rollTable, numDesired) {
   const rollTotals = [];
   let results = [];
   while (rollTotals.length < numDesired) {

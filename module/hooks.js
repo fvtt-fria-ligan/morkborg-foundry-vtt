@@ -2,7 +2,7 @@ import { showScvmDialog } from "./scvm/scvm-dialog.js";
 import { createScvmFromClassUuid } from "./scvm/scvmfactory.js";
 import { handleRollCardButton } from "./chat/roll-card.js";
 
-export const registerHooks = () => {
+export function registerHooks() {
   Hooks.once("ready", () => {
     applyFontsAndColors();
     Hooks.call("morkborgReady");
@@ -23,7 +23,7 @@ export const registerHooks = () => {
   });
 };
 
-const applyFontsAndColors = () => {
+function applyFontsAndColors() {
   const fontSchemeSetting = game.settings.get("morkborg", "fontScheme");
   const fontScheme = CONFIG.MB.fontSchemes[fontSchemeSetting];
   const colorSchemeSetting = game.settings.get("morkborg", "colorScheme");
@@ -68,7 +68,7 @@ const applyFontsAndColors = () => {
   );
 };
 
-const addCreateScvmButton = (app, html) => {
+function addCreateScvmButton(app, html) {
   if (game.user.can("ACTOR_CREATE")) {
     // only show the Create Scvm button to users who can create actors
     const section = document.createElement("header");

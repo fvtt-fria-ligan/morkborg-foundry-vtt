@@ -2,7 +2,8 @@
 // optionally add a roll for the draw at the end
 // e.g., @DRAW[Compendium.morkborg.mork-borg-tables.vX47Buopuq9t0x9r]{Names}{1d4}
 const DRAW_FROM_TABLE_PATTERN = /@DRAW\[([^\]]+)\]{([^}]*)}(?:{([^}]*)})?/gm;
-const drawFromTableEnricher = (match) => {
+
+function drawFromTableEnricher(match) {
   const uuid = match[1];
   const tableName = match[2];
   const roll = match[3];
@@ -17,7 +18,7 @@ const drawFromTableEnricher = (match) => {
   return elem;
 };
 
-export const enrichTextEditors = () => {
+export function enrichTextEditors() {
   CONFIG.TextEditor.enrichers.push({
     pattern: DRAW_FROM_TABLE_PATTERN,
     enricher: drawFromTableEnricher,

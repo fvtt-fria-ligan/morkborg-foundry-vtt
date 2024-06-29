@@ -4,7 +4,7 @@ import { showRollResultCard } from "../utils.js";
 /**
  * Check morale!
  */
-export const checkMorale = async (actor) => {
+export async function checkMorale(actor) {
   const moraleRoll = new Roll("2d6");
   moraleRoll.evaluate({ async: false });
   await showDice(moraleRoll);

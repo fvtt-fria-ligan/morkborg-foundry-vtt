@@ -2,7 +2,7 @@ import { showDice } from "./dice.js";
 import { playSound } from "./sounds.js";
 import { showRollResultCard } from "./utils.js";
 
-export const numMiseries = (tracker) => {
+export function numMiseries(tracker) {
   let count = 0;
   for (let i = 1; i <= 6; i++) {
     const field = `misery${i}`;
@@ -14,11 +14,11 @@ export const numMiseries = (tracker) => {
   return count;
 };
 
-const playHornOfDoom = () => {
+function playHornOfDoom() {
   playSound("systems/morkborg/assets/audio/horn-of-doom.ogg", true);
 };
 
-const uniquePsalmRoll = (tracker) => {
+function uniquePsalmRoll(tracker) {
   let psalmRoll;
   keepRolling: for (;;) {
     psalmRoll = new Roll("d6*10+d6");
@@ -39,7 +39,7 @@ const uniquePsalmRoll = (tracker) => {
   return psalmRoll;
 };
 
-export const rollMisery = async (tracker) => {
+export async function rollMisery(tracker) {
   const miseryRoll = new Roll(tracker.system.miseryDie || "1d6");
   miseryRoll.evaluate({ async: false });
   await showDice(miseryRoll);

@@ -12,7 +12,7 @@ const supportedItemTypes = [
   MB.itemTypes.weapon,
 ];
 
-export const registerMacros = () => {
+export function registerMacros() {
   game.morkborg = {
     rollItemMacro,
   };

@@ -4,14 +4,14 @@ import { hitAutomation, trackAmmo } from "../settings.js";
 /**
  * Attack!
  */
-export const attack = async (actor, itemId) => {
+export async function attack(actor, itemId) {
   if (hitAutomation()) {
-    return automatedAttack(actor, itemId);
+    return await automatedAttack(actor, itemId);
   }
-  return unautomatedAttack(actor, itemId);
+  return await unautomatedAttack(actor, itemId);
 };
 
-const automatedAttack = async (actor, itemId) => {
+async function automatedAttack(actor, itemId) {
   let attackDR = await actor.getFlag(
     CONFIG.MB.systemName,
     CONFIG.MB.flags.ATTACK_DR
@@ -51,7 +51,7 @@ const automatedAttack = async (actor, itemId) => {
   });
 };
 
-const unautomatedAttack = async (actor, itemId) => {
+async function unautomatedAttack(actor, itemId) {
   const item = actor.items.get(itemId);
   const itemRollData = item.getRollData();
   const actorRollData = actor.getRollData();
@@ -92,7 +92,7 @@ const unautomatedAttack = async (actor, itemId) => {
 /**
  * Callback from attack dialog.
  */
-const attackDialogCallback = async (actor, html) => {
+async function attackDialogCallback(actor, html) {
   const form = html[0].querySelector("form");
   const itemId = form.itemid.value;
   const attackDR = parseInt(form.attackdr.value);
@@ -117,7 +117,7 @@ const attackDialogCallback = async (actor, html) => {
 /**
  * Do the actual attack rolls and resolution.
  */
-const rollAttack = async (actor, itemId, attackDR, targetArmor) => {
+async function rollAttack(actor, itemId, attackDR, targetArmor) {
   const item = actor.items.get(itemId);
   const itemRollData = item.getRollData();
   const actorRollData = actor.getRollData();
@@ -196,7 +196,7 @@ const rollAttack = async (actor, itemId, attackDR, targetArmor) => {
   await renderAttackRollCard(actor, rollResult);
 };
 
-const decrementWeaponAmmo = async (actor, weapon) => {
+async function decrementWeaponAmmo(actor, weapon) {
   if (weapon.system.usesAmmo && weapon.system.ammoId && trackAmmo()) {
     const ammo = actor.items.get(weapon.system.ammoId);
     if (ammo) {
@@ -216,7 +216,7 @@ const decrementWeaponAmmo = async (actor, weapon) => {
 /**
  * Show attack rolls/result in a chat roll card.
  */
-const renderAttackRollCard = async (actor, rollResult) => {
+async function renderAttackRollCard(actor, rollResult) {
   const html = await renderTemplate(
     "systems/morkborg/templates/chat/attack-roll-card.hbs",
     rollResult

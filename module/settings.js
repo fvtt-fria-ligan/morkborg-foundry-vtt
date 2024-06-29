@@ -14,7 +14,7 @@ const Settings = {
   trackCarryingCapacity: "trackCarryingCapacity",
 };
 
-export const registerSystemSettings = () => {
+export function registerSystemSettings() {
   // register non-menu settings in (english) alphabetical order
 
   /** Additional Abilities */
@@ -172,60 +172,60 @@ export const registerSystemSettings = () => {
   );
 };
 
-const getSetting = (setting) => {
+function getSetting(setting) {
   return game.settings.get(CONFIG.MB.systemName, setting);
 };
 
-const setSetting = (setting, value) => {
+function setSetting(setting, value) {
   return game.settings.set(CONFIG.MB.systemName, setting, value);
 };
 
-export const hitAutomation = () => {
+export function hitAutomation() {
   return getSetting(Settings.hitAutomation);
 };
 
-export const trackCarryingCapacity = () => {
+export function trackCarryingCapacity() {
   return getSetting(Settings.trackCarryingCapacity);
 };
 
-export const trackAmmo = () => {
+export function trackAmmo() {
   return getSetting(Settings.trackAmmo);
 };
 
-export const isScvmClassAllowed = (uuid) => {
+export function isScvmClassAllowed(uuid) {
   const allowedScvmClasses = getSetting(Settings.allowedScvmClasses);
   return typeof allowedScvmClasses[uuid] === "undefined"
     ? true
     : !!allowedScvmClasses[uuid];
 };
 
-export const getAllowedScvmClasses = () => {
+export function getAllowedScvmClasses() {
   return getSetting(Settings.allowedScvmClasses);
 };
 
-export const setAllowedScvmClasses = (allowedScvmClasses) => {
+export function setAllowedScvmClasses(allowedScvmClasses) {
   return setSetting(Settings.allowedScvmClasses, allowedScvmClasses);
 };
 
-export const getLastScvmfactorySelection = () => {
+export function getLastScvmfactorySelection() {
   return getSetting(Settings.lastScvmfactorySelection);
 };
 
-export const setLastScvmfactorySelection = (lastScvmfactorySelection) => {
+export function setLastScvmfactorySelection(lastScvmfactorySelection) {
   return setSetting(
     Settings.lastScvmfactorySelection,
     lastScvmfactorySelection
   );
 };
 
-export const getAdditionalAbilities = () => {
+export function getAdditionalAbilities() {
   return getSetting(Settings.additionalAbilities);
 };
 
-export const deleteZeroQuantity = () => {
+export function deleteZeroQuantity() {
   return getSetting(Settings.deleteZeroQuantity);
 };
 
-export const miseryTrackerAnimations = () => {
+export function miseryTrackerAnimations() {
   return getSetting(Settings.miseryTrackerAnimations);
 };

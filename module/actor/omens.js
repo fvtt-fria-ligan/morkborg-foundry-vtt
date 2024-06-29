@@ -1,6 +1,6 @@
 import { showRollResult } from "../utils.js";
 
-export const rollOmens = async (actor) => {
+export async function rollOmens(actor) {
   const classItem = actor.items.filter((x) => x.type === "class").pop();
   if (!classItem) {
     return;

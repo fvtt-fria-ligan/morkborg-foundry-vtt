@@ -1,6 +1,6 @@
 import { showRollResult } from "../utils.js";
 
-export const useFeat = async (actor, itemId) => {
+export async function useFeat(actor, itemId) {
   const item = actor.items.get(itemId);
   if (!item || !item.system.rollLabel) {
     return;

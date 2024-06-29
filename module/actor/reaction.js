@@ -4,7 +4,7 @@ import { showRollResultCard } from "../utils.js";
 /**
  * Check reaction!
  */
-export const checkReaction = async (actor) => {
+export async function checkReaction(actor) {
   const reactionRoll = new Roll("2d6");
   reactionRoll.evaluate({ async: false });
   await showDice(reactionRoll);
@@ -25,7 +25,7 @@ export const checkReaction = async (actor) => {
   await showRollResultCard(actor, data);
 };
 
-const reactionKey = (total) => {
+function reactionKey(total) {
   let key = "";
   if (total <= 3) {
     key = "MB.ReactionKill";

@@ -8,7 +8,7 @@ import { showRollResult } from "../utils.js";
  * @param {*} foodAndDrink "eat", "donteat", or "starve"
  * @param {*} infected true/false
  */
-export const rest = async (actor, restLength, foodAndDrink, infected) => {
+export async function rest(actor, restLength, foodAndDrink, infected) {
   if (restLength === "short") {
     if (foodAndDrink === "eat" && !infected) {
       await rollHealHitPoints(actor, "d4");
@@ -37,7 +37,7 @@ export const rest = async (actor, restLength, foodAndDrink, infected) => {
   }
 };
 
-const showRestNoEffect = async (actor) => {
+async function showRestNoEffect(actor) {
   const result = {
     cardTitle: game.i18n.localize("MB.Rest"),
     outcomeText: game.i18n.localize("MB.NoEffect"),
@@ -53,7 +53,7 @@ const showRestNoEffect = async (actor) => {
   });
 };
 
-const rollHealHitPoints = async (actor, dieRoll) => {
+async function rollHealHitPoints(actor, dieRoll) {
   const roll = await showRollResult(
     actor,
     dieRoll,
@@ -71,7 +71,7 @@ const rollHealHitPoints = async (actor, dieRoll) => {
   await actor.update({ ["system.hp.value"]: newHP });
 };
 
-const rollStarvation = async (actor) => {
+async function rollStarvation(actor) {
   const roll = await showRollResult(
     actor,
     "d4",
@@ -86,7 +86,7 @@ const rollStarvation = async (actor) => {
   await actor.update({ ["system.hp.value"]: newHP });
 };
 
-const rollInfection = async (actor) => {
+async function rollInfection(actor) {
   const roll = await showRollResult(
     actor,
     "d6",

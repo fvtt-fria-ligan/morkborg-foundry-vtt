@@ -1,7 +1,7 @@
 import { showDice } from "../dice.js";
 import { showRollResultCard } from "../utils.js";
 
-export const rollPartyInitiative = async (actor) => {
+export async function rollPartyInitiative(actor) {
   const roll = new Roll("1d6");
   roll.evaluate({ async: false });
   await showDice(roll);
@@ -27,7 +27,7 @@ export const rollPartyInitiative = async (actor) => {
   }
 };
 
-export const rollIndividualInitiative = async (actor) => {
+export async function rollIndividualInitiative(actor) {
   if (game.combats && game.combat) {
     // there is an encounter started in the Combat Tracker
     const combatant = game.combat.combatants.find(

@@ -1,13 +1,13 @@
 import { showDice } from "../dice.js";
 import { showRollResultCard } from "../utils.js";
 
-const testAbility = async (
+async function testAbility(
   actor,
   ability,
   abilityKey,
   abilityAbbrevKey,
   drModifiers
-) => {
+) {
   const abilityRoll = new Roll(
     `1d20+@abilities.${ability}.value`,
     actor.getRollData()
@@ -32,7 +32,7 @@ const testAbility = async (
   await showRollResultCard(actor, data);
 };
 
-export const testStrength = async (actor) => {
+export async function testStrength(actor) {
   const drModifiers = [];
   if (actor.isEncumbered()) {
     drModifiers.push(
@@ -50,7 +50,7 @@ export const testStrength = async (actor) => {
   );
 };
 
-export const testAgility = async (actor) => {
+export async function testAgility(actor) {
   const drModifiers = [];
   const armor = actor.equippedArmor();
   if (armor) {
@@ -79,7 +79,7 @@ export const testAgility = async (actor) => {
   );
 };
 
-export const testPresence = async (actor) => {
+export async function testPresence(actor) {
   await testAbility(
     actor,
     "presence",
@@ -89,7 +89,7 @@ export const testPresence = async (actor) => {
   );
 };
 
-export const testToughness = async (actor) => {
+export async function testToughness(actor) {
   await testAbility(
     actor,
     "toughness",
@@ -99,7 +99,7 @@ export const testToughness = async (actor) => {
   );
 };
 
-export const testCustomAbility = async (actor, ability) => {
+export async function testCustomAbility(actor, ability) {
   await testAbility(
     actor,
     ability,

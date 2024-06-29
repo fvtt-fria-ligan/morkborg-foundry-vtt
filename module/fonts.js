@@ -1,4 +1,4 @@
-export const registerFonts = () => {
+export function registerFonts() {
   CONFIG.fontDefinitions["Alegreya"] = {
     editor: true,
     fonts: [

@@ -3,7 +3,7 @@ import { diceSound, showDice } from "../dice.js";
 import { drawFromTable } from "../packutils.js";
 import { showRollResult } from "../utils.js";
 
-export const rollPowersPerDay = async (actor) => {
+export async function rollPowersPerDay(actor) {
   const roll = await showRollResult(
     actor,
     "d4+@abilities.presence.value",
@@ -22,7 +22,7 @@ export const rollPowersPerDay = async (actor) => {
   });
 };
 
-export const wieldPower = async (actor) => {
+export async function wieldPower(actor) {
   if (actor.system.powerUses.value < 1) {
     ui.notifications.warn(`${game.i18n.localize("MB.NoPowerUsesRemaining")}!`);
     return;

@@ -1,6 +1,6 @@
 import { rollPartyInitiative } from "./actor/initiative.js";
 
-export const registerCombat = () => {
+export function registerCombat() {
   CONFIG.Combat.documentClass = MBCombat;
   CONFIG.Combat.initiative = {
     formula: "1d6 + @abilities.agility.value",

@@ -5,14 +5,14 @@ import { showRollResultCard } from "../utils.js";
 /**
  * Defend!
  */
-export const defend = async (actor) => {
+export async function defend(actor) {
   if (hitAutomation()) {
-    return automatedDefend(actor);
+    return await automatedDefend(actor);
   }
-  return unautomatedDefend(actor);
+  return await unautomatedDefend(actor);
 };
 
-const automatedDefend = async (actor) => {
+async function automatedDefend(actor) {
   // look up any previous DR or incoming attack value
   let defendDR = await actor.getFlag(
     CONFIG.MB.systemName,
@@ -83,7 +83,7 @@ const automatedDefend = async (actor) => {
   });
 };
 
-const unautomatedDefend = async (actor) => {
+async function unautomatedDefend(actor) {
   const armor = actor.equippedArmor();
   const drModifiers = [];
   if (armor) {
@@ -153,7 +153,7 @@ function onDefenseBaseDRChange(event) {
 /**
  * Callback from defend dialog.
  */
-const defendDialogCallback = async (actor, html) => {
+async function defendDialogCallback(actor, html) {
   const form = html[0].querySelector("form");
   const baseDR = parseInt(form.defensebasedr.value);
   const modifiedDR = parseInt(form.defensemodifieddr.value);
@@ -174,7 +174,7 @@ const defendDialogCallback = async (actor, html) => {
 /**
  * Do the actual defend rolls and resolution.
  */
-const rollDefend = async (actor, defendDR, incomingAttack) => {
+async function rollDefend(actor, defendDR, incomingAttack) {
   const rollData = actor.getRollData();
   const armor = actor.equippedArmor();
   const shield = actor.equippedShield();
@@ -261,7 +261,7 @@ const rollDefend = async (actor, defendDR, incomingAttack) => {
 /**
  * Show attack rolls/result in a chat roll card.
  */
-const renderDefendRollCard = async (actor, rollResult) => {
+async function renderDefendRollCard(actor, rollResult) {
   const html = await renderTemplate(
     "systems/morkborg/templates/chat/defend-roll-card.hbs",
     rollResult

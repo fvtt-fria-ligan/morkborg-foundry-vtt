@@ -1,4 +1,4 @@
-export const getBetter = async (actor) => {
+export async function getBetter(actor) {
   const oldHp = actor.system.hp.max;
   const newHp = betterHp(actor, oldHp);
   const oldStr = actor.system.abilities.strength.value;
@@ -94,7 +94,7 @@ export const getBetter = async (actor) => {
   });
 };
 
-const betterHp = (actor, oldHp) => {
+function betterHp(actor, oldHp) {
   const hpRoll = new Roll("6d10").evaluate({
     async: false,
   });
@@ -110,7 +110,7 @@ const betterHp = (actor, oldHp) => {
   }
 };
 
-const betterAbility = (oldVal) => {
+function betterAbility(oldVal) {
   const roll = new Roll("1d6").evaluate({ async: false });
   if (roll.total === 1 || roll.total < oldVal) {
     // decrease, to a minimum of -3
@@ -121,7 +121,7 @@ const betterAbility = (oldVal) => {
   }
 };
 
-const abilityOutcome = (abilityName, oldVal, newVal) => {
+function abilityOutcome(abilityName, oldVal, newVal) {
   if (newVal < oldVal) {
     return `Lose ${oldVal - newVal} ${abilityName}`;
   } else if (newVal > oldVal) {

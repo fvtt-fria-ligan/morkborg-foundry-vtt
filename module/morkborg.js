@@ -43,12 +43,12 @@ Hooks.once("init", async function () {
   };
 });
 
-const registerDocumentClasses = () => {
+function registerDocumentClasses() {
   CONFIG.Actor.documentClass = MBActor;
   CONFIG.Item.documentClass = MBItem;
 };
 
-const registerSheets = () => {
+function registerSheets() {
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet(MB.systemName, MBCharacterSheet, {
     types: [MB.actorTypes.character],
