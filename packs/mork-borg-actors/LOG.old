@@ -1,4 +1,3 @@
-2023/10/22-16:33:36.635840 16efa7000 Log #379: 0 ops saved to Table #380 OK
-2023/10/22-16:33:36.635947 16efa7000 Archiving /Users/mcglincy/Library/Application Support/FoundryVTT/Data/systems/morkborg/packs/mork-borg-actors/000379.log: OK
-2023/10/22-16:33:36.636546 16efa7000 Table #81: 42 entries OK
-2023/10/22-16:33:36.636846 16efa7000 **** Repaired leveldb /Users/mcglincy/Library/Application Support/FoundryVTT/Data/systems/morkborg/packs/mork-borg-actors; recovered 1 files; 26229 bytes. Some data may have been lost. ****
+2024/06/29-13:34:27.156991 173957000 Recovering log #382
+2024/06/29-13:34:27.157561 173957000 Delete type=0 #382
+2024/06/29-13:34:27.157591 173957000 Delete type=3 #381

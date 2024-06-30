@@ -1,4 +1,3 @@
-2023/10/22-16:33:36.639082 16e79f000 Log #304: 0 ops saved to Table #305 OK
-2023/10/22-16:33:36.639177 16e79f000 Archiving /Users/mcglincy/Library/Application Support/FoundryVTT/Data/systems/morkborg/packs/mork-borg-items/000304.log: OK
-2023/10/22-16:33:36.639569 16e79f000 Table #124: 237 entries OK
-2023/10/22-16:33:36.639842 16e79f000 **** Repaired leveldb /Users/mcglincy/Library/Application Support/FoundryVTT/Data/systems/morkborg/packs/mork-borg-items; recovered 1 files; 85255 bytes. Some data may have been lost. ****
+2024/06/29-13:34:27.159392 174163000 Recovering log #307
+2024/06/29-13:34:27.159853 174163000 Delete type=3 #306
+2024/06/29-13:34:27.159895 174163000 Delete type=0 #307
