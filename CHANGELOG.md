@@ -1,3 +1,8 @@
+# 4.0.0
+
+- Foundry v12 support.
+- Spanish language support by kufferino.
+
 # 3.3.2
 
 - Latest packs files.
