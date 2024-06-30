@@ -43,6 +43,7 @@ Hooks.once("init", async function () {
   };
 });
 
+
 function registerDocumentClasses() {
   CONFIG.Actor.documentClass = MBActor;
   CONFIG.Item.documentClass = MBItem;

@@ -78,7 +78,7 @@ export async function drawDocumentsFromTableUuid(uuid) {
 };
 
 export async function documentsFromDraw(draw) {
-  const docResults = draw.results.filter((r) => r.type === 2);
+  const docResults = draw.results.filter((r) => r.type === CONST.TABLE_RESULT_TYPES.COMPENDIUM);
   return Promise.all(docResults.map((r) => documentFromResult(r)));
 };
 
@@ -93,13 +93,18 @@ export async function documentFromResult(result) {
     return;
   }
   const collectionName =
-    result.type === 2
+    result.type === CONST.TABLE_RESULT_TYPES.COMPENDIUM
       ? "Compendium." + result.documentCollection
       : result.documentCollection;
   const uuid = `${collectionName}.${result.documentId}`;
   const doc = await fromUuid(uuid);
+
   if (!doc) {
-    console.log(`Could not find ${uuid}`);
+    // console.log(`Could not find ${uuid}`);
+    console.log(`Could not find ${result.documentCollection} ${result.text}`);
+    console.log(result);
+  } else {
+    console.log(`*** Found ${result.documentCollection} ${result.text}`);
     console.log(result);
   }
   return doc;
@@ -107,7 +112,7 @@ export async function documentFromResult(result) {
 
 export function dupeData(doc) {
   return {
-    data: doc.system,
+    system: doc.system,
     img: doc.img,
     name: doc.name,
     type: doc.type,

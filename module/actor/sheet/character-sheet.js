@@ -24,7 +24,7 @@ import { upperCaseFirst } from "../../utils.js";
 export class MBCharacterSheet extends MBActorSheet {
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["morkborg", "sheet", "actor", "character"],
       template: "systems/morkborg/templates/actor/character-sheet.hbs",
       width: 750,
@@ -41,8 +41,8 @@ export class MBCharacterSheet extends MBActorSheet {
   }
 
   /** @override */
-  getData() {
-    const superData = super.getData();
+  async getData() {
+    const superData = await super.getData();
     superData.config = CONFIG.MB;
     const data = superData.data;
 

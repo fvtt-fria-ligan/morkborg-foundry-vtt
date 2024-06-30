@@ -58,11 +58,10 @@ export default class MBActorSheet extends ActorSheet {
   }
 
   /** @override */
-  getData() {
-    const superData = super.getData();
-    superData.data.system.description = TextEditor.enrichHTML(
-      superData.data.system.description,
-      { async: false }
+  async getData() {
+    const superData = await super.getData();
+    superData.data.system.description = await TextEditor.enrichHTML(
+      superData.data.system.description
     );
     return superData;
   }
@@ -163,6 +162,7 @@ export default class MBActorSheet extends ActorSheet {
    * @private
    */
   async _onToggleEquippedItem(event) {
+    console.log("onToggle", event);
     event.preventDefault();
     const anchor = $(event.currentTarget);
     const li = anchor.parents(".item");

@@ -6,7 +6,7 @@ import { showRollResultCard } from "../utils.js";
  */
 export async function checkReaction(actor) {
   const reactionRoll = new Roll("2d6");
-  reactionRoll.evaluate({ async: false });
+  await reactionRoll.evaluate();
   await showDice(reactionRoll);
   const reactionText = game.i18n.localize(reactionKey(reactionRoll.total));
   const outcomeLine = `${actor.name} ${game.i18n.localize(

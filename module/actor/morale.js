@@ -6,7 +6,7 @@ import { showRollResultCard } from "../utils.js";
  */
 export async function checkMorale(actor) {
   const moraleRoll = new Roll("2d6");
-  moraleRoll.evaluate({ async: false });
+  await moraleRoll.evaluate();
   await showDice(moraleRoll);
   const rollResults = [
     {
@@ -20,7 +20,7 @@ export async function checkMorale(actor) {
     // failed morale check
     rollResults[0].outcomeLines.push(game.i18n.localize("MB.Failure"));
     const outcomeRoll = new Roll("1d6");
-    outcomeRoll.evaluate({ async: false });
+    await outcomeRoll.evaluate();
     await showDice(outcomeRoll);
     const outcomeKey =
       outcomeRoll.total <= 3 ? "MB.MoraleFlees" : "MB.MoraleSurrenders";

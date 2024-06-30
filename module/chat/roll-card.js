@@ -26,7 +26,7 @@ async function rollDamageDie(actor, itemId) {
     return;
   }
   const roll = new Roll(item.system.damageDie);
-  roll.evaluate({ async: false });
+  await roll.evaluate();
   await showDice(roll);
   const cardTitle = game.i18n.localize("MB.Damage");
   const data = {

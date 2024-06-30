@@ -125,11 +125,11 @@ export class MBItem extends Item {
   }
 
   async equip() {
-    await this.update({ "data.equipped": true });
+    await this.update({ "system.equipped": true });
   }
 
   async unequip() {
-    await this.update({ "data.equipped": false });
+    await this.update({ "system.equipped": false });
   }
 
   async toggleCarried() {
@@ -141,26 +141,26 @@ export class MBItem extends Item {
   }
 
   async carry() {
-    await this.update({ "data.carried": true });
+    await this.update({ "system.carried": true });
   }
 
   async drop() {
-    await this.update({ "data.carried": false });
+    await this.update({ "system.carried": false });
   }
 
   async addItem(itemId) {
     if (!this.items.includes(itemId)) {
-      await this.update({ "data.items": [...this.items, itemId] });
+      await this.update({ "system.items": [...this.items, itemId] });
     }
   }
 
   async removeItem(itemId) {
     const items = this.items.filter((item) => item !== itemId);
-    await this.update({ "data.items": items });
+    await this.update({ "system.items": items });
   }
 
   async clearItems() {
-    await this.update({ "data.items": [] });
+    await this.update({ "system.items": [] });
   }
 
   _getTotalCarryWeight(actor) {
@@ -206,14 +206,14 @@ export class MBItem extends Item {
   }
 
   async incrementQuantity() {
-    await this.update({ ["data.quantity"]: this.system.quantity + 1 });
+    await this.update({ ["system.quantity"]: this.system.quantity + 1 });
   }
 
   async decrementQuantity() {
     if (this.system.quantity == 1 && deleteZeroQuantity()) {
       await this.delete();
     } else if (this.system.quantity > 1) {
-      await this.update({ ["data.quantity"]: this.system.quantity - 1 });
+      await this.update({ ["system.quantity"]: this.system.quantity - 1 });
     }
   }
 }

@@ -3,7 +3,7 @@ import { showRollResultCard } from "../utils.js";
 
 export async function rollPartyInitiative(actor) {
   const roll = new Roll("1d6");
-  roll.evaluate({ async: false });
+  await roll.evaluate();
   await showDice(roll);
   const outcomeKey =
     roll.total <= 3
@@ -45,7 +45,7 @@ export async function rollIndividualInitiative(actor) {
 
   // no encounter going on, so just show chat cards
   const roll = new Roll("1d6+@abilities.agility.value", actor.getRollData());
-  roll.evaluate({ async: false });
+  await roll.evaluate();
   await showDice(roll);
   const displayFormula = `1d6 + ${game.i18n.localize(
     "MB.AbilityAgilityAbbrev"

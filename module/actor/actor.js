@@ -7,7 +7,6 @@ export class MBActor extends Actor {
   /** @override */
   static async create(data, options = {}) {
     data.prototypeToken = data.prototypeToken || {};
-    console.log(data.prototypeToken);
     let defaults = {};
     if (data.type === "character") {
       defaults = {
@@ -46,7 +45,7 @@ export class MBActor extends Actor {
         },
       };
     }
-    mergeObject(data.prototypeToken, defaults, { overwrite: false });
+    foundry.utils.mergeObject(data.prototypeToken, defaults, { overwrite: false });
     return super.create(data, options);
   }
 

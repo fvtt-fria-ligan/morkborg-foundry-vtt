@@ -1,14 +1,14 @@
 export async function getBetter(actor) {
   const oldHp = actor.system.hp.max;
-  const newHp = betterHp(actor, oldHp);
+  const newHp = await betterHp(actor, oldHp);
   const oldStr = actor.system.abilities.strength.value;
-  const newStr = betterAbility(oldStr);
+  const newStr = await betterAbility(oldStr);
   const oldAgi = actor.system.abilities.agility.value;
-  const newAgi = betterAbility(oldAgi);
+  const newAgi = await betterAbility(oldAgi);
   const oldPre = actor.system.abilities.presence.value;
-  const newPre = betterAbility(oldPre);
+  const newPre = await betterAbility(oldPre);
   const oldTou = actor.system.abilities.toughness.value;
-  const newTou = betterAbility(oldTou);
+  const newTou = await betterAbility(oldTou);
   let newSilver = actor.system.silver;
 
   const hpOutcome = abilityOutcome(game.i18n.localize("MB.HP"), oldHp, newHp);
@@ -36,15 +36,11 @@ export async function getBetter(actor) {
   // Left in the debris you find...
   let debrisOutcome = null;
   let scrollTableName = null;
-  const debrisRoll = new Roll("1d6").evaluate({
-    async: false,
-  });
+  const debrisRoll = await new Roll("1d6").evaluate();
   if (debrisRoll.total < 4) {
     debrisOutcome = "Nothing";
   } else if (debrisRoll.total === 4) {
-    const silverRoll = new Roll("3d10").evaluate({
-      async: false,
-    });
+    const silverRoll = await new Roll("3d10").evaluate();
     debrisOutcome = `${silverRoll.total} silver`;
     newSilver += silverRoll.total;
   } else if (debrisRoll.total === 5) {
@@ -94,15 +90,11 @@ export async function getBetter(actor) {
   });
 };
 
-function betterHp(actor, oldHp) {
-  const hpRoll = new Roll("6d10").evaluate({
-    async: false,
-  });
+async function betterHp(actor, oldHp) {
+  const hpRoll = await new Roll("6d10").evaluate();
   if (hpRoll.total >= oldHp) {
     // success, increase HP
-    const howMuchRoll = new Roll("1d6").evaluate({
-      async: false,
-    });
+    const howMuchRoll = await new Roll("1d6").evaluate();
     return oldHp + howMuchRoll.total;
   } else {
     // no soup for you
@@ -110,8 +102,8 @@ function betterHp(actor, oldHp) {
   }
 };
 
-function betterAbility(oldVal) {
-  const roll = new Roll("1d6").evaluate({ async: false });
+async function betterAbility(oldVal) {
+  const roll = await new Roll("1d6").evaluate();
   if (roll.total === 1 || roll.total < oldVal) {
     // decrease, to a minimum of -3
     return Math.max(-3, oldVal - 1);

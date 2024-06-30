@@ -7,7 +7,7 @@ import { byName } from "../../utils.js";
 export class MBFollowerSheet extends MBActorSheet {
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["morkborg", "sheet", "actor", "follower"],
       template: "systems/morkborg/templates/actor/follower-sheet.hbs",
       width: 720,
@@ -24,8 +24,8 @@ export class MBFollowerSheet extends MBActorSheet {
   }
 
   /** @override */
-  getData() {
-    const superData = super.getData();
+  async getData() {
+    const superData = await super.getData();
     const data = superData.data;
     data.config = CONFIG.MB;
     this._prepareFollowerItems(data);

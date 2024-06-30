@@ -6,7 +6,7 @@ import MBActorSheet from "./actor-sheet.js";
 export class MBCreatureSheet extends MBActorSheet {
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["morkborg", "sheet", "actor", "creature"],
       template: "systems/morkborg/templates/actor/creature-sheet.hbs",
       width: 720,

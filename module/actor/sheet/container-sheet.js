@@ -7,7 +7,7 @@ import { byName } from "../../utils.js";
 export class MBContainerSheet extends MBActorSheet {
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["morkborg", "sheet", "actor", "container"],
       template: "systems/morkborg/templates/actor/container-sheet.hbs",
       width: 720,
@@ -24,8 +24,8 @@ export class MBContainerSheet extends MBActorSheet {
   }
 
   /** @override */
-  getData() {
-    const superData = super.getData();
+  async getData() {
+    const superData = await super.getData();
     const data = superData.data;
     data.config = CONFIG.MB;
     if (this.actor.type == "container") {

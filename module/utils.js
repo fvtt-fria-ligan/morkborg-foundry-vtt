@@ -46,8 +46,14 @@ export async function evalRoll(formula) {
   return await new Roll(formula).evaluate();
 };
 
-export async function rollTotal(formula) {
-  return await new Roll(formula).evaluate().total;
+export async function rollTotal(formula, rollData={}) {
+  const roll = new Roll(formula, rollData);
+  await roll.evaluate();
+  return roll.total;
+};
+
+export function rollTotalSync(formula, rollData={}) {
+  return new Roll(formula, rollData).evaluateSync().total;
 };
 
 export async function showRollResult(
@@ -59,7 +65,7 @@ export async function showRollResult(
   rollFormula = null
 ) {
   const roll = new Roll(dieRoll, rollData);
-  roll.evaluate({ async: false });
+  await roll.evaluate();
   await showDice(roll);
   const data = {
     cardTitle,

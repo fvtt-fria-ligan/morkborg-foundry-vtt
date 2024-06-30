@@ -18,11 +18,11 @@ function playHornOfDoom() {
   playSound("systems/morkborg/assets/audio/horn-of-doom.ogg", true);
 };
 
-function uniquePsalmRoll(tracker) {
+async function uniquePsalmRoll(tracker) {
   let psalmRoll;
   keepRolling: for (;;) {
     psalmRoll = new Roll("d6*10+d6");
-    psalmRoll.evaluate({ async: false });
+    await psalmRoll.evaluate();
     const psalm = Math.floor(psalmRoll.total / 10);
     const verse = psalmRoll.total - psalm * 10;
     // check if we've already rolled this misery
@@ -41,7 +41,7 @@ function uniquePsalmRoll(tracker) {
 
 export async function rollMisery(tracker) {
   const miseryRoll = new Roll(tracker.system.miseryDie || "1d6");
-  miseryRoll.evaluate({ async: false });
+  await miseryRoll.evaluate();
   await showDice(miseryRoll);
   const isMisery = miseryRoll.total === 1;
   const outcomeKey = isMisery ? "MB.MiseryActivated" : "MB.MiseryNotActivated";
@@ -68,7 +68,7 @@ export async function rollMisery(tracker) {
       }
     }
     if (emptyMiseryField) {
-      const psalmRoll = uniquePsalmRoll(tracker);
+      const psalmRoll = await uniquePsalmRoll(tracker);
       await showDice(psalmRoll);
       const psalm = Math.floor(psalmRoll.total / 10);
       const verse = psalmRoll.total - psalm * 10;
@@ -91,7 +91,7 @@ export async function rollMisery(tracker) {
       data.rollResults.push({
         outcomeLines: [game.i18n.localize("MB.SeventhMiseryWillAlwaysBe")],
       });
-      await tracker.update({ "data.seventhMiseryActivated": true });
+      await tracker.update({ "system.seventhMiseryActivated": true });
     }
     playHornOfDoom();
   }

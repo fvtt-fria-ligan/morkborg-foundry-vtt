@@ -6,7 +6,7 @@ import { MB } from "../../config.js";
 export class MBItemSheet extends ItemSheet {
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["morkborg", "sheet", "item"],
       width: 600,
       height: 560,
@@ -34,11 +34,10 @@ export class MBItemSheet extends ItemSheet {
 
   /** @override */
   async getData(options) {
-    const superData = super.getData(options);
+    const superData = await super.getData(options);
     superData.config = CONFIG.MB;
-    superData.data.system.description = TextEditor.enrichHTML(
-      superData.data.system.description,
-      { async: false }
+    superData.data.system.description = await TextEditor.enrichHTML(
+      superData.data.system.description
     );
     if (superData.data.scrollType) {
       superData.data.localizedScrollType = game.i18n.localize(

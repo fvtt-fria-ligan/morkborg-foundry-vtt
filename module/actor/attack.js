@@ -58,7 +58,7 @@ async function unautomatedAttack(actor, itemId) {
   const isRanged = itemRollData.weaponType === "ranged";
   const ability = isRanged ? "presence" : "strength";
   const attackRoll = new Roll(`d20+@abilities.${ability}.value`, actorRollData);
-  attackRoll.evaluate({ async: false });
+  await attackRoll.evaluate();
   await showDice(attackRoll);
 
   const abilityAbbrevKey = isRanged
@@ -127,7 +127,7 @@ async function rollAttack(actor, itemId, attackDR, targetArmor) {
   // ranged weapons use presence; melee weapons use strength
   const ability = isRanged ? "presence" : "strength";
   const attackRoll = new Roll(`d20+@abilities.${ability}.value`, actorRollData);
-  attackRoll.evaluate({ async: false });
+  await attackRoll.evaluate();
   await showDice(attackRoll);
 
   const d20Result = attackRoll.terms[0].results[0].result;
@@ -151,14 +151,14 @@ async function rollAttack(actor, itemId, attackDR, targetArmor) {
     // Use parentheses for critical 2x in case damage die something like 1d6+1
     const damageFormula = isCrit ? "(@damageDie) * 2" : "@damageDie";
     damageRoll = new Roll(damageFormula, itemRollData);
-    damageRoll.evaluate({ async: false });
+    await damageRoll.evaluate();
     const dicePromises = [];
     addShowDicePromise(dicePromises, damageRoll);
     let damage = damageRoll.total;
     // roll 3: target damage reduction
     if (targetArmor) {
       targetArmorRoll = new Roll(targetArmor, {});
-      targetArmorRoll.evaluate({ async: false });
+      await targetArmorRoll.evaluate();
       addShowDicePromise(dicePromises, targetArmorRoll);
       damage = Math.max(damage - targetArmorRoll.total, 0);
     }

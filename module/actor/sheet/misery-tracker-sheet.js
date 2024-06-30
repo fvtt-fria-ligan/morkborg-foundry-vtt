@@ -4,7 +4,7 @@ import { miseryTrackerAnimations } from "../../settings.js";
 export class MBMiseryTrackerSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["morkborg", "sheet", "actor", "misery-tracker"],
       width: 500,
       height: 740,
@@ -17,8 +17,8 @@ export class MBMiseryTrackerSheet extends ActorSheet {
   }
 
   /** @override */
-  getData() {
-    const data = super.getData();
+  async getData() {
+    const data = await super.getData();
     for (let i = 1; i <= 6; i++) {
       const field = `misery${i}`;
       const misery = data.data.system[field];

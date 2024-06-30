@@ -7,7 +7,7 @@ export class AllowedScvmClassesDialog extends FormApplication {
   }
 
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       id: "allowed-scvm-classes-dialog",
       title: game.i18n.localize("MB.AllowedScvmClassesEdit"),
       template:
@@ -29,7 +29,7 @@ export class AllowedScvmClassesDialog extends FormApplication {
 
   async getData(options = {}) {
     const classes = await this._getClassData();
-    return mergeObject(super.getData(options), {
+    return foundry.utils.mergeObject(super.getData(options), {
       classes,
     });
   }

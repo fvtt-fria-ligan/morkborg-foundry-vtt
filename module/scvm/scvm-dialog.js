@@ -41,7 +41,7 @@ export default class ScvmDialog extends Application {
 
   /** @override */
   getData(options = {}) {
-    return mergeObject(super.getData(options), {
+    return foundry.utils.mergeObject(super.getData(options), {
       classes: this.classes,
       forActor: this.actor !== undefined && this.actor !== null,
     });

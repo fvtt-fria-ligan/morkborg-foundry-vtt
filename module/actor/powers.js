@@ -32,7 +32,7 @@ export async function wieldPower(actor) {
     "d20+@abilities.presence.value",
     actor.getRollData()
   );
-  wieldRoll.evaluate({ async: false });
+  await wieldRoll.evaluate();
   await showDice(wieldRoll);
 
   const d20Result = wieldRoll.terms[0].results[0].result;
@@ -54,7 +54,7 @@ export async function wieldPower(actor) {
       isFumble ? "MB.WieldAPowerFumble" : "MB.Failure"
     );
     damageRoll = new Roll("1d2");
-    damageRoll.evaluate({ async: false });
+    await damageRoll.evaluate();
     await showDice(damageRoll);
     takeDamage = `${game.i18n.localize("MB.Take")} ${
       damageRoll.total

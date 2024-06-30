@@ -108,7 +108,7 @@ async function unautomatedDefend(actor) {
     "d20+@abilities.agility.value",
     actor.getRollData()
   );
-  defendRoll.evaluate({ async: false });
+  await defendRoll.evaluate();
   await showDice(defendRoll);
   const data = {
     cardTitle: game.i18n.localize("MB.Defend"),
@@ -181,7 +181,7 @@ async function rollDefend(actor, defendDR, incomingAttack) {
 
   // roll 1: defend
   const defendRoll = new Roll("d20+@abilities.agility.value", rollData);
-  defendRoll.evaluate({ async: false });
+  await defendRoll.evaluate();
   await showDice(defendRoll);
 
   const d20Result = defendRoll.terms[0].results[0].result;
@@ -214,7 +214,7 @@ async function rollDefend(actor, defendDR, incomingAttack) {
       damageFormula += " * 2";
     }
     damageRoll = new Roll(damageFormula, {});
-    damageRoll.evaluate({ async: false });
+    await damageRoll.evaluate();
     const dicePromises = [];
     addShowDicePromise(dicePromises, damageRoll);
     let damage = damageRoll.total;
@@ -232,7 +232,7 @@ async function rollDefend(actor, defendDR, incomingAttack) {
     }
     if (damageReductionDie) {
       armorRoll = new Roll("@die", { die: damageReductionDie });
-      armorRoll.evaluate({ async: false });
+      await armorRoll.evaluate();
       addShowDicePromise(dicePromises, armorRoll);
       damage = Math.max(damage - armorRoll.total, 0);
     }

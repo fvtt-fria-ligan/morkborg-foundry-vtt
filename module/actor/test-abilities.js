@@ -12,7 +12,7 @@ async function testAbility(
     `1d20+@abilities.${ability}.value`,
     actor.getRollData()
   );
-  abilityRoll.evaluate({ async: false });
+  await abilityRoll.evaluate();
   await showDice(abilityRoll);
   const cardTitle = `${game.i18n.localize("MB.Test")} ${game.i18n.localize(
     abilityKey

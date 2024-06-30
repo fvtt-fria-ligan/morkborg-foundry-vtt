@@ -206,14 +206,14 @@ async function startingRollItemsAndDescriptionLines(clazz) {
         if (table) {
           const results = await compendiumTableDrawMany(table, numRolls);
           for (const result of results) {
-            // draw result type: text (0), entity (1), or compendium (2)
-            if (result.type === 0) {
+            // draw result type
+            if (result.type === CONST.TABLE_RESULT_TYPES.TEXT) {
               // text
               rollDescriptionLines.push(`<p>${table.name}: ${result.text}</p>`);
-            } else if (result.type === 1) {
+            } else if (result.type === CONST.TABLE_RESULT_TYPES.DOCUMENT) {
               // entity
               // TODO: what do we want to do here?
-            } else if (result.type === 2) {
+            } else if (result.type === CONST.TABLE_RESULT_TYPES.COMPENDIUM) {
               // compendium
               const doc = await documentFromResult(result);
               rollItems.push(doc);
@@ -234,13 +234,11 @@ async function startingRollItemsAndDescriptionLines(clazz) {
 };
 
 async function rollScvmForClass(clazz) {
-  console.log(`Creating new ${clazz.name}`);
-
   const name = await drawTextFromTableUuid(MB.scvmFactory.namesTable);
-  const silver = rollTotal(clazz.system.startingSilver);
-  const omens = rollTotal(clazz.system.omenDie);
-  const baseHp = rollTotal(clazz.system.startingHitPoints);
-  const basePowerUses = rollTotal("1d4");
+  const silver = await rollTotal(clazz.system.startingSilver);
+  const omens = await rollTotal(clazz.system.omenDie);
+  const baseHp = await rollTotal(clazz.system.startingHitPoints);
+  const basePowerUses = await rollTotal("1d4");
 
   let abilityRollFormulas;
   if (clazz.name === "Adventurer") {
@@ -254,10 +252,10 @@ async function rollScvmForClass(clazz) {
       clazz.system.startingToughness,
     ];
   }
-  const strength = abilityBonus(rollTotal(abilityRollFormulas[0]));
-  const agility = abilityBonus(rollTotal(abilityRollFormulas[1]));
-  const presence = abilityBonus(rollTotal(abilityRollFormulas[2]));
-  const toughness = abilityBonus(rollTotal(abilityRollFormulas[3]));
+  const strength = await abilityRoll(abilityRollFormulas[0]);
+  const agility = await abilityRoll(abilityRollFormulas[1]);
+  const presence = await abilityRoll(abilityRollFormulas[2]);
+  const toughness = await abilityRoll(abilityRollFormulas[3]);
   const hitPoints = Math.max(1, baseHp + toughness);
   const powerUses = Math.max(0, basePowerUses + presence);
   const allDocs = [clazz];
@@ -312,7 +310,7 @@ async function rollScvmForClass(clazz) {
 function simpleData(item) {
   return {
     img: item.img,
-    name: item.name,
+    name: item.name,    
     system: item.system,
     type: item.type,
   };
@@ -321,7 +319,7 @@ function simpleData(item) {
 function scvmToActorData(s) {
   return {
     name: s.name,
-    data: {
+    system: {
       abilities: {
         strength: { value: s.strength },
         agility: { value: s.agility },
@@ -402,6 +400,11 @@ async function updateActorWithScvm(actor, s) {
     }
   }
 };
+
+async function abilityRoll(formula) {
+  const total = await rollTotal(formula);
+  return abilityBonus(total);
+}
 
 function abilityBonus(rollTotal) {
   if (rollTotal <= 4) {
