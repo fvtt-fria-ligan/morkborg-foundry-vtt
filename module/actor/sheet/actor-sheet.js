@@ -251,9 +251,9 @@ export default class MBActorSheet extends ActorSheet {
   /**
    * Handle a click on the Defend button.
    */
-  _onDefendRoll(event) {
+  async _onDefendRoll(event) {
     event.preventDefault();
-    const sheetData = this.getData();
+    const sheetData = await this.getData();
     const armorItemId = sheetData.data.equippedArmor
       ? sheetData.data.equippedArmor.id
       : null;

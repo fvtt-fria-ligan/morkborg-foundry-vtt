@@ -1,3 +1,7 @@
+# 4.0.1
+
+- Fix defend for async getData().
+
 # 4.0.0
 
 - Foundry v12 support.
