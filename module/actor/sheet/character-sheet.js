@@ -52,6 +52,7 @@ export class MBCharacterSheet extends MBActorSheet {
       const ability = data.system.abilities[abilityName];
       const translationKey = `MB.Ability${upperCaseFirst(abilityName)}`;
       ability.label = game.i18n.localize(translationKey);
+      ability.untranslatedLabel = abilityName;
       data.system.orderedAbilities.push(ability);
     }
     // custom abilities are in an ordered csv string
