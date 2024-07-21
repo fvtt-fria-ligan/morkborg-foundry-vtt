@@ -110,14 +110,21 @@ This is an implementation of the MÖRK BORG rules, with limited adaptations to m
   - Weapon table: Roll formula for the weapon table. E.g., 1d6.
   - Armor table: Roll formula for the armor table. E.g., 1d4.
   - Items: A multi-line textarea that specifies what items a character of this class should automatically start with. 
-    Each line is a comma-separated value of the format [compendium name],[item name].
+
+    Each line is a comma-separated value of the format `[compendium name],[item name]`.
+
     E.g., `morkborg.mork-borg-items,Bite Attack.`
   - Rolls: A multi-line textarea that specifies what rolls a character of this class should make. 
+
     Each line is a comma-separate value of the format [compendium name],[table name],[number of rolls].
+
     E.g., `morkborg.mork-borg-tables,Fanged Deserter Items,1`
+
     If the table roll result is an item, that item will be added to the character. If the table result is text, it will be added to the character     description.
 - Get the Foundry UUID (universal unique identifier) for this new class item. 
-  E.g., Compendium.morkborg.mork-borg-items.2hjl45o4vXOgRgfq
+
+  E.g., `Compendium.morkborg.mork-borg-items.2hjl45o4vXOgRgfq`
+
   An easy way to get this identifier is to drag the item into a journal page you're editing.
 - Add the new class item UUID to the list of class UUIDs used by the character generator. There are a couple ways to do this.
   - Hacky but easy: Find your Foundry systems directory, and manually edit systems/morkborg/module/config.js. There's an array called "classUuids"; add the new class UUID to the list. The downside of this is your edit will get overwritten as soon as you upgrade the system.
