@@ -21,7 +21,7 @@ export function registerHooks() {
     html.find(".rollable").off("click");
     html.find(".create-scvm").off("click");
   });
-};
+}
 
 function applyFontsAndColors() {
   const fontSchemeSetting = game.settings.get("morkborg", "fontScheme");
@@ -66,7 +66,7 @@ function applyFontsAndColors() {
     "--color-border-highlight",
     colorScheme.highlightBackground
   );
-};
+}
 
 function addCreateScvmButton(app, html) {
   if (game.user.can("ACTOR_CREATE")) {
@@ -91,7 +91,7 @@ function addCreateScvmButton(app, html) {
         showScvmDialog();
       });
   }
-};
+}
 
 async function drawFromRollableTable(event) {
   event.preventDefault();

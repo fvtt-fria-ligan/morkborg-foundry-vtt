@@ -2,10 +2,10 @@
   "id": "morkborg",
   "title": "MÖRK BORG",
   "description": "Foundry VTT system for MÖRK BORG.",
-  "version": "3.2.1",
+  "version": "4.0.2",
   "compatibility": {
     "minimum": "11.300",
-    "verified": "11.300"
+    "verified": "12.331"
   },
   "authors": [
     {
@@ -67,7 +67,7 @@
       "name": "English",
       "path": "lang/en.json"
     },
-        {
+    {
       "lang": "es",
       "name": "Spanish",
       "path": "lang/es.json"
@@ -85,7 +85,7 @@
   ],
   "socket": true,
   "initiative": "1d6",
-  "grid":{
+  "grid": {
     "distance": 10,
     "units": "ft"
   },

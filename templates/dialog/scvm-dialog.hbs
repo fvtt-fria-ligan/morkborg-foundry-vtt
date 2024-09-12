@@ -1,8 +1,13 @@
 <form id="scvm-form" class="custom-dialog scvm-dialog">
   <div class="section">
     <div class="subtitle">{{localize "MB.ScvmfactoryChooseFromClasses"}}</div>
+    <hr />
+
+    {{#each this.classes}}
+    <h3>{{this.groupName}}</h3>
+
     <ul class="class-list">
-      {{#each this.classes}}
+      {{#each this.group}}
       <li>
         <label
           ><input name="{{this.uuid}}" type="checkbox" class="class-checkbox"
@@ -12,6 +17,8 @@
       </li>
       {{/each}}
     </ul>
+    {{/each}}
+    <hr />
     <div class="toggle-row">
       <a class="toggle-none">{{localize "MB.ScvmfactoryToggleNone"}}</a>&nbsp; /
       &nbsp;<a class="toggle-all">{{localize "MB.ScvmfactoryToggleAll"}}</a>
@@ -23,7 +30,7 @@
     <p>{{localize "MB.ScvmfactoryWarning"}}</p>
   </div>
   {{/if}}
-
+  
   <div class="button-row">
     <button type="submit" class="button cancel-button" name="cancel" value="1">
       {{localize "MB.Cancel"}}

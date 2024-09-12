@@ -1,3 +1,10 @@
+# 4.0.2
+
+- Updated CSS to make dropdown menus more readable
+- Deprecated classUuids in favor of groupedClassUuid that allows adding new classes under a group heading.
+- Fixed typo on Gutterborn Scum that prevented Stealthy
+- Use two columns when selecting allowed classes as well for consistency with scvm
+
 # 4.0.1
 
 - Fix defend for async getData().

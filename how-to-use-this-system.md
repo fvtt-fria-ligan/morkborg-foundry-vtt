@@ -104,39 +104,48 @@ This is an implementation of the MÖRK BORG rules, with limited adaptations to m
 - Create a new class item (Right side bar, Items tab/icon, Create Item button, give it a name and choose type "class"). The Class edit sheet will appear.
 - Click on the Details tab.
 - In the details tab, fill out the various fields:
+
   - Description: appears in the generated character's description textbox.
-  - Silver: starting silver roll formula. E.g., 2d6*10.
+  - Silver: starting silver roll formula. E.g., 2d6\*10.
   - Strength, Agility, Presence, Toughness: starting ability roll formulas. E.g., 3d6-2, 3d6, 3d6+1.
   - Weapon table: Roll formula for the weapon table. E.g., 1d6.
   - Armor table: Roll formula for the armor table. E.g., 1d4.
-  - Items: A multi-line textarea that specifies what items a character of this class should automatically start with. 
+  - Items: A multi-line textarea that specifies what items a character of this class should automatically start with.
 
     Each line is a comma-separated value of the format `[compendium name],[item name]`.
 
     E.g., `morkborg.mork-borg-items,Bite Attack.`
-  - Rolls: A multi-line textarea that specifies what rolls a character of this class should make. 
+
+  - Rolls: A multi-line textarea that specifies what rolls a character of this class should make.
 
     Each line is a comma-separate value of the format [compendium name],[table name],[number of rolls].
 
     E.g., `morkborg.mork-borg-tables,Fanged Deserter Items,1`
 
-    If the table roll result is an item, that item will be added to the character. If the table result is text, it will be added to the character     description.
-- Get the Foundry UUID (universal unique identifier) for this new class item. 
+    If the table roll result is an item, that item will be added to the character. If the table result is text, it will be added to the character description.
+
+- Get the Foundry UUID (universal unique identifier) for this new class item.
 
   E.g., `Compendium.morkborg.mork-borg-items.2hjl45o4vXOgRgfq`
 
   An easy way to get this identifier is to drag the item into a journal page you're editing.
-- Add the new class item UUID to the list of class UUIDs used by the character generator. There are a couple ways to do this.
-  - Hacky but easy: Find your Foundry systems directory, and manually edit systems/morkborg/module/config.js. There's an array called "classUuids"; add the new class UUID to the list. The downside of this is your edit will get overwritten as soon as you upgrade the system.
+
+- Add the new class item UUID to the map of class UUIDs used by the character generator. There are a couple ways to do this.
+  - Hacky but easy: Find your Foundry systems directory, and manually edit systems/morkborg/module/config.js. There's a map called "groupedClassUuids"; add the new class UUID to the list. The downside of this is your edit will get overwritten as soon as you upgrade the system.
   - The right way but more work: Create a world script that adds the class UUID to the list. Such a script would have code like this:
 
 ```
 Hooks.once('init', () => {
   // add our additional classes to the scvmfactory generator
-  CONFIG.MB.scvmFactory.classUuids.push(
+
+  const classes =
+    CONFIG.MB.scvmFactory.groupedClassUuids.get("Heretic") || [];
+
+  classes.push(
     // shedding vicar
-    "Compendium.morkborg-cult-heretic.heretic-items.UVVq3NRo9CZcbdcp"
+    "Compendium.morkborg-cult-heretic.heretic-items.UVVq3NRo9CZcbdcp",
   );
+  CONFIG.MB.scvmFactory.groupedClassUuids.get("Heretic", classes)
 });
 ```
 

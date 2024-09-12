@@ -36,14 +36,19 @@ export class AllowedScvmClassesDialog extends FormApplication {
 
   async _getClassData() {
     const classes = await findClasses();
-    const classData = classes.map((clazz) => {
+    const classData = classes.entries().map(([groupName, group]) => {
       return {
-        name: clazz.name,
-        uuid: clazz.uuid,
-        checked: isScvmClassAllowed(clazz.uuid),
+        groupName,
+        group: group.map((c) => {
+          return {
+            name: c.name,
+            uuid: c.uuid,
+            checked: isScvmClassAllowed(c.uuid),
+          };
+        }),
       };
     });
-    classData.sort((a, b) => (a.name > b.name ? 1 : -1));
+
     return classData;
   }
 

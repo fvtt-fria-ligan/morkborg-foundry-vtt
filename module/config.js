@@ -254,33 +254,58 @@ MB.scvmFactory = {
   badHabitsTable:
     "Compendium.morkborg.mork-borg-tables.RollTable.PA5ttbXKQwPmO52P",
 
-  // modules wanting to add more character classes to the generator should append uuids to this list
-  classUuids: [
-    // classless adventurer
-    "Compendium.morkborg.mork-borg-items.p693pMIVYXMSRl8S",
-    // cursed skinwalker
-    "Compendium.morkborg.mork-borg-items.ZuSWpDI76OliQUrE",
-    // dead god's prophet
-    "Compendium.morkborg.mork-borg-items.BNOhaA4ebt6Bzx4E",
-    // esoteric hermit
-    "Compendium.morkborg.mork-borg-items.ifSBk6ORiHgq3Xhr",
-    // fanged deserter
-    "Compendium.morkborg.mork-borg-items.2hjl45o4vXOgRgfq",
-    // forlorn philosopher
-    "Compendium.morkborg.mork-borg-items.L9Vwzbx5o0OMdJm0",
-    // gutterborn scum
-    "Compendium.morkborg.mork-borg-items.gAx8MWLiZcjiWQvc",
-    // heretical priest
-    "Compendium.morkborg.mork-borg-items.8CTmhMvQ5BJlGD2o",
-    // occult herbmaster
-    "Compendium.morkborg.mork-borg-items.59HKbdpBIXfiJt91",
-    // pale one
-    "Compendium.morkborg.mork-borg-items.wLJV0VJT5I234obT",
-    // sacrilegious songbird
-    "Compendium.morkborg.mork-borg-items.Y0KSTCrUAQNoBKEX",
-    // wretched royalty
-    "Compendium.morkborg.mork-borg-items.0h5xOAtzV4mm7X7D",
-  ],
+  // Deprecated: Should use `groupedClassUuids` instead. Anything added here
+  //             will be treated as Uncategorized.
+  classUuids: [],
+
+  // modules wanting to add more character classes to the insert uuids to this map under a group name
+  groupedClassUuids: new Map([
+    [
+      "Classless",
+      [
+        // classless adventurer
+        "Compendium.morkborg.mork-borg-items.p693pMIVYXMSRl8S",
+      ],
+    ],
+    [
+      "Core",
+      [
+        // fanged deserter
+        "Compendium.morkborg.mork-borg-items.2hjl45o4vXOgRgfq",
+        // gutterborn scum
+        "Compendium.morkborg.mork-borg-items.gAx8MWLiZcjiWQvc",
+        // esoteric hermit
+        "Compendium.morkborg.mork-borg-items.ifSBk6ORiHgq3Xhr",
+        // wretched royalty
+        "Compendium.morkborg.mork-borg-items.0h5xOAtzV4mm7X7D",
+        // heretical priest
+        "Compendium.morkborg.mork-borg-items.8CTmhMvQ5BJlGD2o",
+        // occult herbmaster
+        "Compendium.morkborg.mork-borg-items.59HKbdpBIXfiJt91",
+      ],
+    ],
+    [
+      "Feretory",
+      [
+        // cursed skinwalker
+        "Compendium.morkborg.mork-borg-items.ZuSWpDI76OliQUrE",
+        // pale one
+        "Compendium.morkborg.mork-borg-items.wLJV0VJT5I234obT",
+        // dead god's prophet
+        "Compendium.morkborg.mork-borg-items.BNOhaA4ebt6Bzx4E",
+        // forlorn philosopher
+        "Compendium.morkborg.mork-borg-items.L9Vwzbx5o0OMdJm0",
+      ],
+    ],
+    [
+      "Heretic",
+      [
+        // sacrilegious songbird
+        "Compendium.morkborg.mork-borg-items.Y0KSTCrUAQNoBKEX",
+        // TODO: Shedding Vicar
+      ],
+    ],
+  ]),
 };
 
 MB.brokenPack = "morkborg.mork-borg-tables";
