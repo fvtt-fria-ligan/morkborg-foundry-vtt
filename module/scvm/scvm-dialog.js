@@ -8,23 +8,28 @@ import { sample } from "../utils.js";
 export async function showScvmDialog(actor) {
   const lastScvmfactorySelection = getLastScvmfactorySelection();
   const allowedClasses = await findAllowedClasses();
-  const classData = allowedClasses
-    .map((c) => {
-      return {
-        name: c.name,
-        uuid: c.uuid,
-        checked:
-          lastScvmfactorySelection.length > 0
-            ? lastScvmfactorySelection.includes(c.uuid)
-            : true,
-      };
-    })
-    .sort((a, b) => (a.name > b.name ? 1 : -1));
+
+  const classData = allowedClasses.entries().map(([groupName, group]) => {
+    return {
+      groupName,
+      group: group.map((c) => {
+        return {
+          name: c.name,
+          uuid: c.uuid,
+          checked:
+            lastScvmfactorySelection.length > 0
+              ? lastScvmfactorySelection.includes(c.uuid)
+              : true,
+        };
+      }),
+    };
+  });
+
   const dialog = new ScvmDialog();
   dialog.actor = actor;
   dialog.classes = classData;
   dialog.render(true);
-};
+}
 
 export default class ScvmDialog extends Application {
   /** @override */

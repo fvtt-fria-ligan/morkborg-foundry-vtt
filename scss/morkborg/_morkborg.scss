@@ -57,3 +57,11 @@
   word-wrap: break-word;
   color: var(--foreground-color);
 }
+
+option, optgroup {
+	background: var(--background-color)
+}
+
+.application select option {
+	background: var(--background-color)
+}

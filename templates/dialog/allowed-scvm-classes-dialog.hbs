@@ -4,8 +4,13 @@
 >
   <div class="section">
     <div class="subtitle">{{localize "MB.AllowedScvmClassesSelect"}}</div>
-    <ul>
-      {{#each classes as |class|}}
+    <hr />
+
+    {{#each classes}}
+    <h3>{{this.groupName}}</h3>
+
+    <ul class="class-list">
+      {{#each this.group as |class|}}
       <li>
         <label>
           <input name="{{class.uuid}}" type="checkbox" class="class-checkbox"
@@ -15,6 +20,8 @@
       </li>
       {{/each}}
     </ul>
+    {{/each}}
+    <hr />
     <div>
       <a class="toggle-none">{{localize "MB.ScvmfactoryToggleNone"}}</a>&nbsp; /
       &nbsp;<a class="toggle-all">{{localize "MB.ScvmfactoryToggleAll"}}</a>
