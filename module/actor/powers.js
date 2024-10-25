@@ -20,7 +20,7 @@ export async function rollPowersPerDay(actor) {
   await actor.update({
     ["system.powerUses"]: { max: newUses, value: newUses },
   });
-};
+}
 
 export async function wieldPower(actor) {
   if (actor.system.powerUses.value < 1) {
@@ -121,4 +121,4 @@ export async function wieldPower(actor) {
 
   const newPowerUses = Math.max(0, actor.system.powerUses.value - 1);
   await actor.update({ ["system.powerUses.value"]: newPowerUses });
-};
+}

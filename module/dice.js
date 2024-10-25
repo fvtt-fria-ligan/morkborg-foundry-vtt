@@ -6,7 +6,7 @@ export function addShowDicePromise(promises, roll) {
     // we pass synchronize=true so DSN dice appear on all players' screens
     promises.push(game.dice3d.showForRoll(roll, game.user, true, null, false));
   }
-};
+}
 
 /**
  * Show roll in Dice So Nice if it's available.
@@ -16,7 +16,7 @@ export async function showDice(roll) {
     // we pass synchronize=true so DSN dice appear on all players' screens
     await game.dice3d.showForRoll(roll, game.user, true, null, false);
   }
-};
+}
 
 /**
  * Dice sound to use for ChatMessage.
@@ -29,4 +29,4 @@ export function diceSound() {
   } else {
     return CONFIG.sounds.dice;
   }
-};
+}

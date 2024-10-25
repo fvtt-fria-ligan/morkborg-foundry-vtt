@@ -35,7 +35,7 @@ export async function rest(actor, restLength, foodAndDrink, infected) {
       await showRestNoEffect(actor);
     }
   }
-};
+}
 
 async function showRestNoEffect(actor) {
   const result = {
@@ -51,7 +51,7 @@ async function showRestNoEffect(actor) {
     sound: diceSound(),
     speaker: ChatMessage.getSpeaker({ actor }),
   });
-};
+}
 
 async function rollHealHitPoints(actor, dieRoll) {
   const roll = await showRollResult(
@@ -69,7 +69,7 @@ async function rollHealHitPoints(actor, dieRoll) {
     actor.system.hp.value + roll.total
   );
   await actor.update({ ["system.hp.value"]: newHP });
-};
+}
 
 async function rollStarvation(actor) {
   const roll = await showRollResult(
@@ -84,7 +84,7 @@ async function rollStarvation(actor) {
   );
   const newHP = actor.system.hp.value - roll.total;
   await actor.update({ ["system.hp.value"]: newHP });
-};
+}
 
 async function rollInfection(actor) {
   const roll = await showRollResult(
@@ -99,4 +99,4 @@ async function rollInfection(actor) {
   );
   const newHP = actor.system.hp.value - roll.total;
   await actor.update({ ["system.hp.value"]: newHP });
-};
+}

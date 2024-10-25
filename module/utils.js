@@ -19,18 +19,18 @@ export function shuffle(array) {
     ];
   }
   return array;
-};
+}
 
 export function sample(array) {
   if (!array) {
     return;
   }
   return array[Math.floor(Math.random() * array.length)];
-};
+}
 
 export function d20Formula(modifier) {
   return rollFormula("d20", modifier);
-};
+}
 
 export function rollFormula(roll, modifier) {
   if (modifier < 0) {
@@ -40,21 +40,21 @@ export function rollFormula(roll, modifier) {
   } else {
     return roll;
   }
-};
+}
 
 export async function evalRoll(formula) {
   return await new Roll(formula).evaluate();
-};
+}
 
-export async function rollTotal(formula, rollData={}) {
+export async function rollTotal(formula, rollData = {}) {
   const roll = new Roll(formula, rollData);
   await roll.evaluate();
   return roll.total;
-};
+}
 
-export function rollTotalSync(formula, rollData={}) {
+export function rollTotalSync(formula, rollData = {}) {
   return new Roll(formula, rollData).evaluateSync().total;
-};
+}
 
 export async function showRollResult(
   actor,
@@ -79,7 +79,7 @@ export async function showRollResult(
   };
   await showRollResultCard(actor, data);
   return roll;
-};
+}
 
 export async function showRollResultCard(actor, data) {
   const html = await renderTemplate(
@@ -91,12 +91,12 @@ export async function showRollResultCard(actor, data) {
     sound: diceSound(),
     speaker: ChatMessage.getSpeaker({ actor }),
   });
-};
+}
 
 export function upperCaseFirst(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
-};
+}
 
 export function lowerCaseFirst(str) {
   return str.charAt(0).toLowerCase() + str.slice(1);
-};
+}

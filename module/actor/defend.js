@@ -10,7 +10,7 @@ export async function defend(actor) {
     return await automatedDefend(actor);
   }
   return await unautomatedDefend(actor);
-};
+}
 
 async function automatedDefend(actor) {
   // look up any previous DR or incoming attack value
@@ -81,7 +81,7 @@ async function automatedDefend(actor) {
       close: () => resolve(null),
     }).render(true);
   });
-};
+}
 
 async function unautomatedDefend(actor) {
   const armor = actor.equippedArmor();
@@ -122,7 +122,7 @@ async function unautomatedDefend(actor) {
     ],
   };
   await showRollResultCard(actor, data);
-};
+}
 
 // use a regular function, since we're binding the actor to this
 function onDefenseBaseDRChange(event) {
@@ -169,7 +169,7 @@ async function defendDialogCallback(actor, html) {
     incomingAttack
   );
   await rollDefend(actor, modifiedDR, incomingAttack);
-};
+}
 
 /**
  * Do the actual defend rolls and resolution.
@@ -256,7 +256,7 @@ async function rollDefend(actor, defendDR, incomingAttack) {
     takeDamage,
   };
   await renderDefendRollCard(actor, rollResult);
-};
+}
 
 /**
  * Show attack rolls/result in a chat roll card.
@@ -271,4 +271,4 @@ async function renderDefendRollCard(actor, rollResult) {
     sound: diceSound(),
     speaker: ChatMessage.getSpeaker({ actor }),
   });
-};
+}

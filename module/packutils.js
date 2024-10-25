@@ -10,7 +10,7 @@ export async function documentFromPack(packName, docName) {
     console.error(`Could not find doc ${docName} in pack ${packName}.`);
   }
   return doc;
-};
+}
 
 export async function drawFromTable(
   packName,
@@ -27,7 +27,7 @@ export async function drawFromTable(
   const tableDraw = await table.draw({ displayChat, roll });
   // TODO: decide if/how we want to handle multiple results
   return tableDraw;
-};
+}
 
 export async function drawFromTableUuid(
   uuid,
@@ -43,49 +43,51 @@ export async function drawFromTableUuid(
   const tableDraw = await table.draw({ displayChat, roll });
   // TODO: decide if/how we want to handle multiple results
   return tableDraw;
-};
+}
 
 export async function drawText(packName, tableName) {
   const draw = await drawFromTable(packName, tableName);
   if (draw) {
     return draw.results[0].text;
   }
-};
+}
 
 export async function drawTextFromTableUuid(uuid) {
   const draw = await drawFromTableUuid(uuid);
   if (draw) {
     return draw.results[0].text;
   }
-};
+}
 
 export async function drawDocument(packName, tableName) {
   const draw = await drawFromTable(packName, tableName);
   const doc = await documentFromDraw(draw);
   return doc;
-};
+}
 
 export async function drawDocumentFromTableUuid(uuid) {
   const draw = await drawFromTableUuid(uuid);
   const doc = await documentFromDraw(draw);
   return doc;
-};
+}
 
 export async function drawDocumentsFromTableUuid(uuid) {
   const draw = await drawFromTableUuid(uuid);
   const docs = await documentsFromDraw(draw);
   return docs;
-};
+}
 
 export async function documentsFromDraw(draw) {
-  const docResults = draw.results.filter((r) => r.type === CONST.TABLE_RESULT_TYPES.COMPENDIUM);
+  const docResults = draw.results.filter(
+    (r) => r.type === CONST.TABLE_RESULT_TYPES.COMPENDIUM
+  );
   return Promise.all(docResults.map((r) => documentFromResult(r)));
-};
+}
 
 export async function documentFromDraw(draw) {
   const doc = await documentFromResult(draw.results[0]);
   return doc;
-};
+}
 
 export async function documentFromResult(result) {
   if (!result.documentCollection) {
@@ -108,7 +110,7 @@ export async function documentFromResult(result) {
     console.log(result);
   }
   return doc;
-};
+}
 
 export function dupeData(doc) {
   return {
@@ -117,4 +119,4 @@ export function dupeData(doc) {
     name: doc.name,
     type: doc.type,
   };
-};
+}

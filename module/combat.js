@@ -14,7 +14,7 @@ export function registerCombat() {
       rollPartyInitiative();
     });
   });
-};
+}
 
 export class MBCombat extends Combat {
   async setPartyInitiative(rollTotal) {

@@ -7,7 +7,7 @@ export async function dumpUuids(compendiumName) {
   arr.sort((a, b) => a.name.localeCompare(b.name));
   const uuids = arr.map((x) => x.link);
   console.log(uuids.join("\n"));
-};
+}
 
 // export const exportSubfoldersToCompendium = async (folderType, folderName, compendiumName, nukeFirst=true, updateByName=false) => {
 //   const rootFolder = findFolder(folderType, folderName);

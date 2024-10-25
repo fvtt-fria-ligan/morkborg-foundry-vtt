@@ -1,3 +1,7 @@
+# 4.0.3
+
+- Fix ammo tracker error from Foundry v12.
+
 # 4.0.2
 
 - Updated CSS to make dropdown menus more readable

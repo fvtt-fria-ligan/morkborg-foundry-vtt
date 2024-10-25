@@ -23,7 +23,7 @@ export async function checkReaction(actor) {
     ],
   };
   await showRollResultCard(actor, data);
-};
+}
 
 function reactionKey(total) {
   let key = "";
@@ -39,4 +39,4 @@ function reactionKey(total) {
     key = "MB.ReactionHelpful";
   }
   return key;
-};
+}

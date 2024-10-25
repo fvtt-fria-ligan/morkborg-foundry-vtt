@@ -16,11 +16,11 @@ function drawFromTableEnricher(match) {
   }
   elem.innerHTML = `<i class="fas fa-dice-d20">&nbsp;</i>`;
   return elem;
-};
+}
 
 export function enrichTextEditors() {
   CONFIG.TextEditor.enrichers.push({
     pattern: DRAW_FROM_TABLE_PATTERN,
     enricher: drawFromTableEnricher,
   });
-};
+}

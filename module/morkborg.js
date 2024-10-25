@@ -43,11 +43,10 @@ Hooks.once("init", async function () {
   };
 });
 
-
 function registerDocumentClasses() {
   CONFIG.Actor.documentClass = MBActor;
   CONFIG.Item.documentClass = MBItem;
-};
+}
 
 function registerSheets() {
   Actors.unregisterSheet("core", ActorSheet);
@@ -84,4 +83,4 @@ function registerSheets() {
     makeDefault: true,
     label: "MB.JournalSheet",
   });
-};
+}

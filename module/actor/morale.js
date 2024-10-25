@@ -40,4 +40,4 @@ export async function checkMorale(actor) {
     rollResults,
   };
   await showRollResultCard(actor, data);
-};
+}

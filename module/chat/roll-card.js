@@ -17,7 +17,7 @@ export async function handleRollCardButton(message, html) {
     }
     await rollDamageDie(actor, button.dataset.itemId);
   });
-};
+}
 
 async function rollDamageDie(actor, itemId) {
   const item = actor.items.get(itemId);
@@ -41,4 +41,4 @@ async function rollDamageDie(actor, itemId) {
     ],
   };
   await showRollResultCard(actor, data);
-};
+}

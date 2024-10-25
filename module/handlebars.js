@@ -87,4 +87,4 @@ export function configureHandlebars() {
     "systems/morkborg/templates/item/common/sheet-header.hbs",
     "systems/morkborg/templates/item/common/sheet-tabs.hbs",
   ]);
-};
+}

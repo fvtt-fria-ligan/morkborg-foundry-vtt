@@ -22,7 +22,7 @@ export function registerMacros() {
       return false;
     }
   });
-};
+}
 
 /**
  * Create a Macro from an Item drop.

@@ -45,7 +45,9 @@ export class MBActor extends Actor {
         },
       };
     }
-    foundry.utils.mergeObject(data.prototypeToken, defaults, { overwrite: false });
+    foundry.utils.mergeObject(data.prototypeToken, defaults, {
+      overwrite: false,
+    });
     return super.create(data, options);
   }
 
