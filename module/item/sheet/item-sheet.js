@@ -7,7 +7,7 @@ export class MBItemSheet extends ItemSheet {
   /** @override */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ["morkborg", "sheet", "item"],
+      classes: ["crysborg", "sheet", "item"],
       width: 600,
       height: 560,
       tabs: [
@@ -22,7 +22,7 @@ export class MBItemSheet extends ItemSheet {
 
   /** @override */
   get template() {
-    const path = "systems/morkborg/templates/item";
+    const path = "systems/crysborg/templates/item";
     if (Object.keys(MB.itemTypeKeys).includes(this.item.type)) {
       // specific item-type sheet
       return `${path}/${this.item.type}-sheet.hbs`;

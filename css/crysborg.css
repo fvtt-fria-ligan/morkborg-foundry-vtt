@@ -147,19 +147,19 @@
   flex: 4;
 }
 
-.morkborg .window-content {
+.crysborg .window-content {
   font-size: 13px;
   color: #191813;
 }
-.morkborg ::-webkit-scrollbar-thumb {
+.crysborg ::-webkit-scrollbar-thumb {
   background: darkgray;
   border: 1px solid lightgray;
 }
-.morkborg ::selection {
+.crysborg ::selection {
   background: var(--highlight-background-color);
   color: var(--background-color);
 }
-.morkborg select {
+.crysborg select {
   height: 27px;
   background: rgba(0, 0, 0, 0.05);
   border: 1px solid #7a7971;
@@ -168,24 +168,24 @@
   text-overflow: ellipsis;
   color: var(--foreground-color);
 }
-.morkborg select:focus {
+.crysborg select:focus {
   box-shadow: 0 0 5px var(--highlight-background-color);
   outline: none;
 }
-.morkborg select[multiple] {
+.crysborg select[multiple] {
   height: auto;
   padding: 3px;
 }
-.morkborg select > option {
+.crysborg select > option {
   background-color: var(--background-color) !important;
   color: var(--foreground-color) !important;
 }
-.morkborg .editor,
-.morkborg .editor-content {
+.crysborg .editor,
+.crysborg .editor-content {
   height: 100%;
   padding-top: 10px;
 }
-.morkborg .button {
+.crysborg .button {
   background: var(--foreground-color);
   color: var(--background-color);
   font-family: var(--button-font);
@@ -197,20 +197,12 @@
   color: var(--foreground-color);
 }
 
-option, optgroup {
-  background: var(--background-color);
-}
-
-.application select option {
-  background: var(--background-color);
-}
-
-.morkborg.sheet.actor,
-.morkborg.sheet.item {
+.crysborg.sheet.actor,
+.crysborg.sheet.item {
   margin-top: 0;
 }
-.morkborg.sheet.actor .window-content,
-.morkborg.sheet.item .window-content {
+.crysborg.sheet.actor .window-content,
+.crysborg.sheet.item .window-content {
   overflow-y: hidden;
   padding: 5px;
   /* inherited background is parchment img bg */
@@ -221,55 +213,55 @@ option, optgroup {
   border-left: 1px solid var(--window-border-color);
   border-right: 1px solid var(--window-border-color);
 }
-.morkborg.sheet.actor .window-content form,
-.morkborg.sheet.item .window-content form {
+.crysborg.sheet.actor .window-content form,
+.crysborg.sheet.item .window-content form {
   height: 100%;
   overflow: hidden;
 }
-.morkborg.sheet.actor .editable .rollable:hover,
-.morkborg.sheet.item .editable .rollable:hover {
+.crysborg.sheet.actor .editable .rollable:hover,
+.crysborg.sheet.item .editable .rollable:hover {
   color: var(--highlight-foreground-color);
   text-shadow: 0 0 10px var(--highlight-background-color);
   cursor: pointer;
 }
-.morkborg.sheet.actor input[type=text], .morkborg.sheet.actor input[type=number], .morkborg.sheet.actor input[type=password], .morkborg.sheet.actor input[type=date],
-.morkborg.sheet.item input[type=text],
-.morkborg.sheet.item input[type=number],
-.morkborg.sheet.item input[type=password],
-.morkborg.sheet.item input[type=date] {
+.crysborg.sheet.actor input[type=text], .crysborg.sheet.actor input[type=number], .crysborg.sheet.actor input[type=password], .crysborg.sheet.actor input[type=date],
+.crysborg.sheet.item input[type=text],
+.crysborg.sheet.item input[type=number],
+.crysborg.sheet.item input[type=password],
+.crysborg.sheet.item input[type=date] {
   color: var(--foreground-color);
   border-radius: 0;
   border: none;
   border-bottom: 1px solid var(--highlight-background-color);
 }
-.morkborg.sheet.actor input[type=text]:focus, .morkborg.sheet.actor input[type=number]:focus, .morkborg.sheet.actor input[type=password]:focus, .morkborg.sheet.actor input[type=date]:focus, .morkborg.sheet.actor input[type=time]:focus, .morkborg.sheet.actor input[type=text]:hover, .morkborg.sheet.actor input[type=number]:hover, .morkborg.sheet.actor input[type=password]:hover, .morkborg.sheet.actor input[type=date]:hover, .morkborg.sheet.actor input[type=time]:hover,
-.morkborg.sheet.item input[type=text]:focus,
-.morkborg.sheet.item input[type=number]:focus,
-.morkborg.sheet.item input[type=password]:focus,
-.morkborg.sheet.item input[type=date]:focus,
-.morkborg.sheet.item input[type=time]:focus,
-.morkborg.sheet.item input[type=text]:hover,
-.morkborg.sheet.item input[type=number]:hover,
-.morkborg.sheet.item input[type=password]:hover,
-.morkborg.sheet.item input[type=date]:hover,
-.morkborg.sheet.item input[type=time]:hover {
+.crysborg.sheet.actor input[type=text]:focus, .crysborg.sheet.actor input[type=number]:focus, .crysborg.sheet.actor input[type=password]:focus, .crysborg.sheet.actor input[type=date]:focus, .crysborg.sheet.actor input[type=time]:focus, .crysborg.sheet.actor input[type=text]:hover, .crysborg.sheet.actor input[type=number]:hover, .crysborg.sheet.actor input[type=password]:hover, .crysborg.sheet.actor input[type=date]:hover, .crysborg.sheet.actor input[type=time]:hover,
+.crysborg.sheet.item input[type=text]:focus,
+.crysborg.sheet.item input[type=number]:focus,
+.crysborg.sheet.item input[type=password]:focus,
+.crysborg.sheet.item input[type=date]:focus,
+.crysborg.sheet.item input[type=time]:focus,
+.crysborg.sheet.item input[type=text]:hover,
+.crysborg.sheet.item input[type=number]:hover,
+.crysborg.sheet.item input[type=password]:hover,
+.crysborg.sheet.item input[type=date]:hover,
+.crysborg.sheet.item input[type=time]:hover {
   box-shadow: 0 0 5px var(--highlight-background-color);
 }
-.morkborg.sheet.actor select:focus,
-.morkborg.sheet.item select:focus {
+.crysborg.sheet.actor select:focus,
+.crysborg.sheet.item select:focus {
   box-shadow: 0 0 5px var(--highlight-background-color);
 }
-.morkborg.sheet.actor button:hover, .morkborg.sheet.actor button:focus,
-.morkborg.sheet.item button:hover,
-.morkborg.sheet.item button:focus {
+.crysborg.sheet.actor button:hover, .crysborg.sheet.actor button:focus,
+.crysborg.sheet.item button:hover,
+.crysborg.sheet.item button:focus {
   box-shadow: 0 0 5px var(--highlight-background-color);
 }
-.morkborg.sheet.actor a:hover,
-.morkborg.sheet.item a:hover {
+.crysborg.sheet.actor a:hover,
+.crysborg.sheet.item a:hover {
   text-shadow: 0 0 8px var(--highlight-background-color);
 }
-.morkborg.sheet.actor textarea,
-.morkborg.sheet.item textarea {
+.crysborg.sheet.actor textarea,
+.crysborg.sheet.item textarea {
   border: 1px solid #7a7971;
   border-radius: 0;
   color: var(--foreground-color);
@@ -277,32 +269,32 @@ option, optgroup {
   font-size: 14px;
   resize: none;
 }
-.morkborg.sheet.actor textarea:hover,
-.morkborg.sheet.item textarea:hover {
+.crysborg.sheet.actor textarea:hover,
+.crysborg.sheet.item textarea:hover {
   box-shadow: 0 0 5px var(--highlight-background-color);
 }
-.morkborg.sheet.actor textarea:focus,
-.morkborg.sheet.item textarea:focus {
+.crysborg.sheet.actor textarea:focus,
+.crysborg.sheet.item textarea:focus {
   box-shadow: 0 0 5px var(--highlight-background-color);
   outline: none;
 }
-.morkborg.sheet.actor .profile-img,
-.morkborg.sheet.item .profile-img {
+.crysborg.sheet.actor .profile-img,
+.crysborg.sheet.item .profile-img {
   border: none;
 }
-.morkborg.sheet.actor .editor,
-.morkborg.sheet.item .editor {
+.crysborg.sheet.actor .editor,
+.crysborg.sheet.item .editor {
   color: var(--foreground-color);
   font-family: var(--journal-font);
   font-size: var(--journal-font-size);
   padding: 0 8px;
 }
-.morkborg.sheet.actor .tox.tox-tinymce .tox-edit-area__iframe,
-.morkborg.sheet.item .tox.tox-tinymce .tox-edit-area__iframe {
+.crysborg.sheet.actor .tox.tox-tinymce .tox-edit-area__iframe,
+.crysborg.sheet.item .tox.tox-tinymce .tox-edit-area__iframe {
   background: var(--background-color);
 }
-.morkborg.sheet.actor .sheet-tabs,
-.morkborg.sheet.item .sheet-tabs {
+.crysborg.sheet.actor .sheet-tabs,
+.crysborg.sheet.item .sheet-tabs {
   flex: 0 0 30px;
   margin-bottom: 0px;
   font-size: 20px;
@@ -311,8 +303,8 @@ option, optgroup {
   border-top: none;
   border-bottom: none;
 }
-.morkborg.sheet.actor .sheet-tabs .item,
-.morkborg.sheet.item .sheet-tabs .item {
+.crysborg.sheet.actor .sheet-tabs .item,
+.crysborg.sheet.item .sheet-tabs .item {
   font-family: var(--h2-font);
   font-size: 22px;
   height: 32px;
@@ -322,25 +314,25 @@ option, optgroup {
   border-radius: 2px 2px 0px 0px;
   border-bottom: 1px solid var(--foreground-color);
 }
-.morkborg.sheet.actor .sheet-tabs .item:not(.active):hover,
-.morkborg.sheet.item .sheet-tabs .item:not(.active):hover {
+.crysborg.sheet.actor .sheet-tabs .item:not(.active):hover,
+.crysborg.sheet.item .sheet-tabs .item:not(.active):hover {
   color: var(--highlight-foreground-color);
   text-shadow: 0 0 10px var(--highlight-background-color);
 }
-.morkborg.sheet.actor .sheet-tabs .item.active,
-.morkborg.sheet.item .sheet-tabs .item.active {
+.crysborg.sheet.actor .sheet-tabs .item.active,
+.crysborg.sheet.item .sheet-tabs .item.active {
   border-left: 1px solid var(--foreground-color);
   border-right: 1px solid var(--foreground-color);
   border-top: 1px solid var(--foreground-color);
   border-bottom: none;
   text-shadow: none;
 }
-.morkborg.sheet.actor .sheet-body,
-.morkborg.sheet.item .sheet-body {
+.crysborg.sheet.actor .sheet-body,
+.crysborg.sheet.item .sheet-body {
   overflow: hidden;
 }
-.morkborg.sheet.actor .sheet-body .tab,
-.morkborg.sheet.item .sheet-body .tab {
+.crysborg.sheet.actor .sheet-body .tab,
+.crysborg.sheet.item .sheet-body .tab {
   height: 100%;
   overflow-y: auto;
   border-left: 1px solid var(--foreground-color);
@@ -348,31 +340,31 @@ option, optgroup {
   border-bottom: 1px solid var(--foreground-color);
   padding: 10px;
 }
-.morkborg.sheet.actor .sheet-body .form-group,
-.morkborg.sheet.item .sheet-body .form-group {
+.crysborg.sheet.actor .sheet-body .form-group,
+.crysborg.sheet.item .sheet-body .form-group {
   margin-bottom: 8px;
 }
-.morkborg.sheet.actor .sheet-body .form-group label,
-.morkborg.sheet.item .sheet-body .form-group label {
+.crysborg.sheet.actor .sheet-body .form-group label,
+.crysborg.sheet.item .sheet-body .form-group label {
   font-family: var(--h2-font);
   font-size: 20px;
   text-align: right;
   margin-right: 10px;
 }
-.morkborg.sheet.actor .sheet-body .form-group input,
-.morkborg.sheet.actor .sheet-body .form-group select,
-.morkborg.sheet.item .sheet-body .form-group input,
-.morkborg.sheet.item .sheet-body .form-group select {
+.crysborg.sheet.actor .sheet-body .form-group input,
+.crysborg.sheet.actor .sheet-body .form-group select,
+.crysborg.sheet.item .sheet-body .form-group input,
+.crysborg.sheet.item .sheet-body .form-group select {
   font-family: var(--item-font);
   font-size: 14px;
   text-align: center;
 }
-.morkborg.sheet.actor .sheet-body .form-group.special,
-.morkborg.sheet.item .sheet-body .form-group.special {
+.crysborg.sheet.actor .sheet-body .form-group.special,
+.crysborg.sheet.item .sheet-body .form-group.special {
   flex: 1;
 }
 
-.morkborg.sheet.actor .sheet-button {
+.crysborg.sheet.actor .sheet-button {
   background-color: var(--foreground-color);
   border: none;
   border-radius: 0;
@@ -383,7 +375,7 @@ option, optgroup {
   width: 90px;
   text-transform: uppercase;
 }
-.morkborg.sheet.actor .item-button {
+.crysborg.sheet.actor .item-button {
   background-color: var(--foreground-color);
   border: none;
   border-radius: 0;
@@ -396,16 +388,16 @@ option, optgroup {
   width: auto;
   text-transform: uppercase;
 }
-.morkborg.sheet.actor .rule-text {
+.crysborg.sheet.actor .rule-text {
   font-family: var(--item-font);
   font-size: 10pt;
 }
-.morkborg.sheet.actor .stat-label {
+.crysborg.sheet.actor .stat-label {
   font-family: var(--h2-font);
   font-size: 22px;
   margin-right: 10px;
 }
-.morkborg.sheet.actor .stat-input {
+.crysborg.sheet.actor .stat-input {
   border: 1px solid #7a7971;
   font-family: var(--item-font);
   font-size: 14pt;
@@ -413,130 +405,130 @@ option, optgroup {
   width: 50px;
   color: var(--foreground-color);
 }
-.morkborg.sheet.actor .stat-value {
+.crysborg.sheet.actor .stat-value {
   font-family: var(--item-font);
   font-size: 14pt;
   text-align: center;
   width: 50px;
   color: var(--foreground-color);
 }
-.morkborg.sheet.actor .sheet-header {
+.crysborg.sheet.actor .sheet-header {
   margin-top: 0;
   padding: 5px;
   display: flex;
   flex-direction: row;
 }
-.morkborg.sheet.actor .sheet-header .header-gutter-col {
+.crysborg.sheet.actor .sheet-header .header-gutter-col {
   flex: 0 0 10px;
 }
-.morkborg.sheet.actor .sheet-header .profile-img {
+.crysborg.sheet.actor .sheet-header .profile-img {
   height: 200px;
   width: 200px;
   margin: 0;
   padding: 0;
 }
-.morkborg.sheet.actor .sheet-header .actor-subtitle {
+.crysborg.sheet.actor .sheet-header .actor-subtitle {
   font-family: var(--h3-font);
   font-size: 24px;
   text-transform: uppercase;
   margin-left: 13px;
 }
-.morkborg.sheet.actor .sheet-body .item-controls .item-toggle {
+.crysborg.sheet.actor .sheet-body .item-controls .item-toggle {
   color: darkgray;
 }
-.morkborg.sheet.actor .sheet-body .item-controls .item-toggle.carried, .morkborg.sheet.actor .sheet-body .item-controls .item-toggle.equipped {
+.crysborg.sheet.actor .sheet-body .item-controls .item-toggle.carried, .crysborg.sheet.actor .sheet-body .item-controls .item-toggle.equipped {
   color: var(--highlight-background-color);
 }
-.morkborg.sheet.actor .sheet-body .violence-tab div.initiative {
+.crysborg.sheet.actor .sheet-body .violence-tab div.initiative {
   margin-top: 10px;
   text-align: center;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .roll-initiative {
+.crysborg.sheet.actor .sheet-body .violence-tab .roll-initiative {
   font-family: var(--item-font);
   font-size: 16px;
   margin-right: 10px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .items-list {
+.crysborg.sheet.actor .sheet-body .violence-tab .items-list {
   margin-top: 0px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .items-list .item {
+.crysborg.sheet.actor .sheet-body .violence-tab .items-list .item {
   align-items: center;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .weapon-name-col {
+.crysborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .weapon-name-col {
   display: flex;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .weapon-name-col .ammo-select-col {
+.crysborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .weapon-name-col .ammo-select-col {
   flex: 0 0 100px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .weapon-name-col .ammo-select-col select.ammo-select {
+.crysborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .weapon-name-col .ammo-select-col select.ammo-select {
   font-family: var(--item-font);
   font-size: 10pt;
   margin-top: 5px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item-buttons {
+.crysborg.sheet.actor .sheet-body .violence-tab .item-list.weapon-list .item-buttons {
   flex: 0.5;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .item-list .item-name {
+.crysborg.sheet.actor .sheet-body .violence-tab .item-list .item-name {
   flex: 1;
   font-size: 16px;
   margin-top: 5px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .item-list .item-fields {
+.crysborg.sheet.actor .sheet-body .violence-tab .item-list .item-fields {
   flex: 0.5;
   font-size: 16px;
   margin-top: 6px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .weapon-list .item-field.damage-die {
+.crysborg.sheet.actor .sheet-body .violence-tab .weapon-list .item-field.damage-die {
   text-align: right;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .weapon-list .item-field.weapon-type {
+.crysborg.sheet.actor .sheet-body .violence-tab .weapon-list .item-field.weapon-type {
   text-align: right;
   width: 60px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .attack-rule {
+.crysborg.sheet.actor .sheet-body .violence-tab .attack-rule {
   text-align: center;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .violence-gutter {
+.crysborg.sheet.actor .sheet-body .violence-tab .violence-gutter {
   height: 10px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .tier-label {
+.crysborg.sheet.actor .sheet-body .violence-tab .tier-label {
   float: left;
   font-size: 20;
   margin-right: 10px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers {
+.crysborg.sheet.actor .sheet-body .violence-tab ul.tiers {
   list-style-type: none;
   margin: 0;
   margin-top: 3px;
   padding: 0;
   float: left;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers li {
+.crysborg.sheet.actor .sheet-body .violence-tab ul.tiers li {
   float: left;
   height: 45px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers label {
+.crysborg.sheet.actor .sheet-body .violence-tab ul.tiers label {
   display: block;
   padding: 4px;
   position: relative;
   padding-left: 32px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type=radio] {
+.crysborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type=radio] {
   display: none;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type=radio]:checked + span.tier-num {
+.crysborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type=radio]:checked + span.tier-num {
   background: var(--highlight-background-color);
   color: var(--highlight-foreground-color);
   border: none;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type=radio]:disabled + span.tier-num {
+.crysborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type=radio]:disabled + span.tier-num {
   color: #444444;
   border: 1px solid #444444;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type=radio]:disabled ~ span.tier-dmg {
+.crysborg.sheet.actor .sheet-body .violence-tab ul.tiers input[type=radio]:disabled ~ span.tier-dmg {
   color: #444444;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers span.tier-num {
+.crysborg.sheet.actor .sheet-body .violence-tab ul.tiers span.tier-num {
   border: 1px solid #7a7971;
   width: 24px;
   height: 24px;
@@ -551,7 +543,7 @@ option, optgroup {
   /*top: 50%; */
   top: 0%;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab ul.tiers span.tier-dmg {
+.crysborg.sheet.actor .sheet-body .violence-tab ul.tiers span.tier-dmg {
   width: 30px;
   height: 15px;
   position: absolute;
@@ -563,18 +555,18 @@ option, optgroup {
   left: -5px;
   top: 30px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .underarmor-row {
+.crysborg.sheet.actor .sheet-body .violence-tab .underarmor-row {
   margin-top: 0px;
   text-align: center;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .shield-rule {
+.crysborg.sheet.actor .sheet-body .violence-tab .shield-rule {
   margin-top: 5px;
 }
-.morkborg.sheet.actor .sheet-body .violence-tab .defend-rule {
+.crysborg.sheet.actor .sheet-body .violence-tab .defend-rule {
   margin-top: 5px;
   text-align: center;
 }
-.morkborg.sheet.actor .roll-button {
+.crysborg.sheet.actor .roll-button {
   margin-left: 10px;
   width: 120px;
   margin-bottom: 10px;
@@ -586,153 +578,153 @@ option, optgroup {
   border-bottom: 2px solid #777;
   border-radius: 0;
 }
-.morkborg.sheet.actor input[type=text].actor-name {
+.crysborg.sheet.actor input[type=text].actor-name {
   font-family: var(--h1-font);
   font-size: 38px;
   text-align: center;
 }
-.morkborg.sheet.actor .sheet-body .equipment-top-row {
+.crysborg.sheet.actor .sheet-body .equipment-top-row {
   align-items: center;
   display: flex;
   margin-left: 20px;
 }
 
-.morkborg.sheet.actor.character {
+.crysborg.sheet.actor.character {
   min-width: 742px;
   min-height: 650px;
 }
-.morkborg.sheet.actor.character .sheet-header {
+.crysborg.sheet.actor.character .sheet-header {
   flex: 0 0 200px;
 }
-.morkborg.sheet.actor.character .sheet-header .header-col1 {
+.crysborg.sheet.actor.character .sheet-header .header-col1 {
   flex: 0 0 200px;
   margin: 5px;
   padding: 0;
 }
-.morkborg.sheet.actor.character .sheet-header .header-col2 {
+.crysborg.sheet.actor.character .sheet-header .header-col2 {
   flex: 1 0 350px;
   margin: 5px;
   display: flex;
   flex-direction: column;
 }
-.morkborg.sheet.actor.character .sheet-header .header-col2 .hitpoints-row {
+.crysborg.sheet.actor.character .sheet-header .header-col2 .hitpoints-row {
   align-items: center;
   display: flex;
   justify-content: space-between;
 }
-.morkborg.sheet.actor.character .sheet-header .header-col2 .classname-row {
+.crysborg.sheet.actor.character .sheet-header .header-col2 .classname-row {
   display: flex;
   align-items: center;
 }
-.morkborg.sheet.actor.character .sheet-header .header-col2 .classname-row .classname {
+.crysborg.sheet.actor.character .sheet-header .header-col2 .classname-row .classname {
   letter-spacing: 2px;
 }
-.morkborg.sheet.actor.character .sheet-header .header-col2 .buttons-row {
+.crysborg.sheet.actor.character .sheet-header .header-col2 .buttons-row {
   display: flex;
   gap: 5px;
   margin-top: 5px;
 }
-.morkborg.sheet.actor.character .sheet-header .header-col2 .buttons-row button {
+.crysborg.sheet.actor.character .sheet-header .header-col2 .buttons-row button {
   flex: 1;
 }
-.morkborg.sheet.actor.character .sheet-header .header-col3 {
+.crysborg.sheet.actor.character .sheet-header .header-col3 {
   flex: 0 0 120px;
   margin: 5px;
   display: flex;
   flex-direction: column;
 }
-.morkborg.sheet.actor.character .sheet-header .profile-img {
+.crysborg.sheet.actor.character .sheet-header .profile-img {
   height: 200px;
   width: 200px;
 }
-.morkborg.sheet.actor.character .sheet-header .name-row {
+.crysborg.sheet.actor.character .sheet-header .name-row {
   flex: 0 0 50px;
   margin-bottom: 7px;
 }
-.morkborg.sheet.actor.character .sheet-header .name-row input[type=text] {
+.crysborg.sheet.actor.character .sheet-header .name-row input[type=text] {
   height: 45px;
   width: 100%;
 }
-.morkborg.sheet.actor.character .sheet-header .classname-row {
+.crysborg.sheet.actor.character .sheet-header .classname-row {
   display: flex;
   flex: 0 0 30px;
   flex-direction: row;
   margin-bottom: 7px;
   width: 100%;
 }
-.morkborg.sheet.actor.character .sheet-header .classname-row img.classimg {
+.crysborg.sheet.actor.character .sheet-header .classname-row img.classimg {
   height: 24px;
   width: 24px;
   flex: 0 0 24px;
   margin-right: 5px;
 }
-.morkborg.sheet.actor.character .sheet-header .classname-row label.classname {
+.crysborg.sheet.actor.character .sheet-header .classname-row label.classname {
   font-family: var(--h3-font);
   font-size: 28px;
   width: 100%;
 }
-.morkborg.sheet.actor.character .sheet-header .classname-row .item-controls {
+.crysborg.sheet.actor.character .sheet-header .classname-row .item-controls {
   flex: 0 0 35px;
   text-align: right;
   margin-right: 0;
   /* TODO: fix vertical alignment in a better way */
   padding-top: 6px;
 }
-.morkborg.sheet.actor.character .sheet-header .hitpoints-row {
+.crysborg.sheet.actor.character .sheet-header .hitpoints-row {
   display: flex;
   flex: 0 0 30px;
   margin-bottom: 7px;
 }
-.morkborg.sheet.actor.character .sheet-header .omens-row {
+.crysborg.sheet.actor.character .sheet-header .omens-row {
   display: flex;
   flex: 0 0 30px;
   margin-bottom: 7px;
   width: 100%;
 }
-.morkborg.sheet.actor.character .sheet-header .omens-row .omens-label:hover {
+.crysborg.sheet.actor.character .sheet-header .omens-row .omens-label:hover {
   color: var(--highlight-foreground-color);
   text-shadow: 0 0 10px var(--highlight-background-color);
   cursor: pointer;
 }
-.morkborg.sheet.actor.character .sheet-header .omen-rule {
+.crysborg.sheet.actor.character .sheet-header .omen-rule {
   flex: 0 0 90px;
   margin-left: 10px;
   margin-right: 11px;
   margin-top: 10px;
   text-transform: lowercase;
 }
-.morkborg.sheet.actor.character .sheet-header .miseries-row {
+.crysborg.sheet.actor.character .sheet-header .miseries-row {
   flex: 0 0 30px;
 }
-.morkborg.sheet.actor.character .sheet-header .stat-label,
-.morkborg.sheet.actor.character .sheet-header .miseries-label {
+.crysborg.sheet.actor.character .sheet-header .stat-label,
+.crysborg.sheet.actor.character .sheet-header .miseries-label {
   float: left;
 }
-.morkborg.sheet.actor.character .sheet-header ul.miseries {
+.crysborg.sheet.actor.character .sheet-header ul.miseries {
   list-style-type: none;
   margin: 0;
   margin-top: 3px;
   padding: 0;
   float: left;
 }
-.morkborg.sheet.actor.character .sheet-header ul.miseries li {
+.crysborg.sheet.actor.character .sheet-header ul.miseries li {
   float: left;
 }
-.morkborg.sheet.actor.character .sheet-header ul.miseries label {
+.crysborg.sheet.actor.character .sheet-header ul.miseries label {
   display: block;
   padding: 4px;
   position: relative;
   padding-left: 20px;
 }
-.morkborg.sheet.actor.character .sheet-header ul.miseries label input[type=radio] {
+.crysborg.sheet.actor.character .sheet-header ul.miseries label input[type=radio] {
   display: none;
 }
-.morkborg.sheet.actor.character .sheet-header ul.miseries input[type=radio]:checked + span {
+.crysborg.sheet.actor.character .sheet-header ul.miseries input[type=radio]:checked + span {
   background: var(--highlight-background-color);
   color: var(--highlight-foreground-color);
   border: none;
 }
-.morkborg.sheet.actor.character .sheet-header ul.miseries label span {
+.crysborg.sheet.actor.character .sheet-header ul.miseries label span {
   border: 1px solid #7a7971;
   width: 17px;
   height: 17px;
@@ -746,24 +738,24 @@ option, optgroup {
   left: 0;
   top: 50%;
 }
-.morkborg.sheet.actor.character .sheet-header ul.miseries li:last-child label span {
+.crysborg.sheet.actor.character .sheet-header ul.miseries li:last-child label span {
   background: var(--foreground-color);
   color: var(--background-color);
 }
-.morkborg.sheet.actor.character .sheet-header .ability-row {
+.crysborg.sheet.actor.character .sheet-header .ability-row {
   margin-bottom: 10px;
 }
-.morkborg.sheet.actor.character .sheet-header .ability-row:last-child {
+.crysborg.sheet.actor.character .sheet-header .ability-row:last-child {
   margin-bottom: 0;
 }
-.morkborg.sheet.actor.character .sheet-header .ability-label {
+.crysborg.sheet.actor.character .sheet-header .ability-label {
   font-family: var(--h2-font);
   font-size: 24px;
   margin-left: 5px;
   margin-top: 5px;
   float: left;
 }
-.morkborg.sheet.actor.character .sheet-header .ability-input {
+.crysborg.sheet.actor.character .sheet-header .ability-input {
   font-family: var(--item-font);
   font-size: 14pt;
   text-align: center;
@@ -776,28 +768,28 @@ option, optgroup {
   border-radius: 0;
   color: var(--foreground-color);
 }
-.morkborg.sheet.actor.character .sheet-body .feat-button {
+.crysborg.sheet.actor.character .sheet-body .feat-button {
   min-width: 120px;
 }
-.morkborg.sheet.actor.character .sheet-body .wield-rule {
+.crysborg.sheet.actor.character .sheet-body .wield-rule {
   text-align: center;
 }
-.morkborg.sheet.actor.character .sheet-body .uses-remaining {
+.crysborg.sheet.actor.character .sheet-body .uses-remaining {
   align-items: center;
   display: flex;
   flex: 0 0 320px;
   flex-direction: column;
 }
-.morkborg.sheet.actor.character .sheet-body .uses-remaining div {
+.crysborg.sheet.actor.character .sheet-body .uses-remaining div {
   margin-bottom: 14px;
 }
-.morkborg.sheet.actor.character .sheet-body .carry-block {
+.crysborg.sheet.actor.character .sheet-body .carry-block {
   flex: 1;
 }
-.morkborg.sheet.actor.character .sheet-body .container-label {
+.crysborg.sheet.actor.character .sheet-body .container-label {
   margin-left: 40px;
 }
-.morkborg.sheet.actor.character .sheet-body .encumbered {
+.crysborg.sheet.actor.character .sheet-body .encumbered {
   color: var(--highlight-background-color);
 }
 
@@ -809,17 +801,17 @@ option, optgroup {
   text-shadow: 0 0 10px var(--highlight-background-color);
 }
 
-.morkborg.sheet.actor .sheet-header.npc {
+.crysborg.sheet.actor .sheet-header.npc {
   margin-top: 0;
   flex: 0 0 90px;
   display: flex;
   flex-direction: row;
   padding: 5px;
 }
-.morkborg.sheet.actor .sheet-header.npc .header-col1 {
+.crysborg.sheet.actor .sheet-header.npc .header-col1 {
   flex: 0 0 200px;
 }
-.morkborg.sheet.actor .sheet-header.npc .header-col2 {
+.crysborg.sheet.actor .sheet-header.npc .header-col2 {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -827,51 +819,51 @@ option, optgroup {
   justify-content: center;
   margin: 5px;
 }
-.morkborg.sheet.actor .sheet-header.npc .profile-img {
+.crysborg.sheet.actor .sheet-header.npc .profile-img {
   height: 200px;
   width: 200px;
 }
-.morkborg.sheet.actor .sheet-header.npc .name-row {
+.crysborg.sheet.actor .sheet-header.npc .name-row {
   flex: 0 0 45px;
   margin-bottom: 10px;
   padding-left: 12px;
   width: 100%;
 }
-.morkborg.sheet.actor .sheet-header.npc .name-row input[type=text].actor-name {
+.crysborg.sheet.actor .sheet-header.npc .name-row input[type=text].actor-name {
   height: 45px;
 }
-.morkborg.sheet.actor .sheet-header.npc .hitpoints-row {
+.crysborg.sheet.actor .sheet-header.npc .hitpoints-row {
   flex: 0 0 35px;
   margin-bottom: 10px;
   margin-left: 14px;
 }
-.morkborg.sheet.actor .sheet-header.npc .buttons-row {
+.crysborg.sheet.actor .sheet-header.npc .buttons-row {
   margin-left: 14px;
 }
 
-.morkborg .items-list .items-header {
+.crysborg .items-list .items-header {
   height: 28px;
   margin: 2px 0;
   padding: 0;
   align-items: center;
 }
-.morkborg .items-list .items-header > * {
+.crysborg .items-list .items-header > * {
   font-size: 16px;
   text-align: right;
   padding-right: 6px;
 }
-.morkborg .items-list .items-header .item-name {
+.crysborg .items-list .items-header .item-name {
   /*padding-left: 5px;*/
   font-family: var(--h2-font);
   font-size: 24px;
 }
-.morkborg .item-list {
+.crysborg .item-list {
   list-style: none;
   margin: 7px 0;
   padding: 0;
   overflow-y: auto;
 }
-.morkborg .item-list .item {
+.crysborg .item-list .item {
   display: flex;
   min-height: 30px;
   /* line-height: 24px; */
@@ -879,21 +871,21 @@ option, optgroup {
   border-bottom: 1px solid #7a7971;
   align-items: center;
 }
-.morkborg .item-list .item img {
+.crysborg .item-list .item img {
   flex: 0 0 30px;
   height: 30px;
   width: 30px;
   margin-right: 10px;
 }
-.morkborg .item-list .item.item-container-item {
+.crysborg .item-list .item.item-container-item {
   padding-left: 29px;
 }
-.morkborg .item-list .item-name {
+.crysborg .item-list .item-name {
   margin: 0;
   font-family: var(--item-font);
   font-size: 12pt;
 }
-.morkborg .item-list .item-fields {
+.crysborg .item-list .item-fields {
   font-family: var(--item-font);
   font-size: 12pt;
   display: flex;
@@ -902,10 +894,10 @@ option, optgroup {
   margin-right: 10px;
   flex: 2;
 }
-.morkborg .item-list .item-field {
+.crysborg .item-list .item-field {
   margin-right: 20px;
 }
-.morkborg .item-list .item-buttons {
+.crysborg .item-list .item-buttons {
   align-items: right;
   display: flex;
   flex: 1;
@@ -913,56 +905,56 @@ option, optgroup {
   flex-wrap: wrap;
   justify-content: flex-start;
 }
-.morkborg .item-list .item-controls {
+.crysborg .item-list .item-controls {
   flex: 0 0 70px;
   text-align: right;
   display: flex;
   justify-content: flex-end;
 }
-.morkborg .item-list .item-controls .item-control {
+.crysborg .item-list .item-controls .item-control {
   width: 17px;
   margin-left: 3px;
   text-align: center;
 }
-.morkborg .item-list .empty-container {
+.crysborg .item-list .empty-container {
   text-align: center;
 }
 
-.morkborg.sheet.item .sheet-header {
+.crysborg.sheet.item .sheet-header {
   margin-top: 0;
   flex: 0 0 90px;
   display: flex;
   flex-direction: row;
   padding: 5px;
 }
-.morkborg.sheet.item .sheet-header .profile-img {
+.crysborg.sheet.item .sheet-header .profile-img {
   height: 150px;
   width: 150px;
 }
-.morkborg.sheet.item .sheet-header .item-name input[type=text] {
+.crysborg.sheet.item .sheet-header .item-name input[type=text] {
   font-family: var(--h1-font);
   font-size: 38px;
   flex: 1;
   height: 45px;
   margin-bottom: 10px;
 }
-.morkborg.sheet.item .sheet-header .item-subtitle {
+.crysborg.sheet.item .sheet-header .item-subtitle {
   font-family: var(--h3-font);
   font-size: 24px;
   text-transform: uppercase;
   margin-left: 13px;
 }
-.morkborg.sheet.actor.container .sheet-header {
+.crysborg.sheet.actor.container .sheet-header {
   margin-top: 0;
   flex: 0 0 90px;
   display: flex;
   flex-direction: row;
   padding: 5px;
 }
-.morkborg.sheet.actor.container .sheet-header .header-col1 {
+.crysborg.sheet.actor.container .sheet-header .header-col1 {
   flex: 0 0 200px;
 }
-.morkborg.sheet.actor.container .sheet-header .header-col2 {
+.crysborg.sheet.actor.container .sheet-header .header-col2 {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -970,20 +962,20 @@ option, optgroup {
   justify-content: center;
   margin: 5px;
 }
-.morkborg.sheet.actor.container .sheet-header .profile-img {
+.crysborg.sheet.actor.container .sheet-header .profile-img {
   height: 200px;
   width: 200px;
 }
-.morkborg.sheet.actor.container .sheet-header .name-row {
+.crysborg.sheet.actor.container .sheet-header .name-row {
   flex: 0 0 45px;
   margin-bottom: 10px;
   padding-left: 12px;
   width: 100%;
 }
-.morkborg.sheet.actor.container .sheet-header input[type=text].container-name {
+.crysborg.sheet.actor.container .sheet-header input[type=text].container-name {
   height: 45px;
 }
-.morkborg.sheet.actor.container .sheet-header .holding-row {
+.crysborg.sheet.actor.container .sheet-header .holding-row {
   flex: 0 0 35px;
   margin-bottom: 10px;
   margin-left: 14px;
@@ -1002,7 +994,7 @@ option, optgroup {
     transform: translateY(-10em) scale(0);
   }
 }
-.morkborg.sheet.actor.misery-tracker .window-content form {
+.crysborg.sheet.actor.misery-tracker .window-content form {
   align-items: center;
   border: 1px solid var(--foreground-color);
   display: flex;
@@ -1014,11 +1006,11 @@ option, optgroup {
   padding: 20px;
   width: 100%;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated {
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated {
   animation: shake 0.5s;
   animation-iteration-count: infinite;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle {
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle {
   animation: rise 1s ease-in infinite;
   background-image: radial-gradient(#ff5000 20%, rgba(255, 80, 0, 0) 70%);
   border-radius: 50%;
@@ -1030,214 +1022,214 @@ option, optgroup {
   pointer-events: none;
   width: 5em;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(1) {
-  animation-delay: 0.5962190455s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(1) {
+  animation-delay: 0.0380788712s;
   left: calc((100% - 5em) * 0);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(2) {
-  animation-delay: 0.9576696382s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(2) {
+  animation-delay: 0.9847874614s;
   left: calc((100% - 5em) * 0.02);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(3) {
-  animation-delay: 0.4329551207s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(3) {
+  animation-delay: 0.6490878916s;
   left: calc((100% - 5em) * 0.04);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(4) {
-  animation-delay: 0.5232382052s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(4) {
+  animation-delay: 0.8297584989s;
   left: calc((100% - 5em) * 0.06);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(5) {
-  animation-delay: 0.9760436103s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(5) {
+  animation-delay: 0.3092213675s;
   left: calc((100% - 5em) * 0.08);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(6) {
-  animation-delay: 0.6977441797s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(6) {
+  animation-delay: 0.0084231808s;
   left: calc((100% - 5em) * 0.1);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(7) {
-  animation-delay: 0.7727456123s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(7) {
+  animation-delay: 0.974643696s;
   left: calc((100% - 5em) * 0.12);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(8) {
-  animation-delay: 0.1195865543s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(8) {
+  animation-delay: 0.546693233s;
   left: calc((100% - 5em) * 0.14);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(9) {
-  animation-delay: 0.6014458121s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(9) {
+  animation-delay: 0.8866329003s;
   left: calc((100% - 5em) * 0.16);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(10) {
-  animation-delay: 0.1546148067s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(10) {
+  animation-delay: 0.9241049473s;
   left: calc((100% - 5em) * 0.18);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(11) {
-  animation-delay: 0.5858788979s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(11) {
+  animation-delay: 0.8779583416s;
   left: calc((100% - 5em) * 0.2);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(12) {
-  animation-delay: 0.4360969553s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(12) {
+  animation-delay: 0.2390961309s;
   left: calc((100% - 5em) * 0.22);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(13) {
-  animation-delay: 0.0689938186s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(13) {
+  animation-delay: 0.2025721889s;
   left: calc((100% - 5em) * 0.24);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(14) {
-  animation-delay: 0.5222027961s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(14) {
+  animation-delay: 0.7246033453s;
   left: calc((100% - 5em) * 0.26);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(15) {
-  animation-delay: 0.7729806603s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(15) {
+  animation-delay: 0.7279156491s;
   left: calc((100% - 5em) * 0.28);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(16) {
-  animation-delay: 0.4091880722s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(16) {
+  animation-delay: 0.0480012372s;
   left: calc((100% - 5em) * 0.3);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(17) {
-  animation-delay: 0.2155724355s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(17) {
+  animation-delay: 0.5725786813s;
   left: calc((100% - 5em) * 0.32);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(18) {
-  animation-delay: 0.1170837881s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(18) {
+  animation-delay: 0.8763681399s;
   left: calc((100% - 5em) * 0.34);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(19) {
-  animation-delay: 0.7075754142s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(19) {
+  animation-delay: 0.8825125074s;
   left: calc((100% - 5em) * 0.36);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(20) {
-  animation-delay: 0.1822047928s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(20) {
+  animation-delay: 0.6866982174s;
   left: calc((100% - 5em) * 0.38);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(21) {
-  animation-delay: 0.0522278558s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(21) {
+  animation-delay: 0.4819327771s;
   left: calc((100% - 5em) * 0.4);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(22) {
-  animation-delay: 0.2499106047s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(22) {
+  animation-delay: 0.6931061332s;
   left: calc((100% - 5em) * 0.42);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(23) {
-  animation-delay: 0.1903856159s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(23) {
+  animation-delay: 0.6910307327s;
   left: calc((100% - 5em) * 0.44);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(24) {
-  animation-delay: 0.4636150203s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(24) {
+  animation-delay: 0.6054935033s;
   left: calc((100% - 5em) * 0.46);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(25) {
-  animation-delay: 0.8795788123s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(25) {
+  animation-delay: 0.4954411033s;
   left: calc((100% - 5em) * 0.48);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(26) {
-  animation-delay: 0.5800769062s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(26) {
+  animation-delay: 0.5091594547s;
   left: calc((100% - 5em) * 0.5);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(27) {
-  animation-delay: 0.5029823136s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(27) {
+  animation-delay: 0.8005531959s;
   left: calc((100% - 5em) * 0.52);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(28) {
-  animation-delay: 0.8561940827s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(28) {
+  animation-delay: 0.537057147s;
   left: calc((100% - 5em) * 0.54);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(29) {
-  animation-delay: 0.4659504376s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(29) {
+  animation-delay: 0.6831672969s;
   left: calc((100% - 5em) * 0.56);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(30) {
-  animation-delay: 0.1497734974s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(30) {
+  animation-delay: 0.1566744904s;
   left: calc((100% - 5em) * 0.58);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(31) {
-  animation-delay: 0.1901066184s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(31) {
+  animation-delay: 0.6335433349s;
   left: calc((100% - 5em) * 0.6);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(32) {
-  animation-delay: 0.4732388588s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(32) {
+  animation-delay: 0.3589026161s;
   left: calc((100% - 5em) * 0.62);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(33) {
-  animation-delay: 0.0383596779s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(33) {
+  animation-delay: 0.0977097657s;
   left: calc((100% - 5em) * 0.64);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(34) {
-  animation-delay: 0.3539639628s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(34) {
+  animation-delay: 0.3524946502s;
   left: calc((100% - 5em) * 0.66);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(35) {
-  animation-delay: 0.4109628474s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(35) {
+  animation-delay: 0.3088870379s;
   left: calc((100% - 5em) * 0.68);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(36) {
-  animation-delay: 0.6066340599s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(36) {
+  animation-delay: 0.7397923608s;
   left: calc((100% - 5em) * 0.7);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(37) {
-  animation-delay: 0.3188933617s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(37) {
+  animation-delay: 0.7006186834s;
   left: calc((100% - 5em) * 0.72);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(38) {
-  animation-delay: 0.706098364s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(38) {
+  animation-delay: 0.8140872971s;
   left: calc((100% - 5em) * 0.74);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(39) {
-  animation-delay: 0.0794529157s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(39) {
+  animation-delay: 0.0933762348s;
   left: calc((100% - 5em) * 0.76);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(40) {
-  animation-delay: 0.4101430304s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(40) {
+  animation-delay: 0.954171067s;
   left: calc((100% - 5em) * 0.78);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(41) {
-  animation-delay: 0.1091052991s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(41) {
+  animation-delay: 0.3996268445s;
   left: calc((100% - 5em) * 0.8);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(42) {
-  animation-delay: 0.7500359607s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(42) {
+  animation-delay: 0.3115704542s;
   left: calc((100% - 5em) * 0.82);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(43) {
-  animation-delay: 0.7265839042s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(43) {
+  animation-delay: 0.3075956198s;
   left: calc((100% - 5em) * 0.84);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(44) {
-  animation-delay: 0.0960162398s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(44) {
+  animation-delay: 0.27334493s;
   left: calc((100% - 5em) * 0.86);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(45) {
-  animation-delay: 0.7621755764s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(45) {
+  animation-delay: 0.2830868199s;
   left: calc((100% - 5em) * 0.88);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(46) {
-  animation-delay: 0.9168352807s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(46) {
+  animation-delay: 0.1079774041s;
   left: calc((100% - 5em) * 0.9);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(47) {
-  animation-delay: 0.6770378953s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(47) {
+  animation-delay: 0.0259257859s;
   left: calc((100% - 5em) * 0.92);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(48) {
-  animation-delay: 0.8749570815s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(48) {
+  animation-delay: 0.8296118973s;
   left: calc((100% - 5em) * 0.94);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(49) {
-  animation-delay: 0.8818795744s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(49) {
+  animation-delay: 0.9622569393s;
   left: calc((100% - 5em) * 0.96);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(50) {
-  animation-delay: 0.1914439609s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(50) {
+  animation-delay: 0.5025115421s;
   left: calc((100% - 5em) * 0.98);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .seven-seven {
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .seven-seven {
   animation: heartbeat 0.75s infinite alternate;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven {
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven {
   animation: shake 0.5s;
   animation-iteration-count: infinite;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle {
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle {
   animation: rise 1s ease-in infinite;
   background-image: radial-gradient(#ff5000 20%, rgba(255, 80, 0, 0) 70%);
   border-radius: 50%;
@@ -1249,236 +1241,236 @@ option, optgroup {
   pointer-events: none;
   width: 5em;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(1) {
-  animation-delay: 0.0988263027s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(1) {
+  animation-delay: 0.2899947833s;
   left: calc((100% - 5em) * 0);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(2) {
-  animation-delay: 0.7977918401s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(2) {
+  animation-delay: 0.9783585064s;
   left: calc((100% - 5em) * 0.02);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(3) {
-  animation-delay: 0.4537574286s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(3) {
+  animation-delay: 0.7345252089s;
   left: calc((100% - 5em) * 0.04);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(4) {
-  animation-delay: 0.1887819355s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(4) {
+  animation-delay: 0.5034217286s;
   left: calc((100% - 5em) * 0.06);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(5) {
-  animation-delay: 0.7800084731s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(5) {
+  animation-delay: 0.7131752382s;
   left: calc((100% - 5em) * 0.08);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(6) {
-  animation-delay: 0.5857270255s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(6) {
+  animation-delay: 0.1666267688s;
   left: calc((100% - 5em) * 0.1);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(7) {
-  animation-delay: 0.3920662395s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(7) {
+  animation-delay: 0.8305245002s;
   left: calc((100% - 5em) * 0.12);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(8) {
-  animation-delay: 0.5250094716s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(8) {
+  animation-delay: 0.9527983194s;
   left: calc((100% - 5em) * 0.14);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(9) {
-  animation-delay: 0.0500917418s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(9) {
+  animation-delay: 0.2036933866s;
   left: calc((100% - 5em) * 0.16);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(10) {
-  animation-delay: 0.2393186326s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(10) {
+  animation-delay: 0.4363603351s;
   left: calc((100% - 5em) * 0.18);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(11) {
-  animation-delay: 0.9559435099s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(11) {
+  animation-delay: 0.0028912652s;
   left: calc((100% - 5em) * 0.2);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(12) {
-  animation-delay: 0.6324700052s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(12) {
+  animation-delay: 0.6214451897s;
   left: calc((100% - 5em) * 0.22);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(13) {
-  animation-delay: 0.7377949463s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(13) {
+  animation-delay: 0.3394166378s;
   left: calc((100% - 5em) * 0.24);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(14) {
-  animation-delay: 0.0919581906s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(14) {
+  animation-delay: 0.927107368s;
   left: calc((100% - 5em) * 0.26);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(15) {
-  animation-delay: 0.7703213703s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(15) {
+  animation-delay: 0.2717528516s;
   left: calc((100% - 5em) * 0.28);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(16) {
-  animation-delay: 0.7451520066s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(16) {
+  animation-delay: 0.4442951414s;
   left: calc((100% - 5em) * 0.3);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(17) {
-  animation-delay: 0.56691151s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(17) {
+  animation-delay: 0.7403259306s;
   left: calc((100% - 5em) * 0.32);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(18) {
-  animation-delay: 0.4387768841s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(18) {
+  animation-delay: 0.8803832318s;
   left: calc((100% - 5em) * 0.34);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(19) {
-  animation-delay: 0.1729780397s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(19) {
+  animation-delay: 0.8969217068s;
   left: calc((100% - 5em) * 0.36);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(20) {
-  animation-delay: 0.0260661791s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(20) {
+  animation-delay: 0.3999621007s;
   left: calc((100% - 5em) * 0.38);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(21) {
-  animation-delay: 0.4209186394s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(21) {
+  animation-delay: 0.3731477764s;
   left: calc((100% - 5em) * 0.4);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(22) {
-  animation-delay: 0.5293508311s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(22) {
+  animation-delay: 0.8407576942s;
   left: calc((100% - 5em) * 0.42);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(23) {
-  animation-delay: 0.0037648505s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(23) {
+  animation-delay: 0.9580790905s;
   left: calc((100% - 5em) * 0.44);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(24) {
-  animation-delay: 0.4014687719s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(24) {
+  animation-delay: 0.1078433501s;
   left: calc((100% - 5em) * 0.46);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(25) {
-  animation-delay: 0.644884154s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(25) {
+  animation-delay: 0.0668286377s;
   left: calc((100% - 5em) * 0.48);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(26) {
-  animation-delay: 0.476312462s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(26) {
+  animation-delay: 0.2297673798s;
   left: calc((100% - 5em) * 0.5);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(27) {
-  animation-delay: 0.5739514927s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(27) {
+  animation-delay: 0.4471205027s;
   left: calc((100% - 5em) * 0.52);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(28) {
-  animation-delay: 0.0501108458s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(28) {
+  animation-delay: 0.1164936356s;
   left: calc((100% - 5em) * 0.54);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(29) {
-  animation-delay: 0.7431586226s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(29) {
+  animation-delay: 0.7101989171s;
   left: calc((100% - 5em) * 0.56);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(30) {
-  animation-delay: 0.6389306789s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(30) {
+  animation-delay: 0.227298967s;
   left: calc((100% - 5em) * 0.58);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(31) {
-  animation-delay: 0.0662571137s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(31) {
+  animation-delay: 0.0169510361s;
   left: calc((100% - 5em) * 0.6);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(32) {
-  animation-delay: 0.7479931993s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(32) {
+  animation-delay: 0.5310337018s;
   left: calc((100% - 5em) * 0.62);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(33) {
-  animation-delay: 0.7553063908s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(33) {
+  animation-delay: 0.3261255898s;
   left: calc((100% - 5em) * 0.64);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(34) {
-  animation-delay: 0.5212907458s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(34) {
+  animation-delay: 0.8111987317s;
   left: calc((100% - 5em) * 0.66);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(35) {
-  animation-delay: 0.2351421657s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(35) {
+  animation-delay: 0.8063310727s;
   left: calc((100% - 5em) * 0.68);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(36) {
-  animation-delay: 0.5316252624s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(36) {
+  animation-delay: 0.3750866005s;
   left: calc((100% - 5em) * 0.7);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(37) {
-  animation-delay: 0.1299832316s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(37) {
+  animation-delay: 0.7769508464s;
   left: calc((100% - 5em) * 0.72);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(38) {
-  animation-delay: 0.1405941228s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(38) {
+  animation-delay: 0.8578458337s;
   left: calc((100% - 5em) * 0.74);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(39) {
-  animation-delay: 0.5216820248s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(39) {
+  animation-delay: 0.6142838558s;
   left: calc((100% - 5em) * 0.76);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(40) {
-  animation-delay: 0.3546126869s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(40) {
+  animation-delay: 0.6648954679s;
   left: calc((100% - 5em) * 0.78);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(41) {
-  animation-delay: 0.5195096788s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(41) {
+  animation-delay: 0.5676131547s;
   left: calc((100% - 5em) * 0.8);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(42) {
-  animation-delay: 0.2933064309s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(42) {
+  animation-delay: 0.5038178722s;
   left: calc((100% - 5em) * 0.82);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(43) {
-  animation-delay: 0.9156819845s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(43) {
+  animation-delay: 0.905655278s;
   left: calc((100% - 5em) * 0.84);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(44) {
-  animation-delay: 0.2753941854s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(44) {
+  animation-delay: 0.4167533927s;
   left: calc((100% - 5em) * 0.86);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(45) {
-  animation-delay: 0.4845172836s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(45) {
+  animation-delay: 0.9134565932s;
   left: calc((100% - 5em) * 0.88);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(46) {
-  animation-delay: 0.6048623587s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(46) {
+  animation-delay: 0.9208014415s;
   left: calc((100% - 5em) * 0.9);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(47) {
-  animation-delay: 0.8071350873s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(47) {
+  animation-delay: 0.2174104807s;
   left: calc((100% - 5em) * 0.92);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(48) {
-  animation-delay: 0.4838295336s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(48) {
+  animation-delay: 0.6796835955s;
   left: calc((100% - 5em) * 0.94);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(49) {
-  animation-delay: 0.7474323847s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(49) {
+  animation-delay: 0.2466416139s;
   left: calc((100% - 5em) * 0.96);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(50) {
-  animation-delay: 0.4479014563s;
+.crysborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(50) {
+  animation-delay: 0.177244706s;
   left: calc((100% - 5em) * 0.98);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form .title {
+.crysborg.sheet.actor.misery-tracker .window-content form .title {
   margin-bottom: 90px;
   width: 100%;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form .title input {
+.crysborg.sheet.actor.misery-tracker .window-content form .title input {
   height: 50px;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form .agony-block {
+.crysborg.sheet.actor.misery-tracker .window-content form .agony-block {
   margin-bottom: 20px;
   text-align: center;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form .agony-block .agony-title {
+.crysborg.sheet.actor.misery-tracker .window-content form .agony-block .agony-title {
   font-family: "FetteTrumpDeutsch", cursive;
   font-size: 20px;
   margin-bottom: 5px;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form .button-block {
+.crysborg.sheet.actor.misery-tracker .window-content form .button-block {
   margin-bottom: 20px;
   text-align: center;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form .button-block .misery-button {
+.crysborg.sheet.actor.misery-tracker .window-content form .button-block .misery-button {
   font-size: 16px;
   width: 200px;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form .misery-title {
+.crysborg.sheet.actor.misery-tracker .window-content form .misery-title {
   font-family: "FetteTrumpDeutsch", cursive;
   font-size: 20px;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries {
-  background-image: url("/systems/morkborg/assets/ui/unicursal-hexagram.svg");
+.crysborg.sheet.actor.misery-tracker .window-content form .miseries {
+  background-image: url("/systems/crysborg/assets/ui/unicursal-hexagram.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -1486,7 +1478,7 @@ option, optgroup {
   margin-bottom: 90px;
   width: 300px;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block {
+.crysborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block {
   align-items: center;
   background-color: var(--background-color);
   border: 13px solid var(--foreground-color);
@@ -1498,50 +1490,50 @@ option, optgroup {
   position: absolute;
   width: 90px;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated {
+.crysborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated {
   border: 13px solid var(--foreground-color);
   background-color: var(--foreground-color);
   color: var(--background-color);
 }
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated input {
+.crysborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block.activated input {
   color: var(--background-color);
   border-bottom: none;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block input {
+.crysborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block input {
   flex: 0 0 20px;
   font-family: "Cantebriggia", cursive;
   font-size: 24px;
   text-align: center;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block .colon {
+.crysborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block .colon {
   font-size: 20px;
   text-align: center;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block:nth-child(1) {
+.crysborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block:nth-child(1) {
   top: 130px;
   left: 205px;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block:nth-child(2) {
+.crysborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block:nth-child(2) {
   top: 370px;
   left: 340px;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block:nth-child(3) {
+.crysborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block:nth-child(3) {
   top: 225px;
   left: 75px;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block:nth-child(4) {
+.crysborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block:nth-child(4) {
   top: 472px;
   left: 205px;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block:nth-child(5) {
+.crysborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block:nth-child(5) {
   top: 225px;
   left: 335px;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block:nth-child(6) {
+.crysborg.sheet.actor.misery-tracker .window-content form .miseries .misery-block:nth-child(6) {
   top: 373px;
   left: 73px;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .seven-seven {
+.crysborg.sheet.actor.misery-tracker .window-content form .miseries .seven-seven {
   align-items: center;
   transform-origin: center;
   background-color: var(--foreground-color);
@@ -1556,12 +1548,12 @@ option, optgroup {
   top: 300px;
   width: 90px;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form .miseries .seven-seven .numbers {
+.crysborg.sheet.actor.misery-tracker .window-content form .miseries .seven-seven .numbers {
   color: var(--background-color);
   font-family: "Cantebriggia", cursive;
   font-size: 40px;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .endtimes {
+.crysborg.sheet.actor.misery-tracker .window-content form.seventh-misery .endtimes {
   font-family: "FetteTrumpDeutsch", cursive;
   font-size: 20px;
   margin-top: 15px;
@@ -1569,7 +1561,7 @@ option, optgroup {
   padding-right: 29px;
   text-align: center;
 }
-.morkborg.sheet.actor.misery-tracker .window-content form.seventh-misery .endtimes .burn-the-book {
+.crysborg.sheet.actor.misery-tracker .window-content form.seventh-misery .endtimes .burn-the-book {
   font-style: italic;
 }
 
@@ -2296,20 +2288,25 @@ h3 {
   box-shadow: 0 0 5px var(--highlight-background-color);
   text-shadow: 0 0 10px var(--highlight-background-color);
 }
-.custom-dialog.scvm-dialog .subtitle, .custom-dialog.allowed-scvm-classes-dialog .subtitle {
+.custom-dialog.scvm-dialog .subtitle {
   text-align: center;
 }
-.custom-dialog.scvm-dialog .class-list, .custom-dialog.allowed-scvm-classes-dialog .class-list {
+.custom-dialog.scvm-dialog .class-list {
   columns: 2;
   -webkit-columns: 2;
   -moz-columns: 2;
 }
-.custom-dialog.scvm-dialog .toggle-row, .custom-dialog.allowed-scvm-classes-dialog .toggle-row {
+.custom-dialog.scvm-dialog .new-class-list {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
+.custom-dialog.scvm-dialog .toggle-row {
   display: flex;
   justify-content: center;
   margin-top: 10px;
 }
-.custom-dialog.scvm-dialog .warning, .custom-dialog.allowed-scvm-classes-dialog .warning {
+.custom-dialog.scvm-dialog .warning {
   text-align: center;
 }
 
@@ -2335,4 +2332,4 @@ button.dice-calculator--button {
   color: var(--foreground-color);
 }
 
-/*# sourceMappingURL=morkborg.css.map */
+/*# sourceMappingURL=crysborg.css.map */

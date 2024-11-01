@@ -1,5 +1,5 @@
 <form class="flexcol {{cssClass}}" autocomplete="off">
-  {{> systems/morkborg/templates/item/common/sheet-header.hbs }} 
+  {{> systems/crysborg/templates/item/common/sheet-header.hbs }} 
   
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
@@ -136,6 +136,10 @@
         <label>{{ localize "MB.Rolls" }}:</label>
         <textarea name="system.startingRolls" rows="4">{{data.system.startingRolls}}</textarea>
       </div>
+	  	  <div class="form-group">
+  <label>{{localize "MB.Source"}}</label>
+  <input type="text" name="data.source" value="{{data.source}}" placeholder="Gib die Quelle ein" />
+</div>
     </div>
   </section>
 </form>

@@ -1,6 +1,6 @@
-// e.g., @DRAW[Compendium.morkborg.mork-borg-tables.vX47Buopuq9t0x9r]{Names}
+// e.g., @DRAW[Compendium.crysborg.crys-borg-tables.vX47Buopuq9t0x9r]{Names}
 // optionally add a roll for the draw at the end
-// e.g., @DRAW[Compendium.morkborg.mork-borg-tables.vX47Buopuq9t0x9r]{Names}{1d4}
+// e.g., @DRAW[Compendium.crysborg.crys-borg-tables.vX47Buopuq9t0x9r]{Names}{1d4}
 const DRAW_FROM_TABLE_PATTERN = /@DRAW\[([^\]]+)\]{([^}]*)}(?:{([^}]*)})?/gm;
 
 function drawFromTableEnricher(match) {
@@ -16,11 +16,11 @@ function drawFromTableEnricher(match) {
   }
   elem.innerHTML = `<i class="fas fa-dice-d20">&nbsp;</i>`;
   return elem;
-}
+};
 
 export function enrichTextEditors() {
   CONFIG.TextEditor.enrichers.push({
     pattern: DRAW_FROM_TABLE_PATTERN,
     enricher: drawFromTableEnricher,
   });
-}
+};

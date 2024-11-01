@@ -13,16 +13,16 @@ const supportedItemTypes = [
 ];
 
 export function registerMacros() {
-  game.morkborg = {
+  game.crysborg = {
     rollItemMacro,
   };
   Hooks.on("hotbarDrop", (bar, data, slot) => {
     if (data.type == "Item") {
-      createMorkBorgMacro(data, slot);
+      createcrysborgMacro(data, slot);
       return false;
     }
   });
-}
+};
 
 /**
  * Create a Macro from an Item drop.
@@ -31,7 +31,7 @@ export function registerMacros() {
  * @param {number} slot     The hotbar slot to use
  * @returns {Promise}
  */
-export async function createMorkBorgMacro(data, slot) {
+export async function createcrysborgMacro(data, slot) {
   const item = await fromUuid(data.uuid);
   if (!supportedItemTypes.includes(item.type)) {
     return ui.notifications.warn(
@@ -50,7 +50,7 @@ export async function createMorkBorgMacro(data, slot) {
   }
 
   // Create the macro command
-  const command = `game.morkborg.rollItemMacro("${item.uuid}");`;
+  const command = `game.crysborg.rollItemMacro("${item.uuid}");`;
   let macro = game.macros.find(
     (m) => m.name === item.name && m.command === command
   );
@@ -60,7 +60,7 @@ export async function createMorkBorgMacro(data, slot) {
       type: "script",
       img: item.img,
       command: command,
-      flags: { "morkborg.itemMacro": true },
+      flags: { "crysborg.itemMacro": true },
     });
   }
   game.user.assignHotbarMacro(macro, slot);
