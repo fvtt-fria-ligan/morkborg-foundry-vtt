@@ -25,8 +25,8 @@ export class MBCharacterSheet extends MBActorSheet {
   /** @override */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ["morkborg", "sheet", "actor", "character"],
-      template: "systems/morkborg/templates/actor/character-sheet.hbs",
+      classes: ["crysborg", "sheet", "actor", "character"],
+      template: "systems/crysborg/templates/actor/character-sheet.hbs",
       width: 750,
       height: 690,
       tabs: [
@@ -56,7 +56,7 @@ export class MBCharacterSheet extends MBActorSheet {
     }
     // custom abilities are in an ordered csv string
     const additionalAbilitiesCsv = game.settings.get(
-      "morkborg",
+      "crysborg",
       "additionalAbilities"
     );
     if (additionalAbilitiesCsv) {

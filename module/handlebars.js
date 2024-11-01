@@ -73,18 +73,18 @@ export function configureHandlebars() {
   });
 
   loadTemplates([
-    "systems/morkborg/templates/actor/character/feats-tab.hbs",
-    "systems/morkborg/templates/actor/character/obituary-tab.hbs",
-    "systems/morkborg/templates/actor/character/powers-tab.hbs",
-    "systems/morkborg/templates/actor/character/sheet-header.hbs",
-    "systems/morkborg/templates/actor/character/treasures-tab.hbs",
-    "systems/morkborg/templates/actor/common/equipment-list.hbs",
-    "systems/morkborg/templates/actor/common/npc-header.hbs",
-    "systems/morkborg/templates/actor/common/violence-tab.hbs",
-    "systems/morkborg/templates/common/description-tab.hbs",
-    "systems/morkborg/templates/item/common/base-fields.hbs",
-    "systems/morkborg/templates/item/common/quantity-field.hbs",
-    "systems/morkborg/templates/item/common/sheet-header.hbs",
-    "systems/morkborg/templates/item/common/sheet-tabs.hbs",
+    "systems/crysborg/templates/actor/character/feats-tab.hbs",
+    "systems/crysborg/templates/actor/character/obituary-tab.hbs",
+    "systems/crysborg/templates/actor/character/powers-tab.hbs",
+    "systems/crysborg/templates/actor/character/sheet-header.hbs",
+    "systems/crysborg/templates/actor/character/treasures-tab.hbs",
+    "systems/crysborg/templates/actor/common/equipment-list.hbs",
+    "systems/crysborg/templates/actor/common/npc-header.hbs",
+    "systems/crysborg/templates/actor/common/violence-tab.hbs",
+    "systems/crysborg/templates/common/description-tab.hbs",
+    "systems/crysborg/templates/item/common/base-fields.hbs",
+    "systems/crysborg/templates/item/common/quantity-field.hbs",
+    "systems/crysborg/templates/item/common/sheet-header.hbs",
+    "systems/crysborg/templates/item/common/sheet-tabs.hbs",
   ]);
-}
+};

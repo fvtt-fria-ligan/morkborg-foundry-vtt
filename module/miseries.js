@@ -12,11 +12,11 @@ export function numMiseries(tracker) {
     }
   }
   return count;
-}
+};
 
 function playHornOfDoom() {
-  playSound("systems/morkborg/assets/audio/horn-of-doom.ogg", true);
-}
+  playSound("systems/crysborg/assets/audio/horn-of-doom.ogg", true);
+};
 
 async function uniquePsalmRoll(tracker) {
   let psalmRoll;
@@ -37,7 +37,7 @@ async function uniquePsalmRoll(tracker) {
     break keepRolling;
   }
   return psalmRoll;
-}
+};
 
 export async function rollMisery(tracker) {
   const miseryRoll = new Roll(tracker.system.miseryDie || "1d6");
@@ -97,4 +97,4 @@ export async function rollMisery(tracker) {
   }
 
   await showRollResultCard(null, data);
-}
+};

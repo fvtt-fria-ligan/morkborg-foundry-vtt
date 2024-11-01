@@ -14,4 +14,4 @@ export async function rollOmens(actor) {
   );
   const newOmens = Math.max(0, roll.total);
   await actor.update({ ["system.omens"]: { max: newOmens, value: newOmens } });
-}
+};

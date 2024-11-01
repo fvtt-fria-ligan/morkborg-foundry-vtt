@@ -1,7 +1,7 @@
 // Namespace Configuration Values
 export const MB = {};
 
-MB.systemName = "morkborg";
+MB.systemName = "crysborg";
 
 // order of abilities on the character sheet
 MB.abilitySheetOrder = ["strength", "agility", "presence", "toughness"];
@@ -106,6 +106,42 @@ MB.colorSchemes = {
     sidebarButtonForeground: "#ff3eb5",
     windowBackground: "#ff3eb5",
   },
+  CrysBorgSignature: {
+    background: "#401C33",
+    foreground: "#ffffff",
+    foregroundAlt: "#00010D",
+    highlightBackground: "#30588C",
+    highlightForeground: "#00010D",
+    sidebarBackground: "#401C33",
+    sidebarForeground: "#30588C",
+    sidebarButtonBackground: "#30588C",
+    sidebarButtonForeground: "#00010D",
+    windowBackground: "#401C33",
+  },
+  CrysBorgSignatureAlt: {
+    background: "#30588C",
+    foreground: "#00010D",
+    foregroundAlt: "#ffffff",
+    highlightBackground: "#401C33",
+    highlightForeground: "#ffffff",
+    sidebarBackground: "#30588C",
+    sidebarForeground: "#401C33",
+    sidebarButtonBackground: "#401C33",
+    sidebarButtonForeground: "#ffffff",
+    windowBackground: "#30588C",
+  },
+  GoblinGonzo: {
+    background: "#2e9b27",
+    foreground: "#000000",
+    foregroundAlt: "#808080",
+    highlightBackground: "#ffffff",
+    highlightForeground: "#000000",
+    sidebarBackground: "#2e9b27",
+    sidebarForeground: "000000",
+    sidebarButtonBackground: "#000000",
+    sidebarButtonForeground: "#2e9b27",
+    windowBackground: "#2e9b27",
+  }
 };
 
 MB.flags = {
@@ -132,6 +168,14 @@ MB.fontSchemes = {
     h3: "JSL Ancient",
     //h3: "Old Cupboard",
     item: "Lato",
+  },
+  legible: {
+    chat: "Alegreya",
+    chatInfo: "Oswald",
+    h1: "Black Range",
+    h2: "Blank River",
+    h3: "Covered by your grace",
+    item: "Calling Code",
   },
 };
 
@@ -222,97 +266,74 @@ MB.weaponTypes = {
 // Config variables for the Scvmfactory character generator
 MB.scvmFactory = {
   // Character Names
-  namesTable: "Compendium.morkborg.mork-borg-tables.RollTable.tBHfdSGFvfmrLreR",
+  namesTable: "Compendium.crysborg.crys-borg-tables.RollTable.tBHfdSGFvfmrLreR",
   // Dried food
-  foodItem: "Compendium.morkborg.mork-borg-items.Item.4kuVcY67MIDA6Imc",
+  foodItem: "Compendium.crysborg.crys-borg-items.Item.4kuVcY67MIDA6Imc",
   // Waterskin
-  waterItem: "Compendium.morkborg.mork-borg-items.Item.Zrs4ubq4fDBNPmnN",
+  waterItem: "Compendium.crysborg.crys-borg-items.Item.Zrs4ubq4fDBNPmnN",
   // Starting Equipment (1)
   startingEquipmentTable1:
-    "Compendium.morkborg.mork-borg-tables.RollTable.ByN7RI3Vc88ScBCj",
+    "Compendium.crysborg.crys-borg-tables.RollTable.ByN7RI3Vc88ScBCj",
   // Starting Equipment (2)
   startingEquipmentTable2:
-    "Compendium.morkborg.mork-borg-tables.RollTable.o6wjXShp2CLQEr7X",
+    "Compendium.crysborg.crys-borg-tables.RollTable.o6wjXShp2CLQEr7X",
   // Starting Equipment (3)
   startingEquipmentTable3:
-    "Compendium.morkborg.mork-borg-tables.RollTable.rq8zq4VHY3px5hpF",
+    "Compendium.crysborg.crys-borg-tables.RollTable.rq8zq4VHY3px5hpF",
   // Starting Weapon
   startingWeaponTable:
-    "Compendium.morkborg.mork-borg-tables.RollTable.qYznag89iDMdPH6A",
+    "Compendium.crysborg.crys-borg-tables.RollTable.qYznag89iDMdPH6A",
   weaponDieIfRolledScroll: "1d6",
   // Starting Armor
   startingArmorTable:
-    "Compendium.morkborg.mork-borg-tables.RollTable.Cyg5IvubZiDmCCUk",
+    "Compendium.crysborg.crys-borg-tables.RollTable.Cyg5IvubZiDmCCUk",
   armorDieIfRolledScroll: "1d2",
   // Terribler Traits
   terribleTraitsTable:
-    "Compendium.morkborg.mork-borg-tables.RollTable.NVvpbvPl6tgxUWRF",
+    "Compendium.crysborg.crys-borg-tables.RollTable.NVvpbvPl6tgxUWRF",
   // Brokener Bodies
   brokenBodiesTable:
-    "Compendium.morkborg.mork-borg-tables.RollTable.X0NEcY9HqocgpLlF",
+    "Compendium.crysborg.crys-borg-tables.RollTable.X0NEcY9HqocgpLlF",
   // Badder Habits
   badHabitsTable:
-    "Compendium.morkborg.mork-borg-tables.RollTable.PA5ttbXKQwPmO52P",
+    "Compendium.crysborg.crys-borg-tables.RollTable.PA5ttbXKQwPmO52P",
 
-  // Deprecated: Should use `groupedClassUuids` instead. Anything added here
-  //             will be treated as Uncategorized.
-  classUuids: [],
-
-  // modules wanting to add more character classes to the insert uuids to this map under a group name
-  groupedClassUuids: new Map([
-    [
-      "Classless",
-      [
-        // classless adventurer
-        "Compendium.morkborg.mork-borg-items.p693pMIVYXMSRl8S",
-      ],
-    ],
-    [
-      "Core",
-      [
-        // fanged deserter
-        "Compendium.morkborg.mork-borg-items.2hjl45o4vXOgRgfq",
-        // gutterborn scum
-        "Compendium.morkborg.mork-borg-items.gAx8MWLiZcjiWQvc",
-        // esoteric hermit
-        "Compendium.morkborg.mork-borg-items.ifSBk6ORiHgq3Xhr",
-        // wretched royalty
-        "Compendium.morkborg.mork-borg-items.0h5xOAtzV4mm7X7D",
-        // heretical priest
-        "Compendium.morkborg.mork-borg-items.8CTmhMvQ5BJlGD2o",
-        // occult herbmaster
-        "Compendium.morkborg.mork-borg-items.59HKbdpBIXfiJt91",
-      ],
-    ],
-    [
-      "Feretory",
-      [
-        // cursed skinwalker
-        "Compendium.morkborg.mork-borg-items.ZuSWpDI76OliQUrE",
-        // pale one
-        "Compendium.morkborg.mork-borg-items.wLJV0VJT5I234obT",
-        // dead god's prophet
-        "Compendium.morkborg.mork-borg-items.BNOhaA4ebt6Bzx4E",
-        // forlorn philosopher
-        "Compendium.morkborg.mork-borg-items.L9Vwzbx5o0OMdJm0",
-      ],
-    ],
-    [
-      "Heretic",
-      [
-        // sacrilegious songbird
-        "Compendium.morkborg.mork-borg-items.Y0KSTCrUAQNoBKEX",
-        // TODO: Shedding Vicar
-      ],
-    ],
-  ]),
+  // modules wanting to add more character classes to the generator should append uuids to this list
+  classUuids: [
+    // classless adventurer
+    "Compendium.crysborg.crys-borg-items.p693pMIVYXMSRl8S",
+    // cursed skinwalker
+    "Compendium.crysborg.crys-borg-items.ZuSWpDI76OliQUrE",
+    // dead god's prophet
+    "Compendium.crysborg.crys-borg-items.BNOhaA4ebt6Bzx4E",
+    // esoteric hermit
+    "Compendium.crysborg.crys-borg-items.ifSBk6ORiHgq3Xhr",
+    // fanged deserter
+    "Compendium.crysborg.crys-borg-items.2hjl45o4vXOgRgfq",
+    // forlorn philosopher
+    "Compendium.crysborg.crys-borg-items.L9Vwzbx5o0OMdJm0",
+    // gutterborn scum
+    "Compendium.crysborg.crys-borg-items.gAx8MWLiZcjiWQvc",
+    // heretical priest
+    "Compendium.crysborg.crys-borg-items.8CTmhMvQ5BJlGD2o",
+    // occult herbmaster
+    "Compendium.crysborg.crys-borg-items.59HKbdpBIXfiJt91",
+    // pale one
+    "Compendium.crysborg.crys-borg-items.wLJV0VJT5I234obT",
+    // sacrilegious songbird
+    "Compendium.crysborg.crys-borg-items.Y0KSTCrUAQNoBKEX",
+    // wretched royalty
+    "Compendium.crysborg.crys-borg-items.0h5xOAtzV4mm7X7D",
+	// hermetic cynanthrope
+	"Compendium.world.crys-mb-classes.Item.V88NoV3knYyVTJXe"
+  ],
 };
 
-MB.brokenPack = "morkborg.mork-borg-tables";
+MB.brokenPack = "crysborg.crys-borg-tables";
 MB.brokenTable = "Broken";
 
 MB.wieldPowerFumbleOn = 1;
-MB.wieldPowerFumblePack = "morkborg.mork-borg-tables";
+MB.wieldPowerFumblePack = "crysborg.crys-borg-tables";
 MB.wieldPowerFumbleTable = "Arcane Catastrophes";
 
 MB.wieldPowerCritOn = 20;

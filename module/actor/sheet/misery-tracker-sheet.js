@@ -5,7 +5,7 @@ export class MBMiseryTrackerSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ["morkborg", "sheet", "actor", "misery-tracker"],
+      classes: ["crysborg", "sheet", "actor", "misery-tracker"],
       width: 500,
       height: 740,
     });
@@ -13,7 +13,7 @@ export class MBMiseryTrackerSheet extends ActorSheet {
 
   /** @override */
   get template() {
-    return "systems/morkborg/templates/actor/misery-tracker-sheet.hbs";
+    return "systems/crysborg/templates/actor/misery-tracker-sheet.hbs";
   }
 
   /** @override */

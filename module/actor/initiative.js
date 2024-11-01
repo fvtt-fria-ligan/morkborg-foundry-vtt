@@ -25,7 +25,7 @@ export async function rollPartyInitiative(actor) {
   if (game.combats && game.combat) {
     await game.combat.setPartyInitiative(roll.total);
   }
-}
+};
 
 export async function rollIndividualInitiative(actor) {
   if (game.combats && game.combat) {
@@ -61,4 +61,4 @@ export async function rollIndividualInitiative(actor) {
     ],
   };
   await showRollResultCard(actor, data);
-}
+};

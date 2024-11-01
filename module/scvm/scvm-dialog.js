@@ -7,38 +7,48 @@ import { sample } from "../utils.js";
 
 export async function showScvmDialog(actor) {
   const lastScvmfactorySelection = getLastScvmfactorySelection();
-  const allowedClasses = await findAllowedClasses();
+  
+  // Ruft die Klassen aus findAllowedClasses ab und teilt sie in Standard- und neue Klassen auf
+  const { standardClasses, newClasses } = await findAllowedClasses();
 
-  const classData = allowedClasses.entries().map(([groupName, group]) => {
-    return {
-      groupName,
-      group: group.map((c) => {
-        return {
-          name: c.name,
-          uuid: c.uuid,
-          checked:
-            lastScvmfactorySelection.length > 0
-              ? lastScvmfactorySelection.includes(c.uuid)
-              : true,
-        };
-      }),
-    };
-  });
+  // Bereite die Daten für Standardklassen vor und setze den Checked-Status basierend auf der letzten Auswahl
+  const standardClassData = standardClasses
+    .map((classItem) => ({
+      name: classItem.name,
+      uuid: classItem.uuid,
+      checked: lastScvmfactorySelection.length > 0
+        ? lastScvmfactorySelection.includes(classItem.uuid)
+        : true,
+    }))
+    .sort((a, b) => (a.name > b.name ? 1 : -1));
 
+  // Bereite die Daten für neue Klassen vor und setze den Checked-Status basierend auf der letzten Auswahl
+  const newClassData = newClasses
+    .map((classItem) => ({
+      name: classItem.name,
+      uuid: classItem.uuid,
+      checked: lastScvmfactorySelection.length > 0
+        ? lastScvmfactorySelection.includes(classItem.uuid)
+        : true,
+    }))
+    .sort((a, b) => (a.name > b.name ? 1 : -1));
+
+  // Erstelle den Dialog und übergebe die getrennten Klassendaten
   const dialog = new ScvmDialog();
   dialog.actor = actor;
-  dialog.classes = classData;
+  dialog.standardClasses = standardClassData;
+  dialog.newClasses = newClassData;
   dialog.render(true);
-}
+};
 
 export default class ScvmDialog extends Application {
   /** @override */
   static get defaultOptions() {
     const options = super.defaultOptions;
     options.id = "scvm-dialog";
-    options.classes = ["morkborg"];
+    options.classes = ["crysborg"];
     options.title = game.i18n.localize("MB.TheScvmfactory");
-    options.template = "systems/morkborg/templates/dialog/scvm-dialog.hbs";
+    options.template = "systems/crysborg/templates/dialog/scvm-dialog.hbs";
     options.width = 420;
     options.height = "auto";
     return options;

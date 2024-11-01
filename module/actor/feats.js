@@ -42,4 +42,4 @@ export async function useFeat(actor, itemId) {
       () => ``
     );
   }
-}
+};

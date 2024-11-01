@@ -61,7 +61,7 @@ export async function getBetter(actor) {
     touOutcome,
   };
   const html = await renderTemplate(
-    "systems/morkborg/templates/chat/get-better-roll-card.hbs",
+    "systems/crysborg/templates/chat/get-better-roll-card.hbs",
     data
   );
   ChatMessage.create({
@@ -72,7 +72,7 @@ export async function getBetter(actor) {
 
   if (scrollTableName) {
     // roll a scroll
-    const pack = game.packs.get("morkborg.mork-borg-tables");
+    const pack = game.packs.get("crysborg.crys-borg-tables");
     const content = await pack.getDocuments();
     const table = content.find((i) => i.name === scrollTableName);
     await table.draw();
@@ -88,7 +88,7 @@ export async function getBetter(actor) {
     ["system.hp.max"]: newHp,
     ["system.silver"]: newSilver,
   });
-}
+};
 
 async function betterHp(actor, oldHp) {
   const hpRoll = await new Roll("6d10").evaluate();
@@ -100,7 +100,7 @@ async function betterHp(actor, oldHp) {
     // no soup for you
     return oldHp;
   }
-}
+};
 
 async function betterAbility(oldVal) {
   const roll = await new Roll("1d6").evaluate();
@@ -111,7 +111,7 @@ async function betterAbility(oldVal) {
     // increase, to a max of +6
     return Math.min(6, oldVal + 1);
   }
-}
+};
 
 function abilityOutcome(abilityName, oldVal, newVal) {
   if (newVal < oldVal) {
@@ -121,4 +121,4 @@ function abilityOutcome(abilityName, oldVal, newVal) {
   } else {
     return `${abilityName} unchanged`;
   }
-}
+};

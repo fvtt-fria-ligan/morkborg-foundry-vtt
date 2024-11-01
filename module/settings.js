@@ -62,12 +62,15 @@ export function registerSystemSettings() {
     default: "whiteOnBlackYellow",
     type: String,
     choices: {
-      blackOnYellowWhite: "MB.SettingsBlackOnYellowWhite",
+      CrysBorgSignature: "MB.SettingsCrysBorgSignature",
+	  CrysBorgSignatureAlt: "MB.SettingsCrysBorgSignatureAlt",
+	  blackOnYellowWhite: "MB.SettingsBlackOnYellowWhite",
       blackOnWhiteBlack: "MB.SettingsBlackOnWhiteBlack",
       foundryDefault: "MB.SettingsFoundryDefault",
       whiteOnBlackYellow: "MB.SettingsWhiteOnBlackYellow",
       whiteOnBlackPink: "MB.SettingsWhiteOnBlackPink",
       whiteOnPinkWhite: "MB.SettingsWhiteOnPinkWhite",
+	  GoblinGonzo: "MB.SettingsGoblinGonzo"
     },
     onChange: () => {
       location.reload();
@@ -90,11 +93,12 @@ export function registerSystemSettings() {
     hint: "MB.SettingsFontSchemeHint",
     scope: "client",
     config: true,
-    default: "blackletter",
+    default: "crysborg",
     type: String,
     choices: {
-      blackletter: "MB.SettingsBlackletter",
-      legible: "MB.SettingsLegible",
+      crysborg: "MB.SettingsCBFont",
+	  blackletter: "MB.SettingsBlackletter",
+      legible: "MB.SettingsLegible"
     },
     onChange: () => {
       location.reload();
@@ -170,62 +174,62 @@ export function registerSystemSettings() {
       config: false,
     }
   );
-}
+};
 
 function getSetting(setting) {
   return game.settings.get(CONFIG.MB.systemName, setting);
-}
+};
 
 function setSetting(setting, value) {
   return game.settings.set(CONFIG.MB.systemName, setting, value);
-}
+};
 
 export function hitAutomation() {
   return getSetting(Settings.hitAutomation);
-}
+};
 
 export function trackCarryingCapacity() {
   return getSetting(Settings.trackCarryingCapacity);
-}
+};
 
 export function trackAmmo() {
   return getSetting(Settings.trackAmmo);
-}
+};
 
 export function isScvmClassAllowed(uuid) {
   const allowedScvmClasses = getSetting(Settings.allowedScvmClasses);
   return typeof allowedScvmClasses[uuid] === "undefined"
     ? true
     : !!allowedScvmClasses[uuid];
-}
+};
 
 export function getAllowedScvmClasses() {
   return getSetting(Settings.allowedScvmClasses);
-}
+};
 
 export function setAllowedScvmClasses(allowedScvmClasses) {
   return setSetting(Settings.allowedScvmClasses, allowedScvmClasses);
-}
+};
 
 export function getLastScvmfactorySelection() {
   return getSetting(Settings.lastScvmfactorySelection);
-}
+};
 
 export function setLastScvmfactorySelection(lastScvmfactorySelection) {
   return setSetting(
     Settings.lastScvmfactorySelection,
     lastScvmfactorySelection
   );
-}
+};
 
 export function getAdditionalAbilities() {
   return getSetting(Settings.additionalAbilities);
-}
+};
 
 export function deleteZeroQuantity() {
   return getSetting(Settings.deleteZeroQuantity);
-}
+};
 
 export function miseryTrackerAnimations() {
   return getSetting(Settings.miseryTrackerAnimations);
-}
+};

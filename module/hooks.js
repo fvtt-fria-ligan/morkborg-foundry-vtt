@@ -5,7 +5,7 @@ import { handleRollCardButton } from "./chat/roll-card.js";
 export function registerHooks() {
   Hooks.once("ready", () => {
     applyFontsAndColors();
-    Hooks.call("morkborgReady");
+    Hooks.call("crysborgReady");
   });
   Hooks.on("renderActorDirectory", addCreateScvmButton);
   Hooks.on("renderChatMessage", handleRollCardButton);
@@ -21,12 +21,12 @@ export function registerHooks() {
     html.find(".rollable").off("click");
     html.find(".create-scvm").off("click");
   });
-}
+};
 
 function applyFontsAndColors() {
-  const fontSchemeSetting = game.settings.get("morkborg", "fontScheme");
+  const fontSchemeSetting = game.settings.get("crysborg", "fontScheme");
   const fontScheme = CONFIG.MB.fontSchemes[fontSchemeSetting];
-  const colorSchemeSetting = game.settings.get("morkborg", "colorScheme");
+  const colorSchemeSetting = game.settings.get("crysborg", "colorScheme");
   const colorScheme = CONFIG.MB.colorSchemes[colorSchemeSetting];
   const r = document.querySelector(":root");
   r.style.setProperty("--window-background", colorScheme.windowBackground);
@@ -66,7 +66,7 @@ function applyFontsAndColors() {
     "--color-border-highlight",
     colorScheme.highlightBackground
   );
-}
+};
 
 function addCreateScvmButton(app, html) {
   if (game.user.can("ACTOR_CREATE")) {
@@ -91,7 +91,7 @@ function addCreateScvmButton(app, html) {
         showScvmDialog();
       });
   }
-}
+};
 
 async function drawFromRollableTable(event) {
   event.preventDefault();
