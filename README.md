@@ -6,7 +6,7 @@ morkborg-foundry-vtt is an independent production by community contributors, and
 
 ![Latest Release Download Count](https://img.shields.io/github/downloads/fvtt-fria-ligan/morkborg-foundry-vtt/latest/system.zip)
 
-![screenshot](https://user-images.githubusercontent.com/189172/133104673-60734e50-ad00-4b54-9dbd-7edb5dafb6a9.png)
+![screenshot](https://github.com/user-attachments/assets/204f76e7-0e2e-42ef-ab1d-71322cef5a8d)
 
 ## Getting Started
 
