@@ -8,8 +8,8 @@ export class MBFollowerSheet extends MBActorSheet {
   /** @override */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ["morkborg", "sheet", "actor", "follower"],
-      template: "systems/morkborg/templates/actor/follower-sheet.hbs",
+      classes: ["crysborg", "sheet", "actor", "follower"],
+      template: "systems/crysborg/templates/actor/follower-sheet.hbs",
       width: 720,
       height: 690,
       tabs: [

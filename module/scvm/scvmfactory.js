@@ -15,7 +15,7 @@ import { getAllowedScvmClasses } from "../settings.js";
 export async function createScvm(clazz) {
   const scvm = await rollScvmForClass(clazz);
   await createActorWithScvm(scvm);
-}
+};
 
 export async function createScvmFromClassUuid(classUuid) {
   const clazz = await fromUuid(classUuid);
@@ -27,62 +27,42 @@ export async function createScvmFromClassUuid(classUuid) {
     return;
   }
   await createScvm(clazz);
-}
+};
 
 export async function scvmifyActor(actor, clazz) {
   const scvm = await rollScvmForClass(clazz);
   await updateActorWithScvm(actor, scvm);
-}
+};
 
 export async function findClasses() {
-  const groupedClasses = new Map();
-
-  for (const [groupName, group] of MB.scvmFactory.groupedClassUuids) {
-    const classes = [];
-    for (const uuid of group) {
-      const clazz = await fromUuid(uuid);
-      if (clazz && clazz.type == MB.itemTypes.class) {
-        classes.push(clazz);
-      }
-    }
-
-    if (classes.length > 0) {
-      groupedClasses.set(groupName, classes);
+  const classes = [];
+  for (const uuid of MB.scvmFactory.classUuids) {
+    const clazz = await fromUuid(uuid);
+    if (clazz && clazz.type == MB.itemTypes.class) {
+      classes.push(clazz);
     }
   }
-
-  if (MB.scvmFactory.classUuids.length > 0) {
-    const classes = groupedClasses.get("Uncategorized") || [];
-    for (const uuid of MB.scvmFactory.classUuids) {
-      const clazz = await fromUuid(uuid);
-      if (clazz && clazz.type == MB.itemTypes.class) {
-        classes.push(clazz);
-      }
-    }
-    groupedClasses.set("Uncategorized", classes);
-  }
-
-  return groupedClasses;
-}
+  return classes;
+};
 
 export async function findAllowedClasses() {
-  const groupedClasses = await findClasses();
-  const filteredClasses = new Map();
+  const pack = game.packs.get("crysborg.crys-borg-items"); // Ersetze "deinSystem.klassenPack" durch die tatsächliche ID des Klassen-Packs
+  const classes = await pack.getDocuments();
 
-  const allowedScvmClasses = getAllowedScvmClasses();
-  for (const [groupName, classes] of groupedClasses) {
-    const filtered = classes.filter((c) => {
-      return !(c.uuid in allowedScvmClasses) || allowedScvmClasses[c.uuid];
-    });
+  const standardClasses = [];
+  const newClasses = [];
 
-    if (filtered.length > 0) {
-      filteredClasses.set(groupName, filtered);
+  classes.forEach((classItem) => {
+    // Nutzung von system statt data
+    if (classItem.system.source === "Standard") {
+      standardClasses.push(classItem);
+    } else if (classItem.system.source === "Neu") {
+      newClasses.push(classItem);
     }
-  }
+  });
 
-  return filteredClasses;
-}
-
+  return { standardClasses, newClasses };
+};
 async function startingFoodAndWater() {
   const docs = [];
   // everybody gets food and water
@@ -101,7 +81,7 @@ async function startingFoodAndWater() {
     }
   }
   return docs;
-}
+};
 
 async function startingEquipment() {
   const docs = [];
@@ -125,7 +105,7 @@ async function startingEquipment() {
     docs.push(...eq3);
   }
   return docs;
-}
+};
 
 async function startingWeapons(clazz, rolledScroll) {
   const docs = [];
@@ -146,7 +126,7 @@ async function startingWeapons(clazz, rolledScroll) {
     docs.push(...weapons);
   }
   return docs;
-}
+};
 
 async function startingArmor(clazz, rolledScroll) {
   const docs = [];
@@ -167,7 +147,7 @@ async function startingArmor(clazz, rolledScroll) {
     docs.push(...armor);
   }
   return docs;
-}
+};
 
 async function startingClassItems(clazz) {
   const docs = [];
@@ -180,7 +160,7 @@ async function startingClassItems(clazz) {
     }
   }
   return docs;
-}
+};
 
 async function startingDescriptionLines(clazz) {
   // start accumulating character description, starting with the class description
@@ -216,7 +196,7 @@ async function startingDescriptionLines(clazz) {
     descriptionLines.push("<p>&nbsp;</p>");
   }
   return descriptionLines;
-}
+};
 
 async function startingRollItemsAndDescriptionLines(clazz) {
   // class-specific starting rolls
@@ -260,7 +240,7 @@ async function startingRollItemsAndDescriptionLines(clazz) {
     rollDescriptionLines,
     rollItems,
   };
-}
+};
 
 async function rollScvmForClass(clazz) {
   const name = await drawTextFromTableUuid(MB.scvmFactory.namesTable);
@@ -334,16 +314,16 @@ async function rollScvmForClass(clazz) {
     tokenImg: clazz.img,
     toughness,
   };
-}
+};
 
 function simpleData(item) {
   return {
     img: item.img,
-    name: item.name,
+    name: item.name,    
     system: item.system,
     type: item.type,
   };
-}
+};
 
 function scvmToActorData(s) {
   return {
@@ -381,7 +361,7 @@ function scvmToActorData(s) {
     },
     type: "character",
   };
-}
+};
 
 async function createActorWithScvm(s) {
   const data = scvmToActorData(s);
@@ -396,7 +376,7 @@ async function createActorWithScvm(s) {
     const npc = await MBActor.create(npcData);
     npc.sheet.render(true);
   }
-}
+};
 
 async function updateActorWithScvm(actor, s) {
   const data = scvmToActorData(s);
@@ -428,7 +408,7 @@ async function updateActorWithScvm(actor, s) {
       );
     }
   }
-}
+};
 
 async function abilityRoll(formula) {
   const total = await rollTotal(formula);
@@ -452,10 +432,10 @@ function abilityBonus(rollTotal) {
     // 17 - 20+
     return 3;
   }
-}
+};
 
 /** Workaround for compendium RollTables not honoring replacement=false */
-async function compendiumTableDrawMany(rollTable, numDesired) {
+async function  compendiumTableDrawMany(rollTable, numDesired) {
   const rollTotals = [];
   let results = [];
   while (rollTotals.length < numDesired) {
@@ -468,4 +448,4 @@ async function compendiumTableDrawMany(rollTable, numDesired) {
     results = results.concat(tableDraw.results);
   }
   return results;
-}
+};

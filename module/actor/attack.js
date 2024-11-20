@@ -9,7 +9,7 @@ export async function attack(actor, itemId) {
     return await automatedAttack(actor, itemId);
   }
   return await unautomatedAttack(actor, itemId);
-}
+};
 
 async function automatedAttack(actor, itemId) {
   let attackDR = await actor.getFlag(
@@ -25,12 +25,12 @@ async function automatedAttack(actor, itemId) {
   );
   const dialogData = {
     attackDR,
-    config: CONFIG.MorkBorg,
+    config: CONFIG.crysborg,
     itemId,
     targetArmor,
   };
   const html = await renderTemplate(
-    "systems/morkborg/templates/dialog/attack-dialog.hbs",
+    "systems/crysborg/templates/dialog/attack-dialog.hbs",
     dialogData
   );
   return new Promise((resolve) => {
@@ -49,7 +49,7 @@ async function automatedAttack(actor, itemId) {
       close: () => resolve(null),
     }).render(true);
   });
-}
+};
 
 async function unautomatedAttack(actor, itemId) {
   const item = actor.items.get(itemId);
@@ -79,7 +79,7 @@ async function unautomatedAttack(actor, itemId) {
     item,
   };
   const html = await renderTemplate(
-    "systems/morkborg/templates/chat/unautomated-attack-roll-card.hbs",
+    "systems/crysborg/templates/chat/unautomated-attack-roll-card.hbs",
     rollResult
   );
   ChatMessage.create({
@@ -87,7 +87,7 @@ async function unautomatedAttack(actor, itemId) {
     sound: diceSound(),
     speaker: ChatMessage.getSpeaker({ actor }),
   });
-}
+};
 
 /**
  * Callback from attack dialog.
@@ -112,7 +112,7 @@ async function attackDialogCallback(actor, html) {
     targetArmor
   );
   await rollAttack(actor, itemId, attackDR, targetArmor);
-}
+};
 
 /**
  * Do the actual attack rolls and resolution.
@@ -194,14 +194,14 @@ async function rollAttack(actor, itemId, attackDR, targetArmor) {
   };
   await decrementWeaponAmmo(actor, item);
   await renderAttackRollCard(actor, rollResult);
-}
+};
 
 async function decrementWeaponAmmo(actor, weapon) {
   if (weapon.system.usesAmmo && weapon.system.ammoId && trackAmmo()) {
     const ammo = actor.items.get(weapon.system.ammoId);
     if (ammo) {
       const attr = "system.quantity";
-      const currQuantity = getProperty(ammo, attr);
+      const currQuantity = getProperty(ammo.data, attr);
       if (currQuantity > 1) {
         // decrement quantity by 1
         await ammo.update({ [attr]: currQuantity - 1 });
@@ -211,14 +211,14 @@ async function decrementWeaponAmmo(actor, weapon) {
       }
     }
   }
-}
+};
 
 /**
  * Show attack rolls/result in a chat roll card.
  */
 async function renderAttackRollCard(actor, rollResult) {
   const html = await renderTemplate(
-    "systems/morkborg/templates/chat/attack-roll-card.hbs",
+    "systems/crysborg/templates/chat/attack-roll-card.hbs",
     rollResult
   );
   ChatMessage.create({
@@ -226,4 +226,4 @@ async function renderAttackRollCard(actor, rollResult) {
     sound: diceSound(),
     speaker: ChatMessage.getSpeaker({ actor }),
   });
-}
+};

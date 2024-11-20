@@ -1,5 +1,5 @@
 /**
- * Mork Borg module.
+ * crys borg module.
  */
 import { MBActor } from "./actor/actor.js";
 import { MBCharacterSheet } from "./actor/sheet/character-sheet.js";
@@ -22,8 +22,8 @@ import { dumpUuids } from "./exporter.js";
 import { drawFromTable } from "./packutils.js";
 
 Hooks.once("init", async function () {
-  console.log("Initializing MÖRK BORG system");
-  game.morkborg = {};
+  console.log("Initializing CRYS BORG system");
+  game.crysborg = {};
   CONFIG.MB = MB;
   registerSystemSettings();
   registerDocumentClasses();
@@ -43,10 +43,11 @@ Hooks.once("init", async function () {
   };
 });
 
+
 function registerDocumentClasses() {
   CONFIG.Actor.documentClass = MBActor;
   CONFIG.Item.documentClass = MBItem;
-}
+};
 
 function registerSheets() {
   Actors.unregisterSheet("core", ActorSheet);
@@ -83,4 +84,4 @@ function registerSheets() {
     makeDefault: true,
     label: "MB.JournalSheet",
   });
-}
+};

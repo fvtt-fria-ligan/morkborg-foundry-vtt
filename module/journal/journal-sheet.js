@@ -3,7 +3,7 @@ export class MBJournalSheet extends JournalSheet {
   static get defaultOptions() {
     const options = super.defaultOptions;
     // classes from super: ["sheet", "journal-sheet", "journal-entry"]
-    options.classes.push("morkborg");
+    options.classes.push("crysborg");
     return options;
   }
 }

@@ -30,7 +30,7 @@ async function testAbility(
     ],
   };
   await showRollResultCard(actor, data);
-}
+};
 
 export async function testStrength(actor) {
   const drModifiers = [];
@@ -48,7 +48,7 @@ export async function testStrength(actor) {
     "MB.AbilityStrengthAbbrev",
     drModifiers
   );
-}
+};
 
 export async function testAgility(actor) {
   const drModifiers = [];
@@ -77,7 +77,7 @@ export async function testAgility(actor) {
     "MB.AbilityAgilityAbbrev",
     drModifiers
   );
-}
+};
 
 export async function testPresence(actor) {
   await testAbility(
@@ -87,7 +87,7 @@ export async function testPresence(actor) {
     "MB.AbilityPresenceAbbrev",
     null
   );
-}
+};
 
 export async function testToughness(actor) {
   await testAbility(
@@ -97,7 +97,7 @@ export async function testToughness(actor) {
     "MB.AbilityToughnessAbbrev",
     null
   );
-}
+};
 
 export async function testCustomAbility(actor, ability) {
   await testAbility(
@@ -107,4 +107,4 @@ export async function testCustomAbility(actor, ability) {
     ability.slice(0, 3).toUpperCase(),
     null
   );
-}
+};

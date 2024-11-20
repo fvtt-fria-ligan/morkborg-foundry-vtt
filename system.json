@@ -1,97 +1,101 @@
 {
-  "id": "morkborg",
-  "title": "MÖRK BORG",
-  "description": "Foundry VTT system for MÖRK BORG.",
-  "version": "4.0.2",
-  "compatibility": {
-    "minimum": "11.300",
-    "verified": "12.331"
-  },
-  "authors": [
-    {
-      "name": "mcglintlock"
-    }
-  ],
-  "esmodules": ["module/morkborg.js"],
-  "styles": ["css/morkborg.css"],
-  "packFolders": [
-    {
-      "name": "MÖRK BORG",
-      "sorting": "a",
-      "packs": [
-        "mork-borg-actors",
-        "mork-borg-items",
-        "mork-borg-macros",
-        "mork-borg-tables"
-      ]
-    }
-  ],
-  "packs": [
-    {
-      "name": "mork-borg-actors",
-      "label": "MÖRK BORG (Actors)",
-      "system": "morkborg",
-      "path": "./packs/mork-borg-actors",
-      "type": "Actor"
+    "id": "crysborg",
+    "title": "CRYS BORG",
+    "description": "Foundry VTT system for all of BORG.",
+    "version": "1.0.0",
+    "compatibility": {
+        "minimum": "11.300",
+        "verified": "11.300"
     },
-    {
-      "name": "mork-borg-items",
-      "label": "MÖRK BORG (Items)",
-      "system": "morkborg",
-      "path": "./packs/mork-borg-items",
-      "type": "Item"
+    "authors": [
+        {
+            "name": "mcglintlock"
+        }
+    ],
+    "esmodules": [
+        "module/crysborg.js"
+    ],
+    "styles": [
+        "css/crysborg.css"
+    ],
+    "packFolders": [
+        {
+            "name": "CRYS BORG",
+            "sorting": "a",
+            "packs": [
+                "crys-borg-actors",
+                "crys-borg-items",
+                "crys-borg-macros",
+                "crys-borg-tables"
+            ]
+        }
+    ],
+    "packs": [
+        {
+            "name": "crys-borg-actors",
+            "label": "CRYS BORG (Actors)",
+            "system": "crysborg",
+            "path": "./packs/crys-borg-actors",
+            "type": "Actor"
+        },
+        {
+            "name": "crys-borg-items",
+            "label": "CRYS BORG (Items)",
+            "system": "crysborg",
+            "path": "./packs/crys-borg-items",
+            "type": "Item"
+        },
+        {
+            "name": "crys-borg-macros",
+            "label": "CRYS BORG (Macros)",
+            "system": "crysborg",
+            "path": "./packs/crys-borg-macros",
+            "type": "Macro"
+        },
+        {
+            "name": "crys-borg-tables",
+            "label": "CRYS BORG (Tables)",
+            "system": "crysborg",
+            "path": "./packs/crys-borg-tables",
+            "type": "RollTable"
+        }
+    ],
+    "languages": [
+        {
+            "lang": "de",
+            "name": "Deutsch",
+            "path": "lang/de.json"
+        },
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "lang/en.json"
+        },
+        {
+            "lang": "es",
+            "name": "Spanish",
+            "path": "lang/es.json"
+        },
+        {
+            "lang": "fr",
+            "name": "Français",
+            "path": "lang/fr.json"
+        },
+        {
+            "lang": "sv",
+            "name": "Svenska",
+            "path": "lang/sv.json"
+        }
+    ],
+    "socket": true,
+    "initiative": "1d6",
+    "grid": {
+        "distance": 10,
+        "units": "ft"
     },
-    {
-      "name": "mork-borg-macros",
-      "label": "MÖRK BORG (Macros)",
-      "system": "morkborg",
-      "path": "./packs/mork-borg-macros",
-      "type": "Macro"
-    },
-    {
-      "name": "mork-borg-tables",
-      "label": "MÖRK BORG (Tables)",
-      "system": "morkborg",
-      "path": "./packs/mork-borg-tables",
-      "type": "RollTable"
-    }
-  ],
-  "languages": [
-    {
-      "lang": "de",
-      "name": "Deutsch",
-      "path": "lang/de.json"
-    },
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json"
-    },
-    {
-      "lang": "es",
-      "name": "Spanish",
-      "path": "lang/es.json"
-    },
-    {
-      "lang": "fr",
-      "name": "Français",
-      "path": "lang/fr.json"
-    },
-    {
-      "lang": "sv",
-      "name": "Svenska",
-      "path": "lang/sv.json"
-    }
-  ],
-  "socket": true,
-  "initiative": "1d6",
-  "grid": {
-    "distance": 10,
-    "units": "ft"
-  },
-  "primaryTokenAttribute": "hp",
-  "secondaryTokenAttribute": null,
-  "url": "https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt",
-  "manifest": "https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/releases/latest/download/system.json",
-  "download": "https://github.com/fvtt-fria-ligan/morkborg-foundry-vtt/releases/latest/download/system.zip"
+    "primaryTokenAttribute": "hp",
+    "secondaryTokenAttribute": null,
+    "url": "https://github.com/fvtt-fria-ligan/crysborg-foundry-vtt",
+    "manifest": "https://github.com/fvtt-fria-ligan/crysborg-foundry-vtt/releases/latest/download/system.json",
+    "download": "https://github.com/fvtt-fria-ligan/crysborg-foundry-vtt/releases/download/4.0.1/system.zip"
 }

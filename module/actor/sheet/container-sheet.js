@@ -8,8 +8,8 @@ export class MBContainerSheet extends MBActorSheet {
   /** @override */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ["morkborg", "sheet", "actor", "container"],
-      template: "systems/morkborg/templates/actor/container-sheet.hbs",
+      classes: ["crysborg", "sheet", "actor", "container"],
+      template: "systems/crysborg/templates/actor/container-sheet.hbs",
       width: 720,
       height: 680,
       tabs: [

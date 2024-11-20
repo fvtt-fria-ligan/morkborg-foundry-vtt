@@ -33,7 +33,7 @@ export class MBActor extends Actor {
         vision: true,
       };
     } else if (data.type === "misery-tracker") {
-      data.img = "systems/morkborg/tokens/misc/misery-tracker.webp";
+      data.img = "systems/crysborg/tokens/misc/misery-tracker.webp";
       defaults = {
         actorLink: false,
         disposition: 0,
@@ -45,9 +45,7 @@ export class MBActor extends Actor {
         },
       };
     }
-    foundry.utils.mergeObject(data.prototypeToken, defaults, {
-      overwrite: false,
-    });
+    foundry.utils.mergeObject(data.prototypeToken, defaults, { overwrite: false });
     return super.create(data, options);
   }
 
@@ -64,10 +62,10 @@ export class MBActor extends Actor {
     if (game.packs) {
       const hasAClass = this.items.filter((i) => i.type === "class").length > 0;
       if (!hasAClass) {
-        const pack = game.packs.get("morkborg.class-classless-adventurer");
+        const pack = game.packs.get("crysborg.class-classless-adventurer");
         if (!pack) {
           console.error(
-            "Could not find compendium morkborg.class-classless-adventurer"
+            "Could not find compendium crysborg.class-classless-adventurer"
           );
           return;
         }

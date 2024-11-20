@@ -11,8 +11,8 @@ export class AllowedScvmClassesDialog extends FormApplication {
       id: "allowed-scvm-classes-dialog",
       title: game.i18n.localize("MB.AllowedScvmClassesEdit"),
       template:
-        "systems/morkborg/templates/dialog/allowed-scvm-classes-dialog.hbs",
-      classes: ["form", "morkborg"],
+        "systems/crysborg/templates/dialog/allowed-scvm-classes-dialog.hbs",
+      classes: ["form", "crysborg"],
       popOut: true,
       width: 420,
     });
@@ -36,19 +36,14 @@ export class AllowedScvmClassesDialog extends FormApplication {
 
   async _getClassData() {
     const classes = await findClasses();
-    const classData = classes.entries().map(([groupName, group]) => {
+    const classData = classes.map((clazz) => {
       return {
-        groupName,
-        group: group.map((c) => {
-          return {
-            name: c.name,
-            uuid: c.uuid,
-            checked: isScvmClassAllowed(c.uuid),
-          };
-        }),
+        name: clazz.name,
+        uuid: clazz.uuid,
+        checked: isScvmClassAllowed(clazz.uuid),
       };
     });
-
+    classData.sort((a, b) => (a.name > b.name ? 1 : -1));
     return classData;
   }
 
