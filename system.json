@@ -82,6 +82,11 @@
       "name": "Svenska",
       "path": "lang/sv.json"
     }
+    {
+      "lang":"ko",
+      "name":"Korean",
+      "path":"lang/ko.json"
+    },
   ],
   "socket": true,
   "initiative": "1d6",
