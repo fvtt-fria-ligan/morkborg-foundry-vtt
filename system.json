@@ -78,15 +78,15 @@
       "path": "lang/fr.json"
     },
     {
-      "lang": "sv",
-      "name": "Svenska",
-      "path": "lang/sv.json"
-    },
-    {
       "lang":"ko",
       "name":"Korean",
       "path":"lang/ko.json"
     },
+    {
+      "lang": "sv",
+      "name": "Svenska",
+      "path": "lang/sv.json"
+    }
   ],
   "socket": true,
   "initiative": "1d6",
