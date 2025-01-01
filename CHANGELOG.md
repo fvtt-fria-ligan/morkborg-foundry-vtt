@@ -1,6 +1,8 @@
 # 4.0.3
 
 - Fix ammo tracker error from Foundry v12.
+- Fix combat tracker error from Foundry v12.
+- Korean language support by @SALtales.
 
 # 4.0.2
 
