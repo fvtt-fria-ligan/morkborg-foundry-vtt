@@ -89,7 +89,7 @@ async function startingFoodAndWater() {
   if (MB.scvmFactory.foodItem) {
     const food = await fromUuid(MB.scvmFactory.foodItem);
     if (food) {
-      const foodTotal = rollTotal("1d4");
+      const foodTotal = await rollTotal("1d4");
       food.system.quantity = foodTotal;
       docs.push(food);
     }
