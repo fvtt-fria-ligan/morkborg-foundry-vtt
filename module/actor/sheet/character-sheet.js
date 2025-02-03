@@ -63,8 +63,9 @@ export class MBCharacterSheet extends MBActorSheet {
     if (additionalAbilitiesCsv) {
       const customAbilities = additionalAbilitiesCsv.split(",").map((key) => {
         return {
+          name: key,
+          label: key, // currently, custom abilities aren't localized 
           value: data.system.abilities[key.toLowerCase()]?.value ?? 0,
-          label: key,
         };
       });
       if (customAbilities.length) {

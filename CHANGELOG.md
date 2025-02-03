@@ -1,3 +1,7 @@
+# 4.0.5
+
+- Additional fixes for abilities/languages.
+
 # 4.0.4
 
 - Fix food roll in scvmfactory.

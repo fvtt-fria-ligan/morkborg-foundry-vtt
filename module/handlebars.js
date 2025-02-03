@@ -35,11 +35,11 @@ export function configureHandlebars() {
     return result;
   });
   Handlebars.registerHelper("abilityLabelClass", function (string) {
-    string = string.label;
-    if (!["Agility", "Presence", "Strength", "Toughness"].includes(string)) {
-      return "custom " + string.toLowerCase();
+    string = string.toLowerCase();
+    if (!["agility", "presence", "strength", "toughness"].includes(string)) {
+      return "custom " + string;
     }
-    return string.toLowerCase();
+    return string;
   });
   Handlebars.registerHelper("inputName", function (string) {
     return "system.abilities." + string.toLowerCase() + ".value";
