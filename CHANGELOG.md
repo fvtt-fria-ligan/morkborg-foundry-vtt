@@ -1,3 +1,8 @@
+# 4.0.4
+
+- Fix food roll in scvmfactory.
+- Fix abilities not saving for non-English languages.
+
 # 4.0.3
 
 - Fix ammo tracker error from Foundry v12.

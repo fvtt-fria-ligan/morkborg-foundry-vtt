@@ -125,12 +125,12 @@
       <input
         class="ability-input"
         type="text"
-        name="{{inputName this.label}}"
+        name="{{inputName this.name}}"
         value="{{numberFormat this.value decimals=0 sign=true}}"
         data-dtype="Number"
         size="3"
       />
-      <span class="ability-label rollable {{abilityLabelClass this}}">{{ abbreviate this.label}}</span>
+      <span class="ability-label rollable {{abilityLabelClass this}}">{{abbreviate this.label}}</span>
     </div>
     {{/each}}
   </div>
