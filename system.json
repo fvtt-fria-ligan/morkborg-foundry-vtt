@@ -86,6 +86,11 @@
       "lang": "sv",
       "name": "Svenska",
       "path": "lang/sv.json"
+    },
+    {
+      "lang": "pl",
+      "name": "Polski",
+      "path": "lang/pl.json"
     }
   ],
   "socket": true,
