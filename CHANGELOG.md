@@ -1,3 +1,8 @@
+# 4.0.6
+
+- Polish translation by @rklos.
+- German language fixed by @pixelmonsta.
+
 # 4.0.5
 
 - Additional fixes for abilities/languages.
