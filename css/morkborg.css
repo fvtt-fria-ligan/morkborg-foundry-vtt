@@ -105,48 +105,7 @@
   font-family: "Old Cupboard";
   src: url("../assets/fonts/OldCupboard.otf") format("opentype");
 }
-/* ====================== */
-/* Flex */
-/* ====================== */
-.flexrow {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-.flexrow > *,
-.flexrow .flex1 {
-  flex: 1;
-}
-.flexrow .flex2 {
-  flex: 2;
-}
-.flexrow .flex3 {
-  flex: 3;
-}
-.flexrow .flex4 {
-  flex: 4;
-}
-
-.flexcol {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-}
-.flexcol > *,
-.flexcol .flex1 {
-  flex: 1;
-}
-.flexcol .flex2 {
-  flex: 2;
-}
-.flexcol .flex3 {
-  flex: 3;
-}
-.flexcol .flex4 {
-  flex: 4;
-}
-
+/* @import "morkborg/_flex"; */
 .morkborg .window-content {
   font-size: 13px;
   color: #191813;
@@ -197,7 +156,8 @@
   color: var(--foreground-color);
 }
 
-option, optgroup {
+option,
+optgroup {
   background: var(--background-color);
 }
 
@@ -1031,203 +991,203 @@ option, optgroup {
   width: 5em;
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(1) {
-  animation-delay: 0.5962190455s;
+  animation-delay: 0.8780480679s;
   left: calc((100% - 5em) * 0);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(2) {
-  animation-delay: 0.9576696382s;
+  animation-delay: 0.7199169916s;
   left: calc((100% - 5em) * 0.02);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(3) {
-  animation-delay: 0.4329551207s;
+  animation-delay: 0.0049614002s;
   left: calc((100% - 5em) * 0.04);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(4) {
-  animation-delay: 0.5232382052s;
+  animation-delay: 0.3353165461s;
   left: calc((100% - 5em) * 0.06);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(5) {
-  animation-delay: 0.9760436103s;
+  animation-delay: 0.75887007s;
   left: calc((100% - 5em) * 0.08);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(6) {
-  animation-delay: 0.6977441797s;
+  animation-delay: 0.5045560128s;
   left: calc((100% - 5em) * 0.1);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(7) {
-  animation-delay: 0.7727456123s;
+  animation-delay: 0.7112875314s;
   left: calc((100% - 5em) * 0.12);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(8) {
-  animation-delay: 0.1195865543s;
+  animation-delay: 0.6718613963s;
   left: calc((100% - 5em) * 0.14);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(9) {
-  animation-delay: 0.6014458121s;
+  animation-delay: 0.8381709343s;
   left: calc((100% - 5em) * 0.16);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(10) {
-  animation-delay: 0.1546148067s;
+  animation-delay: 0.6588815669s;
   left: calc((100% - 5em) * 0.18);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(11) {
-  animation-delay: 0.5858788979s;
+  animation-delay: 0.5285794955s;
   left: calc((100% - 5em) * 0.2);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(12) {
-  animation-delay: 0.4360969553s;
+  animation-delay: 0.4465428669s;
   left: calc((100% - 5em) * 0.22);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(13) {
-  animation-delay: 0.0689938186s;
+  animation-delay: 0.9621998226s;
   left: calc((100% - 5em) * 0.24);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(14) {
-  animation-delay: 0.5222027961s;
+  animation-delay: 0.1358673405s;
   left: calc((100% - 5em) * 0.26);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(15) {
-  animation-delay: 0.7729806603s;
+  animation-delay: 0.6552679648s;
   left: calc((100% - 5em) * 0.28);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(16) {
-  animation-delay: 0.4091880722s;
+  animation-delay: 0.5814532502s;
   left: calc((100% - 5em) * 0.3);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(17) {
-  animation-delay: 0.2155724355s;
+  animation-delay: 0.5484010729s;
   left: calc((100% - 5em) * 0.32);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(18) {
-  animation-delay: 0.1170837881s;
+  animation-delay: 0.3886563172s;
   left: calc((100% - 5em) * 0.34);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(19) {
-  animation-delay: 0.7075754142s;
+  animation-delay: 0.561081588s;
   left: calc((100% - 5em) * 0.36);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(20) {
-  animation-delay: 0.1822047928s;
+  animation-delay: 0.9995306856s;
   left: calc((100% - 5em) * 0.38);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(21) {
-  animation-delay: 0.0522278558s;
+  animation-delay: 0.1207459971s;
   left: calc((100% - 5em) * 0.4);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(22) {
-  animation-delay: 0.2499106047s;
+  animation-delay: 0.0512063067s;
   left: calc((100% - 5em) * 0.42);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(23) {
-  animation-delay: 0.1903856159s;
+  animation-delay: 0.2885091492s;
   left: calc((100% - 5em) * 0.44);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(24) {
-  animation-delay: 0.4636150203s;
+  animation-delay: 0.7802672478s;
   left: calc((100% - 5em) * 0.46);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(25) {
-  animation-delay: 0.8795788123s;
+  animation-delay: 0.5460008575s;
   left: calc((100% - 5em) * 0.48);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(26) {
-  animation-delay: 0.5800769062s;
+  animation-delay: 0.0419538817s;
   left: calc((100% - 5em) * 0.5);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(27) {
-  animation-delay: 0.5029823136s;
+  animation-delay: 0.0066610622s;
   left: calc((100% - 5em) * 0.52);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(28) {
-  animation-delay: 0.8561940827s;
+  animation-delay: 0.0383979745s;
   left: calc((100% - 5em) * 0.54);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(29) {
-  animation-delay: 0.4659504376s;
+  animation-delay: 0.0958697958s;
   left: calc((100% - 5em) * 0.56);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(30) {
-  animation-delay: 0.1497734974s;
+  animation-delay: 0.2214364561s;
   left: calc((100% - 5em) * 0.58);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(31) {
-  animation-delay: 0.1901066184s;
+  animation-delay: 0.2798962745s;
   left: calc((100% - 5em) * 0.6);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(32) {
-  animation-delay: 0.4732388588s;
+  animation-delay: 0.1891423941s;
   left: calc((100% - 5em) * 0.62);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(33) {
-  animation-delay: 0.0383596779s;
+  animation-delay: 0.504774051s;
   left: calc((100% - 5em) * 0.64);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(34) {
-  animation-delay: 0.3539639628s;
+  animation-delay: 0.0610914265s;
   left: calc((100% - 5em) * 0.66);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(35) {
-  animation-delay: 0.4109628474s;
+  animation-delay: 0.3381851064s;
   left: calc((100% - 5em) * 0.68);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(36) {
-  animation-delay: 0.6066340599s;
+  animation-delay: 0.6358978182s;
   left: calc((100% - 5em) * 0.7);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(37) {
-  animation-delay: 0.3188933617s;
+  animation-delay: 0.3102321324s;
   left: calc((100% - 5em) * 0.72);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(38) {
-  animation-delay: 0.706098364s;
+  animation-delay: 0.6521055174s;
   left: calc((100% - 5em) * 0.74);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(39) {
-  animation-delay: 0.0794529157s;
+  animation-delay: 0.3502536704s;
   left: calc((100% - 5em) * 0.76);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(40) {
-  animation-delay: 0.4101430304s;
+  animation-delay: 0.2334841966s;
   left: calc((100% - 5em) * 0.78);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(41) {
-  animation-delay: 0.1091052991s;
+  animation-delay: 0.8895724934s;
   left: calc((100% - 5em) * 0.8);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(42) {
-  animation-delay: 0.7500359607s;
+  animation-delay: 0.4656534207s;
   left: calc((100% - 5em) * 0.82);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(43) {
-  animation-delay: 0.7265839042s;
+  animation-delay: 0.7680980661s;
   left: calc((100% - 5em) * 0.84);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(44) {
-  animation-delay: 0.0960162398s;
+  animation-delay: 0.4656610856s;
   left: calc((100% - 5em) * 0.86);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(45) {
-  animation-delay: 0.7621755764s;
+  animation-delay: 0.2856527982s;
   left: calc((100% - 5em) * 0.88);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(46) {
-  animation-delay: 0.9168352807s;
+  animation-delay: 0.5855000742s;
   left: calc((100% - 5em) * 0.9);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(47) {
-  animation-delay: 0.6770378953s;
+  animation-delay: 0.7185236035s;
   left: calc((100% - 5em) * 0.92);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(48) {
-  animation-delay: 0.8749570815s;
+  animation-delay: 0.0874159775s;
   left: calc((100% - 5em) * 0.94);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(49) {
-  animation-delay: 0.8818795744s;
+  animation-delay: 0.414920375s;
   left: calc((100% - 5em) * 0.96);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .misery-block.activated .particle:nth-of-type(50) {
-  animation-delay: 0.1914439609s;
+  animation-delay: 0.2790243392s;
   left: calc((100% - 5em) * 0.98);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations .miseries .seven-seven {
@@ -1250,203 +1210,203 @@ option, optgroup {
   width: 5em;
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(1) {
-  animation-delay: 0.0988263027s;
+  animation-delay: 0.1850073362s;
   left: calc((100% - 5em) * 0);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(2) {
-  animation-delay: 0.7977918401s;
+  animation-delay: 0.6265105544s;
   left: calc((100% - 5em) * 0.02);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(3) {
-  animation-delay: 0.4537574286s;
+  animation-delay: 0.8666396087s;
   left: calc((100% - 5em) * 0.04);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(4) {
-  animation-delay: 0.1887819355s;
+  animation-delay: 0.7681383259s;
   left: calc((100% - 5em) * 0.06);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(5) {
-  animation-delay: 0.7800084731s;
+  animation-delay: 0.0630230947s;
   left: calc((100% - 5em) * 0.08);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(6) {
-  animation-delay: 0.5857270255s;
+  animation-delay: 0.9716349629s;
   left: calc((100% - 5em) * 0.1);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(7) {
-  animation-delay: 0.3920662395s;
+  animation-delay: 0.6384055686s;
   left: calc((100% - 5em) * 0.12);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(8) {
-  animation-delay: 0.5250094716s;
+  animation-delay: 0.5312770175s;
   left: calc((100% - 5em) * 0.14);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(9) {
-  animation-delay: 0.0500917418s;
+  animation-delay: 0.2443094617s;
   left: calc((100% - 5em) * 0.16);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(10) {
-  animation-delay: 0.2393186326s;
+  animation-delay: 0.7374169964s;
   left: calc((100% - 5em) * 0.18);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(11) {
-  animation-delay: 0.9559435099s;
+  animation-delay: 0.4985321342s;
   left: calc((100% - 5em) * 0.2);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(12) {
-  animation-delay: 0.6324700052s;
+  animation-delay: 0.4915086117s;
   left: calc((100% - 5em) * 0.22);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(13) {
-  animation-delay: 0.7377949463s;
+  animation-delay: 0.9949934802s;
   left: calc((100% - 5em) * 0.24);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(14) {
-  animation-delay: 0.0919581906s;
+  animation-delay: 0.0378298105s;
   left: calc((100% - 5em) * 0.26);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(15) {
-  animation-delay: 0.7703213703s;
+  animation-delay: 0.1893215751s;
   left: calc((100% - 5em) * 0.28);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(16) {
-  animation-delay: 0.7451520066s;
+  animation-delay: 0.6413169089s;
   left: calc((100% - 5em) * 0.3);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(17) {
-  animation-delay: 0.56691151s;
+  animation-delay: 0.8360394311s;
   left: calc((100% - 5em) * 0.32);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(18) {
-  animation-delay: 0.4387768841s;
+  animation-delay: 0.1998346844s;
   left: calc((100% - 5em) * 0.34);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(19) {
-  animation-delay: 0.1729780397s;
+  animation-delay: 0.4385139442s;
   left: calc((100% - 5em) * 0.36);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(20) {
-  animation-delay: 0.0260661791s;
+  animation-delay: 0.3397843491s;
   left: calc((100% - 5em) * 0.38);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(21) {
-  animation-delay: 0.4209186394s;
+  animation-delay: 0.4368140047s;
   left: calc((100% - 5em) * 0.4);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(22) {
-  animation-delay: 0.5293508311s;
+  animation-delay: 0.2642258448s;
   left: calc((100% - 5em) * 0.42);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(23) {
-  animation-delay: 0.0037648505s;
+  animation-delay: 0.1588268153s;
   left: calc((100% - 5em) * 0.44);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(24) {
-  animation-delay: 0.4014687719s;
+  animation-delay: 0.8675860393s;
   left: calc((100% - 5em) * 0.46);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(25) {
-  animation-delay: 0.644884154s;
+  animation-delay: 0.2254937434s;
   left: calc((100% - 5em) * 0.48);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(26) {
-  animation-delay: 0.476312462s;
+  animation-delay: 0.105150113s;
   left: calc((100% - 5em) * 0.5);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(27) {
-  animation-delay: 0.5739514927s;
+  animation-delay: 0.4230243623s;
   left: calc((100% - 5em) * 0.52);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(28) {
-  animation-delay: 0.0501108458s;
+  animation-delay: 0.9606849305s;
   left: calc((100% - 5em) * 0.54);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(29) {
-  animation-delay: 0.7431586226s;
+  animation-delay: 0.0353411344s;
   left: calc((100% - 5em) * 0.56);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(30) {
-  animation-delay: 0.6389306789s;
+  animation-delay: 0.4833602087s;
   left: calc((100% - 5em) * 0.58);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(31) {
-  animation-delay: 0.0662571137s;
+  animation-delay: 0.7888384069s;
   left: calc((100% - 5em) * 0.6);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(32) {
-  animation-delay: 0.7479931993s;
+  animation-delay: 0.1537573865s;
   left: calc((100% - 5em) * 0.62);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(33) {
-  animation-delay: 0.7553063908s;
+  animation-delay: 0.9596531812s;
   left: calc((100% - 5em) * 0.64);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(34) {
-  animation-delay: 0.5212907458s;
+  animation-delay: 0.0427381227s;
   left: calc((100% - 5em) * 0.66);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(35) {
-  animation-delay: 0.2351421657s;
+  animation-delay: 0.3025925331s;
   left: calc((100% - 5em) * 0.68);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(36) {
-  animation-delay: 0.5316252624s;
+  animation-delay: 0.4184991839s;
   left: calc((100% - 5em) * 0.7);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(37) {
-  animation-delay: 0.1299832316s;
+  animation-delay: 0.6209041919s;
   left: calc((100% - 5em) * 0.72);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(38) {
-  animation-delay: 0.1405941228s;
+  animation-delay: 0.0280087023s;
   left: calc((100% - 5em) * 0.74);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(39) {
-  animation-delay: 0.5216820248s;
+  animation-delay: 0.7823532533s;
   left: calc((100% - 5em) * 0.76);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(40) {
-  animation-delay: 0.3546126869s;
+  animation-delay: 0.1200726477s;
   left: calc((100% - 5em) * 0.78);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(41) {
-  animation-delay: 0.5195096788s;
+  animation-delay: 0.4247114287s;
   left: calc((100% - 5em) * 0.8);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(42) {
-  animation-delay: 0.2933064309s;
+  animation-delay: 0.8051481247s;
   left: calc((100% - 5em) * 0.82);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(43) {
-  animation-delay: 0.9156819845s;
+  animation-delay: 0.0839681518s;
   left: calc((100% - 5em) * 0.84);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(44) {
-  animation-delay: 0.2753941854s;
+  animation-delay: 0.6435878378s;
   left: calc((100% - 5em) * 0.86);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(45) {
-  animation-delay: 0.4845172836s;
+  animation-delay: 0.2050642415s;
   left: calc((100% - 5em) * 0.88);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(46) {
-  animation-delay: 0.6048623587s;
+  animation-delay: 0.662840315s;
   left: calc((100% - 5em) * 0.9);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(47) {
-  animation-delay: 0.8071350873s;
+  animation-delay: 0.4586235402s;
   left: calc((100% - 5em) * 0.92);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(48) {
-  animation-delay: 0.4838295336s;
+  animation-delay: 0.9560840599s;
   left: calc((100% - 5em) * 0.94);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(49) {
-  animation-delay: 0.7474323847s;
+  animation-delay: 0.3404772571s;
   left: calc((100% - 5em) * 0.96);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form.misery-animations.seventh-misery .miseries .seven-seven .particle:nth-of-type(50) {
-  animation-delay: 0.4479014563s;
+  animation-delay: 0.3781562265s;
   left: calc((100% - 5em) * 0.98);
 }
 .morkborg.sheet.actor.misery-tracker .window-content form .title {
@@ -1614,532 +1574,7 @@ option, optgroup {
     transform: translate(0.25px, -0.5px) rotate(-1deg);
   }
 }
-.form-group input[type=text] {
-  color: var(--foreground-color);
-}
-.form-group input[type=text]:hover, .form-group input[type=text]:focus {
-  box-shadow: 0 0 10px var(--highlight-background-color);
-}
-.form-group textarea {
-  color: var(--foreground-color);
-}
-.form-group textarea:hover {
-  box-shadow: 0 0 10px var(--highlight-background-color);
-}
-.form-group textarea:focus {
-  box-shadow: 0 0 10px var(--highlight-background-color);
-  outline: none;
-}
-
-form button {
-  color: var(--foreground-color);
-}
-form button:hover {
-  box-shadow: 0 0 10px var(--highlight-background-color);
-}
-
-a:hover {
-  text-shadow: 0 0 8px var(--highlight-background-color);
-}
-
-a.content-link {
-  background: var(--highlight-background-color);
-  color: var(--highlight-foreground-color);
-}
-
-input[type=text] {
-  color: var(--foreground-color);
-}
-input[type=text]:hover, input[type=text]:focus {
-  box-shadow: 0 0 10px var(--highlight-background-color);
-}
-
-form.editable .results .result-image img {
-  background-color: var(--foreground-color);
-}
-form.editable .results .result-type select {
-  color: var(--foreground-color);
-}
-form.editable .results .result-type select:hover, form.editable .results .result-type select:focus {
-  box-shadow: 0 0 10px var(--highlight-background-color);
-}
-form.editable .results .result-details select {
-  color: var(--foreground-color);
-}
-form.editable .results .result-details select:hover, form.editable .results .result-details select:focus {
-  box-shadow: 0 0 10px var(--highlight-background-color);
-}
-form.editable .results .result-details input[type=text] {
-  color: var(--foreground-color);
-}
-form.editable .results .result-details input[type=text]:hover, form.editable .results .result-details input[type=text]:focus {
-  box-shadow: 0 0 10px var(--highlight-background-color);
-}
-
-.table-results .table-result .result-text .entity-link {
-  background-color: var(--highlight-background-color);
-  color: var(--highlight-foreground-color);
-}
-
-/* Fixes Module Management dialog */
-#module-management .package-list .package-title,
-#module-management .package-list .package-metadata,
-#module-management .package-list .package-description {
-  color: var(--foreground-color);
-}
-
-/* Fixes hard-to-read dark text on various system Dialogs */
-.window-app .window-content .notes {
-  background-color: var(--highlight-background-color);
-  color: var(--highlight-foreground-color);
-}
-.window-app .window-content form .form-header {
-  color: var(--foreground-color);
-}
-.window-app .window-content form .notes {
-  background-color: var(--background-color);
-  color: var(--foreground-alt-color);
-}
-.window-app .window-content .form-group span.units {
-  background-color: var(--highlight-background-color);
-  color: var(--highlight-foreground-color);
-}
-.window-app .window-content .form-group input {
-  color: var(--foreground-color);
-}
-.window-app .window-content .form-group input:hover, .window-app .window-content .form-group input:focus {
-  box-shadow: 0 0 10px var(--highlight-background-color);
-}
-.window-app .window-content .form-group input.readonly {
-  color: gray;
-}
-.window-app .window-content .form-group input:hover.readonly, .window-app .window-content .form-group input:focus.readonly {
-  box-shadow: none;
-  cursor: default;
-}
-
-/* TODO: determine if we need both .notes and form .notes styles specified */
-/* Fix readonly input on defend dialog */
-/* Fixes Journal image select dialog */
-.journal-sheet.image-popout .window-content .form-group input {
-  color: var(--background-color);
-}
-.journal-sheet.image-popout .window-content .form-group.picker button.file-picker {
-  background-color: var(--background-color);
-}
-.journal-sheet form select:hover, .journal-sheet form select:focus {
-  box-shadow: 0 0 10px var(--highlight-background-color);
-}
-.journal-sheet form .form-group.title input[type=text], .journal-sheet form .form-group.picker input[type=text].image {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-/* Fix Player Configuration dialog */
-#player-config form .form-group label {
-  color: var(--foreground-color);
-}
-#player-config form .form-group .directory-list .actor.directory-item {
-  border-bottom-color: none;
-  border-top-color: none;
-}
-#player-config form .form-group .directory-list .actor.directory-item.context {
-  border-bottom-color: var(--highlight-background-color);
-  border-top-color: var(--highlight-background-color);
-  box-shadow: 0 0 5px var(--highlight-background-color);
-}
-
-/* ====================== */
-/* UI / Chat */
-/* ====================== */
-#chat-controls {
-  color: var(--foreground-color);
-}
-#chat-controls i.fas:hover {
-  color: var(--highlight-background-color);
-  text-shadow: 0 0 5px var(--highlight-background-color);
-}
-#chat-controls .roll-type-select {
-  color: var(--foreground-color);
-  background: var(--background-color);
-}
-#chat-controls select:focus {
-  box-shadow: 0 0 10px var(--highlight-background-color);
-}
-
-#chat-log {
-  background: var(--sidebar-background);
-}
-#chat-log .chat-message {
-  background: var(--window-background);
-  border: 3px solid #252525;
-  border-radius: 0;
-  color: var(--foreground-color);
-  margin-top: 6px;
-  font-family: var(--chat-font);
-  font-size: 16px;
-}
-#chat-log .message h4,
-#chat-log .message h3,
-#chat-log .message h2 {
-  color: var(--foreground-color);
-}
-#chat-log .message-metadata {
-  color: var(--foreground-color);
-}
-#chat-log .message h2 {
-  background: var(--highlight-background-color);
-  color: var(--highlight-foreground-color);
-}
-#chat-log .chat-message .message-header .message-sender {
-  font-family: var(--h1-font);
-  font-size: 20px;
-}
-#chat-log .chat-message .message-header .message-metadata {
-  font-family: var(--chat-info-font);
-  font-size: 12px;
-}
-#chat-log .chat-message .message-header span.flavor-text {
-  font-family: var(--chat-info-font);
-  font-size: 14px;
-  font-weight: bold;
-  color: var(--foreground-color);
-}
-#chat-log .message .dice-formula,
-#chat-log .message .dice-total {
-  font-size: 16px;
-  border: 1px solid #252525;
-  border-radius: 0;
-}
-
-#chat-form textarea {
-  color: var(--foreground-color);
-  background: var(--background-color);
-  border: 2px solid #252525;
-  font-family: var(--chat-font);
-  font-size: 16px;
-}
-#chat-form textarea:focus {
-  outline: 2px solid var(--highlight-background-color);
-  box-shadow: 0 0 10px var(--highlight-background-color);
-}
-
-#client-settings button {
-  color: var(--background-color);
-  background: var(--foreground-color);
-}
-#client-settings h2 {
-  border-bottom: none;
-  background: var(--highlight-background-color);
-  color: var(--highlight-foreground-color);
-  font-family: var(--h2-font);
-}
-#client-settings select {
-  color: var(--foreground-color);
-  background: var(--background-color);
-}
-#client-settings select:focus {
-  outline: none;
-  box-shadow: 0 0 5px var(--highlight-background-color);
-}
-
-#controls {
-  color: var(--foreground-color);
-}
-#controls .control-tool.toggle {
-  background: unset;
-  border: 1px solid #252525;
-}
-#controls .control-tool.toggle.active {
-  background: var(--background-color);
-  text-shadow: 0 0 10px var(--highlight-background-color);
-  box-shadow: 0 0 10px var(--highlight-background-color);
-}
-#controls .control-tool.toggle:hover {
-  background: unset;
-  text-shadow: 0 0 10px var(--highlight-background-color);
-  box-shadow: 0 0 10px var(--highlight-background-color);
-}
-#controls .control-tools {
-  color: var(--foreground-color);
-}
-#controls li {
-  background: var(--background-color);
-  background-color: var(--background-color);
-}
-#controls .control-tool.active, #controls .control-tool:hover {
-  background: var(--background-color);
-  color: var(--foreground-color);
-  border: 1px solid var(--highlight-background-color);
-  box-shadow: 0 0 10px var(--highlight-background-color);
-}
-#controls .scene-control.active, #controls .scene-control:hover {
-  background: var(--background-color);
-  color: var(--foreground-color);
-  border: 1px solid var(--highlight-background-color);
-  box-shadow: 0 0 10px var(--highlight-background-color);
-}
-#controls .scene-control.active {
-  color: var(--foreground-color);
-  border: 1px solid var(--highlight-background-color);
-  box-shadow: 0 0 10px var(--highlight-background-color);
-}
-
-.dialog .dialog-buttons button {
-  background: var(--foreground-color);
-  color: var(--background-color);
-  font-family: var(--button-font);
-  text-transform: uppercase;
-}
-.dialog .dialog-buttons button.default {
-  background: var(--foreground-color);
-  color: var(--background-color);
-  font-family: var(--button-font);
-  text-transform: uppercase;
-}
-
-form .form-group select {
-  color: var(--foreground-color);
-  background: var(--background-color);
-}
-form .form-group select:focus {
-  box-shadow: 0 0 10px var(--highlight-background-color);
-}
-
-#hotbar #hotbar-directory-controls,
-#hotbar #hotbar-page-controls {
-  background: var(--background-color);
-  color: var(--foreground-color);
-}
-#hotbar #action-bar li.macro:hover {
-  background: var(--background-color);
-  color: var(--foreground-color);
-  border: 1px solid var(--highlight-background-color);
-  box-shadow: 0 0 10px var(--highlight-background-color);
-}
-
-#navigation #nav-toggle {
-  background: var(--background-color);
-  color: var(--foreground-color);
-}
-#navigation #scene-list li.scene.nav-item {
-  border: 1px solid #252525;
-}
-#navigation #scene-list li.scene.nav-item.active, #navigation #scene-list li.scene.nav-item:hover {
-  background: var(--background-color);
-  color: var(--foreground-color);
-  border: 1px solid var(--highlight-background-color);
-  box-shadow: 0 0 10px var(--highlight-background-color);
-}
-
-select:focus {
-  color: var(--foreground-color);
-  background: var(--background-color);
-}
-
-#settings button {
-  color: var(--background-color);
-  background: var(--foreground-color);
-  font-family: var(--button-font);
-}
-
-#sidebar {
-  background: var(--sidebar-background);
-  color: var(--sidebar-foreground-color);
-}
-#sidebar.collapsed #sidebar-tabs > .item.active {
-  border-bottom: 1px solid var(--highlight-background-color);
-  border-radius: 5px;
-}
-
-#sidebar-tabs {
-  background: var(--sidebar-background);
-  color: var(--sidebar-foreground-color);
-  border-bottom: 1px solid var(--highlight-background-color);
-  box-shadow: 0 0 10px var(--highlight-background-color);
-}
-#sidebar-tabs > .item.active {
-  color: var(--highlight-foreground-color);
-  background: var(--highlight-background-color);
-  border: 1px solid var(--highlight-background-color);
-  border-bottom: none;
-  box-shadow: 0 0 6px inset var(--highlight-background-color);
-  text-shadow: 0 0 10px var(--highlight-background-color);
-}
-
-.sidebar-tab .action-buttons button {
-  background: var(--sidebar-button-background-color);
-  border-radius: 0;
-  color: var(--sidebar-button-foreground-color);
-  font-family: var(--button-font);
-}
-.sidebar-tab .directory-header .header-search input {
-  background: var(--sidebar-button-background-color);
-  border: 1px solid #252525;
-  border-radius: 0;
-  font-family: var(--h2-font);
-  color: var(--sidebar-button-foreground-color);
-}
-.sidebar-tab .directory-header .header-search input[type=text]:focus {
-  box-shadow: 0 0 5px var(--highlight-background-color);
-}
-.sidebar-tab .directory-list .directory-item h4 {
-  font-family: var(--item-font);
-}
-
-.tabs .item.active, .tabs .item:hover {
-  text-shadow: 0 0 10px var(--highlight-background-color);
-}
-
-::-webkit-scrollbar-thumb {
-  outline: none;
-  border-radius: 3px;
-  background: var(--highlight-background-color) !important;
-  border: 1px solid var(--background-color) !important;
-  color: var(--highlight-foreground-color) !important;
-}
-
-.window-app .window-content {
-  background: var(--background-color);
-  color: var(--foreground-color);
-}
-.window-app.app.journal-sheet .window-content {
-  background: var(--background-color);
-  color: var(--foreground-color);
-  background-position: -43px -120px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  overflow-y: hidden;
-  padding: 0px;
-  margin: 0px;
-  font-weight: 500;
-  line-height: 1.5;
-}
-.window-app.app.journal-sheet .window-content h1 {
-  border-bottom: none;
-  background: var(--highlight-background-color) !important;
-  color: var(--highlight-foreground-color) !important;
-  font-family: var(--h2-font);
-  font-size: 28px;
-  text-align: center;
-}
-.window-app.app.journal-sheet .window-content h2 {
-  border-bottom: none;
-  font-family: "Benjamin Franklin";
-  font-size: 20px;
-}
-.window-app.app.journal-sheet .window-content h3 {
-  font-family: "Inconsolata";
-  font-weight: bold;
-  font-size: 20px;
-}
-.window-app.app.journal-sheet .window-content .journal-sidebar {
-  font-family: var(--item-font);
-  font-size: var(--journal-font-size);
-}
-.window-app.app.journal-sheet .window-content .journal-page-content {
-  font-family: var(--journal-font);
-  font-size: var(--journal-font-size);
-  font-size: 18px;
-}
-
-/* ================== 11. JOURNAL ENTRIES =================== */
-.journal-sheet.journal-entry .window-content {
-  border-bottom: 1px solid var(--window-border-color);
-  border-left: 1px solid var(--window-border-color);
-  border-right: 1px solid var(--window-border-color);
-}
-.journal-sheet.journal-entry .window-content .journal-sheet-container .journal-sidebar {
-  background: var(--sidebar-background);
-  color: var(--sidebar-foreground-color);
-}
-.journal-sheet.journal-entry .window-content .journal-sheet-container .journal-entry-content {
-  background: var(--window-background);
-  border-radius: 0;
-  color: var(--foreground-color);
-}
-
-.editor .editor-menu {
-  border-bottom: 1px solid var(--foreground-color);
-  border-top: 1px solid var(--foreground-color);
-  background-color: var(--background-color);
-  color: var(--foreground-color);
-}
-.editor .editor-menu button {
-  background-color: var(--background-color);
-  border: 1px solid var(--foreground-color);
-  color: var(--foreground-color);
-}
-.editor .editor-menu button ul {
-  background-color: var(--background-color);
-  border: 1px solid var(--foreground-color);
-  color: var(--foreground-color);
-}
-.editor .editor-menu button ul li:hover {
-  background-color: var(--foreground-color);
-  color: var(--background-color);
-}
-.editor .editor-menu button:hover {
-  background-color: var(--foreground-color);
-  color: var(--background-color);
-}
-.editor h1 {
-  border-bottom: none;
-  background: var(--highlight-background-color) !important;
-  color: var(--highlight-foreground-color) !important;
-  font-family: var(--h2-font);
-  font-size: 28px;
-  text-align: center;
-}
-.editor h2 {
-  border-bottom: none;
-  font-family: "Benjamin Franklin";
-  font-size: 20px;
-  text-transform: uppercase;
-}
-.editor h3 {
-  font-family: "Inconsolata";
-  font-weight: bold;
-  font-size: 20px;
-  text-transform: uppercase;
-}
-
-.journal-sheet.journal-entry-page .window-content {
-  border-bottom: 1px solid var(--window-border-color);
-  border-left: 1px solid var(--window-border-color);
-  border-right: 1px solid var(--window-border-color);
-}
-
-.journal-sheet form button[type=submit] {
-  background: var(--background-color);
-}
-.journal-sheet form input[name=name] {
-  color: var(--foreground-color);
-  font-family: var(--h2-font);
-  font-size: 32px;
-}
-.journal-sheet form select {
-  font-family: var(--journal-font);
-}
-
-a.entity-link, a.inline-roll {
-  background: var(--background-color);
-  color: var(--foreground-color);
-  padding: 1px 4px;
-  border: 1px solid var(--background-color);
-  border-radius: 2px;
-  white-space: nowrap;
-  word-break: break-all;
-}
-
-#world-config .window-content .editor {
-  background: #d8d8cc;
-}
-
-h3 {
-  border-bottom: none;
-}
-
+/* @import "morkborg/_foundry-overrides"; */
 /* ====================== */
 /* Roll Cards */
 /* ====================== */

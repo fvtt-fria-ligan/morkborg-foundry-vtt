@@ -91,7 +91,7 @@ export async function wieldPower(actor) {
     cardTitle: game.i18n.localize("MB.WieldAPower"),
     rollResults,
   };
-  const html = await renderTemplate(
+  const html = await foundry.applications.handlebars.renderTemplate(
     "systems/morkborg/templates/chat/roll-result-card.hbs",
     data
   );

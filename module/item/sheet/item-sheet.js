@@ -3,7 +3,7 @@ import { MB } from "../../config.js";
 /*
  * @extends {ItemSheet}
  */
-export class MBItemSheet extends ItemSheet {
+export class MBItemSheet extends foundry.appv1.sheets.ItemSheet {
   /** @override */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {

@@ -55,7 +55,7 @@ async function automatedDefend(actor) {
     drModifiers,
     incomingAttack,
   };
-  const html = await renderTemplate(
+  const html = await foundry.applications.handlebars.renderTemplate(
     "systems/morkborg/templates/dialog/defend-dialog.hbs",
     dialogData
   );
@@ -262,7 +262,7 @@ async function rollDefend(actor, defendDR, incomingAttack) {
  * Show attack rolls/result in a chat roll card.
  */
 async function renderDefendRollCard(actor, rollResult) {
-  const html = await renderTemplate(
+  const html = await foundry.applications.handlebars.renderTemplate(
     "systems/morkborg/templates/chat/defend-roll-card.hbs",
     rollResult
   );

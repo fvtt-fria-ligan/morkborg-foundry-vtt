@@ -48,14 +48,16 @@ export async function drawFromTableUuid(
 export async function drawText(packName, tableName) {
   const draw = await drawFromTable(packName, tableName);
   if (draw) {
-    return draw.results[0].text;
+    // return draw.results[0].text;
+    return draw.results[0].description;
   }
 }
 
 export async function drawTextFromTableUuid(uuid) {
   const draw = await drawFromTableUuid(uuid);
   if (draw) {
-    return draw.results[0].text;
+    // return draw.results[0].text;
+    return draw.results[0].description;
   }
 }
 
@@ -104,9 +106,6 @@ export async function documentFromResult(result) {
   if (!doc) {
     // console.log(`Could not find ${uuid}`);
     console.log(`Could not find ${result.documentCollection} ${result.text}`);
-    console.log(result);
-  } else {
-    console.log(`*** Found ${result.documentCollection} ${result.text}`);
     console.log(result);
   }
   return doc;

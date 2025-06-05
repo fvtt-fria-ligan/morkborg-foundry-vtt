@@ -5,14 +5,16 @@ export function registerCombat() {
   CONFIG.Combat.initiative = {
     formula: "1d6 + @abilities.agility.value",
   };
-  Hooks.on("renderCombatTracker", (tracker, html) => {
+  Hooks.on("renderCombatTracker", (_, html) => {
     const partyInitiativeButton = `<a class="combat-control" title="${game.i18n.localize(
       "MB.RollPartyInitiative"
     )}" dataControl="rollParty"><i class="fas fa-dice-six"></i></a>`;
-    html.find("header").find("nav").last().prepend(partyInitiativeButton);
-    html.find("a[dataControl=rollParty]").click(() => {
+    html
+      .querySelector("nav.encounters.tabbed")
+      .insertAdjacentHTML("beforeend", partyInitiativeButton);
+    html.querySelector("a[dataControl=rollParty]").onclick = () => {
       rollPartyInitiative();
-    });
+    };
   });
 }
 

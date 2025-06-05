@@ -82,7 +82,7 @@ export async function showRollResult(
 }
 
 export async function showRollResultCard(actor, data) {
-  const html = await renderTemplate(
+  const html = await foundry.applications.handlebars.renderTemplate(
     "systems/morkborg/templates/chat/roll-result-card.hbs",
     data
   );

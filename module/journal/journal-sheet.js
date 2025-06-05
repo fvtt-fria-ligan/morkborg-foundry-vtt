@@ -1,4 +1,4 @@
-export class MBJournalSheet extends JournalSheet {
+export class MBJournalSheet extends foundry.appv1.sheets.JournalSheet {
   /** @override */
   static get defaultOptions() {
     const options = super.defaultOptions;

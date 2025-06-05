@@ -1,7 +1,7 @@
 import { rollMisery } from "../../miseries.js";
 import { miseryTrackerAnimations } from "../../settings.js";
 
-export class MBMiseryTrackerSheet extends ActorSheet {
+export class MBMiseryTrackerSheet extends foundry.appv1.sheets.ActorSheet {
   /** @override */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {

@@ -1,3 +1,7 @@
+# 5.0.0
+
+- Foundry v13 compatibility.
+
 # 4.0.6
 
 - Polish translation by @rklos.

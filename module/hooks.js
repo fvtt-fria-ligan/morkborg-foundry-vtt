@@ -8,18 +8,28 @@ export function registerHooks() {
     Hooks.call("morkborgReady");
   });
   Hooks.on("renderActorDirectory", addCreateScvmButton);
-  Hooks.on("renderChatMessage", handleRollCardButton);
+  Hooks.on("renderChatMessageHTML", handleRollCardButton);
 
-  Hooks.on("renderJournalTextPageSheet", (journalTextPageSheet, html) => {
-    html.find(".draw-from-table").on("click", drawFromRollableTable.bind(this));
-    html.find(".rollable").click(roll.bind(this));
-    html.find(".create-scvm").click(createScvm.bind(this));
+  Hooks.on("renderJournalTextPageSheet", (_, html) => {
+    html
+      .querySelector(".draw-from-table")
+      .addEventListener("click", drawFromRollableTable.bind(this));
+    html.querySelector(".rollable").addEventListener("click", roll.bind(this));
+    html
+      .querySelector(".create-scvm")
+      .addEventListener("click", createScvm.bind(this));
   });
 
-  Hooks.on("closeJournalTextPageSheet", (journalTextPageSheet, html) => {
-    html.find(".draw-from-table").off("click");
-    html.find(".rollable").off("click");
-    html.find(".create-scvm").off("click");
+  Hooks.on("closeJournalTextPageSheet", (_, html) => {
+    html
+      .querySelector(".draw-from-table")
+      .removeEventListener("click", drawFromRollableTable.bind(this));
+    html
+      .querySelector(".rollable")
+      .removeEventListener("click", roll.bind(this));
+    html
+      .querySelector(".create-scvm")
+      .removeEventListener("click", createScvm.bind(this));
   });
 }
 
@@ -68,14 +78,14 @@ function applyFontsAndColors() {
   );
 }
 
-function addCreateScvmButton(app, html) {
+function addCreateScvmButton(_, html) {
   if (game.user.can("ACTOR_CREATE")) {
     // only show the Create Scvm button to users who can create actors
     const section = document.createElement("header");
     section.classList.add("scvmfactory");
     section.classList.add("directory-header");
     // Add menu before directory header
-    const dirHeader = html[0].querySelector(".directory-header");
+    const dirHeader = html.querySelector(".directory-header");
     dirHeader.parentNode.insertBefore(section, dirHeader);
     section.insertAdjacentHTML(
       "afterbegin",

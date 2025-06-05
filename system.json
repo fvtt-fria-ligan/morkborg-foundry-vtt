@@ -4,8 +4,8 @@
   "description": "Foundry VTT system for MÖRK BORG.",
   "version": "4.0.2",
   "compatibility": {
-    "minimum": "11.300",
-    "verified": "12.331"
+    "minimum": "13",
+    "verified": "13"
   },
   "authors": [
     {
@@ -78,9 +78,9 @@
       "path": "lang/fr.json"
     },
     {
-      "lang":"ko",
-      "name":"한국어",
-      "path":"lang/ko.json"
+      "lang": "ko",
+      "name": "한국어",
+      "path": "lang/ko.json"
     },
     {
       "lang": "sv",
