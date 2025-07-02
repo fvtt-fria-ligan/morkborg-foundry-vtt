@@ -218,7 +218,7 @@ form.editable .results {
   }
 }
 
-#chat-log {
+.chat-log {
   background: var(--sidebar-background);
 
   .chat-message {
@@ -437,6 +437,7 @@ select:focus {
   font-family: var(--button-font);
 }
 
+/*
 #sidebar {
   background: var(--sidebar-background);
   color: var(--sidebar-foreground-color);
@@ -462,7 +463,8 @@ select:focus {
     text-shadow: 0 0 10px var(--highlight-background-color);
   }
 }
-
+*/
+/*
 .sidebar-tab {
   .action-buttons button {
     background: var(--sidebar-button-background-color);
@@ -487,13 +489,14 @@ select:focus {
     font-family: var(--item-font);
   }
 }
-
+*/
+/*
 .tabs .item {
   &.active,
   &:hover {
     text-shadow: 0 0 10px var(--highlight-background-color);
   }
-}
+}*/
 
 ::-webkit-scrollbar-thumb {
   outline: none;
