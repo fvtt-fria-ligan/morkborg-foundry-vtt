@@ -11,7 +11,7 @@ export function registerCombat() {
     )}" dataControl="rollParty"><i class="fas fa-dice-six"></i></a>`;
     html
       .querySelector("nav.encounters.tabbed")
-      .insertAdjacentHTML("beforeend", partyInitiativeButton);
+      ?.insertAdjacentHTML("beforeend", partyInitiativeButton);
     html.querySelector("a[dataControl=rollParty]").onclick = () => {
       rollPartyInitiative();
     };
@@ -29,7 +29,7 @@ export class MBCombat extends Combat {
     const updates = this.turns.map((t) => {
       return {
         _id: t.id,
-        initiative: t.data.initiative,
+        initiative: t.initiative,
       };
     });
     await game.combat.resetAll();
@@ -37,13 +37,8 @@ export class MBCombat extends Combat {
   }
 
   isFriendlyCombatant(combatant) {
-    if (combatant._token) {
-      // v8 compatible
-      return combatant._token.data.disposition === 1;
-    } else {
-      // v9+
-      return combatant.token.data.disposition === 1;
-    }
+    // V13 change
+    return combatant.token.disposition === 1;
   }
 
   /**
@@ -54,7 +49,7 @@ export class MBCombat extends Combat {
    */
   _sortCombatants(a, b) {
     // .combat is a getter, so verify existence of combats array
-    if (game.combats && game.combat.partyInitiative) {
+    if (game.combats && game.combat && game.combat.partyInitiative) {
       const isPartyA = game.combat.isFriendlyCombatant(a);
       const isPartyB = game.combat.isFriendlyCombatant(b);
       if (isPartyA !== isPartyB) {
