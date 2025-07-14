@@ -29,10 +29,9 @@ export async function rollPartyInitiative(actor) {
 
 export async function rollIndividualInitiative(actor) {
   if (game.combats && game.combat) {
+    console.log(game.combat.combatants);
     // there is an encounter started in the Combat Tracker
-    const combatant = game.combat.combatants.find(
-      (i) => i.system.actorId === actor.id
-    );
+    const combatant = game.combat.combatants.find((i) => i.actorId == actor.id);
     if (combatant) {
       // the actor is part of the combat, so roll initiative
       game.combat.rollInitiative(combatant.id);

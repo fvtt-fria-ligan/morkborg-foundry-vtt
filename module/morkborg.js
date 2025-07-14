@@ -49,38 +49,72 @@ function registerDocumentClasses() {
 }
 
 function registerSheets() {
-  Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet(MB.systemName, MBCharacterSheet, {
-    types: [MB.actorTypes.character],
-    makeDefault: true,
-    label: "MB.SheetClassCharacter",
-  });
-  Actors.registerSheet(MB.systemName, MBContainerSheet, {
-    types: [MB.actorTypes.container],
-    makeDefault: true,
-    label: "MB.SheetClassContainer",
-  });
-  Actors.registerSheet(MB.systemName, MBCreatureSheet, {
-    types: [MB.actorTypes.creature],
-    makeDefault: true,
-    label: "MB.SheetClassCreature",
-  });
-  Actors.registerSheet(MB.systemName, MBFollowerSheet, {
-    types: [MB.actorTypes.follower],
-    makeDefault: true,
-    label: "MB.SheetClassFollower",
-  });
-  Actors.registerSheet(MB.systemName, MBMiseryTrackerSheet, {
-    types: [MB.actorTypes.miseryTracker],
-    makeDefault: true,
-    label: "MB.SheetClassMiseryTracker",
-  });
-  Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet(MB.systemName, MBItemSheet, { makeDefault: true });
+  foundry.documents.collections.Actors.unregisterSheet(
+    "core",
+    foundry.appv1.sheets.ActorSheet
+  );
+  foundry.documents.collections.Actors.registerSheet(
+    MB.systemName,
+    MBCharacterSheet,
+    {
+      types: [MB.actorTypes.character],
+      makeDefault: true,
+      label: "MB.SheetClassCharacter",
+    }
+  );
+  foundry.documents.collections.Actors.registerSheet(
+    MB.systemName,
+    MBContainerSheet,
+    {
+      types: [MB.actorTypes.container],
+      makeDefault: true,
+      label: "MB.SheetClassContainer",
+    }
+  );
+  foundry.documents.collections.Actors.registerSheet(
+    MB.systemName,
+    MBCreatureSheet,
+    {
+      types: [MB.actorTypes.creature],
+      makeDefault: true,
+      label: "MB.SheetClassCreature",
+    }
+  );
+  foundry.documents.collections.Actors.registerSheet(
+    MB.systemName,
+    MBFollowerSheet,
+    {
+      types: [MB.actorTypes.follower],
+      makeDefault: true,
+      label: "MB.SheetClassFollower",
+    }
+  );
+  foundry.documents.collections.Actors.registerSheet(
+    MB.systemName,
+    MBMiseryTrackerSheet,
+    {
+      types: [MB.actorTypes.miseryTracker],
+      makeDefault: true,
+      label: "MB.SheetClassMiseryTracker",
+    }
+  );
+  foundry.documents.collections.Items.unregisterSheet(
+    "core",
+    foundry.appv1.sheets.ItemSheet
+  );
+  foundry.documents.collections.Items.registerSheet(
+    MB.systemName,
+    MBItemSheet,
+    { makeDefault: true }
+  );
 
-  Journal.registerSheet?.(MB.systemName, MBJournalSheet, {
-    types: ["base"],
-    makeDefault: true,
-    label: "MB.JournalSheet",
-  });
+  foundry.documents.collections.Journal.registerSheet?.(
+    MB.systemName,
+    MBJournalSheet,
+    {
+      types: ["base"],
+      makeDefault: true,
+      label: "MB.JournalSheet",
+    }
+  );
 }

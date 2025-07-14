@@ -10,7 +10,7 @@ import { checkReaction } from "../reaction.js";
 /**
  * @extends {ActorSheet}
  */
-export default class MBActorSheet extends ActorSheet {
+export default class MBActorSheet extends foundry.appv1.sheets.ActorSheet {
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
@@ -60,9 +60,10 @@ export default class MBActorSheet extends ActorSheet {
   /** @override */
   async getData() {
     const superData = await super.getData();
-    superData.data.system.description = await TextEditor.enrichHTML(
-      superData.data.system.description
-    );
+    superData.data.system.description =
+      await foundry.applications.ux.TextEditor.implementation.enrichHTML(
+        superData.data.system.description
+      );
     return superData;
   }
 
@@ -78,7 +79,10 @@ export default class MBActorSheet extends ActorSheet {
     const dialogData = {
       config: CONFIG.MorkBorg,
     };
-    const html = await renderTemplate(template, dialogData);
+    const html = await foundry.applications.handlebars.renderTemplate(
+      template,
+      dialogData
+    );
     return new Promise((resolve) => {
       new Dialog({
         title: game.i18n.localize("MB.CreateNewItem"),

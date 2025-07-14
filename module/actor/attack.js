@@ -29,7 +29,7 @@ async function automatedAttack(actor, itemId) {
     itemId,
     targetArmor,
   };
-  const html = await renderTemplate(
+  const html = await foundry.applications.handlebars.renderTemplate(
     "systems/morkborg/templates/dialog/attack-dialog.hbs",
     dialogData
   );
@@ -78,7 +78,7 @@ async function unautomatedAttack(actor, itemId) {
     cardTitle,
     item,
   };
-  const html = await renderTemplate(
+  const html = await foundry.applications.handlebars.renderTemplate(
     "systems/morkborg/templates/chat/unautomated-attack-roll-card.hbs",
     rollResult
   );
@@ -217,7 +217,7 @@ async function decrementWeaponAmmo(actor, weapon) {
  * Show attack rolls/result in a chat roll card.
  */
 async function renderAttackRollCard(actor, rollResult) {
-  const html = await renderTemplate(
+  const html = await foundry.applications.handlebars.renderTemplate(
     "systems/morkborg/templates/chat/attack-roll-card.hbs",
     rollResult
   );

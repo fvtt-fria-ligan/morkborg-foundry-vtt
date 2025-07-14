@@ -60,7 +60,7 @@ export async function getBetter(actor) {
     strOutcome,
     touOutcome,
   };
-  const html = await renderTemplate(
+  const html = await foundry.applications.handlebars.renderTemplate(
     "systems/morkborg/templates/chat/get-better-roll-card.hbs",
     data
   );

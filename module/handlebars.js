@@ -72,7 +72,7 @@ export function configureHandlebars() {
     }
   });
 
-  loadTemplates([
+  foundry.applications.handlebars.loadTemplates([
     "systems/morkborg/templates/actor/character/feats-tab.hbs",
     "systems/morkborg/templates/actor/character/obituary-tab.hbs",
     "systems/morkborg/templates/actor/character/powers-tab.hbs",
