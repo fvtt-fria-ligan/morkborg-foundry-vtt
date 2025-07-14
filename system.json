@@ -2,7 +2,7 @@
   "id": "morkborg",
   "title": "MÖRK BORG",
   "description": "Foundry VTT system for MÖRK BORG.",
-  "version": "4.0.2",
+  "version": "5.0.0",
   "compatibility": {
     "minimum": "13",
     "verified": "13"
