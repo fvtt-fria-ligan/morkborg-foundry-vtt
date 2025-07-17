@@ -78,8 +78,8 @@ function applyFontsAndColors() {
   );
 }
 
-function addCreateScvmButton(_, html) {
-  if (game.user.can("ACTOR_CREATE")) {
+function addCreateScvmButton(tab, html, context, options) {
+  if (options.isFirstRender && game.user.can("ACTOR_CREATE")) {
     // only show the Create Scvm button to users who can create actors
     const section = document.createElement("header");
     section.classList.add("scvmfactory");

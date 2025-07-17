@@ -1,3 +1,7 @@
+# 5.0.1
+
+- Fix Add Scum button getting added multiple times.
+
 # 5.0.0
 
 - Foundry v13 compatibility.
