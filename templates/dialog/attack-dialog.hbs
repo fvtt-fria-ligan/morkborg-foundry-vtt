@@ -4,12 +4,28 @@
     <label>{{localize 'MB.Attack'}} {{localize 'MB.DR'}}:</label>
     <input
       type="text"
-      name="attackdr"
+      name="attackbasedr"
       value="{{attackDR}}"
       placeholder="12"
       data-dtype="Number"
     />
   </div>
+  <div class="form-group">
+    <label>{{localize 'MB.Modified'}} {{localize 'MB.DR'}}:</label>
+    <input
+      type="text"
+      class="readonly"
+      name="attackmodifieddr"
+      value=""
+      placeholder="12"
+      readonly
+    />
+  </div>  
+  {{# if drModifiers}}
+  <div class="dr-modifier">
+    ( {{#each drModifiers}} {{this}} {{#unless @last}},{{/unless}} {{/each}} )
+  </div>
+  {{/if}}  
   <div class="form-group">
     <label>{{localize 'MB.TargetArmor'}}:</label>
     <input

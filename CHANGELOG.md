@@ -1,3 +1,8 @@
+# 5.1.0
+
+- Add encumbrance-modified DR to attack dialog.
+- Adjust css for roll card item img to display inline.
+
 # 5.0.1
 
 - Fix Add Scum button getting added multiple times.

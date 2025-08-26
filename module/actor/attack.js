@@ -19,12 +19,23 @@ async function automatedAttack(actor, itemId) {
   if (!attackDR) {
     attackDR = 12; // default
   }
+  const drModifiers = [];
+  const item = actor.items.get(itemId);
+  if (item.system.weaponType === "melee" && actor.isEncumbered()) {
+    // encumbrance affects strength tests, and thus melee but not ranged attacks
+    drModifiers.push(
+      `${game.i18n.localize("MB.Encumbered")}: ${game.i18n.localize(
+        "MB.DR"
+      )} +2`
+    );
+  }
   const targetArmor = await actor.getFlag(
     CONFIG.MB.systemName,
     CONFIG.MB.flags.TARGET_ARMOR
   );
   const dialogData = {
     attackDR,
+    drModifiers,
     config: CONFIG.MorkBorg,
     itemId,
     targetArmor,
@@ -44,6 +55,12 @@ async function automatedAttack(actor, itemId) {
           // callback: html => resolve(_createItem(actor.actor, html[0].querySelector("form")))
           callback: (html) => attackDialogCallback(actor, html),
         },
+      },
+      render: (html) => {
+        html
+          .find("input[name='attackbasedr']")
+          .on("change", onAttackBaseDRChange.bind(actor));
+        html.find("input[name='attackbasedr']").trigger("change");
       },
       default: "roll",
       close: () => resolve(null),
@@ -89,15 +106,35 @@ async function unautomatedAttack(actor, itemId) {
   });
 }
 
+// use a regular function, since we're binding the actor to this
+function onAttackBaseDRChange(event) {
+  event.preventDefault();
+  const actor = this; // function was bound to the actor
+  const baseInput = $(event.currentTarget);
+  const form = $(event.currentTarget.form);
+
+  let drModifier = 0;
+  const itemId = form.find("input[name='itemid']")[0].value;
+  const item = actor.items.get(itemId);
+  if (item.system.weaponType === "melee" && actor.isEncumbered()) {
+    drModifier += 2;
+  }
+  const modifiedDr = parseInt(baseInput[0].value) + drModifier;
+
+  const modifiedInput = form.find("input[name='attackmodifieddr']");
+  modifiedInput.val(modifiedDr.toString());
+}
+
 /**
  * Callback from attack dialog.
  */
 async function attackDialogCallback(actor, html) {
   const form = html[0].querySelector("form");
   const itemId = form.itemid.value;
-  const attackDR = parseInt(form.attackdr.value);
+  const attackDR = parseInt(form.attackbasedr.value);
+  const attackModifiedDR = parseInt(form.attackmodifieddr.value);
   const targetArmor = form.targetarmor.value;
-  if (!itemId || !attackDR) {
+  if (!itemId || !attackDR || !attackModifiedDR) {
     // TODO: prevent form submit via required fields
     return;
   }
@@ -111,7 +148,7 @@ async function attackDialogCallback(actor, html) {
     CONFIG.MB.flags.TARGET_ARMOR,
     targetArmor
   );
-  await rollAttack(actor, itemId, attackDR, targetArmor);
+  await rollAttack(actor, itemId, attackModifiedDR, targetArmor);
 }
 
 /**
