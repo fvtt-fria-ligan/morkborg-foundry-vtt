@@ -81,7 +81,7 @@ export async function drawDocumentsFromTableUuid(uuid) {
 
 export async function documentsFromDraw(draw) {
   const docResults = draw.results.filter(
-    (r) => r.type === CONST.TABLE_RESULT_TYPES.COMPENDIUM
+    (r) => r.type === CONST.TABLE_RESULT_TYPES.DOCUMENT
   );
   return Promise.all(docResults.map((r) => documentFromResult(r)));
 }
@@ -93,7 +93,7 @@ export async function documentFromDraw(draw) {
 
 export async function documentFromResult(result) {
   if (!result.documentCollection) {
-    console.log("No documentCollection for result; skipping");
+    console.log("No documentCollection for result; skipping", result);
     return;
   }
   const collectionName =

@@ -1,3 +1,9 @@
+# 5.1.1
+
+- Fix v13 breakage in character generator that caused rolled class items to not be created.
+- Fix bug in Starting Equipment (1) table entries that caused wagon and donkey to not be created.
+- Fix v13 breakage in actor drag-drop for deletion of original item.
+
 # 5.1.0
 
 - Add encumbrance-modified DR to attack dialog.
