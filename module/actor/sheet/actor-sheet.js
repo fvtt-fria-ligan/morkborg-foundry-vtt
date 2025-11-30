@@ -285,10 +285,7 @@ export default class MBActorSheet extends foundry.appv1.sheets.ActorSheet {
     if (!item) return;
 
     const target = this._findDropTargetItem(event);
-    const originalActor = game.actors.get(itemData.actorId);
-    const originalItem = originalActor
-      ? originalActor.items.get(itemData.data._id)
-      : null;
+    const originalItem = await fromUuid(itemData.uuid);
     const isContainer = originalItem && originalItem.isContainer;
 
     await this._cleanDroppedItem(item);
@@ -302,8 +299,10 @@ export default class MBActorSheet extends foundry.appv1.sheets.ActorSheet {
       await this._addItemsToItemContainer(newItems, item);
     }
 
-    if (originalItem) {
-      await originalActor.deleteEmbeddedDocuments("Item", [originalItem.id]);
+    if (originalItem && originalItem.parent) {
+      await originalItem.parent.deleteEmbeddedDocuments("Item", [
+        originalItem.id,
+      ]);
     }
 
     if (target) {
