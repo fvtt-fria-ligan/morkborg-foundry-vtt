@@ -106,11 +106,12 @@ export async function documentFromResult(result) {
   return doc;
 }
 
-export function dupeData(doc) {
+export function simpleData(doc) {
   return {
-    system: doc.system,
     img: doc.img,
+    // items: e.items?.map(i => simpleData(i)),
     name: doc.name,
+    system: doc.system,
     type: doc.type,
   };
 }
