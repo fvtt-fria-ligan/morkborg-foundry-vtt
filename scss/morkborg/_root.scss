@@ -4,7 +4,7 @@
   --foreground-alt-color: #ffe900;
   --highlight-background-color: #ffe900;
   --highlight-foreground-color: #000000;
-  --sidebar-background-color: #000000;
+  --sidebar-background: #000000;
   --sidebar-foreground-color: #ffffff;
   --sidebar-button-background-color: #000000;
   --sidebar-button-foreground-color: #ffffff;
@@ -19,4 +19,16 @@
   --journal-font: "Alegreya";
   --journal-font-size: 18px;
   --window-border-color: #222222;
+}
+
+/* 
+  TODO: better deal with Foundry themes overriding our root vars.
+*/
+
+.themed.theme-light {
+  --sidebar-background: unset;
+}
+
+.themed.theme-dark {
+  --sidebar-background: unset;
 }
