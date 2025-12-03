@@ -10,26 +10,18 @@ export function registerHooks() {
   Hooks.on("renderActorDirectory", addCreateScvmButton);
   Hooks.on("renderChatMessageHTML", handleRollCardButton);
 
-  Hooks.on("renderJournalTextPageSheet", (_, html) => {
+  Hooks.on("renderJournalEntryPageTextSheet", async (_, html) => {
     html
-      .querySelector(".draw-from-table")
-      .addEventListener("click", drawFromRollableTable.bind(this));
-    html.querySelector(".rollable").addEventListener("click", roll.bind(this));
+      .querySelectorAll(".draw-from-table")
+      .forEach((x) =>
+        x.addEventListener("click", drawFromRollableTable.bind(this))
+      );
     html
-      .querySelector(".create-scvm")
-      .addEventListener("click", createScvm.bind(this));
-  });
-
-  Hooks.on("closeJournalTextPageSheet", (_, html) => {
+      .querySelectorAll(".rollable")
+      .forEach((x) => x.addEventListener("click", roll.bind(this)));
     html
-      .querySelector(".draw-from-table")
-      .removeEventListener("click", drawFromRollableTable.bind(this));
-    html
-      .querySelector(".rollable")
-      .removeEventListener("click", roll.bind(this));
-    html
-      .querySelector(".create-scvm")
-      .removeEventListener("click", createScvm.bind(this));
+      .querySelectorAll(".create-scvm")
+      .forEach((x) => x.addEventListener("click", createScvm.bind(this)));
   });
 }
 

@@ -1,3 +1,9 @@
+# 5.1.2
+
+- Fix hook for journal page rendering, so DRAW tags are again rollable.
+- Fix light/dark theme sidebar background style.
+- Add parchment and denim at Foundry-expected path so we can better detect css mistakes.
+
 # 5.1.1
 
 - Fix v13 breakage in character generator that caused rolled class items to not be created.
