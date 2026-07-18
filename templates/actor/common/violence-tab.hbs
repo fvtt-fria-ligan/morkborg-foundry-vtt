@@ -42,7 +42,7 @@
                     <option value="">{{localize 'MB.ItemTypeAmmo'}}</option>
                     {{log "data" ../data.system.ammo "selected" item.system.ammoId}}
                     {{!-- TODO: display ammo quantity again --}}
-                    {{selectOptions ../data.system.ammo selected=item.system.ammoId nameAttr="_id" labelAttr="name"}}
+                    {{selectOptions ../data.system.ammo selected=item.system.ammoId valueAttr="_id" labelAttr="name"}}
                   </select>
                 </div>
               {{/if}} 
