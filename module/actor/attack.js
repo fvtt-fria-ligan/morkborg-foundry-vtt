@@ -238,7 +238,7 @@ async function decrementWeaponAmmo(actor, weapon) {
     const ammo = actor.items.get(weapon.system.ammoId);
     if (ammo) {
       const attr = "system.quantity";
-      const currQuantity = getProperty(ammo, attr);
+      const currQuantity = ammo.system.quantity;
       if (currQuantity > 1) {
         // decrement quantity by 1
         await ammo.update({ [attr]: currQuantity - 1 });
