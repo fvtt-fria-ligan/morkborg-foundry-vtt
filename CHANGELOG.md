@@ -1,3 +1,8 @@
+# 6.0.1
+
+- Align Polish translation with the official rulebook by @rklos.
+- Fix ammo display and tracking by @HectorCastelli.
+
 # 6.0.0
 
 - v14 compatibility by @HectorCastelli.
